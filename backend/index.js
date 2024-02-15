@@ -2,7 +2,7 @@ const connectToMongo = require('./db')
 const express = require('express')
 connectToMongo();
 const app = express();
-const port = 3000;
+const port = 5000;
 // Use the middleware to not show undefined in console and send the request in thunderclient
 app.use(express.json())
 
