@@ -3,13 +3,13 @@ var jwt = require('jsonwebtoken');
 const User = require('../Models/User')
 const bcrypt = require('bcrypt');
 const router = express.Router();
-
+const fetchuser = require('../middleware/fetchuser')
 require('dotenv').config()
 const { body, validationResult } = require('express-validator')
 
 const JWT_SECRET = "mern$Open$SourceProject";
 
-// Create a User using : POST: "/api/auth/createuser". Does'nt require Auth
+// ROUTE 1 : Create a User using : POST: "/api/auth/createuser". No login required
 router.post('/createuser', [
     // creating check vadilation for user credentials like name, email and password  
 
@@ -78,7 +78,7 @@ router.post('/createuser', [
     // })
 })
 
-// Create a User using : POST: "/api/auth/login". Does'nt require Auth
+// ROUTE 2 : Create a User using : POST: "/api/auth/login". No login required
 router.post('/login', [
     // creating check vadilation for user credentials like name, email and password  
 
@@ -128,5 +128,20 @@ router.post('/login', [
         res.status(500).send("Internal Server Error")
     }
 })
+
+// ROUTE 3 : Get Loggedin User Details : GET: "/api/auth/getuser". Login required
+router.get('/getuser', fetchuser, async (req, res) => {
+    try {
+        let userId = req.user.id
+        // Below line is promise so await it. Find the user from id and select from the password
+        const user = await User.findById(userId).select("-password")
+        res.send(user)
+    } catch (error) {
+        console.error(error.message)
+        res.status(500).send("Internal Server Error")
+    }
+})
+
+
 
 module.exports = router 
