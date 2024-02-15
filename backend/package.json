@@ -1,0 +1,22 @@
+{
+  "name": "opensource-backend",
+  "version": "1.0.0",
+  "description": "Opensource - Project help from the experts",
+  "main": ".index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Anuj",
+    "Verma"
+  ],
+  "author": "Anuj",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}

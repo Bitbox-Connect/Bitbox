@@ -1,0 +1,9 @@
+.uploadPro{
+    border: 1px solid black;
+    color: white;
+    border-radius: 5px;
+}
+
+.uploadPro:hover{
+    color: black;
+}
