@@ -97,7 +97,7 @@ router.put('/updateproject/:id', fetchuser, [
         // If project not found then send the 404 status
         if (!project) { return res.status(404).send("Not Found") }
 
-        // Other user wants to edit the other project information then send the 401 status
+        // Allow deletion only if user owns this project
         if (project.user.toString() !== req.user.id) {
             return res.status(401).send("Not Allowed")
         }
@@ -113,5 +113,31 @@ router.put('/updateproject/:id', fetchuser, [
     }
 })
 
+// ROUTE 5 : Delete Project : DELETE: "/api/projects/deleteproject". Login required
+router.delete('/deleteproject/:id', fetchuser, async (req, res) => {
+    try {
+        // Destructring the title, description, link from Database body
+        const { title, description, link } = req.body;
+
+        // Find the project to be deleted and delete it --> return the promise 
+        let project = await Project.findById(req.params.id)
+        // If project not found then send the 404 status
+        if (!project) { return res.status(404).send("Not Found") }
+
+        // Allow deletion only if user owns this project
+        if (project.user.toString() !== req.user.id) {
+            return res.status(401).send("Not Allowed")
+        }
+
+        // Find by id and update the project from the existing project and set to the newProject object, the updated new information 
+        project = await Project.findByIdAndDelete(req.params.id);
+        res.json({ "Success": "Project has been deleted", project: project });
+    }
+    catch (error) {
+        // Give internal server error (500)
+        console.log(error.message)
+        res.status(500).send("Internal Server Error")
+    }
+})
 
 module.exports = router
