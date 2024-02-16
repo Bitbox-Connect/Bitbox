@@ -11,7 +11,7 @@ const JWT_SECRET = "mern$Open$SourceProject";
 
 // ROUTE 1 : Create a User using : POST: "/api/auth/createuser". No login required
 router.post('/createuser', [
-    // creating check vadilation for user credentials like name, email and password  
+    // Creating check vadilation for user credentials like name, email and password  
 
     // Name must be at least 3 chars long
     body('name', 'Enter a valid name').isLength({ min: 3 }),
@@ -28,8 +28,9 @@ router.post('/createuser', [
     // user.save()
 
     try {
-        // If there are errors, return Bad request and the erors
+        // If there are errors, return Bad request and the errors
         const errors = validationResult(req);
+        // If data is empty or not filled
         if (!errors.isEmpty()) {
             // Return a status 400 and return json of error in the array form
             return res.status(400).json({ errors: errors.array() });
@@ -37,6 +38,7 @@ router.post('/createuser', [
 
         // Below line is promise so await it
         let user = await User.findOne({ email: req.body.email });
+        // If there is user with same credentials
         if (user) {
             return res.status(400).json({ error: "Sorry a user with this email already exists" })
         }
@@ -64,6 +66,7 @@ router.post('/createuser', [
         res.json({ authtoken })
     }
     catch (error) {
+        // Give internal server error (500)
         console.log(error.message)
         res.status(500).send("Internal Server Error")
     }
@@ -80,7 +83,7 @@ router.post('/createuser', [
 
 // ROUTE 2 : Create a User using : POST: "/api/auth/login". No login required
 router.post('/login', [
-    // creating check vadilation for user credentials like name, email and password  
+    // Creating check vadilation for user credentials like name, email and password  
 
     // Email must be an email
     body('email', 'Enter a valid email').isEmail(),
@@ -89,7 +92,7 @@ router.post('/login', [
 
 ], async (req, res) => {
 
-    // If there are errors, return Bad request and the erors
+    // If there are errors, return Bad request and the errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         // Return a status 400 and return json of error in the array form
@@ -101,12 +104,14 @@ router.post('/login', [
     try {
         // Below line is promise so await it
         let user = await User.findOne({ email });
+        // If user is not available in database
         if (!user) {
             return res.status(400).json({ error: "Please try to login with correct credentials" })
         }
 
         // Below line is promise so await it
         const passwordCompare = await bcrypt.compare(password, user.password);
+        // If password does'nt matches with original password
         if (!passwordCompare) {
             return res.status(400).json({ error: "Please try to login with correct credentials" })
         }
@@ -124,6 +129,7 @@ router.post('/login', [
 
     }
     catch (error) {
+        // Give internal server error (500)
         console.log(error.message)
         res.status(500).send("Internal Server Error")
     }
@@ -137,11 +143,10 @@ router.get('/getuser', fetchuser, async (req, res) => {
         const user = await User.findById(userId).select("-password")
         res.send(user)
     } catch (error) {
+        // Give internal server error (500)
         console.error(error.message)
         res.status(500).send("Internal Server Error")
     }
 })
-
-
 
 module.exports = router 
