@@ -19,7 +19,7 @@ router.get('/fetchallglobalprojects', async (req, res) => {
     }
 })
 
-// ROUTE 2 : Get All User Projects : GET: "/api/projects/fetchalluserprojects". Login required
+// ROUTE 2 : Get All User Project : GET: "/api/projects/fetchalluserprojects". Login required
 router.get('/fetchalluserprojects', fetchuser, async (req, res) => {
     try {
         // Find projects associated only with the current user's public ID.
@@ -33,16 +33,17 @@ router.get('/fetchalluserprojects', fetchuser, async (req, res) => {
     }
 })
 
-// ROUTE 3 : Add a new Projects : POST: "/api/projects/addproject". Login required
+// ROUTE 3 : Add a New Project : POST: "/api/projects/addproject". Login required
 router.post('/addproject', fetchuser, [
-    // Creating check vadilation for user credentials like title, description  
+    // Creating check vadilation for project information like title, description  
 
-    // Name must be at least 3 chars long
-    body('title', 'Enter a valid title').isLength({ min: 3 }),
-    // Password must be at least 5 chars long
-    body('description', 'Description must be at least 5 characters').isLength({ min: 5 })
+    // Title must be at least 1 chars long
+    body('title', 'Enter a valid title').isLength({ min: 1 }),
+    // Description must be at least 1 chars long
+    body('description', 'Description must be at least 2 characters').isLength({ min: 2 })
 ], async (req, res) => {
     try {
+        // Destructring the title, description, link from Database body
         const { title, description, link } = req.body;
 
         // If there are errors, return Bad request and the errors
@@ -67,5 +68,50 @@ router.post('/addproject', fetchuser, [
         res.status(500).send("Internal Server Error")
     }
 })
+
+// ROUTE 4 : Update an Existing Project : PUT: "/api/projects/updateproject". Login required
+router.put('/updateproject/:id', fetchuser, [
+    // Creating check vadilation for project information like title, description  
+
+    // Title must be at least 1 chars long
+    body('title', 'Enter a valid title').isLength({ min: 1 }),
+    // Description must be at least 1 chars long
+    body('description', 'Description must be at least 2 characters').isLength({ min: 2 })
+], async (req, res) => {
+    try {
+        // Destructring the title, description, link from Database body
+        const { title, description, link } = req.body;
+
+        // Create a newNote object
+        const newProject = {};
+
+        // If there is title then update it.
+        if (title) { newProject.title = title };
+        // If there is description then update it.
+        if (description) { newProject.description = description };
+        // If there is link then update it.
+        if (link) { newProject.link = link };
+
+        // Find the project to be updated and update it --> return the promise 
+        let project = await Project.findById(req.params.id)
+        // If project not found then send the 404 status
+        if (!project) { return res.status(404).send("Not Found") }
+
+        // Other user wants to edit the other project information then send the 401 status
+        if (project.user.toString() !== req.user.id) {
+            return res.status(401).send("Not Allowed")
+        }
+
+        // Find by id and update the project from the existing project and set to the newProject object, the updated new information 
+        project = await Project.findByIdAndUpdate(req.params.id, { $set: newProject }, { new: true });
+        res.json(project);
+    }
+    catch (error) {
+        // Give internal server error (500)
+        console.log(error.message)
+        res.status(500).send("Internal Server Error")
+    }
+})
+
 
 module.exports = router

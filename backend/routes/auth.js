@@ -142,7 +142,8 @@ router.get('/getuser', fetchuser, async (req, res) => {
         // Below line is promise so await it. Find the user from id and select from the password
         const user = await User.findById(userId).select("-password")
         res.send(user)
-    } catch (error) {
+    }
+    catch (error) {
         // Give internal server error (500)
         console.error(error.message)
         res.status(500).send("Internal Server Error")
