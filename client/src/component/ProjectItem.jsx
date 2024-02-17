@@ -23,7 +23,7 @@ const ProjectItem = (props) => {
 }
 
 ProjectItem.propTypes = {
-    project: PropTypes.string
+    project: PropTypes.object
 };
 
 export default ProjectItem

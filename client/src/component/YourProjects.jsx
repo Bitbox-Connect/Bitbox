@@ -4,7 +4,7 @@ import ProjectItem from './ProjectItem';
 
 const YourProjects = () => {
     const context = useContext(projectContext)
-    const { projects, setprojects } = context;
+    const { projects, addProject } = context;
     return (
         <div className='container'>
             <h2 className='text-center mb-4 mt-2'>Your Projects</h2>

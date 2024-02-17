@@ -1,6 +1,23 @@
-import project from '../assets/images/projects.png'
+import { useContext, useState } from 'react'
+import ProjectImg from '../assets/images/projects.png'
+import projectContext from '../context/projectContext'
 
 function AddProject() {
+    // Store the context value the useContext call of projectContext
+    const context = useContext(projectContext);
+    // Destructure the addProject from context
+    const { addProject } = context;
+
+    const [project, setproject] = useState({ title: "Project", description: "", link: "" });
+
+    const handleClick = () => {
+        addProject(project.title, project.description, project.link);
+    }
+
+    const onChange = (e) => {
+        setproject({ ...project, [e.target.name]: e.target.value });
+    }
+
     return (
         <div>
             {/* Button trigger modal */}
@@ -18,30 +35,30 @@ function AddProject() {
                         </div>
                         <div className="modal-body">
                             <div className="card">
-                                <img src={project} className="card-img-top" alt={"project"} />
+                                <img src={ProjectImg} className="card-img-top" alt={"project"} />
                                 <div className="card-body">
                                     <div className="mb-3">
                                         <label htmlFor="formFile" className="form-label">Select Image to Upload</label>
                                         <input className="form-control" type="file" id="formFile" />
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="formGroupExampleInput" className="form-label">Project Title</label>
-                                        <input type="text" className="form-control" id="formGroupExampleInput" placeholder="Enter Project Title Here" required />
+                                        <label htmlFor="title" className="form-label">Project Title</label>
+                                        <input type="text" className="form-control" id="title" name='title' onChange={onChange} placeholder="Enter Project Title Here" required />
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="formGroupExampleInput" className="form-label">Project Description</label>
-                                        <textarea className="form-control" id="exampleFormControlTextarea1" placeholder="Enter Project Description Here" rows="3"></textarea>
+                                        <label htmlFor="description" className="form-label">Project Description</label>
+                                        <textarea type="text" className="form-control" id="description" name='description' onChange={onChange} placeholder="Enter Project Description Here" rows="3"></textarea>
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="formGroupExampleInput" className="form-label">Gihub Link</label>
-                                        <input type="text" className="form-control" id="formGroupExampleInput" placeholder="Enter Github Link Here" />
+                                        <label htmlFor="link" className="form-label">Gihub Link</label>
+                                        <input type="text" className="form-control" id="link" name='link' onChange={onChange} placeholder="Enter Github Link Here" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary">Upload</button>
+                            <button type="button" className="btn btn-primary" onClick={handleClick}>Upload</button>
                         </div>
                     </div>
                 </div>
