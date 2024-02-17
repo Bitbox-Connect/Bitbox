@@ -1,8 +1,16 @@
 import PropTypes from 'prop-types';
+import projectContext from '../context/projectContext';
 import projectImg from '../assets/images/project.png'
 import './ProjectItem.css'
+import { useContext } from 'react';
 const ProjectItem = (props) => {
+    // Destructure the project from props --> project come from the ProjectState
     const { project } = props;
+    // Store the context value the useContext call of projectContext
+    const context = useContext(projectContext);
+    // Destructure the addProject from context
+    const { deleteProject } = context;
+
     return (
         <div className='col-md-4'>
             <div className="card my-3">
@@ -13,7 +21,7 @@ const ProjectItem = (props) => {
                     <p className="card-text mg">Project Link : {project.link}</p>
                     <a href={project.link} target="_blank" className="card-link">Github Link</a>
                     <div>
-                        <i className="fa-solid fa-trash mx-1 mt-3"></i>
+                        <i className="fa-solid fa-trash mx-1 mt-3" onClick={() => { deleteProject(project._id) }}></i>
                         <i className="fa-solid fa-pen-to-square mx-4 mt-2"></i>
                     </div>
                 </div>

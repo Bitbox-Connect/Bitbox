@@ -84,12 +84,17 @@ const ProjectStates = (props) => {
   }
 
   // Delete a Note
-  const deleteProject = () => {
-
+  const deleteProject = (id) => {
+    // TODO : API CALL
+    console.log("Deleting the project with " + id);
+    // If id equals to not equal to id store the value to newProjects
+    const newProjects = projects.filter((project) => { return project._id !== id });
+    setprojects(newProjects);
   }
 
   // Edit a Note
-  const editProject = () => {
+  const editProject = (id, title, description, tag) => {
+    // TODO : API CALL
 
   }
 
