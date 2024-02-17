@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import AddProject from './AddProject';
-import { useEffect, useRef } from 'react';
+// import { useEffect, useRef } from 'react';
 import './Navbar.css'
 function Navbar(props) {
-    const ref = useRef(null)
-    useEffect(()=>{
-        ref.current.style.backgroundColor = "lightgray"
-    })
+    // const ref = useRef(null)
+    // useEffect(() => {
+    //     ref.current.style.backgroundColor = "lightgray"
+    // })
     let location = useLocation();
     return (
         <div>
@@ -24,15 +24,18 @@ function Navbar(props) {
                                 <Link className={`nav-link ${location.pathname === '/' ? 'active' : ""}`} aria-current="page" to="/">{props.home}</Link>
                             </li>
                             <li className="nav-item">
+                                <Link className={`nav-link ${location.pathname === '/yourProjects' ? 'active' : ""}`} aria-current="page" to="/yourProjects">{props.yourProjects}</Link>
+                            </li>
+                            <li className="nav-item">
                                 <Link className={`nav-link ${location.pathname === '/about' ? 'active' : ""}`} aria-current="page" to="/about">{props.about}</Link>
                             </li>
                         </ul>
                         {/* <button type="button" className="btn btn-secondary mx-2">Upload</button> */}
-                        <div className='uploadPro' ref={ref}>
-                            <AddProject/>
-                        </div>
-                        <button type="button" className="btn btn-primary mx-2">Login</button>
-                        <button type="button" className="btn btn-primary mx-2">Signup</button>
+                        {/* <div className='uploadPro' ref={ref}>
+                            <AddProject />
+                        </div> */}
+                        <AddProject />
+                        <button type="button" className="btn btn-primary mx-2">Logout</button>
                     </div>
                 </div>
             </nav>
@@ -42,8 +45,9 @@ function Navbar(props) {
 
 Navbar.propTypes = {
     title: PropTypes.string,
-    about: PropTypes.string,
     home: PropTypes.string,
+    yourProjects: PropTypes.string,
+    about: PropTypes.string,
 };
 
 export default Navbar;

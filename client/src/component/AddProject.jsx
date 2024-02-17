@@ -3,12 +3,12 @@ import project from '../assets/images/projects.png'
 function AddProject() {
     return (
         <div>
-            {/* <!-- Button trigger modal --> */}
-            <button type="button" className="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            {/* Button trigger modal */}
+            <button type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Upload
             </button>
 
-            {/* <!-- Modal --> */}
+            {/* Modal */}
             <div className="modal fade text-start" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
@@ -22,19 +22,19 @@ function AddProject() {
                                 <div className="card-body">
                                     <div className="mb-3">
                                         <label htmlFor="formFile" className="form-label">Select Image to Upload</label>
-                                        <input className="form-control" type="file" id="formFile"/>
+                                        <input className="form-control" type="file" id="formFile" />
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="formGroupExampleInput" className="form-label">Project Title</label>
-                                        <input type="text" className="form-control" id="formGroupExampleInput" placeholder="Enter Project Title Here" required/>
+                                        <input type="text" className="form-control" id="formGroupExampleInput" placeholder="Enter Project Title Here" required />
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="formGroupExampleInput" className="form-label">Project Description</label>
-                                        <input type="text" className="form-control" id="formGroupExampleInput" placeholder="Enter Project Description Here" required/>
+                                        <input type="text" className="form-control" id="formGroupExampleInput" placeholder="Enter Project Description Here" required />
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="formGroupExampleInput" className="form-label">Gihub Link</label>
-                                        <input type="text" className="form-control" id="formGroupExampleInput" placeholder="Enter Github Link Here"/>
+                                        <input type="text" className="form-control" id="formGroupExampleInput" placeholder="Enter Github Link Here" />
                                     </div>
                                 </div>
                             </div>
