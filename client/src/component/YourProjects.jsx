@@ -10,7 +10,7 @@ const YourProjects = () => {
             <h2 className='text-center mb-4 mt-2'>Your Projects</h2>
             <div className='row my-3'>
                 {projects.map((project) => {
-                    return <ProjectItem project={project} />;
+                    return <ProjectItem key={project._id} project={project} />;
                 })}
             </div>
         </div>

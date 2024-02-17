@@ -30,7 +30,7 @@ function AddProject() {
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="formGroupExampleInput" className="form-label">Project Description</label>
-                                        <input type="text" className="form-control" id="formGroupExampleInput" placeholder="Enter Project Description Here" required />
+                                        <textarea className="form-control" id="exampleFormControlTextarea1" placeholder="Enter Project Description Here" rows="3"></textarea>
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="formGroupExampleInput" className="form-label">Gihub Link</label>
@@ -41,7 +41,7 @@ function AddProject() {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary">Save changes</button>
+                            <button type="button" className="btn btn-primary">Upload</button>
                         </div>
                     </div>
                 </div>

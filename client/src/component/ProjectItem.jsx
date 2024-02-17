@@ -12,6 +12,10 @@ const ProjectItem = (props) => {
                     <p className="card-text mg">Project Description : {project.description}</p>
                     <p className="card-text mg">Project Link : {project.link}</p>
                     <a href={project.link} target="_blank" className="card-link">Github Link</a>
+                    <div>
+                        <i className="fa-solid fa-trash mx-1 mt-3"></i>
+                        <i className="fa-solid fa-pen-to-square mx-4 mt-2"></i>
+                    </div>
                 </div>
             </div>
         </div>
