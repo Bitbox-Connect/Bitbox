@@ -46,19 +46,7 @@ const ProjectStates = (props) => {
       },
       body: JSON.stringify({ title, description, link }),
     });
-    const json = await response.json();
-    console.log(json);
-
-    console.log("Adding a new project")
-    const project = {
-      "_id": "65cf7b6d05eab042ff65d0b4",
-      "user": "65cf7b2305eab042ff65d0b0",
-      "title": title,
-      "description": description,
-      "link": link,
-      "__v": 0,
-      "date": "2024-02-16T17:02:49.635Z"
-    };
+    const project = await response.json();
     setprojects(projects.concat(project))
   }
 
@@ -74,9 +62,6 @@ const ProjectStates = (props) => {
       body: JSON.stringify(),
     });
     const json = await response.json();
-    console.log(json);
-
-    console.log("Deleting the project with " + id);
     // If id equals to not equal to id store the value to newProjects
     const newProjects = projects.filter((project) => { return project._id !== id });
     setprojects(newProjects);
@@ -94,7 +79,6 @@ const ProjectStates = (props) => {
       body: JSON.stringify({ title, description, link }),
     });
     const json = await response.json();
-    console.log(json);
 
     // important * -->We want to have a copy of projects to newProjects for that we can just write let newProjects=projects, but what happens is we want page to render after updating the values, so that we can see the change in UI . But if we just use newProjects = projects react cant identify that there is some change happening so it will not render the page so, if we write JSON.parse(JSON.stringify(projects)) react can observe the change
     let newProjects = JSON.parse(JSON.stringify(projects));

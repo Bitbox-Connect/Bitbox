@@ -25,7 +25,6 @@ const UserProjects = () => {
     }
 
     const handleClick = () => {
-        console.log("Updating the project...", project)
         editProject(project.id, project.etitle, project.edescription, project.elink)
         refClose.current.click();
     }
@@ -60,7 +59,7 @@ const UserProjects = () => {
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="etitle" className="form-label">Project Title</label>
-                                        <input type="text" className="form-control" id="etitle" name='etitle' value={project.etitle} onChange={onChange} placeholder="Enter Project Title Here" required />
+                                        <input type="text" className="form-control" id="etitle" name='etitle' value={project.etitle} onChange={onChange} placeholder="Enter Project Title Here" />
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="edescription" className="form-label">Project Description</label>

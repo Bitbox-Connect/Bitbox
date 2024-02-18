@@ -34,14 +34,7 @@ router.get('/fetchalluserprojects', fetchuser, async (req, res) => {
 })
 
 // ROUTE 3 : Add a New Project : POST: "/api/projects/addproject". Login required
-router.post('/addproject', fetchuser, [
-    // Creating check vadilation for project information like title, description  
-
-    // Title must be at least 1 chars long
-    body('title', 'Enter a valid title').isLength({ min: 1 }),
-    // Description must be at least 1 chars long
-    body('description', 'Description must be at least 2 characters').isLength({ min: 2 })
-], async (req, res) => {
+router.post('/addproject', fetchuser, async (req, res) => {
     try {
         // Destructring the title, description, link from Database body
         const { title, description, link } = req.body;
@@ -70,14 +63,7 @@ router.post('/addproject', fetchuser, [
 })
 
 // ROUTE 4 : Update an Existing Project : PUT: "/api/projects/updateproject". Login required
-router.put('/updateproject/:id', fetchuser, [
-    // Creating check vadilation for project information like title, description  
-
-    // Title must be at least 1 chars long
-    body('title', 'Enter a valid title').isLength({ min: 1 }),
-    // Description must be at least 1 chars long
-    body('description', 'Description must be at least 2 characters').isLength({ min: 2 })
-], async (req, res) => {
+router.put('/updateproject/:id', fetchuser, async (req, res) => {
     try {
         // Destructring the title, description, link from Database body
         const { title, description, link } = req.body;

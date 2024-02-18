@@ -91,7 +91,7 @@ router.post('/login', [
     body('password', 'Password cannot be blank').exists(),
 
 ], async (req, res) => {
-
+    let success = false;
     // If there are errors, return Bad request and the errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -106,14 +106,16 @@ router.post('/login', [
         let user = await User.findOne({ email });
         // If user is not available in database
         if (!user) {
-            return res.status(400).json({ error: "Please try to login with correct credentials" })
+            success = false;
+            return res.status(400).json({ success, error: "Please try to login with correct credentials" })
         }
 
         // Below line is promise so await it
         const passwordCompare = await bcrypt.compare(password, user.password);
         // If password does'nt matches with original password
         if (!passwordCompare) {
-            return res.status(400).json({ error: "Please try to login with correct credentials" })
+            success = false;
+            return res.status(400).json({ success, error: "Please try to login with correct credentials" })
         }
 
         // Define the data to sign the data with JWT_SECRET
@@ -125,7 +127,8 @@ router.post('/login', [
 
         // Sign the data and give the authtoken to the user
         const authtoken = jwt.sign(data, JWT_SECRET);
-        res.json({ authtoken })
+        success = true;
+        res.json({ success, authtoken })
 
     }
     catch (error) {

@@ -8,7 +8,7 @@ function AddProject() {
     // Destructure the addProject from context
     const { addProject } = context;
 
-    const [project, setproject] = useState({ title: "Project", description: "", link: "" });
+    const [project, setproject] = useState({ title: "", description: "", link: "" });
 
     const refClose = useRef(null)
 
@@ -16,6 +16,7 @@ function AddProject() {
         // Add project API call
         addProject(project.title, project.description, project.link);
         refClose.current.click();
+        setproject({ title: "", description: "", link: "" })
     }
 
     const onChange = (e) => {
@@ -26,7 +27,7 @@ function AddProject() {
     return (
         <div>
             {/* Button trigger modal */}
-            <button type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" className="btn btn-secondary mx-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Upload
             </button>
 
@@ -48,22 +49,22 @@ function AddProject() {
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="title" className="form-label">Project Title</label>
-                                        <input type="text" className="form-control" id="title" name='title' onChange={onChange} placeholder="Enter Project Title Here" required />
+                                        <input type="text" className="form-control" id="title" name='title' value={project.title} onChange={onChange} placeholder="Enter Project Title Here *" />
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="description" className="form-label">Project Description</label>
-                                        <textarea type="text" className="form-control" id="description" name='description' onChange={onChange} placeholder="Enter Project Description Here" rows="3"></textarea>
+                                        <textarea type="text" className="form-control" id="description" name='description' value={project.description} onChange={onChange} placeholder="Enter Project Description Here" rows="3"></textarea>
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="link" className="form-label">Gihub Link</label>
-                                        <input type="text" className="form-control" id="link" name='link' onChange={onChange} placeholder="Enter Github Link Here" />
+                                        <input type="text" className="form-control" id="link" name='link' value={project.link} onChange={onChange} placeholder="Enter Github Link Here" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="modal-footer">
                             <button ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary" onClick={handleClick}>Upload</button>
+                            <button disabled={project.title.length < 1} type="button" className="btn btn-primary" onClick={handleClick}>Upload</button>
                         </div>
                     </div>
                 </div>

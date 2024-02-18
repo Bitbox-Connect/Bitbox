@@ -30,12 +30,11 @@ function Navbar(props) {
                                 <Link className={`nav-link ${location.pathname === '/about' ? 'active' : ""}`} aria-current="page" to="/about">{props.about}</Link>
                             </li>
                         </ul>
-                        {/* <button type="button" className="btn btn-secondary mx-2">Upload</button> */}
-                        {/* <div className='uploadPro' ref={ref}>
+                        <form className='d-flex'>
                             <AddProject />
-                        </div> */}
-                        <AddProject />
-                        <button type="button" className="btn btn-primary mx-2">Logout</button>
+                            <Link role="button" to='/login' className="btn btn-primary mx-1">Login</Link>
+                            <Link role="button" to='/signup' className="btn btn-primary mx-1">Signup</Link>
+                        </form>
                     </div>
                 </div>
             </nav>
