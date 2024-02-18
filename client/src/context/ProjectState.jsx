@@ -96,15 +96,19 @@ const ProjectStates = (props) => {
     const json = await response.json();
     console.log(json);
 
+    // important * -->We want to have a copy of projects to newProjects for that we can just write let newProjects=projects, but what happens is we want page to render after updating the values, so that we can see the change in UI . But if we just use newProjects = projects react cant identify that there is some change happening so it will not render the page so, if we write JSON.parse(JSON.stringify(projects)) react can observe the change
+    let newProjects = JSON.parse(JSON.stringify(projects));
     // Logic to edit in the client
-    for (let index = 0; index < projects.length; index++) {
-      const element = projects[index];
-      if (element._id == id) {
-        element.title = title
-        element.description = description
-        element.link = link
+    for (let index = 0; index < newProjects.length; index++) {
+      const element = newProjects[index];
+      if (element._id === id) {
+        newProjects[index].title = title;
+        newProjects[index].description = description;
+        newProjects[index].link = link;
+        break;
       }
     }
+    setprojects(newProjects)
   }
 
   return (

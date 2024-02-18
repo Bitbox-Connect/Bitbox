@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useState, useRef } from 'react'
 import ProjectImg from '../assets/images/projects.png'
 import projectContext from '../context/projectContext'
 
@@ -10,11 +10,12 @@ function AddProject() {
 
     const [project, setproject] = useState({ title: "Project", description: "", link: "" });
 
-    const handleClick = (e) => {
+    const refClose = useRef(null)
+
+    const handleClick = () => {
         // Add project API call
         addProject(project.title, project.description, project.link);
-        // Click Without loading  
-        e.preventDefault();
+        refClose.current.click();
     }
 
     const onChange = (e) => {
@@ -61,7 +62,7 @@ function AddProject() {
                             </div>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="button" className="btn btn-primary" onClick={handleClick}>Upload</button>
                         </div>
                     </div>

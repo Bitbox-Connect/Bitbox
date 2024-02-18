@@ -5,7 +5,7 @@ import ProjectImg from '../assets/images/projects.png'
 
 const UserProjects = () => {
     const context = useContext(projectContext)
-    const { projects, getUserProjects } = context;
+    const { projects, getUserProjects, editProject } = context;
 
     useEffect(() => {
         getUserProjects();
@@ -13,19 +13,20 @@ const UserProjects = () => {
     }, [])
 
     const ref = useRef(null)
+    const refClose = useRef(null)
 
-    const [project, setproject] = useState({ etitle: "", edescription: "", elink: "" });
+    const [project, setproject] = useState({ id: "", etitle: "", edescription: "", elink: "" });
 
     const updateProject = (currentProject) => {
         ref.current.click();
         // Set the title, description and link to edit modal 
-        setproject({ etitle: currentProject.title, edescription: currentProject.description, elink: currentProject.link })
+        setproject({ id: currentProject._id, etitle: currentProject.title, edescription: currentProject.description, elink: currentProject.link })
     }
 
-    const handleClick = (e) => {
+    const handleClick = () => {
         console.log("Updating the project...", project)
-        // Click Without loading  
-        e.preventDefault();
+        editProject(project.id, project.etitle, project.edescription, project.elink)
+        refClose.current.click();
     }
 
     const onChange = (e) => {
@@ -72,7 +73,7 @@ const UserProjects = () => {
                             </div>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="button" className="btn btn-primary" onClick={handleClick}>Update</button>
                         </div>
                     </div>
