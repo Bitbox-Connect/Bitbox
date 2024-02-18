@@ -21,6 +21,7 @@ router.post('/createuser', [
     body('password', 'Password must be at least 5 characters').isLength({ min: 5 }),
 
 ], async (req, res) => {
+    let success = false;
 
     // For request into the body - Go to thunderclient and select in header the content type and application/json
     // console.log(req.body)    
@@ -33,14 +34,14 @@ router.post('/createuser', [
         // If data is empty or not filled
         if (!errors.isEmpty()) {
             // Return a status 400 and return json of error in the array form
-            return res.status(400).json({ errors: errors.array() });
+            return res.status(400).json({ success, errors: errors.array() });
         }
 
         // Below line is promise so await it
         let user = await User.findOne({ email: req.body.email });
         // If there is user with same credentials
         if (user) {
-            return res.status(400).json({ error: "Sorry a user with this email already exists" })
+            return res.status(400).json({ success, error: "Sorry a user with this email already exists" })
         }
 
         // Below line is promise so await it
@@ -63,7 +64,8 @@ router.post('/createuser', [
 
         // Sign the data and give the authtoken to the user
         const authtoken = jwt.sign(data, JWT_SECRET);
-        res.json({ authtoken })
+        success = true;
+        res.json({ success, authtoken })
     }
     catch (error) {
         // Give internal server error (500)
