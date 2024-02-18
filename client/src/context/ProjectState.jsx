@@ -68,7 +68,8 @@ const ProjectStates = (props) => {
     const response = await fetch(`${host}/api/projects/deleteproject/${id}`, {
       method: "DELETE",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjVjZjdiMjMwNWVhYjA0MmZmNjVkMGIwIn0sImlhdCI6MTcwODA5NjI5MX0.siMXPD_n3l4aVuHWujzFktS348nPReU-XS4ILWnVngo"
       },
       body: JSON.stringify(),
     });

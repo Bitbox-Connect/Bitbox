@@ -9,6 +9,7 @@ const Projects = () => {
 
     useEffect(() => {
         getGlobalProjects();
+        // eslint-disable-next-line
     }, [])
     return (
         <div className='container'>

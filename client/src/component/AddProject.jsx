@@ -10,11 +10,15 @@ function AddProject() {
 
     const [project, setproject] = useState({ title: "Project", description: "", link: "" });
 
-    const handleClick = () => {
+    const handleClick = (e) => {
+        // Add project API call
         addProject(project.title, project.description, project.link);
+        // Click Without loading  
+        e.preventDefault();
     }
 
     const onChange = (e) => {
+        // Able to write in the input field
         setproject({ ...project, [e.target.name]: e.target.value });
     }
 

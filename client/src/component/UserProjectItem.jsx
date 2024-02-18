@@ -4,13 +4,13 @@ import projectImg from '../assets/images/project.png'
 import './ProjectItem.css'
 import { useContext } from 'react';
 const UserProjectItem = (props) => {
-    // Destructure the project from props --> project come from the ProjectState
-    const { project } = props;
+    // Destructure the project and updateProject from props --> project come from the ProjectState
+    const { project, updateProject } = props;
     // Store the context value the useContext call of projectContext
     const context = useContext(projectContext);
     // Destructure the addProject from context
     const { deleteProject } = context;
-
+    
     return (
         <div className='col-md-4'>
             <div className="card my-3">
@@ -22,7 +22,7 @@ const UserProjectItem = (props) => {
                     <a href={project.link} target="_blank" className="card-link">Github Link</a>
                     <div>
                         <i className="fa-solid fa-trash mx-1 mt-3" onClick={() => { deleteProject(project._id) }}></i>
-                        <i className="fa-solid fa-pen-to-square mx-4 mt-2"></i>
+                        <i className="fa-solid fa-pen-to-square mx-4 mt-2" onClick={() => updateProject(project)}></i>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,8 @@ const UserProjectItem = (props) => {
 }
 
 UserProjectItem.propTypes = {
-    project: PropTypes.object
+    project: PropTypes.object,
+    updateProject: PropTypes.func,
 };
 
 export default UserProjectItem
