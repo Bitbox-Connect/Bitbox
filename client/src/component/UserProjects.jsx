@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef, useState } from 'react'
 import projectContext from '../context/projectContext';
 import UserProjectItem from './UserProjectItem';
 import ProjectImg from '../assets/images/projects.png'
+import UploadProject from './UploadProject';
 
 const UserProjects = () => {
     const context = useContext(projectContext)
@@ -82,6 +83,7 @@ const UserProjects = () => {
 
             <div className='container'>
                 <h2 className='text-center mb-4 mt-2'>Your Projects</h2>
+                {projects.length === 0 && <UploadProject title="Click Here To Upload" />}
                 <div className='row my-3'>
                     {projects.map((project) => {
                         return <UserProjectItem key={project._id} updateProject={updateProject} project={project} />;
