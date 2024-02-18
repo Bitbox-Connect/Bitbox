@@ -3,7 +3,7 @@ import projectContext from '../context/projectContext';
 import projectImg from '../assets/images/project.png'
 import './ProjectItem.css'
 import { useContext } from 'react';
-const ProjectItem = (props) => {
+const UserProjectItem = (props) => {
     // Destructure the project from props --> project come from the ProjectState
     const { project } = props;
     // Store the context value the useContext call of projectContext
@@ -30,8 +30,8 @@ const ProjectItem = (props) => {
     )
 }
 
-ProjectItem.propTypes = {
+UserProjectItem.propTypes = {
     project: PropTypes.object
 };
 
-export default ProjectItem
+export default UserProjectItem

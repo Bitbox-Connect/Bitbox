@@ -1,20 +1,24 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import projectContext from '../context/projectContext';
-import ProjectItem from './ProjectItem';
+import UserProjectItem from './UserProjectItem';
 
-const YourProjects = () => {
+const UserProjects = () => {
     const context = useContext(projectContext)
-    const { projects } = context;
+    const { projects, getUserProjects } = context;
+    useEffect(() => {
+        getUserProjects();
+    }, [])
+
     return (
         <div className='container'>
             <h2 className='text-center mb-4 mt-2'>Your Projects</h2>
             <div className='row my-3'>
                 {projects.map((project) => {
-                    return <ProjectItem key={project._id} project={project} />;
+                    return <UserProjectItem key={project._id} project={project} />;
                 })}
             </div>
         </div>
     )
 }
 
-export default YourProjects
+export default UserProjects

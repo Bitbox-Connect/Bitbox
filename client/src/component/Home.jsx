@@ -1,9 +1,9 @@
-import Projects from "./Projects";
+import GlobalProjects from "./GlobalProjects";
 
 function Home() {
   return (
     <div>
-      <Projects />
+      <GlobalProjects />
     </div>
   )
 }

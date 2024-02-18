@@ -1,8 +1,13 @@
-const connectToMongo = require('./db')
 const express = require('express')
+const connectToMongo = require('./db')
+var cors = require('cors')
+// Connect call to Mongo Database
 connectToMongo();
+
 const app = express();
+app.use(cors())
 const port = 5000;
+
 // Use the middleware to not show undefined in console and send the request in thunderclient
 app.use(express.json())
 
