@@ -4,7 +4,7 @@ import projectContext from '../context/projectContext';
 import GlobalProjectItem from './GlobalProjectItem';
 import UploadProject from './UploadProject';
 
-const Projects = () => {
+const Projects = (props) => {
     const context = useContext(projectContext)
     const { projects, getGlobalProjects } = context;
 
@@ -18,15 +18,17 @@ const Projects = () => {
             {projects.length === 0 && <UploadProject title="Click Here To Upload" />}
             <div className='row '>
                 {projects.map((project) => {
-                    return <GlobalProjectItem key={project._id} project={project} />;
+                    return <GlobalProjectItem showAlert={props.showAlert} key={project._id} project={project} />;
                 })}
             </div>
         </div>
     )
 }
 
+// Props Vadilation
 Projects.propTypes = {
-    project: PropTypes.string
+    project: PropTypes.string,
+    showAlert: PropTypes.func,
 };
 
 export default Projects

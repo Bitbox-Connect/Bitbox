@@ -3,8 +3,10 @@ import projectContext from '../context/projectContext';
 import UserProjectItem from './UserProjectItem';
 import ProjectImg from '../assets/images/projects.png'
 import UploadProject from './UploadProject';
+import PropTypes from 'prop-types';
 
-const UserProjects = () => {
+
+const UserProjects = (props) => {
     const context = useContext(projectContext)
     const { projects, getUserProjects, editProject } = context;
 
@@ -27,6 +29,7 @@ const UserProjects = () => {
     const handleClick = () => {
         editProject(project.id, project.etitle, project.edescription, project.elink)
         refClose.current.click();
+        props.showAlert("Project Updated Successfully", "success")
     }
 
     const onChange = (e) => {
@@ -82,15 +85,20 @@ const UserProjects = () => {
 
             <div className='container'>
                 <h2 className='text-center mb-4 mt-2'>Your Projects</h2>
-                {projects.length === 0 && <UploadProject title="Click Here To Upload" />}
+                {projects.length === 0 && <UploadProject showAlert={props.showAlert} title="Click Here To Upload" />}
                 <div className='row my-3'>
                     {projects.map((project) => {
-                        return <UserProjectItem key={project._id} updateProject={updateProject} project={project} />;
+                        return <UserProjectItem key={project._id} updateProject={updateProject} project={project} showAlert={props.showAlert} />;
                     })}
                 </div>
             </div>
         </>
     )
 }
+
+// Props Vadilation
+UserProjects.propTypes = {
+    showAlert: PropTypes.func,
+};
 
 export default UserProjects

@@ -2,14 +2,10 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import AddProject from './AddProject';
-// import { useEffect, useRef } from 'react';
 import './Navbar.css'
 function Navbar(props) {
-    // const ref = useRef(null)
-    // useEffect(() => {
-    //     ref.current.style.backgroundColor = "lightgray"
-    // })
     let location = useLocation();
+    const { showAlert } = props;
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -31,7 +27,7 @@ function Navbar(props) {
                             </li>
                         </ul>
                         <form className='d-flex'>
-                            <AddProject />
+                            <AddProject showAlert={showAlert} />
                             <Link role="button" to='/login' className="btn btn-primary mx-1">Login</Link>
                             <Link role="button" to='/signup' className="btn btn-primary mx-1">Signup</Link>
                         </form>
@@ -42,11 +38,13 @@ function Navbar(props) {
     )
 }
 
+// Props Vadilation
 Navbar.propTypes = {
     title: PropTypes.string,
     home: PropTypes.string,
     yourProjects: PropTypes.string,
     about: PropTypes.string,
+    showAlert: PropTypes.func,
 };
 
 export default Navbar;

@@ -9,7 +9,7 @@ function UploadProject(props) {
                 <div className="text-center">
                     <div className="body">
                         <h5 className="title">{props.title}</h5>
-                        <AddProject />
+                        <AddProject showAlert={props.showAlert} />
                     </div>
                 </div>
             </div>
@@ -17,9 +17,11 @@ function UploadProject(props) {
     )
 }
 
+// Props Vadilation
 UploadProject.propTypes = {
     title: PropTypes.string,
     desc: PropTypes.string,
+    showAlert: PropTypes.func,
 };
 
 export default UploadProject

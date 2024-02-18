@@ -1,8 +1,9 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 const host = "http://localhost:5000";
 
-const Login = () => {
+const Login = (props) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   let navigate = useNavigate();
 
@@ -23,10 +24,11 @@ const Login = () => {
     if (json.success) {
       // Save the auth token and redirect
       localStorage.setItem('token', json.authtoken);
+      props.showAlert("Logged in Successfully", "success")
       navigate("/");
     }
     else {
-      alert("Invalid Credentials", "danger")
+      props.showAlert("Invalid Credentials", "danger")
     }
   }
 
@@ -51,5 +53,10 @@ const Login = () => {
     </div>
   )
 }
+
+// Props Vadilation
+Login.propTypes = {
+  showAlert: PropTypes.func,
+};
 
 export default Login

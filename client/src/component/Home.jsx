@@ -1,11 +1,18 @@
 import GlobalProjects from "./GlobalProjects";
+import PropTypes from 'prop-types';
 
-function Home() {
+function Home(props) {
+  const { showAlert } = props;
   return (
     <div>
-      <GlobalProjects />
+      <GlobalProjects showAlert={showAlert} />
     </div>
   )
 }
+
+// Props Vadilation
+Home.propTypes = {
+  showAlert: PropTypes.func,
+};
 
 export default Home

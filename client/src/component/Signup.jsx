@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 const host = "http://localhost:5000";
+import PropTypes from 'prop-types';
 
-const Signup = () => {
+const Signup = (props) => {
   const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" });
   let navigate = useNavigate();
 
@@ -27,10 +28,10 @@ const Signup = () => {
       // Save the auth token and redirect
       localStorage.setItem('token', json.authtoken);
       navigate("/");
-      alert("Account Created Successfully", "success")
+      props.showAlert("Account Created Successfully", "success")
     }
     else {
-      alert("User Already Exists", "danger")
+      props.showAlert("Invalid Details", "danger")
     }
   }
 
@@ -64,5 +65,10 @@ const Signup = () => {
     </div>
   )
 }
+
+// Props Vadilation
+Signup.propTypes = {
+  showAlert: PropTypes.func,
+};
 
 export default Signup

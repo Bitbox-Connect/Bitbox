@@ -1,8 +1,9 @@
 import { useContext, useState, useRef } from 'react'
 import ProjectImg from '../assets/images/projects.png'
 import projectContext from '../context/projectContext'
+import PropTypes from 'prop-types';
 
-function AddProject() {
+function AddProject(props) {
     // Store the context value the useContext call of projectContext
     const context = useContext(projectContext);
     // Destructure the addProject from context
@@ -17,6 +18,7 @@ function AddProject() {
         addProject(project.title, project.description, project.link);
         refClose.current.click();
         setproject({ title: "", description: "", link: "" })
+        props.showAlert("Project Added Successfully", "success");
     }
 
     const onChange = (e) => {
@@ -72,5 +74,10 @@ function AddProject() {
         </div>
     )
 }
+
+// Props Vadilation
+AddProject.propTypes = {
+    showAlert: PropTypes.func,
+};
 
 export default AddProject

@@ -10,7 +10,7 @@ const UserProjectItem = (props) => {
     const context = useContext(projectContext);
     // Destructure the addProject from context
     const { deleteProject } = context;
-    
+
     return (
         <div className='col-md-4'>
             <div className="card my-3">
@@ -21,7 +21,7 @@ const UserProjectItem = (props) => {
                     <p className="card-text mg">Project Link : {project.link}</p>
                     <a href={project.link} target="_blank" className="card-link">Github Link</a>
                     <div>
-                        <i className="fa-solid fa-trash mx-1 mt-3" onClick={() => { deleteProject(project._id) }}></i>
+                        <i className="fa-solid fa-trash mx-1 mt-3" onClick={() => { deleteProject(project._id); props.showAlert("Deleted Successfully", "success") }}></i>
                         <i className="fa-solid fa-pen-to-square mx-4 mt-2" onClick={() => updateProject(project)}></i>
                     </div>
                 </div>
@@ -30,9 +30,11 @@ const UserProjectItem = (props) => {
     )
 }
 
+// Props Vadilation
 UserProjectItem.propTypes = {
     project: PropTypes.object,
     updateProject: PropTypes.func,
+    showAlert: PropTypes.func
 };
 
 export default UserProjectItem

@@ -21,6 +21,7 @@ const GlobalProjectItem = (props) => {
     )
 }
 
+// Props Vadilation
 GlobalProjectItem.propTypes = {
     project: PropTypes.object
 };
