@@ -1,12 +1,13 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import projectContext from "./projectContext.jsx";
-import { useState } from 'react';
+// import SearchProjects from "../component/SearchProject.jsx";
 
 const ProjectStates = (props) => {
-  const host = 'http://localhost:5000'
-  const projectsInitial = []
+  const host = 'http://localhost:5000';
+  const projectsInitial = [];
 
-  const [projects, setprojects] = useState(projectsInitial)
+  const [projects, setProjects] = useState(projectsInitial);
 
   // Get All Globally Project
   const getGlobalProjects = async () => {
@@ -18,7 +19,7 @@ const ProjectStates = (props) => {
       }
     });
     const json = await response.json();
-    setprojects(json)
+    setProjects(json.reverse());
   }
 
   // Get All Your Project
@@ -32,7 +33,7 @@ const ProjectStates = (props) => {
       }
     });
     const json = await response.json();
-    setprojects(json)
+    setProjects(json.reverse());
   }
 
   // Add a Project
@@ -47,7 +48,7 @@ const ProjectStates = (props) => {
       body: JSON.stringify({ title, description, link }),
     });
     const project = await response.json();
-    setprojects(projects.concat(project))
+    setProjects([project, ...projects]);
   }
 
   // Delete a Project
@@ -63,9 +64,8 @@ const ProjectStates = (props) => {
     });
     const json = await response.json();
     console.log(json)
-    // If id equals to not equal to id store the value to newProjects
     const newProjects = projects.filter((project) => { return project._id !== id });
-    setprojects(newProjects);
+    setProjects(newProjects);
   }
 
   // Edit a Project
@@ -82,9 +82,7 @@ const ProjectStates = (props) => {
     const json = await response.json();
     console.log(json)
 
-    // important * -->We want to have a copy of projects to newProjects for that we can just write let newProjects=projects, but what happens is we want page to render after updating the values, so that we can see the change in UI . But if we just use newProjects = projects react cant identify that there is some change happening so it will not render the page so, if we write JSON.parse(JSON.stringify(projects)) react can observe the change
     let newProjects = JSON.parse(JSON.stringify(projects));
-    // Logic to edit in the client
     for (let index = 0; index < newProjects.length; index++) {
       const element = newProjects[index];
       if (element._id === id) {
@@ -94,11 +92,18 @@ const ProjectStates = (props) => {
         break;
       }
     }
-    setprojects(newProjects)
+    setProjects(newProjects)
   }
+
+  // Function to filter projects based on search query
+  // const handleSearch = (searchQuery) => {
+  //   // Implement your search logic here if needed
+  //   // For now, we're just setting the searchQuery state
+  // };
 
   return (
     <projectContext.Provider value={{ projects, getUserProjects, getGlobalProjects, addProject, deleteProject, editProject }}>
+      {/* <SearchProjects onSearch={handleSearch} /> */}
       {props.children}
     </projectContext.Provider>
   )
