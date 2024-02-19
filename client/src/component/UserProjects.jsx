@@ -4,14 +4,21 @@ import UserProjectItem from './UserProjectItem';
 import ProjectImg from '../assets/images/projects.png'
 import UploadProject from './UploadProject';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 
 const UserProjects = (props) => {
     const context = useContext(projectContext)
+    let navigate = useNavigate();
     const { projects, getUserProjects, editProject } = context;
 
     useEffect(() => {
-        getUserProjects();
+        if (localStorage.getItem('token')) {
+            getUserProjects();
+        }
+        else {
+            navigate('/login')
+        }
         // eslint-disable-next-line
     }, [])
 

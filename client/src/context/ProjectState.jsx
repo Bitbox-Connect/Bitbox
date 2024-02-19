@@ -28,7 +28,7 @@ const ProjectStates = (props) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjVjZjdiMjMwNWVhYjA0MmZmNjVkMGIwIn0sImlhdCI6MTcwODA5NjI5MX0.siMXPD_n3l4aVuHWujzFktS348nPReU-XS4ILWnVngo"
+        "auth-token": localStorage.getItem('token')
       }
     });
     const json = await response.json();
@@ -42,7 +42,7 @@ const ProjectStates = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjVjZjdiMjMwNWVhYjA0MmZmNjVkMGIwIn0sImlhdCI6MTcwODA5NjI5MX0.siMXPD_n3l4aVuHWujzFktS348nPReU-XS4ILWnVngo"
+        "auth-token": localStorage.getItem('token')
       },
       body: JSON.stringify({ title, description, link }),
     });
@@ -57,11 +57,12 @@ const ProjectStates = (props) => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjVjZjdiMjMwNWVhYjA0MmZmNjVkMGIwIn0sImlhdCI6MTcwODA5NjI5MX0.siMXPD_n3l4aVuHWujzFktS348nPReU-XS4ILWnVngo"
+        "auth-token": localStorage.getItem('token')
       },
       body: JSON.stringify(),
     });
     const json = await response.json();
+    console.log(json)
     // If id equals to not equal to id store the value to newProjects
     const newProjects = projects.filter((project) => { return project._id !== id });
     setprojects(newProjects);
@@ -74,11 +75,12 @@ const ProjectStates = (props) => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjVjZjdiMjMwNWVhYjA0MmZmNjVkMGIwIn0sImlhdCI6MTcwODA5NjI5MX0.siMXPD_n3l4aVuHWujzFktS348nPReU-XS4ILWnVngo"
+        "auth-token": localStorage.getItem('token')
       },
       body: JSON.stringify({ title, description, link }),
     });
     const json = await response.json();
+    console.log(json)
 
     // important * -->We want to have a copy of projects to newProjects for that we can just write let newProjects=projects, but what happens is we want page to render after updating the values, so that we can see the change in UI . But if we just use newProjects = projects react cant identify that there is some change happening so it will not render the page so, if we write JSON.parse(JSON.stringify(projects)) react can observe the change
     let newProjects = JSON.parse(JSON.stringify(projects));
