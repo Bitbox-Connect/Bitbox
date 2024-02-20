@@ -27,7 +27,7 @@ function App() {
     <>
       <ProjectState>
         <Router>
-          <Navbar title="Open Source" home="Home" about="About us" yourProjects="Your projects" showAlert={showAlert} />
+          <Navbar title="Open Source" home="Home" about="About us" yourProjects="My projects" showAlert={showAlert} />
           <Alert alert={alert} />
           <Routes>
             <Route exact path="/" element={<Home showAlert={showAlert} />} />

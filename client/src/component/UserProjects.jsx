@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from 'react'
 import projectContext from '../context/projectContext';
 import UserProjectItem from './UserProjectItem';
-import ProjectImg from '../assets/images/projects.png'
+// import ProjectImg from '../assets/images/projects.png'
 import UploadProject from './UploadProject';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
@@ -61,12 +61,12 @@ const UserProjects = (props) => {
                         </div>
                         <div className="modal-body">
                             <div className="card">
-                                <img src={ProjectImg} className="card-img-top" alt={"project"} />
+                                {/* <img src={ProjectImg} className="card-img-top" alt={"project"} /> */}
                                 <div className="card-body">
-                                    <div className="mb-3">
+                                    {/* <div className="mb-3">
                                         <label htmlFor="formFile" className="form-label">Select Image to Upload</label>
                                         <input className="form-control" type="file" id="formFile" />
-                                    </div>
+                                    </div> */}
                                     <div className="mb-3">
                                         <label htmlFor="etitle" className="form-label">Project Title</label>
                                         <input type="text" className="form-control" id="etitle" name='etitle' value={project.etitle} onChange={onChange} placeholder="Enter Project Title Here" />
@@ -91,7 +91,7 @@ const UserProjects = (props) => {
             </div>
 
             <div className='container'>
-                <h2 className='text-center mb-4 mt-2'>Your Projects</h2>
+                <h2 className='text-center mb-4 mt-2'>My Uploaded Projects</h2>
                 {projects.length === 0 && <UploadProject showAlert={props.showAlert} title="Click Here To Upload" />}
                 <div className='row my-3'>
                     {projects.map((project) => {

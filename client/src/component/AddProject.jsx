@@ -1,5 +1,5 @@
 import { useContext, useState, useRef } from 'react'
-import ProjectImg from '../assets/images/projects.png'
+// import ProjectImg from '../assets/images/projects.png'
 import projectContext from '../context/projectContext'
 import PropTypes from 'prop-types';
 
@@ -43,12 +43,12 @@ function AddProject(props) {
                         </div>
                         <div className="modal-body">
                             <div className="card">
-                                <img src={ProjectImg} className="card-img-top" alt={"project"} />
+                                {/* <img src={ProjectImg} className="card-img-top" alt={"project"} /> */}
                                 <div className="card-body">
-                                    <div className="mb-3">
+                                    {/* <div className="mb-3">
                                         <label htmlFor="formFile" className="form-label">Select Image to Upload</label>
                                         <input className="form-control" type="file" id="formFile" />
-                                    </div>
+                                    </div> */}
                                     <div className="mb-3">
                                         <label htmlFor="title" className="form-label">Project Title</label>
                                         <input type="text" className="form-control" id="title" name='title' value={project.title} onChange={onChange} placeholder="Enter Project Title Here *" />
