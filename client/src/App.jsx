@@ -27,11 +27,11 @@ function App() {
     <>
       <ProjectState>
         <Router>
-          <Navbar title="Open Source" home="Home" about="About us" yourProjects="My projects" showAlert={showAlert} />
+          <Navbar title="Kaiyuan" home="Home" about="About us" myProjects="My projects" showAlert={showAlert} />
           <Alert alert={alert} />
           <Routes>
             <Route exact path="/" element={<Home showAlert={showAlert} />} />
-            <Route exact path="/yourProjects" element={<UserProjects showAlert={showAlert} />} />
+            <Route exact path="/myProjects" element={<UserProjects showAlert={showAlert} />} />
             <Route exact path="/about" element={<About showAlert={showAlert} />} />
             <Route exact path="/login" element={<Login showAlert={showAlert} />} />
             <Route exact path="/signup" element={<Signup showAlert={showAlert} />} />

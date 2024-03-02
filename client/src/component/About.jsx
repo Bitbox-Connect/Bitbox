@@ -13,9 +13,9 @@ export default function About() {
             </h2>
             <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
               <div className="accordion-body">
-                Open Source is a community-driven platform aimed at helping individuals who are stuck in their projects. Our community members offer assistance and receive help in various technologies. The purpose of Open Source is to build a collaborative environment where knowledge sharing and mutual support thrive.
+                Kaiyuan is a community-driven platform aimed at helping individuals who are stuck in their projects. Our community members offer assistance and receive help in various technologies. The purpose of Kaiyuan is to build a collaborative environment where knowledge sharing and mutual support thrive.
                 <br />
-                Open Source is a platform where individuals can seek help and offer assistance in their projects. It fosters a supportive community for collaboration and knowledge sharing.
+                Kaiyuan is a platform where individuals can seek help and offer assistance in their projects. It fosters a supportive community for collaboration and knowledge sharing.
               </div>
             </div>
           </div>
@@ -28,7 +28,7 @@ export default function About() {
             </h2>
             <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
               <div className="accordion-body">
-                Open Source offers secure login and signup functionality to its users. Users can upload new projects, and they have the ability to delete, edit, and view their projects separately. Additionally, there is a community section where all user projects are visible, promoting collaboration and sharing of knowledge.
+                Kaiyuan offers secure login and signup functionality to its users. Users can upload new projects, and they have the ability to delete, edit, and view their projects separately. Additionally, there is a community section where all user projects are visible, promoting collaboration and sharing of knowledge.
               </div>
             </div>
           </div>
@@ -41,7 +41,7 @@ export default function About() {
             </h2>
             <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
               <div className="accordion-body">
-                Open Source is compatible with all modern web browsers, including Chrome, Firefox, Internet Explorer, Safari, Opera, and Microsoft Edge. It provides a seamless experience for users across different platforms and devices.
+                Kaiyuan is compatible with all modern web browsers, including Chrome, Firefox, Internet Explorer, Safari, Opera, and Microsoft Edge. It provides a seamless experience for users across different platforms and devices.
               </div>
             </div>
           </div>
@@ -54,7 +54,7 @@ export default function About() {
             </h2>
             <div id="collapseFour" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
               <div className="accordion-body">
-                Open Source implements secure authentication mechanisms for user accounts. This ensures that user data and interactions within the platform are protected from unauthorized access.
+                Kaiyuan implements secure authentication mechanisms for user accounts. This ensures that user data and interactions within the platform are protected from unauthorized access.
               </div>
             </div>
           </div>
@@ -67,7 +67,7 @@ export default function About() {
             </h2>
             <div id="collapseFive" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
               <div className="accordion-body">
-                Open Source enables users to efficiently manage their projects. Users can create, update, delete, and view their projects within the platform, facilitating effective project organization and collaboration.
+                Kaiyuan enables users to efficiently manage their projects. Users can create, update, delete, and view their projects within the platform, facilitating effective project organization and collaboration.
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@ export default function About() {
             </h2>
             <div id="collapseSix" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
               <div className="accordion-body">
-                Open Source prioritizes user interface (UI) friendliness to ensure an intuitive and enjoyable user experience. The interface is designed with simplicity and ease of navigation in mind, allowing users to seamlessly interact with the platform and access its features.
+                Kaiyuan prioritizes user interface (UI) friendliness to ensure an intuitive and enjoyable user experience. The interface is designed with simplicity and ease of navigation in mind, allowing users to seamlessly interact with the platform and access its features.
               </div>
             </div>
           </div>

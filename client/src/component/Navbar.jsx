@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import AddProject from './AddProject';
+import logo from '../assets/images/logo.png'
 import './Navbar.css'
 function Navbar(props) {
     const navigate = useNavigate();
@@ -17,8 +18,8 @@ function Navbar(props) {
         <div>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" to="/">
-                        <i className="fa-solid fa-diagram-project mx-2"></i>
+                    <Link className="navbar-brand d-flex" to="/">
+                        <img className='mx-2' src={logo} alt="logo" />
                         {props.title}
                     </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +39,7 @@ function Navbar(props) {
                                     <Link className={`nav-link ${location.pathname === '/' ? 'active' : ""}`} aria-current="page" to="/">{props.home}</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className={`nav-link ${location.pathname === '/yourProjects' ? 'active' : ""}`} aria-current="page" to="/yourProjects">{props.yourProjects}</Link>
+                                    <Link className={`nav-link ${location.pathname === '/myProjects' ? 'active' : ""}`} aria-current="page" to="/myProjects">{props.myProjects}</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className={`nav-link ${location.pathname === '/about' ? 'active' : ""}`} aria-current="page" to="/about">{props.about}</Link>
@@ -64,7 +65,7 @@ function Navbar(props) {
 Navbar.propTypes = {
     title: PropTypes.string,
     home: PropTypes.string,
-    yourProjects: PropTypes.string,
+    myProjects: PropTypes.string,
     about: PropTypes.string,
     showAlert: PropTypes.func,
 };
