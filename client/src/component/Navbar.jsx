@@ -31,12 +31,18 @@ function Navbar(props) {
                                 <Link className={`nav-link ${location.pathname === '/' ? 'active' : ""}`} aria-current="page" to="/">{props.home}</Link>
                             </li>
                             <li className="nav-item">
+                                <Link className={`nav-link ${location.pathname === '/community' ? 'active' : ""}`} aria-current="page" to="/community">{props.community}</Link>
+                            </li>
+                            <li className="nav-item">
                                 <Link className={`nav-link ${location.pathname === '/about' ? 'active' : ""}`} aria-current="page" to="/about">{props.about}</Link>
                             </li>
                         </form> :
                             <form className="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li className="nav-item">
                                     <Link className={`nav-link ${location.pathname === '/' ? 'active' : ""}`} aria-current="page" to="/">{props.home}</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className={`nav-link ${location.pathname === '/community' ? 'active' : ""}`} aria-current="page" to="/community">{props.community}</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className={`nav-link ${location.pathname === '/myProjects' ? 'active' : ""}`} aria-current="page" to="/myProjects">{props.myProjects}</Link>
@@ -65,6 +71,7 @@ function Navbar(props) {
 Navbar.propTypes = {
     title: PropTypes.string,
     home: PropTypes.string,
+    community: PropTypes.string,
     myProjects: PropTypes.string,
     about: PropTypes.string,
     showAlert: PropTypes.func,
