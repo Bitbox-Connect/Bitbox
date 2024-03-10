@@ -1,53 +1,58 @@
-import './Footer.css'
+import { Link } from 'react-router-dom';
+import './Footer.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedinIn, faDiscord, faTwitter, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'; // Importing social media icons from the brands category
 function Footer() {
   return (
-    <>
-     <div className='Container'>
-      <div className='About_us'>
-        <div className='About_note'>
-            <a href="">
-            <h1>Open source <span>Code</span></h1>
-            </a>
+    <footer>
+      <div className='Container'>
+        <div className='About_us'>
+          <div className='About_note'>
+            <Link to="/">
+              <h1>Open source <span>Code</span></h1>
+            </Link>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                 Quae, magnam odit dignissimos necessitatibus
-                  saepe harum quod tempore minus.</p>
-                 <a href="">Explore more </a>
+              Quae, magnam odit dignissimos necessitatibus
+              saepe harum quod tempore minus.</p>
+            <Link to="/">Explore more</Link>
+          </div>
         </div>
-      </div>
-      <div className="new_Details">
-        <div>
+        <div className="new_Details">
+          <div>
             <ul>
-                <li><a href="">Code of Conduct</a></li>
-                <li><a href="">Contact us</a></li>
+              <li><Link to="/contactus">Contact us</Link></li>
+              <li><Link to='/codeofconduct'>Code of Conduct</Link></li>
             </ul>
+          </div>
         </div>
-      </div>
-      <div className="Legal">
-        <div>
+        <div className="Legal">
+          <div>
             <ul>
-                <li><a href="">ASOC</a></li>
-                <li><a href="">Uplift project</a></li>
+              <li><Link to="/asoc">ASOC</Link></li>
+              <li><Link to="/upliftproject">Uplift project</Link></li>
             </ul>
+          </div>
+        </div>
+        <div className="social">
+          <div>
+            <h4>Follow us on</h4>
+            <ul>
+              <li><Link to="/"><FontAwesomeIcon icon={faLinkedinIn} /> LinkedIn</Link></li>
+              <li><Link to="/"><FontAwesomeIcon icon={faDiscord} /> Discord</Link></li>
+              <li><Link to="/"><FontAwesomeIcon icon={faTwitter} /> Twitter</Link></li>
+              <li><Link to="/"><FontAwesomeIcon icon={faInstagram} /> Instagram</Link></li>
+              <li><Link to="/"><FontAwesomeIcon icon={faFacebook} /> Facebook</Link></li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div className="social">
-        <div>
-            <h4>Follow us on </h4>
-            <ul>
-                <li><a href="">Github</a></li>
-                <li><a href="">Linkedin</a></li>
-                <li><a href="">Discord</a></li>
-                <li><a href="">Twitter</a></li>
-                <li><a href="">Instagram</a></li>
-                <li><a href="">facebook</a></li>
 
-            </ul>
-        </div>
+      <div className="copy-right">
+        <h4 className='copy-content'>© 2024 Open Source. Made with ❤️ by Jitendra, Harshit & Anuj. All rights reserved.</h4>
       </div>
-    </div>
-        <h4 className='copyright'>© 2024 open source . Made with 🖤 by Harshit & Anuj. All rights reserved.</h4> 
-    </>
+
+    </footer>
   )
 }
 
-export default Footer
+export default Footer;
