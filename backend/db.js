@@ -1,11 +1,12 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
+require('dotenv').config()
+let mongoURI = "mongodb+srv://anujverma3553:KrzhNfWoDbSRZjQa@kaiyuan-cluster.8dj4nlb.mongodb.net/?retryWrites=true&w=majority&appName=Kaiyuan-Cluster";
 
-let MongoURI = "mongodb://localhost:27017/Opensource";
-
-const connectToMongo = async ()=>{
+const connectToMongo = async () => {
     try {
-        await mongoose.connect(MongoURI);
-        console.log("Connected to Mongo Successfully"); 
+        mongoose.set('strictQuery', false)
+        mongoose.connect(mongoURI)
+        console.log('Connected to Mongo Successfully')
     } catch (error) {
         console.log(error)
     }

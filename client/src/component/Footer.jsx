@@ -9,7 +9,7 @@ function Footer() {
         <div className='About_us'>
           <div className='About_note'>
             <Link to="/">
-              <h1>Open source <span>Code</span></h1>
+              <h1>Kaiyuan <span>Code</span></h1>
             </Link>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
               Quae, magnam odit dignissimos necessitatibus
