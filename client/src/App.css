@@ -2,3 +2,14 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+.bc-color{
+    /* background-color: #FBAB7E; */
+/* background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%); */
+     /* background-color: #ffcc33; */
+    /* background-color: #85FFBD; */
+/* background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%); */
+/* background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%); */
+background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+
+}

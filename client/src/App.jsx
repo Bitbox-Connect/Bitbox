@@ -3,7 +3,7 @@ import './App.css'
 import About from './component/About';
 import Alert from './component/Alert';
 import Footer from './component/Footer'
-import Home from './component/Community';
+import Home from './component/Home';
 import Login from './component/Login';
 import Navbar from './component/Navbar'
 import Signup from './component/Signup';
@@ -35,6 +35,7 @@ function App() {
         <Router>
           {/* Navbar */}
           <Navbar title="Kaiyuan" home="Home" community="Community" about="About us" myProjects="My projects" showAlert={showAlert} />
+          <div className="bc-color">
           <SearchBar />
           <Alert alert={alert} />
           <Routes>
@@ -51,6 +52,7 @@ function App() {
             <Route exact path="/contactus" element={<Contactus showAlert={showAlert} />} />
             <Route exact path="/upliftproject" element={<Upliftproject showAlert={showAlert} />} />
           </Routes>
+          </div>
           <Footer />
         </Router>
       </ProjectState>

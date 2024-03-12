@@ -1,0 +1,33 @@
+.btn-color{
+    background-image: linear-gradient(to right, #eafe4f 0%, #00f2fe 100%);
+    border: 1px solid black;
+    padding: 9px;
+    font-weight: 600;
+    color: black;
+    border-radius: 20px;
+    margin: 0 2rem;
+}
+.info,h1{
+    font-weight: 700;
+    font-size: 5rem;
+    text-align: center;
+}
+.abut{
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+}
+.imagetest {
+    text-align: center;
+    margin-top: 2rem;
+    overflow: hidden;
+    transition-duration: 0.8s;
+    transition-property: transform;
+}
+
+/* .imagetest:hover {
+    transform: rotate(10deg);
+    -webkit-transform: rotate(-10deg);
+    -webkit-transform-origin-x: rotate(12deg);
+} */
+

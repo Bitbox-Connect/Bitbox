@@ -15,7 +15,7 @@ app.use(express.json())
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/projects', require('./routes/projects'))
 
-// Litenting port in http://localhost:3000
+// Litenting port in http://localhost:5000
 app.listen(port, () => {
   console.log(`App listening on http://localhost:${port}`)
 })

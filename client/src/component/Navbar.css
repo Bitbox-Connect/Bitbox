@@ -7,3 +7,6 @@
 .uploadPro:hover{
     color: black;
 }
+.BG-color{
+    background-image: linear-gradient(to top, #96fbc4 0%, #f9f586 100%);
+}

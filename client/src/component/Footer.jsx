@@ -9,7 +9,7 @@ function Footer() {
         <div className='About_us'>
           <div className='About_note'>
             <Link to="/">
-              <h1>Kaiyuan <span>Code</span></h1>
+              <h1>Kaiyuan <span className='code'>Code</span></h1>
             </Link>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
               Quae, magnam odit dignissimos necessitatibus
@@ -18,7 +18,7 @@ function Footer() {
           </div>
         </div>
         <div className="new_Details">
-          <div>
+          <div className='Detail'>
             <ul>
               <li><Link to="/contactus">Contact us</Link></li>
               <li><Link to='/codeofconduct'>Code of Conduct</Link></li>

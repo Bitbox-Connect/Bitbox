@@ -6,10 +6,12 @@
 .Container {
     display: flex;
     justify-content: space-around;
-    background-color: #f2f2f2;
+    background-color: #F8D800;
+    background-image: linear-gradient(to right, #f9d423 50%, #ff4e50 100%);
     padding: 20px;
     border-top: 2px solid #ddd;
     width: 100vw;
+    font-weight: 500;
 }
 
 .About_us {
@@ -31,8 +33,8 @@ h1 {
     color: #333;
 }
 
-span {
-    color: #ff6600;
+span,.code {
+    color: #eeecea;
 }
 
 p {

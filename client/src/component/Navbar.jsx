@@ -16,7 +16,7 @@ function Navbar(props) {
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary">
+            <nav className="navbar navbar-expand-lg bg-body-tertiary BG-color">
                 <div className="container-fluid">
                     <Link className="navbar-brand d-flex" to="/">
                         <img className='mx-2' src={logo} alt="logo" />

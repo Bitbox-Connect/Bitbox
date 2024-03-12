@@ -22,24 +22,19 @@
   
   .about{
   
-      /* box-sizing: 180px; */
-      /* border-radius: 10px; */
-      background-color: rgb(161, 214, 199);
+      background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
       /* max-width: 800px; */
       max-width: 700px;
       min-height: 400px;
       margin: 30px auto;
-      /* background-color: #FFFAFA; */
       border-radius: 10px;
       padding: 0px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   
   }
   .visitors{
-     /* box-sizing: 180px; */
-      /* border-radius: 10px; */
-      background-color: rgb(124, 167, 227);
-      /* max-width: 800px; */
+     
+      background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
       max-width: 700px;
       min-height: 400px;
       margin: 30px auto;
