@@ -3,7 +3,7 @@ const Codeofconduct = () => {
     return (
         <div>
             <div className="container">
-                <h3 class="info text-warning text-center font-weight-bold">Code of Conduct</h3>
+                <h3 className="info text-warning text-center font-weight-bold">Code of Conduct</h3>
                 <div className="lists">
                     <div className="container">
                         <div className="contents">

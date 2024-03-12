@@ -6,10 +6,9 @@
 .Container {
     display: flex;
     justify-content: space-around;
-    background-color: #F8D800;
-    background-image: linear-gradient(to right, #f9d423 50%, #ff4e50 100%);
+    background-color: #acf9c1;
     padding: 20px;
-    border-top: 2px solid #ddd;
+    border-top: 2px solid black;
     width: 100vw;
     font-weight: 500;
 }
@@ -33,8 +32,15 @@ h1 {
     color: #333;
 }
 
-span,.code {
-    color: #eeecea;
+.info,
+h1 {
+    font-weight: 700;
+    font-size: 5rem;
+}
+
+span,
+.code {
+    color: #009688;
 }
 
 p {
@@ -61,7 +67,7 @@ ul li {
     margin-bottom: 10px;
 }
 
-.copy-content{
+.copy-content {
     font-size: 16px;
     margin-bottom: 10px;
     color: white;
@@ -74,6 +80,10 @@ h4 a {
 
 h4 a:hover {
     color: #00796b;
+}
+
+.project-info{
+    width: 500px;
 }
 
 .copy-right {

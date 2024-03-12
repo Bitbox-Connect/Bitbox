@@ -2,7 +2,7 @@ const Asoc = () => {
     return (
         <div>
             <div className="container">
-                asoc    
+                asoc
             </div>
         </div>
     )

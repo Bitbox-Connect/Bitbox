@@ -1,11 +1,13 @@
-.containers{
+.containers {
     justify-content: center;
     text-align: center;
 }
-.box.list ul li a{
-    text-decoration: none;  
-}  
-.navbar .image-bx{ 
+
+.box.list ul li a {
+    text-decoration: none;
+}
+
+.navbar .image-bx {
     width: 40px;
     height: 40px;
     border-radius: 40px;
@@ -13,7 +15,7 @@
     padding: 2px;
 }
 
-.image-bx img{
+.image-bx img {
     width: 60px;
     height: 60px;
     border-radius: 50px;
@@ -21,6 +23,7 @@
     box-shadow: 0 2px 5px rgba(7, 6, 6, 0.8);
 
 }
+
 .share-btn {
     width: 40px;
     height: 30px;
@@ -30,8 +33,9 @@
     justify-content: center;
     border-radius: 40px;
     background-color: rgb(239, 239, 239);
-} 
-h2{
+}
+
+h2 {
     position: relative;
     display: flex;
     align-items: center;
@@ -40,10 +44,12 @@ h2{
     text-decoration-line: none;
     cursor: pointer;
 }
-h2:hover{
+
+h2:hover {
     text-decoration: underline;
 }
-.cnt{
+
+.cnt {
     width: 91%;
     max-width: 680px;
     margin: 10px;
@@ -53,30 +59,33 @@ h2:hover{
     /* border: 2px solid black; */
 
 }
-.box{
+
+.box {
     width: 91%;
     max-width: 680px;
     margin: 2px;
     display: flex;
     flex-direction: column;
-    align-items: center;  
+    align-items: center;
     flex-wrap: wrap;
     /* border: 2px solid black; */
 
 }
-.box .list{
+
+.box .list {
     position: relative;
     width: 100%;
     height: 69vh;
     border-radius: 35px;
     text-align: center;
     justify-content: center;
-    box-shadow:  2px 5px rgba(7, 6, 6, 0.2);
+    box-shadow: 2px 5px rgba(7, 6, 6, 0.2);
 
     /* border: 2px solid black; */
 
 }
-.box .bx-item{
+
+.box .bx-item {
     display: flexbox;
     width: auto;
     height: 35px;
@@ -91,7 +100,7 @@ h2:hover{
     background-color: antiquewhite;
 }
 
-.end{
+.end {
     display: flex;
     margin-top: 12px;
     height: 47px;
@@ -101,29 +110,33 @@ h2:hover{
     background-color: aliceblue;
     cursor: auto;
 }
-.end:hover{
+
+.end:hover {
     box-shadow: 0 2px 5px rgba(7, 6, 6, 0.8);
 
 }
-.end a i{
+
+.end a i {
     margin: 12px 0 0 0;
     padding: 2px;
     cursor: pointer;
 }
+
 .box .list .bx-item {
     margin: 10px;
-    padding: 5px ;
+    padding: 5px;
     vertical-align: middle;
     /* border: 2px solid black; */
 
 }
+
 .bx-item:hover {
     box-shadow: 0 2px 5px rgba(7, 6, 6, 0.8);
 
 
 }
 
-.box .list .bx-item .dot{
+.box .list .bx-item .dot {
     display: flex;
     float: right;
     width: 30px;
@@ -132,24 +145,21 @@ h2:hover{
     /* border: 2px solid black; */
 
 }
-.box .list .bx-item .dot1{
+
+.box .list .bx-item .dot1 {
     margin: 0 5px;
     /* border: 2px solid black; */
-    padding: 0 5px ;
+    padding: 0 5px;
 }
 
 
-h5{
+h5 {
     display: flex;
     margin: 10px;
     justify-content: center;
 }
 
-footer{
-    margin-top: 7px;
-    /* border: 2px solid black; */
-}
-span{
+span {
     color: blue;
 }
 
@@ -162,8 +172,9 @@ span{
     .bind {
         margin-left: 0px;
     }
-    
-    .share, .dark {
+
+    .share,
+    .dark {
         display: flex;
         align-items: center;
     }
@@ -179,31 +190,36 @@ span{
         margin-left: 0px;
     }
 
-    .share, .dark {
+    .share,
+    .dark {
         display: none;
     }
 
     /* Media queries for the dark mode toggle */
     .form-check {
-        margin-top: 10px; /* Adjust the margin as needed */
+        margin-top: 10px;
+        /* Adjust the margin as needed */
     }
 
     .form-check-label {
-        margin-left: 0px; /* Adjust the margin as needed */
+        margin-left: 0px;
+        /* Adjust the margin as needed */
     }
 }
 
-.bx-enditem ul,li{
+.bx-enditem ul,
+li {
     display: flex;
     padding: 10px;
 }
 
 /* code of conduct --------------------------------------------- code of conduct----------------------------------------------- */
-.cont{
+.cont {
     background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
 
 }
-.lists{
+
+.lists {
     padding: 5px;
     margin-top: 2rem;
 }

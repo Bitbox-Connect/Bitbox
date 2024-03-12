@@ -2,7 +2,7 @@ const Upliftproject = () => {
     return (
         <div>
             <div className="container">
-               upliftproject
+                upliftproject
             </div>
         </div>
     )

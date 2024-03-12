@@ -6,7 +6,7 @@
 }
 
 .search input {
-    background-color: white;
+    background-color: #acf9c1;
     border-radius: 15px;
     font-size: 18px;
     padding: 15px;
@@ -24,8 +24,12 @@
     place-items: center;
 }
 
+input:hover {
+    border-color: none;
+}
+
 input:focus {
-    outline: none;
+    border-color: #4d90fe;
 }
 
 .searchIcon svg {

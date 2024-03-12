@@ -11,7 +11,7 @@ function Footer() {
             <Link to="/">
               <h1>Kaiyuan <span className='code'>Code</span></h1>
             </Link>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            <p className='project-info'>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
               Quae, magnam odit dignissimos necessitatibus
               saepe harum quod tempore minus.</p>
             <Link to="/">Explore more</Link>

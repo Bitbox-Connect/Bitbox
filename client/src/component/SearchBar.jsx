@@ -10,7 +10,7 @@ function SearchBar() {
       <div className="searchInputs">
         <input
           type="text"
-          placeholder="Enter the project..."
+          placeholder="Enter project here..."
         />
         <div className="searchIcon">
           {/* <SearchIcon /> */}

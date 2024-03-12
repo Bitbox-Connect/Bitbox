@@ -1,12 +1,13 @@
-.uploadPro{
+.uploadPro {
     border: 1px solid black;
     color: white;
     border-radius: 5px;
 }
 
-.uploadPro:hover{
+.uploadPro:hover {
     color: black;
 }
-.BG-color{
-    background-image: linear-gradient(to top, #96fbc4 0%, #f9f586 100%);
+
+.BG-color {
+    background-color: #acf9c1;
 }

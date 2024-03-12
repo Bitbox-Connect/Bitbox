@@ -10,12 +10,12 @@ import Signup from './component/Signup';
 import UserProjects from './component/UserProjects';
 import ProjectState from './context/ProjectState';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Community from './component/Community';
 import SearchBar from './component/SearchBar';
 import Codeofconduct from './component/Footer/Codeofconduct';
 import Asoc from './component/Footer/Asoc';
 import Contactus from './component/Footer/Contactus';
 import Upliftproject from './component/Footer/Upliftproject';
+import GlobalProjects from './component/GlobalProjects';
 function App() {
   const [alert, setAlert] = useState(null);
 
@@ -40,7 +40,7 @@ function App() {
           <Alert alert={alert} />
           <Routes>
             <Route exact path="/" element={<Home showAlert={showAlert} />} />
-            <Route exact path="/community" element={<Community showAlert={showAlert} />} />
+            <Route exact path="/community" element={<GlobalProjects showAlert={showAlert} />} />
             <Route exact path="/myProjects" element={<UserProjects showAlert={showAlert} />} />
             <Route exact path="/about" element={<About showAlert={showAlert} />} />
             <Route exact path="/login" element={<Login showAlert={showAlert} />} />

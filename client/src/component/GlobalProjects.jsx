@@ -21,7 +21,10 @@ const Projects = (props) => {
     }, [])
     return (
         <div className='container'>
-            <h2 className='text-center mb-4 mt-2'>Welcome to Kaiyuan Community</h2>
+            <div className="content">
+                <h1>Welcome to kaiyuan Community</h1>
+                <div className='text-center'>Welcome to Open Source Code , an open-source community</div>
+            </div>
             {projects.length === 0 && <UploadProject title="Click Here To Upload" />}
             <div className='row '>
                 {projects.map((project) => {
