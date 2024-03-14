@@ -23,9 +23,9 @@ export default function About() {
         <h3>No of Projects</h3>
         <h3>No of Pull Requests</h3>
       </div>
+
       <div className="team">
         <div className="team-box">
-
           <img src={img1} alt="OWNER" />
           <div className="teamember"><b>Anuj Verma</b></div>
         </div>

@@ -1,27 +1,26 @@
-.containers {
-    justify-content: center;
-    text-align: center;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.box.list ul li a {
-    text-decoration: none;
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 20pc;
+    background-image: linear-gradient(120deg, #bfbdbd 0%, #e0eaef 100%);
 }
 
-.navbar .image-bx {
-    width: 40px;
-    height: 40px;
-    border-radius: 40px;
-    margin-right: 10px;
-    padding: 2px;
-}
-
-.image-bx img {
+.image-bx {
     width: 60px;
     height: 60px;
-    border-radius: 50px;
-    margin: 2px;
-    box-shadow: 0 2px 5px rgba(7, 6, 6, 0.8);
-
+    border-radius: 50%;
+    margin-right: 10px;
+    padding: 2px;
 }
 
 .share-btn {
@@ -35,41 +34,10 @@
     background-color: rgb(239, 239, 239);
 }
 
-h2 {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    text-decoration-line: none;
-    cursor: pointer;
-}
-
-h2:hover {
-    text-decoration: underline;
-}
-
-.cnt {
-    width: 91%;
+.cnt, .box {
+    width: 100%;
     max-width: 680px;
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* border: 2px solid black; */
-
-}
-
-.box {
-    width: 91%;
-    max-width: 680px;
-    margin: 2px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
-    /* border: 2px solid black; */
-
+    margin: 10px auto;
 }
 
 .box .list {
@@ -79,32 +47,13 @@ h2:hover {
     border-radius: 35px;
     text-align: center;
     justify-content: center;
-    box-shadow: 2px 5px rgba(7, 6, 6, 0.2);
-
-    /* border: 2px solid black; */
-
-}
-
-.box .bx-item {
-    display: flexbox;
-    width: auto;
-    height: 35px;
-    /* padding: 5px; */
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    /* margin: px; */
-    border-radius: 25px;
-    /* border: 2px solid black; */
-    cursor: pointer;
-    background-color: antiquewhite;
+    /* box-shadow: 2px 5px rgba(7, 6, 6, 0.2); */
 }
 
 .end {
     display: flex;
     margin-top: 12px;
     height: 47px;
-    /* border: 2px solid black; */
     justify-content: center;
     border-radius: 29px;
     background-color: aliceblue;
@@ -113,7 +62,6 @@ h2:hover {
 
 .end:hover {
     box-shadow: 0 2px 5px rgba(7, 6, 6, 0.8);
-
 }
 
 .end a i {
@@ -122,104 +70,29 @@ h2:hover {
     cursor: pointer;
 }
 
-.box .list .bx-item {
-    margin: 10px;
-    padding: 5px;
-    vertical-align: middle;
-    /* border: 2px solid black; */
-
-}
-
-.bx-item:hover {
-    box-shadow: 0 2px 5px rgba(7, 6, 6, 0.8);
-
-
-}
-
-.box .list .bx-item .dot {
-    display: flex;
-    float: right;
-    width: 30px;
-    height: 30px;
-    border-radius: 30px;
-    /* border: 2px solid black; */
-
-}
-
-.box .list .bx-item .dot1 {
-    margin: 0 5px;
-    /* border: 2px solid black; */
-    padding: 0 5px;
-}
-
-
-h5 {
-    display: flex;
-    margin: 10px;
-    justify-content: center;
-}
-
-span {
-    color: blue;
-}
-
 @media (max-width: 600px) {
     .navbar {
-        /* flex-direction: column; */
         text-align: center;
     }
-
-    .bind {
-        margin-left: 0px;
-    }
-
-    .share,
-    .dark {
-        display: flex;
-        align-items: center;
-    }
-}
-
-@media (max-width: 290px) {
-    .navbar {
-        /* flex-direction: column; */
-        text-align: center;
-    }
-
-    .bind {
-        margin-left: 0px;
-    }
-
-    .share,
-    .dark {
-        display: none;
-    }
-
-    /* Media queries for the dark mode toggle */
-    .form-check {
-        margin-top: 10px;
-        /* Adjust the margin as needed */
-    }
-
-    .form-check-label {
-        margin-left: 0px;
-        /* Adjust the margin as needed */
-    }
-}
-
-.bx-enditem ul,
-li {
-    display: flex;
-    padding: 10px;
 }
 
 /* code of conduct --------------------------------------------- code of conduct----------------------------------------------- */
 .cont {
-    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-
+   color: black;
 }
 
 .lists {
     padding: 5px;
     margin-top: 2rem;
+}
+.num{
+    position: absolute;
+    top: 19pc;
+    border-radius: 35%;
+    left: 12.2pc;
+}
+.cont-box {
+    margin-bottom: 20px; 
+    border-radius: 25px;
+    background-color: rgb(232, 161, 135);
 }

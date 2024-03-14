@@ -46,20 +46,55 @@
     text-align: center;
 }
 
-.imagetest {
-    text-align: center;
-    margin: 35px 0;
-    overflow: hidden;
-    transition-duration: 0.8s;
-    transition-property: transform;
-}
-
-.image {
-    margin: 5px;
-}
 
 /* .imagetest:hover {
     transform: rotate(10deg);
     -webkit-transform: rotate(-10deg);
     -webkit-transform-origin-x: rotate(12deg);
 } */
+
+.CARD-INFO-sec {
+    display: grid;
+}
+
+.CARD-INFO-sec h3 {
+    text-align: center;
+}
+
+.CARD-INFOs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin: 2rem;
+}
+
+.CARD-INFO-row1,
+.CARD-INFO-row2 {
+    display: grid;
+    gap: 2rem;
+}
+
+.CARD-INFO {
+    width: 30rem;
+    height: 20rem;
+    border-radius: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 23px;
+    background-color: #61cab2;
+    box-shadow: 0 0 8px 2px rgb(0 0 0 / 22%);
+}
+
+.btn-box {
+    border-radius: 5px;
+    width: 200px;
+    color: black;
+    background-color: #4278c9;
+    text-decoration: none;
+}
+
+.btn-box a {
+    color: black;
+}

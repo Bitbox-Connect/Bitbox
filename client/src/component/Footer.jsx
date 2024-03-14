@@ -18,6 +18,7 @@ function Footer() {
           </div>
         </div>
         <div className="new_Details">
+          <h3>About Kaiyuan</h3>
           <div className='Detail'>
             <ul>
               <li><Link to="/contactus">Contact us</Link></li>
@@ -27,6 +28,7 @@ function Footer() {
         </div>
         <div className="Legal">
           <div>
+            <h3>Legal</h3>
             <ul>
               <li><Link to="/asoc">ASOC</Link></li>
               <li><Link to="/upliftproject">Uplift project</Link></li>

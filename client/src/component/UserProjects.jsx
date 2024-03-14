@@ -1,7 +1,6 @@
 import { useContext, useEffect, useRef, useState } from 'react'
 import projectContext from '../context/projectContext';
 import UserProjectItem from './UserProjectItem';
-// import ProjectImg from '../assets/images/projects.png'
 import UploadProject from './UploadProject';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
