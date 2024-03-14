@@ -58,48 +58,63 @@ const Home = () => {
                     </button>
                 </div>
 
-                <section className='CARD-INFO-sec'>
-                    <h3>Be a part of Open Source Community</h3>
-                    <div className="CARD-INFOs">
-                        <div className="CARD-INFO-row1">
-                            <div className="CARD-INFO">
-                                <h3>Start your journey</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Rerum corporis tenetur iste illo ipsum quaerat illum repellendus
-                                    libero minima dolores eos quos hic,
-                                    vero maxime perferendis sint a amet. Nobis.</p>
-                                <button className='btn-box'><a href="">Apply as contributor</a></button>
-                            </div>
-                            <div className="CARD-INFO">
-                                <h3>Start your journey</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Rerum corporis tenetur iste illo ipsum quaerat illum repellendus
-                                    libero minima dolores eos quos hic,
-                                    vero maxime perferendis sint a amet. Nobis.</p>
-                                <button className='btn-box'><a href="">Apply as contributor</a></button>
+                <section className='section-card'>
+                    <h3>Be a part of Kaiyuan Community</h3>
+                    <div className="row">
+                        <div className="col-sm-6 mb-3 mb-sm-0">
+                            <div className="card">
+                                <div className="card-body">
+                                    <h5 className="card-title">Special title treatment</h5>
+                                    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" className="btn btn-primary">Go somewhere</a>
+                                </div>
                             </div>
                         </div>
-                        <div className="CARD-INFO-row2">
-                            <div className="CARD-INFO">
-                                <h3>Start your journey</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Rerum corporis tenetur iste illo ipsum quaerat illum repellendus
-                                    libero minima dolores eos quos hic,
-                                    vero maxime perferendis sint a amet. Nobis.</p>
-                                <button className='btn-box'><a href="">Apply as contributor</a></button>
-                            </div>
-                            <div className="CARD-INFO">
-                                <h3>Start your journey</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Rerum corporis tenetur iste illo ipsum quaerat illum repellendus
-                                    libero minima dolores eos quos hic,
-                                    vero maxime perferendis sint a amet. Nobis.</p>
-                                <button className='btn-box'><a href="">Apply as contributor</a></button>
+                        <div className="col-sm-6">
+                            <div className="card">
+                                <div className="card-body">
+                                    <h5 className="card-title">Special title treatment</h5>
+                                    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" className="btn btn-primary">Go somewhere</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </section>
+                    <h3>Be a part of Kaiyuan Community</h3>
 
+                    <div className="row">
+                        <div className="col-sm-6 mb-3 mb-sm-0">
+                            <div className="card">
+                                <div className="card-body">
+                                    <h5 className="card-title">Special title treatment</h5>
+                                    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" className="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-sm-6">
+                            <div className="card">
+                                <div className="card-body">
+                                    <h5 className="card-title">Special title treatment</h5>
+                                    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" className="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+                <section className='section-card'>
+                    <h3>New Update</h3>
+                    <div className="card">
+                        <h3> <a href="#">About-Us</a></h3>
+                        <div className="card-body">
+                            <h5 className="card-title">Special title treatment</h5>
+                            <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" className="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     )
