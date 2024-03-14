@@ -6,7 +6,7 @@ import './About.css';
 export default function About() {
   return (
     <div className='container'>
-      <h1 className='text-center'>About Us</h1>
+      <h1 className='Heading-page text-center'>About Us</h1>
       <div className="about">
         <h2 className='mb-4 mt-2'>Kaiyuan</h2>
         <div className='intro'>

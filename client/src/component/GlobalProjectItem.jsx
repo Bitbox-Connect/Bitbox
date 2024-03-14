@@ -12,7 +12,7 @@ const GlobalProjectItem = (props) => {
     };
 
     return (
-        <div className='col-md-4' style={{ width: "17vw" }}>
+        <div className='col-md-3'>
             <div className="card my-2">
                 {/* <img src={projectImg} className="card-img-top" alt="..." /> */}
                 <img src={generateImageUrl(project._id)} style={{ height: "25vh" }} className="card-img-top" alt="..." />
