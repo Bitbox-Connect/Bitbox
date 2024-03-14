@@ -68,38 +68,30 @@ const Home = () => {
                     <div className="CARD-INFOs">
                         <div className="CARD-INFO-row1">
                             <div className="CARD-INFO">
-                                <h3>Start your journey</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Rerum corporis tenetur iste illo ipsum quaerat illum repellendus
-                                    libero minima dolores eos quos hic,
-                                    vero maxime perferendis sint a amet. Nobis.</p>
-                                <button className='btn-box'><a href="">Apply as contributor</a></button>
+                                <h3>Special title treatment</h3>
+                                <p>supporting text below as a natural lead-in to additional content.</p>
+                                <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
+                                <a href="#" className="btn btn-primary">Go somewhere</a>
                             </div>
                             <div className="CARD-INFO">
-                                <h3>Start your journey</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Rerum corporis tenetur iste illo ipsum quaerat illum repellendus
-                                    libero minima dolores eos quos hic,
-                                    vero maxime perferendis sint a amet. Nobis.</p>
-                                <button className='btn-box'><a href="">Apply as contributor</a></button>
+                            <h3>Special title treatment</h3>
+                                <p>supporting text below as a natural lead-in to additional content.</p>
+                                <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
+                                <a href="#" className="btn btn-primary">Go somewhere</a>
                             </div>
                         </div>
                         <div className="CARD-INFO-row2">
                             <div className="CARD-INFO">
-                                <h3>Start your journey</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Rerum corporis tenetur iste illo ipsum quaerat illum repellendus
-                                    libero minima dolores eos quos hic,
-                                    vero maxime perferendis sint a amet. Nobis.</p>
-                                <button className='btn-box'><a href="">Apply as contributor</a></button>
+                            <h3>Special title treatment</h3>
+                                <p>supporting text below as a natural lead-in to additional content.</p>
+                                <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
+                                <a href="#" className="btn btn-primary">Go somewhere</a>
                             </div>
                             <div className="CARD-INFO">
-                                <h3>Start your journey</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Rerum corporis tenetur iste illo ipsum quaerat illum repellendus
-                                    libero minima dolores eos quos hic,
-                                    vero maxime perferendis sint a amet. Nobis.</p>
-                                <button className='btn-box'><a href="">Apply as contributor</a></button>
+                            <h3>Special title treatment</h3>
+                                <p>supporting text below as a natural lead-in to additional content.</p>
+                                <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
+                                <a href="#" className="btn btn-primary">Go somewhere</a>
                             </div>
                         </div>
                     </div>
@@ -107,7 +99,7 @@ const Home = () => {
 
                 <section className='section-card'>
                     <h3>New Update</h3>
-                    <div className="card">
+                    <div className="card text-center">
                         <h3> <a href="#">About-Us</a></h3>
                         <div className="card-body">
                             <h5 className="card-title">Special title treatment</h5>

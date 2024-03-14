@@ -8,7 +8,7 @@ export default function About() {
     <div className='container'>
       <h1 className='Heading-page text-center'>About Us</h1>
       <div className="about">
-        <h2 className='mb-4 mt-2'>Kaiyuan</h2>
+        <h2 className='mb-4 mt-2 text-center'>Kaiyuan</h2>
         <div className='intro'>
           Kaiyuan is like a friendly community where people working on projects can come together. If you’re stuck or need advice, you can ask for help. And if you know something, you can share your knowledge with others. It’s all about supporting each other and building a helpful community.
           🌟<br /> <br />Welcome to our open-source platform, where innovation knows no bounds and collaboration is key. Dive into our repository of code, where creativity flourishes and solutions come to life. Join our vibrant community of developers, enthusiasts, and visionaries, as we build the future together, one line at a time
@@ -16,7 +16,7 @@ export default function About() {
       </div>
 
       <div className="visitors">
-        <h2>website Record</h2>
+        <h2>Website Record</h2>
 
         <h3>Happy User</h3>
         <h3>No of User</h3>
