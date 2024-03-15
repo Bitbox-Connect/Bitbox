@@ -45,17 +45,62 @@
     font-size: 1rem;
     text-align: center;
 }
-.row{
+
+.row {
     margin: 20px;
 }
-.card{
+
+.card {
     border-radius: 25px;
     height: 27pc;
 }
-.section-card h3{
+
+.section-card h3 {
     text-align: center;
     margin: 5px;
     padding: 6px;
     font-size: 40px;
     font-weight: 600;
+}
+
+.CARD-INFOs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin: 2rem;
+}
+
+.CARD-INFO-row1,
+.CARD-INFO-row2 {
+    display: grid;
+    gap: 2rem;
+}
+
+.CARD-INFO {
+    width: 30rem;
+    height: 20rem;
+    border-radius: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 23px;
+    background-color: #00ff9a;
+    box-shadow: 0 0 8px 2px rgb(0 0 0 / 25%);
+}
+
+.btn-box {
+    border-radius: 5px;
+    width: 200px;
+    color: black;
+    background-color: #42c993;
+    text-decoration: none;
+    box-shadow: 0 0 8px 2px rgb(0 0 0 / 8%);
+}
+
+.btn-box a {
+    color: black;
+    margin: 5px;
+    padding: 6px;
 }
