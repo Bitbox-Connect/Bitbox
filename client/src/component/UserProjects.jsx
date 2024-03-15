@@ -90,7 +90,7 @@ const UserProjects = (props) => {
             </div>
 
             <div className='container'>
-                <h1 className='text-center mb-4 mt-2'>My Uploaded Projects</h1>
+                <h1 className='Heading-page text-center mb-4'>My Uploaded Projects</h1>
                 {projects.length === 0 && <UploadProject showAlert={props.showAlert} title="Click Here To Upload" />}
                 <div className='row my-3'>
                     {projects.map((project) => {

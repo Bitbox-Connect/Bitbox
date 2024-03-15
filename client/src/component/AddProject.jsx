@@ -51,7 +51,7 @@ function AddProject(props) {
                                     </div> */}
                                     <div className="mb-3">
                                         <label htmlFor="title" className="form-label">Project Title</label>
-                                        <input type="text" className="form-control" id="title" name='title' value={project.title} onChange={onChange} placeholder="Enter Project Title Here *" />
+                                        <input type="text" className="form-control" id="title" name='title' value={project.title} onChange={onChange} placeholder="Enter Project Title Here *" required/>
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="description" className="form-label">Project Description</label>

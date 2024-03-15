@@ -19,8 +19,8 @@ function Navbar(props) {
         <div>
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
-                    <Link className="navbar-brand d-flex f-4 fw-bold font-monospace" to="/">
-                        <img className='mx-2' src={logo} alt="logo" />
+                    <Link className="navbar-brand d-flex fs-2 fw-bold font-monospace" to="/">
+                        <img className='mx-3' style={{ width: "3rem" }} src={logo} alt="logo" />
                         {props.title}
                     </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,21 +41,21 @@ function Navbar(props) {
                                 <Link className={`nav-link ${location.pathname === '/myProjects' ? 'active' : ''}`} aria-current="page" to="/myProjects">{props.myProjects}</Link>
                             </li>
                         </ul>
-                    
+
                     </div>
-                        <form className="d-flex fs-4 fw-normal">
-                            {!localStorage.getItem('token') ?
-                                <>
-                                    <Link role="button" to='/login' className="btn btn-primary mx-1 fs-4">Login</Link>
-                                    <Link role="button" to='/signup' className="btn btn-primary mx-1 fs-4">Signup</Link>
-                                </>
-                                :
-                                <>
-                                    <AddProject showAlert={showAlert} />
-                                    <button onClick={handleLogout} className='btn btn-primary mx-1 fs-5'>Logout</button>
-                                </>
-                            }
-                        </form>
+                    <form className="d-flex fs-4 fw-normal">
+                        {!localStorage.getItem('token') ?
+                            <>
+                                <Link role="button" to='/login' className="btn btn-primary mx-1">Login</Link>
+                                <Link role="button" to='/signup' className="btn btn-primary mx-1">Signup</Link>
+                            </>
+                            :
+                            <>
+                                <AddProject showAlert={showAlert} />
+                                <button onClick={handleLogout} className='btn btn-primary mx-1'>Logout</button>
+                            </>
+                        }
+                    </form>
                 </div>
             </nav>
         </div>
