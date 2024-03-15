@@ -7,7 +7,6 @@
 }
 
 .Landing-Page {
-    background: rgb(166, 193, 238);
     background: linear-gradient(180deg,
             rgba(166, 193, 238, 1) 0%,
             rgba(166, 193, 238, 1) 62%,
@@ -96,29 +95,32 @@
 }
 
 .Cards-Page {
-    border-radius: 57% 40% 57% 47% / 0% 12% 0% 5%;
-    background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
-    ;
-    /* background: linear-gradient(180deg, rgba(114, 85, 176, 1) 0%, rgba(114, 85, 176, 1) 63%, rgba(48, 35, 220, 1) 100%); */
+    background-color: black;
+}
+
+.Card-Info-Sec {
+    border-radius: 16% 33% 60% 40% / 2% 10% 4% 3%;
+    background: linear-gradient(180deg, rgba(114, 85, 176, 1) 0%, rgba(114, 85, 176, 1) 80%);
 }
 
 .Card-Infos {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    margin: 2rem;
+    gap: 1rem;
+    margin: 1rem;
 }
 
 .Card-Info-Row1,
 .Card-Info-Row2 {
     display: grid;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .Card-Info {
     width: 25rem;
     height: 20rem;
+    margin: 0.3rem;
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     display: flex;
     justify-content: center;

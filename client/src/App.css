@@ -5,14 +5,16 @@
 
 #root {
     overflow: hidden;
+    background: rgb(166, 193, 238);
 }
 
 .Main-Bc {
     background-color: #a6c1ee;
 }
 
+
 .First-Bc {
-    background-color: black;
+    background: rgb(166, 193, 238);
 }
 
 .Heading-Page {
