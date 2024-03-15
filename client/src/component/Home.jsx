@@ -75,52 +75,53 @@ const Home = () => {
                 </div>
             </div>
 
+            <div className="Cards-Page">
+                <section className='Card-Info-Sec'>
+                    <h2 className='Heading-Page text-center mt-5'>Be a part of Kaiyuan Community</h2>
+                    <div className="Card-Infos">
+                        <div className="Card-Info-Row1">
+                            <div className="Card-Info">
+                                <h3>Special title treatment</h3>
+                                <p>supporting text below as a natural lead-in to additional content.</p>
+                                <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
+                                <a href="#" className="btn btn-primary">Go somewhere</a>
+                            </div>
+                            <div className="Card-Info">
+                                <h3>Special title treatment</h3>
+                                <p>supporting text below as a natural lead-in to additional content.</p>
+                                <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
+                                <a href="#" className="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                        <div className="Card-Info-Row2">
+                            <div className="Card-Info">
+                                <h3>Special title treatment</h3>
+                                <p>supporting text below as a natural lead-in to additional content.</p>
+                                <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
+                                <a href="#" className="btn btn-primary">Go somewhere</a>
+                            </div>
+                            <div className="Card-Info">
+                                <h3>Special title treatment</h3>
+                                <p>supporting text below as a natural lead-in to additional content.</p>
+                                <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
+                                <a href="#" className="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-            <section className='Card-Info-sec'>
-                <h2 className='Heading-Page text-center mt-5'>Be a part of Kaiyuan Community</h2>
-                <div className="Card-Infos">
-                    <div className="Card-Info-Row1">
-                        <div className="Card-Info">
-                            <h3>Special title treatment</h3>
-                            <p>supporting text below as a natural lead-in to additional content.</p>
-                            <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
-                            <a href="#" className="btn btn-primary">Go somewhere</a>
-                        </div>
-                        <div className="Card-Info">
-                            <h3>Special title treatment</h3>
-                            <p>supporting text below as a natural lead-in to additional content.</p>
-                            <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
+                <section className='section-card'>
+                    <div className="card text-center">
+                        <h3>New Update</h3>
+                        <h3> <Link onClick={goToAbout}>About-Us</Link></h3>
+                        <div className="card-body">
+                            <h5 className="card-title">Special title treatment</h5>
+                            <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
                             <a href="#" className="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
-                    <div className="Card-Info-Row2">
-                        <div className="Card-Info">
-                            <h3>Special title treatment</h3>
-                            <p>supporting text below as a natural lead-in to additional content.</p>
-                            <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
-                            <a href="#" className="btn btn-primary">Go somewhere</a>
-                        </div>
-                        <div className="Card-Info">
-                            <h3>Special title treatment</h3>
-                            <p>supporting text below as a natural lead-in to additional content.</p>
-                            <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
-                            <a href="#" className="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section className='section-card'>
-                <h3>New Update</h3>
-                <div className="card text-center">
-                    <h3> <Link onClick={goToAbout}>About-Us</Link></h3>
-                    <div className="card-body">
-                        <h5 className="card-title">Special title treatment</h5>
-                        <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" className="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </div>
     )
 }
