@@ -1,5 +1,5 @@
 .welcome-page {
-    height: 70vh;
+    height: 75vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,6 +58,14 @@
     font-weight: 600;
 }
 
+/* Carousel */
+
+.UserImg{
+    width: 40vw;
+    height: 70vh;
+    border-radius: 2%;
+}
+
 .Container-Carousel{
     background-color: black;
     width: 100vw;
@@ -108,3 +116,4 @@
     margin: 5px;
     padding: 6px;
 }
+
