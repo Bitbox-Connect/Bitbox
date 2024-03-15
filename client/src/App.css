@@ -3,6 +3,14 @@
     box-sizing: border-box;
 }
 
+#root{
+    overflow: hidden;
+}
+
+.Main-Bc{
+    background-color: #a6c1ee;
+}
+
 .Heading-Page{
     font-size: 3.5rem;
 }

@@ -35,8 +35,10 @@ function App() {
         <Router>
           {/* Navbar */}
           <Navbar title="Kaiyuan" home="Home" community="Community" about="About us" myProjects="My projects" showAlert={showAlert} />
+          <div className="Main-Bc">
           <SearchBar />
           <Alert alert={alert} />
+          </div>
           <Routes>
             <Route exact path="/" element={<Home showAlert={showAlert} />} />
             <Route exact path="/community" element={<GlobalProjects showAlert={showAlert} />} />
@@ -44,7 +46,6 @@ function App() {
             <Route exact path="/about" element={<About showAlert={showAlert} />} />
             <Route exact path="/login" element={<Login showAlert={showAlert} />} />
             <Route exact path="/signup" element={<Signup showAlert={showAlert} />} />
-
             {/* Footer */}
             <Route exact path="/codeofconduct" element={<Codeofconduct showAlert={showAlert} />} />
             <Route exact path="/asoc" element={<Asoc showAlert={showAlert} />} />
