@@ -67,12 +67,18 @@
 }
 
 .Container-Carousel{
-    background-color: black;
+    /* background-color: black; */
     width: 100vw;
-    height: 100vh;
+    height: 110vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.Container-Carousel .Heading-page{
+    color: white;
+    text-decoration: overline;
 }
 
 .CARD-INFOs {
@@ -90,8 +96,8 @@
 }
 
 .CARD-INFO {
-    width: 30rem;
-    height: 20rem;
+    width: 22rem;
+    height: 15rem;
     border-radius: 5%;
     display: flex;
     justify-content: center;

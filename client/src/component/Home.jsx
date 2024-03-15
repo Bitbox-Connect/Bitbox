@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import image1 from '../assets/images/Anuj.jpeg'
 import image2 from '../assets/images/jitendra.jpeg'
@@ -7,6 +7,11 @@ import './Home.css'
 
 const Home = () => {
     // const { showAlert } = props;
+    const navigate = useNavigate();
+
+    const goToAbout = ()=>{
+        navigate('/about');
+    }
     return (
         <div>
             <div className="container">
@@ -24,6 +29,7 @@ const Home = () => {
             </div>
 
                 <div className="Container-Carousel">
+                    <h2 className='text-center text-light Heading-page'>Our Contributor</h2>
                     <section className='my-4 mx-2'>
                         <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
                             <div className="carousel-indicators">
@@ -103,7 +109,7 @@ const Home = () => {
                 <section className='section-card'>
                     <h3>New Update</h3>
                     <div className="card text-center">
-                        <h3> <Link to="/about">About-Us</Link></h3>
+                        <h3> <Link onClick={goToAbout}>About-Us</Link></h3>
                         <div className="card-body">
                             <h5 className="card-title">Special title treatment</h5>
                             <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
