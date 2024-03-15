@@ -22,7 +22,7 @@ const Projects = (props) => {
     return (
         <div className='container'>
             <div className="content">
-                <h1 className='Heading-page text-center mb-4'>Welcome to kaiyuan Community</h1>
+                <h1 className='Heading-Page text-center mb-4'>Welcome to kaiyuan Community</h1>
             </div>
             {projects.length === 0 && <UploadProject title="Click Here To Upload" />}
             <div className='row '>

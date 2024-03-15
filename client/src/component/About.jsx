@@ -1,4 +1,4 @@
-import img1 from '../assets/images/Anuj.jpeg';
+import img1 from '../assets/images/Anuj.jpg';
 import img2 from '../assets/images/jitendra.jpeg';
 import img3 from '../assets/images/harshit.jpeg';
 import './About.css';
@@ -6,7 +6,7 @@ import './About.css';
 export default function About() {
   return (
     <div className='container'>
-      <h1 className='Heading-page text-center'>About Us</h1>
+      <h1 className='Heading-Page text-center'>About Us</h1>
       <div className="about">
         <h2 className='mb-4 mt-2 text-center'>Kaiyuan</h2>
         <div className='intro'>

@@ -6,6 +6,14 @@
     flex-direction: column;
 }
 
+.Landing-Page {
+    background: rgb(166, 193, 238);
+    background: linear-gradient(180deg,
+            rgba(166, 193, 238, 1) 0%,
+            rgba(166, 193, 238, 1) 62%,
+            rgba(0, 0, 0, 1) 100%);
+}
+
 .button-color1 {
     padding: 15px 25px;
     font-weight: 600;
@@ -20,7 +28,7 @@
     color: #fff;
     background-color: #0b5ed7;
     border-color: #0a58ca;
-    box-shadow: rgb(49, 132, 253, );
+    box-shadow: rgb(49, 132, 253);
 }
 
 .button-color2 {
@@ -60,14 +68,15 @@
 
 /* Carousel */
 
-.UserImg{
+.UserImg {
     width: 40vw;
     height: 70vh;
     border-radius: 2%;
 }
 
-.Container-Carousel{
-    /* background-color: black; */
+.Container-Carousel {
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 0% 100% 11% 89% / 72% 6% 94% 28%;
     width: 100vw;
     height: 110vh;
     display: flex;
@@ -76,12 +85,12 @@
     flex-direction: column;
 }
 
-.Container-Carousel .Heading-page{
+.Container-Carousel .Heading-Page {
     color: white;
     text-decoration: overline;
 }
 
-.CARD-INFOs {
+.Card-Infos {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,22 +98,21 @@
     margin: 2rem;
 }
 
-.CARD-INFO-row1,
-.CARD-INFO-row2 {
+.Card-Info-Row1,
+.Card-Info-Row2 {
     display: grid;
     gap: 2rem;
 }
 
-.CARD-INFO {
-    width: 22rem;
+.Card-Info {
+    width: 20rem;
     height: 15rem;
-    border-radius: 5%;
+    border-radius: 2%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 23px;
-    background-color: #00ff9a;
     box-shadow: 0 0 8px 2px rgb(0 0 0 / 25%);
 }
 
@@ -112,7 +120,6 @@
     border-radius: 5px;
     width: 200px;
     color: black;
-    background-color: #42c993;
     text-decoration: none;
     box-shadow: 0 0 8px 2px rgb(0 0 0 / 8%);
 }
@@ -122,4 +129,3 @@
     margin: 5px;
     padding: 6px;
 }
-

@@ -3,13 +3,6 @@
     box-sizing: border-box;
 }
 
-#root{
-}
-
-.bc-color {
-    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
-}
-
-.Heading-page{
+.Heading-Page{
     font-size: 3.5rem;
 }

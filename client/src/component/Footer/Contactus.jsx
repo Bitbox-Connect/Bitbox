@@ -7,7 +7,7 @@ const Contactus = () => {
   return (
     <div className="d-flex justify-content-center align-items-center">
       <div className="container">
-        <h1 className="Heading-page text-dark text-center font-weight-bold">Contact Us</h1>
+        <h1 className="Heading-Page text-dark text-center font-weight-bold">Contact Us</h1>
         <header className="navbar header justify-content-center ">
           <div className="bind text-center">
             <img className="image-bx" src="1658093029050.jpg" alt="img" />

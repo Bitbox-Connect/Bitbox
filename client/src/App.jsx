@@ -35,7 +35,6 @@ function App() {
         <Router>
           {/* Navbar */}
           <Navbar title="Kaiyuan" home="Home" community="Community" about="About us" myProjects="My projects" showAlert={showAlert} />
-          <div className="bc-color">
           <SearchBar />
           <Alert alert={alert} />
           <Routes>
@@ -52,7 +51,6 @@ function App() {
             <Route exact path="/contactus" element={<Contactus showAlert={showAlert} />} />
             <Route exact path="/upliftproject" element={<Upliftproject showAlert={showAlert} />} />
           </Routes>
-          </div>
           <Footer />
         </Router>
       </ProjectState>
