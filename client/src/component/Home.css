@@ -14,10 +14,13 @@
             rgba(0, 0, 0, 1) 100%);
 }
 
+.Landing-Page a {
+    text-decoration: none;
+}
+
 .button-color1 {
     padding: 15px 25px;
     font-weight: 600;
-    color: black;
     background-color: #0d6efd;
     color: white;
     border-radius: 10px;
@@ -149,8 +152,8 @@
 
 .About-Container {
     border-radius: 16% 33% 60% 40% / 0% 20% 0% 15%;
-    background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
     width: 100vw;
+    background: antiquewhite;
     height: 100vh;
     display: flex;
     justify-content: center;

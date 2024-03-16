@@ -34,25 +34,27 @@ function App() {
       <ProjectState>
         <Router>
           {/* Navbar */}
-          <Navbar title="Kaiyuan" home="Home" community="Community" about="About us" myProjects="My projects" showAlert={showAlert} />
-          <div className="Main-Bc">
-            <SearchBar />
-            <Alert alert={alert} />
-          </div>
-          <div className="First-Bc">
-            <Routes>
-              <Route exact path="/" element={<Home showAlert={showAlert} />} />
-              <Route exact path="/community" element={<GlobalProjects showAlert={showAlert} />} />
-              <Route exact path="/myProjects" element={<UserProjects showAlert={showAlert} />} />
-              <Route exact path="/about" element={<About showAlert={showAlert} />} />
-              <Route exact path="/login" element={<Login showAlert={showAlert} />} />
-              <Route exact path="/signup" element={<Signup showAlert={showAlert} />} />
-              {/* Footer */}
-              <Route exact path="/codeofconduct" element={<Codeofconduct showAlert={showAlert} />} />
-              <Route exact path="/asoc" element={<Asoc showAlert={showAlert} />} />
-              <Route exact path="/contactus" element={<Contactus showAlert={showAlert} />} />
-              <Route exact path="/upliftproject" element={<Upliftproject showAlert={showAlert} />} />
-            </Routes>
+          <div className="content">
+            <Navbar title="Kaiyuan" home="Home" community="Community" about="About us" myProjects="My projects" showAlert={showAlert} />
+            <div className="Main-Bc">
+              <SearchBar />
+              <Alert alert={alert} />
+            </div>
+            <div className="First-Bc">
+              <Routes>
+                <Route exact path="/" element={<Home showAlert={showAlert} />} />
+                <Route exact path="/community" element={<GlobalProjects showAlert={showAlert} />} />
+                <Route exact path="/myProjects" element={<UserProjects showAlert={showAlert} />} />
+                <Route exact path="/about" element={<About showAlert={showAlert} />} />
+                <Route exact path="/login" element={<Login showAlert={showAlert} />} />
+                <Route exact path="/signup" element={<Signup showAlert={showAlert} />} />
+                {/* Footer */}
+                <Route exact path="/codeofconduct" element={<Codeofconduct showAlert={showAlert} />} />
+                <Route exact path="/asoc" element={<Asoc showAlert={showAlert} />} />
+                <Route exact path="/contactus" element={<Contactus showAlert={showAlert} />} />
+                <Route exact path="/upliftproject" element={<Upliftproject showAlert={showAlert} />} />
+              </Routes>
+            </div>
           </div>
           <Footer />
         </Router>
