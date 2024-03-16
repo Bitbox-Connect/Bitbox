@@ -11,7 +11,7 @@ import './About.css';
 
 export default function About() {
   return (
-    <div className='container'>
+    <div className='about-sec-container'>
       <h1 className='Heading-Page text-center'>About Us</h1>
       <div className="about">
         <h2 className='mb-4 mt-2 text-center'>Kaiyuan</h2>
@@ -62,7 +62,6 @@ export default function About() {
               <img src={img1} alt="OWNER" />
               <div className="teamember"><b>Anuj Verma</b></div>
             </div>
-
             <div className="team-box hover01">
               <img src={img3} alt="OWNER" />
               <div className="teamember"><b>Harshit Singh</b></div>
@@ -73,7 +72,9 @@ export default function About() {
             </div>
           </div>
         </section>
-        <div className="info"><p className='fs-4'>"Open source is a shared vision of building a community of similar -minded individuals. Together, we collaborate, innovate, and shape the future of technology with transparency and inclusivity at its core  write in more effective way"</p></div>
+        <div className="info">
+          <p className='fs-4'>&quot;Open source is a shared vision of building a community of similar -minded individuals. Together, we collaborate, innovate, and shape the future of technology with transparency and inclusivity at its core  write in more effective way&quot;</p>
+        </div>
       </section>
     </div>
   );
