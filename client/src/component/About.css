@@ -40,16 +40,29 @@
 }
 
 .visitors {
+  /* display: flex; */
   background-color: #8fbc96;
-  max-width: 700px;
-  min-height: 200px;
+  max-width: 300px;
+  min-height: 170px;
   border-radius: 10px;
   margin: 30px auto;
-  text-align: center;
+  /* text-align: center; */
   padding: 10px;
-  box-shadow: inset 0 0 8px 2px rgb(0 0 0 / 42%);
+  margin-bottom: 35px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+}
+.container-bx{
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
-.visitors h2 {
+h2 {
   text-align: center;
+}
+.visitors .about-gif img {
+  width: 200px;
+  height: auto; 
+  border-radius: 17px;
 }
