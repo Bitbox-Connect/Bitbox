@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import './Footer.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedinIn, faDiscord, faTwitter, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'; // Importing social media icons from the brands category
+import { FaFacebookSquare, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 function Footer() {
   return (
     <footer>
@@ -39,11 +38,11 @@ function Footer() {
           <div>
             <h4>Follow us on</h4>
             <ul>
-              <li><Link to="/"><FontAwesomeIcon icon={faLinkedinIn} /> LinkedIn</Link></li>
-              <li><Link to="/"><FontAwesomeIcon icon={faDiscord} /> Discord</Link></li>
-              <li><Link to="/"><FontAwesomeIcon icon={faTwitter} /> Twitter</Link></li>
-              <li><Link to="/"><FontAwesomeIcon icon={faInstagram} /> Instagram</Link></li>
-              <li><Link to="/"><FontAwesomeIcon icon={faFacebook} /> Facebook</Link></li>
+                    <li><Link to="/"><FaLinkedin color="#0077b5" fontSize="2rem" />Linkedin</Link></li>
+                    <li><Link to="/"><FaTwitter color="#1da1f2" fontSize="2rem"/>Twiiter</Link></li>
+                    <li><Link to="/"><FaGithub color="#211F1F" fontSize="2rem"/>GitHub</Link></li>
+                    {/* <li><Link to="/"><FaInstagram color="#c13584" fontSize="2rem"/></Link></li> */}
+                    <li><Link to="/"><FaFacebookSquare color="#3b5998" fontSize="2rem"/>Facebook</Link></li>
             </ul>
           </div>
         </div>
