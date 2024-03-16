@@ -96,24 +96,27 @@
     align-items: center;
     gap: 2rem;
     margin: 2rem;
+    
 }
 
 .Card-Info-Row1,
 .Card-Info-Row2 {
     display: grid;
     gap: 2rem;
+    
 }
 
 .Card-Info {
     width: 25rem;
     height: 20rem;
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    border-radius: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 23px;
-    box-shadow: 0 0 8px 2px rgb(0 0 0 / 25%);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    /* box-shadow: 0 0 8px 2px rgb(0 0 0 / 25%); */
 }
 
 .btn-box {
@@ -121,7 +124,8 @@
     width: 200px;
     color: black;
     text-decoration: none;
-    box-shadow: 0 0 8px 2px rgb(0 0 0 / 8%);
+    /* box-shadow: 0 0 8px 2px rgb(0 0 0 / 8%); */
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
 }
 
 .btn-box a {

@@ -37,7 +37,7 @@
     position: relative;
     width: 100%;
     height: 69vh;
-    border-radius: 35px;
+    border-radius: 40px;
     text-align: center;
     justify-content: center;
     /* box-shadow: 2px 5px rgba(7, 6, 6, 0.2); */
@@ -68,11 +68,15 @@
         text-align: center;
     }
 }
-
-/* code of conduct --------------------------------------------- code of conduct----------------------------------------------- */
-.cont {
-   color: black;
+.Tree-bx{
+    background-color: #b6c9dc;
 }
+
+.Tree-bx:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+   
+}
+/* code of conduct --------------------------------------------- code of conduct----------------------------------------------- */
 
 .lists {
     padding: 5px;
@@ -87,5 +91,11 @@
 .cont-box {
     margin-bottom: 20px; 
     border-radius: 25px;
+    background-color: rgb(242, 199, 184);
+
+}
+.cont-box:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     background-color: rgb(232, 161, 135);
+
 }

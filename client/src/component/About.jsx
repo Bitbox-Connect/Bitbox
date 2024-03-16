@@ -25,12 +25,12 @@ export default function About() {
       </div>
 
       <div className="team">
-        <div className="team-box">
+        <div className="team-box ">
           <img src={img1} alt="OWNER" />
           <div className="teamember"><b>Anuj Verma</b></div>
         </div>
 
-        <div className="team-box">
+        <div className="team-box hover01">
           <img src={img3} alt="OWNER" />
           <div className="teamember"><b>Harshit Singh</b></div>
         </div>
@@ -40,6 +40,7 @@ export default function About() {
         </div>
 
       </div>
+      
       <div className="info"><p>lsfxsfsxc  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium facere quis enim numquam minima, sint unde maiores minus suscipit nulla aut at cupiditate natus porro sapiente. Obcaecati earum sapiente vitae!</p></div>
     </div>
   );
