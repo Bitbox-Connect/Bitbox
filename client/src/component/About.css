@@ -10,18 +10,19 @@
 }
 
 .team-box img {
+  cursor: pointer;
   width: 150px;
   height: 150px;
   border-radius: 50%;
   -webkit-transform: scale(1);
-	transform: scale(1);
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
-
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
-.team-box:hover img{
+
+.team-box:hover {
   -webkit-transform: scale(1.3);
-	transform: scale(1.3);
+  transform: scale(1.3);
 }
 
 .team-box h3 {
@@ -30,7 +31,9 @@
 
 .about {
   /* background-color: #8fbcb4; */
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(1, 0.4, 0.1, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   max-width: 700px;
   min-height: 400px;
   margin: 30px auto;
@@ -39,17 +42,53 @@
   /* box-shadow: inset 0 0 8px 2px rgb(0 0 0 / 42%); */
 }
 
-.visitors {
-  background-color: #8fbc96;
-  max-width: 700px;
-  min-height: 200px;
-  border-radius: 10px;
-  margin: 30px auto;
+.info {
+  margin-top: 21px;
   text-align: center;
-  padding: 10px;
-  box-shadow: inset 0 0 8px 2px rgb(0 0 0 / 42%);
 }
 
-.visitors h2 {
+.visitors {
+  /* display: flex; */
+  cursor: pointer;
+  background-color: #ffff;
+  max-width: 300px;
+  min-height: 170px;
+  border-radius: 10px;
+  margin: 30px auto;
+  /* text-align: center; */
+  padding: 10px;
+  margin-bottom: 35px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(5, 8, 12, 0.35) 0px -2px 6px 0px inset;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+.visitors:hover {
+  background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+  /* background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%); */
+  /* background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%); */
+}
+
+.container-bx {
+  display: flex;
+  justify-content: center;
   text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+.visitors .about-gif img {
+  width: 200px;
+  height: auto;
+  border-radius: 17px;
+}
+
+.container-page {
+  border-radius: 16% 33% 60% 40% / 0% 20% 0% 15%;
+  background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+  width: fit-content;
+  height: 100vh;
 }
