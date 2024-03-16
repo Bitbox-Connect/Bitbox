@@ -87,11 +87,9 @@
 
 .Container-Carousel .Heading-Page {
     color: white;
-    text-decoration: overline;
 }
 
 .Card-Info-Sec .Heading-Page {
-    text-decoration: underline;
     color: white;
 }
 
@@ -100,7 +98,7 @@
 }
 
 .Card-Info-Sec {
-    border-radius: 16% 33% 60% 40% / 2% 10% 4% 0%;
+    border-radius: 16% 33% 60% 40% / 0% 15% 0% 15%;
     background: linear-gradient(180deg, rgb(0 118 141) 0%, rgb(0 130 242) 80%);
 }
 
@@ -121,8 +119,8 @@
 .Card-Info {
     width: 25rem;
     height: 20rem;
-    margin: 0.3rem;
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    margin: 0.5rem;
+    border-radius: 10%;
     display: flex;
     justify-content: center;
     background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
@@ -130,7 +128,6 @@
     flex-direction: column;
     padding: 23px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    /* box-shadow: 0 0 8px 2px rgb(0 0 0 / 25%); */
 }
 
 .btn-box {
@@ -151,7 +148,7 @@
 /* About Section */
 
 .About-Container {
-    border-radius: 0% 100% 11% 89% / 72% 6% 94% 28%;
+    border-radius: 16% 33% 60% 40% / 0% 20% 0% 15%;
     background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
     width: 100vw;
     height: 100vh;
@@ -163,5 +160,4 @@
 
 .About-head-text {
     cursor: pointer;
-    text-decoration: overline;
 }

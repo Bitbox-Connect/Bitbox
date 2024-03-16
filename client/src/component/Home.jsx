@@ -113,7 +113,7 @@ const Home = () => {
                 <div className="About-Container">
                     <section className='About-Sec'>
                         <h2 onClick={() => goToAbout()} className='Heading-Page text-center About-head-text'>About us</h2>
-                        <div data-aos="fade-down" class="hero__image hidden lg:block aos-init aos-animate">
+                        <div data-aos="fade-down" className="hero__image hidden lg:block aos-init aos-animate">
                             <div className="Tilt">
                                 <div className="about-gif">
                                     <img src={aboutImg} alt="about-image" />
