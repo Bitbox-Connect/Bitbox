@@ -3,14 +3,20 @@
     box-sizing: border-box;
 }
 
-#root{
+#root {
     overflow: hidden;
+    background: rgb(166, 193, 238);
 }
 
-.Main-Bc{
+.Main-Bc {
     background-color: #a6c1ee;
 }
 
-.Heading-Page{
+
+.First-Bc {
+    background: rgb(166, 193, 238);
+}
+
+.Heading-Page {
     font-size: 3.5rem;
 }

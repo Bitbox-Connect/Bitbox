@@ -8,9 +8,8 @@ import './Home.css'
 const Home = () => {
     // const { showAlert } = props;
     const navigate = useNavigate();
-
     const goToAbout = () => {
-        navigate('/about');
+        navigate("/about");
     }
     return (
         <div>
@@ -35,9 +34,9 @@ const Home = () => {
                     <section className='my-4 mx-2'>
                         <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
                             <div className="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-current="true" aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-current="true" aria-label="Slide 3"></button>
+                                <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="2" aria-label="Slide 3"></button>
                             </div>
                             <div className="carousel-inner">
                                 <div className="carousel-item active">
@@ -75,52 +74,53 @@ const Home = () => {
                 </div>
             </div>
 
+            <div className="Cards-Page">
+                <section className='Card-Info-Sec'>
+                    <h2 className='Heading-Page text-center'>Be a part of Kaiyuan Community</h2>
+                    <div className="Card-Infos">
+                        <div className="Card-Info-Row1">
+                            <div className="Card-Info">
+                                <h3>Special title treatment</h3>
+                                <p>supporting text below as a natural lead-in to additional content.</p>
+                                <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
+                                <a href="#" className="btn btn-primary">Go somewhere</a>
+                            </div>
+                            <div className="Card-Info">
+                                <h3>Special title treatment</h3>
+                                <p>supporting text below as a natural lead-in to additional content.</p>
+                                <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
+                                <a href="#" className="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                        <div className="Card-Info-Row2">
+                            <div className="Card-Info">
+                                <h3>Special title treatment</h3>
+                                <p>supporting text below as a natural lead-in to additional content.</p>
+                                <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
+                                <a href="#" className="btn btn-primary">Go somewhere</a>
+                            </div>
+                            <div className="Card-Info">
+                                <h3>Special title treatment</h3>
+                                <p>supporting text below as a natural lead-in to additional content.</p>
+                                <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
+                                <a href="#" className="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-            <section className='Card-Info-sec'>
-                <h2 className='Heading-Page text-center mt-5'>Be a part of Kaiyuan Community</h2>
-                <div className="Card-Infos">
-                    <div className="Card-Info-Row1">
-                        <div className="Card-Info">
-                            <h3>Special title treatment</h3>
-                            <p>supporting text below as a natural lead-in to additional content.</p>
-                            <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
-                            <a href="#" className="btn btn-primary">Go somewhere</a>
-                        </div>
-                        <div className="Card-Info">
-                            <h3>Special title treatment</h3>
-                            <p>supporting text below as a natural lead-in to additional content.</p>
-                            <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
+                <section className='section-card'>
+                    <div className="card text-center">
+                        <h3>New Update</h3>
+                        <h3> <button className='btn btn-secondary' onClick={() => goToAbout()}>About-Us</button></h3>
+                        <div className="card-body">
+                            <h5 className="card-title">Special title treatment</h5>
+                            <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
                             <a href="#" className="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
-                    <div className="Card-Info-Row2">
-                        <div className="Card-Info">
-                            <h3>Special title treatment</h3>
-                            <p>supporting text below as a natural lead-in to additional content.</p>
-                            <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
-                            <a href="#" className="btn btn-primary">Go somewhere</a>
-                        </div>
-                        <div className="Card-Info">
-                            <h3>Special title treatment</h3>
-                            <p>supporting text below as a natural lead-in to additional content.</p>
-                            <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
-                            <a href="#" className="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section className='section-card'>
-                <h3>New Update</h3>
-                <div className="card text-center">
-                    <h3> <Link onClick={goToAbout}>About-Us</Link></h3>
-                    <div className="card-body">
-                        <h5 className="card-title">Special title treatment</h5>
-                        <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" className="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </div>
     )
 }

@@ -7,7 +7,6 @@
 }
 
 .Landing-Page {
-    background: rgb(166, 193, 238);
     background: linear-gradient(180deg,
             rgba(166, 193, 238, 1) 0%,
             rgba(166, 193, 238, 1) 62%,
@@ -90,28 +89,42 @@
     text-decoration: overline;
 }
 
+.Card-Info-Sec .Heading-Page {
+    text-decoration: underline;
+    color: white;
+}
+
+.Cards-Page {
+    background-color: black;
+}
+
+.Card-Info-Sec {
+    border-radius: 16% 33% 60% 40% / 2% 10% 4% 0%;
+    background: linear-gradient(180deg, rgb(0 118 141) 0%, rgb(0 130 242) 80%);
+}
+
 .Card-Infos {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    margin: 2rem;
-    
+    gap: 1rem;
+    margin: 1rem;
 }
 
 .Card-Info-Row1,
 .Card-Info-Row2 {
     display: grid;
-    gap: 2rem;
-    
+    gap: 1rem;
 }
 
 .Card-Info {
     width: 25rem;
     height: 20rem;
-    border-radius: 30px;
+    margin: 0.3rem;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     display: flex;
     justify-content: center;
+    background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
     align-items: center;
     flex-direction: column;
     padding: 23px;
