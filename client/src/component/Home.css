@@ -1,3 +1,4 @@
+/* Landing Page Section */
 .welcome-page {
     height: 75vh;
     display: flex;
@@ -65,7 +66,7 @@
     font-weight: 600;
 }
 
-/* Carousel */
+/* Carousel Section */
 
 .UserImg {
     width: 40vw;
@@ -145,4 +146,22 @@
     color: black;
     margin: 5px;
     padding: 6px;
+}
+
+/* About Section */
+
+.About-Container {
+    border-radius: 0% 100% 11% 89% / 72% 6% 94% 28%;
+    background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.About-head-text {
+    cursor: pointer;
+    text-decoration: overline;
 }

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import image1 from '../assets/images/Anuj.jpg'
 import image2 from '../assets/images/jitendra.jpeg'
 import image3 from '../assets/images/harshit.jpeg'
+import aboutImg from '../assets/images/Vector Gif/About.gif'
 import './Home.css'
 
 const Home = () => {
@@ -109,17 +110,18 @@ const Home = () => {
                     </div>
                 </section>
 
-                <section className='section-card'>
-                    <div className="card text-center">
-                        <h3>New Update</h3>
-                        <h3> <button className='btn btn-secondary' onClick={() => goToAbout()}>About-Us</button></h3>
-                        <div className="card-body">
-                            <h5 className="card-title">Special title treatment</h5>
-                            <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" className="btn btn-primary">Go somewhere</a>
+                <div className="About-Container">
+                    <section className='About-Sec'>
+                        <h2 onClick={() => goToAbout()} className='Heading-Page text-center About-head-text'>About us</h2>
+                        <div data-aos="fade-down" class="hero__image hidden lg:block aos-init aos-animate">
+                            <div className="Tilt">
+                                <div className="about-gif">
+                                    <img src={aboutImg} alt="about-image" />
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                </div>
             </div>
         </div>
     )
