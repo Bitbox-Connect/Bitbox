@@ -1,3 +1,15 @@
+#navbar {
+    overflow: hidden;
+    background-color: #a6c1ee;
+    z-index: +1;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
 .uploadPro {
     border: 1px solid black;
     color: white;
@@ -6,8 +18,4 @@
 
 .uploadPro:hover {
     color: black;
-}
-
-.navbar{
-    /* background-image: linear-gradient(to top, #abbcff 0%, #12f4ff 100%); */
 }

@@ -4,20 +4,46 @@ import { useLocation } from 'react-router-dom';
 import AddProject from './AddProject';
 import logo from '../assets/images/logo.png';
 import './Navbar.css';
+import { useEffect, useState } from 'react';
 
 function Navbar(props) {
     const navigate = useNavigate();
     let location = useLocation();
     const { showAlert } = props;
+    const [isScrolled, setIsScrolled] = useState(false); // State to keep track of whether page has been scrolled
 
     const handleLogout = () => {
         localStorage.removeItem('token');
         navigate('/login');
     };
 
+    useEffect(() => {
+        window.onscroll = function () { myFunction() };
+
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+
+        function myFunction() {
+            if (window.pageYOffset >= sticky) {
+                setIsScrolled(true); // Set state to true when page is scrolled down
+                navbar.classList.add("sticky")
+            } else {
+                setIsScrolled(false); // Set state to false when page is scrolled up
+                navbar.classList.remove("sticky");
+            }
+        }
+
+        // Check if page is already scrolled down when component mounts
+        if (window.pageYOffset >= sticky) {
+            setIsScrolled(true);
+            navbar.classList.add("sticky");
+        }
+
+    }, []);
+
     return (
         <div>
-            <nav className="navbar navbar-expand-lg">
+            <nav className={`navbar navbar-expand-lg ${isScrolled ? 'sticky' : ''}`} id='navbar'>
                 <div className="container-fluid">
                     <Link className="navbar-brand d-flex fs-2 fw-bold font-monospace" to="/">
                         <img className='mx-3' style={{ width: "3rem" }} src={logo} alt="logo" />
