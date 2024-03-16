@@ -20,12 +20,12 @@ const Projects = (props) => {
         // eslint-disable-next-line
     }, [])
     return (
-        <div className='container'>
+        <div className='container Global-Sec-Container'>
             <div className="content">
                 <h1 className='Heading-Page text-center mb-4'>Welcome to kaiyuan Community</h1>
             </div>
             {projects.length === 0 && <UploadProject title="Click Here To Upload" />}
-            <div className='row '>
+            <div>
                 {projects.map((project) => {
                     return <GlobalProjectItem showAlert={props.showAlert} key={project._id} project={project} />;
                 })}

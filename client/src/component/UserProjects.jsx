@@ -89,10 +89,10 @@ const UserProjects = (props) => {
                 </div>
             </div>
 
-            <div className='container'>
+            <div className='container User-Sec-Container'>
                 <h1 className='Heading-Page text-center mb-4'>My Uploaded Projects</h1>
                 {projects.length === 0 && <UploadProject showAlert={props.showAlert} title="Click Here To Upload" />}
-                <div className='row my-3'>
+                <div>
                     {projects.map((project) => {
                         return <UserProjectItem key={project._id} updateProject={updateProject} project={project} showAlert={props.showAlert} />;
                     })}

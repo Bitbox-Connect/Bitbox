@@ -22,10 +22,10 @@ export default function About() {
       </div>
       <section className='container-page'>
         <section>
-          <h2>Website Record</h2>
+          <h2 className='Heading-Page'>Website Record</h2>
           <div className="container-bx">
             <div className="visitors">
-              <h3>All Projects</h3>
+              <h3 >All Projects</h3>
               <div className="about-gif">
                 <img src={aboutImg} alt="about-image" />
               </div>
@@ -56,7 +56,7 @@ export default function About() {
         </section>
         <section>
 
-          <h2>Our Contributer</h2>
+          <h2 className='Heading-Page'>Our Contributer</h2>
           <div className="team">
             <div className="team-box ">
               <img src={img1} alt="OWNER" />
