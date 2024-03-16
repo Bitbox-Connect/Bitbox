@@ -99,8 +99,8 @@
 }
 
 .Card-Info-Sec {
-    border-radius: 16% 33% 60% 40% / 2% 10% 4% 3%;
-    background: linear-gradient(180deg, rgba(114, 85, 176, 1) 0%, rgba(114, 85, 176, 1) 80%);
+    border-radius: 16% 33% 60% 40% / 2% 10% 4% 0%;
+    background: linear-gradient(180deg, rgb(0 118 141) 0%, rgb(0 130 242) 80%);
 }
 
 .Card-Infos {
