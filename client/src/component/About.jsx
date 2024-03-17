@@ -1,15 +1,19 @@
+import { useEffect } from 'react';
+import { Application } from '@splinetool/runtime';
+import './About.css';
 import img1 from '../assets/images/Anuj.jpg';
 import img2 from '../assets/images/jitendra.jpeg';
 import img3 from '../assets/images/harshit.jpeg';
 import aboutImg from '../assets/images/Vector Gif/About.gif'
 import aboutImg1 from '../assets/images/Vector Gif/R.gif'
 import aboutImg2 from '../assets/images/Vector Gif/tenor.gif'
-import aboutImg3 from '../assets/images/Vector Gif/Happy.gif'
-
-
-import './About.css';
 
 export default function About() {
+  useEffect(() => {
+    const canvas = document.getElementById('canvas3d');
+    const app = new Application(canvas);
+    app.load('https://prod.spline.design/5Wvz1ugKqCUUG9YH/scene.splinecode');
+  }, []);
   return (
     <div className='about-sec-container'>
       <h1 className='Heading-Page text-center'>About Us</h1>
@@ -115,6 +119,8 @@ export default function About() {
           <p className='fs-4'>&quot;Open source is a shared vision of building a community of similar -minded individuals. Together, we collaborate, innovate, and shape the future of technology with transparency and inclusivity at its core  write in more effective way&quot;</p>
         </div>
       </section>
+      {/* Spline viewer */}
+      <canvas id="canvas3d" width="800" height="600"></canvas>
     </div>
   );
 }
