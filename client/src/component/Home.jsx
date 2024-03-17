@@ -1,10 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom';
+import './Home.css'
 import PropTypes from 'prop-types';
 import image1 from '../assets/images/Anuj.jpg'
 import image2 from '../assets/images/jitendra.jpeg'
 import image3 from '../assets/images/harshit.jpeg'
 import aboutImg from '../assets/images/Vector Gif/About.gif'
-import './Home.css'
 
 const Home = () => {
     // const { showAlert } = props;

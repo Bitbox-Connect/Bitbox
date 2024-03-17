@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-import { Application } from '@splinetool/runtime';
 import './About.css';
 import img1 from '../assets/images/Anuj.jpg';
 import img2 from '../assets/images/jitendra.jpeg';
@@ -7,6 +5,8 @@ import img3 from '../assets/images/harshit.jpeg';
 import aboutImg from '../assets/images/Vector Gif/About.gif'
 import aboutImg1 from '../assets/images/Vector Gif/R.gif'
 import aboutImg2 from '../assets/images/Vector Gif/tenor.gif'
+import { Application } from '@splinetool/runtime';
+import { useEffect } from 'react';
 
 export default function About() {
   useEffect(() => {
@@ -15,13 +15,20 @@ export default function About() {
     app.load('https://prod.spline.design/5Wvz1ugKqCUUG9YH/scene.splinecode');
   }, []);
   return (
-    <div className='about-sec-container'>
-      <h1 className='Heading-Page text-center'>About Us</h1>
+    <div className='About-Sec-Container'>
       <div className="about">
-        <h2 className='mb-4 mt-2 text-center'>Kaiyuan</h2>
-        <div className='intro'>
-          Kaiyuan is like a friendly community where people working on projects can come together. If you’re stuck or need advice, you can ask for help. And if you know something, you can share your knowledge with others. It’s all about supporting each other and building a helpful community.
-          🌟<br /> <br />Welcome to our open-source platform, where innovation knows no bounds and collaboration is key. Dive into our repository of code, where creativity flourishes and solutions come to life. Join our vibrant community of developers, enthusiasts, and visionaries, as we build the future together, one line at a time
+        <div className='About-Page1'>
+          <div className="left-page">
+            <h1>About us</h1>
+            Kaiyuan is like a friendly community where people working on projects can come together. If you’re stuck or need advice, you can ask for help. And if you know something, you can share your knowledge with others. It’s all about supporting each other and building a helpful community.
+            🌟<br /> <br />Welcome to our open-source platform, where innovation knows no bounds and collaboration is key. Dive into our repository of code, where creativity flourishes and solutions come to life. Join our vibrant community of developers, enthusiasts, and visionaries, as we build the future together, one line at a time
+          </div>
+          <div className="right-page" data-engine="three.js r149">
+            {/* Implement by iFrame */}
+            {/* <iframe className='spline3dimage' src='https://my.spline.design/miniroomcopy-ace55f908c5728b8a08a8f6348f8f7b3/' width='100%' height='100%'></iframe> */}
+            {/* Implement by canvas tag -- Note -> use data-engine="three.js r149"*/}
+            <canvas id='canvas3d'></canvas>
+          </div>
         </div>
       </div>
       <section className='container-page'>
@@ -119,8 +126,6 @@ export default function About() {
           <p className='fs-4'>&quot;Open source is a shared vision of building a community of similar -minded individuals. Together, we collaborate, innovate, and shape the future of technology with transparency and inclusivity at its core  write in more effective way&quot;</p>
         </div>
       </section>
-      {/* Spline viewer */}
-      <canvas id="canvas3d" width="800" height="600"></canvas>
     </div>
   );
 }

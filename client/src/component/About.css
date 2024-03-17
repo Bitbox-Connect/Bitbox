@@ -1,5 +1,25 @@
-.about-sec-container {
+.About-Sec-Container {
   padding-bottom: 2rem;
+}
+
+.About-Page1 {
+  height: 64.5vh;
+  display: flex;
+  width: 100vw;
+  margin: 0 2rem;
+}
+
+.About-Page1 .left-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 60vw;
+  height: 64vh;
+}
+
+.About-Page1 .right-page {
+  width: 60vw;
+  margin: 1rem 3rem;
 }
 
 .team {
@@ -29,17 +49,6 @@
 
 .team-box h3 {
   margin-top: 10px;
-}
-
-.about {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(1, 0.4, 0.1, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  max-width: 700px;
-  min-height: 400px;
-  margin: 30px auto;
-  border-radius: 10px;
-  padding: 10px;
 }
 
 .info {
@@ -140,9 +149,3 @@ h2 {
   transform: rotateY(180deg);
 
 }
-
-/* Spline 3D Image */
-canvas {
-  display: block;
-}
-.logo{position:absolute;bottom:16px;right:16px;width:32px;height:32px;z-index:2;background-image:url(https://app.spline.design/_assets/_icons/icon_favicon32x32.png);background-size:cover;}.logo:hover{opacity:0.8;}

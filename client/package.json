@@ -16,6 +16,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/icons-material": "^5.15.12",
+    "@splinetool/react-spline": "^2.2.6",
     "@splinetool/runtime": "^1.0.67",
     "@splinetool/viewer": "^1.0.67",
     "bootstrap-icons": "^1.11.3",
