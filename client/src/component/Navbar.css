@@ -22,8 +22,6 @@
 
 .Navbar-Btn-Group {
     display: flex;
-    width: 30vw;
-    display: flex;
     align-items: center;
     justify-content: flex-end;
 }
@@ -79,6 +77,8 @@
 /* Customize Logout Button */
 .Btn {
     display: flex;
+    /* position: absolute; */
+    right: 12rem;
     align-items: center;
     justify-content: flex-start;
     width: 45px;
