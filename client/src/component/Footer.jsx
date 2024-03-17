@@ -36,8 +36,8 @@ function Footer() {
         </div>
         <div className="social">
           <div>
-            <h4 className='fs-2 fw-bold'>Follow us on</h4>
-            <ul className='fs-5 '>
+            <h4>Follow us on</h4>
+            <ul>
                     <li><Link to="/"><FaLinkedin color="#0077b5" fontSize="2rem" />Linkedin</Link></li>
                     <li><Link to="/"><FaTwitter color="#1da1f2" fontSize="2rem"/>Twiiter</Link></li>
                     <li><Link to="/"><FaGithub color="#211F1F" fontSize="2rem"/>GitHub</Link></li>
@@ -49,7 +49,7 @@ function Footer() {
       </div>
 
       <div className="copy-right">
-        <h4 className='copy-content'>© 2024 Open Source. Made with ❤️ by Jitendra, Harshit & Anuj. All rights reserved.</h4>
+        <h4 className='copy-content'>© 2024 Open Source. Made with ❤️ by Jitendra, Harshit & Anuj.&nbsp; All rights reserved.</h4>
       </div>
 
     </footer>
