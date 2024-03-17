@@ -24,33 +24,77 @@ export default function About() {
         <section>
           <h2>Website Record</h2>
           <div className="container-bx">
-            <div className="visitors">
-              <h3>All Projects</h3>
-              <div className="about-gif">
+            <div class="flip-card ">
+              <div class="flip-card-inner ">
+                <div class="flip-card-front">
+                  <p class="title">No of Projects</p>
+                  <p>Hover Me</p>
+              <h3 className='title'>570+</h3>
+                </div>
+                <div class="flip-card-back">
+                  <p class="title">BACK</p>
+                  <div className="about-gif">
                 <img src={aboutImg} alt="about-image" />
+                  </div>
+                  <p>Leave Me</p>
+                </div>
               </div>
-              <h3><b>150+</b></h3>
             </div>
-            <div className="visitors">
-              <h3>Pull Requests</h3>
-              <div className="about-gif">
+           
+
+            
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <p class="title">No. of Pull Request</p>
+                  <p>Hover Me</p>
+                  <h3><b>850+</b></h3>
+                </div>
+                <div class="flip-card-back">
+                  <p class="title">BACK</p>
+                  <div className="about-gif">
                 <img src={aboutImg1} alt="about-image" />
+                  </div>
+                  <p>Leave Me</p>
+                </div>
               </div>
-              <h3><b>570+</b></h3>
             </div>
-            <div className="visitors">
-              <h3>Happy User</h3>
-              <div className="about-gif">
-                <img src={aboutImg3} alt="about-image" />
+
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+              
+                  <p class="title">Pull Request</p>
+                  <p>Hover Me</p>
+                  <h3 className='title'>850+</h3>
+              
+                </div>
+                <div class="flip-card-back">
+                  <p class="title">Hello</p>
+                  <div className="about-gif">
+                <img src={aboutImg1} alt="about-image" />
+                  </div>
+                  <p>Like me</p>
+                </div>
               </div>
-              <h3><b>50+</b></h3>
             </div>
-            <div className="visitors">
-              <h3>No. of User</h3>
-              <div className="about-gif">
-                <img src={aboutImg2} alt="about-image" />
+           
+           
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <p class="title">No. of User</p>
+                  <p>Hover Me</p>
+                  <h3 className='title'>870+</h3>
+                </div>
+                <div class="flip-card-back">
+                  <p class="title">Happy User</p>
+                  <div className="about-gif">
+                    <img src={aboutImg2} alt="about-image" />
+                  </div>
+                  <p>Leave Me</p>
+                </div>
               </div>
-              <h3><b>850+</b></h3>
             </div>
           </div>
         </section>
@@ -71,6 +115,7 @@ export default function About() {
               <img src={img2} alt="OWNER" />
               <div className="teamember"><b>Jitendra Kumar</b></div>
             </div>
+
           </div>
         </section>
         <div className="info"><p className='fs-4'>"Open source is a shared vision of building a community of similar -minded individuals. Together, we collaborate, innovate, and shape the future of technology with transparency and inclusivity at its core  write in more effective way"</p></div>

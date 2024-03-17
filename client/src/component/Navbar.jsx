@@ -53,32 +53,32 @@ function Navbar(props) {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                        <ul className="navbar-nav mb-2 mb-lg-0 gap-3">
-                            <li className="nav-item fs-4 fw-normal">
+                        <ul className="navbar-nav mb-2 mb-lg-0 gap-3 fw-medium">
+                            <li className="nav-item fs-4 fw-medium">
                                 <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} aria-current="page" to="/">{props.home}</Link>
                             </li>
-                            <li className="nav-item fs-4 fw-normal">
+                            <li className="nav-item fs-4">
                                 <Link className={`nav-link ${location.pathname === '/community' ? 'active' : ''}`} aria-current="page" to="/community">{props.community}</Link>
                             </li>
-                            <li className="nav-item fs-4 fw-normal">
+                            <li className="nav-item fs-4">
                                 <Link className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`} aria-current="page" to="/about">{props.about}</Link>
                             </li>
-                            <li className="nav-item text-xl fs-4 fw-normal">
+                            <li className="nav-item text-xl fs-4">
                                 <Link className={`nav-link ${location.pathname === '/myProjects' ? 'active' : ''}`} aria-current="page" to="/myProjects">{props.myProjects}</Link>
                             </li>
                         </ul>
 
                     </div>
-                    <form className="d-flex fs-4 fw-normal">
+                    <form className="d-flex fs-4 fw-medium">
                         {!localStorage.getItem('token') ?
                             <>
-                                <Link role="button" to='/login' className="btn btn-primary mx-1">Login</Link>
+                                <Link role="button" to='/login' className="btn btn-primary mx-1 ">Login</Link>
                                 <Link role="button" to='/signup' className="btn btn-primary mx-1">Signup</Link>
                             </>
                             :
                             <>
                                 <AddProject showAlert={showAlert} />
-                                <button onClick={handleLogout} className='btn btn-primary mx-1'>Logout</button>
+                                <button onClick={handleLogout} className='btn btn-primary mx-1 fw-medium'>Logout</button>
                             </>
                         }
                     </form>

@@ -17,9 +17,9 @@ function Footer() {
           </div>
         </div>
         <div className="new_Details">
-          <h3>About Kaiyuan</h3>
+          <h3 className='fs-2 fw-bold'>About Kaiyuan</h3>
           <div className='Detail'>
-            <ul>
+            <ul className='fs-5'>
               <li><Link to="/contactus">Contact us</Link></li>
               <li><Link to='/codeofconduct'>Code of Conduct</Link></li>
             </ul>
@@ -27,8 +27,8 @@ function Footer() {
         </div>
         <div className="Legal">
           <div>
-            <h3>Legal</h3>
-            <ul>
+            <h3 className='fs-2 fw-bold'>Legal</h3>
+            <ul className='fs-5'>
               <li><Link to="/asoc">ASOC</Link></li>
               <li><Link to="/upliftproject">Uplift project</Link></li>
             </ul>
@@ -36,8 +36,8 @@ function Footer() {
         </div>
         <div className="social">
           <div>
-            <h4>Follow us on</h4>
-            <ul>
+            <h4 className='fs-2 fw-bold'>Follow us on</h4>
+            <ul className='fs-5 '>
                     <li><Link to="/"><FaLinkedin color="#0077b5" fontSize="2rem" />Linkedin</Link></li>
                     <li><Link to="/"><FaTwitter color="#1da1f2" fontSize="2rem"/>Twiiter</Link></li>
                     <li><Link to="/"><FaGithub color="#211F1F" fontSize="2rem"/>GitHub</Link></li>
