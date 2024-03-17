@@ -11,6 +11,7 @@
 .team-box {
   text-align: center;
   margin: 0 20px;
+  transition: 0.2s all ease-in;
 }
 
 .team-box img {
@@ -20,7 +21,6 @@
   border-radius: 50%;
   -webkit-transform: scale(1);
   transform: scale(1);
-  transition: 0.5s all;
 }
 
 .team-box:hover {

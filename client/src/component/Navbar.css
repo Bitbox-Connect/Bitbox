@@ -77,7 +77,7 @@
 /* Customize Logout Button */
 .Btn {
     display: flex;
-    /* position: absolute; */
+    position: absolute;
     right: 12rem;
     align-items: center;
     justify-content: flex-start;
@@ -86,7 +86,6 @@
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    position: relative;
     overflow: hidden;
     transition-duration: .3s;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
