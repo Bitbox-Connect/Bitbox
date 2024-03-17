@@ -39,22 +39,22 @@ h1 {
 }
 
 .code {
-    color: #280096;
+    color: #f68914;
 }
 
 p {
     font-size: 14px;
     line-height: 1.5;
-    color: #666;
+    color: #040404;
 }
 
 .Container a {
-    color: #280096;
+    color: #0a0a0a;
     text-decoration: none;
 }
 
 .Container a:hover {
-    color: #4200f8;
+    color: #0d0d0e;
 }
 
 ul {

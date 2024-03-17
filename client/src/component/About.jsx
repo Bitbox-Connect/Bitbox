@@ -24,38 +24,77 @@ export default function About() {
         <section>
           <h2 className='Heading-Page'>Website Record</h2>
           <div className="container-bx">
-            <div className="visitors">
-              <h3 >All Projects</h3>
-              <div className="about-gif">
-                <img src={aboutImg} alt="about-image" />
+            <div className="flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <p className="title">No of Projects</p>
+                  <p>Hover Me</p>
+                  <h3 className='title'>570+</h3>
+                </div>
+                <div className="flip-card-back">
+                  <p className="title">BACK</p>
+                  <div className="about-gif">
+                    <img src={aboutImg} alt="about-image" />
+                  </div>
+                  <p>Leave Me</p>
+                </div>
               </div>
-              <h3><b>150+</b></h3>
             </div>
-            <div className="visitors">
-              <h3>Pull Requests</h3>
-              <div className="about-gif">
-                <img src={aboutImg1} alt="about-image" />
+
+            <div className="flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <p className="title">No. of Pull Request</p>
+                  <p>Hover Me</p>
+                  <h3><b>850+</b></h3>
+                </div>
+                <div className="flip-card-back">
+                  <p className="title">BACK</p>
+                  <div className="about-gif">
+                    <img src={aboutImg1} alt="about-image" />
+                  </div>
+                  <p>Leave Me</p>
+                </div>
               </div>
-              <h3><b>570+</b></h3>
             </div>
-            <div className="visitors">
-              <h3>Happy User</h3>
-              <div className="about-gif">
-                <img src={aboutImg3} alt="about-image" />
+
+            <div className="flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <p className="title">Pull Request</p>
+                  <p>Hover Me</p>
+                  <h3 className='title'>850+</h3>
+                </div>
+                <div className="flip-card-back">
+                  <p className="title">Hello</p>
+                  <div className="about-gif">
+                    <img src={aboutImg1} alt="about-image" />
+                  </div>
+                  <p>Like me</p>
+                </div>
               </div>
-              <h3><b>50+</b></h3>
             </div>
-            <div className="visitors">
-              <h3>No. of User</h3>
-              <div className="about-gif">
-                <img src={aboutImg2} alt="about-image" />
+
+            <div className="flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <p className="title">No. of User</p>
+                  <p>Hover Me</p>
+                  <h3 className='title'>870+</h3>
+                </div>
+                <div className="flip-card-back">
+                  <p className="title">Happy User</p>
+                  <div className="about-gif">
+                    <img src={aboutImg2} alt="about-image" />
+                  </div>
+                  <p>Leave Me</p>
+                </div>
               </div>
-              <h3><b>850+</b></h3>
             </div>
           </div>
         </section>
-        <section>
 
+        <section>
           <h2 className='Heading-Page'>Our Contributer</h2>
           <div className="team">
             <div className="team-box ">
