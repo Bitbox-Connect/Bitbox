@@ -63,15 +63,17 @@ const Signup = (props) => {
             <label htmlFor="cpassword" className="form-label">Confirm Password</label>
             <input type="password" className="form-control" onChange={onChange} id="cpassword" name='cpassword' placeholder='Enter Again Your Password' minLength={5} autoComplete='on' required />
           </div>
-          <button type="submit" className="btn btn-primary" onSubmit={handleSubmit}>Submit</button>
+          <div className="Login-button">
+            <button type="submit" className="btn btn-primary" onSubmit={handleSubmit}>Singup</button>
+          </div>
         </form>
       </div>
 
       <div className='my-3 p-2 text-center border'>
         Have an account?
-        <Link to="/Login"> Log in</Link>
+        <Link to="/Login">Login</Link>
       </div>
-      
+
     </div>
   )
 }

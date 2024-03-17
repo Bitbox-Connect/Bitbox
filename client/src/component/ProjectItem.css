@@ -1,6 +1,26 @@
-.mg{
+.mg {
     margin-bottom: 0;
 }
-i{
+
+i {
     cursor: pointer;
+}
+
+/* Login & Signup Component*/
+
+.Login-button,
+.Signup-button {
+    display: flex;
+    justify-content: center;
+}
+
+.Login-button button,
+.Signup-button button {
+    width: 7rem;
+}
+
+/* AddProject Component */
+
+.modal-backdrop {
+    --bs-backdrop-zindex: 0;
 }
