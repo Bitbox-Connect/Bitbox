@@ -16,6 +16,8 @@ import Asoc from './component/Footer/Asoc';
 import Contactus from './component/Footer/Contactus';
 import Upliftproject from './component/Footer/Upliftproject';
 import GlobalProjects from './component/GlobalProjects';
+import ScrollTop from './component/ScrollTop';
+
 function App() {
   const [alert, setAlert] = useState(null);
 
@@ -41,6 +43,7 @@ function App() {
               <Alert alert={alert} />
             </div>
             <div className="First-Bc">
+              <ScrollTop />
               <Routes>
                 <Route exact path="/" element={<Home showAlert={showAlert} />} />
                 <Route exact path="/community" element={<GlobalProjects showAlert={showAlert} />} />
@@ -63,4 +66,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
