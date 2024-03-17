@@ -11,7 +11,7 @@ import './About.css';
 
 export default function About() {
   return (
-    <div className='container'>
+    <div className='about-sec-container'>
       <h1 className='Heading-Page text-center'>About Us</h1>
       <div className="about">
         <h2 className='mb-4 mt-2 text-center'>Kaiyuan</h2>
@@ -22,73 +22,68 @@ export default function About() {
       </div>
       <section className='container-page'>
         <section>
-          <h2>Website Record</h2>
+          <h2 className='Heading-Page'>Website Record</h2>
           <div className="container-bx">
-            <div class="flip-card ">
-              <div class="flip-card-inner ">
-                <div class="flip-card-front">
-                  <p class="title">No of Projects</p>
+            <div className="flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <p className="title">No of Projects</p>
                   <p>Hover Me</p>
-              <h3 className='title'>570+</h3>
+                  <h3 className='title'>570+</h3>
                 </div>
-                <div class="flip-card-back">
-                  <p class="title">BACK</p>
+                <div className="flip-card-back">
+                  <p className="title">BACK</p>
                   <div className="about-gif">
-                <img src={aboutImg} alt="about-image" />
+                    <img src={aboutImg} alt="about-image" />
                   </div>
                   <p>Leave Me</p>
                 </div>
               </div>
             </div>
-           
 
-            
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <p class="title">No. of Pull Request</p>
+            <div className="flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <p className="title">No. of Pull Request</p>
                   <p>Hover Me</p>
                   <h3><b>850+</b></h3>
                 </div>
-                <div class="flip-card-back">
-                  <p class="title">BACK</p>
+                <div className="flip-card-back">
+                  <p className="title">BACK</p>
                   <div className="about-gif">
-                <img src={aboutImg1} alt="about-image" />
+                    <img src={aboutImg1} alt="about-image" />
                   </div>
                   <p>Leave Me</p>
                 </div>
               </div>
             </div>
 
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-              
-                  <p class="title">Pull Request</p>
+            <div className="flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <p className="title">Pull Request</p>
                   <p>Hover Me</p>
                   <h3 className='title'>850+</h3>
-              
                 </div>
-                <div class="flip-card-back">
-                  <p class="title">Hello</p>
+                <div className="flip-card-back">
+                  <p className="title">Hello</p>
                   <div className="about-gif">
-                <img src={aboutImg1} alt="about-image" />
+                    <img src={aboutImg1} alt="about-image" />
                   </div>
                   <p>Like me</p>
                 </div>
               </div>
             </div>
-           
-           
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <p class="title">No. of User</p>
+
+            <div className="flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <p className="title">No. of User</p>
                   <p>Hover Me</p>
                   <h3 className='title'>870+</h3>
                 </div>
-                <div class="flip-card-back">
-                  <p class="title">Happy User</p>
+                <div className="flip-card-back">
+                  <p className="title">Happy User</p>
                   <div className="about-gif">
                     <img src={aboutImg2} alt="about-image" />
                   </div>
@@ -98,15 +93,14 @@ export default function About() {
             </div>
           </div>
         </section>
-        <section>
 
-          <h2>Our Contributer</h2>
+        <section>
+          <h2 className='Heading-Page'>Our Contributer</h2>
           <div className="team">
             <div className="team-box ">
               <img src={img1} alt="OWNER" />
               <div className="teamember"><b>Anuj Verma</b></div>
             </div>
-
             <div className="team-box hover01">
               <img src={img3} alt="OWNER" />
               <div className="teamember"><b>Harshit Singh</b></div>
@@ -115,10 +109,11 @@ export default function About() {
               <img src={img2} alt="OWNER" />
               <div className="teamember"><b>Jitendra Kumar</b></div>
             </div>
-
           </div>
         </section>
-        <div className="info"><p className='fs-4'>"Open source is a shared vision of building a community of similar -minded individuals. Together, we collaborate, innovate, and shape the future of technology with transparency and inclusivity at its core  write in more effective way"</p></div>
+        <div className="info">
+          <p className='fs-4'>&quot;Open source is a shared vision of building a community of similar -minded individuals. Together, we collaborate, innovate, and shape the future of technology with transparency and inclusivity at its core  write in more effective way&quot;</p>
+        </div>
       </section>
     </div>
   );
