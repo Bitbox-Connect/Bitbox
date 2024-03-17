@@ -31,8 +31,10 @@ export default function About() {
           </div>
         </div>
       </div>
-      <section className='container-page'>
-        <section>
+
+      {/* Website Record Section */}
+      <div className='Website-Record-Sec'>
+        <div className='container-page'>
           <h2 className='Heading-Page'>Website Record</h2>
           <div className="container-bx">
             <div className="flip-card">
@@ -103,29 +105,29 @@ export default function About() {
               </div>
             </div>
           </div>
-        </section>
-
-        <section>
-          <h2 className='Heading-Page'>Our Contributer</h2>
-          <div className="team">
-            <div className="team-box ">
-              <img src={img1} alt="OWNER" />
-              <div className="teamember"><b>Anuj Verma</b></div>
-            </div>
-            <div className="team-box hover01">
-              <img src={img3} alt="OWNER" />
-              <div className="teamember"><b>Harshit Singh</b></div>
-            </div>
-            <div className="team-box">
-              <img src={img2} alt="OWNER" />
-              <div className="teamember"><b>Jitendra Kumar</b></div>
-            </div>
-          </div>
-        </section>
-        <div className="info">
-          <p className='fs-4'>&quot;Open source is a shared vision of building a community of similar -minded individuals. Together, we collaborate, innovate, and shape the future of technology with transparency and inclusivity at its core  write in more effective way&quot;</p>
         </div>
-      </section>
+      </div>
+
+      <div className='Contributer-Section'>
+        <h2 className='Heading-Page'>Our Contributer</h2>
+        <div className="team">
+          <div className="team-box ">
+            <img src={img1} alt="OWNER" />
+            <div className="teamember"><b>Anuj Verma</b></div>
+          </div>
+          <div className="team-box hover01">
+            <img src={img3} alt="OWNER" />
+            <div className="teamember"><b>Harshit Singh</b></div>
+          </div>
+          <div className="team-box">
+            <img src={img2} alt="OWNER" />
+            <div className="teamember"><b>Jitendra Kumar</b></div>
+          </div>
+        </div>
+      </div>
+      {/* <div className="info">
+          <p className='fs-4'>&quot;Open source is a shared vision of building a community of similar -minded individuals. Together, we collaborate, innovate, and shape the future of technology with transparency and inclusivity at its core  write in more effective way&quot;</p>
+        </div> */}
     </div>
   );
 }

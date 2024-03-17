@@ -3,7 +3,7 @@
 }
 
 .About-Page1 {
-  height: 64.5vh;
+  height: 75vh;
   display: flex;
   width: 100vw;
   margin: 0 2rem;
@@ -51,10 +51,10 @@
   margin-top: 10px;
 }
 
-.info {
+/* .info {
   margin-top: 21px;
   text-align: center;
-}
+} */
 
 .container-bx {
   display: flex;
@@ -72,15 +72,27 @@ h2 {
   border-radius: 17px;
 }
 
-.container-page {
+/* Website Record Section */
+
+.Website-Record-Sec {
+  height: 80vh;
+  width: 100vw;
+  background-color: black;
+}
+
+.Website-Record-Sec .container-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   border-radius: 16% 33% 60% 40% / 0% 20% 0% 15%;
   background-image: linear-gradient(to right,
       #f78ca0 0%,
       #f9748f 19%,
       #fd868c 60%,
       #fe9a8b 100%);
-  width: fit-content;
-  height: 100vh;
+  width: 100vw;
+  height: 80vh;
 }
 
 .flip-card {

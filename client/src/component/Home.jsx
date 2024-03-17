@@ -5,6 +5,7 @@ import image1 from '../assets/images/Anuj.jpg'
 import image2 from '../assets/images/jitendra.jpeg'
 import image3 from '../assets/images/harshit.jpeg'
 import aboutImg from '../assets/images/Vector Gif/About.gif'
+import arrowGif from '../assets/images/Other Gifs/down-arrow-gif.gif'
 
 const Home = () => {
     // const { showAlert } = props;
@@ -26,6 +27,9 @@ const Home = () => {
                         <div className="btn-group d-flex justify-content-center align-item-center">
                             <Link role="button" to='/signup' className="button-color1">Signup</Link>
                             <Link role="button" to='/login' className="button-color2">Login</Link>
+                        </div>
+                        <div className="arrow-gif">
+                            <img src={arrowGif} alt="arrowGif" />
                         </div>
                     </div>
                 </div>
@@ -121,6 +125,40 @@ const Home = () => {
                             </div>
                         </div>
                     </section>
+                </div>
+
+                <div className="Special-Sec">
+                    <h1 className='text-center'>What We Works</h1>
+                    <div className="special-row1">
+                        <div className="special-cont1">
+                            <div className="special-box1"></div>
+                        </div>
+                        <div className="special-cont2">
+                            <div className="special-box2"></div>
+                        </div>
+                        <div className="special-cont3">
+                            <div className="special-box3"></div>
+                        </div>
+                        <div className="special-cont4">
+                            <div className="special-box4"></div>
+                        </div>
+                    </div>
+
+                    <div className="special-row2">
+                        <div className="special-cont1">
+                            <div className="special-box1"></div>
+                        </div>
+                        <div className="special-cont2">
+                            <div className="special-box2"></div>
+                        </div>
+                        <div className="special-cont3">
+                            <div className="special-box3"></div>
+                        </div>
+                        <div className="special-cont4">
+                            <div className="special-box4"></div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
