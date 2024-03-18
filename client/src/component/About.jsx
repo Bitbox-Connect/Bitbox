@@ -13,9 +13,12 @@ export default function About() {
       <div className="about">
         <div className='About-Page1'>
           <div className="left-page">
-            <h1>About us</h1>
-            Kaiyuan is like a friendly community where people working on projects can come together. If you’re stuck or need advice, you can ask for help. And if you know something, you can share your knowledge with others. It’s all about supporting each other and building a helpful community.
+            <h1>About-us</h1>
+          <p className='fs-4'>
+          Kaiyuan is like a friendly community where people working on projects can come together. If you’re stuck or need advice, you can ask for help. And if you know something, you can share your knowledge with others. It’s all about supporting each other and building a helpful community.
             🌟<br /> <br />Welcome to our open-source platform, where innovation knows no bounds and collaboration is key. Dive into our repository of code, where creativity flourishes and solutions come to life. Join our vibrant community of developers, enthusiasts, and visionaries, as we build the future together, one line at a time
+            
+            </p> 
           </div>
           <div className="right-page" data-engine="three.js r149">
             <div class="container noselect">

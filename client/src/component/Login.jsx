@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import './css/Auth.css'
 
 const host = "http://localhost:5000";
 
@@ -39,27 +40,47 @@ const Login = (props) => {
   }
 
   return (
-    <div className='container'>
+    <div className="Login">
+
+    <div className='container main-bx'>
       <div className='mt-2 p-3 border'>
+    <div class="heading">Sign In</div>
         <h2>Login into Kaiyuan</h2>
-        <form onSubmit={handleSubmit}>
+        <form className='form' onSubmit={handleSubmit}>
           <div className="mb-2">
-            <label htmlFor="email" className="form-label">Email address</label>
-            <input type="email" className="form-control" placeholder='Enter Your Email' value={credentials.email} onChange={onChange} id="email" name='email' aria-describedby="emailHelp" autoComplete='on' />
+            {/* <label htmlFor="email" className="input" id='email'>Email address</label> */}
+            <input type="email" className="input" placeholder='Enter Your Email' value={credentials.email} onChange={onChange} id="email" name='email' aria-describedby="emailHelp" autoComplete='on' />
           </div>
           <div className="mb-2">
-            <label htmlFor="password" className="form-label">Password</label>
-            <input type="password" className="form-control" placeholder='Enter Your Password' value={credentials.password} onChange={onChange} id="password" name='password' autoComplete='on' />
+            {/* <label htmlFor="password" className="input">Password</label> */}
+            <input type="password" className="input" id='password' placeholder='Enter Your Password' value={credentials.password} onChange={onChange} name='password' autoComplete='on' />
           </div>
+          <span class="forgot-password"><a href="#">Forgot Password ?</a></span>
           <div className="Signup-button">
             <button type="submit" className="btn btn-primary" onChange={onChange} onSubmit={handleSubmit}>Login</button>
           </div>
         </form>
-      </div>
-      <div className='my-4 p-2 text-center border'>Don&#39;t have an account?
-        <Link to="/Signup">Signup</Link>
+        <div className="social-account-container">
+        <div className='my-4 p-2 text-center'>Don&#39;t have an account?
+          <Link to="/Signup">Signup</Link>
+        </div>
+          <span className="title">Or Sign in with</span>
+          <div className="social-accounts">
+            <button className="social-button google">
+
+            </button>
+            <button className="social-button apple">
+
+            </button>
+            <button className="social-button twitter">
+
+            </button>
+          </div>
+        </div>
+        <span className="agreement"><a href="#">Learn user licence agreement</a></span>
       </div>
     </div>
+</div>
   )
 }
 

@@ -25,8 +25,8 @@ const Home = () => {
                         <p className='abut'>&quot;Welcome to our open-source platform, where innovation knows no bounds and collaboration is key.&quot;<br />
                             Join us on this exhilarating journey of exploration and discovery, where every line of code written is a step forward in shaping a brighter tomorrow.</p>
                         <div className="btn-group d-flex justify-content-center align-item-center">
-                            <Link role="button" to='/signup' className="button-color1">Signup</Link>
-                            <Link role="button" to='/login' className="button-color2">Login</Link>
+                            {/* <Link role="button" to='/signup' className="button-color1">Signup</Link> */}
+                            {/* <Link role="button" to='/login' className="button-color2">Login</Link> */}
                         </div>
                         <div className="arrow-gif">
                             <img src={arrowGif} alt="arrowGif" />
