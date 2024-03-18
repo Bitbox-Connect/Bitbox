@@ -1,19 +1,13 @@
 import './About.css';
-import img1 from '../assets/images/Anuj.jpg';
-import img2 from '../assets/images/jitendra.jpeg';
-import img3 from '../assets/images/harshit.jpeg';
+import img1 from '../assets/images/Anuj.png';
+import img2 from '../assets/images/Jitendra.png';
+import img3 from '../assets/images/Harshit.png';
 import aboutImg from '../assets/images/Vector Gif/About.gif'
 import aboutImg1 from '../assets/images/Vector Gif/R.gif'
 import aboutImg2 from '../assets/images/Vector Gif/tenor.gif'
-import { Application } from '@splinetool/runtime';
-import { useEffect } from 'react';
+import aboutHeroImg from '../assets/images/Others/aboutImg.png'
 
 export default function About() {
-  useEffect(() => {
-    const canvas = document.getElementById('canvas3d');
-    const app = new Application(canvas);
-    app.load('https://prod.spline.design/5Wvz1ugKqCUUG9YH/scene.splinecode');
-  }, []);
   return (
     <div className='About-Sec-Container'>
       <div className="about">
@@ -24,10 +18,38 @@ export default function About() {
             🌟<br /> <br />Welcome to our open-source platform, where innovation knows no bounds and collaboration is key. Dive into our repository of code, where creativity flourishes and solutions come to life. Join our vibrant community of developers, enthusiasts, and visionaries, as we build the future together, one line at a time
           </div>
           <div className="right-page" data-engine="three.js r149">
-            {/* Implement by iFrame */}
-            {/* <iframe className='spline3dimage' src='https://my.spline.design/miniroomcopy-ace55f908c5728b8a08a8f6348f8f7b3/' width='100%' height='100%'></iframe> */}
-            {/* Implement by canvas tag -- Note -> use data-engine="three.js r149"*/}
-            <canvas id='canvas3d'></canvas>
+            <div class="container noselect">
+              <div class="canvas">
+                <div class="tracker tr-1"></div>
+                <div class="tracker tr-2"></div>
+                <div class="tracker tr-3"></div>
+                <div class="tracker tr-4"></div>
+                <div class="tracker tr-5"></div>
+                <div class="tracker tr-6"></div>
+                <div class="tracker tr-7"></div>
+                <div class="tracker tr-8"></div>
+                <div class="tracker tr-9"></div>
+                <div class="tracker tr-10"></div>
+                <div class="tracker tr-11"></div>
+                <div class="tracker tr-12"></div>
+                <div class="tracker tr-13"></div>
+                <div class="tracker tr-14"></div>
+                <div class="tracker tr-15"></div>
+                <div class="tracker tr-16"></div>
+                <div class="tracker tr-17"></div>
+                <div class="tracker tr-18"></div>
+                <div class="tracker tr-19"></div>
+                <div class="tracker tr-20"></div>
+                <div class="tracker tr-21"></div>
+                <div class="tracker tr-22"></div>
+                <div class="tracker tr-23"></div>
+                <div class="tracker tr-24"></div>
+                <div class="tracker tr-25"></div>
+                <div id="card">
+                  <img src={aboutHeroImg} id='propmpt' alt="aboutVectorImg" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -81,7 +103,7 @@ export default function About() {
                 <div className="flip-card-back">
                   <p className="title">Hello</p>
                   <div className="about-gif">
-                    <img src={aboutImg3} alt="about-image" />
+                    <img src={aboutImg2} alt="about-image" />
                   </div>
                   <p>Like me</p>
                 </div>
@@ -110,7 +132,7 @@ export default function About() {
 
       <div className='Contributer-Section'>
         <h2 className='Heading-Page'>Our Contributer</h2>
-        <div className="team">
+        <div className="team fs-5">
           <div className="team-box ">
             <img src={img1} alt="OWNER" />
             <div className="teamember"><b>Anuj Verma</b></div>

@@ -85,29 +85,25 @@ const Home = () => {
                     <div className="Card-Infos">
                         <div className="Card-Info-Row1">
                             <div className="Card-Info">
-                                <h3>Special title treatment</h3>
-                                <p>supporting text below as a natural lead-in to additional content.</p>
-                                <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
+                                <h3>Start your journey</h3>
+                                <p>Participating in GSSoC’23 is an opportunity to upgrade your Github profile. Enrich yourselves to learn, explore, improve, enhance, build connections and become a team player to nourish your skills and personality. Don’t miss a chance to get well-versed with Open-Source and essential tools like Git and Github under the supervision of excellent mentors.</p>
                                 <a href="#" className="btn btn-primary">Go somewhere</a>
                             </div>
                             <div className="Card-Info">
-                                <h3>Special title treatment</h3>
-                                <p>supporting text below as a natural lead-in to additional content.</p>
-                                <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
+                                <h3>Inviting Projects & NGOs</h3>
+                                <p>If you are an organization with a project idea in mind, a website or an app then this is the golden opportunity to become a part of an awesome community. The budding developers under the guidance of expert mentors will work on your projects and strive to achieve the best version. Apply and let’s collaborate together because Together Everyone Achieves More</p>
                                 <a href="#" className="btn btn-primary">Go somewhere</a>
                             </div>
                         </div>
                         <div className="Card-Info-Row2">
                             <div className="Card-Info">
-                                <h3>Special title treatment</h3>
-                                <p>supporting text below as a natural lead-in to additional content.</p>
-                                <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
+                                <h3>Lead the pack</h3>
+                                <p>Mentors are the experts and take the lead of the open-source project team. They guide the fellow participants at each stage in a road map of the project. They are the backbone of team and are available throughout the summer to review the pull requests and suggest betterment. Apply to be a mentor at Girlscript summer of code and be the foundation of your team.</p>
                                 <a href="#" className="btn btn-primary">Go somewhere</a>
                             </div>
                             <div className="Card-Info">
-                                <h3>Special title treatment</h3>
-                                <p>supporting text below as a natural lead-in to additional content.</p>
-                                <button className='btn-box my-2'><a href="">Apply as contributor</a></button>
+                                <h3>Add your shade to GSSoC’23</h3>
+                                <p>Sponsors with their precious resources make it possible for GirlScript to conduct the entire event smoothly, to encourage talent by enabling us to give perks to our top participants. Hence as a token of gratitude, we provide great publicity on our social platforms and exposure on media about our sponsors. Sponsor us to add a bright shade to our program.</p>
                                 <a href="#" className="btn btn-primary">Go somewhere</a>
                             </div>
                         </div>

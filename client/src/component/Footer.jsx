@@ -10,14 +10,14 @@ function Footer() {
             <Link to="/">
               <h1>Kaiyuan <span className='code'>Code</span></h1>
             </Link>
-            <p className='project-info'>"is for university students to work on open-source projects, 
+            <p className='project-info fs-5'>"is for university students to work on open-source projects, 
             pairing them with mentors to gain practical coding experience, 
             contribute to real-world projects, and foster collaboration within 
             the open-source community."</p>
-            <Link to="/">Explore more</Link>
+            <Link to="/" className='fs-5'>Explore more</Link>
           </div>
         </div>
-        <div className="new_Details">
+        <div className="new_Details m-4">
           <h3 className='fs-2 fw-bold'>About Kaiyuan</h3>
           <div className='Detail'>
             <ul className='fs-5'>
@@ -26,7 +26,7 @@ function Footer() {
             </ul>
           </div>
         </div>
-        <div className="Legal">
+        <div className="Legal m-4">
           <div>
             <h3 className='fs-2 fw-bold'>Legal</h3>
             <ul className='fs-5'>
@@ -35,9 +35,9 @@ function Footer() {
             </ul>
           </div>
         </div>
-        <div className="social">
-          <div>
-            <h3>Follow us on</h3>
+        <div className="social m-4">
+          <div className='fs-5'>
+            <h3 className='fw-bold fs-2'>Follow us on</h3>
             <ul>
                     <li><Link to="/"><FaLinkedin color="#0077b5" fontSize="2rem" />Linkedin</Link></li>
                     <li><Link to="/"><FaTwitter color="#1da1f2" fontSize="2rem"/>Twiiter</Link></li>
