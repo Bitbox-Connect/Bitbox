@@ -25,7 +25,7 @@ const Projects = (props) => {
                 <h1 className='Heading-Page text-center mb-4'>Welcome to kaiyuan Community</h1>
             </div>
             {projects.length === 0 && <UploadProject title="Click Here To Upload" />}
-            <div>
+            <div className='row'>
                 {projects.map((project) => {
                     return <GlobalProjectItem showAlert={props.showAlert} key={project._id} project={project} />;
                 })}
