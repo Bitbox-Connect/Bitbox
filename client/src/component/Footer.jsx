@@ -10,9 +10,10 @@ function Footer() {
             <Link to="/">
               <h1>Kaiyuan <span className='code'>Code</span></h1>
             </Link>
-            <p className='project-info'>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Quae, magnam odit dignissimos necessitatibus
-              saepe harum quod tempore minus.</p>
+            <p className='project-info'>"is for university students to work on open-source projects, 
+            pairing them with mentors to gain practical coding experience, 
+            contribute to real-world projects, and foster collaboration within 
+            the open-source community."</p>
             <Link to="/">Explore more</Link>
           </div>
         </div>
@@ -36,7 +37,7 @@ function Footer() {
         </div>
         <div className="social">
           <div>
-            <h4>Follow us on</h4>
+            <h3>Follow us on</h3>
             <ul>
                     <li><Link to="/"><FaLinkedin color="#0077b5" fontSize="2rem" />Linkedin</Link></li>
                     <li><Link to="/"><FaTwitter color="#1da1f2" fontSize="2rem"/>Twiiter</Link></li>

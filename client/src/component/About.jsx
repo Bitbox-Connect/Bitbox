@@ -1,3 +1,4 @@
+import React, { useState } from 'react'; // Import useState from react
 import img1 from '../assets/images/Anuj.jpg';
 import img2 from '../assets/images/jitendra.jpeg';
 import img3 from '../assets/images/harshit.jpeg';
@@ -6,10 +7,16 @@ import aboutImg1 from '../assets/images/Vector Gif/R.gif'
 import aboutImg2 from '../assets/images/Vector Gif/tenor.gif'
 import aboutImg3 from '../assets/images/Vector Gif/Happy.gif'
 
-
 import './About.css';
 
 export default function About() {
+  const [message, setMessage] = useState('');
+  const [flipCardVisible, setFlipCardVisible] = useState(false);
+
+  const toggleFlipCard = () => {
+    setFlipCardVisible(!flipCardVisible);
+  };
+
   return (
     <div className='about-sec-container'>
       <h1 className='Heading-Page text-center'>About Us</h1>
@@ -68,7 +75,7 @@ export default function About() {
                 <div className="flip-card-back">
                   <p className="title">Hello</p>
                   <div className="about-gif">
-                    <img src={aboutImg1} alt="about-image" />
+                    <img src={aboutImg3} alt="about-image" />
                   </div>
                   <p>Like me</p>
                 </div>
@@ -95,17 +102,39 @@ export default function About() {
         </section>
 
         <section>
+        {flipCardVisible && (
+         <div class="card">
+         <button class="mail">
+         </button>
+         <div class="profile-pic">      
+         </div>
+         <div class="bottom">
+             <div class="content">
+                 <span class="name">Harshit singh</span>
+                 <span class="about-me">Lorem ipsum dolor sit amet consectetur adipisicinFcls </span>
+             </div>
+            <div class="bottom-bottom">
+             <div class="social-links-container">
+ 
+             </div>
+             <button class="button">Contact Me</button>
+            </div>
+         </div>
+     </div>
+        )}
+
           <h2 className='Heading-Page'>Our Contributer</h2>
           <div className="team">
-            <div className="team-box ">
+            <div className="team-box " onClick={toggleFlipCard}>
               <img src={img1} alt="OWNER" />
+              <div>{message}</div>
               <div className="teamember"><b>Anuj Verma</b></div>
             </div>
-            <div className="team-box hover01">
+            <div className="team-box" onClick={toggleFlipCard}>
               <img src={img3} alt="OWNER" />
               <div className="teamember"><b>Harshit Singh</b></div>
             </div>
-            <div className="team-box">
+            <div className="team-box" onClick={toggleFlipCard}>
               <img src={img2} alt="OWNER" />
               <div className="teamember"><b>Jitendra Kumar</b></div>
             </div>

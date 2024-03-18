@@ -81,11 +81,7 @@
 
 .name {
     color: black;
-<<<<<<< HEAD
-    margin: 16px,18px;
-    
-=======
->>>>>>> e8139cb0c742707a3f8c32474e4925359de77a6a
+    margin: 28px, 18px;
 }
 
 /* code of conduct --------------------------------------------- code of conduct----------------------------------------------- */
@@ -112,3 +108,301 @@
     background-color: rgb(232, 161, 135);
 
 }
+/* 
+.main_back {
+    position: absolute;
+    border-radius: 10px;
+    transform: rotate(90deg);
+    width: 11em;
+    height: 11em;
+    background: linear-gradient(270deg, #03a9f4, #cc39a4, #ffb5d2);
+    z-index: -2;
+    box-shadow: inset 0px 0px 180px 5px #ffffff;
+  }
+  
+  .main {
+    display: flex;
+    flex-wrap: wrap;
+    width: 14em;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+  }
+  
+  .card {
+    width: 60px;
+    height: 60px;
+    border-top-left-radius: 10px;
+    background: lightgrey;
+    transition: .4s ease-in-out, .2s background-color ease-in-out, .2s background-image ease-in-out;
+    background: rgba(255, 255, 255, 0.596);
+    backdrop-filter: blur(5px);
+    border: 1px solid transparent;
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card .instagram {
+    opacity: 0;
+    transition: .2s ease-in-out;
+    fill: #cc39a4;
+  }
+  
+  .card:nth-child(2) {
+    border-radius: 0px;
+  }
+  
+  .card:nth-child(2) .twitter {
+    opacity: 0;
+    transition: .2s ease-in-out;
+    fill: #03A9F4;
+  }
+  
+  .card:nth-child(3) {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 0px;
+  }
+  
+  .card:nth-child(3) .dribble {
+    opacity: 0;
+    transition: .2s ease-in-out;
+    fill: #ffb5d2;
+  }
+  
+  .card:nth-child(4) {
+    border-radius: 0px;
+  }
+  
+  .card:nth-child(4) .codepen {
+    opacity: 0;
+    transition: .2s ease-in-out;
+    fill: black;
+  }
+  
+  .card:nth-child(5) {
+    border-radius: 0px;
+  }
+  
+  .card:nth-child(5) .uiverse {
+    position: absolute;
+    margin-left: 0.2em;
+    margin-top: 0.2em;
+    opacity: 0;
+    transition: .2s ease-in-out;
+  }
+  
+  .card:nth-child(6) {
+    border-radius: 0px;
+  }
+  
+  .card:nth-child(6) .discord {
+    opacity: 0;
+    transition: .2s ease-in-out;
+    fill: #8c9eff;
+  }
+  
+  .card:nth-child(7) {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 0px;
+  }
+  
+  .card:nth-child(7) .github {
+    opacity: 0;
+    transition: .2s ease-in-out;
+    fill: black;
+  }
+  
+  .card:nth-child(8) {
+    border-radius: 0px;
+  }
+  
+  .card:nth-child(8) .telegram {
+    opacity: 0;
+    transition: .2s ease-in-out;
+    fill: #29b6f6;
+  }
+  
+  .card:nth-child(9) {
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 0px;
+  }
+  
+  .card:nth-child(9) .reddit {
+    opacity: 0;
+    transition: .2s ease-in-out;
+  }
+  
+  .main:hover {
+    width: 14em;
+    cursor: pointer;
+  }
+  
+  .main:hover .main_back {
+    opacity: 0;
+  }
+  
+  .main:hover .card {
+    margin: .2em;
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .main:hover .card:nth-child(5) {
+    border: transparent;
+  }
+  
+  .main:hover .text {
+    opacity: 0;
+    z-index: -3;
+  }
+  
+  .main:hover .instagram {
+    opacity: 1;
+  }
+  
+  .main:hover .twitter {
+    opacity: 1;
+  }
+  
+  .main:hover .dribble {
+    opacity: 1;
+  }
+  
+  .main:hover .codepen {
+    opacity: 1;
+  }
+  
+  .main:hover .uiverse {
+    opacity: 1;
+  }
+  
+  .main:hover .discord {
+    opacity: 1;
+  }
+  
+  .main:hover .github {
+    opacity: 1;
+  }
+  
+  .main:hover .telegram {
+    opacity: 1;
+  }
+  
+  .main:hover .reddit {
+    opacity: 1;
+  }
+  
+  .card:nth-child(1):hover {
+    background-color: #cc39a4;
+  }
+  
+  .card:nth-child(1):hover .instagram {
+    fill: white;
+  }
+  
+  .card:nth-child(2):hover {
+    background-color: #03A9F4;
+  }
+  
+  .card:nth-child(2):hover .twitter {
+    fill: white;
+  }
+  
+  .card:nth-child(3):hover {
+    background-color: #ffb5d2;
+  }
+  
+  .card:nth-child(3):hover .dribble {
+    fill: white;
+  }
+  
+  .card:nth-child(4):hover {
+    background-color: #1E1F26;
+  }
+  
+  .card:nth-child(4):hover .codepen {
+    fill: white;
+  }
+  
+  .card:nth-child(5):hover {
+    animation: backgroundIMG .1s;
+    animation-fill-mode: forwards;
+  }
+  
+  .card:nth-child(5):hover .uiverse #paint0_linear_501_142 stop {
+    stop-color: white;
+  }
+  
+  .card:nth-child(5):hover .uiverse #paint1_linear_501_142 stop {
+    stop-color: white;
+  }
+  
+  .card:nth-child(5):hover .uiverse #paint2_linear_501_142 stop {
+    stop-color: white;
+  }
+  
+  @keyframes backgroundIMG {
+    100% {
+      background-image: linear-gradient(#BF66FF,#6248FF,#00DDEB);
+    }
+  }
+  
+  .card:nth-child(6):hover {
+    background-color: #8c9eff;
+  }
+  
+  .card:nth-child(6):hover .discord {
+    fill: white;
+  }
+  
+  .card:nth-child(7):hover {
+    background-color: black;
+  }
+  
+  .card:nth-child(7):hover .github {
+    fill: white;
+  }
+  
+  .card:nth-child(8):hover {
+    background-color: #29b6f6;
+  }
+  
+  .card:nth-child(8):hover .telegram > path:nth-of-type(1) {
+    fill: white;
+  }
+  
+  .card:nth-child(8):hover .telegram > path:nth-of-type(2) {
+    fill: #29b6f6;
+  }
+  
+  .card:nth-child(8):hover .telegram > path:nth-of-type(3) {
+    fill: #29b6f6;
+  }
+  
+  .card:nth-child(9):hover {
+    background-color: rgb(255,69,0);
+  }
+  
+  .card:nth-child(9) .reddit > g circle {
+    fill: rgb(255,69,0);
+  }
+  
+  .card:nth-child(9) .reddit > g path {
+    fill: white;
+  }
+  
+  .text {
+    position: absolute;
+    font-size: 0.7em;
+    transition: .4s ease-in-out;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 0.33em;
+    z-index: 3;
+  } */ 
+  

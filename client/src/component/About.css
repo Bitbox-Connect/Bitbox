@@ -11,6 +11,9 @@
 .team-box {
   text-align: center;
   margin: 0 20px;
+  box-shadow: rgba(11, 11, 11, 0.25) 70px 50px 100px -20px,
+    rgba(10, 10, 10, 0.3) 0px 30px 60px -30px,
+    rgba(5, 8, 12, 0.35) 90px -2px 6px 0px transparent;
 }
 
 .team-box img {
@@ -24,27 +27,11 @@
 }
 
 .team-box:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 .team-box h3 {
   margin-top: 10px;
-}
-
-.about {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(1, 0.4, 0.1, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  max-width: 700px;
-  min-height: 400px;
-  margin: 30px auto;
-  border-radius: 10px;
-  padding: 10px;
-}
-
-.info {
-  margin-top: 21px;
-  text-align: center;
 }
 
 .container-bx {
@@ -119,18 +106,19 @@ h2 {
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  border: 1px solid coral;
+  /* border: 1px solid coral; */
   border-radius: 1rem;
 }
 
 .flip-card-front {
-  background: linear-gradient(
+  background: linear-gradient(135deg, #ff85ec 0%, #84ff98 100%);
+  /* background: linear-gradient(
     120deg,
     bisque 60%,
     rgb(255, 231, 222) 88%,
     rgb(255, 211, 195) 40%,
     rgba(255, 127, 80, 0.603) 48%
-  );
+  ); */
   color: coral;
 }
 
@@ -145,4 +133,230 @@ h2 {
   color: rgb(255, 255, 255);
   transform: rotateY(180deg);
  
+}
+
+
+/*------------------------------------------------------------progile  image ------------------------------------------------------------ */
+.card {
+  width: 280px;
+  height: 280px;
+  background: white;
+  border-radius: 32px;
+  padding: 3px;
+  position: relative;
+  box-shadow: #604b4a30 0px 70px 30px -50px;
+  transition: all 0.5s ease-in-out;
+}
+
+.card .mail {
+  position: absolute;
+  right: 2rem;
+  top: 1.4rem;
+  background: transparent;
+  border: none;
+}
+
+.card .mail svg {
+  stroke: #fbb9b6;
+  stroke-width: 3px;
+}
+
+.card .mail svg:hover {
+  stroke: #f55d56;
+}
+
+.card .profile-pic {
+  position: absolute;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  top: 3px;
+  left: 3px;
+  border-radius: 29px;
+  z-index: 1;
+  border: 0px solid #fbb9b6;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out 0.2s, z-index 0.5s ease-in-out 0.2s;
+}
+
+.card .profile-pic img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  -o-object-position: 0px 0px;
+  object-position: 0px 0px;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.card .profile-pic svg {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: 0px 0px;
+  object-position: 0px 0px;
+  transform-origin: 45% 20%;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.card .bottom {
+  position: absolute;
+  bottom: 3px;
+  left: 3px;
+  right: 3px;
+  background: #fbb9b6;
+  top: 80%;
+  border-radius: 29px;
+  z-index: 2;
+  box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px inset;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+}
+
+.card .bottom .content {
+  position: absolute;
+  bottom: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 160px;
+}
+
+.card .bottom .content .name {
+  display: block;
+  font-size: 1.2rem;
+  color: white;
+  font-weight: bold;
+}
+
+.card .bottom .content .about-me {
+  display: block;
+  font-size: 0.9rem;
+  color: white;
+  margin-top: 1rem;
+}
+
+.card .bottom .bottom-bottom {
+  position: absolute;
+  bottom: 1rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card .bottom .bottom-bottom .social-links-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.card .bottom .bottom-bottom .social-links-container svg {
+  height: 20px;
+  fill: white;
+  filter: drop-shadow(0 5px 5px rgba(165, 132, 130, 0.1333333333));
+}
+
+.card .bottom .bottom-bottom .social-links-container svg:hover {
+  fill: #f55d56;
+  transform: scale(1.2);
+}
+
+.card .bottom .bottom-bottom .button {
+  background: white;
+  color: #fbb9b6;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.6rem;
+  padding: 0.4rem 0.6rem;
+  box-shadow: rgba(165, 132, 130, 0.1333333333) 0px 5px 5px 0px;
+}
+
+.card .bottom .bottom-bottom .button:hover {
+  background: #f55d56;
+  color: white;
+}
+
+.card:hover {
+  border-top-left-radius: 55px;
+}
+
+.card:hover .bottom {
+  top: 20%;
+  border-radius: 80px 29px 29px 29px;
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
+}
+
+.card:hover .profile-pic {
+  width: 100px;
+  height: 100px;
+  aspect-ratio: 1;
+  top: 10px;
+  left: 10px;
+  border-radius: 50%;
+  z-index: 3;
+  border: 7px solid #fbb9b6;
+  box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px;
+  transition: all 0.5s ease-in-out, z-index 0.5s ease-in-out 0.1s;
+}
+
+.card:hover .profile-pic:hover {
+  transform: scale(1.3);
+  border-radius: 0px;
+}
+
+.card:hover .profile-pic img {
+  transform: scale(2.5);
+  -o-object-position: 0px 25px;
+  object-position: 0px 25px;
+  transition: all 0.5s ease-in-out 0.5s;
+}
+
+.card:hover .profile-pic svg {
+  transform: scale(2.5);
+  transition: all 0.5s ease-in-out 0.5s;
+}
+
+.about {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(5, 8, 12, 0.35) 0px -2px 6px 0px inset;
+  background-color: #f9f9f9;
+  max-width: 700px;
+  min-height: 400px;
+  margin: 30px auto;
+  border-radius: 13px;
+  padding: 10px;
+}
+
+
+.about h2 {
+  color: #333;
+  font-size: 32px;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+
+.intro {
+  color: #555;
+  font-size: 18px;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+
+.intro em {
+  color: #ff6f61;
+  font-style: normal;
+}
+
+
+.intro .star {
+  color: #ffd700; 
+}
+
+
+.text-center {
+  text-align: center;
 }
