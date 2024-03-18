@@ -1,9 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
 import './Home.css'
 import PropTypes from 'prop-types';
-import image1 from '../assets/images/Anuj.jpg'
-import image2 from '../assets/images/jitendra.jpeg'
-import image3 from '../assets/images/harshit.jpeg'
+import image1 from '../assets/images/Anuj.png'
+import image2 from '../assets/images/Jitendra.png'
+import image3 from '../assets/images/Harshit.png'
 import aboutImg from '../assets/images/Vector Gif/About.gif'
 import arrowGif from '../assets/images/Other Gifs/down-arrow-gif.gif'
 
