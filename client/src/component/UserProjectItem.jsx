@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import projectContext from '../context/projectContext';
-import './ProjectItem.css'
+import './css/ProjectItem.css'
 import { useContext } from 'react';
 const UserProjectItem = (props) => {
     // Destructure the project and updateProject from props --> project come from the ProjectState

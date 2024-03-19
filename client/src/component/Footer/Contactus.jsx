@@ -1,4 +1,4 @@
-import './main.css';
+import '../css/main.css';
 import { Link } from 'react-router-dom';
 import { SiLinktree } from "react-icons/si";
 import { FaFacebookSquare, FaInstagram, FaGithub, FaLinkedin, FaTwitter, FaYoutube } from 'react-icons/fa';

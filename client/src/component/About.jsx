@@ -1,4 +1,4 @@
-import './About.css';
+import './css/About.css';
 import img1 from '../assets/images/Anuj.png';
 import img2 from '../assets/images/Jitendra.png';
 import img3 from '../assets/images/Harshit.png';

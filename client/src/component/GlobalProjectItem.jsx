@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 // import projectImg from '../assets/images/project.png'
-import './ProjectItem.css'
+import './css/ProjectItem.css'
 
 const GlobalProjectItem = (props) => {
     // Destructure the project from props --> project come from the ProjectState

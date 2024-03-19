@@ -1,4 +1,4 @@
-import './UploadProject.css'
+import './css/UploadProject.css'
 import PropTypes from 'prop-types';
 import AddProject from './AddProject';
 
