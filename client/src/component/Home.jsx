@@ -19,6 +19,11 @@ const Home = () => {
                 <div className="container">
                     {/* Welcome Page */}
                     <div className="welcome-page">
+                        {/* <section>
+                            <div className="stars text-light">hello</div>
+                            <div className="twinkling text-light"> hello2</div>
+                            <div className="clouds"> hello 3</div>
+                        </section> */}
                         <div className="info">
                             <h1 className='text-center'>Finally, All your Team&apos;s <br /> work in one place </h1>
                         </div>

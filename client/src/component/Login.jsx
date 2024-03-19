@@ -43,19 +43,19 @@ const Login = (props) => {
     <div className="Login">
 
     <div className='container main-bx'>
-      <div className='mt-2 p-3 border'>
-    <div class="heading">Sign In</div>
+    <div class="heading">Login</div>
+      <div className='mt-2 p-3 border rounded-5'>
         <h2>Login into Kaiyuan</h2>
         <form className='form' onSubmit={handleSubmit}>
           <div className="mb-2">
-            {/* <label htmlFor="email" className="input" id='email'>Email address</label> */}
+            {/* <label htmlFor="email" classNameName="input" id='email'>Email address</label> */}
             <input type="email" className="input" placeholder='Enter Your Email' value={credentials.email} onChange={onChange} id="email" name='email' aria-describedby="emailHelp" autoComplete='on' />
           </div>
           <div className="mb-2">
             {/* <label htmlFor="password" className="input">Password</label> */}
             <input type="password" className="input" id='password' placeholder='Enter Your Password' value={credentials.password} onChange={onChange} name='password' autoComplete='on' />
           </div>
-          <span class="forgot-password"><a href="#">Forgot Password ?</a></span>
+          <span className="forgot-password"><a href="#">Forgot Password ?</a></span>
           <div className="Signup-button">
             <button type="submit" className="btn btn-primary" onChange={onChange} onSubmit={handleSubmit}>Login</button>
           </div>
@@ -76,8 +76,8 @@ const Login = (props) => {
 
             </button>
           </div>
+        <span className="agreement text-center"><a href="#">Learn user licence agreement</a></span>
         </div>
-        <span className="agreement"><a href="#">Learn user licence agreement</a></span>
       </div>
     </div>
 </div>

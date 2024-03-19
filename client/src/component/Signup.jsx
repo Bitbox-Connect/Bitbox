@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import './css/Auth.css'
 
 const host = "http://localhost:5000";
 
@@ -42,12 +43,14 @@ const Signup = (props) => {
   }
 
   return (
-    <div className='container'>
-      <div className='border p-3'>
+    <div className="Login signup">
+    <div className='container main-bx'>
+      <div class="heading">SignUp</div>
+      <div className='border p-3 rounded-5'>
         <h2>Create an account into Kaiyuan</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-2">
-            <label htmlFor="name" className="form-label">Name</label>
+            <label htmlFor="name" className="label">Name</label>
             <input type="text" className="form-control" onChange={onChange} id="name" placeholder='Enter Your Full Name' name="name" aria-describedby="emailHelp" autoComplete='on' required />
           </div>
           <div className="mb-2">
@@ -68,12 +71,12 @@ const Signup = (props) => {
           </div>
         </form>
       </div>
-
+             <h5>or</h5>
       <div className='my-3 p-2 text-center border'>
         Have an account?
         <Link to="/Login">Login</Link>
       </div>
-
+    </div>
     </div>
   )
 }
