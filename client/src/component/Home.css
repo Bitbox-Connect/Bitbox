@@ -1,6 +1,6 @@
 /* Landing Page Section */
 .welcome-page {
-    height: 74vh;
+    height: 75vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -144,12 +144,15 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
-.Card-Info ,p{
+.Card-Info,
+p {
     font-size: 20px;
 }
-h3{
+
+h3 {
     font-weight: 600;
 }
+
 .btn-box {
     border-radius: 5px;
     width: 200px;
@@ -181,12 +184,13 @@ h3{
 .About-head-text {
     cursor: pointer;
 }
+
 .about-gif img {
-    width: 100%; 
-    height: auto; 
-    max-width: 100%; 
-    max-height: 100%; 
-  }
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
 
 /* Special Section */
 
@@ -224,6 +228,228 @@ h3{
     background-color: black;
     border: 1px solid white;
 }
+
+/* Technology Section */
+.Technology-Container .Heading-Page {
+    margin-top: 8rem;
+    color: white;
+}
+
+.Technology-Container .content {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 15px;
+    width: 100vw;
+    height: 80vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.Technology-Container .content::before {
+    content: "";
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: 0;
+    width: 40px;
+    height: 96px;
+    background-image: linear-gradient(90deg, #ffffff1c, transparent);
+    z-index: 2;
+    border-radius: 10px 0 0 10px;
+}
+
+.Technology-Container .content::after {
+    content: "";
+    position: absolute;
+    right: 0%;
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: 0;
+    width: 40px;
+    height: 96px;
+    background-image: linear-gradient(-90deg, #ffffff1c, transparent);
+    z-index: 9;
+    border-radius: 0 10px 10px 0;
+}
+
+.basic-marquee {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.basic-marquee .button {
+    transition: all 0.3s ease;
+}
+
+.basic-marquee .button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.basic-marquee-1 {
+    animation: marquee 15s linear infinite;
+}
+
+.basic-marquee-2 {
+    animation: marquee 21s linear infinite;
+}
+
+.Technology-Container .benefits {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    min-width: 900px;
+    height: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    position: absolute;
+    inset: 0;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(-10%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.basic-marquee svg {
+    width: 200px;
+}
+
+.basic-marquee button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cls-1 {
+    fill: #1ab7ea;
+}
+
+.cls-1,
+.cls-2 {
+    fill-rule: evenodd;
+}
+
+.cls-2 {
+    fill: #fff;
+}
+
+.cls-3 {
+    fill: #ee8208;
+    fill-rule: evenodd;
+}
+
+.cls-4 {
+    fill: #fff;
+}
+
+.cls-5,
+.cls-6 {
+    fill-rule: evenodd;
+}
+
+.cls-5 {
+    fill: #48dd55;
+}
+
+.cls-6 {
+    fill: #fff;
+}
+
+.cls-7 {
+    fill: #0a66c2;
+}
+
+.cls-7,
+.cls-8 {
+    fill-rule: evenodd;
+}
+
+.cls-8 {
+    fill: #fff;
+}
+
+.cls-9 {
+    fill: #10b7f4;
+}
+
+.cls-9,
+.cls-10 {
+    fill-rule: evenodd;
+}
+
+.cls-10 {
+    fill: #fff;
+}
+
+.cls-11 {
+    fill: #1da1f2;
+}
+
+.cls-11,
+.cls-12 {
+    fill-rule: evenodd;
+}
+
+.cls-12 {
+    fill: #fff;
+}
+
+.cls-13 {
+    fill: #ea4c89;
+}
+
+.cls-13,
+.cls-14 {
+    fill-rule: evenodd;
+}
+
+.cls-14 {
+    fill: #fff;
+}
+
+.cls-15 {
+    fill: #1769ff;
+}
+
+.cls-15,
+.cls-16 {
+    fill-rule: evenodd;
+}
+
+.cls-16 {
+    fill: #fff;
+}
+
+.cls-17 {
+    fill: #f26522;
+}
+
+.cls-17,
+.cls-18 {
+    fill-rule: evenodd;
+}
+
+.cls-18 {
+    fill: #fff;
+}
+
 
 /* ============================================================================================== 
 SED Innovations

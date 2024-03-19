@@ -1,8 +1,4 @@
-* {
-    margin: 0;
-    box-sizing: border-box;
-}
-
+/* Footer Section */
 .Container {
     display: flex;
     justify-content: space-around;

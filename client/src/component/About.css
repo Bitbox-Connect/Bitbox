@@ -1,6 +1,6 @@
 /* About Hero Section */
 .Hero-Section {
-  height: 90vh;
+  height: 77vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,51 +19,6 @@
 .Hero-Section .right-page {
   width: 60vw;
   margin: 1rem 3rem;
-}
-
-.team {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.team-box {
-  text-align: center;
-  margin: 0 20px;
-  transition: 0.2s all ease-in;
-}
-
-.team-box img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  -webkit-transform: scale(1);
-  transform: scale(1);
-}
-
-.team-box:hover {
-  transform: scale(1.2);
-}
-
-.team-box h3 {
-  margin-top: 10px;
-}
-
-
-.container-bx {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
-h2 {
-  text-align: center;
-}
-
-.about-gif img {
-  width: 200px;
-  height: auto;
-  border-radius: 17px;
 }
 
 /* About Hero Image */
@@ -396,6 +351,12 @@ h2 {
 
 
 /* Website Record Section */
+.container-bx {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
 .Website-Record-Sec .container-page {
   width: 100vw;
   height: 90vh;
@@ -478,7 +439,6 @@ h2 {
 }
 
 /* Team Section */
-
 .team {
   display: flex;
   justify-content: center;
@@ -492,7 +452,6 @@ h2 {
 }
 
 .team-box img {
-  cursor: pointer;
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -501,17 +460,11 @@ h2 {
 }
 
 .team-box:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .team-box h3 {
   margin-top: 10px;
-}
-
-.right-page .container-bx {
-  display: flex;
-  justify-content: center;
-  text-align: center;
 }
 
 h2 {

@@ -44,39 +44,39 @@ const Signup = (props) => {
 
   return (
     <div className="Login signup">
-    <div className='container main-bx'>
-      <div class="heading">SignUp</div>
-      <div className='border p-3 rounded-5'>
-        <h2>Create an account into Kaiyuan</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-2">
-            <label htmlFor="name" className="label">Name</label>
-            <input type="text" className="form-control" onChange={onChange} id="name" placeholder='Enter Your Full Name' name="name" aria-describedby="emailHelp" autoComplete='on' required />
-          </div>
-          <div className="mb-2">
-            <label htmlFor="email" className="form-label">Email address</label>
-            <input type="email" className="form-control" onChange={onChange} id="email" name="email" placeholder='Enter Your Email' aria-describedby="emailHelp" autoComplete='on' required />
-          </div>
+      <div className='container main-bx'>
+        <div className="heading">SignUp</div>
+        <div className='p-3'>
+          <h2>Create an account into Kaiyuan</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-2">
+              <label htmlFor="name" className="label">Name</label>
+              <input type="text" className="form-control" onChange={onChange} id="name" placeholder='Enter Your Full Name' name="name" aria-describedby="emailHelp" autoComplete='on' required />
+            </div>
+            <div className="mb-2">
+              <label htmlFor="email" className="form-label">Email address</label>
+              <input type="email" className="form-control" onChange={onChange} id="email" name="email" placeholder='Enter Your Email' aria-describedby="emailHelp" autoComplete='on' required />
+            </div>
 
-          <div className="mb-2">
-            <label htmlFor="password" className="form-label">Password</label>
-            <input type="password" className="form-control" onChange={onChange} id="password" name='password' placeholder='Enter Your Password' minLength={5} autoComplete='on' required />
-          </div>
-          <div className="mb-2">
-            <label htmlFor="cpassword" className="form-label">Confirm Password</label>
-            <input type="password" className="form-control" onChange={onChange} id="cpassword" name='cpassword' placeholder='Enter Again Your Password' minLength={5} autoComplete='on' required />
-          </div>
-          <div className="Login-button">
-            <button type="submit" className="btn btn-primary" onSubmit={handleSubmit}>Singup</button>
-          </div>
-        </form>
+            <div className="mb-2">
+              <label htmlFor="password" className="form-label">Password</label>
+              <input type="password" className="form-control" onChange={onChange} id="password" name='password' placeholder='Enter Your Password' minLength={5} autoComplete='on' required />
+            </div>
+            <div className="mb-2">
+              <label htmlFor="cpassword" className="form-label">Confirm Password</label>
+              <input type="password" className="form-control" onChange={onChange} id="cpassword" name='cpassword' placeholder='Enter Again Your Password' minLength={5} autoComplete='on' required />
+            </div>
+            <div className="Login-button">
+              <button type="submit" className="btn btn-primary" onSubmit={handleSubmit}>Singup</button>
+            </div>
+          </form>
+        </div>
+        <h5 className='text-center'>or</h5>
+        <div className='text-center'>
+          Have an account?
+          <Link to="/Login">Login</Link>
+        </div>
       </div>
-             <h5>or</h5>
-      <div className='my-3 p-2 text-center border'>
-        Have an account?
-        <Link to="/Login">Login</Link>
-      </div>
-    </div>
     </div>
   )
 }
