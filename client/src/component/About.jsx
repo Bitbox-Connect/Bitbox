@@ -8,7 +8,6 @@ import aboutImg2 from '../assets/images/Vector Gif/tenor.gif'
 import aboutHeroImg from '../assets/images/Others/aboutImg.png'
 
 export default function About() {
-  
   return (
     <div className='About-Sec-Container'>
       <div className="about">
@@ -133,7 +132,25 @@ export default function About() {
           </div>
         </div>
       </div>
-     
+      {/* <section>
+        <div class="profile-card">
+          <button class="mail">
+          </button>
+          <div class="profile-pic">
+          </div>
+          <div class="bottom">
+            <div class="content">
+              <span class="name">My Name</span>
+              <span class="about-me">Lorem ipsum dolor sit amet consectetur adipisicinFcls </span>
+            </div>
+            <div class="bottom-bottom">
+              <div class="social-links-container">
+              </div>
+              <button class="button">Contact Me</button>
+            </div>
+          </div>
+        </div>
+      </section> */}
       <div className='Contributer-Section'>
         <h2 className='Heading-Page'>Our Contributer</h2>
         <div className="team fs-5">
@@ -144,6 +161,7 @@ export default function About() {
           <div className="team-box hover01">
             <img src={img3} alt="OWNER" />
             <div className="teamember"><b>Harshit Singh</b></div>
+            <div className="teamember"><b>Harshit Singh</b></div>
           </div>
           <div className="team-box">
             <img src={img2} alt="OWNER" />
@@ -151,6 +169,7 @@ export default function About() {
           </div>
         </div>
       </div>
+
       {/* <div className="info">
           <p className='fs-4'>&quot;Open source is a shared vision of building a community of similar -minded individuals. Together, we collaborate, innovate, and shape the future of technology with transparency and inclusivity at its core  write in more effective way&quot;</p>
         </div> */}
