@@ -42,7 +42,7 @@ function AddProject(props) {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <div className="card">
+                            <div className="pro-card">
                                 {/* <img src={ProjectImg} className="card-img-top" alt={"project"} /> */}
                                 <div className="card-body">
                                     {/* <div className="mb-3">

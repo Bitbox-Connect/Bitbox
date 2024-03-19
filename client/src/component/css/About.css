@@ -437,6 +437,9 @@
   transform: rotateY(180deg);
 
 }
+<<<<<<< HEAD
+/* --------------------------------profile------------------------------------ */
+=======
 
 /* Team Section */
 .team {
@@ -476,3 +479,4 @@ h2 {
   height: auto;
   border-radius: 17px;
 }
+>>>>>>> aa27f23c262c09029d2951db2b4c553d020c67fa

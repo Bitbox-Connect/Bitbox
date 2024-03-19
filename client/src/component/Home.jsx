@@ -34,15 +34,10 @@ const Home = () => {
                 <div className="container">
                     {/* Welcome Page */}
                     <div className="welcome-page">
-                        {/* <section>
-                            <div className="stars text-light">hello</div>
-                            <div className="twinkling text-light"> hello2</div>
-                            <div className="clouds"> hello 3</div>
-                        </section> */}
                         <div className="info">
                             <h1 className='text-center'>Finally, All your Team&apos;s <br /> work in one place </h1>
                         </div>
-                        <p className='abut'>&quot;Welcome to our open-source platform, where innovation knows no bounds and collaboration is key.&quot;<br />
+                        <p className='abut fs-5'>&quot;Welcome to our open-source platform, where innovation knows no bounds and collaboration is key.&quot;<br />
                             Join us on this exhilarating journey of exploration and discovery, where every line of code written is a step forward in shaping a brighter tomorrow.</p>
                         <div className="btn-group d-flex justify-content-center align-item-center">
                             {/* <Link role="button" to='/signup' className="button-color1">Signup</Link> */}
