@@ -5,7 +5,6 @@
 
 #root {
     overflow: hidden;
-    /* background: rgb(166, 193, 238); */
 }
 
 .row {
@@ -23,4 +22,9 @@
 
 .Heading-Page {
     font-size: 3.5rem;
+}
+
+.content{
+    margin-top: 14px;
+    background-color: #a6c1ee;
 }

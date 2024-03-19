@@ -1,8 +1,4 @@
-* {
-    margin: 0;
-    box-sizing: border-box;
-}
-
+/* Footer Section */
 .Container {
     display: flex;
     justify-content: space-around;
@@ -39,7 +35,7 @@ h1 {
 }
 
 .code {
-    color: #f68914;
+    color: #3b5998;
 }
 
 p {

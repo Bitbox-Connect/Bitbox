@@ -10,7 +10,6 @@ import Signup from './component/Signup';
 import UserProjects from './component/UserProjects';
 import ProjectState from './context/ProjectState';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import SearchBar from './component/SearchBar';
 import Codeofconduct from './component/Footer/Codeofconduct';
 import Asoc from './component/Footer/Asoc';
 import Contactus from './component/Footer/Contactus';
@@ -39,7 +38,6 @@ function App() {
           <div className="content">
             <Navbar title="Kaiyuan" home="Home" community="Community" about="About us" myProjects="My projects" showAlert={showAlert} />
             <div className="Main-Bc">
-              <SearchBar />
               <Alert alert={alert} />
             </div>
             <div className="First-Bc">
