@@ -11,49 +11,6 @@ export default function About() {
   
   return (
     <div className='About-Sec-Container'>
-<<<<<<< HEAD
-      <div className="about">
-        <div className='About-Page1'>
-          <div className="left-page">
-            <h1>About-us</h1>
-            <p className='fs-4'>
-              Kaiyuan is like a friendly community where people working on projects can come together. If you’re stuck or need advice, you can ask for help. And if you know something, you can share your knowledge with others. It’s all about supporting each other and building a helpful community.
-              🌟<br /> <br />Welcome to our open-source platform, where innovation knows no bounds and collaboration is key. Dive into our repository of code, where creativity flourishes and solutions come to life. Join our vibrant community of developers, enthusiasts, and visionaries, as we build the future together, one line at a time
-
-            </p>
-          </div>
-          <div className="right-page" data-engine="three.js r149">
-            <div class="container noselect">
-              <div class="canvas">
-                <div class="tracker tr-1"></div>
-                <div class="tracker tr-2"></div>
-                <div class="tracker tr-3"></div>
-                <div class="tracker tr-4"></div>
-                <div class="tracker tr-5"></div>
-                <div class="tracker tr-6"></div>
-                <div class="tracker tr-7"></div>
-                <div class="tracker tr-8"></div>
-                <div class="tracker tr-9"></div>
-                <div class="tracker tr-10"></div>
-                <div class="tracker tr-11"></div>
-                <div class="tracker tr-12"></div>
-                <div class="tracker tr-13"></div>
-                <div class="tracker tr-14"></div>
-                <div class="tracker tr-15"></div>
-                <div class="tracker tr-16"></div>
-                <div class="tracker tr-17"></div>
-                <div class="tracker tr-18"></div>
-                <div class="tracker tr-19"></div>
-                <div class="tracker tr-20"></div>
-                <div class="tracker tr-21"></div>
-                <div class="tracker tr-22"></div>
-                <div class="tracker tr-23"></div>
-                <div class="tracker tr-24"></div>
-                <div class="tracker tr-25"></div>
-                <div id="card">
-                  <img src={aboutHeroImg} id='propmpt' alt="aboutVectorImg" />
-                </div>
-=======
       <div className='Hero-Section'>
         <div className="left-page">
           <h1>About-us</h1>
@@ -92,7 +49,6 @@ export default function About() {
               <div className="tracker tr-25"></div>
               <div id="card">
                 <img src={aboutHeroImg} id='propmpt' alt="aboutVectorImg" />
->>>>>>> aa27f23c262c09029d2951db2b4c553d020c67fa
               </div>
             </div>
           </div>
