@@ -1,24 +1,13 @@
 import PropTypes from 'prop-types';
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import projectContext from '../context/projectContext';
 import GlobalProjectItem from './GlobalProjectItem';
 import UploadProject from './UploadProject';
-import { useNavigate } from 'react-router-dom';
 
 const Projects = (props) => {
     const context = useContext(projectContext)
-    let navigate = useNavigate();
     const { projects, getGlobalProjects } = context;
-    useEffect(() => {
-        if (localStorage.getItem('token')) {
-            getGlobalProjects();
-        }
-        else {
-            navigate('/login')
-        }
-
-        // eslint-disable-next-line
-    }, [])
+    getGlobalProjects();
     return (
         <div className='container Global-Sec-Container'>
             <div className="content">

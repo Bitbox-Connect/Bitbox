@@ -1,5 +1,6 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Home.css'
+import { useRef } from 'react';
 import PropTypes from 'prop-types';
 import image1 from '../assets/images/Anuj.png'
 import image2 from '../assets/images/Jitendra.png'
@@ -13,6 +14,20 @@ const Home = () => {
     const goToAbout = () => {
         navigate("/about");
     }
+    const ContributorRef = useRef(null); // Create a ref for the "Our Contributor" section
+
+    const goToContributor = () => {
+        // Smooth scroll to the "Our Contributor" section
+        ContributorRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
     return (
         <div>
             <div className="Landing-Page">
@@ -28,13 +43,13 @@ const Home = () => {
                             {/* <Link role="button" to='/signup' className="button-color1">Signup</Link> */}
                             {/* <Link role="button" to='/login' className="button-color2">Login</Link> */}
                         </div>
-                        <div className="arrow-gif">
+                        <div className="arrow-gif" onClick={goToContributor}>
                             <img src={arrowGif} alt="arrowGif" />
                         </div>
                     </div>
                 </div>
                 {/* Carousel Home Page */}
-                <div className="Container-Carousel">
+                <div className="Container-Carousel" ref={ContributorRef}>
                     <h2 className='text-center Heading-Page'>Our Contributor</h2>
                     <section className='my-4 mx-2'>
                         <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
@@ -112,19 +127,15 @@ const Home = () => {
 
                 <div className="About-Container">
                     <section className='About-Sec'>
-                        <h2 onClick={() => goToAbout()} className='Heading-Page text-center About-head-text'>About us</h2>
-                        <div data-aos="fade-down" className="hero__image hidden lg:block aos-init aos-animate">
-                            <div className="Tilt">
-                                <div className="about-gif">
-                                    <img src={aboutImg} alt="about-image" />
-                                </div>
-                            </div>
+                        <h2 onClick={() => { goToAbout(); scrollToTop(); }} className='Heading-Page text-center About-head-text'>About us</h2>
+                        <div className="about-gif">
+                            <img src={aboutImg} alt="about-image" />
                         </div>
                     </section>
                 </div>
 
                 <div className="Special-Sec">
-                    <h1 className='text-center'>What We Works</h1>
+                    <h2 className='Heading-Page text-center'>What We Works</h2>
                     <div className="special-row1">
                         <div className="special-cont1">
                             <div className="special-box1"></div>
