@@ -121,7 +121,9 @@
   }
   
 .main-bx{
-    text-align: center;
+    /* text-align: center; */
+    align-items: center;
+    justify-content: center;
     width: 400px;
 
 }
@@ -140,4 +142,13 @@
     display: flex;
     justify-content: center;
     margin-top: 10px;
+  }
+  h5{
+    text-align: center;
+  }
+
+  .agreement a{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
   }
