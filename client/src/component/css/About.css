@@ -1,6 +1,3 @@
-
-
-User
 .About-Sec-Container {
   padding-bottom: 2rem;
 }
@@ -11,7 +8,6 @@ User
   width: 100vw;
   margin: 0 2rem;
 }
-
 
 .About-Page1 .left-page {
   display: flex;
@@ -163,8 +159,8 @@ h2 {
       rgb(255, 185, 160) 78%);
   color: rgb(255, 255, 255);
   transform: rotateY(180deg);
-
 }
+
 /* About Hero Image */
 /*works janky on mobile :<*/
 .right-page .container {
@@ -190,7 +186,7 @@ h2 {
   transition: 700ms;
 }
 
-.right-page .tracker:hover ~ #card .title {
+.right-page .tracker:hover~#card .title {
   opacity: 0;
 }
 
@@ -215,11 +211,11 @@ h2 {
   cursor: pointer;
 }
 
-.right-page .tracker:hover ~ #card #prompt {
+.right-page .tracker:hover~#card #prompt {
   opacity: 0;
 }
 
-.right-page .tracker:hover ~ #card {
+.right-page .tracker:hover~#card {
   transition: 300ms;
   filter: brightness(1.1);
 }
@@ -358,127 +354,127 @@ h2 {
   grid-area: tr-25;
 }
 
-.tr-1:hover ~ #card {
+.tr-1:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(20deg) rotateY(-10deg) rotateZ(0deg);
 }
 
-.tr-2:hover ~ #card {
+.tr-2:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(20deg) rotateY(-5deg) rotateZ(0deg);
 }
 
-.tr-3:hover ~ #card {
+.tr-3:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(20deg) rotateY(0deg) rotateZ(0deg);
 }
 
-.tr-4:hover ~ #card {
+.tr-4:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(20deg) rotateY(5deg) rotateZ(0deg);
 }
 
-.tr-5:hover ~ #card {
+.tr-5:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(20deg) rotateY(10deg) rotateZ(0deg);
 }
 
-.tr-6:hover ~ #card {
+.tr-6:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(10deg) rotateY(-10deg) rotateZ(0deg);
 }
 
-.tr-7:hover ~ #card {
+.tr-7:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(10deg) rotateY(-5deg) rotateZ(0deg);
 }
 
-.tr-8:hover ~ #card {
+.tr-8:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(10deg) rotateY(0deg) rotateZ(0deg);
 }
 
-.tr-9:hover ~ #card {
+.tr-9:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(10deg) rotateY(5deg) rotateZ(0deg);
 }
 
-.tr-10:hover ~ #card {
+.tr-10:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(10deg) rotateY(10deg) rotateZ(0deg);
 }
 
-.tr-11:hover ~ #card {
+.tr-11:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(0deg) rotateY(-10deg) rotateZ(0deg);
 }
 
-.tr-12:hover ~ #card {
+.tr-12:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(0deg) rotateY(-5deg) rotateZ(0deg);
 }
 
-.tr-13:hover ~ #card {
+.tr-13:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
 }
 
-.tr-14:hover ~ #card {
+.tr-14:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(0deg) rotateY(5deg) rotateZ(0deg);
 }
 
-.tr-15:hover ~ #card {
+.tr-15:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(0deg) rotateY(10deg) rotateZ(0deg);
 }
 
-.tr-16:hover ~ #card {
+.tr-16:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(-10deg) rotateY(-10deg) rotateZ(0deg);
 }
 
-.tr-17:hover ~ #card {
+.tr-17:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(-10deg) rotateY(-5deg) rotateZ(0deg);
 }
 
-.tr-18:hover ~ #card {
+.tr-18:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(-10deg) rotateY(0deg) rotateZ(0deg);
 }
 
-.tr-19:hover ~ #card {
+.tr-19:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(-10deg) rotateY(5deg) rotateZ(0deg);
 }
 
-.tr-20:hover ~ #card {
+.tr-20:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(-10deg) rotateY(10deg) rotateZ(0deg);
 }
 
-.tr-21:hover ~ #card {
+.tr-21:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(-20deg) rotateY(-10deg) rotateZ(0deg);
 }
 
-.tr-22:hover ~ #card {
+.tr-22:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(-20deg) rotateY(-5deg) rotateZ(0deg);
 }
 
-.tr-23:hover ~ #card {
+.tr-23:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(-20deg) rotateY(0deg) rotateZ(0deg);
 }
 
-.tr-24:hover ~ #card {
+.tr-24:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(-20deg) rotateY(5deg) rotateZ(0deg);
 }
 
-.tr-25:hover ~ #card {
+.tr-25:hover~#card {
   transition: 125ms ease-in-out;
   transform: rotateX(-20deg) rotateY(10deg) rotateZ(0deg);
 }
@@ -497,7 +493,6 @@ h2 {
   /* Non-prefixed version, currently
 									supported by Chrome, Edge, Opera and Firefox */
 }
-
 
 /* Team Section */
 
@@ -638,14 +633,9 @@ h2 {
       rgb(255, 185, 160) 78%);
   color: rgb(255, 255, 255);
   transform: rotateY(180deg);
-
 }
-<<<<<<< HEAD:client/src/component/About.css
-=======
-<<<<<<< HEAD
-/* --------------------------------profile------------------------------------ */
-=======
 
+/* --------------------------------profile------------------------------------ */
 /* Team Section */
 .team {
   display: flex;
@@ -684,5 +674,36 @@ h2 {
   height: auto;
   border-radius: 17px;
 }
->>>>>>> aa27f23c262c09029d2951db2b4c553d020c67fa
->>>>>>> 44adecfe14b03c3e156a7a6e5cb0685af976de2e:client/src/component/css/About.css
+section {
+  padding: 20px;
+}
+
+/* Style for the accordion items */
+.accordion-item {
+  margin-bottom: 10px;
+}
+
+/* Style for the accordion buttons */
+.accordion-button {
+  background-color: #f8f9fa;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-button:hover {
+  background-color: #e9ecef;
+}
+
+/* Style for the accordion body */
+.accordion-body {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  padding: 10px 15px;
+  margin-top: 5px;
+}

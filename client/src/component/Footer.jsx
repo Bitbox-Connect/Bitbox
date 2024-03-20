@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './Footer.css';
+import './css/Footer.css';
 import { FaFacebookSquare, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 function Footer() {
   return (
@@ -14,7 +14,7 @@ function Footer() {
             pairing them with mentors to gain practical coding experience, 
             contribute to real-world projects, and foster collaboration within 
             the open-source community."</p> 
-            <Link to="/" className='fs-5'>Explore more</Link> 
+            <Link to="/" className='fs-5'>Explore more...</Link> 
           </div>
         </div>
         <div className="new_Details m-4">

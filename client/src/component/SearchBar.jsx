@@ -1,4 +1,4 @@
-import "./SearchBar.css";
+import "./css/SearchBar.css";
 // import SearchIcon from '@mui/icons-material/Search';
 
 function SearchBar() {    

@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import AddProject from './AddProject';
 import logo from '../assets/images/logo.png';
-import './Navbar.css';
+import './css/Navbar.css';
 import { useEffect, useState } from 'react';
 
 function Navbar(props) {
