@@ -1,6 +1,6 @@
 /* Landing Page Section */
 .welcome-page {
-    height: 75vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,7 +80,6 @@
 }
 
 /* Carousel Section */
-
 .UserImg {
     width: 40vw;
     height: 70vh;
@@ -89,7 +88,7 @@
 
 .Container-Carousel {
     background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 0% 100% 11% 89% / 0% 6% 0% 0%;
+    /* border-radius: 0% 100% 11% 89% / 0% 6% 0% 0%; */
     width: 100vw;
     height: 110vh;
     display: flex;
@@ -103,7 +102,6 @@
 }
 
 /* Cards Section */
-
 .Card-Info-Sec {
     /* border-radius: 16% 33% 60% 40% / 0% 15% 0% 15%; */
     background: linear-gradient(180deg, rgb(0 118 141) 0%, rgb(0 130 242) 80%);
@@ -169,9 +167,8 @@ h3 {
 }
 
 /* About Section */
-
 .About-Container {
-    border-radius: 16% 33% 60% 40% / 0% 20% 0% 15%;
+    /* border-radius: 16% 33% 60% 40% / 0% 20% 0% 15%; */
     width: 100vw;
     height: 100vh;
     background: antiquewhite;
@@ -201,6 +198,7 @@ h3 {
     flex-direction: column;
     justify-content: end;
     align-items: center;
+    background: lightcoral;
 }
 
 .Special-Sec h2 {
@@ -223,8 +221,8 @@ h3 {
 .special-cont4 {
     height: 35vh;
     width: 23vw;
-    background-color: black;
-    border: 1px solid white;
+    background-color: moccasin;
+    border: 1px solid black;
 }
 
 /* Technology Section */
