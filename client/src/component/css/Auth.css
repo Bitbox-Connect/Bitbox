@@ -118,15 +118,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      /* height: 100vh; */
     }
 
     .main-bx {
-      /* text-align: center; */
       align-items: center;
       justify-content: center;
       width: 400px;
-
     }
 
     form {
