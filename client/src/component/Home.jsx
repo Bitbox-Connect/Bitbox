@@ -170,8 +170,8 @@ const Home = () => {
 
                 <div className='Technology-Sec'>
                     <div className="Technology-Container">
+                        <h2 className='Heading-Page'>Project Technology</h2>
                         <div className="content">
-                            <h2 className='Heading-Page'>Project Technology</h2>
                             <div className="benefits">
                                 <div className="basic-marquee basic-marquee-1">
                                     <a className="social-media-link" href="#">

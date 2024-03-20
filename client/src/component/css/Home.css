@@ -170,7 +170,7 @@ h3 {
 .About-Container {
     /* border-radius: 16% 33% 60% 40% / 0% 20% 0% 15%; */
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background: antiquewhite;
     display: flex;
     justify-content: center;
@@ -190,13 +190,12 @@ h3 {
 }
 
 /* Special Section */
-
 .Special-Sec {
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
     background: lightcoral;
 }
@@ -226,18 +225,22 @@ h3 {
 }
 
 /* Technology Section */
+.Technology-Sec {
+    background-color: black;
+    min-height: 90vh;
+}
+
 .Technology-Container .Heading-Page {
     color: white;
 }
 
 .Technology-Container .content {
-    background-color: black;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    gap: 15px;
+    justify-content: center;
+    gap: 20px;
     width: 100vw;
-    height: 90vh;
+    min-height: 75vh;
     position: relative;
     overflow: hidden;
 }
@@ -249,8 +252,8 @@ h3 {
     top: 50%;
     transform: translateY(-50%);
     bottom: 0;
-    width: 40px;
-    height: 96px;
+    width: 50px;
+    height: 100px;
     background-image: linear-gradient(90deg, #ffffff1c, transparent);
     z-index: 2;
     border-radius: 10px 0 0 10px;
@@ -263,8 +266,8 @@ h3 {
     top: 50%;
     transform: translateY(-50%);
     bottom: 0;
-    width: 40px;
-    height: 96px;
+    width: 50px;
+    height: 100px;
     background-image: linear-gradient(-90deg, #ffffff1c, transparent);
     z-index: 9;
     border-radius: 0 10px 10px 0;
@@ -288,11 +291,11 @@ h3 {
 }
 
 .basic-marquee-1 {
-    animation: marquee 18s linear infinite;
+    animation: marquee 15s linear infinite;
 }
 
 .basic-marquee-2 {
-    animation: marquee 21s linear infinite;
+    animation: marquee 18s linear infinite;
 }
 
 .Technology-Container .benefits {

@@ -3,7 +3,7 @@
 }
 
 .About-Hero {
-  height: 75vh;
+  min-height: 75vh;
   display: flex;
   width: 100vw;
   margin: 0 2rem;
@@ -14,7 +14,7 @@
   justify-content: center;
   flex-direction: column;
   width: 60vw;
-  height: 64vh;
+  min-height: 64vh;
 }
 
 .About-Hero .right-page {
@@ -37,7 +37,7 @@
 .team-box img {
   cursor: pointer;
   width: 170px;
-  height: 150px;
+  min-height: 150px;
   border-radius: 50%;
   -webkit-transform: scale(1);
   transform: scale(1);
@@ -49,13 +49,13 @@
 .right-page .container {
   position: relative;
   width: 500px;
-  height: 254px;
+  min-height: 254px;
   transition: 200ms;
 }
 
 .right-page .container:active {
   width: 500px;
-  height: 245px;
+  min-height: 245px;
 }
 
 .right-page #card {
@@ -403,7 +403,7 @@ h2 {
 
 /* Website Record Section */
 .Website-Record-Sec {
-  height: 90vh;
+  min-height: 90vh;
   width: 100vw;
 }
 
@@ -420,13 +420,13 @@ h2 {
       #fd868c 60%,
       #fe9a8b 100%);
   width: 100vw;
-  height: 90vh;
+  min-height: 90vh;
 }
 
 .flip-card {
   background-color: transparent;
   width: 230px;
-  height: 284px;
+  min-height: 284px;
   margin: 15px;
   perspective: 1000px;
   font-family: sans-serif;
@@ -490,7 +490,6 @@ h2 {
 }
 
 /* Team Section */
-
 .team {
   display: flex;
   justify-content: center;
@@ -542,7 +541,6 @@ h2 {
 }
 
 /* Website Record Section */
-
 .Website-Record-Sec {
   height: 80vh;
   width: 100vw;
@@ -632,8 +630,8 @@ h2 {
 
 /* --------------------------------profile------------------------------------ */
 /* Team Section */
-.Contributer-Section{
-  height: 50vh;
+.Contributer-Section {
+  min-height: 40vh;
   width: 100vw;
   background: bisque;
 }
@@ -675,6 +673,7 @@ h2 {
   height: auto;
   border-radius: 17px;
 }
+
 section {
   padding: 20px;
 }
@@ -710,7 +709,7 @@ section {
 }
 
 /* FAQ */
-.faq-section{
+.faq-section {
   background-color: black;
   color: white;
   min-height: 90vh;

@@ -47,7 +47,7 @@ const Contactus = () => {
                   </ul>
                 </h4>
               </div>
-            </div>    
+            </div>
             {/* <h1 className='name'>Linktree <SiLinktree color="orange" fontSize="5rem" /></h1> */}
           </div>
         </div>

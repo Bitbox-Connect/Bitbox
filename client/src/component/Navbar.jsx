@@ -63,9 +63,13 @@ function Navbar(props) {
                             <li className="nav-item fs-4">
                                 <Link className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`} aria-current="page" to="/about">{props.about}</Link>
                             </li>
-                            <li className="nav-item text-xl fs-4">
-                                <Link className={`nav-link ${location.pathname === '/myProjects' ? 'active' : ''}`} aria-current="page" to="/myProjects">{props.myProjects}</Link>
-                            </li>
+                            {localStorage.getItem('token') ?
+                                <li className="nav-item text-xl fs-4">
+                                    <Link className={`nav-link ${location.pathname === '/myProjects' ? 'active' : ''}`} aria-current="page" to="/myProjects">{props.myProjects}</Link>
+                                </li>
+                                :
+                                <></>
+                            }
                         </ul>
 
                     </div>
