@@ -28,3 +28,6 @@ To run CodeContri locally, follow these steps:
 ```bash 
 $ npm install
 Access CodeContri in your web browser at http://localhost:5173
+##Contact
+For any inquiries or feedback, please contact Harshit7492 & Anuj3553.
+
