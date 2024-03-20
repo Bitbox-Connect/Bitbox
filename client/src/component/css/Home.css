@@ -214,8 +214,6 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: #0a58ca; */
-    /* border: 1px solid white; */
     gap: 10px;
 }
 
@@ -231,7 +229,6 @@ h3 {
 
 /* Technology Section */
 .Technology-Container .Heading-Page {
-    margin-top: 8rem;
     color: white;
 }
 
@@ -242,7 +239,7 @@ h3 {
     justify-content: flex-start;
     gap: 15px;
     width: 100vw;
-    height: 80vh;
+    height: 90vh;
     position: relative;
     overflow: hidden;
 }
@@ -293,7 +290,7 @@ h3 {
 }
 
 .basic-marquee-1 {
-    animation: marquee 15s linear infinite;
+    animation: marquee 18s linear infinite;
 }
 
 .basic-marquee-2 {
@@ -315,11 +312,11 @@ h3 {
 
 @keyframes marquee {
     0% {
-        transform: translateX(-10%);
+        transform: translateX(65%);
     }
 
     100% {
-        transform: translateX(-50%);
+        transform: translateX(-65%);
     }
 }
 
