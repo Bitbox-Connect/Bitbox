@@ -93,7 +93,6 @@ const Home = () => {
                     </section>
                 </div>
             </div>
-
             <div className="Cards-Page">
                 <section className='Card-Info-Sec'>
                     <h2 className='Heading-Page text-center'>Be a part of Kaiyuan Community</h2>
@@ -101,25 +100,26 @@ const Home = () => {
                         <div className="Card-Info-Row1">
                             <div className="Card-Info">
                                 <h3>Start your journey</h3>
-                                <p>Participating in GSSoC’23 is an opportunity to upgrade your Github profile. Enrich yourselves to learn, explore, improve, enhance, build connections and become a team player to nourish your skills and personality. Don’t miss a chance to get well-versed with Open-Source and essential tools like Git and Github under the supervision of excellent mentors.</p>
-                                <a href="#" className="btn btn-primary">Go somewhere</a>
+                                <p>Engaging in GSSoC’23 offers a chance to elevate your GitHub presence. Elevate your knowledge, delve into new horizons, refine, amplify, forge connections, and foster teamwork to cultivate your abilities and character. Seize the opportunity to delve into open-source, mastering fundamental tools like Git and GitHub under the guidance of adept mentors.</p>
+                                {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
                             </div>
                             <div className="Card-Info">
                                 <h3>Inviting Projects & NGOs</h3>
-                                <p>If you are an organization with a project idea in mind, a website or an app then this is the golden opportunity to become a part of an awesome community. The budding developers under the guidance of expert mentors will work on your projects and strive to achieve the best version. Apply and let’s collaborate together because Together Everyone Achieves More</p>
-                                <a href="#" className="btn btn-primary">Go somewhere</a>
+                                <p>If your organization harbors a vision for a project, whether it's a website, an app, or any other initiative, seize this golden opportunity to join our vibrant community. Our aspiring developers, mentored by seasoned experts, are eager to collaborate on your projects, aiming for nothing short of excellence. Submit your application now, and let's join forces because Together Everyone Achieves More.</p>
+                                {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
                             </div>
                         </div>
                         <div className="Card-Info-Row2">
                             <div className="Card-Info">
                                 <h3>Lead the pack</h3>
-                                <p>Mentors are the experts and take the lead of the open-source project team. They guide the fellow participants at each stage in a road map of the project. They are the backbone of team and are available throughout the summer to review the pull requests and suggest betterment. Apply to be a mentor at Girlscript summer of code and be the foundation of your team.</p>
-                                <a href="#" className="btn btn-primary">Go somewhere</a>
+                                <p>In the realm of open-source projects, mentors serve as the vanguards, charting the course for the team's journey. They provide invaluable guidance to fellow participants, navigating them through every stage of the project roadmap. Acting as the cornerstone of the team, mentors remain accessible throughout the summer, reviewing pull requests and offering suggestions for improvement. Seize the opportunity to become a mentor at GirlScript Summer of Code and lay the groundwork for your team's success.</p>
+                                {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
                             </div>
                             <div className="Card-Info">
                                 <h3>Add your shade to GSSoC’23</h3>
-                                <p>Sponsors with their precious resources make it possible for GirlScript to conduct the entire event smoothly, to encourage talent by enabling us to give perks to our top participants. Hence as a token of gratitude, we provide great publicity on our social platforms and exposure on media about our sponsors. Sponsor us to add a bright shade to our program.</p>
-                                <a href="#" className="btn btn-primary">Go somewhere</a>
+                                <p>
+Supporters play a crucial role in ensuring the seamless execution of GirlScript events by providing valuable resources. Their contribution enables us to reward our top participants with perks, fostering talent within our community. In appreciation of their support, we offer extensive publicity on our social platforms and media exposure to showcase our sponsors. Join us as a sponsor and illuminate our program with your generosity.</p>
+                                {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
                             </div>
                         </div>
                     </div>
@@ -127,7 +127,7 @@ const Home = () => {
 
                 <div className="About-Container">
                     <section className='About-Sec'>
-                        <h2 onClick={() => { goToAbout(); scrollToTop(); }} className='Heading-Page text-center About-head-text'>About us</h2>
+                        <h2 onClick={() => { goToAbout(); scrollToTop(); }} className='Heading-Page text-center About-head-text'>About-Us</h2>
                         <div className="about-gif">
                             <img src={aboutImg} alt="about-image" />
                         </div>

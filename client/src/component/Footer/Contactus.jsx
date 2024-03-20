@@ -1,7 +1,7 @@
 import '../css/main.css';
 import { Link } from 'react-router-dom';
 import { SiLinktree } from "react-icons/si";
-import { FaFacebookSquare, FaInstagram, FaGithub, FaLinkedin, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaFacebookSquare, FaInstagram, FaGithub, FaLinkedin, FaTwitter, FaYoutube, FaReddit, FaDiscord, FaTelegram, FaFacebook } from 'react-icons/fa';
 
 const Contactus = () => {
   return (
@@ -47,60 +47,60 @@ const Contactus = () => {
                   </ul>
                 </h4>
               </div>
-            </div>
-            <h1 className='name'>Linktree <SiLinktree color="orange" fontSize="5rem" /></h1>
+            </div>    
+            {/* <h1 className='name'>Linktree <SiLinktree color="orange" fontSize="5rem" /></h1> */}
           </div>
         </div>
-        {/* Card Section */}
         <section className='Contact-Us-Card-Sec'>
-          <div className="main">
+          <div className="main container">
             <div className="card">
-              <div className="instagram">I</div>
-              {/* <FaLinkedin color="#0077b5" fontSize="2rem" /> */}
+              {/* <div className="instagram">I</div> */}
+              <FaLinkedin color="#0077b5" fontSize="5rem" />
             </div>
             <div className="card">
-              {/* <FaLinkedin color="#0077b5" fontSize="2rem" /> */}
+              <FaInstagram color="#0077b5" fontSize="5rem" />
               <div className="twitter">I</div>
 
             </div>
             <div className="card">
-              <div className="dribble">I</div>
+              {/* <div className="dribble">I</div> */}
 
-              {/* <FaLinkedin color="#0077b5" fontSize="2rem" /> */}
+              <FaTwitter color="#0077b5" fontSize="5rem" />
             </div>
             <div className="card">
-              <div className="codepen">I</div>
+              {/* <div className="codepen">I</div> */}
 
-              {/* <FaLinkedin color="#0077b5" fontSize="2rem" /> */}
+              <FaYoutube color="#0077b5" fontSize="5rem" />
             </div>
             <div className="card">
-              <div className="uiverse">I</div>
+              {/* <div className="uiverse">I</div> */}
 
-              {/* <FaLinkedin color="#0077b5" fontSize="2rem" /> */}
+              <FaReddit color="#0077b5" fontSize="5rem" />
 
             </div>
             <div className="card">
-              <div className="discord">I</div>
+              {/* <div className="discord">I</div> */}
 
-              {/* <FaLinkedin color="#0077b5" fontSize="2rem" /> */}
+              <FaDiscord color="#0077b5" fontSize="5rem" />
             </div>
             <div className="card">
               <div className="github">I</div>
 
-              {/* <FaLinkedin color="#0077b5" fontSize="2rem" /> */}
+              <FaGithub color="#0077b5" fontSize="5rem" />
             </div>
             <div className="card">
-              <div className="telegram">I</div>
+              {/* <div className="telegram">I</div> */}
 
-              {/* <FaLinkedin color="#0077b5" fontSize="2rem" /> */}
+              <FaTelegram color="#0077b5" fontSize="5rem" />
             </div>
             <div className="card">
-              <div className="reddit">I</div>
+              {/* <div className="reddit">I</div> */}
 
-              {/* <FaLinkedin color="#0077b5" fontSize="2rem" /> */}
+              <FaFacebook color="#0077b5" fontSize="5rem" />
             </div>
             <h2 className='text'>Social Media  </h2>
             <div className="main_back"></div>
+            <h1 className='name'>Linktree <SiLinktree color="orange" fontSize="5rem" /></h1>
           </div>
         </section>
       </div>

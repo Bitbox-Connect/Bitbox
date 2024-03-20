@@ -8,7 +8,9 @@
     width: 100vw;
     font-weight: 500;
 }
-
+.icon{
+    size: 2rem;
+}
 .About_us {
     flex: 1;
 }

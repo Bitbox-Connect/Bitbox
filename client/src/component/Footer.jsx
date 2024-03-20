@@ -5,16 +5,16 @@ function Footer() {
   return (
     <footer>
       <div className='Container'>
-        <div className='About_us'>
+      <div className='About_us'>
           <div className='About_note'>
             <Link to="/">
               <h1>Kaiyuan <span className='code'>Code</span></h1>
             </Link>
-            {/* <p className='project-info fs-5'>"is for university students to work on open-source projects, 
+            <p className='project-info fs-5'>"is for university students to work on open-source projects, 
             pairing them with mentors to gain practical coding experience, 
             contribute to real-world projects, and foster collaboration within 
-            the open-source community."</p> */}
-            {/* <Link to="/" className='fs-5'>Explore more</Link> */}
+            the open-source community."</p> 
+            <Link to="/" className='fs-5'>Explore more...</Link> 
           </div>
         </div>
         <div className="new_Details m-4">
