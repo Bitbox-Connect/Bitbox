@@ -1,3 +1,8 @@
+@font-face {
+    font-family: medium;
+    src: url("./assets/fonts/medium.otf") format("opentype");
+}
+
 * {
     margin: 0;
     box-sizing: border-box;
@@ -24,7 +29,7 @@
     font-size: 3.5rem;
 }
 
-.content{
+.content {
     margin-top: 14px;
     background-color: #a6c1ee;
 }

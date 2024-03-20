@@ -127,7 +127,7 @@ const Home = () => {
 
                 <div className="About-Container">
                     <section className='About-Sec'>
-                        <h2 onClick={() => { goToAbout(); scrollToTop(); }} className='Heading-Page text-center About-head-text'>About-Us</h2>
+                        <h2 onClick={() => { goToAbout(); scrollToTop(); }} className='Heading-Page text-center About-head-text'>About Us</h2>
                         <div className="about-gif">
                             <img src={aboutImg} alt="about-image" />
                         </div>
