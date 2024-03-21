@@ -204,7 +204,7 @@ export default function About() {
       <div className="faq-section">
         <div className="container">
           <h2 className="Heading-Page">Frequent Asked Questions</h2>
-          <div className="accordion">
+          {/* <div className="accordion">
             <div className="accordion-item">
               <h2 className="accordion-header">
                 <button
@@ -238,7 +238,7 @@ export default function About() {
                   data-bs-toggle="collapse"
                   data-bs-target="#Two"
                   aria-expanded="false"
-                  aria-controls="Two"
+                  aria-controls="collapseThree"
                 >
                   Are there any charges for registration?
                 </button>
@@ -260,7 +260,7 @@ export default function About() {
                   data-bs-toggle="collapse"
                   data-bs-target="#Three"
                   aria-expanded="false"
-                  aria-controls="panelsStayOpen-collapseThree"
+                  aria-controls="collapseThree"
                 >
                   Is there a specific age requirement for participation?
                 </button>
@@ -282,7 +282,7 @@ export default function About() {
                   data-bs-toggle="collapse"
                   data-bs-target="#Four"
                   aria-expanded="false"
-                  aria-controls="panelsStayOpen-collapseThree"
+                  aria-controls="collapseThree"
                 >
                   What are the project requirements?
                 </button>
@@ -302,7 +302,7 @@ export default function About() {
                   data-bs-toggle="collapse"
                   data-bs-target="#Five"
                   aria-expanded="false"
-                  aria-controls="panelsStayOpen-collapseThree"
+                  aria-controls="collapseThree"
                 >
                   As a beginner, where should we begin to contribute effectively
                   to projects?
@@ -317,10 +317,81 @@ export default function About() {
                 </div>
               </div>
             </div>
+          </div> */}
+      <section>
+        <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              Will a beginner, with absolutely no knowledge of github, gain
+                  anything fruitful?
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body fs-5">
+              Yeah, definitely. The organization is meant to assist the
+                  beginners grow in the field of development. We’ll have distinct
+                  projects appropriate both for beginners as well as the accolades
+                  and thereby we’ll make sure that each and every participant gets
+                  to learn something new from the projects he or she is
+                  contributing for.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Are there any charges for registration?
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body fs-5">
+                No, there are no fees associated with participation. It is completely free of charge.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Is there a specific age requirement for participation?
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body fs-5">
+                No, there are no age restrictions for joining GSSoC. All age groups are welcome to participate.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                What are the project requirements?
+              </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body fs-5">
+                Projects are not bound by specific conditions. Mentors can propose ideas in their areas of expertise without restriction.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseive">
+                As a beginner, where should we begin to contribute effectively to projects?
+              </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body fs-5">
+                You can kickstart your journey by accessing the resources available on our official website. We offer links to GitHub and other development tools to ensure that everyone can contribute effectively to the projects.
+              </div>
+            </div>
           </div>
         </div>
+      </section>
+        </div>
       </div>
-
       {/* Info */}
       {/* <div className="info">
           <p className='fs-4'>&quot;Open source is a shared vision of building a community of similar -minded individuals. Together, we collaborate, innovate, and shape the future of technology with transparency and inclusivity at its core  write in more effective way&quot;</p>

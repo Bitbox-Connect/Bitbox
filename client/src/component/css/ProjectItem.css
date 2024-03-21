@@ -24,3 +24,241 @@ i {
 .modal-backdrop {
     --bs-backdrop-zindex: 0;
 }
+
+
+/* delete */
+/* .card {
+    width: 300px;
+    height: fit-content;
+    background: rgb(255, 255, 255);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.068);
+  }
+  .card-content {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  } */
+  .card-heading {
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(27, 27, 27);
+  }
+  .card-description {
+    font-weight: 100;
+    color: rgb(102, 102, 102);
+  }
+  .card-button-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .card-button {
+    width: 50%;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .primary {
+    background-color: rgb(255, 114, 109);
+    color: white;
+  }
+  .primary:hover {
+    background-color: rgb(255, 73, 66);
+  }
+  .secondary {
+    background-color: #ddd;
+  }
+  .secondary:hover {
+    background-color: rgb(197, 197, 197);
+  }
+  .exit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  .exit-button:hover svg {
+    fill: black;
+  }
+  .exit-button svg {
+    fill: rgb(175, 175, 175);
+  }
+  .modal-wrapper {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    width: 22%;
+    height: 22%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; 
+  }
+  
+  .modal-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 10000; 
+  }
+.card {
+  width: 300px;
+  height: fit-content;
+  background: rgb(255, 255, 255);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+  position: relative;
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.068);
+}
+.card-content {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.card-heading {
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(27, 27, 27);
+}
+.card-description {
+  font-weight: 100;
+  color: rgb(102, 102, 102);
+}
+.card-button-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.card-button {
+  width: 50%;
+  height: 35px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+.primary {
+  background-color: rgb(255, 114, 109);
+  color: white;
+}
+.primary:hover {
+  background-color: rgb(255, 73, 66);
+}
+.secondary {
+  background-color: #ddd;
+}
+.secondary:hover {
+  background-color: rgb(197, 197, 197);
+}
+.exit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+.exit-button:hover svg {
+  fill: black;
+}
+.exit-button svg {
+  fill: rgb(175, 175, 175);
+}
+.video-overlays {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center; /
+  }
+  
+  .Video-Modal {
+    background-color: white;
+    width: 80%;
+    max-width: 600px; 
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  
+  .video-heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  
+  .youtube-Frame {
+    width: 100%;
+    height: 315px; 
+  }
+  
+  
+  .card-button-wrapper {
+    text-align: right; 
+    margin-top: 20px;
+  }
+  
+  
+  .card-button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .secondary {
+    background-color: #ccc;
+  }
+  
+  .primary {
+    background-color: #007bff; 
+    color: white; 
+  }
+  
+  .exit2-button {
+    position: relative;
+    left: 33rem;
+    background: yellow;
+    border: none;
+    cursor: pointer;
+  }
+  
+  
