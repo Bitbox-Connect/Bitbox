@@ -39,23 +39,25 @@ const UserProjectItem = (props) => {
         <img src={generateImageUrl(project._id)} style={{ height: "25vh" }} className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title">Project Title : {project.title}</h5>
-          <Button variant="primary" onClick={handleModalOpen}>
-            Description
-          </Button>
-          <Modal show={showModal} onHide={handleModalClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>Modal title</Modal.Title>
-            </Modal.Header>
-            <Modal.Body> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia, omnis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque aperiam corrupti consectetur labore officia veritatis optio distinctio culpa deleniti consequuntur, in voluptate reprehenderit architecto dicta debitis nam! Esse, nam sit.</Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleModalClose}>
-                Close
-              </Button>
-              <Button variant="primary">
-                Save changes
-              </Button>
-            </Modal.Footer>
-          </Modal>
+  <div class="modal fade" id="exampleModalToggle" tabindex="-1" aria-labelledby="exampleModalToggleLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Project Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Show a second modal and hide this one with the button below.
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle2">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">Details</button>
+
+
           <p className="card-text mg">Project Link : {project.link}</p>
           <a href={project.link} target="_blank" className="card-link">Github Link</a>
           <a href={project.link} target="_blank" className="card-link p-5">Youtube Link</a>
