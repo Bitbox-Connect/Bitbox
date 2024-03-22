@@ -44,9 +44,7 @@ const UserProjectItem = (props) => {
           <p className="card-text mg">Project Link : {project.link}</p>
           <a href={project.link} target="_blank" className="card-link">Github Link</a>
           <div className="Youtube">
-            <button type="button btn btn-primary" onClick={handleVideo}>
-              <a href="" target="_blank" className="card-link1">Youtube Link</a>
-            </button>
+            <button type="button btn btn-primary" onClick={handleVideo}>Youtube Link</button>
           </div>
           <div class="modal fade" id="exampleModalToggle" tabindex="-1" aria-labelledby="exampleModalToggleLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
