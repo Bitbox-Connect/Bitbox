@@ -36,8 +36,8 @@ router.get('/fetchalluserprojects', fetchuser, async (req, res) => {
 // ROUTE 3 : Add a New Project : POST: "/api/projects/addproject". Login required
 router.post('/addproject', fetchuser, async (req, res) => {
     try {
-        // Destructring the title, description, link from Database body
-        const { title, description, link } = req.body;
+        // Destructring the title, description, gitHubLink, youTubeLink from Database body
+        const { title, description, gitHubLink, youTubeLink } = req.body;
 
         // If there are errors, return Bad request and the errors
         const errors = validationResult(req);
@@ -49,7 +49,7 @@ router.post('/addproject', fetchuser, async (req, res) => {
 
         // Create a new project and saved it
         const project = new Project({
-            title, description, link, user: req.user.id
+            title, description, gitHubLink, youTubeLink, user: req.user.id
         })
         // This code return a promise --> Save the project 
         const savedProject = await project.save()
@@ -65,8 +65,8 @@ router.post('/addproject', fetchuser, async (req, res) => {
 // ROUTE 4 : Update an Existing Project : PUT: "/api/projects/updateproject". Login required
 router.put('/updateproject/:id', fetchuser, async (req, res) => {
     try {
-        // Destructring the title, description, link from Database body
-        const { title, description, link } = req.body;
+        // Destructring the title, description, gitHubLink, youTubeLink from Database body
+        const { title, description, gitHubLink, youTubeLink } = req.body;
 
         // Create a newNote object
         const newProject = {};
@@ -75,8 +75,10 @@ router.put('/updateproject/:id', fetchuser, async (req, res) => {
         if (title) { newProject.title = title };
         // If there is description then update it.
         if (description) { newProject.description = description };
-        // If there is link then update it.
-        if (link) { newProject.link = link };
+        // If there is gitHubLink then update it.
+        if (gitHubLink) { newProject.gitHubLink = gitHubLink };
+        // If there is youTubeLink then update it.
+        if (youTubeLink) { newProject.youTubeLink = youTubeLink };
 
         // Find the project to be updated and update it --> return the promise 
         let project = await Project.findById(req.params.id)
@@ -102,8 +104,8 @@ router.put('/updateproject/:id', fetchuser, async (req, res) => {
 // ROUTE 5 : Delete Project : DELETE: "/api/projects/deleteproject". Login required
 router.delete('/deleteproject/:id', fetchuser, async (req, res) => {
     try {
-        // Destructring the title, description, link from Database body
-        const { title, description, link } = req.body;
+        // Destructring the title, description, gitHubLink, youTubeLink from Database body
+        const { title, description, gitHubLink, youTubeLink } = req.body;
 
         // Find the project to be deleted and delete it --> return the promise 
         let project = await Project.findById(req.params.id)

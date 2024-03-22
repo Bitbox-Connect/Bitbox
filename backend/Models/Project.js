@@ -19,7 +19,10 @@ const projectSchema = new Schema({
     description: {
         type: String,
     },
-    link: {
+    gitHubLink: {
+        type: String,
+    },
+    youTubeLink: {
         type: String,
     },
     date: {

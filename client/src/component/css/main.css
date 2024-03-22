@@ -1,4 +1,3 @@
-
 /* --------------------------------------------- code of conduct----------------------------------------------- */
 
 .lists {
@@ -115,10 +114,10 @@
 @media (max-width: 1500px) {}
 
 .Contact-Us-Card-Sec {
-  height: 110vh;
+  min-height: 110vh;
   position: relative;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
 }
 
 .main_back {
@@ -143,8 +142,9 @@
   align-items: center;
   justify-content: center;
   z-index: -1;
-  
+
 }
+
 .main:hover {
   width: 55rem;
   cursor: pointer;
@@ -181,6 +181,7 @@
   rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
   rgba(5, 8, 12, 0.35) 0px -2px 6px 0px inset; */
 }
+
 .main:hover .main_back {
   opacity: 0;
 }
@@ -437,6 +438,7 @@
     display: none;
   }
 }
+
 /* @media (max-width: 1700px) {
   .Contact-Us-Card-Sec {
     display: none;

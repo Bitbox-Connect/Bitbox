@@ -37,7 +37,7 @@ const ProjectStates = (props) => {
   }
 
   // Add a Project
-  const addProject = async (title, description, link) => {
+  const addProject = async (title, description, gitHubLink, youTubeLink) => {
     // API CALL  - Add Projects
     const response = await fetch(`${host}/api/projects/addproject`, {
       method: "POST",
@@ -45,7 +45,7 @@ const ProjectStates = (props) => {
         "Content-Type": "application/json",
         "auth-token": localStorage.getItem('token')
       },
-      body: JSON.stringify({ title, description, link }),
+      body: JSON.stringify({ title, description, gitHubLink, youTubeLink }),
     });
     const project = await response.json();
     setProjects([project, ...projects]);
@@ -69,7 +69,7 @@ const ProjectStates = (props) => {
   }
 
   // Edit a Project
-  const editProject = async (id, title, description, link) => {
+  const editProject = async (id, title, description, gitHubLink, youTubeLink) => {
     // API CALL - Update Project
     const response = await fetch(`${host}/api/projects/updateproject/${id}`, {
       method: "PUT",
@@ -77,7 +77,7 @@ const ProjectStates = (props) => {
         "Content-Type": "application/json",
         "auth-token": localStorage.getItem('token')
       },
-      body: JSON.stringify({ title, description, link }),
+      body: JSON.stringify({ title, description, gitHubLink, youTubeLink }),
     });
     const json = await response.json();
     console.log(json)
@@ -88,7 +88,8 @@ const ProjectStates = (props) => {
       if (element._id === id) {
         newProjects[index].title = title;
         newProjects[index].description = description;
-        newProjects[index].link = link;
+        newProjects[index].gitHubLink = gitHubLink;
+        newProjects[index].youTubeLink = youTubeLink;
         break;
       }
     }

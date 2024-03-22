@@ -9,15 +9,15 @@ function AddProject(props) {
     // Destructure the addProject from context
     const { addProject } = context;
 
-    const [project, setproject] = useState({ title: "", description: "", link: "" });
+    const [project, setproject] = useState({ title: "", description: "", gitHubLink: "", youTubeLink: "" });
 
     const refClose = useRef(null)
 
     const handleClick = () => {
         // Add project API call
-        addProject(project.title, project.description, project.link);
+        addProject(project.title, project.description, project.gitHubLink, project.youTubeLink);
         refClose.current.click();
-        setproject({ title: "", description: "", link: "" })
+        setproject({ title: "", description: "", gitHubLink: "", youTubeLink: "" })
         props.showAlert("Project Added Successfully", "success");
     }
 
@@ -58,8 +58,12 @@ function AddProject(props) {
                                         <textarea type="text" className="form-control" id="description" name='description' value={project.description} onChange={onChange} placeholder="Enter Project Description Here" rows="3"></textarea>
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="link" className="form-label">Gihub Link</label>
-                                        <input type="text" className="form-control" id="link" name='link' value={project.link} onChange={onChange} placeholder="Enter Github Link Here" />
+                                        <label htmlFor="gitHubLink" className="form-label">Gihub Link</label>
+                                        <input type="text" className="form-control" id="gitHubLink" name='gitHubLink' value={project.gitHubLink} onChange={onChange} placeholder="Enter Github Link Here" />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="youTubeLink" className="form-label">YouTube Link</label>
+                                        <input type="text" className="form-control" id="youTubeLink" name='youTubeLink' value={project.youTubeLink} onChange={onChange} placeholder="Enter YoutTube Link Here" />
                                     </div>
                                 </div>
                             </div>

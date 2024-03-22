@@ -10,7 +10,6 @@
 
 #root {
     overflow: hidden;
-    background-color: #a6c1ee;
 }
 
 .row {
@@ -31,5 +30,5 @@
 }
 
 .content {
-    margin-bottom: 6%;
+    margin-bottom: 10vh;
 }

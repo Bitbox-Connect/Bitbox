@@ -3,8 +3,10 @@
 }
 
 .About-Hero {
-  min-height: 75vh;
+  min-height: 79vh;
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   margin: 0 2rem;
 }
@@ -60,7 +62,7 @@
 
 .right-page #card {
   position: absolute;
-  /* inset: 0; */
+  inset: 0;
   z-index: 1;
   display: flex;
   justify-content: center;

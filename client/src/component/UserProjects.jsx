@@ -24,16 +24,16 @@ const UserProjects = (props) => {
     const ref = useRef(null)
     const refClose = useRef(null)
 
-    const [project, setproject] = useState({ id: "", etitle: "", edescription: "", elink: "" });
+    const [project, setproject] = useState({ id: "", etitle: "", edescription: "", egitHubLink: "", eyouTubeLink: "" });
 
     const updateProject = (currentProject) => {
         ref.current.click();
         // Set the title, description and link to edit modal 
-        setproject({ id: currentProject._id, etitle: currentProject.title, edescription: currentProject.description, elink: currentProject.link })
+        setproject({ id: currentProject._id, etitle: currentProject.title, edescription: currentProject.description, egitHubLink: currentProject.gitHubLink, eyouTubeLink: currentProject.youTubeLink })
     }
 
     const handleClick = () => {
-        editProject(project.id, project.etitle, project.edescription, project.elink)
+        editProject(project.id, project.etitle, project.edescription, project.egitHubLink, project.eyouTubeLink)
         refClose.current.click();
         props.showAlert("Project Updated Successfully", "success")
     }
@@ -75,8 +75,12 @@ const UserProjects = (props) => {
                                         <textarea type="text" className="form-control" id="edescription" name='edescription' value={project.edescription} onChange={onChange} placeholder="Enter Project Description Here" rows="3"></textarea>
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="elink" className="form-label">Gihub Link</label>
-                                        <input type="text" className="form-control" id="elink" name='elink' value={project.elink} onChange={onChange} placeholder="Enter Github Link Here" />
+                                        <label htmlFor="egitHubLink" className="form-label">Gihub Link</label>
+                                        <input type="text" className="form-control" id="egitHubLink" name='egitHubLink' value={project.egitHubLink} onChange={onChange} placeholder="Enter Github Link Here" />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="eyouTubeLink" className="form-label">Gihub Link</label>
+                                        <input type="text" className="form-control" id="eyouTubeLink" name='eyouTubeLink' value={project.eyouTubeLink} onChange={onChange} placeholder="Enter YouTube Link Here" />
                                     </div>
                                 </div>
                             </div>

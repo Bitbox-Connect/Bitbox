@@ -2,6 +2,7 @@
     overflow: hidden;
     background-color: #a6c1ee;
     z-index: 1000;
+    min-height: 10vh;
 }
 
 .sticky {
