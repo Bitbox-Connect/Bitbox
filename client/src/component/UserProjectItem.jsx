@@ -1,25 +1,18 @@
+import { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import projectContext from '../context/projectContext';
 import './css/ProjectItem.css';
-import { useContext, useState } from 'react';
 
 const UserProjectItem = (props) => {
+  const { project, updateProject, showDetailProject, showAlert } = props;
+  const [showModal, setShowModal] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
-  const handleVideo = () => {
-    setShowVideo(true)
-  }
-  const handleVideoClose = () => {
-    setShowVideo(false);
-  };
-  const { project, updateProject } = props;
   const context = useContext(projectContext);
   const { deleteProject } = context;
 
   const generateImageUrl = (projectId) => {
     return `https://source.unsplash.com/910x900/?coding/?computer/&${projectId}`;
   };
-
-  const [showModal, setShowModal] = useState(false);
 
   const handleModalOpen = () => {
     setShowModal(true);
@@ -29,42 +22,33 @@ const UserProjectItem = (props) => {
     setShowModal(false);
   };
 
+  const handleVideo = () => {
+    setShowVideo(true);
+  };
+
+  const handleVideoClose = () => {
+    setShowVideo(false);
+  };
+
   const handleDelete = () => {
     deleteProject(project._id);
-    props.showAlert("Deleted Successfully", "success");
+    showAlert("Deleted Successfully", "success");
     handleModalClose();
   };
 
   return (
     <div className='col-md-3'>
+      {/* Project Card */}
       <div className="pro-card my-1">
         <img src={generateImageUrl(project._id)} style={{ height: "25vh" }} className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title">Project Title : {project.title}</h5>
           <p className="card-text mg">Project Link : {project.gitHubLink}</p>
-          {/* <p className="card-text mg">Youtube Link : {project.youTubeLink}</p> */}
           <a href={project.gitHubLink} target="_blank" className="card-link">Github Link</a>
           <div className="Youtube">
             <button type="button btn btn-primary" onClick={handleVideo}>Youtube Link</button>
           </div>
-          <div className="modal fade" id="exampleModalToggle" tabIndex="-1" aria-labelledby="exampleModalToggleLabel" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-centered">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h1 className="modal-title fs-5" id="exampleModalToggleLabel">Project Details</h1>
-                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div className="modal-body">
-                  Show a second modal and hide this one with the button below.
-                </div>
-                <div className="modal-footer">
-                  <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle2">Close</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">Details</button>
-          {/* <button className="btn btn-primary" onClick={handleModalOpen}>Project Details</button> */}
+          <button className="btn btn-primary" onClick={() => showDetailProject(project)}>Details</button>
           <div>
             <i className="fa-solid fa-trash mx-1 mt-3" onClick={handleModalOpen}></i>
             <i className="fa-solid fa-pen-to-square mx-4 mt-2" onClick={() => updateProject(project)}></i>
@@ -92,9 +76,10 @@ const UserProjectItem = (props) => {
               </svg>
             </button>
           </div>
-
         </div>
       )}
+
+      {/* Video Overlay */}
       {showVideo && (
         <div className="video-overlays container">
           <div className="Video-Modal container">
@@ -126,6 +111,7 @@ const UserProjectItem = (props) => {
 UserProjectItem.propTypes = {
   project: PropTypes.object.isRequired,
   updateProject: PropTypes.func.isRequired,
+  showDetailProject: PropTypes.func.isRequired,
   showAlert: PropTypes.func.isRequired
 };
 

@@ -104,10 +104,10 @@ i {
   }
   .modal-wrapper {
     position: fixed;
-    top: 20px;
-    left: 0;
-    width: 22%;
-    height: 22%;
+    top: 10px;
+    left: 40%;
+    min-width: 22%;
+    min-height: 22%;
     background-color: rgba(0, 0, 0, 0.5); 
     display: flex;
     align-items: center;

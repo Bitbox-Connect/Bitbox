@@ -4,16 +4,16 @@ import './css/ProjectItem.css'
 import { useState } from 'react';
 
 const GlobalProjectItem = (props) => {
+  const { project, showDetailProject } = props;
   const [showVideo, setShowVideo] = useState(false);
+
   const handleVideo = () => {
     setShowVideo(true)
   }
+
   const handleVideoClose = () => {
     setShowVideo(false);
   };
-
-
-  const { project } = props;
 
   // Function to generate a unique image URL for each project
   const generateImageUrl = (projectId) => {
@@ -25,33 +25,39 @@ const GlobalProjectItem = (props) => {
       <div className="pro-card my-2">
         {/* <img src={projectImg} className="card-img-top" alt="..." /> */}
         <img src={generateImageUrl(project._id)} style={{ height: "25vh" }} className="card-img-top" alt="..." />
+
+        {/* Project Card */}
         <div className="card-body">
           <h5 className="card-title">Project Title : {project.title}</h5>
-          <div className="modal fade" id="exampleModalToggle" tabIndex="-1" aria-labelledby="exampleModalToggleLabel" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-centered">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h1 className="modal-title fs-5" id="exampleModalToggleLabel">Project Details</h1>
-                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div className="modal-body">
-                  Show a second modal and hide this one with the button below.
-                </div>
-                <div className="modal-footer">
-                  <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle2">Close</button>
-                </div>
-              </div>
-            </div>
-          </div>
           <p className="card-text mg">Project Link : {project.gitHubLink}</p>
           {/* <p className="card-text mg">Youtube Link : {project.youTubeLink}</p> */}
           <a href={project.gitHubLink} target="_blank" className="card-link">Github Link</a>
           <div className="Youtube">
             <button type="button btn btn-primary" onClick={handleVideo}>Youtube Link</button>
           </div>
-          <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">Details</button>
+          <button className="btn btn-primary" onClick={() => showDetailProject(project)}>Details</button>
+        </div>
+
+        {/* Project Details Modal */}
+        <div className="modal fade" id="exampleModalToggle" tabIndex="-1" aria-labelledby="exampleModalToggleLabel" aria-hidden="true">
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h1 className="modal-title fs-5" id="exampleModalToggleLabel">Project Details</h1>
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="modal-body">
+                {project.description}
+              </div>
+              <div className="modal-footer">
+                <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle2">Close</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
+      {/* Delete Confirmation Modal */}
       {showVideo && (
         <div className="video-overlays container">
           <div className="Video-Modal container">
@@ -82,7 +88,8 @@ const GlobalProjectItem = (props) => {
 
 // Props Vadilation
 GlobalProjectItem.propTypes = {
-  project: PropTypes.object
+  project: PropTypes.object,
+  showDetailProject: PropTypes.func.isRequired,
 };
 
 export default GlobalProjectItem

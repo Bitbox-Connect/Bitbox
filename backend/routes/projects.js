@@ -39,8 +39,14 @@ router.post('/addproject', fetchuser, async (req, res) => {
         // Destructring the title, description, gitHubLink, youTubeLink from Database body
         const { title, description, gitHubLink, youTubeLink } = req.body;
 
+        // If title is not provided, return a bad request response
+        if (!title) {
+            return res.status(400).json({ error: "Title is required" });
+        }
+
         // If there are errors, return Bad request and the errors
         const errors = validationResult(req);
+
         // If data is empty or not filled
         if (!errors.isEmpty()) {
             // Return a status 400 and return json of error in the array form
@@ -51,9 +57,17 @@ router.post('/addproject', fetchuser, async (req, res) => {
         const project = new Project({
             title, description, gitHubLink, youTubeLink, user: req.user.id
         })
-        // This code return a promise --> Save the project 
-        const savedProject = await project.save()
-        res.json(savedProject)
+
+        // Save the project to the database
+        const savedProject = await project.save();
+
+        // Check if the project is saved successfully
+        if (!savedProject) {
+            return res.status(500).json({ error: "Project not added successfully" });
+        }
+        
+        // If project is saved successfully, return a success response
+        res.json(savedProject);
     }
     catch (error) {
         // Give internal server error (500)

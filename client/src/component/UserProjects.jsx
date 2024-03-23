@@ -21,13 +21,13 @@ const UserProjects = (props) => {
         // eslint-disable-next-line
     }, [])
 
-    const ref = useRef(null)
+    const refEdit = useRef(null)
     const refClose = useRef(null)
 
     const [project, setproject] = useState({ id: "", etitle: "", edescription: "", egitHubLink: "", eyouTubeLink: "" });
 
     const updateProject = (currentProject) => {
-        ref.current.click();
+        refEdit.current.click();
         // Set the title, description and link to edit modal 
         setproject({ id: currentProject._id, etitle: currentProject.title, edescription: currentProject.description, egitHubLink: currentProject.gitHubLink, eyouTubeLink: currentProject.youTubeLink })
     }
@@ -38,19 +38,26 @@ const UserProjects = (props) => {
         props.showAlert("Project Updated Successfully", "success")
     }
 
+    const refDetails = useRef(null)
+
+    const showDetailProject = (currentProject) => {
+        refDetails.current.click();
+        // Set the title, description and link to edit modal 
+        setproject({ id: currentProject._id, etitle: currentProject.title, edescription: currentProject.description, egitHubLink: currentProject.gitHubLink, eyouTubeLink: currentProject.youTubeLink })
+    }
+
     const onChange = (e) => {
         // Able to write in the input field
         setproject({ ...project, [e.target.name]: e.target.value });
     }
-
     return (
         <>
-            {/* Button trigger modal */}
-            <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#newModal">
+            {/* Edit Button trigger modal */}
+            <button ref={refEdit} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#newModal">
 
             </button>
 
-            {/* Modal */}
+            {/* Project Edit Modal */}
             <div className="modal fade text-start" id="newModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
@@ -93,12 +100,34 @@ const UserProjects = (props) => {
                 </div>
             </div>
 
+            {/* Detail Button trigger modal */}
+            <button ref={refDetails} className="btn" data-bs-toggle="modal" data-bs-target="#detailToggle">
+
+            </button>
+
+            {/* Project Details Modal */}
+            <div className="modal fade" id="detailToggle" tabIndex="-1" aria-labelledby="detailToggle" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h1 className="modal-title fs-5" id="exampleModalToggleLabel">Project Details</h1>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body">
+                            {project.edescription ? (<p>{project.edescription}</p>) : (<p>No description to display</p>)}
+                        </div>
+                        <div className="modal-footer">
+                            <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailToggle">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className='container User-Sec-Container'>
                 <h1 className='Heading-Page text-center mb-4'>My Uploaded Projects</h1>
                 {projects.length === 0 && <UploadProject showAlert={props.showAlert} title="Click Here To Upload" />}
                 <div className='row'>
                     {projects.map((project) => {
-                        return <UserProjectItem key={project._id} updateProject={updateProject} project={project} showAlert={props.showAlert} />;
+                        return <UserProjectItem key={project._id} updateProject={updateProject} showDetailProject={showDetailProject} project={project} showAlert={props.showAlert} />;
                     })}
                 </div>
             </div>

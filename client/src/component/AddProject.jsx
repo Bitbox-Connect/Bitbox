@@ -1,39 +1,59 @@
-import { useContext, useState, useRef } from 'react'
-// import ProjectImg from '../assets/images/projects.png'
-import projectContext from '../context/projectContext'
+import { useContext, useState, useRef, useEffect } from 'react';
+import projectContext from '../context/projectContext';
 import PropTypes from 'prop-types';
 
 function AddProject(props) {
-    // Store the context value the useContext call of projectContext
     const context = useContext(projectContext);
     // Destructure the addProject from context
     const { addProject } = context;
 
-    const [project, setproject] = useState({ title: "", description: "", gitHubLink: "", youTubeLink: "" });
+    const [project, setProject] = useState({ title: "", description: "", gitHubLink: "", youTubeLink: "" });
+    const refClose = useRef(null);
 
-    const refClose = useRef(null)
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault(); // Prevent form submission on Enter key press
+            handleClick(); // Manually handle the click event
+        }
+    }
+
+    useEffect(() => {
+        const handleKeyPress = (event) => {
+            if (event.key === "Enter" && project.title.trim() !== "") {
+                handleClick();
+            }
+        };
+
+        document.addEventListener("keypress", handleKeyPress);
+
+        return () => {
+            document.removeEventListener("keypress", handleKeyPress);
+        };
+        // eslint-disable-next-line
+    }, [project.title]); // Only re-run the effect if project.title changes
 
     const handleClick = () => {
+        if (project.title.trim() === "") {
+            props.showAlert("Title is required", "danger");
+            return;
+        }
         // Add project API call
         addProject(project.title, project.description, project.gitHubLink, project.youTubeLink);
         refClose.current.click();
-        setproject({ title: "", description: "", gitHubLink: "", youTubeLink: "" })
+        setProject({ title: "", description: "", gitHubLink: "", youTubeLink: "" });
         props.showAlert("Project Added Successfully", "success");
-    }
+    };
 
     const onChange = (e) => {
         // Able to write in the input field
-        setproject({ ...project, [e.target.name]: e.target.value });
-    }
-
+        setProject({ ...project, [e.target.name]: e.target.value });
+    };
     return (
         <div>
-            {/* Button trigger modal */}
             <button type="button" className="btn Navbar-Btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Upload
             </button>
 
-            {/* Modal */}
             <div className="modal fade text-start" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
@@ -43,34 +63,29 @@ function AddProject(props) {
                         </div>
                         <div className="modal-body">
                             <div className="pro-card">
-                                {/* <img src={ProjectImg} className="card-img-top" alt={"project"} /> */}
                                 <div className="card-body">
-                                    {/* <div className="mb-3">
-                                        <label htmlFor="formFile" className="form-label">Select Image to Upload</label>
-                                        <input className="form-control" type="file" id="formFile" />
-                                    </div> */}
                                     <div className="mb-3">
                                         <label htmlFor="title" className="form-label">Project Title</label>
-                                        <input autoFocus type="text" className="form-control" id="title" name='title' value={project.title} onChange={onChange} placeholder="Enter Project Title Here *" required />
+                                        <input autoFocus type="text" className="form-control" id="title" name='title' value={project.title} onChange={onChange} placeholder="Enter Project Title Here *" required onKeyDown={handleKeyDown} />
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="description" className="form-label">Project Description</label>
-                                        <textarea type="text" className="form-control" id="description" name='description' value={project.description} onChange={onChange} placeholder="Enter Project Description Here" rows="3"></textarea>
+                                        <textarea type="text" className="form-control" id="description" name='description' value={project.description} onChange={onChange} placeholder="Enter Project Description Here" rows="3" onKeyDown={handleKeyDown}></textarea>
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="gitHubLink" className="form-label">Gihub Link</label>
-                                        <input type="text" className="form-control" id="gitHubLink" name='gitHubLink' value={project.gitHubLink} onChange={onChange} placeholder="Enter Github Link Here" />
+                                        <label htmlFor="gitHubLink" className="form-label">Github Link</label>
+                                        <input type="text" className="form-control" id="gitHubLink" name='gitHubLink' value={project.gitHubLink} onChange={onChange} placeholder="Enter Github Link Here" onKeyDown={handleKeyDown} />
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="youTubeLink" className="form-label">YouTube Link</label>
-                                        <input type="text" className="form-control" id="youTubeLink" name='youTubeLink' value={project.youTubeLink} onChange={onChange} placeholder="Enter YoutTube Link Here" />
+                                        <input type="text" className="form-control" id="youTubeLink" name='youTubeLink' value={project.youTubeLink} onChange={onChange} placeholder="Enter YouTube Link Here" onKeyDown={handleKeyDown} />
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="modal-footer">
                             <button ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button disabled={project.title.length < 1} type="button" className="btn btn-primary" onClick={handleClick}>Upload</button>
+                            <button disabled={project.title.trim() === ""} type="button" className="btn btn-primary" onClick={handleClick}>Upload</button>
                         </div>
                     </div>
                 </div>
@@ -79,9 +94,8 @@ function AddProject(props) {
     )
 }
 
-// Props Vadilation
 AddProject.propTypes = {
     showAlert: PropTypes.func,
 };
 
-export default AddProject
+export default AddProject;
