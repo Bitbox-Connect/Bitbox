@@ -6,7 +6,7 @@ import aboutImg from "../assets/images/Vector Gif/About.gif";
 import aboutImg1 from "../assets/images/Vector Gif/R.gif";
 import aboutImg2 from "../assets/images/Vector Gif/tenor.gif";
 import aboutHeroImg from "../assets/images/Others/aboutImg.png";
-
+import '@fortawesome/fontawesome-free/css/all.css';
 export default function About() {
   var popoverTriggerList = [].slice.call(
     document.querySelectorAll('[data-bs-toggle="popover"]')
@@ -152,53 +152,79 @@ export default function About() {
       </div>
 
       {/* Contributor Section */}
-      <div className="Contributer-Section">
-        <h2 className="Heading-Page">Our Contributer</h2>
-        <div className="team fs-5">
-          <div className="team-box">
-            <img
-              src={img1}
-              alt="OWNER"
-              className="btn"
-              data-bs-container="body"
-              data-bs-toggle="popover"
-              data-bs-placement="bottom"
-              data-bs-content="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-            />
-            <div className="teamember">
-              <b>Anuj Verma</b>
-            </div>
+      <div class="py-5 team3 bg-light">
+  <div class="container">
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-7 text-center">
+        <h2 class="mb-3">Our Contributor</h2>
+        {/* <h6 class="subtitle font-weight-normal">You can relay on our amazing features list and also our customer services will be great experience for you without doubt and in no-time</h6> */}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 mb-4">
+        <div class="row">
+          <div class="col-md-12">
+            <img src={img1} alt="wrapkit" class="img-fluid" />
           </div>
-          <div className="team-box hover01">
-            <img
-              src={img3}
-              alt="OWNER"
-              className="btn"
-              data-bs-container="body"
-              data-bs-toggle="popover"
-              data-bs-placement="bottom"
-              data-bs-content="Bottom popover"
-            />
-            <div className="teamember">
-              <b>Harshit Singh</b>
-            </div>
-          </div>
-          <div className="team-box">
-            <img
-              src={img2}
-              alt="OWNER"
-              className="btn"
-              data-bs-container="body"
-              data-bs-toggle="popover"
-              data-bs-placement="bottom"
-              data-bs-content="Bottom popover"
-            />
-            <div className="teamember">
-              <b>Jitendra Kumar</b>
+          <div class="col-md-12">
+            <div class="pt-2">
+              <h5 class="mt-4 font-weight-medium mb-0">Anuj Verma</h5>
+              <h6 class="subtitle">B.tech(CS-AIML)</h6>
+              <p>You can relay on our amazing features list and also our customer services will be great experience.</p>
+              <ul class="list-inline">
+                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-facebook"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-instagram"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-linkedin"></i></a></li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
+      <div class="col-lg-4 mb-4">
+        <div class="row">
+          <div class="col-md-12 pro-pic">
+            <img src={img2} alt="wrapkit" class="img-fluid" />
+          </div>
+          <div class="col-md-12">
+            <div class="pt-2">
+              <h5 class="mt-4 font-weight-medium mb-0">Jitendra Kumar</h5>
+              <h6 class="subtitle">B.tech(CS-AIML)</h6>
+              <p>You can relay on our amazing features list and also our customer services will be great experience.</p>
+              <ul class="list-inline">
+                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-facebook"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-instagram"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-linkedin"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="row">
+          <div class="col-md-12 pro-pic">
+            <img src={img3} alt="wrapkit" class="img-fluid" />
+          </div>
+          <div class="col-md-12">
+            <div class="pt-2">
+              <h5 class="mt-4 font-weight-medium mb-0">Harshit Singh</h5>
+              <h6 class="subtitle">B.tech(CS-AIML)</h6>
+              <p>You can relay on our amazing features list and also our customer services will be great experience.</p>
+              <ul class="list-inline">
+                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-facebook"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-instagram"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-linkedin"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
       {/* FAQ */}
       <div className="faq-section">
