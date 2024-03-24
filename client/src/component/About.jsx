@@ -11,9 +11,11 @@ export default function About() {
   var popoverTriggerList = [].slice.call(
     document.querySelectorAll('[data-bs-toggle="popover"]')
   );
+  var bootstrap;
   var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
     return new bootstrap.Popover(popoverTriggerEl);
   });
+  popoverList; // Necessary code, but suppressed the warning for unused variable
   return (
     <div>
 
@@ -151,80 +153,93 @@ export default function About() {
         </div>
       </div>
 
-      {/* Contributor Section */}
-      <div class="py-5 team3 bg-light">
-  <div class="container">
-    <div class="row justify-content-center mb-4">
-      <div class="col-md-7 text-center">
-        <h2 class="mb-3">Our Contributor</h2>
-        {/* <h6 class="subtitle font-weight-normal">You can relay on our amazing features list and also our customer services will be great experience for you without doubt and in no-time</h6> */}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-4 mb-4">
-        <div class="row">
-          <div class="col-md-12">
-            <img src={img1} alt="wrapkit" class="img-fluid" />
-          </div>
-          <div class="col-md-12">
-            <div class="pt-2">
-              <h5 class="mt-4 font-weight-medium mb-0">Anuj Verma</h5>
-              <h6 class="subtitle">B.tech(CS-AIML)</h6>
-              <p>You can relay on our amazing features list and also our customer services will be great experience.</p>
-              <ul class="list-inline">
-                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-facebook"></i></a></li>
-                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-twitter"></i></a></li>
-                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-instagram"></i></a></li>
-                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-linkedin"></i></a></li>
-              </ul>
+      {/* Team Section */}
+      <div className="Team-Sec">
+        <div className="team-container">
+          <div className="team-content">
+            <h2 className="Heading-Page">
+              Our Team
+            </h2>
+            <div className="team-grid">
+              {/* card 1 */}
+              <div className="team-card">
+                <div className="team-text">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum blanditiis expedita mollitia itaque ipsum ratione. Debitis odit repellendus, ducimus officiis culpa obcaecati?
+                </div>
+                <div className="team-avatar">
+                  <img src={img1} />
+                </div>
+                <div className="team-details">
+                  <h3 className="team-name">
+                    Anuj Verma
+                  </h3>
+                  <p className="team-desc">
+                    BTech CSE AIML <br /> 3rd Year
+                  </p>
+                </div>
+                <div className="team-links">
+                  <ul className="list-inline">
+                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-facebook"></i></a></li>
+                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-twitter"></i></a></li>
+                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-instagram"></i></a></li>
+                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              {/* card 2 */}
+              <div className="team-card">
+                <div className="team-text">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum blanditiis expedita mollitia itaque ipsum ratione. Debitis odit repellendus, ducimus officiis culpa obcaecati?
+                </div>
+                <div className="team-avatar">
+                  <img src={img2} />
+                </div>
+                <div className="team-details">
+                  <h3 className="team-name">
+                    Jitendra Kumar
+                  </h3>
+                  <p className="team-desc">
+                    BTech CSE AIML <br /> 3rd Year
+                  </p>
+                </div>
+                <div className="team-links">
+                  <ul className="list-inline">
+                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-facebook"></i></a></li>
+                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-twitter"></i></a></li>
+                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-instagram"></i></a></li>
+                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              {/* card 3  */}
+              <div className="team-card">
+                <div className="team-text">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum blanditiis expedita mollitia itaque ipsum ratione. Debitis odit repellendus, ducimus officiis culpa obcaecati?
+                </div>
+                <div className="team-avatar">
+                  <img src={img3} />
+                </div>
+                <div className="team-details">
+                  <h3 className="team-name">
+                    Harshit Singh
+                  </h3>
+                  <p className="team-desc">
+                    BTech CSE AIML <br /> 3rd Year
+                  </p>
+                </div>
+                <div className="team-links">
+                  <ul className="list-inline">
+                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-facebook"></i></a></li>
+                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-twitter"></i></a></li>
+                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-instagram"></i></a></li>
+                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-4 mb-4">
-        <div class="row">
-          <div class="col-md-12 pro-pic">
-            <img src={img2} alt="wrapkit" class="img-fluid" />
-          </div>
-          <div class="col-md-12">
-            <div class="pt-2">
-              <h5 class="mt-4 font-weight-medium mb-0">Jitendra Kumar</h5>
-              <h6 class="subtitle">B.tech(CS-AIML)</h6>
-              <p>You can relay on our amazing features list and also our customer services will be great experience.</p>
-              <ul class="list-inline">
-                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-facebook"></i></a></li>
-                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-twitter"></i></a></li>
-                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-instagram"></i></a></li>
-                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-linkedin"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 mb-4">
-        <div class="row">
-          <div class="col-md-12 pro-pic">
-            <img src={img3} alt="wrapkit" class="img-fluid" />
-          </div>
-          <div class="col-md-12">
-            <div class="pt-2">
-              <h5 class="mt-4 font-weight-medium mb-0">Harshit Singh</h5>
-              <h6 class="subtitle">B.tech(CS-AIML)</h6>
-              <p>You can relay on our amazing features list and also our customer services will be great experience.</p>
-              <ul class="list-inline">
-                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-facebook"></i></a></li>
-                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-twitter"></i></a></li>
-                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-instagram"></i></a></li>
-                <li class="list-inline-item"><a href="#" class="text-decoration-none d-block px-1"><i class="fab fa-linkedin"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 
       {/* FAQ */}
       <div className="faq-section">
@@ -344,85 +359,84 @@ export default function About() {
               </div>
             </div>
           </div> */}
-      <section>
-        <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-              Will a beginner, with absolutely no knowledge of github, gain
-                  anything fruitful?
-              </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-              <div class="accordion-body fs-5">
-              Yeah, definitely. The organization is meant to assist the
-                  beginners grow in the field of development. We’ll have distinct
-                  projects appropriate both for beginners as well as the accolades
-                  and thereby we’ll make sure that each and every participant gets
-                  to learn something new from the projects he or she is
-                  contributing for.
+          <section>
+            <div className="accordion" id="accordionExample">
+              <div className="accordion-item">
+                <h2 className="accordion-header">
+                  <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    Will a beginner, with absolutely no knowledge of github, gain
+                    anything fruitful?
+                  </button>
+                </h2>
+                <div id="collapseOne" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div className="accordion-body fs-5">
+                    Yeah, definitely. The organization is meant to assist the
+                    beginners grow in the field of development. We’ll have distinct
+                    projects appropriate both for beginners as well as the accolades
+                    and thereby we’ll make sure that each and every participant gets
+                    to learn something new from the projects he or she is
+                    contributing for.
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Are there any charges for registration?
-              </button>
-            </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-              <div class="accordion-body fs-5">
-                No, there are no fees associated with participation. It is completely free of charge.
+              <div className="accordion-item">
+                <h2 className="accordion-header">
+                  <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Are there any charges for registration?
+                  </button>
+                </h2>
+                <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div className="accordion-body fs-5">
+                    No, there are no fees associated with participation. It is completely free of charge.
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Is there a specific age requirement for participation?
-              </button>
-            </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-              <div class="accordion-body fs-5">
-                No, there are no age restrictions for joining GSSoC. All age groups are welcome to participate.
+              <div className="accordion-item">
+                <h2 className="accordion-header">
+                  <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Is there a specific age requirement for participation?
+                  </button>
+                </h2>
+                <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div className="accordion-body fs-5">
+                    No, there are no age restrictions for joining GSSoC. All age groups are welcome to participate.
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
 
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                What are the project requirements?
-              </button>
-            </h2>
-            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-              <div class="accordion-body fs-5">
-                Projects are not bound by specific conditions. Mentors can propose ideas in their areas of expertise without restriction.
+              <div className="accordion-item">
+                <h2 className="accordion-header">
+                  <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    What are the project requirements?
+                  </button>
+                </h2>
+                <div id="collapseFour" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div className="accordion-body fs-5">
+                    Projects are not bound by specific conditions. Mentors can propose ideas in their areas of expertise without restriction.
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
 
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseive">
-                As a beginner, where should we begin to contribute effectively to projects?
-              </button>
-            </h2>
-            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-              <div class="accordion-body fs-5">
-                You can kickstart your journey by accessing the resources available on our official website. We offer links to GitHub and other development tools to ensure that everyone can contribute effectively to the projects.
+              <div className="accordion-item">
+                <h2 className="accordion-header">
+                  <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseive">
+                    As a beginner, where should we begin to contribute effectively to projects?
+                  </button>
+                </h2>
+                <div id="collapseFive" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div className="accordion-body fs-5">
+                    You can kickstart your journey by accessing the resources available on our official website. We offer links to GitHub and other development tools to ensure that everyone can contribute effectively to the projects.
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
         </div>
       </div>
       {/* Info */}
       {/* <div className="info">
           <p className='fs-4'>&quot;Open source is a shared vision of building a community of similar -minded individuals. Together, we collaborate, innovate, and shape the future of technology with transparency and inclusivity at its core  write in more effective way&quot;</p>
         </div> */}
-
     </div>
   );
 }
