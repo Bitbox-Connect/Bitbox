@@ -1,6 +1,6 @@
 /* Landing Page Section */
 .welcome-page {
-    height: 90vh;
+    min-height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,14 +11,11 @@
     margin-top: 3rem;
 }
 
-.Landing-Page {
-    background: linear-gradient(180deg,
-            rgba(166, 193, 238, 1) 0%,
-            rgba(166, 193, 238, 1) 62%,
-            rgba(0, 0, 0, 1) 100%);
+.landing-Page {
+    background-color: #a6c1ee;
 }
 
-.Landing-Page a {
+.landing-Page a {
     text-decoration: none;
 }
 
@@ -79,6 +76,33 @@
     font-weight: 600;
 }
 
+/* Paralax Section */
+.paralax-section {
+    height: 200vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paralax-container {
+    position: relative;
+    width: 100vw;
+    height: 200vh;
+    overflow: hidden;
+}
+
+.gif-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/images/Paralax\ Gifs/px2.gif');
+    background-size: cover;
+    background-position: center;
+}
+
 /* Carousel Section */
 .UserImg {
     width: 40vw;
@@ -104,6 +128,7 @@
 /* Cards Section */
 .Card-Info-Sec {
     /* border-radius: 16% 33% 60% 40% / 0% 15% 0% 15%; */
+    padding: 2rem 0;
     background: linear-gradient(180deg, rgb(0 118 141) 0%, rgb(0 130 242) 80%);
 }
 
@@ -119,27 +144,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
 }
 
 .Card-Info-Row1,
 .Card-Info-Row2 {
     display: grid;
-    gap: 1rem;
 }
 
 .Card-Info {
     width: 32rem;
     height: 23rem;
     margin: 0.5rem;
-    border-radius: 10%;
-    display: flex;
-    justify-content: center;
+    border-radius: 1rem;
     background-image: linear-gradient(to top, #d1d4d9 0%, #bbc1cc 100%);
-    align-items: center;
-    flex-direction: column;
     padding: 23px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.Card-Info h3 {
+    text-align: center;
 }
 
 .Card-Info,
@@ -216,18 +238,19 @@ h3 {
 
 .special-cont1,
 .special-cont2,
-.special-cont3,
-.special-cont4 {
-    height: 35vh;
-    width: 23vw;
+.special-cont3 {
+    height: 37vh;
+    width: 22vw;
     background-color: moccasin;
+    border-radius: 0.5rem;
     border: 1px solid black;
 }
 
 /* Technology Section */
 .Technology-Sec {
     background-color: black;
-    min-height: 90vh;
+    padding: 2rem 0;
+    height: 100%;
 }
 
 .Technology-Container .Heading-Page {
@@ -240,8 +263,7 @@ h3 {
     justify-content: center;
     gap: 20px;
     width: 100vw;
-    min-height: 75vh;
-    position: relative;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -253,7 +275,7 @@ h3 {
     transform: translateY(-50%);
     bottom: 0;
     width: 50px;
-    height: 100px;
+    min-height: 100%;
     background-image: linear-gradient(90deg, #ffffff1c, transparent);
     z-index: 2;
     border-radius: 10px 0 0 10px;
@@ -267,7 +289,7 @@ h3 {
     transform: translateY(-50%);
     bottom: 0;
     width: 50px;
-    height: 100px;
+    min-height: 100px;
     background-image: linear-gradient(-90deg, #ffffff1c, transparent);
     z-index: 9;
     border-radius: 0 10px 10px 0;
@@ -303,11 +325,11 @@ h3 {
     flex-direction: column;
     justify-content: center;
     gap: 15px;
+    padding: 1rem;
     min-width: 900px;
-    height: 100%;
+    min-height: 100%;
     white-space: nowrap;
     overflow: hidden;
-    position: absolute;
     inset: 0;
 }
 
@@ -334,6 +356,7 @@ h3 {
     align-items: center;
     justify-content: center;
 }
+
 
 .cls-1 {
     fill: #1ab7ea;

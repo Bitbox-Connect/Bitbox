@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import './App.css'
+import './App.css';
 import About from './component/About';
 import Alert from './component/Alert';
-import Footer from './component/Footer'
+import Footer from './component/Footer';
 import Home from './component/Home';
 import Login from './component/Login';
-import Navbar from './component/Navbar'
+import Navbar from './component/Navbar';
 import Signup from './component/Signup';
 import UserProjects from './component/UserProjects';
 import ProjectState from './context/ProjectState';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Make sure to import BrowserRouter as Router
 import Codeofconduct from './component/Footer/Codeofconduct';
 import Asoc from './component/Footer/Asoc';
 import Contactus from './component/Footer/Contactus';
@@ -24,11 +24,14 @@ function App() {
     setAlert({
       msg: message,
       type: type
-    })
+    });
     setTimeout(() => {
       setAlert(null);
     }, 1500);
-  }
+  };
+
+  // Define routes where the footer should not be shown
+  const hideFooterRoutes = ['/login', '/signup'];
 
   return (
     <>
@@ -57,11 +60,12 @@ function App() {
               <Route exact path="/upliftproject" element={<Upliftproject showAlert={showAlert} />} />
             </Routes>
           </div>
-          <Footer />
+          {/* Conditionally render the footer based on the current route */}
+          {!hideFooterRoutes.includes(window.location.pathname) && <Footer />}
         </Router>
       </ProjectState>
     </>
-  )
+  );
 }
 
 export default App;
