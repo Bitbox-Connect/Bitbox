@@ -169,24 +169,42 @@ const Home = () => {
                 <h2 className='Heading-Page text-center mb-2'>What We Works</h2>
                 <div className="special-row1 my-1">
                     <div className="special-cont1">
-                        <div className="special-box1"></div>
+                        <h2 className='text-dark'>Community Collaboration</h2>
+                        <div className="special-box1">
+                            <p className='fs-4 text-center'>Engage with a diverse community of developers, designers, and enthusiasts passionate about creating impactful software.</p>
+                        </div>
                     </div>
                     <div className="special-cont2">
-                        <div className="special-box2"></div>
+                        <h2 className='text-dark'>Transparency and Accessibility</h2>
+                        <div className="special-box2">
+                            <p className='fs-4 text-center'> Access and contribute to projects with full transparency, ensuring that everyone can benefit from shared knowledge and resources.</p>
+                        </div>
                     </div>
                     <div className="special-cont3">
-                        <div className="special-box3"></div>
+                        <h2 className='text-dark'>Innovation and Creativity</h2>
+                        <div className="special-box3">
+                            <p className='fs-4 text-center'>Explore endless possibilities for innovation by harnessing the collective creativity of a global network of contributors.</p>
+                        </div>
                     </div>
                 </div>
                 <div className="special-row2">
                     <div className="special-cont1">
-                        <div className="special-box1"></div>
+                        <h2 className='text-dark'>Flexibility and Customization</h2>
+                        <div className="special-box1">
+                            <p className='fs-4 text-center'>Customize and adapt open source projects to suit your specific needs, empowering you to build solutions tailored to your requirements.</p>
+                        </div>
                     </div>
                     <div className="special-cont2">
-                        <div className="special-box2"></div>
+                        <h2 className='text-dark'>Learning and Skill Development</h2>
+                        <div className="special-box2">
+                            <p className='fs-4 text-center'> Accelerate your learning and skill development through hands-on collaboration, mentorship, and continuous feedback within the open source community.</p>
+                        </div>
                     </div>
                     <div className="special-cont3">
-                        <div className="special-box3"></div>
+                        <h2 className='text-dark'>Global Impact</h2>
+                        <div className="special-box3">
+                            <p className='fs-4 text-center'>Make a meaningful impact on a global scale by contributing to projects that address real-world challenges and improve the lives of people everywhere.</p>
+                        </div>
                     </div>
                 </div>
             </div>
