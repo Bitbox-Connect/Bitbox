@@ -2,12 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import './css/Home.css'
 import { useRef } from 'react';
 import PropTypes from 'prop-types';
-// import image1 from '../assets/images/Anuj.png'
-// import image2 from '../assets/images/Jitendra.png'
-// import image3 from '../assets/images/Harshit.png'
-import aboutImg from '../assets/images/Vector Gif/About.gif'
 import arrowGif from '../assets/images/Other Gifs/down-arrow-gif.gif'
-import paralaxGif from '../assets/images/Paralax Gifs/px3.gif'
+import HeroImg from '../assets/images/Vector Gif/Hero.gif'
 
 const Home = () => {
     // const { showAlert } = props;
@@ -53,25 +49,26 @@ const Home = () => {
     return (
         <div>
             {/* Landing Page Section */}
-            <section className="landing-Page">
-                <div className="container">
-                    {/* Welcome Page */}
-                    <div className="welcome-page">
-                        <div className="info">
-                            <h1 className='text-center'>Finally, All your Team&apos;s <br /> work in one place </h1>
-                        </div>
-                        <p className='abut fs-5'>&quot;Welcome to our open-source platform, where innovation knows no bounds and collaboration is key.&quot;<br />
-                            Join us on this exhilarating journey of exploration and discovery, where every line of code written is a step forward in shaping a brighter tomorrow.</p>
-                        <div className="btn-group d-flex justify-content-center align-item-center">
-                            {/* <Link role="button" to='/signup' className="button-color1">Signup</Link> */}
-                            {/* <Link role="button" to='/login' className="button-color2">Login</Link> */}
-                        </div>
-                        <div className="arrow-gif" onClick={() => { goToContributor() }}>
-                            <img src={arrowGif} alt="arrowGif" />
+            <div class="content">
+                <section class="main-section">
+                    <div class="content-left">
+                        <p class="section-label">Very proud to introduce</p>
+                        <h1 class="section-title">Seamless Learning for Brighter Futures</h1>
+                        <p class="section-description">
+                            Our innovative platform offers an effortless and seamless approach to learning, empowering students of all ages to achieve brighter futures. Join us on a transformative journey to simplify education and unlock your full potential.
+                        </p>
+                        <div class="button-group">
+                            <a href="#start" class="start-button">Start Now</a>
+                            <a href="#tour" class="tour-button">Take Tour</a>
                         </div>
                     </div>
-                </div>
-            </section>
+                    <div class="content-right">
+                        <div class="image-container">
+                            <img src = {HeroImg} alt="sectionImage" class="section-image" />
+                        </div>
+                    </div>
+                </section>
+            </div>
 
             {/* Cards Page Section */}
             <div className="Cards-Page">
@@ -106,7 +103,7 @@ const Home = () => {
                     </div>
                 </section>
             </div>
-           
+
             {/* Works Section */}
             <div className="Special-Sec">
                 <h2 className='Heading-Page text-center mb-2'>What We Works</h2>
