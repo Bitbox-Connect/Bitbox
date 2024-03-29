@@ -69,10 +69,7 @@ const UserProjects = (props) => {
                             <div className="pro-card">
                                 {/* <img src={ProjectImg} className="card-img-top" alt={"project"} /> */}
                                 <div className="card-body">
-                                    {/* <div className="mb-3">
-                                        <label htmlFor="formFile" className="form-label">Select Image to Upload</label>
-                                        <input className="form-control" type="file" id="formFile" />
-                                    </div> */}
+                                   
                                     <div className="mb-3">
                                         <label htmlFor="etitle" className="form-label">Project Title</label>
                                         <input type="text" className="form-control" id="etitle" name='etitle' value={project.etitle} onChange={onChange} placeholder="Enter Project Title Here" />
@@ -82,11 +79,11 @@ const UserProjects = (props) => {
                                         <textarea type="text" className="form-control" id="edescription" name='edescription' value={project.edescription} onChange={onChange} placeholder="Enter Project Description Here" rows="3"></textarea>
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="egitHubLink" className="form-label">Gihub Link</label>
+                                        <label htmlFor="egitHubLink" className="form-label">Github Link</label>
                                         <input type="text" className="form-control" id="egitHubLink" name='egitHubLink' value={project.egitHubLink} onChange={onChange} placeholder="Enter Github Link Here" />
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="eyouTubeLink" className="form-label">Gihub Link</label>
+                                        <label htmlFor="eyouTubeLink" className="form-label">Github Link</label>
                                         <input type="text" className="form-control" id="eyouTubeLink" name='eyouTubeLink' value={project.eyouTubeLink} onChange={onChange} placeholder="Enter YouTube Link Here" />
                                     </div>
                                 </div>

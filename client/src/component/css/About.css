@@ -563,7 +563,8 @@ h2 {
 
 /* FAQ */
 .faq-section .container {
-  min-width: 99vw;
+  min-width: 100vw;
+  padding: 2rem;
 }
 
 .faq-section {
