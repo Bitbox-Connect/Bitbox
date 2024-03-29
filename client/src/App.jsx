@@ -11,9 +11,10 @@ import UserProjects from './component/UserProjects';
 import ProjectState from './context/ProjectState';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Make sure to import BrowserRouter as Router
 import Codeofconduct from './component/Footer/Codeofconduct';
-import Asoc from './component/Footer/Asoc';
+import Feedback from './component/Footer/Feedback';
 import Contactus from './component/Footer/Contactus';
-import Upliftproject from './component/Footer/Upliftproject';
+import Privacypolicy from './component/Footer/Privacypolicy';
+import Termsandcondition from './component/Footer/Termsandcondition';
 import GlobalProjects from './component/GlobalProjects';
 import ScrollTop from './component/ScrollTop';
 
@@ -55,9 +56,10 @@ function App() {
               <Route exact path="/signup" element={<Signup showAlert={showAlert} />} />
               {/* Footer */}
               <Route exact path="/codeofconduct" element={<Codeofconduct showAlert={showAlert} />} />
-              <Route exact path="/asoc" element={<Asoc showAlert={showAlert} />} />
+              <Route exact path="/feedback" element={<Feedback showAlert={showAlert} />} />
               <Route exact path="/contactus" element={<Contactus showAlert={showAlert} />} />
-              <Route exact path="/upliftproject" element={<Upliftproject showAlert={showAlert} />} />
+              <Route exact path="/Privacypolicy" element={<Privacypolicy showAlert={showAlert} />} />
+              <Route exact path="/termsandcondition" element={<Termsandcondition showAlert={showAlert} />} />
             </Routes>
           </div>
           {/* Conditionally render the footer based on the current route */}

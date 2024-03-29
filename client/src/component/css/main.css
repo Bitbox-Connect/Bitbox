@@ -19,3 +19,59 @@
 }
 
 /* ---------------------------------Contact-us----------------------------------------------------- */
+.header {
+  width: 100%;
+  /* height: 100%; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 20pc;
+  background-image: linear-gradient(120deg, #bfbdbd 0%, #e0eaef 100%);
+}
+
+.image-bx {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 10px;
+  padding: 2px;
+}
+
+.share-btn {
+  width: 40px;
+  height: 30px;
+  margin: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  background-color: rgb(239, 239, 239);
+}
+
+.cnt,
+.box {
+  width: 100%;
+  max-width: 680px;
+  margin: 10px auto;
+}
+
+.box .list {
+  position: relative;
+  width: 100%;
+  height: 69vh;
+  border-radius: 40px;
+  text-align: center;
+  justify-content: center;
+  /* box-shadow: 2px 5px rgba(7, 6, 6, 0.2); */
+}
+
+.end {
+  display: flex;
+  margin-top: 12px;
+  height: 47px;
+  justify-content: center;
+  border-radius: 29px;
+  background-color: aliceblue;
+  cursor: auto;
+}
