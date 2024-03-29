@@ -1,70 +1,27 @@
-import { useNavigate } from 'react-router-dom';
 import './css/Home.css'
-import { useRef } from 'react';
 import PropTypes from 'prop-types';
-import arrowGif from '../assets/images/Other Gifs/down-arrow-gif.gif'
 import HeroImg from '../assets/images/Vector Gif/Hero.gif'
 
 const Home = () => {
-    // const { showAlert } = props;
-    const navigate = useNavigate();
-    const goToAbout = () => {
-        navigate("/about");
-    }
-    const contributorRef = useRef(null); // Ref for the contributor section
-
-    const goToContributor = () => {
-        const targetElement = contributorRef.current;
-        const startPosition = window.pageYOffset;
-        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-        const distance = targetPosition - startPosition;
-        const startTime = performance.now();
-
-        const duration = 10; // Duration in milliseconds
-
-        function scrollAnimation(currentTime) {
-            const elapsedTime = currentTime - startTime;
-            const ease = easeInOut(elapsedTime, startPosition, distance, duration);
-            window.scrollTo(0, ease);
-            if (elapsedTime < duration) {
-                requestAnimationFrame(scrollAnimation);
-            }
-        }
-
-        function easeInOut(t, b, c, d) {
-            t /= d / 2;
-            if (t < 1) return c / 2 * t * t + b;
-            t--;
-            return -c / 2 * (t * (t - 2) - 1) + b;
-        }
-        requestAnimationFrame(scrollAnimation);
-    };
-
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    };
     return (
         <div>
             {/* Landing Page Section */}
-            <div class="content">
-                <section class="main-section">
-                    <div class="content-left">
-                        <p class="section-label">Very proud to introduce</p>
-                        <h1 class="section-title">Seamless Learning for Brighter Futures</h1>
-                        <p class="section-description">
+            <div className="content">
+                <section className="main-section">
+                    <div className="content-left">
+                        <p className="section-label">Very proud to introduce</p>
+                        <h1 className="section-title">Seamless Learning for Brighter Futures</h1>
+                        <p className="section-description">
                             Our innovative platform offers an effortless and seamless approach to learning, empowering students of all ages to achieve brighter futures. Join us on a transformative journey to simplify education and unlock your full potential.
                         </p>
-                        <div class="button-group">
-                            <a href="#start" class="start-button">Start Now</a>
-                            <a href="#tour" class="tour-button">Take Tour</a>
+                        <div className="button-group">
+                            <a href="#start" className="start-button">Start Now</a>
+                            <a href="#tour" className="tour-button">Take Tour</a>
                         </div>
                     </div>
-                    <div class="content-right">
-                        <div class="image-container">
-                            <img src = {HeroImg} alt="sectionImage" class="section-image" />
+                    <div className="content-right">
+                        <div className="image-container">
+                            <img src={HeroImg} alt="sectionImage" className="section-image" />
                         </div>
                     </div>
                 </section>

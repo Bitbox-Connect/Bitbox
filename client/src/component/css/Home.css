@@ -1,6 +1,5 @@
 /* Landing Page Section */
-
-.main-section{
+.main-section {
     max-width: 1280px;
     display: flex;
     flex-direction: column;
@@ -10,7 +9,7 @@
     margin: 0 auto;
 }
 
-.content-left{
+.content-left {
     text-align: center;
     animation: slideFromLeft 1s ease forwards;
     opacity: 0;
@@ -23,31 +22,31 @@
         transform: translateX(-100%);
     }
 
-    100%{
+    100% {
         opacity: 1;
         transform: translateX(0);
     }
-    
+
 }
 
-.section-label{
+.section-label {
     font-size: 1.15rem;
     font-weight: 600;
     color: var(--primary-color);
 }
 
-.section-title{
+.section-title {
     font-size: 2.3rem;
     padding: 1.1rem;
     color: var(--text-color);
 }
 
-.section-description{
+.section-description {
     color: var(--gray);
     font-size: 1.13rem;
 }
 
-.button-group{
+.button-group {
     display: flex;
     gap: 2rem;
     padding: 1rem;
@@ -57,76 +56,83 @@
 }
 
 .start-button,
-.tour-button{
-    
+.tour-button {
+
     border: none;
     border-radius: 0.375rem;
     background-color: var(--primary-color);
     color: var(--background-color);
-    transform: all  0.1s;
+    transform: all 0.1s;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     font-weight: 600;
 }
 
-.tour-button{
+.tour-button {
     background-color: var(--dark-gray);
 }
 
-.start-button:hover{
+.start-button:hover {
     background-color: #5254f8;
 }
 
-.tour-button:hover{
+.tour-button:hover {
     background-color: var(--gray);
 }
 
 
-.content-right{
+.content-right {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 
-.image-container{
+.image-container {
     border: none;
     border-radius: 1.225rem;
     overflow: hidden;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     height: 50vh;
 }
 
-.section-image{
+.section-image {
     height: 100%;
     width: 100%;
 }
 
 @media screen and (min-width:768px) {
-    .main-section{
+    .main-section {
         flex-direction: row;
     }
-    .content-left{
+
+    .content-left {
         max-width: 50%;
         text-align: left;
     }
-    .section-title{
+
+    .section-title {
         padding-left: 0;
     }
-    .button-group{
+
+    .button-group {
         justify-content: start;
         padding-left: 0;
     }
-    .section_label{
+
+    .section_label {
         font-size: 1rem;
     }
-    .section-title{
+
+    .section-title {
         font-size: 3.8rem;
     }
-    .image-container{
+
+    .image-container {
         height: 67vh;
     }
-    .section-description{
+
+    .section-description {
         font-size: 1.1rem;
         color: var(--gray);
         width: 78%;

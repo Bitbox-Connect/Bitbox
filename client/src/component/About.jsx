@@ -18,13 +18,12 @@ export default function About() {
   popoverList; // Necessary code, but suppressed the warning for unused variable
   return (
     <div>
-
       {/* About Hero Section */}
-      <div className="About-Sec-Container">
-        <div className="About-Hero">
-          <div className="left-page">
-            <h1>About Us</h1>
-            <p className="fs-4">
+      <div className="about-content">
+        <section className="about-main-section">
+          <div className="about-content-left">
+            <h1 className="about-section-title">About Us</h1>
+            <p className="about-section-desc fs-4">
               BitBox is like a friendly community where people working on
               projects can come together. If you’re stuck or need advice, you
               can ask for help. And if you know something, you can share your
@@ -38,7 +37,7 @@ export default function About() {
               visionaries, as we build the future together, one line at a time
             </p>
           </div>
-          <div className="right-page" data-engine="three.js r149">
+          <div className="about-right-page" data-engine="three.js r149">
             <div className="container noselect">
               <div className="canvas">
                 <div className="tracker tr-1"></div>
@@ -72,9 +71,8 @@ export default function About() {
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
-
       {/* Website Record Section */}
       <div className="Website-Record-Sec">
         <div className="container-page">
@@ -156,7 +154,7 @@ export default function About() {
       {/* Team Section */}
       <div className="Team-Sec">
         <div className="team-container">
-          <div className="team-content">
+          <div className="team-about-content">
             <h2 className="Heading-Page">
               Our Team
             </h2>

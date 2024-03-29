@@ -8,7 +8,7 @@ function Footer() {
         <div className='About_us'>
           <div className='About_note'>
             <Link to="/">
-              <h1>BitBox <span className='code'>Code</span></h1>
+              <h1>Bit<span className='code'>Box</span></h1>
             </Link>
             <p className='project-info fs-5'>&quot;is for university students to work on open-source projects,
               pairing them with mentors to gain practical coding experience,
