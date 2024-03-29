@@ -30,8 +30,9 @@ function Footer() {
           <div>
             <h3 className='fs-2 fw-bold'>Legal</h3>
             <ul className='fs-5'>
-              <li><Link to="/asoc">ASOC</Link></li>
-              <li><Link to="/upliftproject">Uplift project</Link></li>
+              <li><Link to="/feedback">Feedback</Link></li>
+              <li><Link to="/privacypolicy">Privacy Policy</Link></li>
+              <li><Link to="/termsandcondition">Terms of use</Link></li>
             </ul>
           </div>
         </div>

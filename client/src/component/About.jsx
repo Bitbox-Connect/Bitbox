@@ -154,7 +154,7 @@ export default function About() {
       {/* Team Section */}
       <div className="Team-Sec">
         <div className="team-container">
-          <div className="team-about-content">
+          <div className="team-content">
             <h2 className="Heading-Page">
               Our Team
             </h2>
