@@ -37,8 +37,10 @@ function AddProject(props) {
             props.showAlert("Title is required", "danger");
             return;
         }
+        // Modify YouTube link
+        const modifiedYouTubeLink = modifyYouTubeLink(project.youTubeLink);
         // Add project API call
-        addProject(project.title, project.description, project.gitHubLink, project.youTubeLink);
+        addProject(project.title, project.description, project.gitHubLink, modifiedYouTubeLink); // Pass modifiedYouTubeLink instead of project.youTubeLink
         refClose.current.click();
         setProject({ title: "", description: "", gitHubLink: "", youTubeLink: "" });
         props.showAlert("Project Added Successfully", "success");
@@ -47,6 +49,16 @@ function AddProject(props) {
     const onChange = (e) => {
         // Able to write in the input field
         setProject({ ...project, [e.target.name]: e.target.value });
+    };
+
+    // Function to modify YouTube link
+    const modifyYouTubeLink = (link) => {
+        if (link.includes("youtube.com/watch?v=")) {
+            const videoId = link.split("youtube.com/watch?v=")[1];
+            return `https://www.youtube.com/embed/${videoId}`;
+        } else {
+            return link; // Return unmodified link if it doesn't match expected format
+        }
     };
     return (
         <div>

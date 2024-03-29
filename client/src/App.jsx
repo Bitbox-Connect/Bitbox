@@ -39,7 +39,7 @@ function App() {
         <Router>
           {/* Navbar */}
           <div className="content">
-            <Navbar title="Kaiyuan" home="Home" community="Community" about="About us" myProjects="My projects" showAlert={showAlert} />
+            <Navbar title="BitBox" home="Home" community="Community" about="About us" myProjects="My projects" showAlert={showAlert} />
           </div>
           <div className="Main-Bc">
             <Alert alert={alert} />

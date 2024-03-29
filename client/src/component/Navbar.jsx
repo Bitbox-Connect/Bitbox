@@ -84,7 +84,7 @@ function Navbar(props) {
                         {!localStorage.getItem('token') ?
                             <>
                                 <div className="Navbar-Btn-Group">
-                                    <label className="theme-switch mx-2">
+                                    {/* <label className="theme-switch mx-2">
                                         <input type="checkbox" className="theme-switch__checkbox" />
                                         <div className="theme-switch__container">
                                             <div className="theme-switch__clouds"></div>
@@ -103,7 +103,7 @@ function Navbar(props) {
                                                 </div>
                                             </div>
                                         </div>
-                                    </label>
+                                    </label> */}
                                     <Link role="button" to='/login' className="Navbar-Btn mx-2">Login</Link>
                                     <Link role="button" to='/signup' className="Navbar-Btn mx-2">Signup</Link>
                                 </div>

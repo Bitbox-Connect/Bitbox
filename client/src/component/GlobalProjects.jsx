@@ -45,7 +45,7 @@ const Projects = (props) => {
 
             <div className='container Global-Sec-Container'>
                 <div className="content">
-                    <h1 className='Heading-Page text-center mb-4'>Welcome to kaiyuan Community</h1>
+                    <h1 className='Heading-Page text-center mb-4'>Welcome to BitBox Community</h1>
                 </div>
                 {projects.length === 0 && <UploadProject title="Click Here To Upload" />}
                 <div className='row'>

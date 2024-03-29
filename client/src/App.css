@@ -8,21 +8,16 @@
     box-sizing: border-box;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 #root {
     overflow: hidden;
 }
 
 .row {
     margin: 0 !important;
-}
-
-.Main-Bc {
-    background-color: #a6c1ee;
-}
-
-
-.First-Bc {
-    background: rgb(166, 193, 238);
 }
 
 .Heading-Page {

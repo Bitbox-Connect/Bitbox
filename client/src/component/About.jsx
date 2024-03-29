@@ -25,7 +25,7 @@ export default function About() {
           <div className="left-page">
             <h1>About Us</h1>
             <p className="fs-4">
-              Kaiyuan is like a friendly community where people working on
+              BitBox is like a friendly community where people working on
               projects can come together. If you’re stuck or need advice, you
               can ask for help. And if you know something, you can share your
               knowledge with others. It’s all about supporting each other and

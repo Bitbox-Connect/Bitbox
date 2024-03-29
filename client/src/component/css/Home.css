@@ -12,7 +12,7 @@
 }
 
 .landing-Page {
-    background-color: #a6c1ee;
+    background-color: white;
 }
 
 .landing-Page a {
@@ -76,68 +76,9 @@
     font-weight: 600;
 }
 
-/* Paralax Section */
-.paralax-section {
-    height: 200vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.paralax-container {
-    position: relative;
-    width: 100vw;
-    height: 200vh;
-    overflow: hidden;
-}
-
-.gif-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    background-image: url('../../assets/images/Paralax\ Gifs/px2.gif');
-    background-size: cover;
-    background-position: center;
-}
-
-/* Carousel Section */
-.UserImg {
-    width: 40vw;
-    height: 70vh;
-    border-radius: 2%;
-}
-
-.Container-Carousel {
-    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    /* border-radius: 0% 100% 11% 89% / 0% 6% 0% 0%; */
-    width: 100vw;
-    height: 110vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.Container-Carousel .Heading-Page {
-    color: white;
-}
-
 /* Cards Section */
 .Card-Info-Sec {
-    /* border-radius: 16% 33% 60% 40% / 0% 15% 0% 15%; */
     padding: 2rem 0;
-    background: linear-gradient(180deg, rgb(0 118 141) 0%, rgb(0 130 242) 80%);
-}
-
-.Card-Info-Sec .Heading-Page {
-    color: white;
-}
-
-.Cards-Page {
-    background-color: black;
 }
 
 .Card-Infos {
@@ -178,37 +119,12 @@ h3 {
     width: 200px;
     color: black;
     text-decoration: none;
-    /* box-shadow: 0 0 8px 2px rgb(0 0 0 / 8%); */
-    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
 }
 
 .btn-box a {
     color: black;
     margin: 5px;
     padding: 6px;
-}
-
-/* About Section */
-.About-Container {
-    /* border-radius: 16% 33% 60% 40% / 0% 20% 0% 15%; */
-    width: 100vw;
-    min-height: 100vh;
-    background: antiquewhite;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.About-head-text {
-    cursor: pointer;
-}
-
-.about-gif img {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
 }
 
 /* Special Section */
@@ -219,16 +135,11 @@ h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: lightcoral;
-}
-
-.Special-Sec h2 {
-    color: white;
 }
 
 .special-row1,
 .special-row2 {
-    height: 38vh;
+    min-height: 38vh;
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -236,25 +147,33 @@ h3 {
     gap: 10px;
 }
 
+.special-cont1 h3,
+.special-cont2 h3,
+.special-cont3 h3 {
+    text-align: center;
+    width: max-content;
+}
+
 .special-cont1,
 .special-cont2,
 .special-cont3 {
-    height: 37vh;
-    width: 22vw;
-    background-color: moccasin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 47.5vh;
+    padding: 20px;
+    width: 30vw;
+    text-align: center;
+    background-color: #dedede;
     border-radius: 0.5rem;
     border: 1px solid black;
 }
 
 /* Technology Section */
 .Technology-Sec {
-    background-color: black;
     padding: 2rem 0;
     height: 100%;
-}
-
-.Technology-Container .Heading-Page {
-    color: white;
 }
 
 .Technology-Container .content {

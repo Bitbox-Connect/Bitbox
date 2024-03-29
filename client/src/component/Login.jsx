@@ -44,7 +44,7 @@ const Login = (props) => {
       <div className='container main-bx'>
         <div className="heading">Login</div>
         <div className='p-3'>
-          {/* <h2>Login into Kaiyuan</h2> */}
+          {/* <h2>Login into BitBox</h2> */}
           <form className='form' onSubmit={handleSubmit}>
             <div className="mb-2">
               {/* <label htmlFor="email" classNameName="input" id='email'>Email address</label> */}

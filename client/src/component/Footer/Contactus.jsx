@@ -7,102 +7,39 @@ const Contactus = () => {
   return (
     <>
       <div className="container">
-        <h1 className="Heading-Page text-dark text-center font-weight-bold">Contact Us</h1>
-        <header className="navbar header justify-content-center ">
-          <div className="bind text-center d-flex">
-            <img className="image-bx" src="https://th.bing.com/th/id/OIG4.9082tuIPKO0B2s2GNXrK?pid=ImgGn" alt="img" />
-            <h2> @Open-Source </h2>
-          </div>
-          <div className="share">
-            <a href="#" className="share-btn"> <i className='bx bx-dots-horizontal-rounded' style={{ color: '#0e0d0e' }} ></i></a>
-          </div>
-        </header>
-        <div className="cnt1">
-          <div className="soft">
-            <pre> <h4 className='text-center'>Software Developer | Web Developer | Content Creator </h4> </pre>
-          </div>
-        </div>
-        <div className="box">
-          <div className="list">
-            <ul>
-              <h4 className="Tree-bx bg-light rounded p-2"><a href="https://www.linkedin.com/in/harshit-singh-90986b205/" className="dot1"><i className='bx bxl-linkedin' style={{ color: '#11118f' }}></i></a><a href="https://www.linkedin.com/in/harshit-singh-90986b205/">Linkedin</a><a href="#" className="dot"> <i className='bx bx-dots-horizontal-rounded' style={{ color: '#0e0d0e' }} ></i></a></h4>
-              <h4 className="Tree-bx bg-light rounded p-2"><a href="https://www.linkedin.com/in/harshit-singh-90986b205/" className="dot1"><i className='bx bxl-linkedin' style={{ color: '#11118f' }}></i></a><a href="https://www.linkedin.com/in/harshit-singh-90986b205/">YouTube</a><a href="#" className="dot"> <i className='bx bx-dots-horizontal-rounded' style={{ color: '#0e0d0e' }} ></i></a></h4>
-              <h4 className="Tree-bx bg-light rounded p-2"><a href="https://www.linkedin.com/in/harshit-singh-90986b205/" className="dot1"><i className='bx bxl-linkedin' style={{ color: '#11118f' }}></i></a><a href="https://www.linkedin.com/in/harshit-singh-90986b205/">GitHib</a><a href="#" className="dot"> <i className='bx bx-dots-horizontal-rounded' style={{ color: '#0e0d0e' }} ></i></a></h4>
-              <h4 className="Tree-bx bg-light rounded p-2"><a href="https://www.linkedin.com/in/harshit-singh-90986b205/" className="dot1"><i className='bx bxl-linkedin' style={{ color: '#11118f' }}></i></a><a href="https://www.linkedin.com/in/harshit-singh-90986b205/">Discord</a><a href="#" className="dot"> <i className='bx bx-dots-horizontal-rounded' style={{ color: '#0e0d0e' }} ></i></a></h4>
-              <h4 className="Tree-bx bg-light rounded p-2"><a href="https://www.linkedin.com/in/harshit-singh-90986b205/" className="dot1"><i className='bx bxl-linkedin' style={{ color: '#11118f' }}></i></a><a href="https://www.linkedin.com/in/harshit-singh-90986b205/">Telegram</a><a href="#" className="dot"> <i className='bx bx-dots-horizontal-rounded' style={{ color: '#0e0d0e' }} ></i></a></h4>
-              <h4 className="Tree-bx bg-light rounded p-2"><a href="https://www.linkedin.com/in/harshit-singh-90986b205/" className="dot1"><i className='bx bxl-linkedin' style={{ color: '#11118f' }}></i></a><a href="https://www.linkedin.com/in/harshit-singh-90986b205/">Snapchat</a><a href="#" className="dot"> <i className='bx bx-dots-horizontal-rounded' style={{ color: '#0e0d0e' }} ></i></a></h4>
-              <h4 className="Tree-bx bg-light rounded p-2"><a href="https://www.linkedin.com/in/harshit-singh-90986b205/" className="dot1"><i className='bx bxl-linkedin' style={{ color: '#11118f' }}></i></a><a href="https://www.linkedin.com/in/harshit-singh-90986b205/">Mail</a><a href="#" className="dot"> <i className='bx bx-dots-horizontal-rounded' style={{ color: '#0e0d0e' }} ></i></a></h4>
-              <h4 className="Tree-bx bg-light rounded p-2"><a href="https://www.linkedin.com/in/harshit-singh-90986b205/" className="dot1"><i className='bx bxl-linkedin' style={{ color: '#11118f' }}></i></a><a href="https://www.linkedin.com/in/harshit-singh-90986b205/">Insta</a><a href="#" className="dot"> <i className='bx bx-dots-horizontal-rounded' style={{ color: '#0e0d0e' }} ></i></a></h4>
-            </ul>
-            <div className="end">
-              <div className="bx-end d-flex justify-content-center">
-                <h4 className="bx-enditem">
-                  <ul className='d-flex gap-5'>
-                    <li><Link to="/"><FaLinkedin color="#0077b5" fontSize="2rem" /></Link></li>
-                    <li><Link to="/"><FaTwitter color="#1da1f2" fontSize="2rem" /></Link></li>
-                    <li><Link to="/"><FaGithub color="#211F1F" fontSize="2rem" /></Link></li>
-                    <li><Link to="/"><FaInstagram color="#c13584" fontSize="2rem" /></Link></li>
-                    <li><Link to="/"><FaFacebookSquare color="#3b5998" fontSize="2rem" /></Link></li>
-                    <li><Link to="/"><FaYoutube color="red" fontSize="2rem" /></Link></li>
-                  </ul>
-                </h4>
+        <section class="text-gray-600 body-font relative">
+          <div class="container px-5 py-24 mx-auto">
+            <div class="row">
+              <div class="col-md-8 mx-auto">
+                <div class="text-center mb-12">
+                  <h1 class="Page-Heading">Contact Us</h1>
+                </div>
+                <form>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="name" class="text-sm text-gray-600">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="email" class="text-sm text-gray-600">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="message" class="text-sm text-gray-600">Message</label>
+                    <textarea id="message" name="message" class="form-control" placeholder="Enter your message" rows="4"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                </form>
               </div>
             </div>
-            {/* <h1 className='name'>Linktree <SiLinktree color="orange" fontSize="5rem" /></h1> */}
-          </div>
-        </div>
-        <section className='Contact-Us-Card-Sec'>
-          <div className="main container">
-            <div className="card">
-              {/* <div className="instagram">I</div> */}
-              <FaLinkedin color="#0077b5" fontSize="5rem" />
-            </div>
-            <div className="card">
-              <FaInstagram color="#0077b5" fontSize="5rem" />
-              <div className="twitter">I</div>
-
-            </div>
-            <div className="card">
-              {/* <div className="dribble">I</div> */}
-
-              <FaTwitter color="#0077b5" fontSize="5rem" />
-            </div>
-            <div className="card">
-              {/* <div className="codepen">I</div> */}
-
-              <FaYoutube color="#0077b5" fontSize="5rem" />
-            </div>
-            <div className="card">
-              {/* <div className="uiverse">I</div> */}
-
-              <FaReddit color="#0077b5" fontSize="5rem" />
-
-            </div>
-            <div className="card">
-              {/* <div className="discord">I</div> */}
-
-              <FaDiscord color="#0077b5" fontSize="5rem" />
-            </div>
-            <div className="card">
-              <div className="github">I</div>
-
-              <FaGithub color="#0077b5" fontSize="5rem" />
-            </div>
-            <div className="card">
-              {/* <div className="telegram">I</div> */}
-
-              <FaTelegram color="#0077b5" fontSize="5rem" />
-            </div>
-            <div className="card">
-              {/* <div className="reddit">I</div> */}
-
-              <FaFacebook color="#0077b5" fontSize="5rem" />
-            </div>
-            <h2 className='text'>Social Media  </h2>
-            <div className="main_back"></div>
-            <h1 className='name'>Linktree <SiLinktree color="orange" fontSize="5rem" /></h1>
           </div>
         </section>
+
       </div>
     </>
   );

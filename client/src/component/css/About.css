@@ -391,15 +391,8 @@ h2 {
 .Website-Record-Sec .container-page {
   display: flex;
   justify-content: center;
-  color: white;
   align-items: center;
   flex-direction: column;
-  /* border-radius: 16% 33% 60% 40% / 0% 20% 0% 15%; */
-  background-image: linear-gradient(to right,
-      #f78ca0 0%,
-      #f9748f 19%,
-      #fd868c 60%,
-      #fe9a8b 100%);
   width: 100vw;
   min-height: 90vh;
 }
@@ -470,11 +463,6 @@ h2 {
 }
 
 /* Our Team */
-
-.Team-Sec {
-  background-color: beige;
-}
-
 .team-container {
   padding: 2rem;
   margin: 0 auto;
@@ -568,8 +556,6 @@ h2 {
 }
 
 .faq-section {
-  background-color: black;
-  color: white;
   min-height: 55vh;
   width: 100vw;
   display: flex;
@@ -593,7 +579,7 @@ h2 {
 
 /* Style for the accordion buttons */
 .accordion-button {
-  background-color: #f8f9fa;
+  background-color: rgb(250, 251, 253);
   border: none;
   border-radius: 5px;
   padding: 10px 15px;
