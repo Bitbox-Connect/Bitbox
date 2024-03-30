@@ -158,7 +158,7 @@ export default function About() {
             <h2 className="Heading-Page">
               Our Team
             </h2>
-            <div className="team-grid">
+            <div className="team-grid container ">
               {/* card 1 */}
               <div className="team-card">
                 <div className="team-text">
@@ -243,120 +243,6 @@ export default function About() {
       <div className="faq-section">
         <div className="container">
           <h2 className="Heading-Page">Frequent Asked Questions</h2>
-          {/* <div className="accordion">
-            <div className="accordion-item">
-              <h2 className="accordion-header">
-                <button
-                  className="accordion-button fs-3"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#One"
-                  aria-expanded="false"
-                  aria-controls="One"
-                >
-                  Will a beginner, with absolutely no knowledge of github, gain
-                  anything fruitful?
-                </button>
-              </h2>
-              <div id="One" className="accordion-collapse collapse show">
-                <div className="accordion-body fs-3">
-                  Yeah, definitely. The organization is meant to assist the
-                  beginners grow in the field of development. We’ll have distinct
-                  projects appropriate both for beginners as well as the accolades
-                  and thereby we’ll make sure that each and every participant gets
-                  to learn something new from the projects he or she is
-                  contributing for.
-                </div>
-              </div>
-            </div>
-            <div className="accordion-item">
-              <h2 className="accordion-header">
-                <button
-                  className="accordion-button collapsed fs-3"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#Two"
-                  aria-expanded="false"
-                  aria-controls="collapseThree"
-                >
-                  Are there any charges for registration?
-                </button>
-              </h2>
-              <div id="Two" className="accordion-collapse collapse">
-                <div className="accordion-body fs-5">
-                  <p>
-                    No, there are no fees associated with participation. It is
-                    completely free of charge.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="accordion-item">
-              <h2 className="accordion-header">
-                <button
-                  className="accordion-button collapsed fs-3"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#Three"
-                  aria-expanded="false"
-                  aria-controls="collapseThree"
-                >
-                  Is there a specific age requirement for participation?
-                </button>
-              </h2>
-              <div id="Three" className="accordion-collapse collapse">
-                <div className="accordion-body fs-5">
-                  <p>
-                    No, there are no age restrictions for joining GSSoC. All age
-                    groups are welcome to participate.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="accordion-item">
-              <h2 className="accordion-header">
-                <button
-                  className="accordion-button collapsed fs-3"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#Four"
-                  aria-expanded="false"
-                  aria-controls="collapseThree"
-                >
-                  What are the project requirements?
-                </button>
-              </h2>
-              <div id="Four" className="accordion-collapse collapse">
-                <div className="accordion-body fs-5">
-                  Projects are not bound by specific conditions. Mentors can
-                  propose ideas in their areas of expertise without restriction.
-                </div>
-              </div>
-            </div>
-            <div className="accordion-item">
-              <h2 className="accordion-header">
-                <button
-                  className="accordion-button collapsed fs-3"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#Five"
-                  aria-expanded="false"
-                  aria-controls="collapseThree"
-                >
-                  As a beginner, where should we begin to contribute effectively
-                  to projects?
-                </button>
-              </h2>
-              <div id="Five" className="accordion-collapse collapse">
-                <div className="accordion-body fs-5">
-                  You can kickstart your journey by accessing the resources
-                  available on our official website. We offer links to GitHub and
-                  other development tools to ensure that everyone can contribute
-                  effectively to the projects.
-                </div>
-              </div>
-            </div>
-          </div> */}
           <section>
             <div className="accordion" id="accordionExample">
               <div className="accordion-item">
