@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 // import projectImg from '../assets/images/project.png'
 import './css/ProjectItem.css'
-import { useState } from 'react';
+// import { useState } from 'react';
 
 const GlobalProjectItem = (props) => {
   const { project, showDetailProject } = props;

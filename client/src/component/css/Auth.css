@@ -40,7 +40,7 @@
     }
 
     .form .forgot-password a {
-      font-size: 11px;
+      font-size: 19px;
       color: #0099ff;
       text-decoration: none;
     }
@@ -89,7 +89,7 @@
     }
 
     .social-account-container .social-accounts .social-button {
-      background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(112, 112, 112) 100%);
+      /* background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(112, 112, 112) 100%); */
       border: 2px solid white;
       padding: 5px;
       border-radius: 50%;
