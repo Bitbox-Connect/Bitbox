@@ -9,17 +9,6 @@
       margin-top: 20px;
     }
 
-    .form .input {
-      width: 100%;
-      background: white;
-      border: none;
-      padding: 15px 20px;
-      border-radius: 20px;
-      margin-top: 15px;
-      box-shadow: #cff0ff 0px 10px 10px -5px;
-      border-inline: 2px solid transparent;
-    }
-
     .form .input::-moz-placeholder {
       color: rgb(170, 170, 170);
     }
@@ -118,13 +107,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 90vh;
+      min-height: 80vh;
+      margin-bottom: 2rem;
     }
 
     .main-bx {
-      align-items: center;
-      justify-content: center;
       width: 400px;
+      background: lightblue;
+      border: 2px solid black;
     }
 
     form {

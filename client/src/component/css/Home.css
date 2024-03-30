@@ -1,6 +1,7 @@
 /* Landing Page Section */
 .main-section {
     max-width: 1280px;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     gap: 2rem;

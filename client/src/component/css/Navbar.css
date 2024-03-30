@@ -1,14 +1,35 @@
 #navbar {
-    overflow: hidden;
+    overflow: initial;
     background-color: #a6c1ee;
     z-index: 1000;
     min-height: 10vh;
+}
+
+#navbar ul li {
+    margin-bottom: 0;
 }
 
 .sticky {
     position: fixed;
     top: 0;
     width: 100%;
+}
+
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+    position: absolute;
+    min-width: 9rem;
+    left: -50px;
+    text-align: center;
+}
+
+.profile-img img {
+    width: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.profile-img :hover {
+    outline: 4px solid black;
 }
 
 .uploadPro {
@@ -22,9 +43,11 @@
 }
 
 .Navbar-Btn-Group {
+    position: relative;
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    align-items: baseline;
+    justify-content: center;
+    left: -1.5rem;
 }
 
 .Navbar-Btn-Group a {

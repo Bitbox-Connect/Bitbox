@@ -42,7 +42,7 @@ function App() {
           <div className="content">
             <Navbar title="BitBox" home="Home" community="Community" about="About us" myProjects="My projects" showAlert={showAlert} />
           </div>
-          <div className="Main-Bc">
+          <div className="alert-bar">
             <Alert alert={alert} />
           </div>
           <div className="First-Bc">

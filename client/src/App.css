@@ -38,3 +38,8 @@ html {
 .content {
     margin-bottom: 10vh;
 }
+
+.alert-bar {
+    position: relative;
+    top: 3vh;
+}

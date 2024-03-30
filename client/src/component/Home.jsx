@@ -1,53 +1,11 @@
-import { useNavigate } from 'react-router-dom';
 import './css/Home.css'
-import { useRef } from 'react';
 import PropTypes from 'prop-types';
-// import arrowGif from '../assets/images/Other Gifs/down-arrow-gif.gif'
 import HeroImg from '../assets/images/Vector Gif/Hero.gif'
 import Learn from '../assets/images/Learn.png'
 import Share from '../assets/images/Share.png'
 import Grow from '../assets/images/Grow.png'
 const Home = () => {
     // const { showAlert } = props;
-    const navigate = useNavigate();
-    const goToAbout = () => {
-        navigate("/about");
-    }
-    const contributorRef = useRef(null); // Ref for the contributor section
-
-    const goToContributor = () => {
-        const targetElement = contributorRef.current;
-        const startPosition = window.pageYOffset;
-        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-        const distance = targetPosition - startPosition;
-        const startTime = performance.now();
-
-        const duration = 10; // Duration in milliseconds
-
-        function scrollAnimation(currentTime) {
-            const elapsedTime = currentTime - startTime;
-            const ease = easeInOut(elapsedTime, startPosition, distance, duration);
-            window.scrollTo(0, ease);
-            if (elapsedTime < duration) {
-                requestAnimationFrame(scrollAnimation);
-            }
-        }
-
-        function easeInOut(t, b, c, d) {
-            t /= d / 2;
-            if (t < 1) return c / 2 * t * t + b;
-            t--;
-            return -c / 2 * (t * (t - 2) - 1) + b;
-        }
-        requestAnimationFrame(scrollAnimation);
-    };
-
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    };
     return (
         <div>
             {/* Landing Page Section */}
@@ -82,7 +40,7 @@ const Home = () => {
                         <div className="col-lg-6">
                             <div className="p-5 mt-4">
                                 <h1 className="display-4"> Grow</h1>
-                                <p className="lead">Within BitBox's open-source embrace,
+                                <p className="lead">Within BitBox&apos;s open-source embrace,
                                     Ideas flourish, boundless space.
                                     Collaborating minds, a vibrant symphony,
                                     Innovating together, unlocking our destiny.</p>
@@ -96,7 +54,7 @@ const Home = () => {
                             <div className="col-lg-6">
                                 <div className="p-5 mt-4">
                                     <h1 className="display-4">Learn</h1>
-                                    <p className="lead">📚 Within this dynamic ecosystem, ideas are shared freely, nurtured by the collective intellect of passionate developers and enthusiasts alike. From seasoned veterans to eager newcomers, all are welcomed into the fold, united by a common mission: to push the boundaries of what's possible in the realm of digital exchange. </p>
+                                    <p className="lead">📚 Within this dynamic ecosystem, ideas are shared freely, nurtured by the collective intellect of passionate developers and enthusiasts alike. From seasoned veterans to eager newcomers, all are welcomed into the fold, united by a common mission: to push the boundaries of what&apos;s possible in the realm of digital exchange. </p>
                                     <a href="#" className="btn btn-outline-dark">Read More</a>
                                 </div>
                             </div>
@@ -113,7 +71,7 @@ const Home = () => {
                             <div className="col-lg-6">
                                 <div className="p-5 mt-4">
                                     <h1 className="display-4">Share</h1>
-                                    <p className="lead">🌐 Join the vibrant BitBox Opensource Community today! Whether you're a seasoned developer or just starting out, there's a place for you to collaborate, innovate, and make a difference. Let's shape the future of digital exchange together! #BitBoxCommunity #OpenSource 🚀💻 </p>
+                                    <p className="lead">🌐 Join the vibrant BitBox Opensource Community today! Whether you&apos;re a seasoned developer or just starting out, there&apos;s a place for you to collaborate, innovate, and make a difference. Let&apos;s shape the future of digital exchange together! #BitBoxCommunity #OpenSource 🚀💻 </p>
                                     <a href="#" className="btn btn-outline-dark">Read More</a>
                                 </div>
                             </div>
