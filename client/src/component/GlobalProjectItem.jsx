@@ -5,16 +5,7 @@ import { useState } from 'react';
 
 const GlobalProjectItem = (props) => {
   const { project, showDetailProject } = props;
-  const [showVideo, setShowVideo] = useState(false);
-
-  const handleVideo = () => {
-    setShowVideo(true)
-  }
-
-  const handleVideoClose = () => {
-    setShowVideo(false);
-  };
-
+ 
   // Function to generate a unique image URL for each project
   const generateImageUrl = (projectId) => {
     return `https://source.unsplash.com/910x900/?computer/?coding/&${projectId}`;
@@ -31,57 +22,15 @@ const GlobalProjectItem = (props) => {
           <h5 className="card-title">Project Title : {project.title}</h5>
           <p className="card-text mg">Project Link : </p>
           {/* <p className="card-text mg">Youtube Link : {project.youTubeLink}</p> */}
-          <a href={project.gitHubLink} target="_blank" className="card-link">Github Link</a>
-          <div className="Youtube">
+          {/* <a href={project.gitHubLink} target="_blank" className="card-link">Github Link</a> */}
+          {/* <div className="Youtube">
             <button type="button btn btn-primary" onClick={handleVideo}>Youtube Link</button>
-          </div>
+          </div> */}
           <button className="btn btn-primary" onClick={() => showDetailProject(project)}>Details</button>
         </div>
-
-        {/* Project Details Modal */}
-        <div className="modal fade" id="exampleModalToggle" tabIndex="-1" aria-labelledby="exampleModalToggleLabel" aria-hidden="true">
-          <div className="modal-dialog modal-dialog-centered">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h1 className="modal-title fs-5" id="exampleModalToggleLabel">Project Details</h1>
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div className="modal-body">
-                {project.description}
-              </div>
-              <div className="modal-footer">
-                <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle2">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
+     
       </div>
 
-      {/* Delete Confirmation Modal */}
-      {showVideo && (
-        <div className="video-overlays container">
-          <div className="Video-Modal container">
-            <div className="Video-card ">
-              <div className="Video-content">
-                <button className="exit2-button" onClick={handleVideoClose}>
-                  <svg height="20px" viewBox="0 0 384 512">
-                    <path
-                      d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
-                    ></path>
-                  </svg>
-                </button>
-                <p className="video-heading fs-1">Project Video</p>
-                <p>
-                  <iframe className='youtube-Frame' width="350" height="315" src={project.youTubeLink} frameBorder="0" allowfullscreen></iframe>
-                </p>
-              </div>
-              <div className="card-button-wrapper">
-                <button className="card-button secondary" onClick={handleVideoClose}>Cancel</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   )
 }

@@ -44,10 +44,9 @@ const UserProjectItem = (props) => {
         <div className="card-body">
           <h5 className="card-title">Project Title : {project.title}</h5>
           <p className="card-text mg">Project Link : </p>
-          <a href={project.gitHubLink} target="_blank" className="card-link">Github Link</a>
-          <div className="Youtube">
-            <button type="button btn btn-primary" onClick={handleVideo}>Youtube Link</button>
-          </div>
+          {/* <div className="Youtube">
+          <button type="button btn btn-primary" onClick={handleVideo}>Youtube Link</button>
+          </div> */}
           <button className="btn btn-primary" onClick={() => showDetailProject(project)}>Details</button>
           <div>
             <i className="fa-solid fa-trash mx-1 mt-3" onClick={handleModalOpen}></i>
@@ -57,7 +56,7 @@ const UserProjectItem = (props) => {
       </div>
 
       {/* Delete Confirmation Modal */}
-      {showModal && (
+      {/* {showModal && (
         <div className="modal-wrapper">
           <div className="modal-card">
             <div className="card-content">
@@ -77,10 +76,10 @@ const UserProjectItem = (props) => {
             </button>
           </div>
         </div>
-      )}
+      )} */}
 
       {/* Video Overlay */}
-      {showVideo && (
+      {/* {showVideo && (
         <div className="video-overlays container">
           <div className="Video-Modal container">
             <div className="Video-card ">
@@ -103,7 +102,7 @@ const UserProjectItem = (props) => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
