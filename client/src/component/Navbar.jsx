@@ -4,6 +4,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AddProject from './AddProject';
 import logo from '../assets/images/logo.png';
+// import logo1 from '../assets/images/logo1.png';
 import avatarDropdown from '../assets/images/Dropdown/avatar.jpg';
 
 function Navbar(props) {
