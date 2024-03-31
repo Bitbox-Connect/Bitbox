@@ -238,4 +238,32 @@ i {
     cursor: pointer;
   }
   
+  /* -------------------------------------- left section ----------------------------------------- */
   
+.user-details {
+  display: flex;
+}
+
+.detail-right {
+  flex: 1;
+  background-color: #ddb6b6;
+}
+
+.detail-left{
+  background-color: #dddea8;
+  padding: 20px;
+
+}
+
+.right {
+  padding: 20px;
+  color: #fff;
+  flex: 1;
+}
+
+.profile-picture img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
