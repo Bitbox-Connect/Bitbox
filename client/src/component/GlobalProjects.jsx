@@ -3,6 +3,7 @@ import { useContext, useRef, useState } from 'react'
 import projectContext from '../context/projectContext';
 import GlobalProjectItem from './GlobalProjectItem';
 import UploadProject from './UploadProject';
+import avatar from '../assets/images/Dropdown/avatar.jpg';
 
 const Projects = (props) => {
     const [project, setproject] = useState({ id: "", etitle: "", edescription: "", egitHubLink: "", eyouTubeLink: "" });
@@ -16,7 +17,6 @@ const Projects = (props) => {
     const handleVideoClose = () => {
       setShowVideo(false);
     };
-  
 
     const context = useContext(projectContext)
     const { projects, getGlobalProjects } = context;
@@ -29,8 +29,43 @@ const Projects = (props) => {
         // Set the title, description and link to edit modal 
         setproject({ id: currentProject._id, etitle: currentProject.title, edescription: currentProject.description, egitHubLink: currentProject.gitHubLink, eyouTubeLink: currentProject.youTubeLink })
     }
+
+    const togglePrivacy = () => {
+      setIsPrivate(!isPrivate);
+  };
+
     return (
-        <>
+        <> 
+
+<div className="user-profile-dashboard">
+        <div className="user-details">
+          <div className="detail-left">
+            <div className="left">
+              <div className="profile-picture">
+                <img src={avatar} alt="Profile" />
+              </div>
+              <div className="bio">
+                <p>Name: <span>Harshit singh</span></p>
+              </div>
+              <button onClick={togglePrivacy}>
+                public
+              </button>
+              <div className="links">
+
+              </div>
+              <div className="skills">
+                <h3>Skills</h3>
+
+              </div>
+              <div className="experience">
+
+              </div>
+            </div>
+          </div>
+          <div className="detail-right">
+            <div className="right">
+              <h2>About</h2>
+              <div>
             {/* Detail Button trigger modal */}
             <button ref={refDetails} className="btn" data-bs-toggle="modal" data-bs-target="#detailToggle">
 
@@ -51,8 +86,7 @@ const Projects = (props) => {
                             <button href={project.gitHubLink} target="_blank" className="card-link btn btn-warning">Github Link</button>
                             <button className="btn btn-danger" onClick={handleVideo}>Youtube Link</button>
                             <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailToggle">Close</button>
-                        </div>
-                    
+                        </div>                    
                     </div>
                 </div>
             </div>
@@ -93,6 +127,12 @@ const Projects = (props) => {
           </div>
         </div>
       )}
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>     
         </>
     )
 }

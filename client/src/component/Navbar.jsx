@@ -56,6 +56,7 @@ function Navbar(props) {
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         {/* <Link className="navbar-brand d-flex fs-2 fw-bold font-monospace" to="/"> */}
                             <img className='mx-3' style={{ width: "3rem" }} src={logo} alt="logo" />
+<<<<<<< HEAD
                             {/* {props.title} */}
                             {/* <section class="header"> */}
                                 <div class="title-wrapper">
@@ -70,6 +71,12 @@ function Navbar(props) {
                                 </div>
                             {/* </section> */}
                         {/* </Link> */}
+=======
+                            <div className="logoTitle">
+                                {props.title}
+                            </div>
+                        </Link>
+>>>>>>> e232808c710ebe17d6452a90f46529ccac5f9dbc
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>

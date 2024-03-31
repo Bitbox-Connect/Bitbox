@@ -1,15 +1,23 @@
-.user-profile-dashboard {
-  font-family: Arial, sans-serif;
-  /* max-width: 800px; */
-  margin: 0 auto;
-  /* display: flex; */
-  padding: 20px;
+
+.user-details {
+  display: flex;
 }
 
-.profile-info {
-  /* display: flex; */
-  align-items: center;
-  margin-bottom: 20px;
+.detail-right {
+  flex: 1;
+  background-color: #ddb6b6;
+}
+
+.detail-left{
+  background-color: #dddea8;
+  padding: 20px;
+
+}
+
+.right {
+  padding: 20px;
+  color: #fff;
+  flex: 1;
 }
 
 .profile-picture img {
@@ -19,22 +27,29 @@
   margin-right: 20px;
 }
 
-.user-details {
-  /* flex: 1; */
-  background-color: #7e93a0;
-  width: 25pc;
-  display: flex;
+.links {
+  margin-top: 20px;
 }
 
-.projects {
-  margin-top: 40px;
+.links a {
+  color: #000; 
 }
 
-.project {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 10px;
+.skills {
+  margin-top: 20px;
+}
+
+.skills ul {
+  list-style-type: none; 
+  padding: 0;
+}
+
+.skills li {
+  margin-bottom: 5px;
+}
+
+.experience {
+  margin-top: 20px;
 }
 
 button {
@@ -49,8 +64,7 @@ button {
 button:hover {
   background-color: #0056b3;
 }
-.right{
-  background: #594747;
-  height: 80pc;
-  width: 75pc;
-}
+
+
+
+

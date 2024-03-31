@@ -5,7 +5,7 @@ import avatar from '../../../assets/images/Dropdown/avatar.jpg';
 export default function Myprofile() {
     const [isPrivate, setIsPrivate] = useState(false);
     const [userData,] = useState({
-        name: "John Doe",
+        name: "Rajesh Kumar",
         email: "john.doe@example.com",
         location: "New York, USA",
         college: "ABC University",
@@ -23,13 +23,14 @@ export default function Myprofile() {
     const togglePrivacy = () => {
         setIsPrivate(!isPrivate);
     };
+
     return (
         <>
             <h2>User Profile Dashboard</h2>
             <div className="user-profile-dashboard">
-                <div className="user-details"> 
+                <div className="user-details">
+                    <div className="detail-left">
                         <div className="left">
-
                             <div className="profile-picture">
                                 <img src={avatar} alt="Profile" />
                             </div>
@@ -63,7 +64,6 @@ export default function Myprofile() {
                                     Codeforces
                                 </a>
                             </div>
-
                             <div className="skills">
                                 <h3>Skills</h3>
                                 <ul>
@@ -72,31 +72,30 @@ export default function Myprofile() {
                                     ))}
                                 </ul>
                             </div>
-
-                            {/* Experience */}
                             <div className="experience">
                                 <h3>Experience</h3>
                                 <p>{userData.experience}</p>
                             </div>
                         </div>
-                    
+                    </div>
+                    <div className="detail-right">
                         <div className="right">
-
                             <h2>About</h2>
                             <section className="projects">
-                <h3>Projects</h3>
-                <div className="project-list">
-                    <div className="project">
-                        <h4>Project 1</h4>
-                        <p>Description of Project 1</p>
-                    </div>
-                    <div className="project">
-                        <h4>Project 2</h4>
-                        <p>Description of Project 2</p>
-                    </div>
-                </div>
-            </section>
+                                <h3>Projects</h3>
+                                <div className="project-list">
+                                    <div className="project">
+                                        <h4>Project 1</h4>
+                                        <p>Description of Project 1</p>
+                                    </div>
+                                    <div className="project">
+                                        <h4>Project 2</h4>
+                                        <p>Description of Project 2</p>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
+                    </div>
                 </div>
             </div>
         </>

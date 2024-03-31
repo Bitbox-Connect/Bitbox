@@ -5,7 +5,13 @@
     z-index: 1000;
     min-height: 10vh;
 }
-.mx-3{
+
+.logoTitle {
+    font-family: 'medium';
+    font-weight: lighter;
+}
+
+.mx-3 {
     border-radius: 50%;
 }
 
