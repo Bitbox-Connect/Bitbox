@@ -56,7 +56,7 @@ const UserProjectItem = (props) => {
       </div>
 
       {/* Delete Confirmation Modal */}
-      {/* {showModal && (
+      {showModal && (
         <div className="modal-wrapper">
           <div className="modal-card">
             <div className="card-content">
@@ -76,7 +76,7 @@ const UserProjectItem = (props) => {
             </button>
           </div>
         </div>
-      )} */}
+      )}
 
       {/* Video Overlay */}
       {/* {showVideo && (
