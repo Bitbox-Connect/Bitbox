@@ -16,6 +16,7 @@ import Contactus from './component/Footer/Contactus';
 import Privacypolicy from './component/Footer/Privacypolicy';
 import Termsandcondition from './component/Footer/Termsandcondition';
 import GlobalProjects from './component/GlobalProjects';
+import Profile from './component/Footer/Authenic/Myprofile'
 import ScrollTop from './component/ScrollTop';
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
               <Route exact path="/community" element={<GlobalProjects showAlert={showAlert} />} />
               <Route exact path="/myProjects" element={<UserProjects showAlert={showAlert} />} />
               <Route exact path="/about" element={<About showAlert={showAlert} />} />
+              <Route exact path="/profile" element={<Profile showAlert={showAlert} />} />
               <Route exact path="/login" element={<Login showAlert={showAlert} />} />
               <Route exact path="/signup" element={<Signup showAlert={showAlert} />} />
               {/* Footer */}

@@ -72,7 +72,7 @@ function Navbar(props) {
                                     <Link className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`} aria-current="page" to="/about">{props.about}</Link>
                                 </li>
                                 <li className="nav-item fs-4">
-                                    <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} aria-current="page" to="/">Profile</Link>
+                                    <Link className={`nav-link ${location.pathname === '/profile' ? 'active' : ''}`} aria-current="page" to="/profile">Profile</Link>
                                 </li>
                                 {localStorage.getItem('token') ?
                                     <li className="nav-item text-xl fs-4">
@@ -106,7 +106,7 @@ function Navbar(props) {
                                                     <img src={avatarDropdown} alt="" />
                                                 </a>
                                                 <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                                    <li><a className="dropdown-item" href="#">My Profile</a></li>
+                                                    <li><a className="dropdown-item" href="/profile">My Profile</a></li>
                                                     <li><a className="dropdown-item" href="#">Edit Profile</a></li>
                                                     <li><a className="dropdown-item" href="#">Help</a></li>
                                                     <li><a className="dropdown-item" href="#">Setting</a></li>
