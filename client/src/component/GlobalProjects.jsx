@@ -36,7 +36,9 @@ const Projects = (props) => {
 
     return (
         <> 
-
+<div className="content">
+                    <h1 className='Heading-Page text-center mb-4'>Welcome to BitBox Community</h1>
+                </div>
 <div className="user-profile-dashboard">
         <div className="user-details">
           <div className="detail-left">
@@ -46,19 +48,33 @@ const Projects = (props) => {
               </div>
               <div className="bio">
                 <p>Name: <span>Harshit singh</span></p>
+                <p>UserName : <span>Harshit7492</span></p>
               </div>
               <button onClick={togglePrivacy}>
                 public
               </button>
+              <hr />
               <div className="links">
-
+                <h3>Discover</h3>
+                <p>Popular</p>
+                <p>Most Viewed</p>
+                <p>Top rated</p>
               </div>
+              <hr />
               <div className="skills">
-                <h3>Skills</h3>
+                <h3>Contri</h3>
+                <p>Discussion</p>
 
               </div>
+              <hr />
               <div className="experience">
+                <h3>Manage</h3>
+                <p>Saved</p>
+              </div>
 
+              <div className="share">
+                <h3>Share</h3>
+                <p>Invite friends</p>
               </div>
             </div>
           </div>
@@ -68,7 +84,7 @@ const Projects = (props) => {
               <div>
             {/* Detail Button trigger modal */}
             <button ref={refDetails} className="btn" data-bs-toggle="modal" data-bs-target="#detailToggle">
-
+              public
             </button>
 
             {/* Project Details Modal */}
@@ -92,9 +108,7 @@ const Projects = (props) => {
             </div>
 
             <div className='container Global-Sec-Container'>
-                <div className="content">
-                    <h1 className='Heading-Page text-center mb-4'>Welcome to BitBox Community</h1>
-                </div>
+                
                 {projects.length === 0 && <UploadProject title="Click Here To Upload" />}
                 <div className='row'>
                     {projects.map((project) => {

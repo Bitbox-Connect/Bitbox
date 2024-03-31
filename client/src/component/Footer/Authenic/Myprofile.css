@@ -5,11 +5,11 @@
 
 .detail-right {
   flex: 1;
-  background-color: #ddb6b6;
+  background-color: #f6f4f4;
 }
 
 .detail-left{
-  background-color: #dddea8;
+  background-color: #dcddd1;
   padding: 20px;
 
 }
@@ -68,3 +68,15 @@ button:hover {
 
 
 
+.projects {
+  margin-top: 20px;
+}
+
+.project {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 19rem;
+  height: 26rem;
+}

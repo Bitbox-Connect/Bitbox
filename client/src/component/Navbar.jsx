@@ -112,6 +112,7 @@ function Navbar(props) {
                                                     <li><a className="dropdown-item" href="/profile">My Profile</a></li>
                                                     <li><a className="dropdown-item" href="#">Edit Profile</a></li>
                                                     <li><a className="dropdown-item" href="#">Help</a></li>
+                                                    <li><a className="dropdown-item" href="#">Invite friends</a></li>
                                                     <li><a className="dropdown-item" href="#">Setting</a></li>
                                                     <li>
                                                         <hr className="dropdown-divider" />

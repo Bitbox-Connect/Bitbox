@@ -242,22 +242,23 @@ i {
   
 .user-details {
   display: flex;
+  /* position: relative; */
 }
 
 .detail-right {
   flex: 1;
-  background-color: #ddb6b6;
+  background-color: #f3efef;
 }
 
 .detail-left{
-  background-color: #dddea8;
+  background-color: #9c9d7a;
   padding: 20px;
 
 }
 
 .right {
   padding: 20px;
-  color: #fff;
+  color: #f6f5f5;
   flex: 1;
 }
 
