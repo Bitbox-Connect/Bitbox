@@ -4,6 +4,9 @@
     z-index: 1000;
     min-height: 10vh;
 }
+.mx-3{
+    border-radius: 50%;
+}
 
 #navbar ul li {
     margin-bottom: 0;
