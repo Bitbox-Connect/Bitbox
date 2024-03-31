@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300;700;900&display=swap");
 #navbar {
     overflow: initial;
     background-color: #a6c1ee;
@@ -307,3 +308,90 @@
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+/* title style */
+body {
+    font-family: "Exo 2", sans-serif;
+  }
+  
+  /* .header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 4rem);
+  } */
+  
+  .title-wrapper {
+    display: grid; 
+    /* display: flex; */
+     align-items: center; 
+    justify-content: center;
+  }
+  
+  .bitbox-title {
+    color: #fff;
+    font-size: clamp(3rem, 10vw, 6rem);
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .bitbox-title span {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .bitbox-title span:before,
+  .bitbox-title span:after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    width: 100%;
+    color: #4af7ff;
+    animation: glitch-animation 2s infinite linear alternate-reverse;
+  }
+  
+  .bitbox-title span:before {
+    left: 2px;
+    text-shadow: -2px 0 #165bfb;
+  }
+  
+  .bitbox-title span:after {
+    left: -2px;
+    text-shadow: 2px 0 #165bfb;
+  }
+  
+  .bitbox-title span:nth-child(1),
+  .bitbox-title span:nth-child(4) {
+    text-transform: uppercase;
+  }
+  
+  .bitbox-title span:nth-child(2),
+  .bitbox-title span:nth-child(3),
+  .bitbox-title span:nth-child(5),
+  .bitbox-title span:nth-child(6) {
+    text-transform: lowercase;
+  }
+  
+  @keyframes glitch-animation {
+    0% {
+      transform: translate(0);
+    }
+    25% {
+      transform: translate(2px, -2px);
+    }
+    50% {
+      transform: translate(-2px, 2px);
+    }
+    75% {
+      transform: translate(2px, 0);
+    }
+    100% {
+      transform: translate(-2px, -2px);
+    }
+  }
+  

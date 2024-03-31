@@ -4,7 +4,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AddProject from './AddProject';
 import logo from '../assets/images/logo.png';
-// import logo1 from '../assets/images/logo1.png';
+// import logo from '../assets/images/logo1.png';
 import avatarDropdown from '../assets/images/Dropdown/avatar.jpg';
 
 function Navbar(props) {
@@ -54,10 +54,22 @@ function Navbar(props) {
             <nav className={`navbar navbar-expand-lg ${isScrolled ? 'sticky' : ''}`} id='navbar'>
                 <div className="container-fluid">
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                        <Link className="navbar-brand d-flex fs-2 fw-bold font-monospace" to="/">
+                        {/* <Link className="navbar-brand d-flex fs-2 fw-bold font-monospace" to="/"> */}
                             <img className='mx-3' style={{ width: "3rem" }} src={logo} alt="logo" />
-                            {props.title}
-                        </Link>
+                            {/* {props.title} */}
+                            {/* <section class="header"> */}
+                                <div class="title-wrapper">
+                                    <h1 class="bitbox-title">
+                                        <span data-text="b">b</span>
+                                        <span data-text="i">i</span>
+                                        <span data-text="t">t</span>
+                                        <span data-text="B">B</span>
+                                        <span data-text="o">o</span>
+                                        <span data-text="x">x</span>
+                                    </h1>
+                                </div>
+                            {/* </section> */}
+                        {/* </Link> */}
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
