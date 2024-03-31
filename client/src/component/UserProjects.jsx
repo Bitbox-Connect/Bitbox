@@ -156,7 +156,7 @@ const UserProjects = (props) => {
                                 </button>
                                 <p className="video-heading fs-1">Project Video</p>
                                 <p>
-                                    <iframe className='youtube-Frame' width="350" height="315" src={project.youTubeLink} frameBorder="0" allowfullscreen></iframe>
+                                    <iframe className='youtube-Frame' width="350" height="315" src={project.youTubeLink} frameBorder="0" allowfullScreen></iframe>
                                 </p>
                             </div>
                             <div className="card-button-wrapper">

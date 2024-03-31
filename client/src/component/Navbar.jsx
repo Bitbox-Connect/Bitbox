@@ -4,6 +4,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AddProject from './AddProject';
 import logo from '../assets/images/logo.png';
+// import logo1 from '../assets/images/logo1.png';
 import avatarDropdown from '../assets/images/Dropdown/avatar.jpg';
 
 function Navbar(props) {
@@ -55,7 +56,9 @@ function Navbar(props) {
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         <Link className="navbar-brand d-flex fs-2 fw-bold font-monospace" to="/">
                             <img className='mx-3' style={{ width: "3rem" }} src={logo} alt="logo" />
-                            {props.title}
+                            <div className="logoTitle">
+                                {props.title}
+                            </div>
                         </Link>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
