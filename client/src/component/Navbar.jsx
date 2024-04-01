@@ -5,51 +5,71 @@ import PropTypes from 'prop-types';
 import AddProject from './AddProject';
 import logo from '../assets/images/logo.png';
 import avatarDropdown from '../assets/images/Dropdown/avatar.jpg';
+import { auth } from '../component/Firebase/Setup'; 
 
 function Navbar(props) {
     const navigate = useNavigate();
-    let location = useLocation();
+    const location = useLocation();
     const { showAlert } = props;
     const [isScrolled, setIsScrolled] = useState(false); // State to keep track of whether page has been scrolled
-
-    const handleLogout = async () => {
-        try {
-            localStorage.removeItem('token'); // Remove any other tokens or user data if necessary
-            navigate('/login');
-        } catch (error) {
-            console.error(error);
-        }
-    };
 
     useEffect(() => {
         window.onscroll = function () { myFunction() };
 
-        var navbar = document.getElementById("navbar");
-        var sticky = navbar.offsetTop;
+        const navbar = document.getElementById("navbar");
+        const sticky = navbar.offsetTop;
 
         function myFunction() {
             if (window.pageYOffset >= sticky) {
-                setIsScrolled(true); // Set state to true when page is scrolled down
+                setIsScrolled(true);
                 navbar.classList.add("sticky")
             } else {
-                setIsScrolled(false); // Set state to false when page is scrolled up
+                setIsScrolled(false);
                 navbar.classList.remove("sticky");
             }
         }
 
-        // Check if page is already scrolled down when component mounts
         if (window.pageYOffset >= sticky) {
             setIsScrolled(true);
             navbar.classList.add("sticky");
         }
+
+        return () => {
+            window.onscroll = null; // Cleanup function
+        };
     }, []);
 
-    // Conditionally render the Upload button only when on the "My Projects" route
     const renderUploadButton = () => {
         if (location.pathname === '/myProjects') {
             return <AddProject showAlert={showAlert} />;
         }
         return null;
+    };
+
+    const [isAuthenticated, setIsAuthenticated] = useState(false); // State to manage authentication status
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged(user => {
+            if (user) {
+                setIsAuthenticated(true);
+            } else {
+                setIsAuthenticated(false);
+            }
+        });
+
+        return () => {
+            unsubscribe();
+        };
+    }, []);
+
+    const handleLogout = async () => {
+        try {
+            await auth.signOut(); // Sign out the user
+            localStorage.removeItem('token');
+            navigate('/login');
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     return (
@@ -80,7 +100,7 @@ function Navbar(props) {
                                 <li className="nav-item fs-4">
                                     <Link className={`nav-link ${location.pathname === '/profile' ? 'active' : ''}`} aria-current="page" to="/profile">Profile</Link>
                                 </li>
-                                {localStorage.getItem('token') ?
+                                {localStorage.getItem('token') && isAuthenticated ?
                                     <li className="nav-item text-xl fs-4">
                                         <Link className={`nav-link ${location.pathname === '/myProjects' ? 'active' : ''}`} aria-current="page" to="/myProjects">{props.myProjects}</Link>
                                     </li>
@@ -91,7 +111,7 @@ function Navbar(props) {
 
                         </div>
                         <form className="d-flex fs-4 fw-medium">
-                            {!localStorage.getItem('token') ?
+                            {!localStorage.getItem('token') && isAuthenticated ?
                                 <>
                                     <ul className="navbar-nav">
                                         <div className="Navbar-Btn-Group">
@@ -143,6 +163,7 @@ Navbar.propTypes = {
     myProjects: PropTypes.string,
     about: PropTypes.string,
     showAlert: PropTypes.func,
+    isAuthenticated: PropTypes.bool,
 };
 
 export default Navbar;

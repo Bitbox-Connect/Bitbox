@@ -1,104 +1,203 @@
 .mg {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 i {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+/* Project Card */
+
+.projectContainer {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  width: 300px;
+  min-height: 350px;
+  padding: 8px;
+  border-radius: 8px;
+  border-width: 1px;
+}
+
+.projectInfo {
+  display: flex;
+  align-items: center;
+  margin: 8px;
+  gap: 8px;
+}
+
+.projectAvatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.projectText {
+  margin-right: 20px;
+  font-size: 13px;
+  line-height: 18px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.projectTitle {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.projectDetails {
+  display: flex;
+  color: #a8b3cf;
+}
+
+.projectTime {
+  margin: 0 8px;
+}
+
+.project-modify {
+  gap: 20px;
+  display: flex;
+}
+
+.projectDescription {
+  margin-top: 8px;
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 700px;
+  padding: 0 8px;
+}
+
+.projectVisualContainer img {
+  height: 175px;
+  border-radius: 8px;
+  margin: 15px 0px;
+}
+
+.projectEngagementContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.project-love img,
+.project-comment img {
+  width: 40px;
+}
+
+.project-link img {
+  width: 35px;
+}
+
+/* Delete Project */
+.card-button-wrapper .card-button {
+  height: 45px;
 }
 
 /* Login & Signup Component*/
 
 .Login-button,
 .Signup-button {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .Login-button button,
 .Signup-button button {
-    width: 7rem;
+  width: 7rem;
 }
 
 /* AddProject Component */
 
 .modal-backdrop {
-    --bs-backdrop-zindex: 0;
+  --bs-backdrop-zindex: 0;
 }
 
-  .card-heading {
-    font-size: 20px;
-    font-weight: 700;
-    color: rgb(27, 27, 27);
-  }
-  .card-description {
-    font-weight: 100;
-    color: rgb(102, 102, 102);
-  }
-  .card-button-wrapper {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
-  .card-button {
-    width: 50%;
-    height: 35px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-  }
-  .primary {
-    background-color: rgb(255, 114, 109);
-    color: white;
-  }
-  .primary:hover {
-    background-color: rgb(255, 73, 66);
-  }
-  .secondary {
-    background-color: #ddd;
-  }
-  .secondary:hover {
-    background-color: rgb(197, 197, 197);
-  }
-  .exit-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    background-color: transparent;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-  }
-  .exit-button:hover svg {
-    fill: black;
-  }
-  .exit-button svg {
-    fill: rgb(175, 175, 175);
-  }
-  .modal-wrapper {
-    position: fixed;
-    top: 10px;
-    left: 40%;
-    min-width: 22%;
-    min-height: 22%;
-    /* background-color: rgba(0, 0, 0, 0.5);  */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999; 
-  }
-  
-  .modal-card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    z-index: 10000; 
-  }
+.card-heading {
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(27, 27, 27);
+}
+
+.card-description {
+  font-weight: 100;
+  color: rgb(102, 102, 102);
+}
+
+.card-button-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.card-button {
+  width: 50%;
+  height: 35px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.primary {
+  background-color: rgb(255, 114, 109);
+  color: white;
+}
+
+.primary:hover {
+  background-color: rgb(255, 73, 66);
+}
+
+.secondary {
+  background-color: #ddd;
+}
+
+.secondary:hover {
+  background-color: rgb(197, 197, 197);
+}
+
+.exit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.exit-button:hover svg {
+  fill: black;
+}
+
+.exit-button svg {
+  fill: rgb(175, 175, 175);
+}
+
+.modal-wrapper {
+  position: fixed;
+  top: 10px;
+  left: 40%;
+  min-width: 22%;
+  min-height: 22%;
+  /* background-color: rgba(0, 0, 0, 0.5);  */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+}
+
 .card {
   width: 300px;
   height: fit-content;
@@ -113,6 +212,7 @@ i {
   position: relative;
   box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.068);
 }
+
 .card-content {
   width: 100%;
   height: fit-content;
@@ -120,15 +220,18 @@ i {
   flex-direction: column;
   gap: 5px;
 }
+
 .card-heading {
   font-size: 20px;
   font-weight: 700;
   color: rgb(27, 27, 27);
 }
+
 .card-description {
   font-weight: 100;
   color: rgb(102, 102, 102);
 }
+
 .card-button-wrapper {
   width: 100%;
   display: flex;
@@ -136,6 +239,7 @@ i {
   justify-content: center;
   gap: 10px;
 }
+
 .card-button {
   width: 50%;
   height: 35px;
@@ -144,19 +248,24 @@ i {
   cursor: pointer;
   font-weight: 600;
 }
+
 .primary {
   background-color: rgb(255, 114, 109);
   color: white;
 }
+
 .primary:hover {
   background-color: rgb(255, 73, 66);
 }
+
 .secondary {
   background-color: #ddd;
 }
+
 .secondary:hover {
   background-color: rgb(197, 197, 197);
 }
+
 .exit-button {
   display: flex;
   align-items: center;
@@ -168,78 +277,81 @@ i {
   right: 20px;
   cursor: pointer;
 }
+
 .exit-button:hover svg {
   fill: black;
 }
+
 .exit-button svg {
   fill: rgb(175, 175, 175);
 }
+
 .video-overlays {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center; 
-    align-items: center; /
-  }
-  
-  .Video-Modal {
-    background-color: white;
-    width: 80%;
-    max-width: 600px; 
-    padding: 20px;
-    border-radius: 10px;
-  }
-  
-  
-  .video-heading {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-  }
-  
-  
-  .youtube-Frame {
-    width: 100%;
-    height: 315px; 
-  }
-  
-  
-  .card-button-wrapper {
-    text-align: right; 
-    margin-top: 20px;
-  }
-  
-  
-  .card-button {
-    padding: 10px 20px;
-    margin-left: 10px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-  }
-  
-  .secondary {
-    background-color: #ccc;
-  }
-  
-  .primary {
-    background-color: #007bff; 
-    color: white; 
-  }
-  
-  .exit2-button {
-    position: relative;
-    left: 33rem;
-    background: yellow;
-    border: none;
-    cursor: pointer;
-  }
-  
-  /* -------------------------------------- left section ----------------------------------------- */
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;/
+}
+
+.Video-Modal {
+  background-color: white;
+  width: 80%;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+
+.video-heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+
+.youtube-Frame {
+  width: 100%;
+  height: 315px;
+}
+
+
+.card-button-wrapper {
+  text-align: right;
+  margin-top: 20px;
+}
+
+
+.card-button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.secondary {
+  background-color: #ccc;
+}
+
+.primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.exit2-button {
+  position: relative;
+  left: 33rem;
+  background: yellow;
+  border: none;
+  cursor: pointer;
+}
+
+/* -------------------------------------- left section ----------------------------------------- */
+
 .user-details {
   display: flex;
   /* position: relative; */
@@ -250,7 +362,7 @@ i {
   background-color: #f3efef;
 }
 
-.detail-left{
+.detail-left {
   background-color: #9c9d7a;
   padding: 20px;
 

@@ -1,12 +1,13 @@
+import './css/ProjectItem.css';
 import { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import projectContext from '../context/projectContext';
-import './css/ProjectItem.css';
+import avatarImg from '../assets/images/logo.png'
 
 const UserProjectItem = (props) => {
   const { project, updateProject, showDetailProject, showAlert } = props;
   const [showModal, setShowModal] = useState(false);
-  const [showVideo, setShowVideo] = useState(false);
+  // const [showVideo, setShowVideo] = useState(false);
   const context = useContext(projectContext);
   const { deleteProject } = context;
 
@@ -22,13 +23,13 @@ const UserProjectItem = (props) => {
     setShowModal(false);
   };
 
-  const handleVideo = () => {
-    setShowVideo(true);
-  };
+  // const handleVideo = () => {
+  //   setShowVideo(true);
+  // };
 
-  const handleVideoClose = () => {
-    setShowVideo(false);
-  };
+  // const handleVideoClose = () => {
+  //   setShowVideo(false);
+  // };
 
   const handleDelete = () => {
     deleteProject(project._id);
@@ -37,23 +38,62 @@ const UserProjectItem = (props) => {
   };
 
   return (
-    <div className='col-md-3'>
+    <div className='col-md-3 my-3'>
       {/* Project Card */}
-      <div className="pro-card my-1">
+      <div className="projectContainer">
+        <div className="projectBox">
+          <div className="projectInfo">
+            <div className="projectAvatar">
+              <img src={avatarImg} alt="avatar" />
+            </div>
+            <div className="projectText">
+              <div className="projectTitle">{project.title}</div>
+              <div className="projectDetails">
+                <div className="projectUserName">Anuj Verma</div>
+                <div className="projectTime">07/01/02</div>
+              </div>
+            </div>
+            <div className="project-modify">
+              <i className="fa-solid fa-trash" onClick={handleModalOpen}></i>
+              <i className="fa-solid fa-pen-to-square" onClick={() => updateProject(project)}></i>
+            </div>
+          </div>
+          <div className="projectDescription">
+            {project.description}
+          </div>
+          <div className="projectVisualContainer">
+            <img src={generateImageUrl(project._id)} className="card-img-top" alt="..." />
+          </div>
+          <div className="projectEngagementContainer">
+            <div className="project-love">
+              <img src="./src/assets/images/Project Card/love.png" alt="Love" />
+            </div>
+            <div className="project-comment">
+              <img src="./src/assets/images/Project Card/comment.png" alt="Comment" />
+            </div>
+            <div className="project-link">
+              <img src="./src/assets/images/Project Card/link.png" alt="Link" />
+            </div>
+            <button className="btn btn-primary" onClick={() => showDetailProject(project)}>Details</button>
+          </div>
+        </div>
+      </div>
+
+      {/* <div className="pro-card my-1">
         <img src={generateImageUrl(project._id)} style={{ height: "25vh" }} className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title">Project Title : {project.title}</h5>
           <p className="card-text mg">Project Link : </p>
-          {/* <div className="Youtube">
+          <div className="Youtube">
           <button type="button btn btn-primary" onClick={handleVideo}>Youtube Link</button>
-          </div> */}
+          </div>
           <button className="btn btn-primary" onClick={() => showDetailProject(project)}>Details</button>
           <div>
             <i className="fa-solid fa-trash mx-1 mt-3" onClick={handleModalOpen}></i>
             <i className="fa-solid fa-pen-to-square mx-4 mt-2" onClick={() => updateProject(project)}></i>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Delete Confirmation Modal */}
       {showModal && (
