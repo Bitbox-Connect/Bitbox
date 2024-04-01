@@ -1,9 +1,7 @@
-import React from 'react'
-
+import avatar from '../../../assets/images/Dropdown/avatar.jpg'
 export default function Youtube() {
   return (
     <div>
-
       <h2>User Profile Dashboard</h2>
       <div className="user-profile-dashboard">
         <div className="user-details">

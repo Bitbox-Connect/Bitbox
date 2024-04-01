@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function Privacypolicy() {
   return (
     <div>
@@ -7,7 +5,7 @@ export default function Privacypolicy() {
             <h2>Privacy Policy</h2>
         </div>
         <div className="container">
-        This Privacy Policy (the “Policy”) governs the manner in which BitBox OpenSource Community (referred to as "BitBox," "we," "our," or "us") collects, uses, maintains, and discloses information of its users. The Policy also describes the practices that we apply to such user information, user’s privacy rights, and choices regarding their information. Please read this Policy carefully before accessing our Platform or using any of the services or products offered therein. If you have any questions, please contact us at the contact information provided below.
+        This Privacy Policy (the “Policy”) governs the manner in which BitBox OpenSource Community (referred to as &quot;BitBox,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) collects, uses, maintains, and discloses information of its users. The Policy also describes the practices that we apply to such user information, user’s privacy rights, and choices regarding their information. Please read this Policy carefully before accessing our Platform or using any of the services or products offered therein. If you have any questions, please contact us at the contact information provided below.
 
         <hr />
           <h3>personal Information</h3>

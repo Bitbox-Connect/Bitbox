@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "./Myprofile.css";
+import { useState } from "react";
+import '../../css/Myprofile.css';
 import avatar from '../../../assets/images/Dropdown/avatar.jpg';
 
 export default function Myprofile() {
