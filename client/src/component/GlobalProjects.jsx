@@ -3,7 +3,7 @@ import { useContext, useRef, useState } from 'react'
 import projectContext from '../context/projectContext';
 import GlobalProjectItem from './GlobalProjectItem';
 import UploadProject from './UploadProject';
-import avatar from '../assets/images/Dropdown/avatar.jpg';
+// import avatar from '../assets/images/Dropdown/avatar.jpg';
 
 const Projects = (props) => {
     const [project, setproject] = useState({ id: "", etitle: "", edescription: "", egitHubLink: "", eyouTubeLink: "" });
@@ -43,9 +43,9 @@ const Projects = (props) => {
         <div className="user-details">
           <div className="detail-left">
             <div className="left">
-              <div className="profile-picture">
+              {/* <div className="profile-picture">
                 <img src={avatar} alt="Profile" />
-              </div>
+              </div> */}
               <div className="bio">
                 <p>Name: <span>Harshit singh</span></p>
                 <p>UserName : <span>Harshit7492</span></p>
@@ -84,7 +84,6 @@ const Projects = (props) => {
               <div>
             {/* Detail Button trigger modal */}
             <button ref={refDetails} className="btn" data-bs-toggle="modal" data-bs-target="#detailToggle">
-              public
             </button>
 
             {/* Project Details Modal */}

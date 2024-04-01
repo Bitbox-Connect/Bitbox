@@ -1,12 +1,30 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './css/Auth.css'
+// import { auth } from '../../Firebase/Setup';
+import { signInWithPopup } from 'firebase/auth'
+import { auth, provider } from '../component/Firebase/Setup'
+import Home from './Home';
 
 const host = "http://localhost:5000";
 
 const Signup = (props) => {
+
+  const [value, setValue] = useState('')
+
+  const handleClick = () => {
+    signInWithPopup(auth, provider).then((data) => {
+      setValue(data.user.email);
+      localStorage.setItem("email", data.user.email);
+    })
+  }
+
+  useEffect(() => {
+    setValue(localStorage.getItem('email'));
+  }, []);
+
   const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" });
   let navigate = useNavigate();
 
@@ -67,9 +85,16 @@ const Signup = (props) => {
               <input type="password" className="form-control" onChange={onChange} id="cpassword" name='cpassword' placeholder='Enter Again Your Password' minLength={5} autoComplete='on' required />
             </div>
             <div className="Login-button">
-              <button type="submit" className="btn btn-primary" onSubmit={handleSubmit}>Singup</button>
+              <button type="submit" className="btn btn-primary">Signup</button>
             </div>
           </form>
+          {value ? <Home/> :
+            <button className="social-button google" onClick={handleClick}>
+              <svg className="svg" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 488 512">
+                <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" fill="#4285F4"></path>
+              </svg>
+            </button>
+          }
         </div>
         <h5 className='text-center'>or</h5>
         <div className='text-center'>
@@ -81,9 +106,9 @@ const Signup = (props) => {
   )
 }
 
-// Props Vadilation
+// Props Validation
 Signup.propTypes = {
   showAlert: PropTypes.func,
 };
 
-export default Signup
+export default Signup;
