@@ -6,8 +6,50 @@ const router = express.Router();
 const fetchuser = require('../middleware/fetchuser')
 require('dotenv').config()
 const { body, validationResult } = require('express-validator')
+const { OAuth2Client } = require('google-auth-library');
+
+// Configure Firebase OAuth2Client
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 const JWT_SECRET = "mern$Open$SourceProject";
+
+// Route for Google Firebase authentication
+router.post('/googlelogin', async (req, res) => {
+    try {
+        const { tokenId } = req.body;
+        const response = await client.verifyIdToken({
+            idToken: tokenId,
+            audience: process.env.GOOGLE_CLIENT_ID
+        });
+
+        const { email_verified, email, name } = response.payload;
+
+        if (email_verified) {
+            let user = await User.findOne({ email });
+            if (!user) {
+                const salt = await bcrypt.genSalt(10);
+                const secPass = await bcrypt.hash(email + process.env.JWT_SECRET, salt);
+                user = await User.create({
+                    name: name,
+                    email: email,
+                    password: secPass
+                });
+            }
+            const data = {
+                user: {
+                    id: user.id
+                }
+            };
+            const authtoken = jwt.sign(data, JWT_SECRET);
+            res.json({ success: true, authtoken });
+        } else {
+            res.status(400).json({ success: false, error: "Google authentication failed." });
+        }
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error");
+    }
+});
 
 // ROUTE 1 : Create a User using : POST: "/api/auth/createuser". No login required
 router.post('/createuser', [

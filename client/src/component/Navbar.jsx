@@ -4,7 +4,6 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AddProject from './AddProject';
 import logo from '../assets/images/logo.png';
-// import logo1 from '../assets/images/logo1.png';
 import avatarDropdown from '../assets/images/Dropdown/avatar.jpg';
 
 function Navbar(props) {
@@ -13,9 +12,13 @@ function Navbar(props) {
     const { showAlert } = props;
     const [isScrolled, setIsScrolled] = useState(false); // State to keep track of whether page has been scrolled
 
-    const handleLogout = () => {
-        localStorage.removeItem('token');
-        navigate('/login');
+    const handleLogout = async () => {
+        try {
+            localStorage.removeItem('token'); // Remove any other tokens or user data if necessary
+            navigate('/login');
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     useEffect(() => {
@@ -58,18 +61,6 @@ function Navbar(props) {
                             <img className='mx-3' style={{ width: "3rem" }} src={logo} alt="logo" />
                             <div className="logoTitle">
                                 {props.title}
-                                {/* <section className="header"> */}
-                                    {/* <div className="title-wrapper">
-                                        <h1 className="bitbox-title">
-                                            <span data-text="b">b</span>
-                                            <span data-text="i">i</span>
-                                            <span data-text="t">t</span>
-                                            <span data-text="B">B</span>
-                                            <span data-text="o">o</span>
-                                            <span data-text="x">x</span>
-                                        </h1>
-                                    </div> */}
-                                {/* </section> */}
                             </div>
                         </Link>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

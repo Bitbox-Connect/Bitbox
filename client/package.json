@@ -22,6 +22,7 @@
     "@splinetool/viewer": "^1.0.67",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
+    "firebase": "^10.10.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "prop-types": "^15.8.1",

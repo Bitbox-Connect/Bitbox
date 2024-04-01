@@ -3,36 +3,42 @@ import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './css/Auth.css'
-// import { auth } from '../../Firebase/Setup';
-import { signInWithPopup } from 'firebase/auth'
-import { auth, provider } from '../component/Firebase/Setup'
-import Home from './Home';
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { auth } from '../component/Firebase/Setup';
+
 
 const host = "http://localhost:5000";
 
 const Signup = (props) => {
-
-  const [value, setValue] = useState('')
-
-  const handleClick = () => {
-    signInWithPopup(auth, provider).then((data) => {
-      setValue(data.user.email);
-      localStorage.setItem("email", data.user.email);
-    })
-  }
+  const [value, setValue] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     setValue(localStorage.getItem('email'));
   }, []);
 
+  const handleClick = () => {
+    const provider = new GoogleAuthProvider();
+    const googleLogin = async () => {
+      try {
+        const { user } = await signInWithPopup(auth, provider);
+        setValue(user.email);
+        localStorage.setItem("email", user.email);
+        navigate("/"); // Redirect to home page after successful sign-in
+        props.showAlert("Account Created Successfully", "success")
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  
+    googleLogin();
+  };
+
   const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" });
-  let navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    // To not Reload after click submit 
     e.preventDefault();
 
-    // Destruture the name, email, password from credentials
     const { name, email, password } = credentials;
 
     const response = await fetch(`${host}/api/auth/createuser`, {
@@ -43,15 +49,12 @@ const Signup = (props) => {
       body: JSON.stringify({ name, email, password }),
     });
     const json = await response.json();
-    console.log(json);
 
     if (json.success) {
-      // Save the auth token and redirect
       localStorage.setItem('token', json.authtoken);
-      navigate("/");
+      navigate("/"); // Redirect to home page after successful sign-up
       props.showAlert("Account Created Successfully", "success")
-    }
-    else {
+    } else {
       props.showAlert("Invalid Details", "danger")
     }
   }
@@ -88,7 +91,7 @@ const Signup = (props) => {
               <button type="submit" className="btn btn-primary">Signup</button>
             </div>
           </form>
-          {value ? <Home/> :
+          {!value ? <p></p> :
             <button className="social-button google" onClick={handleClick}>
               <svg className="svg" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 488 512">
                 <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" fill="#4285F4"></path>
