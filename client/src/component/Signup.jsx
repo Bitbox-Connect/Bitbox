@@ -47,7 +47,7 @@ const Signup = (props) => {
       <div className='container main-bx'>
         <div className="heading">SignUp</div>
         <div className='p-3'>
-          {/* <h2>Create an account into BitBox</h2> */}
+          {/* <h2>Create an account into Bitbox</h2> */}
           <form onSubmit={handleSubmit}>
             <div className="mb-2">
               <label htmlFor="name" className="label">Name</label>

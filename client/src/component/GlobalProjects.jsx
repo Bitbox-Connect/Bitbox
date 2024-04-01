@@ -37,7 +37,7 @@ const Projects = (props) => {
     return (
         <> 
 <div className="content">
-                    <h1 className='Heading-Page text-center mb-4'>Welcome to BitBox Community</h1>
+                    <h1 className='Heading-Page text-center mb-4'>Welcome to Bitbox Community</h1>
                 </div>
 <div className="user-profile-dashboard">
         <div className="user-details">

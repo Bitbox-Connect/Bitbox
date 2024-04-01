@@ -2,9 +2,6 @@ import "./css/About.css";
 import img1 from "../assets/images/Anuj.png";
 import img2 from "../assets/images/Jitendra.png";
 import img3 from "../assets/images/Harshit.png";
-import aboutImg from "../assets/images/Vector Gif/About.gif";
-import aboutImg1 from "../assets/images/Vector Gif/R.gif";
-import aboutImg2 from "../assets/images/Vector Gif/tenor.gif";
 import aboutHeroImg from "../assets/images/Others/aboutImg.png";
 import '@fortawesome/fontawesome-free/css/all.css';
 export default function About() {
@@ -22,9 +19,9 @@ export default function About() {
       <div className="about-content">
         <section className="about-main-section">
           <div className="about-content-left">
-            <h1 className="about-section-title">About Us</h1>
+            <h2 className="Heading-Page">About Us</h2>
             <p className="about-section-desc fs-4">
-              BitBox is like a friendly community where people working on
+              Bitbox is like a friendly community where people working on
               projects can come together. If you’re stuck or need advice, you
               can ask for help. And if you know something, you can share your
               knowledge with others. It’s all about supporting each other and
@@ -74,82 +71,6 @@ export default function About() {
         </section>
       </div>
       {/* Website Record Section */}
-      <div className="Website-Record-Sec">
-        <div className="container-page">
-          <h2 className="Heading-Page">Website Record</h2>
-          <div className="container-bx">
-            <div className="flip-card">
-              <div className="flip-card-inner">
-                <div className="flip-card-front">
-                  <p className="title">No of Projects</p>
-                  <p>Hover Me</p>
-                  <h3 className="title">570+</h3>
-                </div>
-                <div className="flip-card-back">
-                  <p className="title">BACK</p>
-                  <div className="about-gif">
-                    <img src={aboutImg} alt="about-image" />
-                  </div>
-                  <p>Leave Me</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="flip-card">
-              <div className="flip-card-inner">
-                <div className="flip-card-front">
-                  <p className="title">No. of Pull Request</p>
-                  <p>Hover Me</p>
-                  <h3>
-                    <b>850+</b>
-                  </h3>
-                </div>
-                <div className="flip-card-back">
-                  <p className="title">BACK</p>
-                  <div className="about-gif">
-                    <img src={aboutImg1} alt="about-image" />
-                  </div>
-                  <p>Leave Me</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="flip-card">
-              <div className="flip-card-inner">
-                <div className="flip-card-front">
-                  <p className="title">Pull Request</p>
-                  <p>Hover Me</p>
-                  <h3 className="title">850+</h3>
-                </div>
-                <div className="flip-card-back">
-                  <p className="title">Hello</p>
-                  <div className="about-gif">
-                    <img src={aboutImg2} alt="about-image" />
-                  </div>
-                  <p>Like me</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="flip-card">
-              <div className="flip-card-inner">
-                <div className="flip-card-front">
-                  <p className="title">No. of User</p>
-                  <p>Hover Me</p>
-                  <h3 className="title">870+</h3>
-                </div>
-                <div className="flip-card-back">
-                  <p className="title">Happy User</p>
-                  <div className="about-gif">
-                    <img src={aboutImg2} alt="about-image" />
-                  </div>
-                  <p>Leave Me</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Team Section */}
       <div className="Team-Sec">

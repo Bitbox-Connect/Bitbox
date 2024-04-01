@@ -9,7 +9,7 @@ const Home = () => {
     return (
         <div>
             {/* Landing Page Section */}
-            <div className="content">
+            <div className="content landing-page-container">
                 <section className="main-section">
                     <div className="content-left">
                         <p className="section-label">Very proud to introduce</p>
@@ -32,7 +32,7 @@ const Home = () => {
             {/* share grow and help section */}
             <section>
                 <div className="container my-5">
-                    <h2 className='Heading-Page text-center mb-2'>BitBox<span> Community Cornerstone</span></h2>
+                    <h2 className='Heading-Page text-center mb-2'>Bitbox<span> Community Cornerstone</span></h2>
                     <div className="row">
                         <div className="col-lg-6">
                             <img className="w-100 rounded-5" src={Grow} />
@@ -40,7 +40,7 @@ const Home = () => {
                         <div className="col-lg-6">
                             <div className="p-5 mt-4">
                                 <h1 className="display-4"> Grow</h1>
-                                <p className="lead">Within BitBox&apos;s open-source embrace,
+                                <p className="lead">Within Bitbox&apos;s open-source embrace,
                                     Ideas flourish, boundless space.
                                     Collaborating minds, a vibrant symphony,
                                     Innovating together, unlocking our destiny.</p>
@@ -71,7 +71,7 @@ const Home = () => {
                             <div className="col-lg-6">
                                 <div className="p-5 mt-4">
                                     <h1 className="display-4">Share</h1>
-                                    <p className="lead">🌐 Join the vibrant BitBox Opensource Community today! Whether you&apos;re a seasoned developer or just starting out, there&apos;s a place for you to collaborate, innovate, and make a difference. Let&apos;s shape the future of digital exchange together! #BitBoxCommunity #OpenSource 🚀💻 </p>
+                                    <p className="lead">🌐 Join the vibrant Bitbox Opensource Community today! Whether you&apos;re a seasoned developer or just starting out, there&apos;s a place for you to collaborate, innovate, and make a difference. Let&apos;s shape the future of digital exchange together! #BitboxCommunity #OpenSource 🚀💻 </p>
                                     <a href="#" className="btn btn-outline-dark">Read More</a>
                                 </div>
                             </div>
@@ -82,7 +82,7 @@ const Home = () => {
             {/* Cards Page Section */}
             <div className="Cards-Page">
                 <section className='Card-Info-Sec'>
-                    <h2 className='Heading-Page text-center mb-2'>Be a part of BitBox Community</h2>
+                    <h2 className='Heading-Page text-center mb-2'>Be a part of Bitbox Community</h2>
                     <div className="Card-Infos">
                         <div className="Card-Info-Row1">
                             <div className="Card-Info">

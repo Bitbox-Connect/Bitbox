@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .projectContainer {
+            box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+                rgba(17, 17, 26, 0.05) 0px 8px 32px;
+            width: 300px;
+            height: 320px;
+            padding: 8px;
+            border-radius: 8px;
+            border-width: 1px;
+        }
+
+        .projectInfo {
+            display: flex;
+            margin: 8px;
+            gap: 8px;
+        }
+
+        .projectAvatar img {
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            object-fit: cover;
+        }
+
+        .projectText {
+            font-size: 13px;
+            line-height: 18px;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .projectTitle {
+            font-weight: 900;
+        }
+
+        .projectDetails {
+            display: flex;
+            color: #a8b3cf;
+        }
+
+        .projectTime {
+            margin: 0 8px;
+        }
+
+        .projectDescription {
+            margin-top: 8px;
+            font-size: 20px;
+            line-height: 26px;
+            font-weight: 700px;
+            padding: 0 8px;
+        }
+
+        .projectVedioContainer iframe{
+            border-radius: 8px;
+        }
+
+        .projectEngagementContainer{
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="projectContainer">
+        <div class="projectBox">
+            <div class="projectInfo">
+                <div class="projectAvatar">
+                    <img src="./src/assets/images/logo.png" alt="avatar" />
+                </div>
+                <div class="projectText">
+                    <div class="projectTitle">Title here</div>
+                    <div class="projectDetails">
+                        <div class="projectUserName">Anuj Verma</div>
+                        <div class="projectTime">07/01/02</div>
+                    </div>
+                </div>
+            </div>
+            <div class="projectDescription">
+                Hello World
+            </div>
+            <div class="projectVedioContainer">
+                <iframe src="https://www.youtube.com/embed/CARcWG8XoCY?autoplay=0&mute=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="projectEngagementContainer">
+                <div class="project-love">
+                    <img src="./src/assets/images/Project Card/love.png" alt="Love" />
+                </div>
+                <div class="project-comment">
+                    <img src="./src/assets/images/Project Card/comment.png" alt="Comment" />
+                </div>
+                <div class="project-link">
+                    <img src="./src/assets/images/Project Card/link.png" alt="Link" />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

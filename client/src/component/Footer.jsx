@@ -51,7 +51,7 @@ function Footer() {
       </div>
 
       <div className="copy-right">
-        <h4 className='copy-content'>© 2024 Open Source. Made with ❤️ by Jitendra, Harshit & Anuj.&nbsp; All rights reserved.</h4>
+        <h4 className='copy-content'>© 2024 Bitbox. Made with ❤️ by Jitendra, Harshit & Anuj.&nbsp; All rights reserved.</h4>
       </div>
 
     </footer>

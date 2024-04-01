@@ -1,4 +1,10 @@
 /* Landing Page Section */
+.landing-page-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .main-section {
     max-width: 1280px;
     height: 80vh;
@@ -7,7 +13,7 @@
     gap: 2rem;
     padding: 0.6rem;
     align-items: center;
-    margin: 0 auto;
+    justify-content: center;
 }
 
 .content-left {
@@ -105,6 +111,7 @@
 @media screen and (min-width:768px) {
     .main-section {
         flex-direction: row;
+        justify-content: center;
     }
 
     .content-left {
@@ -171,7 +178,7 @@
 
 .Card-Info,
 p {
-    font-size: 20px;
+    font-size: 19px;
 }
 
 h3 {
@@ -208,7 +215,7 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 4px;
 }
 
 .special-cont1 h3,
@@ -327,7 +334,7 @@ h3 {
 }
 
 .basic-marquee svg {
-    width: 200px;
+    width: 160px;
 }
 
 .basic-marquee button {
