@@ -82,15 +82,23 @@ i {
 .project-love img,
 .project-comment img {
   width: 40px;
+  cursor: pointer;
 }
 
 .project-link img {
   width: 35px;
+  cursor: pointer;
+}
+
+.project-details img{
+  width: 45px;
+  cursor: pointer;
 }
 
 /* Delete Project */
 .card-button-wrapper .card-button {
   height: 45px;
+  cursor: pointer;
 }
 
 /* Login & Signup Component*/
@@ -370,8 +378,6 @@ i {
 
 .right {
   padding: 20px;
-  color: #f6f5f5;
-  flex: 1;
 }
 
 .profile-picture img {

@@ -74,7 +74,9 @@ const UserProjectItem = (props) => {
             <div className="project-link">
               <img src="./src/assets/images/Project Card/link.png" alt="Link" />
             </div>
-            <button className="btn btn-primary" onClick={() => showDetailProject(project)}>Details</button>
+            <div className="project-details" onClick={() => showDetailProject(project)}>
+              <img src="./src/assets/images/Project Card/info.png" alt="Details" />
+            </div>
           </div>
         </div>
       </div>

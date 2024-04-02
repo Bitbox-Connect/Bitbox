@@ -41,7 +41,7 @@ function App() {
         <Router>
           {/* Navbar */}
           <div className="content">
-            <Navbar title="BITBOX" home="Home" community="Community" about="About us" myProjects="My projects" showAlert={showAlert} />
+            <Navbar title="Bitbox" home="Home" community="Community" about="About us" myProjects="My projects" showAlert={showAlert} />
           </div>
           <div className="alert-bar">
             <Alert alert={alert} />
