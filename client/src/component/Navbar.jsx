@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import AddProject from './AddProject';
 import logo from '../assets/images/logo.png';
 import avatarDropdown from '../assets/images/Dropdown/avatar.jpg';
-import { auth } from '../component/Firebase/Setup'; 
+import { auth } from '../component/Firebase/Setup';
 
 function Navbar(props) {
     const navigate = useNavigate();
@@ -46,22 +46,6 @@ function Navbar(props) {
         return null;
     };
 
-    const [isAuthenticated, setIsAuthenticated] = useState(false); // State to manage authentication status
-
-    useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged(user => {
-            if (user) {
-                setIsAuthenticated(true);
-            } else {
-                setIsAuthenticated(false);
-            }
-        });
-
-        return () => {
-            unsubscribe();
-        };
-    }, []);
-
     const handleLogout = async () => {
         try {
             await auth.signOut(); // Sign out the user
@@ -100,7 +84,7 @@ function Navbar(props) {
                                 <li className="nav-item fs-4">
                                     <Link className={`nav-link ${location.pathname === '/profile' ? 'active' : ''}`} aria-current="page" to="/profile">Profile</Link>
                                 </li>
-                                {localStorage.getItem('token') && isAuthenticated ?
+                                {localStorage.getItem('token') ?
                                     <li className="nav-item text-xl fs-4">
                                         <Link className={`nav-link ${location.pathname === '/myProjects' ? 'active' : ''}`} aria-current="page" to="/myProjects">{props.myProjects}</Link>
                                     </li>
@@ -111,7 +95,7 @@ function Navbar(props) {
 
                         </div>
                         <form className="d-flex fs-4 fw-medium">
-                            {!localStorage.getItem('token') && isAuthenticated ?
+                            {!localStorage.getItem('token') ?
                                 <>
                                     <ul className="navbar-nav">
                                         <div className="Navbar-Btn-Group">

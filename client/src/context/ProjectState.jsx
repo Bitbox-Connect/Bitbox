@@ -7,7 +7,9 @@ const ProjectStates = (props) => {
   const host = 'http://localhost:5000';
   const projectsInitial = [];
 
-  const [projects, setProjects] = useState(projectsInitial);
+  // const [projects, setProjects] = useState(projectsInitial);
+  const [userProjects, setUserProjects] = useState(projectsInitial);
+  const [globalProjects, setGlobalProjects] = useState(projectsInitial); // Initialize global projects state
 
   // Get All Globally Project
   const getGlobalProjects = async () => {
@@ -19,7 +21,7 @@ const ProjectStates = (props) => {
       }
     });
     const json = await response.json();
-    setProjects(json.reverse());
+    setGlobalProjects(json.reverse());
   }
 
   // Get All Your Project
@@ -33,7 +35,7 @@ const ProjectStates = (props) => {
       }
     });
     const json = await response.json();
-    setProjects(json.reverse());
+    setUserProjects(json.reverse());
   }
 
   // Add a Project
@@ -48,7 +50,7 @@ const ProjectStates = (props) => {
       body: JSON.stringify({ title, description, gitHubLink, youTubeLink }),
     });
     const project = await response.json();
-    setProjects([project, ...projects]);
+    setUserProjects([project, ...userProjects]);
   }
 
   // Delete a Project
@@ -64,8 +66,8 @@ const ProjectStates = (props) => {
     });
     const json = await response.json();
     console.log(json)
-    const newProjects = projects.filter((project) => { return project._id !== id });
-    setProjects(newProjects);
+    const newProjects = userProjects.filter((project) => { return project._id !== id });
+    setUserProjects(newProjects);
   }
 
   // Edit a Project
@@ -82,7 +84,7 @@ const ProjectStates = (props) => {
     const json = await response.json();
     console.log(json)
 
-    let newProjects = JSON.parse(JSON.stringify(projects));
+    let newProjects = JSON.parse(JSON.stringify(userProjects));
     for (let index = 0; index < newProjects.length; index++) {
       const element = newProjects[index];
       if (element._id === id) {
@@ -93,7 +95,7 @@ const ProjectStates = (props) => {
         break;
       }
     }
-    setProjects(newProjects)
+    setUserProjects(newProjects)
   }
 
   // Function to filter projects based on search query
@@ -103,7 +105,7 @@ const ProjectStates = (props) => {
   // };
 
   return (
-    <projectContext.Provider value={{ projects, getUserProjects, getGlobalProjects, addProject, deleteProject, editProject }}>
+    <projectContext.Provider value={{ userProjects, globalProjects, getUserProjects, getGlobalProjects, addProject, deleteProject, editProject }}>
       {/* <SearchProjects onSearch={handleSearch} /> */}
       {props.children}
     </projectContext.Provider>

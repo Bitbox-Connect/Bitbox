@@ -7,20 +7,19 @@ import { useNavigate } from 'react-router-dom';
 
 
 const UserProjects = (props) => {
-
-  const [showVideo, setShowVideo] = useState(false);
+    const [showVideo, setShowVideo] = useState(false);
 
     const handleVideo = () => {
         setShowVideo(true);
-      };
-    
-      const handleVideoClose = () => {
+    };
+
+    const handleVideoClose = () => {
         setShowVideo(false);
-      };
+    };
 
     const context = useContext(projectContext)
     let navigate = useNavigate();
-    const { projects, getUserProjects, editProject } = context;
+    const { userProjects, getUserProjects, editProject } = context;
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
@@ -125,18 +124,18 @@ const UserProjects = (props) => {
                             {project.edescription ? (<p>{project.edescription}</p>) : (<p>No description to display</p>)}
                         </div>
                         <div className="modal-footer">
-                        <button href={project.gitHubLink} target="_blank" className="card-link btn btn-warning">Github Link</button>
-                        <button className="btn btn-danger" onClick={handleVideo}>Youtube Link</button>
-                        <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailToggle">Close</button>
+                            <button href={project.gitHubLink} target="_blank" className="card-link btn btn-warning">Github Link</button>
+                            <button className="btn btn-danger" onClick={handleVideo}>Youtube Link</button>
+                            <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailToggle">Close</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div className='container User-Sec-Container'>
                 <h1 className='Heading-Page text-center mb-4'>My Uploaded Projects</h1>
-                {projects.length === 0 && <UploadProject showAlert={props.showAlert} title="Click Here To Upload" />}
+                {userProjects.length === 0 && <UploadProject showAlert={props.showAlert} title="Click Here To Upload" />}
                 <div className='row'>
-                    {projects.map((project) => {
+                    {userProjects.map((project) => {
                         return <UserProjectItem key={project._id} updateProject={updateProject} showDetailProject={showDetailProject} project={project} showAlert={props.showAlert} />;
                     })}
                 </div>
