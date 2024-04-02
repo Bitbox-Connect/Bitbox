@@ -71,7 +71,7 @@ function Navbar(props) {
                             <span className="navbar-toggler-icon"></span>
                         </button>
                         <div className="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                            <ul className="navbar-nav mb-2 mb-lg-0 gap-3 fw-medium" style={{position:"absolute", left:"31%"}}>
+                            <ul className="navbar-nav mb-2 mb-lg-0 gap-3 fw-medium" style={{ position: "absolute", left: "31%" }}>
                                 <li className="nav-item fs-4 fw-medium">
                                     <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} aria-current="page" to="/">{props.home}</Link>
                                 </li>
@@ -92,7 +92,6 @@ function Navbar(props) {
                                     <></>
                                 }
                             </ul>
-
                         </div>
                         <form className="d-flex fs-4 fw-medium">
                             {!localStorage.getItem('token') ?

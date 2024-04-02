@@ -1,8 +1,9 @@
-import PropTypes from 'prop-types';
 import { useContext, useRef, useState } from 'react'
 import projectContext from '../context/projectContext';
 import GlobalProjectItem from './GlobalProjectItem';
 import UploadProject from './UploadProject';
+import './css/GlobalProjects.css'
+import PropTypes from 'prop-types';
 // import avatar from '../assets/images/Dropdown/avatar.jpg';
 
 const GlobalProjects = (props) => {
@@ -38,17 +39,14 @@ const GlobalProjects = (props) => {
 
   return (
     <>
-      <div className="content">
-        <h1 className='Heading-Page text-center mb-4'>Welcome to Bitbox Community</h1>
-      </div>
       <div className="user-profile-dashboard">
         <div className="user-details">
-          <div className="detail-left">
-            <div className="left">
+          <div className="globalproject-left">
+            <div className="globaldetail-left">
               {/* <div className="profile-picture">
                 <img src={avatar} alt="Profile" />
               </div> */}
-              <div className="bio">
+              <div className="global-bio">
                 <p>Name: <span>Harshit singh</span></p>
                 <p>UserName : <span>Harshit7492</span></p>
               </div>
@@ -56,33 +54,33 @@ const GlobalProjects = (props) => {
                 public
               </button>
               <hr />
-              <div className="links">
+              <div className="global-links">
                 <h3>Discover</h3>
                 <p>Popular</p>
                 <p>Most Viewed</p>
                 <p>Top rated</p>
               </div>
               <hr />
-              <div className="skills">
+              <div className="global-skills">
                 <h3>Contri</h3>
                 <p>Discussion</p>
 
               </div>
               <hr />
-              <div className="experience">
+              <div className="global-experience">
                 <h3>Manage</h3>
                 <p>Saved</p>
               </div>
 
-              <div className="share">
+              <div className="global-share">
                 <h3>Share</h3>
                 <p>Invite friends</p>
               </div>
             </div>
           </div>
-          <div className="detail-right">
-            <div className="right">
-              <h2>About</h2>
+          <div className="globalproject-right">
+            <div className="globaldetail-right">
+              <h2 className='Heading-Page'>Welcome to Bitbox Community</h2>
               <div>
                 {/* Detail Button trigger modal */}
                 <button ref={refDetails} className="btn" data-bs-toggle="modal" data-bs-target="#detailToggle">

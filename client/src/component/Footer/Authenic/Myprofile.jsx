@@ -26,7 +26,6 @@ export default function Myprofile() {
 
     return (
         <>
-            <h2>User Profile Dashboard</h2>
             <div className="user-profile-dashboard">
                 <div className="user-details">
                     <div className="detail-left">
@@ -80,7 +79,7 @@ export default function Myprofile() {
                     </div>
                     <div className="detail-right">
                         <div className="right">
-                            <h2>About</h2>
+                            <h2 className="Heading-Page">User Profile Dashboard</h2>
                             <section className="projects">
                                 <h3>Projects</h3>
                                 <div className="project-list">
