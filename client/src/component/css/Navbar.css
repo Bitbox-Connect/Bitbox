@@ -495,3 +495,8 @@ body {
     transform: translate(-2px, -2px);
   }
 }
+
+/* Upload Project */
+.modal-backdrop {
+  --bs-backdrop-zindex: 0;
+}
