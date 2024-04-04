@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-
+import '../App.css'
 function Alert(props) {
     const capitalize = (word) => {
         if (word === 'danger') {
@@ -10,7 +10,7 @@ function Alert(props) {
     }
 
     return (
-        <div style={{ height: '50px' }}>
+        <div className='alert-bar'>
             {props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
                 <strong>{capitalize(props.alert.type)}</strong> : {props.alert.msg}
             </div>}

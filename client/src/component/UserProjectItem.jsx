@@ -7,7 +7,6 @@ import avatarImg from '../assets/images/logo.png'
 const UserProjectItem = (props) => {
   const { project, updateProject, showDetailProject, showAlert } = props;
   const [showModal, setShowModal] = useState(false);
-  // const [showVideo, setShowVideo] = useState(false);
   const context = useContext(projectContext);
   const { deleteProject } = context;
 
@@ -23,13 +22,6 @@ const UserProjectItem = (props) => {
     setShowModal(false);
   };
 
-  // const handleVideo = () => {
-  //   setShowVideo(true);
-  // };
-
-  // const handleVideoClose = () => {
-  //   setShowVideo(false);
-  // };
 
   const handleDelete = () => {
     deleteProject(project._id);
@@ -38,7 +30,7 @@ const UserProjectItem = (props) => {
   };
 
   return (
-    <div className='col-md-3 my-3'>
+    <div className='col-md-4 my-3'>
       {/* Project Card */}
       <div className="projectContainer">
         <div className="projectBox">
@@ -81,21 +73,7 @@ const UserProjectItem = (props) => {
         </div>
       </div>
 
-      {/* <div className="pro-card my-1">
-        <img src={generateImageUrl(project._id)} style={{ height: "25vh" }} className="card-img-top" alt="..." />
-        <div className="card-body">
-          <h5 className="card-title">Project Title : {project.title}</h5>
-          <p className="card-text mg">Project Link : </p>
-          <div className="Youtube">
-          <button type="button btn btn-primary" onClick={handleVideo}>Youtube Link</button>
-          </div>
-          <button className="btn btn-primary" onClick={() => showDetailProject(project)}>Details</button>
-          <div>
-            <i className="fa-solid fa-trash mx-1 mt-3" onClick={handleModalOpen}></i>
-            <i className="fa-solid fa-pen-to-square mx-4 mt-2" onClick={() => updateProject(project)}></i>
-          </div>
-        </div>
-      </div> */}
+
 
       {/* Delete Confirmation Modal */}
       {showModal && (
@@ -120,31 +98,7 @@ const UserProjectItem = (props) => {
         </div>
       )}
 
-      {/* Video Overlay */}
-      {/* {showVideo && (
-        <div className="video-overlays container">
-          <div className="Video-Modal container">
-            <div className="Video-card ">
-              <div className="Video-content">
-                <button className="exit2-button" onClick={handleVideoClose}>
-                  <svg height="20px" viewBox="0 0 384 512">
-                    <path
-                      d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
-                    ></path>
-                  </svg>
-                </button>
-                <p className="video-heading fs-1">Project Video</p>
-                <p>
-                  <iframe className='youtube-Frame' width="350" height="315" src={project.youTubeLink} frameBorder="0" allowfullscreen></iframe>
-                </p>
-              </div>
-              <div className="card-button-wrapper">
-                <button className="card-button secondary" onClick={handleVideoClose}>Cancel</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )} */}
+
     </div>
   );
 };

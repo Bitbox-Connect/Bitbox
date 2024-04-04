@@ -63,8 +63,10 @@ i {
   margin-top: 8px;
   font-size: 20px;
   line-height: 26px;
-  font-weight: 700px;
+  font-weight: 100;
   padding: 0 8px;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .projectVisualContainer img {
@@ -90,7 +92,7 @@ i {
   cursor: pointer;
 }
 
-.project-details img{
+.project-details img {
   width: 45px;
   cursor: pointer;
 }

@@ -43,10 +43,10 @@ function App() {
           <div className="content">
             <Navbar title="Bitbox" home="Home" community="Community" about="About us" myProjects="My projects" showAlert={showAlert} />
           </div>
-          <div className="alert-bar" style={{ display: "none" }}>
-            <Alert alert={alert} />
-          </div>
           <div className="First-Bc">
+            <div className="alert-container">
+              <Alert alert={alert} />
+            </div>
             <ScrollTop />
             <Routes>
               <Route exact path="/" element={<Home showAlert={showAlert} />} />

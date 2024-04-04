@@ -1,7 +1,6 @@
 import { useContext, useRef, useState } from 'react'
 import projectContext from '../context/projectContext';
 import GlobalProjectItem from './GlobalProjectItem';
-import UploadProject from './UploadProject';
 import './css/GlobalProjects.css'
 import PropTypes from 'prop-types';
 // import avatar from '../assets/images/Dropdown/avatar.jpg';
@@ -107,8 +106,6 @@ const GlobalProjects = (props) => {
                 </div>
 
                 <div className='container Global-Sec-Container'>
-
-                  {globalProjects.length === 0 && <UploadProject title="Click Here To Upload" />}
                   <div className='row'>
                     {globalProjects.map((project) => {
                       return <GlobalProjectItem showAlert={props.showAlert} showDetailProject={showDetailProject} key={project._id} project={project} />;
