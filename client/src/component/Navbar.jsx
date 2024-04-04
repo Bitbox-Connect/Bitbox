@@ -81,6 +81,13 @@ function Navbar(props) {
                                 <li className="nav-item fs-4">
                                     <Link className={`nav-link ${location.pathname === '/community' ? 'active' : ''}`} aria-current="page" to="/community">{props.community}</Link>
                                 </li>
+                                {localStorage.getItem('token') ?
+                                    <li className="nav-item text-xl fs-4">
+                                        <Link className={`nav-link ${location.pathname === '/myProjects' ? 'active' : ''}`} aria-current="page" to="/myProjects">{props.myProjects}</Link>
+                                    </li>
+                                    :
+                                    <></>
+                                }
                             </ul>
                         </div>
                         <form className="d-flex fs-4 fw-medium">
