@@ -40,7 +40,7 @@ function Navbar(props) {
     }, []);
 
     const renderUploadButton = () => {
-        if (location.pathname === '/myProjects') {
+        if (location.pathname === '/myprofile') {
             return <AddProject showAlert={showAlert} />;
         }
         return null;
@@ -71,21 +71,15 @@ function Navbar(props) {
                             <span className="navbar-toggler-icon"></span>
                         </button>
                         <div className="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                            <ul className="navbar-nav mb-2 mb-lg-0 gap-3 fw-medium" style={{ position: "absolute", left: "31%" }}>
+                            <ul className="navbar-nav mb-2 mb-lg-0 gap-3 fw-medium" style={{ position: "absolute", left: "40%" }}>
                                 <li className="nav-item fs-4 fw-medium">
                                     <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} aria-current="page" to="/">{props.home}</Link>
-                                </li>
-                                <li className="nav-item fs-4">
-                                    <Link className={`nav-link ${location.pathname === '/community' ? 'active' : ''}`} aria-current="page" to="/community">{props.community}</Link>
                                 </li>
                                 <li className="nav-item fs-4">
                                     <Link className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`} aria-current="page" to="/about">{props.about}</Link>
                                 </li>
                                 <li className="nav-item fs-4">
-                                    <Link className={`nav-link ${location.pathname === '/profile' ? 'active' : ''}`} aria-current="page" to="/profile">Profile</Link>
-                                </li>
-                                <li className="nav-item fs-4">
-                                    <Link className={`nav-link ${location.pathname === '/contributers' ? 'active' : ''}`} aria-current="page" to="/contributers">Contri</Link>
+                                    <Link className={`nav-link ${location.pathname === '/community' ? 'active' : ''}`} aria-current="page" to="/community">{props.community}</Link>
                                 </li>
                                 {localStorage.getItem('token') ?
                                     <li className="nav-item text-xl fs-4">
@@ -118,7 +112,7 @@ function Navbar(props) {
                                                     <img src={avatarDropdown} alt="" />
                                                 </a>
                                                 <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                                    <li><a className="dropdown-item" href="/profile">My Profile</a></li>
+                                                    <li><a className="dropdown-item" href="/myprofile">My Profile</a></li>
                                                     <li><a className="dropdown-item" href="#">Edit Profile</a></li>
                                                     <li><a className="dropdown-item" href="#">Help</a></li>
                                                     <li><a className="dropdown-item" href="#">Invite friends</a></li>

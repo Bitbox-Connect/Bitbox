@@ -11,17 +11,10 @@
     display: flex;
 }
 
-.globalproject-left {
-    width: 20vw;
-    background-color: #dcddd1;
-}
-
 .globaldetail-left {
+    min-height: 100%;
     background-color: #dcddd1;
     padding: 20px;
-    position: fixed;
-    width: 20vw;
-    min-height: 90vh;
 }
 
 /* -------------------------------------- right section ----------------------------------------- */
@@ -33,4 +26,10 @@
 
 .globaldetail-right {
     padding: 20px;
+    height: 90vh;
+    overflow-y: scroll;
+}
+
+.globaldetail-right::-webkit-scrollbar {
+    display: none;
 }

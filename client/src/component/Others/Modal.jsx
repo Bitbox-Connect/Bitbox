@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
-import projectContext from '../context/projectContext';
-import './css/ProjectItem.css';
 import { useContext, useState } from 'react';
+import projectContext from '../context/projectContext';
+import PropTypes from 'prop-types';
+import '../css/ProjectCard.css';
 
 const UserProjectItem = (props) => {
   const { project, updateProject, showAlert } = props;
