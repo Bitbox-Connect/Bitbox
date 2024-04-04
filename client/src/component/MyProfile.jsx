@@ -1,13 +1,13 @@
 import { useContext, useEffect, useRef, useState } from 'react'
-import projectContext from '../context/projectContext';
-import UserProjectItem from './UserProjectItem';
-import UploadProject from './UploadProject';
-import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import projectContext from '../context/projectContext';
+import MyProfileCard from './MyProfileCard';
+import UploadProject from './UploadProject';
 import avatar from '../assets/images/Dropdown/avatar.jpg';
-import './css/UserProjects.css'
+import './css/MyProfile.css'
 
-const UserProjects = (props) => {
+const MyProfile = (props) => {
     const [showVideo, setShowVideo] = useState(false);
 
     const handleVideo = () => {
@@ -16,9 +16,6 @@ const UserProjects = (props) => {
 
     const handleVideoClose = () => {
         setShowVideo(false);
-    };
-    const togglePrivacy = () => {
-        setIsPrivate(!isPrivate);
     };
 
     const context = useContext(projectContext)
@@ -78,7 +75,7 @@ const UserProjects = (props) => {
                                 <p>Name: <span>Harshit singh</span></p>
                                 <p>UserName : <span>Harshit7492</span></p>
                             </div>
-                            <button onClick={togglePrivacy}>
+                            <button>
                                 public
                             </button>
                             <hr />
@@ -183,7 +180,7 @@ const UserProjects = (props) => {
                                 {userProjects.length === 0 && <UploadProject showAlert={props.showAlert} title="Click Here To Upload" />}
                                 <div className='row'>
                                     {userProjects.map((project) => {
-                                        return <UserProjectItem key={project._id} updateProject={updateProject} showDetailProject={showDetailProject} project={project} showAlert={props.showAlert} />;
+                                        return <MyProfileCard key={project._id} updateProject={updateProject} showDetailProject={showDetailProject} project={project} showAlert={props.showAlert} />;
                                     })}
                                 </div>
                             </div>
@@ -212,20 +209,17 @@ const UserProjects = (props) => {
                                     </div>
                                 </div>
                             )}
-
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </>
     )
 }
 
 // Props Vadilation
-UserProjects.propTypes = {
+MyProfile.propTypes = {
     showAlert: PropTypes.func,
 };
 
-export default UserProjects
+export default MyProfile

@@ -1,16 +1,14 @@
-import './css/ProjectItem.css'
+import './css/ProjectCard.css'
 import PropTypes from 'prop-types';
 import avatarImg from '../assets/images/logo.png'
 
-
-const GlobalProjectItem = (props) => {
+const CommunityCard = (props) => {
   const { project, showDetailProject } = props;
 
   // Function to generate a unique image URL for each project
   const generateImageUrl = (projectId) => {
     return `https://source.unsplash.com/910x900/?computer/?coding/&${projectId}`;
   };
-
   return (
     <div className='col-md-4 my-3'>
       <div className="projectContainer">
@@ -30,21 +28,23 @@ const GlobalProjectItem = (props) => {
           <div className="projectDescription">
             {project.description}
           </div>
-          <div className="projectVisualContainer">
-            <img src={generateImageUrl(project._id)} className="card-img-top" alt="..." />
-          </div>
-          <div className="projectEngagementContainer">
-            <div className="project-love">
-              <img src="./src/assets/images/Project Card/love.png" alt="Love" />
+          <div className="project-bottom-container">
+            <div className="projectVisualContainer">
+              <img src={generateImageUrl(project._id)} className="card-img-top" alt="..." />
             </div>
-            <div className="project-comment">
-              <img src="./src/assets/images/Project Card/comment.png" alt="Comment" />
-            </div>
-            <div className="project-link">
-              <img src="./src/assets/images/Project Card/link.png" alt="Link" />
-            </div>
-            <div className="project-details" onClick={() => showDetailProject(project)}>
-              <img src="./src/assets/images/Project Card/info.png" alt="Details" />
+            <div className="projectEngagementContainer">
+              <div className="project-love">
+                <img src="./src/assets/images/Project Card/love.png" alt="Love" />
+              </div>
+              <div className="project-comment">
+                <img src="./src/assets/images/Project Card/comment.png" alt="Comment" />
+              </div>
+              <div className="project-link">
+                <img src="./src/assets/images/Project Card/link.png" alt="Link" />
+              </div>
+              <div className="project-details" onClick={() => showDetailProject(project)}>
+                <img src="./src/assets/images/Project Card/info.png" alt="Details" />
+              </div>
             </div>
           </div>
         </div>
@@ -54,9 +54,9 @@ const GlobalProjectItem = (props) => {
 }
 
 // Props Vadilation
-GlobalProjectItem.propTypes = {
+CommunityCard.propTypes = {
   project: PropTypes.object,
   showDetailProject: PropTypes.func.isRequired,
 };
 
-export default GlobalProjectItem
+export default CommunityCard

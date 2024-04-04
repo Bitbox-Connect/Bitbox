@@ -9,13 +9,22 @@ i {
 /* Project Card */
 
 .projectContainer {
+  position: relative;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
     rgba(17, 17, 26, 0.05) 0px 8px 32px;
-  width: 300px;
-  min-height: 350px;
+  width: 340px;
+  min-height: 420px;
   padding: 8px;
   border-radius: 8px;
   border-width: 1px;
+  display: flex;
+  flex-direction: column;
+}
+
+.projectBox {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .projectInfo {
@@ -69,16 +78,27 @@ i {
   overflow-wrap: break-word;
 }
 
+.project-bottom-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
 .projectVisualContainer img {
   height: 175px;
   border-radius: 8px;
-  margin: 15px 0px;
 }
 
 .projectEngagementContainer {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin: 5px 0;
+}
+
+.projectVisualContainer {
+  margin-top: 8px;
 }
 
 .project-love img,
@@ -98,56 +118,22 @@ i {
 }
 
 /* Delete Project */
-.card-button-wrapper .card-button {
-  height: 45px;
-  cursor: pointer;
-}
-
-/* Login & Signup Component*/
-
-.Login-button,
-.Signup-button {
-  display: flex;
-  justify-content: center;
-}
-
-.Login-button button,
-.Signup-button button {
-  width: 7rem;
-}
-
-/* AddProject Component */
-
-.modal-backdrop {
-  --bs-backdrop-zindex: 0;
-}
-
-.card-heading {
-  font-size: 20px;
-  font-weight: 700;
-  color: rgb(27, 27, 27);
-}
-
-.card-description {
-  font-weight: 100;
-  color: rgb(102, 102, 102);
-}
 
 .card-button-wrapper {
   width: 100%;
+  text-align: right;
+  margin-top: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 10px;
 }
 
 .card-button {
-  width: 50%;
-  height: 35px;
-  border-radius: 10px;
-  border: none;
+  padding: 10px 20px;
   cursor: pointer;
-  font-weight: 600;
+  border: none;
+  border-radius: 5px;
 }
 
 .primary {
@@ -193,7 +179,6 @@ i {
   left: 40%;
   min-width: 22%;
   min-height: 22%;
-  /* background-color: rgba(0, 0, 0, 0.5);  */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -242,23 +227,6 @@ i {
   color: rgb(102, 102, 102);
 }
 
-.card-button-wrapper {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.card-button {
-  width: 50%;
-  height: 35px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-}
-
 .primary {
   background-color: rgb(255, 114, 109);
   color: white;
@@ -304,7 +272,7 @@ i {
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;/
+  align-items: center;
 }
 
 .Video-Modal {
@@ -315,41 +283,15 @@ i {
   border-radius: 10px;
 }
 
-
 .video-heading {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 15px;
 }
 
-
 .youtube-Frame {
   width: 100%;
   height: 315px;
-}
-
-
-.card-button-wrapper {
-  text-align: right;
-  margin-top: 20px;
-}
-
-
-.card-button {
-  padding: 10px 20px;
-  margin-left: 10px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-}
-
-.secondary {
-  background-color: #ccc;
-}
-
-.primary {
-  background-color: #007bff;
-  color: white;
 }
 
 .exit2-button {

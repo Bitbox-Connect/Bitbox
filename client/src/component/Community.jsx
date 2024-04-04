@@ -1,14 +1,12 @@
 import { useContext, useRef, useState } from 'react'
 import projectContext from '../context/projectContext';
-import GlobalProjectItem from './GlobalProjectItem';
-import './css/GlobalProjects.css'
 import PropTypes from 'prop-types';
-// import avatar from '../assets/images/Dropdown/avatar.jpg';
+import CommunityCard from './CommunityCard';
+import './css/Community.css'
+import avatar from '../assets/images/Dropdown/avatar.jpg';
 
-const GlobalProjects = (props) => {
+const Community = (props) => {
   const [project, setproject] = useState({ id: "", etitle: "", edescription: "", egitHubLink: "", eyouTubeLink: "" });
-  // const [projects, setProjects] = useState(projectsInitial);
-  // const [globalProjects, setGlobalProjects] = useState(projectsInitial); // Initialize global projects state
 
   const [showVideo, setShowVideo] = useState(false);
 
@@ -31,25 +29,20 @@ const GlobalProjects = (props) => {
     // Set the title, description and link to edit modal 
     setproject({ id: currentProject._id, etitle: currentProject.title, edescription: currentProject.description, egitHubLink: currentProject.gitHubLink, eyouTubeLink: currentProject.youTubeLink })
   }
-
-  const togglePrivacy = () => {
-    setIsPrivate(!isPrivate);
-  };
-
   return (
     <>
       <div className="user-profile-dashboard">
         <div className="user-details">
           <div className="globalproject-left">
             <div className="globaldetail-left">
-              {/* <div className="profile-picture">
+              <div className="profile-picture">
                 <img src={avatar} alt="Profile" />
-              </div> */}
+              </div>
               <div className="global-bio">
                 <p>Name: <span>Harshit singh</span></p>
                 <p>UserName : <span>Harshit7492</span></p>
               </div>
-              <button onClick={togglePrivacy}>
+              <button>
                 public
               </button>
               <hr />
@@ -108,7 +101,7 @@ const GlobalProjects = (props) => {
                 <div className='container Global-Sec-Container'>
                   <div className='row'>
                     {globalProjects.map((project) => {
-                      return <GlobalProjectItem showAlert={props.showAlert} showDetailProject={showDetailProject} key={project._id} project={project} />;
+                      return <CommunityCard showAlert={props.showAlert} showDetailProject={showDetailProject} key={project._id} project={project} />;
                     })}
                   </div>
                 </div>
@@ -137,7 +130,6 @@ const GlobalProjects = (props) => {
                     </div>
                   </div>
                 )}
-
               </div>
             </div>
           </div>
@@ -148,9 +140,9 @@ const GlobalProjects = (props) => {
 }
 
 // Props Vadilation
-GlobalProjects.propTypes = {
+Community.propTypes = {
   project: PropTypes.string,
   showAlert: PropTypes.func,
 };
 
-export default GlobalProjects
+export default Community
