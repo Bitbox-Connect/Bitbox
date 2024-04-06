@@ -13,7 +13,7 @@ const Contactus = () => {
               <div className="col-md-8 mx-auto">
                 <div className="text-center mb-12">
                   {/* <h1 className="Page-Heading">Contact Us</h1> */}
-                  <h1 className="Heading-Page text-dark text-center font-weight-bold">Contact Us</h1>
+                  <h1 className="Heading-Page text-dark text-center font-weight-bold"  style={{ marginTop: '30px' }} >Contact Us</h1>
         <header className="navbar header justify-content-center ">
           <div className="bind text-center d-flex">
             <img className="image-bx" src="https://th.bing.com/th/id/OIG4.9082tuIPKO0B2s2GNXrK?pid=ImgGn" alt="img" />
