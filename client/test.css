@@ -1,0 +1,453 @@
+* {
+    flex-shrink: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.project-modal-section-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+    width: 100vw;
+}
+
+.project-modal-container {
+    display: flex;
+    min-height: 80vh;
+    border: 1px solid;
+    padding: 20px;
+    border-radius: 16px;
+}
+
+.project-modal-left {
+    width: 35vw;
+}
+
+.modal-left-head {
+    display: flex;
+    align-items: center;
+}
+
+.modal-project-navigation {
+    display: flex;
+    gap: 8px;
+}
+
+.left-navigation img {
+    rotate: 180deg;
+    width: 40px;
+    cursor: pointer;
+}
+
+.right-navigation img {
+    width: 40px;
+    cursor: pointer;
+}
+
+.modal-tag-group {
+    gap: 0.5rem;
+    display: flex;
+    margin-left: 15rem;
+}
+
+.modal-project-tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 50px;
+    border: 2px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    width: 5rem;
+    height: 2.5rem;
+    text-align: center;
+}
+
+.modal-title {
+    font-size: 32px;
+    line-height: 38px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    margin-top: 24px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.modal-description {
+    color: #4f4e4e;
+    font-size: 17px;
+    line-height: 22px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    margin-bottom: 24px;
+}
+
+.modal-technology-tag {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.modal-technology-tag a {
+    font-size: 15px;
+    line-height: 20px;
+    text-decoration-line: none;
+    font-weight: 700;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-width: 1px;
+    border-radius: 8px;
+    flex-direction: row;
+    cursor: pointer;
+    height: 24px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: rgb(231, 224, 224);
+}
+
+.modal-Time {
+    font-size: 15px;
+    line-height: 20px;
+    color: #2a2b2c;
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+.modal-project-image img {
+    width: 31rem;
+    height: 20rem;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 40px;
+}
+
+.modal-project-vedio iframe {
+    width: 31rem;
+    height: 20rem;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 40px;
+}
+
+.modal-project-details {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 15px;
+    line-height: 20px;
+    color: #202020;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-project-engagement-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid black;
+    border-width: 1px;
+    border-radius: 16px;
+    padding: 13px;
+    width: 34.5vw;
+}
+
+.modal-post-commment {
+    font-size: 15px;
+    line-height: 20px;
+    border: 1px solid;
+    padding: 12px;
+    border-radius: 16px;
+    gap: 16px;
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
+    cursor: pointer;
+    text-transform: none;
+}
+
+.modal-post-commment-avatar img {
+    object-fit: cover;
+    border-radius: 12px;
+    width: 40px;
+    height: 40px;
+}
+
+.modal-post-commment-button {
+    margin-left: auto;
+    cursor: default;
+    pointer-events: none;
+    font-size: 15px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 12px;
+    border: 1px solid black;
+    -moz-user-select: none;
+    user-select: none;
+    height: 40px;
+}
+
+.modal-comment-container {
+    padding: 16px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    margin-top: 20px;
+}
+
+.modal-comment-header {
+    align-self: flex-start;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    z-index: 1;
+}
+
+.modal-comment-user-avatar{
+    display: flex;
+    align-items: center;
+}
+
+.modal-comment-user-avatar img{
+    object-fit: cover;
+    border-radius: 12px;
+    width: 40px;
+    height: 40px;
+}
+
+.modal-comment-user-details{
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.modal-comment-user-name{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    flex-shrink: 1;
+    max-width: 100%;
+}
+
+.modal-comment-user-id{
+    display: flex;
+    align-items: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    flex-shrink: 1;
+    max-width: 100%;
+    display: flex;
+    font-size: 15px;
+    line-height: 20px;
+    color: rgb(60, 59, 59);
+}
+
+.modal-dot-symbol{
+    background-color: black;
+    width: 2px;
+    height: 2px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.modal-comment-content-container{
+    overflow-wrap: break-word;
+    font-size: 17px;
+    line-height: 22px;
+    margin-top: 12px;
+    z-index: 1;
+}
+
+.modal-comment-content{
+    word-break: break-word;
+}
+
+.modal-comment-engagement-container{
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    pointer-events: auto;
+    gap: 12px;
+}
+
+/* Right Section */
+
+.project-modal-right {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    gap: 24px;
+}
+
+.modal-right-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 45px;
+}
+
+.project-modal-head-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.button-github-modal {
+    display: flex;
+    line-height: 20px;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 2px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    min-width: 5rem;
+    height: 2.5rem;
+    text-align: center;
+    background-color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.modal-profile-details-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 16px;
+    border: 2px solid black;
+    height: 4rem;
+    padding: 12px;
+}
+
+.modal-profile-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.modal-profile-image {
+    border-radius: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+.modal-profile-image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    inset: 0;
+    position: absolute;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.modal-visit-profile-btn {
+    display: flex;
+    line-height: 20px;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 2px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    min-width: 5rem;
+    height: 2.5rem;
+    text-align: center;
+    background-color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.modal-suggestion-container {
+    min-height: 20vh;
+    width: 18vw;
+    border: 1px solid black;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.modal-suggestion-title {
+    font-size: 17px;
+    line-height: 22px;
+    padding-right: 16px;
+    padding-left: 24px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+}
+
+.modal-project-divider {
+    background-color: black;
+    height: 1px;
+}
+
+.modal-suggestion-project-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-right: 8px;
+    padding-left: 16px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    gap: 8px;
+}
+
+.modal-suggestion-project {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.modal-suggestion-project-img {
+    pointer-events: none;
+    border-radius: 100%;
+    overflow: hidden;
+    width: 28px;
+    height: 28px;
+    margin-top: 4px;
+}
+
+.modal-suggestion-project-img img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    inset: 0;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.modal-suggestion-project-engagement {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.modal-suggestion-viewall {
+    display: flex;
+    font-size: 17px;
+    line-height: 22px;
+    padding-right: 16px;
+    padding-left: 24px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+}

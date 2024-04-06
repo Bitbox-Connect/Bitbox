@@ -2,91 +2,340 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modal</title>
+    <link rel="stylesheet" href="test.css">
 </head>
 
 <body>
-    <div class="project-modal-container">
-        <div class="project-modal-left">
-            <!-- Modal Head -->
-            <div class="modal-left-head">
-                <div class="modal-project-navigation">
-                    <div class="left-navigation"><img src="" alt=""></div>
-                    <div class="right-navigation"><img src="" alt=""></div>
+    <section class="project-modal-section-container">
+        <div class="project-modal-container">
+            <div class="project-modal-left">
+                <!-- Modal Head -->
+                <div class="modal-left-head">
+                    <div class="modal-project-navigation">
+                        <div class="left-navigation">
+                            <img src="./src/assets/images/Others/arrow pre_next.png" title="previous" alt="previous" />
+                        </div>
+                        <div class="right-navigation">
+                            <img src="./src/assets/images/Others/arrow pre_next.png" title="next" alt="next" />
+                        </div>
+                    </div>
+                    <div class="modal-tag-group">
+                        <div class="modal-project-tag">Category</div>
+                        <div class="modal-project-tag">Latest</div>
+                    </div>
                 </div>
-                <div class="modal-project-tag">
-                    Latest
+                <!-- Modal Section -->
+                <div class="modal-left-section">
+                    <div class="modal-title">Hello World</div>
+                    <div class="modal-technology-tag">
+                        <a href="">Web</a>
+                    </div>
+                    <div class="modal-Time">12/22/32</div>
+                    <!-- <div class="modal-project-image">
+                        <img src="./src/assets/images/Vector Gif/R.gif" alt="" />
+                    </div> -->
+                    <div class="modal-project-vedio">
+                        <iframe src="https://www.youtube.com/embed/B_6d3RBiEN0&list=RDB_6d3RBiEN0&start_radio=1"
+                            frameborder="0"></iframe>
+                    </div>
+                    <div class="modal-description">njdnjdwbjdbj</div>
+                    <div class="modal-project-details">
+                        <div class="modal-project-likecount">
+                            1 Like
+                        </div>
+                        <div class="modal-project-comment">
+                            8 comments
+                        </div>
+                    </div>
+                    <div class="modal-project-engagement-container">
+                        <div className="modal-project-love">
+                            <img src="" alt="Like" />
+                        </div>
+                        <div className="modal-project-comment">
+                            <img src="" alt="Comment" />
+                        </div>
+                        <div className="modal-favourite-details">
+                            <img src="" alt="Favourite" />
+                        </div>
+                        <div className="modal-project-link">
+                            <img src="" alt="Link" />
+                        </div>
+                    </div>
+                    <section class="modal-comment-section">
+                        <div class="modal-post-commment">
+                            <div class="modal-post-commment-avatar">
+                                <img src="" alt="avatar-image">
+                            </div>
+                            <span>Share Your Thoughts</span>
+                            <div class="modal-post-commment-button">
+                                Post
+                            </div>
+                        </div>
+                        <div class="modal-comment-container">
+                            <header class="modal-comment-header">
+                                <div class="modal-comment-user-avatar">
+                                    <img src="" alt="user-avatar">
+                                </div>
+                                <div class="modal-comment-user-details">
+                                    <div class="modal-comment-user-name">
+                                        Anuj Verma
+                                    </div>
+                                    <div class="modal-comment-user-id">
+                                        @anujverma
+                                        <div class="modal-dot-symbol"></div>
+                                        <div class="modal-comment-user-time">
+                                            12 hours ago
+                                        </div>
+                                    </div>
+                                </div>
+                            </header>
+                            <div class="modal-comment-content-container">
+                                <div class="modal-comment-content">
+                                    nerds - always gotta prove they are hardcore
+                                </div>
+                                <div class="modal-comment-engagement-container">
+                                    <div className="modal-comment-project-love">
+                                        <img src="" alt="Like" />
+                                    </div>
+                                    <div className="modal-project-comment">
+                                        <img src="" alt="Comment" />
+                                    </div>
+                                    <div className="modal-favourite-details">
+                                        <img src="" alt="Share" />
+                                    </div>
+                                    <div className="modal-project-link">
+                                        <img src="" alt="Option" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
-
-            <div class="modal-left-section">
-                <div class="modal-title">
-                    Hello World
-                </div>
-
-                <div class="modal-description">
-                    njdnjdwbjdbj
-                </div>
-
-                <div class="modal-technology-tag">
-                    <button>Web</button>
-                </div>
-
-                <div class="modal-Time">
-                    12/22/32
-                </div>
-
-                <div class="modal-project-image">
-                    <img src="" alt="">
-                </div>
-
-                <div className="modal-projectEngagementContainer">
-                    <div className="modal-project-love">
-                        <img src="" alt="Love" />
+            <div class="project-modal-right">
+                <div class="modal-right-head">
+                    <div class="button-github-modal">
+                        <img src="" alt="GitHub">
+                        GitHub
                     </div>
-                    <div className="modal-project-comment">
-                        <img src="" alt="Comment" />
-                    </div>
-                    <div className="modal-favourite-details">
-                        <img src="" alt="Favourite" />
-                    </div>
-                    <div className="modal-project-link">
-                        <img src="" alt="Link" />
+                    <div class="project-modal-head-buttons">
+                        <div class="close-modal-button"><img src="" alt="option" /></div>
+                        <div class="close-modal-button"><img src="" alt="close" /></div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="project-modal-right">
-            <div class="modal-left-head">
-                <div class="button-github-modal">
-                    <button>Github Repository</button>
-                </div>
-
-                <div class="close-modal-button"><img src="" alt=""></div>
-            </div>
-            
-            <div class="modal-right-section">
-                <div class="modal-user-info">
-                    <div class="modal-profile-image">
-                        <img src="" alt="">
-                    </div>
+                <div class="modal-profile-details-container">
                     <div class="modal-profile-details">
-                        <div class="modal-profile-name">
-                            Anuj Verma
+                        <div class="modal-profile-image">
+                            <img src="" alt="avatar-image">
                         </div>
-                        <div class="modal-profile-username">
-                            
+                        <div class="modal-profile-user-details">
+                            <div class="modal-profile-name">Anuj Verma</div>
+                            <div class="modal-profile-username">@anuj3553</div>
                         </div>
                     </div>
-                        
-
+                    <div class="modal-visit-profile-btn">
+                        <img src="" alt="visit">
+                        Visit
+                    </div>
+                </div>
+                <div class="modal-suggestion-container">
+                    <div class="modal-suggestion-title">You might like</div>
+                    <div class="modal-project-divider"></div>
+                    <div class="modal-suggestion-project-container">
+                        <div class="modal-suggestion-project">
+                            <div class="modal-suggestion-project-img">
+                                <img src="" alt="image">
+                            </div>
+                            <div class="modal-suggestion-project-details">
+                                <div class="modal-suggestion-project-details-title">
+                                    ABC
+                                </div>
+                                <div class="modal-suggestion-project-engagement">
+                                    <div class="modal-suggestion-project-likes">
+                                        200 Likes
+                                    </div>
+                                    <div class="modal-suggestion-project-comments">
+                                        50 Comments
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-suggestion-project">
+                            <div class="modal-suggestion-project-img">
+                                <img src="" alt="image">
+                            </div>
+                            <div class="modal-suggestion-project-details">
+                                <div class="modal-suggestion-project-details-title">
+                                    ABC
+                                </div>
+                                <div class="modal-suggestion-project-engagement">
+                                    <div class="modal-suggestion-project-likes">
+                                        200 Likes
+                                    </div>
+                                    <div class="modal-suggestion-project-comments">
+                                        50 Comments
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-suggestion-project">
+                            <div class="modal-suggestion-project-img">
+                                <img src="" alt="image">
+                            </div>
+                            <div class="modal-suggestion-project-details">
+                                <div class="modal-suggestion-project-details-title">
+                                    ABC
+                                </div>
+                                <div class="modal-suggestion-project-engagement">
+                                    <div class="modal-suggestion-project-likes">
+                                        200 Likes
+                                    </div>
+                                    <div class="modal-suggestion-project-comments">
+                                        50 Comments
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-project-divider"></div>
+                    <div class="modal-suggestion-viewall">
+                        View all
+                        <div class="viewall-image">
+                            <img src="" alt=">" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-suggestion-container">
+                    <div class="modal-suggestion-title">Most Liked Project</div>
+                    <div class="modal-project-divider"></div>
+                    <div class="modal-suggestion-project-container">
+                        <div class="modal-suggestion-project">
+                            <div class="modal-suggestion-project-img">
+                                <img src="" alt="image">
+                            </div>
+                            <div class="modal-suggestion-project-details">
+                                <div class="modal-suggestion-project-details-title">
+                                    ABC
+                                </div>
+                                <div class="modal-suggestion-project-engagement">
+                                    <div class="modal-suggestion-project-likes">
+                                        200 Likes
+                                    </div>
+                                    <div class="modal-suggestion-project-comments">
+                                        50 Comments
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-suggestion-project">
+                            <div class="modal-suggestion-project-img">
+                                <img src="" alt="image">
+                            </div>
+                            <div class="modal-suggestion-project-details">
+                                <div class="modal-suggestion-project-details-title">
+                                    ABC
+                                </div>
+                                <div class="modal-suggestion-project-engagement">
+                                    <div class="modal-suggestion-project-likes">
+                                        200 Likes
+                                    </div>
+                                    <div class="modal-suggestion-project-comments">
+                                        50 Comments
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-suggestion-project">
+                            <div class="modal-suggestion-project-img">
+                                <img src="" alt="image">
+                            </div>
+                            <div class="modal-suggestion-project-details">
+                                <div class="modal-suggestion-project-details-title">
+                                    ABC
+                                </div>
+                                <div class="modal-suggestion-project-engagement">
+                                    <div class="modal-suggestion-project-likes">
+                                        200 Likes
+                                    </div>
+                                    <div class="modal-suggestion-project-comments">
+                                        50 Comments
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-project-divider"></div>
+                    <div class="modal-suggestion-viewall">
+                        View all
+                        <div class="viewall-image">
+                            <img src="" alt=">" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-suggestion-container">
+                    <div class="modal-suggestion-title">Best Discussion</div>
+                    <div class="modal-project-divider"></div>
+                    <div class="modal-suggestion-project-container">
+                        <div class="modal-suggestion-project">
+                            <div class="modal-suggestion-project-img">
+                                <img src="" alt="image">
+                            </div>
+                            <div class="modal-suggestion-project-details">
+                                <div class="modal-suggestion-project-details-title">
+                                    Let's get animating!
+                                </div>
+                                <div class="modal-suggestion-project-engagement">
+                                    <div class="modal-suggestion-project-comments">
+                                        50 Comments
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-suggestion-project">
+                            <div class="modal-suggestion-project-img">
+                                <img src="" alt="image">
+                            </div>
+                            <div class="modal-suggestion-project-details">
+                                <div class="modal-suggestion-project-details-title">
+                                    HTML First
+                                </div>
+                                <div class="modal-suggestion-project-engagement">
+                                    <div class="modal-suggestion-project-comments">
+                                        50 Comments
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-suggestion-project">
+                            <div class="modal-suggestion-project-img">
+                                <img src="" alt="image">
+                            </div>
+                            <div class="modal-suggestion-project-details">
+                                <div class="modal-suggestion-project-details-title">
+                                    Bitbox Talks
+                                </div>
+                                <div class="modal-suggestion-project-engagement">
+                                    <div class="modal-suggestion-project-comments">
+                                        50 Comments
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-project-divider"></div>
+                    <div class="modal-suggestion-viewall">
+                        I'm feeling lucky
+                        <div class="viewall-image">
+                            <img src="" alt=">" />
+                        </div>
+                    </div>
                 </div>
             </div>
-            
         </div>
-    </div>
+    </section>
 </body>
 
 </html>
