@@ -11,12 +11,13 @@ import {
   MDBRow,
   MDBTextArea,
 } from "mdb-react-ui-kit";
+// import "./feedback.css"; // Import the CSS file
 
 export default function Feedback() {
   return (
-    <MDBContainer>
-      <MDBRow className="justify-content-center">
-        <MDBCol size="6">
+    <MDBContainer className="container">
+      <MDBRow>
+        <MDBCol size="12" md="6" className="feedback-form">
           <MDBCard>
             <MDBCardBody>
               <div className="text-center">

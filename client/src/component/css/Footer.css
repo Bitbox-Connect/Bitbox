@@ -90,3 +90,14 @@ h4 a:hover {
     padding: 5px;
     background-color: black;
 }
+/* Feedback form secton  */
+.feedback-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 360px;
+  }  
+ 

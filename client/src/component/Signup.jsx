@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import './css/Auth.css'
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { auth } from '../component/Firebase/Setup';
-
 const host = "http://localhost:5000";
 
 const Signup = (props) => {
