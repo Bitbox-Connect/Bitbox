@@ -6,7 +6,6 @@ import './css/Auth.css'
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { auth } from '../component/Firebase/Setup';
 
-
 const host = "http://localhost:5000";
 
 const Signup = (props) => {
@@ -17,30 +16,21 @@ const Signup = (props) => {
     setValue(localStorage.getItem('email'));
   }, []);
 
-  const handleClick = () => {
+  const handleClick = async () => {
     const provider = new GoogleAuthProvider();
-    const googleLogin = async () => {
-      try {
-        const { user } = await signInWithPopup(auth, provider);
-        setValue(user.email);
-        localStorage.setItem("email", user.email);
-        navigate("/"); // Redirect to home page after successful sign-in
-        props.showAlert("Account Created Successfully", "success")
-      } catch (error) {
-        console.error(error);
-      }
-    };
-  
-    googleLogin();
+    try {
+      const { user } = await signInWithPopup(auth, provider);
+      const email = user.email;
+      const password = ''; // You won't get the password from Google authentication
+      const name = ''; // You might not get the name from Google authentication
+      // Perform signup with Google email
+      await signUpWithGoogle(email, name, password);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" });
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const { name, email, password } = credentials;
-
+  const signUpWithGoogle = async (email, name, password) => {
     const response = await fetch(`${host}/api/auth/createuser`, {
       method: "POST",
       headers: {
@@ -57,6 +47,17 @@ const Signup = (props) => {
     } else {
       props.showAlert("Invalid Details", "danger")
     }
+  };
+
+  const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const { name, email, password } = credentials;
+
+    // Perform signup with email and password
+    await signUpWithGoogle(email, name, password);
   }
 
   const onChange = (e) => {
@@ -68,7 +69,6 @@ const Signup = (props) => {
       <div className='container main-bx'>
         <div className="heading">SignUp</div>
         <div className='p-3'>
-          {/* <h2>Create an account into Bitbox</h2> */}
           <form onSubmit={handleSubmit}>
             <div className="mb-2">
               <label htmlFor="name" className="label">Name</label>
