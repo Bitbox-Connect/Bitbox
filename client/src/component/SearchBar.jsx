@@ -1,24 +1,21 @@
-import "./css/SearchBar.css";
-// import SearchIcon from '@mui/icons-material/Search';
+// import "./css/SearchBar.css";
+// import { useState } from "react";
+// import { FaSearch } from "react-icons/fa";
 
-function SearchBar() {    
+// function SearchBar() {    
 
-  return (
-    <>
-    <div className="search">
-      <br />
-      <div className="searchInputs">
-        <input
-          type="text"
-          placeholder="Enter project here..."
-        />
-        <div className="searchIcon">
-          {/* <SearchIcon /> */}
-        </div>
-      </div>
-    </div>
-    </>
-  );
-}
+//   return (
+//     <>
+//     <div className="input-wrapper">
+//       <FaSearch id="search-icon" />
+//       <input
+//         placeholder="Type to search..."
+//         value={input}
+//         onChange={(e) => handleChange(e.target.value)}
+//       />
+//     </div>
+//     </>
+//   );
+// }
 
-export default SearchBar;
+// export default SearchBar;

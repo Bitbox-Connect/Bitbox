@@ -16,6 +16,8 @@ import Termsandcondition from './component/Footer/Termsandcondition';
 import Community from './component/Community';
 import MyProfile from './component/MyProfile'
 import ScrollTop from './component/ScrollTop';
+// import SearchBar from './component/SearchBar';
+import EditProfile from './component/EditProfile';
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -36,6 +38,7 @@ function App() {
   return (
     <>
       <ProjectState>
+        {/* <SearchBar/> */}
         <Router>
           {/* Navbar */}
           <div className="content">
@@ -51,6 +54,7 @@ function App() {
               <Route exact path="/community" element={<Community showAlert={showAlert} />} />
               <Route exact path="/about" element={<About showAlert={showAlert} />} />
               <Route exact path="/myprofile" element={<MyProfile showAlert={showAlert} />} />
+              <Route exact path="/editprofile" element={<EditProfile showAlert={setAlert}/>}/>
               <Route exact path="/login" element={<Login showAlert={showAlert} />} />
               <Route exact path="/signup" element={<Signup showAlert={showAlert} />} />
               {/* Footer */}

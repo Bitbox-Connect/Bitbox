@@ -106,7 +106,7 @@ function Navbar(props) {
                                                 </a>
                                                 <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                                                     <li><a className="dropdown-item" href="/myprofile">My Profile</a></li>
-                                                    <li><a className="dropdown-item" href="#">Edit Profile</a></li>
+                                                    <li><a className="dropdown-item" href="/editprofile">Edit Profile</a></li>
                                                     <li><a className="dropdown-item" href="#">Help</a></li>
                                                     <li><a className="dropdown-item" href="#">Invite friends</a></li>
                                                     <li><a className="dropdown-item" href="#">Setting</a></li>

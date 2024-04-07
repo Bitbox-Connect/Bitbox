@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState,Link } from 'react'
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import projectContext from '../context/projectContext';
@@ -68,17 +68,18 @@ const MyProfile = (props) => {
     }
     return (
         <>
-         {editMode ? <EditProfile/>:(
+         {/* {editMode ? <EditProfile/>:( */}
             <div className="user-profile-dashboard">
                 <div className="user-details">
                     <div className="userproject-left">
                         <div className="userdetail-left">
-                        <button onClick={handleEditClick}>Edit</button>
+                            {/* <Link to='/edituser' onClick={handleEditClick}>Edit</Link> */}
+                        {/* <button onClick={handleEditClick}><link rel="stylesheet" href="/editprogile" />Edit</button> */}
                             <div className="profile-picture">
                                 <img src={avatar} alt="Profile" />
                             </div>
                             <div className="user-bio">
-                                <p>Name: <span>e.name</span></p>
+                                <p>Name: <span></span></p>
                                 <p>UserName : <span>Harshit7492</span></p>
                             </div>
                             <button>
@@ -218,7 +219,8 @@ const MyProfile = (props) => {
                         </div>
                     </div>
                 </div>
-            </div>) }
+            </div>
+            {/* )} */}
         </>
     )
 }
