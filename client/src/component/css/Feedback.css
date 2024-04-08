@@ -1,0 +1,31 @@
+.rating-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Add space between rating buttons */
+}
+
+.star {
+  background-color: transparent;
+  border: none;
+  font-size: 50px;
+  cursor: pointer;
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.star:hover,
+.star.active {
+  color: gold; /* Change color to gold on hover and when active */
+}
+.main-box{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.container {
+  border: 2px solid #ccc; /* Add border to the container */
+  padding: 20px; /* Add padding to the container */
+  border-radius: 8px; /* Add border radius for rounded corners */
+}
+.form-label {
+  font-weight: bold; /* Make form labels bold */
+}
+
