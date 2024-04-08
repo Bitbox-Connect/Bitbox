@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 
 export default function EditProfile() {
@@ -22,11 +22,12 @@ export default function EditProfile() {
         e.preventDefault();
         const allInputValue = { name: formValue.name, college: formValue.college, phone: formValue.phone, Address: formValue.Address }
         console.log(allInputValue);
-        let res = await fetch('http://localhost:5173/editprofile', {
+        let res = await fetch('http://localhost:5000/editprofile', {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(allInputValue)
         })
+        console.log(res)
         // const { name, college, phone, Address } = formValue;
         // console.log({ name, college, phone, Address });
     };

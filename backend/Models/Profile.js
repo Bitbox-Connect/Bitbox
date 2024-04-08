@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const EditprofileSchema = new Schema({
+const profileSchema = new Schema({
+    // user is a foreign key 
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user',
@@ -36,4 +37,4 @@ const EditprofileSchema = new Schema({
     },
 });
 
-module.exports = mongoose.model('edituser', EditprofileSchema);
+module.exports = mongoose.model('profile', profileSchema);

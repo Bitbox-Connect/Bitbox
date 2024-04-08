@@ -1,7 +1,7 @@
 const express = require('express')
 const connectToMongo = require('./db')
 var cors = require('cors')
-const editUserRouter = require('./editprofile');
+// const editUserRouter = require('./editprofile');
 // Connect call to Mongo Database
 connectToMongo();
 
@@ -15,8 +15,7 @@ app.use(express.json())
 // Available routes
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/projects', require('./routes/projects'))
-// app.use('/api/edituser', require('./api/edituser'))
-app.use('/editprofile', editUserRouter);
+app.use('/api/profile', require('./routes/profile'));
 
 // Litenting port in http://localhost:5000
 app.listen(port, () => {

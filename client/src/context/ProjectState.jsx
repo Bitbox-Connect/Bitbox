@@ -7,7 +7,6 @@ const ProjectStates = (props) => {
   const host = 'http://localhost:5000';
   const projectsInitial = [];
 
-  // const [projects, setProjects] = useState(projectsInitial);
   const [userProjects, setUserProjects] = useState(projectsInitial);
   const [globalProjects, setGlobalProjects] = useState(projectsInitial); // Initialize global projects state
 

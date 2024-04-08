@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const ProfileSchema = require('./EditProfileSchema');
+const ProfileSchema = require('../Models/Profile');
 
 // POST new profile
-router.post('http://localhost:5173/editprofile', async (req, res) => {
+router.post('/editprofile', async (req, res) => {
     const { name, phone, college, Address } = req.body;
-
     const profile = new ProfileSchema({
         name,
         phone,

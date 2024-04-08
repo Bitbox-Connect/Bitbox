@@ -8,9 +8,11 @@
     width: 100vw;
     font-weight: 500;
 }
-.icon{
+
+.icon {
     size: 2rem;
 }
+
 .About_us {
     flex: 1;
 }
@@ -90,6 +92,7 @@ h4 a:hover {
     padding: 5px;
     background-color: black;
 }
+
 /* Feedback form secton  */
 .feedback-form {
     display: flex;
@@ -99,12 +102,4 @@ h4 a:hover {
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 360px;
-  }  
-  /* contactus section  */
-  form{
-    margin-bottom: 30px;
-  }
-  /* . h1 Heading-Page text-dark text-center font-weight-bold{
-    margin-top: 20px;
-  }
-  */
+}

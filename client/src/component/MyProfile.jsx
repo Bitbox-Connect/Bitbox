@@ -1,20 +1,20 @@
-import { useContext, useEffect, useRef, useState,Link } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import projectContext from '../context/projectContext';
 import MyProfileCard from './MyProfileCard';
 import UploadProject from './UploadProject';
 import avatar from '../assets/images/Dropdown/avatar.jpg';
-import './css/Myprofile.css'
-import EditProfile from './EditProfile';
+import './css/MyProfile.css'
+// import EditProfile from './EditProfile';
 
 const MyProfile = (props) => {
     const [showVideo, setShowVideo] = useState(false);
-    const [editMode, setEditMode] = useState(false);
-    
-    const handleEditClick = () => {
-        setEditMode(true); // Set edit mode to true on edit button click
-    };
+    // const [editMode, setEditMode] = useState(false);
+
+    // const handleEditClick = () => {
+    //     setEditMode(true); // Set edit mode to true on edit button click
+    // };
     const handleVideo = () => {
         setShowVideo(true);
     };
@@ -68,13 +68,13 @@ const MyProfile = (props) => {
     }
     return (
         <>
-         {/* {editMode ? <EditProfile/>:( */}
+            {/* {editMode ? <EditProfile/>:( */}
             <div className="user-profile-dashboard">
                 <div className="user-details">
                     <div className="userproject-left">
                         <div className="userdetail-left">
                             {/* <Link to='/edituser' onClick={handleEditClick}>Edit</Link> */}
-                        {/* <button onClick={handleEditClick}><link rel="stylesheet" href="/editprogile" />Edit</button> */}
+                            {/* <button onClick={handleEditClick}><link rel="stylesheet" href="/editprogile" />Edit</button> */}
                             <div className="profile-picture">
                                 <img src={avatar} alt="Profile" />
                             </div>
