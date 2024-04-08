@@ -1,87 +1,87 @@
-import React from "react";
-import {
-  MDBBtn,
-  MDBCard,
-  MDBCardBody,
-  MDBCardFooter,
-  MDBCol,
-  MDBContainer,
-  MDBIcon,
-  MDBRadio,
-  MDBRow,
-  MDBTextArea,
-} from "mdb-react-ui-kit";
-// import "./feedback.css"; // Import the CSS file
+import React, { useState } from 'react';
+import '../css/Feedback.css'; // Import CSS file for styling
 
-export default function Feedback() {
+function FeedbackForm() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [rating, setRating] = useState(1); // Initialize rating state to 1
+  const [feedback, setFeedback] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Name:', name);
+    console.log('Email:', email);
+    console.log('Rating:', rating);
+    console.log('Feedback:', feedback);
+    setName('');
+    setEmail('');
+    setRating(1); // Reset rating to 1 after submission
+    setFeedback('');
+  };
+
+  const handleHoverRating = (value) => {
+    setRating(value);
+  };
+
   return (
-    <MDBContainer className="container">
-      <MDBRow>
-        <MDBCol size="12" md="6" className="feedback-form">
-          <MDBCard>
-            <MDBCardBody>
-              <div className="text-center">
-                <MDBIcon far icon="file-alt" className="mb-3 text-primary" size="4x" />
-                <p>
-                  <strong>Your opinion matters</strong>
-                </p>
-                <p>
-                  Have some ideas on how to improve our product?
-                  <strong> Give us your feedback.</strong>
-                </p>
-              </div>
-
-              <hr />
-
-              <form className="px-4">
-                <p className="text-center">
-                  <strong>Your rating:</strong>
-                </p>
-                <MDBRadio
-                  name="flexRadioDefault"
-                  id="flexRadioDefault1"
-                  label="Very good"
-                  className="mb-2"
-                  defaultChecked
-                />
-                <MDBRadio
-                  name="flexRadioDefault"
-                  id="flexRadioDefault2"
-                  label="Good"
-                  className="mb-2"
-                />
-                <MDBRadio
-                  name="flexRadioDefault"
-                  id="flexRadioDefault3"
-                  label="Mediocre"
-                  className="mb-2"
-                />
-                <MDBRadio
-                  name="flexRadioDefault"
-                  id="flexRadioDefault4"
-                  label="Bad"
-                  className="mb-2"
-                />
-                <MDBRadio
-                  name="flexRadioDefault"
-                  id="flexRadioDefault5"
-                  label="Very bad"
-                  className="mb-2"
-                />
-                <p className="text-center">
-                  <strong>What could we improve?</strong>
-                </p>
-                <MDBTextArea className="mb-4" id="textAreaExample" label="Message" rows={4} />
-              </form>
-            </MDBCardBody>
-            <MDBCardFooter>
-              <div className="text-end">
-                <MDBBtn>Submit</MDBBtn>
-              </div>
-            </MDBCardFooter>
-          </MDBCard>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
+    <div className='main-box'>
+      <h1 className="text-center">Feedback Form</h1>
+      <form onSubmit={handleSubmit} className="container mt-4">
+        <div className="mb-3">
+          <label htmlFor="name" className="form-label">Name:</label>
+          <input 
+            type="text" 
+            id="name" 
+            className="form-control" 
+            value={name} 
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">Email:</label>
+          <input 
+            type="email" 
+            id="email" 
+            className="form-control" 
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="rating" className="form-label">Rating:</label>
+          <div className="rating-container">
+            {[1, 2, 3, 4, 5].map((value) => (
+              <button
+                key={value}
+                type="button"
+                className={`star ${value <= rating ? 'active' : ''}`}
+                onMouseEnter={() => handleHoverRating(value)}
+                onMouseLeave={() => handleHoverRating(0)}
+                onClick={() => setRating(value)}
+              >
+                &#9733;
+              </button>
+            ))}
+          </div>
+          <input type="hidden" name="rating" value={rating} />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="feedback" className="form-label">Feedback:</label>
+          <textarea 
+            id="feedback" 
+            className="form-control" 
+            rows="5" 
+            value={feedback} 
+            onChange={(e) => setFeedback(e.target.value)}
+            required
+          ></textarea>
+        </div>
+        <button type="submit" className="btn btn-primary">Submit</button>
+      </form>
+    </div>
   );
 }
+
+export default FeedbackForm;
