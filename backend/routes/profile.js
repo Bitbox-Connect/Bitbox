@@ -1,95 +1,88 @@
-// Import required modules and middleware
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const Profile = require('../Models/Profile'); // Corrected import
-const fetchuser = require('../middleware/fetchuser');
-const { body, validationResult } = require('express-validator');
+const Profile = require("../Models/Profile");
+const fetchuser = require("../middleware/fetchuser");
+const { body, validationResult } = require("express-validator");
 
 // Route to create a new profile or update an existing one
-router.post('/createprofile', fetchuser, async (req, res) => { // Assuming fetchuser middleware populates req.user
-    // Extract profile details from request body
+router.post("/createprofile", fetchuser, async (req, res) => {
     const { name, phone, college, address } = req.body;
-
-    // Create profile fields object
     const profileFields = {
         name,
         phone,
         college,
         address,
-        user: req.user.id // Associate profile with the user
+        user: req.user.id,
     };
 
     try {
-        // Check if profile already exists for the user
         let profile = await Profile.findOne({ user: req.user.id });
 
         if (profile) {
-            // If profile exists, update it
             profile = await Profile.findOneAndUpdate(
                 { user: req.user.id },
                 { $set: profileFields },
-                { new: true } // Return updated profile
+                { new: true }
             );
             return res.json(profile);
         }
 
-        // If profile does not exist, create a new one
         profile = new Profile(profileFields);
-        await profile.save(); // Save the new profile
-        res.json(profile); // Return the newly created profile
+        await profile.save();
+        res.json(profile);
     } catch (error) {
-        console.error('Error saving/updating profile:', error);
+        console.error("Error saving/updating profile:", error);
         res.status(500).json({ error: "Profile not added/updated successfully" });
     }
 });
 
 // Route to fetch user's profile
-router.get('/fetchprofile', fetchuser, async (req, res) => {
+router.get("/fetchprofile", fetchuser, async (req, res) => {
     try {
-        // Find the profile associated with the current user
         const profile = await Profile.findOne({ user: req.user.id });
-        res.json(profile); // Return the profile
+        if (!profile) {
+            return res.status(404).json({ error: "Profile not found" });
+        }
+        res.json(profile);
     } catch (error) {
         console.error(error.message);
-        res.status(500).send('Internal Server Error');
+        res.status(500).send("Internal Server Error");
     }
 });
 
 // Route to update user's profile
-router.put('/updateprofile', fetchuser, async (req, res) => {
-    // Extract updated profile details from request body
+router.put("/updateprofile", fetchuser, async (req, res) => {
     const { name, phone, college, address } = req.body;
+    const profileFields = {
+        name,
+        phone,
+        college,
+        address,
+    };
 
     try {
-        // Build a profile object based on the fields submitted
-        const profileFields = {};
-        if (name) profileFields.name = name;
-        if (phone) profileFields.phone = phone;
-        if (college) profileFields.college = college;
-        if (address) profileFields.address = address;
-
-        // Find the profile associated with the current user
         let profile = await Profile.findOne({ user: req.user.id });
 
-        // If profile does not exist, create a new one
         if (!profile) {
-            profile = new Profile(profileFields);
-            profile.user = req.user.id; // Associate profile with the user
-            await profile.save(); // Save the new profile
-            return res.json(profile); // Return the newly created profile
+            profile = new Profile({ ...profileFields, user: req.user.id });
+            await profile.save();
+            return res.json(profile);
         }
 
-        // If profile exists, update it with the new fields
         profile = await Profile.findOneAndUpdate(
             { user: req.user.id },
             { $set: profileFields },
-            { new: true } // Return updated profile
+            { new: true }
         );
 
-        res.json(profile); // Return the updated profile
+        if (!profile) {
+            return res.status(500).json({ error: "Profile not updated successfully" });
+        }
+
+        res.json(profile);
     } catch (error) {
         console.error(error.message);
-        res.status(500).send('Internal Server Error');
+        res.status(500).send("Internal Server Error");
     }
 });
 

@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import projectContext from '../context/projectContext';
+import profileContext from '../context/profileContext';
 import MyProfileCard from './MyProfileCard';
 import UploadProject from './UploadProject';
 import avatar from '../assets/images/Dropdown/avatar.jpg';
@@ -10,11 +11,6 @@ import './css/MyProfile.css'
 
 const MyProfile = (props) => {
     const [showVideo, setShowVideo] = useState(false);
-    // const [editMode, setEditMode] = useState(false);
-
-    // const handleEditClick = () => {
-    //     setEditMode(true); // Set edit mode to true on edit button click
-    // };
     const handleVideo = () => {
         setShowVideo(true);
     };
@@ -23,10 +19,11 @@ const MyProfile = (props) => {
         setShowVideo(false);
     };
 
-    const context = useContext(projectContext)
-    let navigate = useNavigate();
-    const { userProjects, getUserProjects, editProject } = context;
+    // Context for Projects 
+    const userProjectContext = useContext(projectContext)
+    const { userProjects, getUserProjects, editProject } = userProjectContext;
 
+    let navigate = useNavigate();
     useEffect(() => {
         if (localStorage.getItem('token')) {
             getUserProjects();
@@ -41,7 +38,6 @@ const MyProfile = (props) => {
     const refClose = useRef(null)
 
     const [project, setproject] = useState({ id: "", etitle: "", edescription: "", egitHubLink: "", eyouTubeLink: "" });
-
     const updateProject = (currentProject) => {
         refEdit.current.click();
         // Set the title, description and link to edit modal 
@@ -49,6 +45,7 @@ const MyProfile = (props) => {
     }
 
     const handleClick = () => {
+        // API CALL - Update Project
         editProject(project.id, project.etitle, project.edescription, project.egitHubLink, project.eyouTubeLink)
         refClose.current.click();
         props.showAlert("Project Updated Successfully", "success")
@@ -66,50 +63,65 @@ const MyProfile = (props) => {
         // Able to write in the input field
         setproject({ ...project, [e.target.name]: e.target.value });
     }
+
+    // Context for Profile
+    // const [profiles, setprofiles] = useState({ id: "", name: "", college: "", phone: "", address: "" });
+    const [profiles, setprofiles] = useState([]);
+    const userProfileContext = useContext(profileContext);
+    const { getUserProfile } = userProfileContext;
+    useEffect(() => {
+        const getUserProfile = getUserProfile()
+        setprofiles(getUserProfile);
+        // eslint-disable-next-line
+    }, []);
     return (
         <>
             {/* {editMode ? <EditProfile/>:( */}
             <div className="user-profile-dashboard">
                 <div className="user-details">
-                    <div className="userproject-left">
-                        <div className="userdetail-left">
-                            {/* <Link to='/edituser' onClick={handleEditClick}>Edit</Link> */}
-                            {/* <button onClick={handleEditClick}><link rel="stylesheet" href="/editprogile" />Edit</button> */}
-                            <div className="profile-picture">
-                                <img src={avatar} alt="Profile" />
-                            </div>
-                            <div className="user-bio">
-                                <p>Name: <span></span></p>
-                                <p>UserName : <span>Harshit7492</span></p>
-                            </div>
-                            <button>
-                                public
-                            </button>
-                            <hr />
-                            <div className="user-links">
-                                <h3>Discover</h3>
-                                <p>Popular</p>
-                                <p>Most Viewed</p>
-                                <p>Top rated</p>
-                            </div>
-                            <hr />
-                            <div className="user-skills">
-                                <h3>Contri</h3>
-                                <p>Discussion</p>
+                    {profiles.map((profile) => (
+                        <div key={profiles.id} className="userproject-left">
+                            <div className="userdetail-left">
+                                {/* <Link to='/edituser' onClick={handleEditClick}>Edit</Link> */}
+                                {/* <button onClick={handleEditClick}><link rel="stylesheet" href="/editprogile" />Edit</button> */}
+                                <div className="profile-picture">
+                                    <img src={avatar} alt="Profile" />
+                                </div>
+                                <div className="user-bio">
+                                    <p>Name: {profile.name} <span></span></p>
+                                    <p>Address : {profile.address} <span>Harshit7492</span></p>
+                                    <p>College : {profile.college} <span>Harshit7492</span></p>
+                                    <p>Phone : {profile.phone} <span>Harshit7492</span></p>
+                                </div>
+                                <button>
+                                    public
+                                </button>
+                                <hr />
+                                <div className="user-links">
+                                    <h3>Discover</h3>
+                                    <p>Popular</p>
+                                    <p>Most Viewed</p>
+                                    <p>Top rated</p>
+                                </div>
+                                <hr />
+                                <div className="user-skills">
+                                    <h3>Contri</h3>
+                                    <p>Discussion</p>
 
-                            </div>
-                            <hr />
-                            <div className="user-experience">
-                                <h3>Manage</h3>
-                                <p>Saved</p>
-                            </div>
+                                </div>
+                                <hr />
+                                <div className="user-experience">
+                                    <h3>Manage</h3>
+                                    <p>Saved</p>
+                                </div>
 
-                            <div className="user-share">
-                                <h3>Share</h3>
-                                <p>Invite friends</p>
+                                <div className="user-share">
+                                    <h3>Share</h3>
+                                    <p>Invite friends</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    ))}
 
                     <div className="userproject-right">
                         <div className="userdetail-right">
@@ -130,7 +142,6 @@ const MyProfile = (props) => {
                                             <div className="pro-card">
                                                 {/* <img src={ProjectImg} className="card-img-top" alt={"project"} /> */}
                                                 <div className="card-body">
-
                                                     <div className="mb-3">
                                                         <label htmlFor="etitle" className="form-label">Project Title</label>
                                                         <input type="text" className="form-control" id="etitle" name='etitle' value={project.etitle} onChange={onChange} placeholder="Enter Project Title Here" />

@@ -10,6 +10,20 @@ function AddProject(props) {
     const [project, setProject] = useState({ title: "", description: "", gitHubLink: "", youTubeLink: "" });
     const refClose = useRef(null);
 
+    const handleClick = () => {
+        if (project.title.trim() === "") {
+            props.showAlert("Title is required", "danger");
+            return;
+        }
+        // Modify YouTube link
+        const modifiedYouTubeLink = modifyYouTubeLink(project.youTubeLink);
+        // Add project API call
+        addProject(project.title, project.description, project.gitHubLink, modifiedYouTubeLink); // Pass modifiedYouTubeLink instead of project.youTubeLink
+        refClose.current.click();
+        setProject({ title: "", description: "", gitHubLink: "", youTubeLink: "" });
+        props.showAlert("Project Added Successfully", "success");
+    };
+
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
             e.preventDefault(); // Prevent form submission on Enter key press
@@ -31,20 +45,6 @@ function AddProject(props) {
         };
         // eslint-disable-next-line
     }, [project.title]); // Only re-run the effect if project.title changes
-
-    const handleClick = () => {
-        if (project.title.trim() === "") {
-            props.showAlert("Title is required", "danger");
-            return;
-        }
-        // Modify YouTube link
-        const modifiedYouTubeLink = modifyYouTubeLink(project.youTubeLink);
-        // Add project API call
-        addProject(project.title, project.description, project.gitHubLink, modifiedYouTubeLink); // Pass modifiedYouTubeLink instead of project.youTubeLink
-        refClose.current.click();
-        setProject({ title: "", description: "", gitHubLink: "", youTubeLink: "" });
-        props.showAlert("Project Added Successfully", "success");
-    };
 
     const onChange = (e) => {
         // Able to write in the input field

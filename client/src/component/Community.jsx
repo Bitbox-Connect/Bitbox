@@ -90,7 +90,7 @@ const Community = (props) => {
                         {project.edescription ? (<p>{project.edescription}</p>) : (<p>No description to display</p>)}
                       </div>
                       <div className="modal-footer">
-                        <button href={project.gitHubLink} target="_blank" className="card-link btn btn-warning">Github Link</button>
+                        <button href={project.egitHubLink} target="_blank" className="card-link btn btn-warning">Github Link</button>
                         <button className="btn btn-danger" onClick={handleVideo}>Youtube Link</button>
                         <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailToggle">Close</button>
                       </div>
@@ -120,7 +120,7 @@ const Community = (props) => {
                           </button>
                           <p className="video-heading fs-1">Project Video</p>
                           <p>
-                            <iframe className='youtube-Frame' width="350" height="315" src={project.youTubeLink} frameBorder="0" allowfullscreen></iframe>
+                            <iframe className='youtube-Frame' width="350" height="315" src={project.eyouTubeLink} frameBorder="0" allowfullscreen></iframe>
                           </p>
                         </div>
                         <div className="card-button-wrapper">

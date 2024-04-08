@@ -8,7 +8,7 @@ import Login from './component/Login';
 import Navbar from './component/Navbar';
 import Signup from './component/Signup';
 import ProjectState from './context/ProjectState';
-// import ProfileState from './context/ProfileState';
+import ProfileState from './context/ProfileState';
 import Codeofconduct from './component/Footer/Codeofconduct';
 import Feedback from './component/Footer/Feedback';
 import Contactus from './component/Footer/Contactus';
@@ -39,7 +39,7 @@ function App() {
   return (
     <>
       <ProjectState>
-        {/* <ProfileState> */}
+        <ProfileState>
           {/* <SearchBar/> */}
           <Router>
             {/* Navbar */}
@@ -56,7 +56,7 @@ function App() {
                 <Route exact path="/community" element={<Community showAlert={showAlert} />} />
                 <Route exact path="/about" element={<About showAlert={showAlert} />} />
                 <Route exact path="/myprofile" element={<MyProfile showAlert={showAlert} />} />
-                <Route exact path="/editprofile" element={<EditProfile showAlert={setAlert} />} />
+                <Route exact path="/editprofile" element={<EditProfile showAlert={showAlert} />} />
                 <Route exact path="/login" element={<Login showAlert={showAlert} />} />
                 <Route exact path="/signup" element={<Signup showAlert={showAlert} />} />
                 {/* Footer */}
@@ -70,7 +70,7 @@ function App() {
             {/* Conditionally render the footer based on the current route */}
             {!hideFooterRoutes.includes(window.location.pathname) && <Footer />}
           </Router>
-        {/* </ProfileState> */}
+        </ProfileState>
       </ProjectState>
     </>
   );
