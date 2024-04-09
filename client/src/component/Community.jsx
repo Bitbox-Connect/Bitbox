@@ -1,8 +1,10 @@
-import { useContext, useRef, useState } from 'react'
+import { useContext, useRef, useState, useEffect } from 'react'
 import projectContext from '../context/projectContext';
 import PropTypes from 'prop-types';
 import CommunityCard from './CommunityCard';
 import './css/Community.css'
+import profileContext from '../context/profileContext';
+import './EditProfile'
 import avatar from '../assets/images/Dropdown/avatar.jpg';
 
 const Community = (props) => {
@@ -29,6 +31,31 @@ const Community = (props) => {
     // Set the title, description and link to edit modal 
     setproject({ id: currentProject._id, etitle: currentProject.title, edescription: currentProject.description, egitHubLink: currentProject.gitHubLink, eyouTubeLink: currentProject.youTubeLink })
   }
+    // edit  profile 
+    const userProfileContext = useContext(profileContext);
+    const { userProfile, getUserProfile } = userProfileContext;
+    // Context for Profile
+    // const [profiles, setprofiles] = useState({ id: "", name: "", college: "", phone: "", address: "" });
+    // const [profiles, setprofiles] = useState([]);
+    // const userProfileContext = useContext(profileContext);
+    // const { getUserProfile } = userProfileContext;
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            getUserProfile();
+        }
+        else {
+            navigate('/login')
+        }
+        // eslint-disable-next-line
+    }, [])
+
+
+
+
+
+
+
+
   return (
     <>
       <div className="user-profile-dashboard">
@@ -39,7 +66,7 @@ const Community = (props) => {
                 <img src={avatar} alt="Profile" />
               </div>
               <div className="global-bio">
-                <p>Name: <span>Harshit singh</span></p>
+                <p>Name: <span>{userProfile.name}</span></p>
                 <p>UserName : <span>Harshit7492</span></p>
               </div>
               <button>

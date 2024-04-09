@@ -6,7 +6,7 @@ import profileContext from '../context/profileContext';
 import MyProfileCard from './MyProfileCard';
 import UploadProject from './UploadProject';
 import avatar from '../assets/images/Dropdown/avatar.jpg';
-import EditProfile from './EditProfile'; // Import EditProfile component
+// import EditProfile from './EditProfile'; // Import EditProfile component
 
 // import './css/MyProfile.css'
 // import EditProfile from './EditProfile';
@@ -69,7 +69,7 @@ const MyProfile = (props) => {
     const { userProfile, getUserProfile } = userProfileContext;
     // Context for Profile
     // const [profiles, setprofiles] = useState({ id: "", name: "", college: "", phone: "", address: "" });
-    const [profiles, setprofiles] = useState([]);
+    // const [profiles, setprofiles] = useState([]);
     // const userProfileContext = useContext(profileContext);
     // const { getUserProfile } = userProfileContext;
     useEffect(() => {
