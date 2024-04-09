@@ -13,10 +13,6 @@ const Community = (props) => {
 
   const [showVideo, setShowVideo] = useState(false);
 
-  const handleVideo = () => {
-    setShowVideo(true)
-  }
-
   const handleVideoClose = () => {
     setShowVideo(false);
   };
@@ -33,31 +29,24 @@ const Community = (props) => {
     // Set the title, description and link to edit modal 
     setproject({ id: currentProject._id, etitle: currentProject.title, edescription: currentProject.description, egitHubLink: currentProject.gitHubLink, eyouTubeLink: currentProject.youTubeLink })
   }
-    // edit  profile 
-    const userProfileContext = useContext(profileContext);
-    const { userProfile, getUserProfile } = userProfileContext;
-    // Context for Profile
-    // const [profiles, setprofiles] = useState({ id: "", name: "", college: "", phone: "", address: "" });
-    // const [profiles, setprofiles] = useState([]);
-    // const userProfileContext = useContext(profileContext);
-    // const { getUserProfile } = userProfileContext;
-    const navigate = useNavigate();
-    useEffect(() => {
-        if (localStorage.getItem('token')) {
-            getUserProfile();
-        }
-        else {
-            navigate('/login')
-        }
-        // eslint-disable-next-line
-    }, [])
-
-
-
-
-
-
-
+  // edit  profile 
+  const userProfileContext = useContext(profileContext);
+  const { userProfile, getUserProfile } = userProfileContext;
+  // Context for Profile
+  // const [profiles, setprofiles] = useState({ id: "", name: "", college: "", phone: "", address: "" });
+  // const [profiles, setprofiles] = useState([]);
+  // const userProfileContext = useContext(profileContext);
+  // const { getUserProfile } = userProfileContext;
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      getUserProfile();
+    }
+    else {
+      navigate('/login')
+    }
+    // eslint-disable-next-line
+  }, [])
 
   return (
     <>
@@ -110,21 +99,349 @@ const Community = (props) => {
 
                 {/* Project Details Modal */}
                 <div className="modal fade" id="detailToggle" tabIndex="-1" aria-labelledby="detailToggle" aria-hidden="true">
-                  <div className="modal-dialog modal-dialog-centered">
-                    <div className="modal-content">
-                      <div className="modal-header">
-                        <h1 className="modal-title fs-5" id="exampleModalToggleLabel">Project Details</h1>
-                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <div className="modal-dialog modal-dialog-centered project-modal-section" style={{ maxWidth: "100%" }}>
+                    <section className="project-modal-section-container">
+                      <div className="project-modal-container">
+                        <div className="project-modal-left">
+                          {/* <!-- Modal Head --> */}
+                          <div className="modal-left-head">
+                            <div className="modal-project-navigation">
+                              <div className="left-navigation">
+                                <img src="./src/assets/images/Others/arrow pre_next.png" title="previous" alt="previous" />
+                              </div>
+                              <div className="right-navigation">
+                                <img src="./src/assets/images/Others/arrow pre_next.png" title="next" alt="next" />
+                              </div>
+                            </div>
+                            <div className="modal-tag-group">
+                              <div className="modal-project-tag">Category</div>
+                              <div className="modal-project-tag">Latest</div>
+                            </div>
+                          </div>
+                          {/* <!-- Modal Section --> */}
+                          <div className="modal-left-section">
+                            <div className="modal-title">{project.etitle}</div>
+                            <div className="modal-technology-tag">
+                              <a href="">Web</a>
+                            </div>
+                            <div className="modal-Time">12/22/32</div>
+                            {/* <!-- <div className="modal-project-image">
+                                                            <img src="./src/assets/images/Vector Gif/R.gif" alt="" />
+                                                        </div> --> */}
+                            <div className="modal-project-vedio">
+                              {project.eyouTubeLink ? (
+                                <iframe className='youtube-Frame' src={project.eyouTubeLink} frameBorder="0" allowfullscreen></iframe>
+                              ) : (
+                                <iframe className='youtube-Frame' src="https://www.youtube.com/embed/lwv_0SEJ4NQ" frameBorder="0" allowfullscreen></iframe>
+                              )}
+                            </div>
+                            <div className="modal-description">
+                              {project.edescription ? (<p>{project.edescription}</p>) : (<p>No description to display</p>)}
+                            </div>
+                            <div className="modal-project-details">
+                              <div className="modal-project-likecount">
+                                1 Like
+                              </div>
+                              <div className="modal-project-comment">
+                                8 comments
+                              </div>
+                            </div>
+                            <div className="modal-project-engagement-container">
+                              <div className="modal-project-love">
+                                <img src="" alt="Like" />
+                              </div>
+                              <div className="modal-project-comment">
+                                <img src="" alt="Comment" />
+                              </div>
+                              <div className="modal-favourite-details">
+                                <img src="" alt="Favourite" />
+                              </div>
+                              <div className="modal-project-link">
+                                <img src="" alt="Link" />
+                              </div>
+                            </div>
+                            <section className="modal-comment-section">
+                              <div className="modal-post-commment">
+                                <div className="modal-post-commment-avatar">
+                                  <img src="" alt="avatar-image" />
+                                </div>
+                                <span>Share Your Thoughts</span>
+                                <div className="modal-post-commment-button">
+                                  Post
+                                </div>
+                              </div>
+                              <div className="modal-comment-container">
+                                <header className="modal-comment-header">
+                                  <div className="modal-comment-user-avatar">
+                                    <img src="" alt="user-avatar" />
+                                  </div>
+                                  <div className="modal-comment-user-details">
+                                    <div className="modal-comment-user-name">
+                                      Anuj Verma
+                                    </div>
+                                    <div className="modal-comment-user-id">
+                                      @anujverma
+                                      <div className="modal-dot-symbol"></div>
+                                      <div className="modal-comment-user-time">
+                                        12 hours ago
+                                      </div>
+                                    </div>
+                                  </div>
+                                </header>
+                                <div className="modal-comment-content-container">
+                                  <div className="modal-comment-content">
+                                    nerds - always gotta prove they are hardcore
+                                  </div>
+                                  <div className="modal-comment-engagement-container">
+                                    <div className="modal-comment-project-love">
+                                      <img src="" alt="Like" />
+                                    </div>
+                                    <div className="modal-project-comment">
+                                      <img src="" alt="Comment" />
+                                    </div>
+                                    <div className="modal-favourite-details">
+                                      <img src="" alt="Share" />
+                                    </div>
+                                    <div className="modal-project-link">
+                                      <img src="" alt="Option" />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </section>
+                          </div>
+                        </div>
+                        <div className="project-modal-right">
+                          <div className="modal-right-head">
+                            {project.egitHubLink ? (
+                              <a className="button-github-modal" href={project.egitHubLink} target="_blank" rel="noopener noreferrer" title='GitHub Link'>
+                                <img src="path_to_github_logo_image" alt="GitHub" />
+                                GitHub
+                              </a>
+                            ) : (
+                              <a title='Unavailable GitHub Link'>
+                                <div className="button-github-modal" >
+                                  <img src="path_to_unavailable_image" alt="GitHub" />
+                                  Unavailable
+                                </div>
+                              </a>
+                            )}
+                            <div className="project-modal-head-buttons">
+                              <div className="close-modal-button"><img src="" alt="option" /></div>
+                              {/* Bootstap close button */}
+                              {/* <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> */}
+                            </div>
+                          </div>
+                          <div className="modal-profile-details-container">
+                            <div className="modal-profile-details">
+                              <div className="modal-profile-image">
+                                <img src="" alt="avatar-image" />
+                              </div>
+                              <div className="modal-profile-user-details">
+                                <div className="modal-profile-name">Anuj Verma</div>
+                                <div className="modal-profile-username">@anuj3553</div>
+                              </div>
+                            </div>
+                            <div className="modal-visit-profile-btn">
+                              <img src="" alt="visit" />
+                              Visit
+                            </div>
+                          </div>
+                          <div className="modal-suggestion-container">
+                            <div className="modal-suggestion-title">You might like</div>
+                            <div className="modal-project-divider"></div>
+                            <div className="modal-suggestion-project-container">
+                              <div className="modal-suggestion-project">
+                                <div className="modal-suggestion-project-img">
+                                  <img src="" alt="image" />
+                                </div>
+                                <div className="modal-suggestion-project-details">
+                                  <div className="modal-suggestion-project-details-title">
+                                    ABC
+                                  </div>
+                                  <div className="modal-suggestion-project-engagement">
+                                    <div className="modal-suggestion-project-likes">
+                                      200 Likes
+                                    </div>
+                                    <div className="modal-suggestion-project-comments">
+                                      50 Comments
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="modal-suggestion-project">
+                                <div className="modal-suggestion-project-img">
+                                  <img src="" alt="image" />
+                                </div>
+                                <div className="modal-suggestion-project-details">
+                                  <div className="modal-suggestion-project-details-title">
+                                    ABC
+                                  </div>
+                                  <div className="modal-suggestion-project-engagement">
+                                    <div className="modal-suggestion-project-likes">
+                                      200 Likes
+                                    </div>
+                                    <div className="modal-suggestion-project-comments">
+                                      50 Comments
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="modal-suggestion-project">
+                                <div className="modal-suggestion-project-img">
+                                  <img src="" alt="image" />
+                                </div>
+                                <div className="modal-suggestion-project-details">
+                                  <div className="modal-suggestion-project-details-title">
+                                    ABC
+                                  </div>
+                                  <div className="modal-suggestion-project-engagement">
+                                    <div className="modal-suggestion-project-likes">
+                                      200 Likes
+                                    </div>
+                                    <div className="modal-suggestion-project-comments">
+                                      50 Comments
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="modal-project-divider"></div>
+                            <div className="modal-suggestion-viewall">
+                              View all
+                              <div className="viewall-image">
+                                <img src="" alt=">" />
+                              </div>
+                            </div>
+                          </div>
+                          <div className="modal-suggestion-container">
+                            <div className="modal-suggestion-title">Most Liked Project</div>
+                            <div className="modal-project-divider"></div>
+                            <div className="modal-suggestion-project-container">
+                              <div className="modal-suggestion-project">
+                                <div className="modal-suggestion-project-img">
+                                  <img src="" alt="image" />
+                                </div>
+                                <div className="modal-suggestion-project-details">
+                                  <div className="modal-suggestion-project-details-title">
+                                    ABC
+                                  </div>
+                                  <div className="modal-suggestion-project-engagement">
+                                    <div className="modal-suggestion-project-likes">
+                                      200 Likes
+                                    </div>
+                                    <div className="modal-suggestion-project-comments">
+                                      50 Comments
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="modal-suggestion-project">
+                                <div className="modal-suggestion-project-img">
+                                  <img src="" alt="image" />
+                                </div>
+                                <div className="modal-suggestion-project-details">
+                                  <div className="modal-suggestion-project-details-title">
+                                    ABC
+                                  </div>
+                                  <div className="modal-suggestion-project-engagement">
+                                    <div className="modal-suggestion-project-likes">
+                                      200 Likes
+                                    </div>
+                                    <div className="modal-suggestion-project-comments">
+                                      50 Comments
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="modal-suggestion-project">
+                                <div className="modal-suggestion-project-img">
+                                  <img src="" alt="image" />
+                                </div>
+                                <div className="modal-suggestion-project-details">
+                                  <div className="modal-suggestion-project-details-title">
+                                    ABC
+                                  </div>
+                                  <div className="modal-suggestion-project-engagement">
+                                    <div className="modal-suggestion-project-likes">
+                                      200 Likes
+                                    </div>
+                                    <div className="modal-suggestion-project-comments">
+                                      50 Comments
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="modal-project-divider"></div>
+                            <div className="modal-suggestion-viewall">
+                              View all
+                              <div className="viewall-image">
+                                <img src="" alt=">" />
+                              </div>
+                            </div>
+                          </div>
+                          <div className="modal-suggestion-container">
+                            <div className="modal-suggestion-title">Best Discussion</div>
+                            <div className="modal-project-divider"></div>
+                            <div className="modal-suggestion-project-container">
+                              <div className="modal-suggestion-project">
+                                <div className="modal-suggestion-project-img">
+                                  <img src="" alt="image" />
+                                </div>
+                                <div className="modal-suggestion-project-details">
+                                  <div className="modal-suggestion-project-details-title">
+                                    Let&apos;s get animating!
+                                  </div>
+                                  <div className="modal-suggestion-project-engagement">
+                                    <div className="modal-suggestion-project-comments">
+                                      50 Comments
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="modal-suggestion-project">
+                                <div className="modal-suggestion-project-img">
+                                  <img src="" alt="image" />
+                                </div>
+                                <div className="modal-suggestion-project-details">
+                                  <div className="modal-suggestion-project-details-title">
+                                    HTML First
+                                  </div>
+                                  <div className="modal-suggestion-project-engagement">
+                                    <div className="modal-suggestion-project-comments">
+                                      50 Comments
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="modal-suggestion-project">
+                                <div className="modal-suggestion-project-img">
+                                  <img src="" alt="image" />
+                                </div>
+                                <div className="modal-suggestion-project-details">
+                                  <div className="modal-suggestion-project-details-title">
+                                    Bitbox Talks
+                                  </div>
+                                  <div className="modal-suggestion-project-engagement">
+                                    <div className="modal-suggestion-project-comments">
+                                      50 Comments
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="modal-project-divider"></div>
+                            <div className="modal-suggestion-viewall">
+                              I&apos;m feeling lucky
+                              <div className="viewall-image">
+                                <img src="" alt=">" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div className="modal-body">
-                        {project.edescription ? (<p>{project.edescription}</p>) : (<p>No description to display</p>)}
-                      </div>
-                      <div className="modal-footer">
-                        <button href={project.egitHubLink} target="_blank" className="card-link btn btn-warning">Github Link</button>
-                        <button className="btn btn-danger" onClick={handleVideo}>Youtube Link</button>
-                        <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detailToggle">Close</button>
-                      </div>
-                    </div>
+                    </section>
                   </div>
                 </div>
 
