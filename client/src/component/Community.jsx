@@ -1,4 +1,5 @@
 import { useContext, useRef, useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import projectContext from '../context/projectContext';
 import PropTypes from 'prop-types';
 import CommunityCard from './CommunityCard';
@@ -22,8 +23,9 @@ const Community = (props) => {
 
   const context = useContext(projectContext)
   const { globalProjects, getGlobalProjects } = context;
-  getGlobalProjects();
-
+  useEffect(() => {
+    getGlobalProjects();
+  }, [getGlobalProjects]);
   const refDetails = useRef(null)
 
   const showDetailProject = (currentProject) => {
@@ -39,6 +41,7 @@ const Community = (props) => {
     // const [profiles, setprofiles] = useState([]);
     // const userProfileContext = useContext(profileContext);
     // const { getUserProfile } = userProfileContext;
+    const navigate = useNavigate();
     useEffect(() => {
         if (localStorage.getItem('token')) {
             getUserProfile();
