@@ -1,9 +1,9 @@
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useContext, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import profileContext from '../context/profileContext';
 
-const EditProfile = ({ showAlert }) => {
+const EditProfile = ({ showAlert, onUpdateProfile }) => {
     const userProfileContext = useContext(profileContext);
     const { createUserProfile } = userProfileContext;
 
@@ -24,6 +24,7 @@ const EditProfile = ({ showAlert }) => {
         createUserProfile(profile.name, profile.college, profile.phone, profile.address);
         setProfile({ name: "", college: "", phone: "", address: "" });
         showAlert("Profile Updated Successfully", "success");
+        onUpdateProfile(); // Notify parent component about the profile update
     };
 
     return (
@@ -72,6 +73,7 @@ const EditProfile = ({ showAlert }) => {
 
 EditProfile.propTypes = {
     showAlert: PropTypes.func.isRequired,
+    onUpdateProfile: PropTypes.func.isRequired, // Function to notify parent about profile update
 };
 
 export default EditProfile;

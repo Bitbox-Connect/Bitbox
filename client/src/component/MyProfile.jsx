@@ -6,7 +6,9 @@ import profileContext from '../context/profileContext';
 import MyProfileCard from './MyProfileCard';
 import UploadProject from './UploadProject';
 import avatar from '../assets/images/Dropdown/avatar.jpg';
-import './css/MyProfile.css'
+import EditProfile from './EditProfile'; // Import EditProfile component
+
+// import './css/MyProfile.css'
 // import EditProfile from './EditProfile';
 
 const MyProfile = (props) => {
@@ -63,24 +65,34 @@ const MyProfile = (props) => {
         // Able to write in the input field
         setproject({ ...project, [e.target.name]: e.target.value });
     }
-
+    const userProfileContext = useContext(profileContext);
+    const { userProfile, getUserProfile } = userProfileContext;
     // Context for Profile
     // const [profiles, setprofiles] = useState({ id: "", name: "", college: "", phone: "", address: "" });
     const [profiles, setprofiles] = useState([]);
-    const userProfileContext = useContext(profileContext);
-    const { getUserProfile } = userProfileContext;
+    // const userProfileContext = useContext(profileContext);
+    // const { getUserProfile } = userProfileContext;
     useEffect(() => {
-        const getUserProfile = getUserProfile()
-        setprofiles(getUserProfile);
+        if (localStorage.getItem('token')) {
+            getUserProfile();
+        }
+        else {
+            navigate('/login')
+        }
         // eslint-disable-next-line
-    }, []);
+    }, [])
+
+
+    // const handleProfileUpdate = () => {
+    //     getUserProfile();
+    // }
+
     return (
         <>
             {/* {editMode ? <EditProfile/>:( */}
             <div className="user-profile-dashboard">
                 <div className="user-details">
-                    {profiles.map((profile) => (
-                        <div key={profiles.id} className="userproject-left">
+                        <div className="userprofile-left">
                             <div className="userdetail-left">
                                 {/* <Link to='/edituser' onClick={handleEditClick}>Edit</Link> */}
                                 {/* <button onClick={handleEditClick}><link rel="stylesheet" href="/editprogile" />Edit</button> */}
@@ -88,10 +100,10 @@ const MyProfile = (props) => {
                                     <img src={avatar} alt="Profile" />
                                 </div>
                                 <div className="user-bio">
-                                    <p>Name: {profile.name} <span></span></p>
-                                    <p>Address : {profile.address} <span>Harshit7492</span></p>
-                                    <p>College : {profile.college} <span>Harshit7492</span></p>
-                                    <p>Phone : {profile.phone} <span>Harshit7492</span></p>
+                                    <p>Name: <span>{userProfile.name}</span></p>
+                                    <p>Address :  <span>{userProfile.addrres}</span></p>
+                                    <p>College :  <span>{userProfile.college}</span></p>
+                                    <p>Phone :  <span>{userProfile.phone}</span></p>
                                 </div>
                                 <button>
                                     public
@@ -121,7 +133,8 @@ const MyProfile = (props) => {
                                 </div>
                             </div>
                         </div>
-                    ))}
+                    
+                     
 
                     <div className="userproject-right">
                         <div className="userdetail-right">
