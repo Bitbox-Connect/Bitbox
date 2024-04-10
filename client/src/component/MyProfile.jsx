@@ -47,8 +47,10 @@ const MyProfile = (props) => {
     }
 
     const handleClick = () => {
+        // Modify YouTube link
+        const modifiedYouTubeLink = modifyYouTubeLink(project.eyouTubeLink);
         // Update project using API call
-        editProject(project.id, project.etitle, project.edescription, project.egitHubLink, project.eyouTubeLink)
+        editProject(project.id, project.etitle, project.edescription, project.egitHubLink, modifiedYouTubeLink) // Pass modifiedYouTubeLink instead of project.youTubeLink
         refClose.current.click();
         props.showAlert("Project Updated Successfully", "success")
     }
@@ -87,6 +89,16 @@ const MyProfile = (props) => {
     // const handleProfileUpdate = () => {
     //     getUserProfile();
     // }
+
+    // Function to modify YouTube link
+    const modifyYouTubeLink = (link) => {
+        if (link.includes("youtube.com/watch?v=")) {
+            const videoId = link.split("youtube.com/watch?v=")[1];
+            return `https://www.youtube.com/embed/${videoId}`;
+        } else {
+            return link; // Return unmodified link if it doesn't match expected format
+        }
+    };
 
     return (
         <>

@@ -9,11 +9,11 @@ import Navbar from './component/Navbar';
 import Signup from './component/Signup';
 import ProjectState from './context/ProjectState';
 import ProfileState from './context/ProfileState';
-import Codeofconduct from './component/Footer/Codeofconduct';
+import CodeOfConduct from './component/Footer/CodeOfConduct';
 import Feedback from './component/Footer/Feedback';
-import Contactus from './component/Footer/Contactus';
-import Privacypolicy from './component/Footer/Privacypolicy';
-import Termsandcondition from './component/Footer/Termsandcondition';
+import ContactUs from './component/Footer/ContactUs';
+import PrivacyPolicy from './component/Footer/PrivacyPolicy';
+import TermOfUse from './component/Footer/TermOfUse';
 import Community from './component/Community';
 import MyProfile from './component/MyProfile'
 import ScrollTop from './component/ScrollTop';
@@ -60,11 +60,11 @@ function App() {
                 <Route exact path="/login" element={<Login showAlert={showAlert} />} />
                 <Route exact path="/signup" element={<Signup showAlert={showAlert} />} />
                 {/* Footer */}
-                <Route exact path="/codeofconduct" element={<Codeofconduct showAlert={showAlert} />} />
+                <Route exact path="/codeofconduct" element={<CodeOfConduct showAlert={showAlert} />} />
                 <Route exact path="/feedback" element={<Feedback showAlert={showAlert} />} />
-                <Route exact path="/contactus" element={<Contactus showAlert={showAlert} />} />
-                <Route exact path="/Privacypolicy" element={<Privacypolicy showAlert={showAlert} />} />
-                <Route exact path="/termsandcondition" element={<Termsandcondition showAlert={showAlert} />} />
+                <Route exact path="/contactus" element={<ContactUs showAlert={showAlert} />} />
+                <Route exact path="/privacypolicy" element={<PrivacyPolicy showAlert={showAlert} />} />
+                <Route exact path="/termofuse" element={<TermOfUse showAlert={showAlert} />} />
               </Routes>
             </div>
             {/* Conditionally render the footer based on the current route */}

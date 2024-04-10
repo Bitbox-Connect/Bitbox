@@ -1,16 +1,31 @@
 /* Footer Section */
-.Container {
+
+.footer-about {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+}
+
+.footer-container {
     display: flex;
     justify-content: space-around;
     background: #a6c1ee;
-    padding: 20px;
+    padding: 15px;
     border-top: 2px solid black;
     width: 100vw;
     font-weight: 500;
 }
-.icon{
+
+.icon {
     size: 2rem;
 }
+
 .About_us {
     flex: 1;
 }
@@ -21,8 +36,8 @@
     flex: 0 1 20%;
 }
 
-.About_note {
-    margin-bottom: 20px;
+.footer-note {
+    margin-top: 20px;
 }
 
 h1 {
@@ -46,12 +61,12 @@ p {
     color: #040404;
 }
 
-.Container a {
+.footer-container a {
     color: #0a0a0a;
     text-decoration: none;
 }
 
-.Container a:hover {
+.footer-container a:hover {
     color: #0d0d0e;
 }
 

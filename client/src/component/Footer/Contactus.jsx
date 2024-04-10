@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import '../css/Main.css';
+import { useState } from 'react';
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -28,9 +29,9 @@ function ContactForm() {
   };
 
   return (
-    <div className="container">
-      <h2>Contact Us</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="container contactus-container">
+      <h2 className='text-center Heading-Page'>Contact Us</h2>
+      <form onSubmit={handleSubmit} className='mt-4 contactus-main-box'>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">Your Name:</label>
           <input

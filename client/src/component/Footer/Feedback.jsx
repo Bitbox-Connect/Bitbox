@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import '../css/Feedback.css'; // Import CSS file for styling
 
 function FeedbackForm() {
@@ -24,27 +24,27 @@ function FeedbackForm() {
   };
 
   return (
-    <div className='main-box'>
-      <h1 className="text-center">Feedback Form</h1>
-      <form onSubmit={handleSubmit} className="container mt-4">
+    <div className='feedback-main-box'>
+      <h2 className="text-center Heading-Page">Feedback</h2>
+      <form onSubmit={handleSubmit} className="feedback-container container mt-4">
         <div className="mb-3">
           <label htmlFor="name" className="form-label">Name:</label>
-          <input 
-            type="text" 
-            id="name" 
-            className="form-control" 
-            value={name} 
+          <input
+            type="text"
+            id="name"
+            className="form-control"
+            value={name}
             onChange={(e) => setName(e.target.value)}
             required
           />
         </div>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">Email:</label>
-          <input 
-            type="email" 
-            id="email" 
-            className="form-control" 
-            value={email} 
+          <input
+            type="email"
+            id="email"
+            className="form-control"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
@@ -69,11 +69,11 @@ function FeedbackForm() {
         </div>
         <div className="mb-3">
           <label htmlFor="feedback" className="form-label">Feedback:</label>
-          <textarea 
-            id="feedback" 
-            className="form-control" 
-            rows="5" 
-            value={feedback} 
+          <textarea
+            id="feedback"
+            className="form-control"
+            rows="5"
+            value={feedback}
             onChange={(e) => setFeedback(e.target.value)}
             required
           ></textarea>

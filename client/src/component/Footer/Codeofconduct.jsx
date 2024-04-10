@@ -1,13 +1,13 @@
-import '../css/main.css';
-const Codeofconduct = () => {
+import '../css/Main.css';
+
+const CodeOfConduct = () => {
     return (
         <div>
-            <div className="container">
-                <h1 className='text-center'>Code Of Conduct</h1>
-
+            <div className="container codeofconduct-container">
+                <h2 className='text-center Heading-Page my-3'>Code Of Conduct</h2>
                 <div className="cont-box">
                     <div className="contents">
-                        <div className="position-relative m-2 p-4 fs-3">
+                        <div className="position-relative m-2 p-2 fs-5">
                             Once you have created a username for yourself, maintain the same throughout the program. If any participant changes his/her username, then the username which is not registered with the organizing committee will cease to be a part of the program.
                             <span className="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-primary border">
                                 1
@@ -17,7 +17,7 @@ const Codeofconduct = () => {
                 </div>
                 <div className="cont-box">
                     <div className="contents">
-                        <div className="position-relative m-2 p-4 fs-3">
+                        <div className="position-relative m-2 p-2 fs-5">
                             Once you have created a username for yourself, maintain the same throughout the program. If any participant changes his/her username, then the username which is not registered with the organizing committee will cease to be a part of the program.
                             <span className="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-primary border">
                                 2
@@ -27,7 +27,7 @@ const Codeofconduct = () => {
                 </div>
                 <div className="cont-box">
                     <div className="contents">
-                        <div className="position-relative m-2 p-4 fs-3">
+                        <div className="position-relative m-2 p-2 fs-5">
                             Once you have created a username for yourself, maintain the same throughout the program. If any participant changes his/her username, then the username which is not registered with the organizing committee will cease to be a part of the program.
                             <span className="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-primary border">
                                 3
@@ -37,7 +37,7 @@ const Codeofconduct = () => {
                 </div>
                 <div className="cont-box">
                     <div className="contents ">
-                        <div className="position-relative m-2 p-4 fs-3">
+                        <div className="position-relative m-2 p-2 fs-5">
                             Once you have created a username for yourself, maintain the same throughout the program. If any participant changes his/her username, then the username which is not registered with the organizing committee will cease to be a part of the program.
                             <span className="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-primary border">
                                 4
@@ -47,7 +47,7 @@ const Codeofconduct = () => {
                 </div>
                 <div className="cont-box">
                     <div className="contents ">
-                        <div className="position-relative p-4 fs-3">
+                        <div className="position-relative p-2 fs-5">
                             Once you have created a username for yourself, maintain the same throughout the program. If any participant changes his/her username, then the username which is not registered with the organizing committee will cease to be a part of the program.
                             <span className="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-primary border">
                                 5
@@ -62,4 +62,4 @@ const Codeofconduct = () => {
 }
 
 
-export default Codeofconduct
+export default CodeOfConduct

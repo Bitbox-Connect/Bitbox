@@ -1,20 +1,23 @@
 import { Link } from 'react-router-dom';
 import './css/Footer.css';
 import { FaFacebookSquare, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import logo from '../assets/images/logo.png';
 function Footer() {
   return (
     <footer>
-      <div className='Container'>
-        <div className='About_us'>
-          <div className='About_note'>
+      <div className='footer-container'>
+        <div className='footer-about'>
+          <div className='footer-note'>
             <Link to="/">
-              <h1>BIT<span className='code'>BOX</span></h1>
+              <div className='footer-logo'>
+                <img className='mx-3' style={{ width: "5.5rem" }} src={logo} alt="logo" />
+              </div>
+              <h2 style={{ fontFamily: "medium", fontSize: "2.5rem" }}>BIT<span className='code'>BOX</span></h2>
             </Link>
-            <p className='project-info fs-5'>&quot;is for university students to work on open-source projects,
-              pairing them with mentors to gain practical coding experience,
-              contribute to real-world projects, and foster collaboration within
-              the open-source community.&quot;</p>
-            <Link to="/" className='fs-5'>Explore more...</Link>
+            <div className='project-info text-center fs-5'>Where Projects Find Solution Together</div>
+            <div className='text-center fs-6'>
+              <Link to="/community">Explore more..</Link>
+            </div>
           </div>
         </div>
         <div className="new_Details m-4">
@@ -32,7 +35,7 @@ function Footer() {
             <ul className='fs-5'>
               <li><Link to="/feedback">Feedback</Link></li>
               <li><Link to="/privacypolicy">Privacy Policy</Link></li>
-              <li><Link to="/termsandcondition">Terms of use</Link></li>
+              <li><Link to="/termofuse">Terms of use</Link></li>
             </ul>
           </div>
         </div>
@@ -43,7 +46,6 @@ function Footer() {
               <li><Link to="/"><FaLinkedin color="#0077b5" fontSize="2rem" />Linkedin</Link></li>
               <li><Link to="/"><FaTwitter color="#1da1f2" fontSize="2rem" />Twiiter</Link></li>
               <li><Link to="/"><FaGithub color="#211F1F" fontSize="2rem" />GitHub</Link></li>
-              {/* <li><Link to="/"><FaInstagram color="#c13584" fontSize="2rem"/></Link></li> */}
               <li><Link to="/"><FaFacebookSquare color="#3b5998" fontSize="2rem" />Facebook</Link></li>
             </ul>
           </div>
