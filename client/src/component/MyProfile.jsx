@@ -1,6 +1,7 @@
 import { useContext, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import projectContext from '../context/projectContext';
 import profileContext from '../context/profileContext';
 import MyProfileCard from './MyProfileCard';
@@ -11,6 +12,7 @@ import './css/Modal.css'
 import './css/MyProfile.css'
 
 const MyProfile = (props) => {
+    const host = "http://localhost:5000"
     const [showVideo, setShowVideo] = useState(false);
 
     const handleVideoClose = () => {
@@ -86,7 +88,17 @@ const MyProfile = (props) => {
         } else {
             return link; // Return unmodified link if it doesn't match expected format
         }
-    };
+    }
+
+    // Avatar Profile Image 
+    const [image, setImage] = useState()
+
+    useEffect(() => {
+        // Fetch initial image when component mounts
+        axios.get(`${host}/getAvatarImage`)
+            .then(res => setImage(res.data[res.data.length - 1].image)) // Fetch the last uploaded image
+            .catch(err => console.log(err))
+    })
 
     return (
         <>
@@ -99,7 +111,15 @@ const MyProfile = (props) => {
                             {/* <Link to='/edituser' onClick={handleEditClick}>Edit</Link> */}
                             {/* <button onClick={handleEditClick}><link rel="stylesheet" href="/editprofile" />Edit</button> */}
                             <div className="profile-picture mb-3 mt-2">
-                                <img src={avatar} alt="Profile" />
+                                {image ? (
+                                    <img src={image} alt="avatar" />
+                                ) : (
+                                    <img
+                                        src={avatar}
+                                        className="avatar img-circle"
+                                        alt="avatar"
+                                    />
+                                )}
                             </div>
                             <div className="user-bio">
                                 <p>Name: <span>{userProfile.name}</span></p>

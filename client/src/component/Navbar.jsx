@@ -2,12 +2,14 @@ import './css/Navbar.css';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import axios from 'axios'
 import AddProject from './AddProject';
 import logo from '../assets/images/logo.png';
 import avatarDropdown from '../assets/images/Dropdown/avatar.jpg';
 import { auth } from '../component/Firebase/Setup';
 
 function Navbar(props) {
+    const host = "http://localhost:5000"
     const navigate = useNavigate();
     const location = useLocation();
     const { showAlert } = props;
@@ -56,6 +58,16 @@ function Navbar(props) {
         }
     };
 
+    // Avatar Profile Image 
+    const [image, setImage] = useState()
+
+    useEffect(() => {
+        // Fetch initial image when component mounts
+        axios.get(`${host}/getAvatarImage`)
+            .then(res => setImage(res.data[res.data.length - 1].image)) // Fetch the last uploaded image
+            .catch(err => console.log(err))
+    })
+
     return (
         <div>
             <nav className={`navbar navbar-expand-lg ${isScrolled ? 'sticky' : ''}`} id='navbar'>
@@ -102,7 +114,15 @@ function Navbar(props) {
                                             <li className="nav-item dropdown mx-2">
                                                 <a className="nav-link profile-img" href="#" id="navbarScrollingDropdown" role="button"
                                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <img src={avatarDropdown} alt="" />
+                                                    {image ? (
+                                                        <img src={image} style={{ width: "3.2rem", height: "3.2rem" }} alt="avatar" />
+                                                    ) : (
+                                                        <img
+                                                            src={avatarDropdown}
+                                                            className="avatar img-circle"
+                                                            alt="avatar"
+                                                        />
+                                                    )}
                                                 </a>
                                                 <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                                                     <li><a className="dropdown-item" href="/myprofile">My Profile</a></li>

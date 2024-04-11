@@ -1,10 +1,13 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
+import axios from 'axios'
 import profileContext from '../context/profileContext';
+// CSS
 import './css/EditProfile.css'
 
 const EditProfile = ({ showAlert }) => {
+    const host = 'http://localhost:5000'
     const userProfileContext = useContext(profileContext);
     const { updateUserProfile } = userProfileContext;
 
@@ -25,11 +28,36 @@ const EditProfile = ({ showAlert }) => {
         try {
             updateUserProfile(profile.name, profile.college, profile.phone, profile.address);
             setProfile({ name: "", college: "", phone: "", address: "" });
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const imageData = reader.result;
+                axios.post(`${host}/uploadAvatarImage`, { image: imageData })
+                    .then(res => {
+                        console.log(res)
+                        // After successful upload, fetch the updated image
+                        axios.get(`${host}/getAvatarImage`)
+                            .then(res => setImage(res.data[res.data.length - 1].image)) // Fetch the last uploaded image
+                            .catch(err => console.log(err))
+                    })
+                    .catch(err => console.log(err))
+            }
+            reader.readAsDataURL(file);
             showAlert("Profile Updated Successfully", "success");
         } catch (error) {
             showAlert("Profile Updated Failed", "danger");
         }
     };
+
+    // For Avatar Uploading 
+    const [file, setFile] = useState()
+    const [image, setImage] = useState()
+
+    useEffect(() => {
+        // Fetch initial image when component mounts
+        axios.get(`{host}/getAvatarImage`)
+            .then(res => setImage(res.data[res.data.length - 1].image)) // Fetch the last uploaded image
+            .catch(err => console.log(err))
+    }, [])
 
     return (
         <div>
@@ -38,9 +66,20 @@ const EditProfile = ({ showAlert }) => {
                     <div className="col-md-3 editprofile-avatar-container">
                         <h2>Edit Details</h2>
                         <div className="text-center">
-                            <img src="https://png.pngitem.com/pimgs/s/150-1503945_transparent-user-png-default-user-image-png-png.png" className="avatar img-circle" alt="avatar" />
+                            {image ? (
+                                <img src={image} style={{ width: "22vw", height : "38vh" }}
+                                    className="avatar img-circle"
+                                    alt="avatar"
+                                />
+                            ) : (
+                                <img
+                                    src="https://png.pngitem.com/pimgs/s/150-1503945_transparent-user-png-default-user-image-png-png.png"
+                                    className="avatar img-circle"
+                                    alt="avatar"
+                                />
+                            )}
                             <h6>Upload a different photo...</h6>
-                            <input type="file" className="form-control" />
+                            <input type="file" className="form-control" onChange={e => setFile(e.target.files[0])} />
                         </div>
                     </div>
                     <div className="col-md-9 editprofile-info-container">

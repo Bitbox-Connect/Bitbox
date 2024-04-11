@@ -17,7 +17,6 @@ import TermOfUse from './component/Footer/TermOfUse';
 import Community from './component/Community';
 import MyProfile from './component/MyProfile'
 import ScrollTop from './component/ScrollTop';
-// import SearchBar from './component/SearchBar';
 import EditProfile from './component/EditProfile';
 
 function App() {
@@ -40,7 +39,6 @@ function App() {
     <>
       <ProjectState>
         <ProfileState>
-          {/* <SearchBar/> */}
           <Router>
             {/* Navbar */}
             <div className="content">

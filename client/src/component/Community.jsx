@@ -2,6 +2,7 @@ import { useContext, useRef, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import projectContext from '../context/projectContext';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import CommunityCard from './CommunityCard';
 import './css/Community.css'
 import profileContext from '../context/profileContext';
@@ -9,6 +10,7 @@ import './EditProfile'
 import avatar from '../assets/images/Dropdown/avatar.jpg';
 
 const Community = (props) => {
+  const host = "http://localhost:5000"
   const ref = useRef(null)
   const [project, setproject] = useState({ id: "", etitle: "", edescription: "", egitHubLink: "", eyouTubeLink: "" });
 
@@ -44,6 +46,16 @@ const Community = (props) => {
     // eslint-disable-next-line
   }, [])
 
+  // Avatar Profile Image 
+  const [image, setImage] = useState()
+
+  useEffect(() => {
+    // Fetch initial image when component mounts
+    axios.get(`${host}/getAvatarImage`)
+      .then(res => setImage(res.data[res.data.length - 1].image)) // Fetch the last uploaded image
+      .catch(err => console.log(err))
+  })
+
   return (
     <>
       <div className="user-profile-dashboard">
@@ -51,7 +63,15 @@ const Community = (props) => {
           <div className="globalproject-left">
             <div className="globaldetail-left">
               <div className="profile-picture mb-3 mt-2">
-                <img src={avatar} alt="Profile" />
+                {image ? (
+                  <img src={image} alt="avatar" />
+                ) : (
+                  <img
+                    src={avatar}
+                    className="avatar img-circle"
+                    alt="avatar"
+                  />
+                )}
               </div>
               <div className="global-bio">
                 <p>Name: <span>{userProfile.name}</span></p>
