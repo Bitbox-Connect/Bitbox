@@ -1,15 +1,14 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const projectSchema = new Schema({
+const ProjectSchema = new Schema({
     // user is a foreign key 
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user',
     },
-    img: {
-        data: Buffer,
-        contentType: String
+    image: {
+        image: String,
     },
     title: {
         type: String,
@@ -31,4 +30,4 @@ const projectSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('projects', projectSchema);
+module.exports = mongoose.model('projects', ProjectSchema);

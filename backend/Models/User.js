@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const userSchema = new Schema({
+const UserSchema = new Schema({
+  image: {
+    image: String,
+  },
   name: {
     type: String,
     required: true
@@ -21,7 +24,7 @@ const userSchema = new Schema({
   }
 });
 
-const User = mongoose.model('user', userSchema);
+const User = mongoose.model('user', UserSchema);
 // create index just for tell the concept of create Indexes
 // User.createIndexes; // --> Don't uncomment it 
 module.exports = User;

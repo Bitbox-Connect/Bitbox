@@ -11,10 +11,16 @@
     display: flex;
 }
 
+.globalproject-left {
+    width: 18vw;
+}
+
 .globaldetail-left {
     min-height: 100%;
     background-color: #dcddd1;
     padding: 20px;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 /* -------------------------------------- right section ----------------------------------------- */

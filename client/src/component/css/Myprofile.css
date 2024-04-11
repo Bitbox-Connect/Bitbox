@@ -1,5 +1,13 @@
 /* -------------------------------------- left section ----------------------------------------- */
 
+.userprofile-left {
+  width: 18vw;
+}
+
+.user-details {
+  display: flex;
+}
+
 .profile-picture img {
   width: 100px;
   height: 100px;
@@ -7,14 +15,12 @@
   margin-right: 20px;
 }
 
-.user-details {
-  display: flex;
-}
-
 .userdetail-left {
   min-height: 100%;
   background-color: #dcddd1;
   padding: 20px;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 /* -------------------------------------- right section ----------------------------------------- */

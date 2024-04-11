@@ -4,9 +4,9 @@ import { Button } from 'react-bootstrap';
 import profileContext from '../context/profileContext';
 import './css/EditProfile.css'
 
-const EditProfile = ({ showAlert, onUpdateProfile }) => {
+const EditProfile = ({ showAlert }) => {
     const userProfileContext = useContext(profileContext);
-    const { createUserProfile } = userProfileContext;
+    const { updateUserProfile } = userProfileContext;
 
     const [profile, setProfile] = useState({ name: '', college: '', phone: '', address: '' });
 
@@ -22,10 +22,13 @@ const EditProfile = ({ showAlert, onUpdateProfile }) => {
     };
 
     const handleClick = async () => {
-        createUserProfile(profile.name, profile.college, profile.phone, profile.address);
-        setProfile({ name: "", college: "", phone: "", address: "" });
-        showAlert("Profile Updated Successfully", "success");
-        onUpdateProfile(); // Notify parent component about the profile update
+        try {
+            updateUserProfile(profile.name, profile.college, profile.phone, profile.address);
+            setProfile({ name: "", college: "", phone: "", address: "" });
+            showAlert("Profile Updated Successfully", "success");
+        } catch (error) {
+            showAlert("Profile Updated Failed", "danger");
+        }
     };
 
     return (

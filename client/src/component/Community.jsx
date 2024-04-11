@@ -30,14 +30,9 @@ const Community = (props) => {
     // Set the title, description and link to edit modal 
     setproject({ id: currentProject._id, etitle: currentProject.title, edescription: currentProject.description, egitHubLink: currentProject.gitHubLink, eyouTubeLink: currentProject.youTubeLink })
   }
-  // edit  profile 
+  // Edit  profile 
   const userProfileContext = useContext(profileContext);
   const { userProfile, getUserProfile } = userProfileContext;
-  // Context for Profile
-  // const [profiles, setprofiles] = useState({ id: "", name: "", college: "", phone: "", address: "" });
-  // const [profiles, setprofiles] = useState([]);
-  // const userProfileContext = useContext(profileContext);
-  // const { getUserProfile } = userProfileContext;
   const navigate = useNavigate();
   useEffect(() => {
     if (localStorage.getItem('token')) {
@@ -60,11 +55,8 @@ const Community = (props) => {
               </div>
               <div className="global-bio">
                 <p>Name: <span>{userProfile.name}</span></p>
-                <p>UserName : <span>Harshit7492</span></p>
+                <p>UserName : <span>{userProfile.college}</span></p>
               </div>
-              <button>
-                public
-              </button>
               <hr />
               <div className="global-links">
                 <h3>Discover</h3>
@@ -97,7 +89,6 @@ const Community = (props) => {
                 {/* Detail Button trigger modal */}
                 <button ref={refDetails} className="btn" data-bs-toggle="modal" data-bs-target="#detailToggle">
                 </button>
-
                 {/* Project Details Modal */}
                 <div className="modal fade" id="detailToggle" ref={ref} tabIndex="-1" aria-labelledby="detailToggle" aria-hidden="true">
                   <div className="modal-dialog project-modal-section" style={{ maxWidth: "100%" }}>

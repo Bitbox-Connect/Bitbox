@@ -126,9 +126,6 @@
   width: 50px;
   border-radius: 50%;
   cursor: pointer;
-}
-
-.profile-img :hover {
   outline: 4px solid black;
 }
 
@@ -404,21 +401,6 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-
-/* title style */
-body {
-  font-family: "Exo 2", sans-serif;
-}
-
-/* .header {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: calc(100vh - 4rem);
-  } */
 
 .title-wrapper {
   display: grid;

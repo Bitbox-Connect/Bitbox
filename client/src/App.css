@@ -1,7 +1,7 @@
-/* @font-face {
+@font-face {
     font-family: medium;
     src: url("./assets/fonts/medium.otf") format("opentype");
-} */
+}
 
 * {
     margin: 0;
@@ -19,13 +19,17 @@
     --dark-gray: #555;
 }
 
+#root {
+    overflow: hidden;
+}
+
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
 
-#root {
-    overflow: hidden;
+body {
+    font-family: "Exo 2", sans-serif;
 }
 
 .row {

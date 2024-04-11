@@ -21,7 +21,8 @@
     "firebase": "^10.10.0",
     "google-auth-library": "^9.7.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.1.2"
+    "mongoose": "^8.1.2",
+    "multer": "^1.4.5-lts.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"

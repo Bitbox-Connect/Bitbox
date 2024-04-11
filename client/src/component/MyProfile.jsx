@@ -9,9 +9,6 @@ import avatar from '../assets/images/Dropdown/avatar.jpg';
 // CSS
 import './css/Modal.css'
 import './css/MyProfile.css'
-// import EditProfile from './EditProfile'; // Import EditProfile component
-
-// import EditProfile from './EditProfile';
 
 const MyProfile = (props) => {
     const [showVideo, setShowVideo] = useState(false);
@@ -71,11 +68,6 @@ const MyProfile = (props) => {
     // Profile Context
     const userProfileContext = useContext(profileContext);
     const { userProfile, getUserProfile } = userProfileContext;
-    // Context for Profile
-    // const [profiles, setprofiles] = useState({ id: "", name: "", college: "", phone: "", address: "" });
-    // const [profiles, setprofiles] = useState([]);
-    // const userProfileContext = useContext(profileContext);
-    // const { getUserProfile } = userProfileContext;
     useEffect(() => {
         if (localStorage.getItem('token')) {
             getUserProfile();
@@ -85,10 +77,6 @@ const MyProfile = (props) => {
         }
         // eslint-disable-next-line
     }, [])
-
-    // const handleProfileUpdate = () => {
-    //     getUserProfile();
-    // }
 
     // Function to modify YouTube link
     const modifyYouTubeLink = (link) => {
@@ -109,19 +97,16 @@ const MyProfile = (props) => {
                         <div className="userdetail-left">
                             {/* User Profile Information */}
                             {/* <Link to='/edituser' onClick={handleEditClick}>Edit</Link> */}
-                            {/* <button onClick={handleEditClick}><link rel="stylesheet" href="/editprogile" />Edit</button> */}
+                            {/* <button onClick={handleEditClick}><link rel="stylesheet" href="/editprofile" />Edit</button> */}
                             <div className="profile-picture">
                                 <img src={avatar} alt="Profile" />
                             </div>
                             <div className="user-bio">
                                 <p>Name: <span>{userProfile.name}</span></p>
-                                <p>Address :  <span>{userProfile.addrres}</span></p>
-                                <p>College :  <span>{userProfile.college}</span></p>
-                                <p>Phone :  <span>{userProfile.phone}</span></p>
+                                <p>Address : <span>{userProfile.address}</span></p>
+                                <p>College : <span>{userProfile.college}</span></p>
+                                <p>Phone : <span>{userProfile.phone}</span></p>
                             </div>
-                            <button>
-                                public
-                            </button>
                             <hr />
                             <div className="user-links">
                                 <h3>Discover</h3>

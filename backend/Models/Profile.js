@@ -1,15 +1,14 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const profileSchema = new Schema({
+const ProfileSchema = new Schema({
     // user is a foreign key 
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user',
     },
-    img: {
-        data: Buffer,
-        contentType: String
+    image: {
+        image: String,
     },
     name: {
         type: String,
@@ -37,4 +36,4 @@ const profileSchema = new Schema({
     },
 });
 
-module.exports = mongoose.model('profile', profileSchema);
+module.exports = mongoose.model('profile', ProfileSchema);
