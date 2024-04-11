@@ -98,7 +98,7 @@ const MyProfile = (props) => {
                             {/* User Profile Information */}
                             {/* <Link to='/edituser' onClick={handleEditClick}>Edit</Link> */}
                             {/* <button onClick={handleEditClick}><link rel="stylesheet" href="/editprofile" />Edit</button> */}
-                            <div className="profile-picture">
+                            <div className="profile-picture mb-3 mt-2">
                                 <img src={avatar} alt="Profile" />
                             </div>
                             <div className="user-bio">

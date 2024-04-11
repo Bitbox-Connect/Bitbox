@@ -50,12 +50,12 @@ const Community = (props) => {
         <div className="user-details">
           <div className="globalproject-left">
             <div className="globaldetail-left">
-              <div className="profile-picture">
+              <div className="profile-picture mb-3 mt-2">
                 <img src={avatar} alt="Profile" />
               </div>
               <div className="global-bio">
                 <p>Name: <span>{userProfile.name}</span></p>
-                <p>UserName : <span>{userProfile.college}</span></p>
+                <p>College: <span>{userProfile.college}</span></p>
               </div>
               <hr />
               <div className="global-links">
