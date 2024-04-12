@@ -1,13 +1,15 @@
 import { useContext, useState, useRef, useEffect } from 'react';
 import projectContext from '../context/projectContext';
 import PropTypes from 'prop-types';
+import projectDummyImage from '../assets/images/Others/projects.png'
 
 function AddProject(props) {
     const context = useContext(projectContext);
     // Destructure the addProject from context
     const { addProject } = context;
 
-    const [project, setProject] = useState({ title: "", description: "", gitHubLink: "", youTubeLink: "" });
+    // image, date, title, description, gitHubLink, youTubeLink, tags
+    const [project, setProject] = useState({ image: "", date: "", title: "", description: "", gitHubLink: "", youTubeLink: "", tags: "" });
     const refClose = useRef(null);
 
     const handleClick = () => {
@@ -18,7 +20,7 @@ function AddProject(props) {
         // Modify YouTube link
         const modifiedYouTubeLink = modifyYouTubeLink(project.youTubeLink);
         // Add project API call
-        addProject(project.title, project.description, project.gitHubLink, modifiedYouTubeLink); // Pass modifiedYouTubeLink instead of project.youTubeLink
+        addProject(project.title, project.description, project.gitHubLink, modifiedYouTubeLink, project.tags); // Pass modifiedYouTubeLink instead of project.youTubeLink
         refClose.current.click();
         setProject({ title: "", description: "", gitHubLink: "", youTubeLink: "" });
         props.showAlert("Project Added Successfully", "success");
@@ -76,6 +78,20 @@ function AddProject(props) {
                         <div className="modal-body">
                             <div className="pro-card">
                                 <div className="card-body">
+                                    <div className="mb-3">
+                                        <label htmlFor="title" className="form-label">Upload Image</label>
+                                        <div className='d-flex justify-content-center'>
+                                            <img
+                                                src={projectDummyImage}
+                                                className="avatar w-100"
+                                                alt="project"
+                                            />
+                                        </div>
+                                        <div className='d-flex justify-content-around align-items-center mt-2'>
+                                            <input type="file" className="form-control" style={{ width: "80%" }} />
+                                            <button className='btn btn-secondary h-50'>Upload</button>
+                                        </div>
+                                    </div>
                                     <div className="mb-3">
                                         <label htmlFor="title" className="form-label">Project Title</label>
                                         <input autoFocus type="text" className="form-control" id="title" name='title' value={project.title} onChange={onChange} placeholder="Enter Project Title Here *" required onKeyDown={handleKeyDown} />

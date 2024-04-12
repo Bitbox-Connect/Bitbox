@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios'
 import AddProject from './AddProject';
 import logo from '../assets/images/logo.png';
-import avatarDropdown from '../assets/images/Dropdown/avatar.jpg';
+import avatarDropdown from '../assets/images/Dropdown/avatar.png';
 import { auth } from '../component/Firebase/Setup';
 
 function Navbar(props) {

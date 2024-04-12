@@ -7,7 +7,7 @@ import CommunityCard from './CommunityCard';
 import './css/Community.css'
 import profileContext from '../context/profileContext';
 import './EditProfile'
-import avatar from '../assets/images/Dropdown/avatar.jpg';
+import avatar from '../assets/images/Dropdown/avatar.png';
 
 const Community = (props) => {
   const host = "http://localhost:5000"

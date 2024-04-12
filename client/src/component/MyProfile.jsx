@@ -6,7 +6,8 @@ import projectContext from '../context/projectContext';
 import profileContext from '../context/profileContext';
 import MyProfileCard from './MyProfileCard';
 import UploadProject from './UploadProject';
-import avatar from '../assets/images/Dropdown/avatar.jpg';
+import avatar from '../assets/images/Dropdown/avatar.png';
+import projectDummyImage from '../assets/images/Others/projects.png'
 // CSS
 import './css/Modal.css'
 import './css/MyProfile.css'
@@ -172,6 +173,20 @@ const MyProfile = (props) => {
                                             <div className="pro-card">
                                                 {/* <img src={ProjectImg} className="card-img-top" alt={"project"} /> */}
                                                 <div className="card-body">
+                                                    <div className="mb-3">
+                                                        <label htmlFor="title" className="form-label">Upload Image</label>
+                                                        <div className='d-flex justify-content-center'>
+                                                            <img
+                                                                src={projectDummyImage}
+                                                                className="avatar w-100"
+                                                                alt="project"
+                                                            />
+                                                        </div>
+                                                        <div className='d-flex justify-content-around align-items-center mt-2'>
+                                                            <input type="file" className="form-control" style={{ width: "80%" }} />
+                                                            <button className='btn btn-secondary h-50'>Upload</button>
+                                                        </div>
+                                                    </div>
                                                     <div className="mb-3">
                                                         <label htmlFor="etitle" className="form-label">Project Title</label>
                                                         <input type="text" className="form-control" id="etitle" name='etitle' value={project.etitle} onChange={onChange} placeholder="Enter Project Title Here" />
