@@ -11,7 +11,6 @@ import projectDummyImage from '../assets/images/Others/projects.png'
 // CSS
 import './css/Modal.css'
 import './css/MyProfile.css'
-
 const MyProfile = (props) => {
     const host = "http://localhost:5000"
     const [showVideo, setShowVideo] = useState(false);

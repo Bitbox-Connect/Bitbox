@@ -9,11 +9,11 @@ import Navbar from './component/Navbar';
 import Signup from './component/Signup';
 import ProjectState from './context/ProjectState';
 import ProfileState from './context/ProfileState';
-import CodeOfConduct from './component/Footer/CodeOfConduct';
-import Feedback from './component/Footer/Feedback';
-import ContactUs from './component/Footer/ContactUs';
-import PrivacyPolicy from './component/Footer/PrivacyPolicy';
-import TermOfUse from './component/Footer/TermOfUse';
+import CodeOfConduct from './component/Footers/Codeofconduct'
+import Feedback from './component/Footers/Feedback';
+import ContactUs from './component/Footers/Contactus';
+import PrivacyPolicy from './component/Footers/Privacypolicy';
+import TermOfUse from './component/Footers/TermOfUse';
 import Community from './component/Community';
 import MyProfile from './component/MyProfile'
 import ScrollTop from './component/ScrollTop';
