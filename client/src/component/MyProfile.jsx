@@ -10,7 +10,6 @@ import avatar from '../assets/images/Dropdown/avatar.jpg';
 // CSS
 import './css/Modal.css'
 import './css/MyProfile.css'
-
 const MyProfile = (props) => {
     const host = "http://localhost:5000"
     const [showVideo, setShowVideo] = useState(false);
