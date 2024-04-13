@@ -1,87 +1,61 @@
-import { useState } from 'react';
 import '../css/Feedback.css'; // Import CSS file for styling
+import PropTypes from 'prop-types';
+import { useState } from 'react';
 
-function FeedbackForm() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [rating, setRating] = useState(1); // Initialize rating state to 1
-  const [feedback, setFeedback] = useState('');
+function Feedback(props) {
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Rating:', rating);
-    console.log('Feedback:', feedback);
-    setName('');
-    setEmail('');
-    setRating(1); // Reset rating to 1 after submission
-    setFeedback('');
-  };
+    if (isSubmitting) return; // If already submitting, do nothing
+    setIsSubmitting(true); // Set isSubmitting to true to disable the button
 
-  const handleHoverRating = (value) => {
-    setRating(value);
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxJzYGZE0R6W2ZLGbJZlUoxNwWShpAYhcJY4zBM9LOycb7iiM4vncS1fbSpVnIXwKIU/exec';
+    const form = document.forms['submit-to-google-sheet'];
+
+    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+      .then(response => {
+        form.reset();
+        setIsSubmitting(false); // Re-enable the button
+        props.showAlert("Form Submitted Successfully", "success");
+        console.log('Success!', response);
+      })
+      .catch(error => {
+        setIsSubmitting(false); // Re-enable the button
+        props.showAlert("Form Submission Failed", "danger");
+        console.error('Error!', error.message);
+      });
   };
 
   return (
     <div className='feedback-main-box'>
       <h2 className="text-center Heading-Page">Feedback</h2>
-      <form onSubmit={handleSubmit} className="feedback-container container mt-4">
+      <form className="feedback-container container mt-4" name="submit-to-google-sheet" onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="name" className="form-label">Name:</label>
-          <input
-            type="text"
-            id="name"
-            className="form-control"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
+          <label htmlFor="Name" className="form-label">Name:</label>
+          <input type="text" id="Name" name='Name' className="form-control" placeholder='Enter your name here *' required />
         </div>
         <div className="mb-3">
-          <label htmlFor="email" className="form-label">Email:</label>
-          <input
-            type="email"
-            id="email"
-            className="form-control"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+          <label htmlFor="Email" className="form-label">Email:</label>
+          <input type="email" id="Email" name='Email' className="form-control" placeholder='Enter your email here' />
         </div>
         <div className="mb-3">
-          <label htmlFor="rating" className="form-label">Rating:</label>
-          <div className="rating-container">
-            {[1, 2, 3, 4, 5].map((value) => (
-              <button
-                key={value}
-                type="button"
-                className={`star ${value <= rating ? 'active' : ''}`}
-                onMouseEnter={() => handleHoverRating(value)}
-                onMouseLeave={() => handleHoverRating(0)}
-                onClick={() => setRating(value)}
-              >
-                &#9733;
-              </button>
-            ))}
-          </div>
-          <input type="hidden" name="rating" value={rating} />
+          <label htmlFor="Rating" className="form-label">Rating &nbsp;(1-10):</label>
+          <input type="number" id="Rating" name='Rating' className="form-control" placeholder='Enter your rating here' min={0} max={10}/>
         </div>
         <div className="mb-3">
-          <label htmlFor="feedback" className="form-label">Feedback:</label>
+          <label htmlFor="Feedback" className="form-label">Feedback:</label>
           <textarea
-            id="feedback"
-            className="form-control"
-            rows="5"
-            value={feedback}
-            onChange={(e) => setFeedback(e.target.value)}
-            required
-          ></textarea>
+            id="Feedback" className="form-control" name='Feedback' rows="5" placeholder='Enter your feedback here' ></textarea>
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button className="btn btn-primary" type="submit" disabled={isSubmitting}>Submit</button>
       </form>
     </div>
   );
 }
 
-export default FeedbackForm;
+Feedback.propTypes = {
+  showAlert: PropTypes.func,
+};
+
+export default Feedback;

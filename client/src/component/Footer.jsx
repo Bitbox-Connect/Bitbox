@@ -24,7 +24,7 @@ function Footer() {
           <h3 className='fs-2 fw-bold'>About Bitbox</h3>
           <div className='Detail'>
             <ul className='fs-5'>
-              <li><Link to="/contactus">Contact us</Link></li>
+              <li><Link to="/contactus">Contact Us</Link></li>
               <li><Link to='/codeofconduct'>Code of Conduct</Link></li>
             </ul>
           </div>

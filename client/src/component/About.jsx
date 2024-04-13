@@ -2,7 +2,7 @@ import "./css/About.css";
 import img1 from "../assets/images/Anuj.png";
 import img2 from "../assets/images/Jitendra.png";
 import img3 from "../assets/images/Harshit.png";
-import aboutHeroImg from "../assets/images/Others/aboutImg.png";
+import AboutImgHero from "../assets/images/Others/heroimg.png";
 import '@fortawesome/fontawesome-free/css/all.css';
 // import {Contri} from './Contributers'
 // import { Link } from "react-router-dom";
@@ -65,7 +65,7 @@ export default function About() {
                 <div className="tracker tr-24"></div>
                 <div className="tracker tr-25"></div>
                 <div id="card">
-                  <img src={aboutHeroImg} id="propmpt" alt="aboutVectorImg" />
+                  <img src={AboutImgHero } id="propmpt" alt="aboutVectorImg" />
                 </div>
               </div>
             </div>
