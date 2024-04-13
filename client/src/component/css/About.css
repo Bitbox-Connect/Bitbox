@@ -9,6 +9,9 @@
   align-items: center;
   margin: 0 auto;
 }
+#propmpt{
+  height: 500px;
+}
 
 .content-left {
   text-align: center;

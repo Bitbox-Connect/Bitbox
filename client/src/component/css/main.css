@@ -98,9 +98,32 @@
   margin-top: 100px;
   margin-bottom: 40px;
 }
+.paragraph{
+  margin-bottom: 50px;
+}
+.shareInfo{
+  margin-top: 50px;
+}
+.subpara{
+  margin-left: 50px;
+}
+.privacy-policy-container{
+  border: 2px solid white;
+  padding-left: 15%;
+  padding-right: 15%;
+}
 
 /* Term of Use */
 .termofuse-container {
   margin-top: 100px;
   margin-bottom: 40px;
+}
+.container-T strong{
+  margin-left: 15%;
+  font-size: 20px;
+}
+.container-T p{
+  font-size: 19px;
+  margin-left: 15%;
+  margin-right: 15%;
 }
