@@ -5,9 +5,9 @@ export default function TermOfUse() {
     <div className='container termofuse-container'>
       <h2 className='text-center Heading-Page mb-3'>Terms Of Use</h2>
       <div className="container">
-        <p>These Terms of Use govern your use of the Bitbox website (&quot;Website&quot;) and any services offered therein. By accessing or using the Website, you agree to be bound by these Terms of Use. If you do not agree with any part of these terms, you may not access the Website.</p>
-        <div className="para">
-          <li className='mb-3'> <span>Acceptance of Terms:</span> By accessing or using the Website, you agree to be bound by these Terms of Use and all applicable laws and regulations. If you do not agree with any part of these terms, you may not access the Website.</li>
+        <p className='fs-3'>These Terms of Use govern your use of the Bitbox website (&quot;Website&quot;) and any services offered therein. By accessing or using the Website, you agree to be bound by these Terms of Use. If you do not agree with any part of these terms, you may not access the Website.</p>
+        <div className="para fs-4">
+          <li className='mb-2'> <span>Acceptance of Terms:</span> By accessing or using the Website, you agree to be bound by these Terms of Use and all applicable laws and regulations. If you do not agree with any part of these terms, you may not access the Website.</li>
           <li className='mb-3'>Registration: Some features of the Website may require you to register and create an account. You agree to provide accurate and complete information during the registration process and to update your information to keep it accurate and current.</li>
           <li className='mb-3'>User Content: You are solely responsible for any content you post, upload, or otherwise make available on the Website (&quot;User Content&quot;). By posting User Content, you grant Bitbox a non-exclusive, royalty-free, worldwide, perpetual, and irrevocable license to use, reproduce, modify, adapt, publish, translate, distribute, and display such User Content.</li>
           <li className='mb-3'>Intellectual Property: All content on the Website, including text, graphics, logos, images, audio clips, and software, is the property of Bitbox or its licensors and is protected by intellectual property laws. You may not use, reproduce, modify, or distribute any content from the Website without prior written consent from Bitbox.</li>

@@ -4,6 +4,8 @@ import img2 from "../assets/images/Jitendra.png";
 import img3 from "../assets/images/Harshit.png";
 import aboutHeroImg from "../assets/images/Others/aboutImg.png";
 import '@fortawesome/fontawesome-free/css/all.css';
+// import {Contri} from './Contributers'
+// import { Link } from "react-router-dom";
 export default function About() {
   var popoverTriggerList = [].slice.call(
     document.querySelectorAll('[data-bs-toggle="popover"]')
@@ -160,7 +162,58 @@ export default function About() {
         </div>
       </div>
 
+      {/* Contributers */}
+      {/* <div className="contri">
+        <div className="contributers">
+          <Link to={Contri}/>
+          <h2>Contri</h2>
+        </div>
+       </div> */}
+
+      {/* No of Visitors */}
+
+      <div className="Team-Sec">
+        <div className="visitors-container">
+          <div className="visitors-content">
+            <h2 className="Heading-Page">
+              Visitors
+            </h2>
+            <div className="team-grid container ">
+              {/* card 1 */}
+              <div className="team-card">
+                <div className="team-details">
+                  <div className="visitors-info">
+                    <span>100k+</span>
+                  </div>
+                </div>
+              </div>
+              {/* card 2 */}
+              <div className="team-card">
+                <div className="team-details">
+                <div className="visitors-info">
+                    <span>100k+</span>
+                  </div>
+                </div>
+                <div className="team-links">
+                </div>
+              </div>
+              {/* card 3  */}
+              <div className="team-card">
+                <div className="team-details">
+                <div className="visitors-info">
+                    <span>100k+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
       {/* FAQ */}
+      <div className="accordion-container">
+
       <div className="faq-section">
         <div className="container">
           <h2 className="Heading-Page">Frequent Asked Questions</h2>
@@ -236,6 +289,7 @@ export default function About() {
               </div>
             </div>
           </section>
+      </div>
         </div>
       </div>
       {/* Info */}

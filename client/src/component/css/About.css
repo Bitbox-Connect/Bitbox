@@ -1,6 +1,6 @@
 /* Hero About Section */
 .about-main-section {
-  max-width: 1280px;
+  max-width: 1780px;
   min-height: 90vh;
   display: flex;
   flex-direction: column;
@@ -441,7 +441,7 @@ h2 {
 
 /* Our Team */
 .team-container {
-  padding: 2rem;
+  padding: 2.5rem;
   margin: 0 auto;
   max-width: 100%;
   text-align: center;
@@ -450,7 +450,7 @@ h2 {
 .team-content {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 2.5rem;
 }
 
 .team-title {
@@ -461,7 +461,7 @@ h2 {
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  grid-gap: 1.2rem;
+  grid-gap: 2.5rem;
 }
 
 .team-card {
@@ -470,7 +470,7 @@ h2 {
   border: 1px solid rgb(171, 163, 163);
   border-radius: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 1.2rem;
+  padding: 2.5rem;
   gap: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -479,7 +479,7 @@ h2 {
   transform: scale(1.05);
   ;
   box-shadow: 0 4px 8px rbga(0, 0, 0, 0.2);
-  border: 1px solid blue;
+  border: 4px solid rgb(58, 177, 220);
 }
 
 .team-avatar {
@@ -523,7 +523,7 @@ h2 {
 .team-links ul li a:hover {
   -webkit-transform: translate3d(0px, -5px, 0px);
   transform: translate3d(0px, -5px, 0px);
-  color: #316ce8;
+  color: #316ce8 4px solid;
 }
 
 /* FAQ */
@@ -531,7 +531,6 @@ h2 {
   min-width: 100vw;
   padding: 2rem;
 }
-
 .faq-section {
   min-height: 55vh;
   width: 100vw;
@@ -539,7 +538,6 @@ h2 {
   justify-content: center;
   align-items: center;
 }
-
 /* Style for the accordion body */
 .accordion-body {
   background-color: #fff;
@@ -548,12 +546,10 @@ h2 {
   padding: 10px 15px;
   margin-top: 5px;
 }
-
 /* Style for the accordion items */
 .accordion-item {
   margin-bottom: 10px;
 }
-
 /* Style for the accordion buttons */
 .accordion-button {
   background-color: rgb(250, 251, 253);
@@ -565,7 +561,29 @@ h2 {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .accordion-button:hover {
   background-color: #e9ecef;
+}
+.contain{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.visitors-container {
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 100%;
+  text-align: center;
+}
+
+.visitors-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.accordion-container{
+  max-width: 100%;
+  text-align: center;
+  display: flex;
 }

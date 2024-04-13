@@ -8,7 +8,6 @@ import MyProfileCard from './MyProfileCard';
 import UploadProject from './UploadProject';
 import avatar from '../assets/images/Dropdown/avatar.png';
 import projectDummyImage from '../assets/images/Others/projects.png'
-// CSS
 import './css/Modal.css'
 import './css/MyProfile.css'
 const MyProfile = (props) => {

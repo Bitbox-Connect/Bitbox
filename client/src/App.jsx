@@ -18,8 +18,12 @@ import Community from './component/Community';
 import MyProfile from './component/MyProfile'
 import ScrollTop from './component/ScrollTop';
 import EditProfile from './component/EditProfile';
+import Contributers from './component/Contributers';
+// import { Link } from 'react-router-dom';
+
 
 function App() {
+  const [mode, setMode] = useState('light'); //Whether dark mode is enabled or not
   const [alert, setAlert] = useState(null);
 
   const showAlert = (message, type) => {
@@ -34,6 +38,19 @@ function App() {
 
   // Define routes where the footer should not be shown
   const hideFooterRoutes = ['/login', '/signup'];
+  const toggleMode = () => {
+    if (mode === 'light') {
+      setMode('dark');
+      document.body.style.backgroundColor = '#374151';
+      showAlert("Dark mode has been enabled", "success")
+
+    }
+    else {
+      setMode('light');
+      document.body.style.backgroundColor = 'white';
+      showAlert("Light mode has been enabled", "success")
+    }
+  }
 
   return (
     <>
@@ -42,7 +59,7 @@ function App() {
           <Router>
             {/* Navbar */}
             <div className="content">
-              <Navbar title="Bitbox" home="Home" community="Community" about="About us" myProjects="My projects" showAlert={showAlert} />
+              <Navbar title="Bitbox" home="Home" community="Community" about="About us" myProjects="My projects" mode={mode} toggleMode={toggleMode} showAlert={showAlert} />
             </div>
             <div className="First-Bc">
               <div className="alert-container">
@@ -50,19 +67,20 @@ function App() {
               </div>
               <ScrollTop />
               <Routes>
-                <Route exact path="/" element={<Home showAlert={showAlert} />} />
-                <Route exact path="/community" element={<Community showAlert={showAlert} />} />
-                <Route exact path="/about" element={<About showAlert={showAlert} />} />
-                <Route exact path="/myprofile" element={<MyProfile showAlert={showAlert} />} />
-                <Route exact path="/editprofile" element={<EditProfile showAlert={showAlert} />} />
-                <Route exact path="/login" element={<Login showAlert={showAlert} />} />
-                <Route exact path="/signup" element={<Signup showAlert={showAlert} />} />
+                <Route exact path="/" element={<Home mode={mode} showAlert={showAlert} />} />
+                <Route exact path="/community" element={<Community mode={mode} showAlert={showAlert} />} />
+                <Route exact path="/about" element={<About mode={mode} showAlert={showAlert} />} />
+                <Route exact path="/myprofile" element={<MyProfile mode={mode} showAlert={showAlert} />} />
+                <Route exact path="/editprofile" element={<EditProfile mode={mode} showAlert={showAlert} />} />
+                <Route exact path="/contibuters" element={<Contributers mode={mode} showAlert={showAlert} />} />
+                <Route exact path="/login" element={<Login mode={mode} showAlert={showAlert} />} />
+                <Route exact path="/signup" element={<Signup mode={mode} showAlert={showAlert} />} />
                 {/* Footer */}
-                <Route exact path="/codeofconduct" element={<CodeOfConduct showAlert={showAlert} />} />
-                <Route exact path="/feedback" element={<Feedback showAlert={showAlert} />} />
-                <Route exact path="/contactus" element={<ContactUs showAlert={showAlert} />} />
-                <Route exact path="/privacypolicy" element={<PrivacyPolicy showAlert={showAlert} />} />
-                <Route exact path="/termofuse" element={<TermOfUse showAlert={showAlert} />} />
+                <Route exact path="/codeofconduct" element={<CodeOfConduct mode={mode} showAlert={showAlert} />} />
+                <Route exact path="/feedback" element={<Feedback mode={mode} showAlert={showAlert} />} />
+                <Route exact path="/contactus" element={<ContactUs mode={mode} showAlert={showAlert} />} />
+                <Route exact path="/privacypolicy" element={<PrivacyPolicy mode={mode} showAlert={showAlert} />} />
+                <Route exact path="/termofuse" element={<TermOfUse mode={mode} showAlert={showAlert} />} />
               </Routes>
             </div>
             {/* Conditionally render the footer based on the current route */}

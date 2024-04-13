@@ -7,7 +7,7 @@
 }
 
 .main-section {
-    max-width: 1280px;
+    /* max-width: 1280px; */
     height: 80vh;
     display: flex;
     flex-direction: column;
@@ -150,29 +150,37 @@
 
 /* Cards Section */
 .Card-Info-Sec {
-    padding: 2rem 0;
+    padding:2rem 0;
 }
 
 .Card-Infos {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* padding: 5rem; */
+    gap: 3rem;
 }
 
 .Card-Info-Row1,
 .Card-Info-Row2 {
     display: grid;
+    /* padding: 5rem; */
+    gap: 3rem;
 }
 
 .Card-Info {
-    width: 32rem;
-    height: 23rem;
-    margin: 0.5rem;
-    border-radius: 1rem;
-    background-image: linear-gradient(to top, #d1d4d9 0%, #bbc1cc 100%);
-    padding: 23px;
+    width: 580px;
+    height: 420px;
+    margin: 1rem;
+    border:1px solid rgb(47, 41, 41);
+    /* box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border-radius: 2.5rem;
 }
-
+.Card-Info:hover {
+    border: rgb(82, 187, 228) 4px solid;
+    background-color: #d5d3d3 ;
+}
 .Card-Info h3 {
     text-align: center;
 }
@@ -216,7 +224,8 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 4px;
+    gap: 25px;
+    padding: 20px;
 }
 
 .special-cont1 h3,
@@ -224,6 +233,7 @@ h3 {
 .special-cont3 h3 {
     text-align: center;
     width: max-content;
+    
 }
 
 .special-cont1,
@@ -236,12 +246,18 @@ h3 {
     height: 47.5vh;
     padding: 20px;
     width: 30vw;
+    border:1px solid rgb(47, 41, 41);
     text-align: center;
-    background-color: #dedede;
-    border-radius: 0.5rem;
-    border: 1px solid black;
+    border-radius: 2.5rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
+.special-cont1:hover,
+.special-cont2:hover,
+.special-cont3:hover{
+border: rgb(73, 168, 209) 4px solid;
+background-color: #d5d3d3;
+}
 /* Technology Section */
 .Technology-Sec {
     padding: 2rem 0;
@@ -461,110 +477,3 @@ h3 {
 .cls-18 {
     fill: #fff;
 }
-
-
-/* ============================================================================================== 
-SED Innovations
-https://sed.am
-https://mkrtchyan.ga
-================================================================================================= */
-/* * {
-    margin: 0;
-    padding: 0;
-} */
-/* header {
-    background-color:rgba(33, 33, 33, 0.9);
-    color:#ffffff;
-    display:block;
-    font: 14px/1.3 Arial,sans-serif;
-    height:50px;
-    position:relative;
-    z-index:5;
-} */
-/* h2{
-    margin-top: 30px;
-    text-align: center;
-} */
-/* header h2{
-    font-size: 22px;
-    margin: 0 auto;
-    padding: 10px 0;
-    width: 80%;
-    text-align: center;
-} */
-/* header a, a:visited {
-    text-decoration:none;
-    color:#fcfcfc;
-} */
-/* 
-@keyframes move-twink-back {
-    from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
-}
-@-webkit-keyframes move-twink-back {
-    from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
-}
-@-moz-keyframes move-twink-back {
-    from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
-}
-@-ms-keyframes move-twink-back {
-    from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
-}
-
-@keyframes move-clouds-back {
-    from {background-position:0 0;}
-    to {background-position:10000px 0;}
-}
-@-webkit-keyframes move-clouds-back {
-    from {background-position:0 0;}
-    to {background-position:10000px 0;}
-}
-@-moz-keyframes move-clouds-back {
-    from {background-position:0 0;}
-    to {background-position:10000px 0;}
-}
-@-ms-keyframes move-clouds-back {
-    from {background-position: 0;}
-    to {background-position:10000px 0;}
-}
-
-.stars, .twinkling, .clouds {
-  position: absolute;
-  top:140px;
-  left:0;
-  right:0;
-  bottom:0;
-  width:100%;
-  height:100%;
-  display:block;
-}
-
-.stars {
-  background:#000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
-  z-index:0;
-}
-
-.twinkling{
-  background:transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
-  z-index:1;
-
-  -moz-animation:move-twink-back 200s linear infinite;
-  -ms-animation:move-twink-back 200s linear infinite;
-  -o-animation:move-twink-back 200s linear infinite;
-  -webkit-animation:move-twink-back 200s linear infinite;
-  animation:move-twink-back 200s linear infinite;
-}
-
-.clouds{
-    background:transparent url(http://www.script-tutorials.com/demos/360/images/clouds2.png) repeat top center;
-    z-index:3;
-
-  -moz-animation:move-clouds-back 200s linear infinite;
-  -ms-animation:move-clouds-back 200s linear infinite;
-  -o-animation:move-clouds-back 200s linear infinite;
-  -webkit-animation:move-clouds-back 200s linear infinite;
-  animation:move-clouds-back 200s linear infinite;
-} */
