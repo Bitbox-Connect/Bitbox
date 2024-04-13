@@ -1,77 +1,57 @@
 import '../css/Main.css';
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+function ContactUs(props) {
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted with data:', formData);
-    // Here you can implement logic to send the form data to your backend or perform other actions
-    // Reset form data after submission
-    setFormData({
-      name: '',
-      email: '',
-      message: ''
-    });
+    if (isSubmitting) return; // If already submitting, do nothing
+    setIsSubmitting(true); // Set isSubmitting to true to disable the button
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycby9s-kpS5yJrvU-igVgY4-B2m0YDoSVyhXHtpjmMAYjBQ2ECPBT7uZzy5qya9IyYq4/exec';
+    const form = document.forms['submit-to-google-sheet'];
+
+    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+      .then(response => {
+        form.reset();
+        setIsSubmitting(false); // Re-enable the button
+        props.showAlert("Form Submitted Successfully", "success");
+        console.log('Success!', response);
+      })
+      .catch(error => {
+        setIsSubmitting(false); // Re-enable the button
+        props.showAlert("Form Submission Failed", "danger");
+        console.error('Error!', error.message);
+      });
   };
 
   return (
     <div className="container contactus-container">
       <h2 className='text-center Heading-Page'>Contact Us</h2>
-      <form onSubmit={handleSubmit} className='mt-4 contactus-main-box'>
+      <form className='mt-4 contactus-main-box' name="submit-to-google-sheet" onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="name" className="form-label">Your Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="form-control"
-            required
-          />
+          <label htmlFor="Name" className="form-label">Your Name:</label>
+          <input type="text" id="Name" name="Name" className="form-control" />
         </div>
         <div className="mb-3">
-          <label htmlFor="email" className="form-label">Your Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="form-control"
-            required
-          />
+          <label htmlFor="Email" className="form-label">Your Email:</label>
+          <input type="email" id="Email" name="Email" className="form-control" />
         </div>
         <div className="mb-3">
-          <label htmlFor="message" className="form-label">Message:</label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            className="form-control"
-            rows="5"
-            required
-          ></textarea>
+          <label htmlFor="Message" className="form-label">Message:</label>
+          <textarea id="Message" name="Message" className="form-control" rows="5"></textarea>
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button className="btn btn-primary" type="submit" disabled={isSubmitting}>Submit</button>
       </form>
     </div>
   );
 }
 
-export default ContactForm;
+ContactUs.propTypes = {
+  showAlert: PropTypes.func,
+};
+
+export default ContactUs;
