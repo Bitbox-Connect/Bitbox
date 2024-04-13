@@ -309,6 +309,24 @@
     gap: 0.5rem;
 }
 
+.option-modal-button img{
+    width: 35px;
+    cursor: pointer;
+}
+
+.close-modal-button img{
+    width: 23px;
+    cursor: pointer;
+}
+
+.modal-visit-profile-btn img{
+    width: 25px;
+}
+
+.modal-suggestion-project-img img{
+    width: 25px;
+}
+
 .button-github-modal {
     display: flex;
     line-height: 20px;
@@ -325,6 +343,10 @@
     background-color: white;
     padding: 10px;
     cursor: pointer;
+}
+
+.button-github-modal img{
+    width: 25px;
 }
 
 .modal-profile-details-container {
