@@ -9,7 +9,8 @@
   align-items: center;
   margin: 0 auto;
 }
-#propmpt{
+
+#propmpt {
   height: 500px;
 }
 
@@ -470,19 +471,19 @@ h2 {
 .team-card {
   display: flex;
   flex-direction: column;
-  border: 1px solid rgb(171, 163, 163);
+  outline: 1px solid rgb(171, 163, 163);
   border-radius: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 2.5rem;
   gap: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: 0.2s ease-in-out, box-shadow 0.2s ease;
 }
 
 .team-card:hover {
+  color: blue;
   transform: scale(1.05);
-  ;
   box-shadow: 0 4px 8px rbga(0, 0, 0, 0.2);
-  border: 4px solid rgb(58, 177, 220);
+  outline: 2px solid rgb(58, 177, 220);
 }
 
 .team-avatar {
@@ -534,6 +535,7 @@ h2 {
   min-width: 100vw;
   padding: 2rem;
 }
+
 .faq-section {
   min-height: 55vh;
   width: 100vw;
@@ -541,18 +543,21 @@ h2 {
   justify-content: center;
   align-items: center;
 }
+
 /* Style for the accordion body */
 .accordion-body {
   background-color: #fff;
   border-radius: 5px;
-  border: 1px solid #ced4da;
+  outline: 1px solid #ced4da;
   padding: 10px 15px;
   margin-top: 5px;
 }
+
 /* Style for the accordion items */
 .accordion-item {
   margin-bottom: 10px;
 }
+
 /* Style for the accordion buttons */
 .accordion-button {
   background-color: rgb(250, 251, 253);
@@ -564,10 +569,12 @@ h2 {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 .accordion-button:hover {
   background-color: #e9ecef;
 }
-.contain{
+
+.contain {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -585,7 +592,8 @@ h2 {
   flex-direction: column;
   gap: 10px;
 }
-.accordion-container{
+
+.accordion-container {
   max-width: 100%;
   text-align: center;
   display: flex;

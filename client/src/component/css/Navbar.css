@@ -142,7 +142,7 @@
 .Navbar-Btn-Group {
   position: relative;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: center;
   left: -1.5rem;
 }

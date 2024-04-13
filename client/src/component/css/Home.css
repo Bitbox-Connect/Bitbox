@@ -1,5 +1,5 @@
 /* Landing Page Section */
-.landing-page-container{
+.landing-page-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -150,37 +150,43 @@
 
 /* Cards Section */
 .Card-Info-Sec {
-    padding:2rem 0;
+    padding: 2rem 0;
 }
 
 .Card-Infos {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* padding: 5rem; */
-    gap: 3rem;
+    gap: 2.5rem;
 }
 
 .Card-Info-Row1,
 .Card-Info-Row2 {
     display: grid;
-    /* padding: 5rem; */
-    gap: 3rem;
+    gap: 2.5rem;
 }
 
 .Card-Info {
     width: 580px;
     height: 420px;
     margin: 1rem;
-    border:1px solid rgb(47, 41, 41);
-    /* box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; */
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    border-radius: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    outline: 1px solid rgb(47, 41, 41);
+    border-radius: 1rem;
+    transition: all 0.2s ease-in-out;
 }
+
 .Card-Info:hover {
-    border: rgb(82, 187, 228) 4px solid;
-    background-color: #d5d3d3 ;
+    outline: rgb(82, 187, 228) 2px solid;
+    background-color: #ecebeb65;
+    scale: 1.02;
+    color: blue;
 }
+
 .Card-Info h3 {
     text-align: center;
 }
@@ -233,7 +239,7 @@ h3 {
 .special-cont3 h3 {
     text-align: center;
     width: max-content;
-    
+
 }
 
 .special-cont1,
@@ -246,18 +252,21 @@ h3 {
     height: 47.5vh;
     padding: 20px;
     width: 30vw;
-    border:1px solid rgb(47, 41, 41);
+    outline: 1px solid rgb(47, 41, 41);
     text-align: center;
-    border-radius: 2.5rem;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border-radius: 1rem;
+    transition: all 0.2s ease-in-out;
 }
 
 .special-cont1:hover,
 .special-cont2:hover,
-.special-cont3:hover{
-border: rgb(73, 168, 209) 4px solid;
-background-color: #d5d3d3;
+.special-cont3:hover {
+    outline: rgb(73, 168, 209) 2px solid;
+    background-color: #ecebeb65;
+    scale: 1.02;
+    color: blue;
 }
+
 /* Technology Section */
 .Technology-Sec {
     padding: 2rem 0;
