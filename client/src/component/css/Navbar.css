@@ -96,6 +96,10 @@
   min-height: 10vh;
 }
 
+.navbar {
+  border-bottom: 1px solid black;
+}
+
 .logoTitle {
   font-family: 'medium';
   font-weight: lighter;
@@ -199,28 +203,28 @@
   opacity: 0;
 }
 
-.darkThemeBtn input:checked + label {
+.darkThemeBtn input:checked+label {
   border: 1px solid white;
   background: #212529;
 }
 
-.darkThemeBtn input:checked + label svg.sun {
+.darkThemeBtn input:checked+label svg.sun {
   opacity: 0;
 }
 
-.darkThemeBtn input:checked + label svg.moon {
+.darkThemeBtn input:checked+label svg.moon {
   opacity: 1;
 }
 
-.darkThemeBtn input:not(:checked) + label svg.sun {
+.darkThemeBtn input:not(:checked)+label svg.sun {
   opacity: 1;
 }
 
-.darkThemeBtn input:not(:checked) + label svg.moon {
+.darkThemeBtn input:not(:checked)+label svg.moon {
   opacity: 0;
 }
 
-.darkThemeBtn input:checked ~ span {
+.darkThemeBtn input:checked~span {
   background-color: #16174b;
 }
 
