@@ -140,7 +140,7 @@ export default function TermOfUse() {
           <h2>Contact Information</h2>
 
           <p>Address: http://localhost:5173/contactus</p>
-          <p>Email: jitendrakumarjjk10@gmail.com</p>
+          <p>Email: bitboxcommunity@gmail.com</p>
 
         </div>
       </div>

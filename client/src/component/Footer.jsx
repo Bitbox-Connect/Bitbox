@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './css/Footer.css';
 import { FaFacebookSquare, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import logo from '../assets/images/logo.png';
-function Footer() {
+function Footer(props) {
   return (
     <footer>
-      <div className='footer-container'>
+      <div className='footer-container' style={{ backgroundColor: props.mode === 'dark' ? 'black' : 'white', borderTop: props.mode === 'dark' ? '1px solid white' : '1px solid black', borderBottom: props.mode === 'dark' ? '1px solid white' : '1px solid black' }}>
         <div className='footer-about'>
           <div className='footer-note'>
             <Link to="/">
@@ -43,10 +44,10 @@ function Footer() {
           <div className='fs-5'>
             <h3 className='fw-bold fs-2'>Follow us on</h3>
             <ul>
-              <li><Link to="/"><FaLinkedin color="#0077b5" fontSize="2rem" />Linkedin</Link></li>
-              <li><Link to="/"><FaTwitter color="#1da1f2" fontSize="2rem" />Twiiter</Link></li>
-              <li><Link to="/"><FaGithub color="#211F1F" fontSize="2rem" />GitHub</Link></li>
-              <li><Link to="/"><FaFacebookSquare color="#3b5998" fontSize="2rem" />Facebook</Link></li>
+              <li><a href="https://www.linkedin.com/in/bit-box-community"><FaLinkedin color="#0077b5" fontSize="2rem" />Linkedin</a></li>
+              <li><a href="https://twitter.com/BITBOX688152"><FaTwitter color="#1da1f2" fontSize="2rem" />Twitter</a></li>
+              <li><a href="https://github.com/bitboxcommunity"><FaGithub color="#211F1F" fontSize="2rem" />GitHub</a></li>
+              <li><a href="https://www.facebook.com/bit-box-community"><FaFacebookSquare color="#3b5998" fontSize="2rem" />Facebook</a></li>
             </ul>
           </div>
         </div>
@@ -59,5 +60,10 @@ function Footer() {
     </footer>
   )
 }
+
+Footer.propTypes = {
+  showAlert: PropTypes.func,
+  mode: PropTypes.func,
+};
 
 export default Footer;

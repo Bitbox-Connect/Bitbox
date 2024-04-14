@@ -5,6 +5,9 @@ import img2 from "../assets/images/Jitendra.png";
 import img3 from "../assets/images/Harshit.png";
 import AboutImgHero from "../assets/images/Others/heroimg.png";
 import '@fortawesome/fontawesome-free/css/all.css';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import {Contri} from './Contributers'
 // import { Link } from "react-router-dom";
 export default function About() {
@@ -192,21 +195,20 @@ export default function About() {
                 <div class="col-md-3 col-sm-6">
                   <div class="counter">
                     <div class="counter-icon">
-                      {/* <i class="fa fa-linkedin"></i> */}
-                      <i class="fa-solid fa-building-columns"></i>
+                      <FontAwesomeIcon icon={faUser} />
                     </div>
                     <span class="counter-value">876K+</span>
-                    <h3>LinkedIn</h3>
+                    <h3>VisitorCount</h3>
                   </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                  <div class="counter">
+                  <div class="counter blue">
                     <div class="counter-icon">
                       {/* <i class="fa fa-youtube"></i> */}
                       <i class="fa-sharp fa-solid fa-pen-to-square"></i>
                     </div>
                     <span class="counter-value">876K+</span>
-                    <h3>Web Designing</h3>
+                    <h3>Registrations</h3>
                   </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
@@ -215,16 +217,17 @@ export default function About() {
                     <i class="fa-solid fa-user-group"></i>
                     </div>
                     <span class="counter-value">876K+</span>
-                    <h3>Web Designing</h3>
+                    <h3>Participants</h3>
                   </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
                   <div class="counter blue">
                     <div class="counter-icon">
-                      <i class="fa fa-rocket"></i>
+                      {/* <i class="fa fa-rocket"></i> */}
+                      <FontAwesomeIcon icon={faCoffee} />
                     </div>
                     <span class="counter-value">828K+</span>
-                    <h3>Web Development</h3>
+                    <h3>Total Projects</h3>
                   </div>
                 </div>
               </div>
