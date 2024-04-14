@@ -471,19 +471,19 @@ h2 {
 .team-card {
   display: flex;
   flex-direction: column;
-  border: 1px solid rgb(171, 163, 163);
+  outline: 1px solid rgb(171, 163, 163);
   border-radius: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 2.5rem;
   gap: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: 0.2s ease-in-out, box-shadow 0.2s ease;
 }
 
 .team-card:hover {
+  color: blue;
   transform: scale(1.05);
-  ;
   box-shadow: 0 4px 8px rbga(0, 0, 0, 0.2);
-  border: 4px solid rgb(58, 177, 220);
+  outline: 2px solid rgb(58, 177, 220);
 }
 
 .team-avatar {
@@ -548,7 +548,7 @@ h2 {
 .accordion-body {
   background-color: #fff;
   border-radius: 5px;
-  border: 1px solid #ced4da;
+  outline: 1px solid #ced4da;
   padding: 10px 15px;
   margin-top: 5px;
 }

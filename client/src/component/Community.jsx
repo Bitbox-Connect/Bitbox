@@ -9,6 +9,17 @@ import profileContext from '../context/profileContext';
 import './EditProfile'
 import avatar from '../assets/images/Dropdown/avatar.png';
 
+import githubModalImg from '../assets/images/Modal Image/GitHub.png'
+import unlinkModalImg from '../assets/images/Modal Image/Unlink.png'
+import optionModalImg from '../assets/images/Modal Image/Option.png'
+import closeModalImg from '../assets/images/Modal Image/Close.png'
+import AavtarModalImg from '../assets/images/Modal Image/Aavtar.png'
+import VisitModalImg from '../assets/images/Modal Image/Visit.png'
+// import LikeModalImg from '../assets/images/Modal Image/Like.png'
+// import LinkModalImg from '../assets/images/Modal Image/Link.png'
+// import FavourModalImg from '../assets/images/Modal Image/Favourite.png'
+// import commentModalImg from '../assets/images/Modal Image/comment.png'
+
 const Community = (props) => {
   const host = "http://localhost:5000"
   const ref = useRef(null)
@@ -229,27 +240,27 @@ const Community = (props) => {
                               <div className="modal-right-head">
                                 {project.egitHubLink ? (
                                   <a className="button-github-modal" href={project.egitHubLink} target="_blank" rel="noopener noreferrer" title='GitHub Link'>
-                                    <img src="path_to_github_logo_image" alt="GitHub" />
+                                    <img src={githubModalImg} alt="GitHub" />
                                     GitHub
                                   </a>
                                 ) : (
                                   <a title='Unavailable GitHub Link'>
                                     <div className="button-github-modal" >
-                                      <img src="path_to_unavailable_image" alt="GitHub" />
+                                      <img src={unlinkModalImg} alt="Broken Link" />
                                       Unavailable
                                     </div>
                                   </a>
                                 )}
                                 <div className="project-modal-head-buttons">
-                                  <div className="close-modal-button"><img src="" alt="option" /></div>
+                                  <div className="option-modal-button"><img src={optionModalImg} alt="option" title='option' /></div>
                                   {/* Bootstap close button */}
-                                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  <div className="close-modal-button" data-bs-dismiss="modal" aria-label="Close"><img src={closeModalImg} title='close' alt="close" /></div>
                                 </div>
                               </div>
                               <div className="modal-profile-details-container">
                                 <div className="modal-profile-details">
                                   <div className="modal-profile-image">
-                                    <img src="" alt="avatar-image" />
+                                    <img src={AavtarModalImg} alt="avatar-image" />
                                   </div>
                                   <div className="modal-profile-user-details">
                                     <div className="modal-profile-name">Anuj Verma</div>
@@ -257,7 +268,7 @@ const Community = (props) => {
                                   </div>
                                 </div>
                                 <div className="modal-visit-profile-btn">
-                                  <img src="" alt="visit" />
+                                  <img src={VisitModalImg} alt="visit" />
                                   Visit
                                 </div>
                               </div>
@@ -267,7 +278,7 @@ const Community = (props) => {
                                 <div className="modal-suggestion-project-container">
                                   <div className="modal-suggestion-project">
                                     <div className="modal-suggestion-project-img">
-                                      <img src="" alt="image" />
+                                      <img src={AavtarModalImg} alt="image" />
                                     </div>
                                     <div className="modal-suggestion-project-details">
                                       <div className="modal-suggestion-project-details-title">
@@ -285,7 +296,7 @@ const Community = (props) => {
                                   </div>
                                   <div className="modal-suggestion-project">
                                     <div className="modal-suggestion-project-img">
-                                      <img src="" alt="image" />
+                                      <img src={AavtarModalImg} alt="image" />
                                     </div>
                                     <div className="modal-suggestion-project-details">
                                       <div className="modal-suggestion-project-details-title">
@@ -303,7 +314,7 @@ const Community = (props) => {
                                   </div>
                                   <div className="modal-suggestion-project">
                                     <div className="modal-suggestion-project-img">
-                                      <img src="" alt="image" />
+                                      <img src={AavtarModalImg} alt="image" />
                                     </div>
                                     <div className="modal-suggestion-project-details">
                                       <div className="modal-suggestion-project-details-title">

@@ -64,7 +64,7 @@ function AddProject(props) {
     };
     return (
         <div>
-            <button type="button" className="btn Navbar-Btn mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" className="btn btn-primary mx-2" style={{height: '45px'}} data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Upload
             </button>
 

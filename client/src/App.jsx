@@ -9,7 +9,11 @@ import Navbar from './component/Navbar';
 import Signup from './component/Signup';
 import ProjectState from './context/ProjectState';
 import ProfileState from './context/ProfileState';
+<<<<<<< HEAD
 import CodeOfConduct from './component/Footers/Codeofconduct'
+=======
+import CodeOfConduct from './component/Footers/Codeofconduct';
+>>>>>>> ec879b821c22cf0beec2403881496b9dbe6c387b
 import Feedback from './component/Footers/Feedback';
 import ContactUs from './component/Footers/Contactus';
 import PrivacyPolicy from './component/Footers/Privacypolicy';
@@ -41,10 +45,14 @@ function App() {
   const toggleMode = () => {
     if (mode === 'light') {
       setMode('dark');
+<<<<<<< HEAD
       document.body.style.backgroundColor = '#374151';
         document.querySelectorAll('*').forEach(element => {
             element.style.color = 'white';
         });
+=======
+      document.body.style.backgroundColor = 'black';
+>>>>>>> ec879b821c22cf0beec2403881496b9dbe6c387b
       showAlert("Dark mode has been enabled", "success")
 
     }
