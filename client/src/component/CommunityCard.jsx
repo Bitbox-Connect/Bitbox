@@ -1,6 +1,10 @@
 import './css/ProjectCard.css'
 import PropTypes from 'prop-types';
 import avatarImg from '../assets/images/logo.png'
+import FavourModalImg from '../assets/images/Modal Image/Favourite.png'
+import commentModalImg from '../assets/images/Modal Image/comment.png'
+import LikeModalImg from '../assets/images/Modal Image/Like.png'
+import DetailCardImg from '../assets/images/Modal Image/Details.png'
 
 const CommunityCard = (props) => {
   const { project, showDetailProject } = props;
@@ -34,16 +38,16 @@ const CommunityCard = (props) => {
             </div>
             <div className="projectEngagementContainer">
               <div className="project-love">
-                <img src="./src/assets/images/Project Card/love.png" alt="Love" />
+                <img src={FavourModalImg} alt="Love" />
               </div>
               <div className="project-comment">
-                <img src="./src/assets/images/Project Card/comment.png" alt="Comment" />
+                <img src={commentModalImg} alt="Comment" />
               </div>
               <div className="project-link">
-                <img src="./src/assets/images/Project Card/link.png" alt="Link" />
+                <img src={LikeModalImg} alt="Link" />
               </div>
               <div className="project-details" onClick={() => showDetailProject(project)}>
-                <img src="./src/assets/images/Project Card/info.png" alt="Details" />
+                <img src={DetailCardImg} alt="Details" />
               </div>
             </div>
           </div>

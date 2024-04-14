@@ -17,10 +17,10 @@ import AavtarModalImg from '../assets/images/Modal Image/Aavtar.png'
 import VisitModalImg from '../assets/images/Modal Image/visitor.png'
 import LikeModalImg from '../assets/images/Modal Image/Like.png'
 import LinkModalImg from '../assets/images/Modal Image/Link.png'
- import FavourModalImg from '../assets/images/Modal Image/Favourite.png'
- import commentModalImg from '../assets/images/Modal Image/comment.png'
- import ShareModalImg from '../assets/images/Modal Image/Share.png'
- 
+import FavourModalImg from '../assets/images/Modal Image/Favourite.png'
+import commentModalImg from '../assets/images/Modal Image/comment.png'
+import ShareModalImg from '../assets/images/Modal Image/Share.png'
+
 
 
 const Community = (props) => {
@@ -257,7 +257,8 @@ const Community = (props) => {
                                 <div className="project-modal-head-buttons">
                                   <div className="option-modal-button"><img src={optionModalImg} alt="option" title='option' /></div>
                                   {/* Bootstap close button */}
-                                  <div className="close-modal-button" data-bs-dismiss="modal" aria-label="Close"><img src={closeModalImg} title='close' alt="close" /></div>
+                                  <div className="close-modal-button" data-bs-dismiss="modal" aria-label="Close">
+                                    <img src={closeModalImg} title='close' alt="close" /></div>
                                 </div>
                               </div>
                               <div className="modal-profile-details-container">
@@ -272,8 +273,8 @@ const Community = (props) => {
                                 </div>
                                 <div className="modal-visit-profile-btn">
                                   Visit
-                                  <img src={VisitModalImg} alt="visit" />
-                                  
+                                  <img src={ShareModalImg} alt="visit" />
+
                                 </div>
                               </div>
                               <div className="modal-suggestion-container">

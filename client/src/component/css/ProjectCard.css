@@ -301,3 +301,20 @@ i {
   border: none;
   cursor: pointer;
 }
+
+.project-love img{
+  height: 24px;
+  width: 24px;
+}
+.project-comment img{
+  width: 24px;
+  height: 24px;
+}
+.project-link img{
+  width: 24px;
+  height: 24px;
+}
+.project-details img{
+  width: 24px;
+  height: 24px;
+}
