@@ -8,17 +8,20 @@ import './css/Community.css'
 import profileContext from '../context/profileContext';
 import './EditProfile'
 import avatar from '../assets/images/Dropdown/avatar.png';
-
+import ViewAllModalImg from '../assets/images/Modal Image/ViewAll.png'
 import githubModalImg from '../assets/images/Modal Image/GitHub.png'
 import unlinkModalImg from '../assets/images/Modal Image/Unlink.png'
 import optionModalImg from '../assets/images/Modal Image/Option.png'
 import closeModalImg from '../assets/images/Modal Image/Close.png'
 import AavtarModalImg from '../assets/images/Modal Image/Aavtar.png'
-import VisitModalImg from '../assets/images/Modal Image/Visit.png'
-// import LikeModalImg from '../assets/images/Modal Image/Like.png'
-// import LinkModalImg from '../assets/images/Modal Image/Link.png'
-// import FavourModalImg from '../assets/images/Modal Image/Favourite.png'
-// import commentModalImg from '../assets/images/Modal Image/comment.png'
+import VisitModalImg from '../assets/images/Modal Image/visitor.png'
+import LikeModalImg from '../assets/images/Modal Image/Like.png'
+import LinkModalImg from '../assets/images/Modal Image/Link.png'
+ import FavourModalImg from '../assets/images/Modal Image/Favourite.png'
+ import commentModalImg from '../assets/images/Modal Image/comment.png'
+ import ShareModalImg from '../assets/images/Modal Image/Share.png'
+ 
+
 
 const Community = (props) => {
   const host = "http://localhost:5000"
@@ -173,24 +176,24 @@ const Community = (props) => {
                                 </div>
                                 <div className="modal-project-engagement-container">
                                   <div className="modal-project-love">
-                                    <img src="" alt="Like" />
+                                    <img src={LikeModalImg} alt="Like" />
                                   </div>
                                   <div className="modal-project-comment">
-                                    <img src="" alt="Comment" />
+                                    <img src={commentModalImg} alt="Comment" />
                                   </div>
                                   <div className="modal-favourite-details">
-                                    <img src="" alt="Favourite" />
+                                    <img src={FavourModalImg} alt="Favourite" />
                                   </div>
                                   <div className="modal-project-link">
-                                    <img src="" alt="Link" />
+                                    <img src={LinkModalImg} alt="Link" />
                                   </div>
                                 </div>
                                 <section className="modal-comment-section">
                                   <div className="modal-post-commment">
                                     <div className="modal-post-commment-avatar">
-                                      <img src="" alt="avatar-image" />
+                                      <img src={AavtarModalImg} alt="avatar-image" />
                                     </div>
-                                    <span>Share Your Thoughts</span>
+                                    <span>Share Your Thoughts...</span>
                                     <div className="modal-post-commment-button">
                                       Post
                                     </div>
@@ -198,7 +201,7 @@ const Community = (props) => {
                                   <div className="modal-comment-container">
                                     <header className="modal-comment-header">
                                       <div className="modal-comment-user-avatar">
-                                        <img src="" alt="user-avatar" />
+                                        <img src={AavtarModalImg} alt="user-avatar" />
                                       </div>
                                       <div className="modal-comment-user-details">
                                         <div className="modal-comment-user-name">
@@ -219,16 +222,16 @@ const Community = (props) => {
                                       </div>
                                       <div className="modal-comment-engagement-container">
                                         <div className="modal-comment-project-love">
-                                          <img src="" alt="Like" />
+                                          <img src={LikeModalImg} alt="Like" />
                                         </div>
                                         <div className="modal-project-comment">
-                                          <img src="" alt="Comment" />
+                                          <img src={commentModalImg} alt="Comment" />
                                         </div>
                                         <div className="modal-favourite-details">
-                                          <img src="" alt="Share" />
+                                          <img src={ShareModalImg} alt="Share" />
                                         </div>
                                         <div className="modal-project-link">
-                                          <img src="" alt="Option" />
+                                          <img src={optionModalImg} alt="Option" />
                                         </div>
                                       </div>
                                     </div>
@@ -268,8 +271,9 @@ const Community = (props) => {
                                   </div>
                                 </div>
                                 <div className="modal-visit-profile-btn">
-                                  <img src={VisitModalImg} alt="visit" />
                                   Visit
+                                  <img src={VisitModalImg} alt="visit" />
+                                  
                                 </div>
                               </div>
                               <div className="modal-suggestion-container">
@@ -335,7 +339,7 @@ const Community = (props) => {
                                 <div className="modal-suggestion-viewall">
                                   View all
                                   <div className="viewall-image">
-                                    <img src="" alt=">" />
+                                    <img src={ViewAllModalImg} alt=">" />
                                   </div>
                                 </div>
                               </div>
@@ -345,7 +349,7 @@ const Community = (props) => {
                                 <div className="modal-suggestion-project-container">
                                   <div className="modal-suggestion-project">
                                     <div className="modal-suggestion-project-img">
-                                      <img src="" alt="image" />
+                                      <img src={AavtarModalImg} alt="image" />
                                     </div>
                                     <div className="modal-suggestion-project-details">
                                       <div className="modal-suggestion-project-details-title">
@@ -363,7 +367,7 @@ const Community = (props) => {
                                   </div>
                                   <div className="modal-suggestion-project">
                                     <div className="modal-suggestion-project-img">
-                                      <img src="" alt="image" />
+                                      <img src={AavtarModalImg} alt="image" />
                                     </div>
                                     <div className="modal-suggestion-project-details">
                                       <div className="modal-suggestion-project-details-title">
@@ -381,7 +385,7 @@ const Community = (props) => {
                                   </div>
                                   <div className="modal-suggestion-project">
                                     <div className="modal-suggestion-project-img">
-                                      <img src="" alt="image" />
+                                      <img src={AavtarModalImg} alt="image" />
                                     </div>
                                     <div className="modal-suggestion-project-details">
                                       <div className="modal-suggestion-project-details-title">
@@ -402,7 +406,7 @@ const Community = (props) => {
                                 <div className="modal-suggestion-viewall">
                                   View all
                                   <div className="viewall-image">
-                                    <img src="" alt=">" />
+                                    <img src={ViewAllModalImg} alt=">" />
                                   </div>
                                 </div>
                               </div>
@@ -412,7 +416,7 @@ const Community = (props) => {
                                 <div className="modal-suggestion-project-container">
                                   <div className="modal-suggestion-project">
                                     <div className="modal-suggestion-project-img">
-                                      <img src="" alt="image" />
+                                      <img src={AavtarModalImg} alt="image" />
                                     </div>
                                     <div className="modal-suggestion-project-details">
                                       <div className="modal-suggestion-project-details-title">
@@ -427,7 +431,7 @@ const Community = (props) => {
                                   </div>
                                   <div className="modal-suggestion-project">
                                     <div className="modal-suggestion-project-img">
-                                      <img src="" alt="image" />
+                                      <img src={AavtarModalImg} alt="image" />
                                     </div>
                                     <div className="modal-suggestion-project-details">
                                       <div className="modal-suggestion-project-details-title">
@@ -442,7 +446,7 @@ const Community = (props) => {
                                   </div>
                                   <div className="modal-suggestion-project">
                                     <div className="modal-suggestion-project-img">
-                                      <img src="" alt="image" />
+                                      <img src={AavtarModalImg} alt="image" />
                                     </div>
                                     <div className="modal-suggestion-project-details">
                                       <div className="modal-suggestion-project-details-title">
@@ -460,7 +464,7 @@ const Community = (props) => {
                                 <div className="modal-suggestion-viewall">
                                   I&apos;m feeling lucky
                                   <div className="viewall-image">
-                                    <img src="" alt=">" />
+                                    <img src={ViewAllModalImg} alt=">" />
                                   </div>
                                 </div>
                               </div>
