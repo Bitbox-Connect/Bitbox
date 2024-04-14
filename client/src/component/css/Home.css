@@ -7,7 +7,6 @@
 }
 
 .main-section {
-    /* max-width: 1280px; */
     height: 80vh;
     display: flex;
     flex-direction: column;
@@ -214,7 +213,24 @@ h3 {
 }
 
 /* Service Section */
+.service-section {
+    margin-top: 5rem;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+.service-splash-gif {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-splash-gif img {
+    width: 90vw;
+}
 
 /* work Section */
 .work-Sec {

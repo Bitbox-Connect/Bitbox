@@ -95,10 +95,6 @@
   min-height: 10vh;
 }
 
-.navbar {
-  border-bottom: 1px solid black;
-}
-
 .logoTitle {
   font-family: 'medium';
   font-weight: lighter;

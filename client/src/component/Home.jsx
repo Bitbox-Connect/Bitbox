@@ -117,8 +117,12 @@ const Home = () => {
 
             {/* Service Section */}
             <div className="service-section">
+                <p className='text-center'>We&apos;re Still</p>
+                <h1 className="service-heading text-center">Cooking Our Service</h1>
+                <div className="service-description text-center">We are going to launch our service Very Soon,</div>
+                <div className='text-center'>Stay Tune.</div>
                 <div className="service-splash-gif">
-                    <img src={glichBitboxGif} alt="" />
+                    <img src={glichBitboxGif} alt="bitbox gif" />
                 </div>
             </div>
             {/* Works Section */}

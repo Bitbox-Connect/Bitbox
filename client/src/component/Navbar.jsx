@@ -70,8 +70,8 @@ function Navbar(props) {
 
     return (
         <div>
-            <nav className={`navbar navbar-expand-lg ${isScrolled ? 'sticky' : ''} navbar-${props.mode}`} style={{ backgroundColor: props.mode === 'dark' ? 'black' : 'white' }} id='navbar'>
-                <div className="container-fluid" style={{backgroundColor : "{props.mode}"}}>
+            <nav className={`navbar navbar-expand-lg ${isScrolled ? 'sticky' : ''} navbar-${props.mode}`} style={{ backgroundColor: props.mode === 'dark' ? 'black' : 'white', borderBottom: props.mode === 'dark' ? '1px solid white' : '1px solid black' }} id='navbar'>
+                <div className="container-fluid" style={{ backgroundColor: "{props.mode}" }}>
                     <div className="collapse navbar-collapse" id="navbarNavDropdown" >
                         <Link className="navbar-brand d-flex fs-2 fw-bold font-monospace" to="/">
                             <img className='mx-3' style={{ width: "3rem" }} src={logo} alt="logo" />
