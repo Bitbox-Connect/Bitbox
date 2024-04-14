@@ -9,10 +9,10 @@ import Navbar from './component/Navbar';
 import Signup from './component/Signup';
 import ProjectState from './context/ProjectState';
 import ProfileState from './context/ProfileState';
-import CodeOfConduct from './component/Footers/Codeofconduct';
+import CodeOfConduct from './component/Footers/CodeOfConduct';
 import Feedback from './component/Footers/Feedback';
-import ContactUs from './component/Footers/Contactus';
-import PrivacyPolicy from './component/Footers/Privacypolicy';
+import ContactUs from './component/Footers/ContactUs';
+import PrivacyPolicy from './component/Footers/PrivacyPolicy';
 import TermOfUse from './component/Footers/TermOfUse';
 import Community from './component/Community';
 import MyProfile from './component/MyProfile'
@@ -42,13 +42,13 @@ function App() {
     if (mode === 'light') {
       setMode('dark');
       document.body.style.backgroundColor = 'black';
-      showAlert("Dark mode has been enabled", "success")
+      showAlert("Dark Mode Enabled", "success")
 
     }
     else {
       setMode('light');
       document.body.style.backgroundColor = 'white';
-      showAlert("Light mode has been enabled", "success")
+      showAlert("Light Mode Enabled", "success")
     }
   }
 

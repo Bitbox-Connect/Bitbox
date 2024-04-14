@@ -213,8 +213,11 @@ h3 {
     padding: 6px;
 }
 
-/* Special Section */
-.Special-Sec {
+/* Service Section */
+
+
+/* work Section */
+.work-Sec {
     min-height: 100vh;
     width: 100vw;
     display: flex;
@@ -223,8 +226,8 @@ h3 {
     align-items: center;
 }
 
-.special-row1,
-.special-row2 {
+.work-row1,
+.work-row2 {
     min-height: 38vh;
     width: 100vw;
     display: flex;
@@ -234,17 +237,17 @@ h3 {
     padding: 20px;
 }
 
-.special-cont1 h3,
-.special-cont2 h3,
-.special-cont3 h3 {
+.work-cont1 h3,
+.work-cont2 h3,
+.work-cont3 h3 {
     text-align: center;
     width: max-content;
 
 }
 
-.special-cont1,
-.special-cont2,
-.special-cont3 {
+.work-cont1,
+.work-cont2,
+.work-cont3 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -258,9 +261,9 @@ h3 {
     transition: all 0.2s ease-in-out;
 }
 
-.special-cont1:hover,
-.special-cont2:hover,
-.special-cont3:hover {
+.work-cont1:hover,
+.work-cont2:hover,
+.work-cont3:hover {
     outline: rgb(73, 168, 209) 2px solid;
     background-color: #ecebeb65;
     scale: 1.02;

@@ -4,6 +4,8 @@ import HeroImg from '../assets/images/Vector Gif/Hero.gif'
 import Learn from '../assets/images/Learn.png'
 import Share from '../assets/images/Share.png'
 import Grow from '../assets/images/Grow.png'
+import glichBitboxGif from '../assets/images/Other Gifs/Bitbox Glitch.gif'
+
 const Home = () => {
     // const { showAlert } = props;
     return (
@@ -113,45 +115,51 @@ const Home = () => {
                 </section>
             </div>
 
+            {/* Service Section */}
+            <div className="service-section">
+                <div className="service-splash-gif">
+                    <img src={glichBitboxGif} alt="" />
+                </div>
+            </div>
             {/* Works Section */}
-            <div className="Special-Sec">
+            <div className="work-Sec">
                 <h2 className='Heading-Page text-center mb-2'>What We Works</h2>
-                <div className="special-row1 my-1">
-                    <div className="special-cont1">
+                <div className="work-row1 my-1">
+                    <div className="work-cont1">
                         <h3 className='text'>Community Collaboration</h3>
-                        <div className="special-box1">
+                        <div className="work-box1">
                             <p >Engage with a diverse community of developers, designers, and enthusiasts passionate about creating impactful software.</p>
                         </div>
                     </div>
-                    <div className="special-cont2">
+                    <div className="work-cont2">
                         <h3 className='text'>Transparency and Accessibility</h3>
-                        <div className="special-box2">
+                        <div className="work-box2">
                             <p > Access and contribute to projects with full transparency, ensuring that everyone can benefit from shared knowledge and resources.</p>
                         </div>
                     </div>
-                    <div className="special-cont3">
+                    <div className="work-cont3">
                         <h3 className='text'>Innovation and Creativity</h3>
-                        <div className="special-box3">
+                        <div className="work-box3">
                             <p >Explore endless possibilities for innovation by harnessing the collective creativity of a global network of contributors.</p>
                         </div>
                     </div>
                 </div>
-                <div className="special-row2">
-                    <div className="special-cont1">
+                <div className="work-row2">
+                    <div className="work-cont1">
                         <h3 className='text'>Flexibility and Customization</h3>
-                        <div className="special-box1">
+                        <div className="work-box1">
                             <p >Customize and adapt open source projects to suit your specific needs, empowering you to build solutions tailored to your requirements.</p>
                         </div>
                     </div>
-                    <div className="special-cont2">
+                    <div className="work-cont2">
                         <h3 className='text'>Learning and Skill Development</h3>
-                        <div className="special-box2">
+                        <div className="work-box2">
                             <p > Accelerate your learning and skill development through hands-on collaboration, mentorship, and continuous feedback within the open source community.</p>
                         </div>
                     </div>
-                    <div className="special-cont3">
+                    <div className="work-cont3">
                         <h3 className='text'>Global Impact</h3>
-                        <div className="special-box3">
+                        <div className="work-box3">
                             <p >Make a meaningful impact on a global scale by contributing to projects that address real-world challenges and improve the lives of people everywhere.</p>
                         </div>
                     </div>
