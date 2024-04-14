@@ -15,9 +15,7 @@
 .footer-container {
     display: flex;
     justify-content: space-around;
-    background: #a6c1ee;
     padding: 15px;
-    border-top: 2px solid black;
     width: 100vw;
     font-weight: 500;
 }

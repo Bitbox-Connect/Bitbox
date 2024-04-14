@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './css/Footer.css';
 import { FaFacebookSquare, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import logo from '../assets/images/logo.png';
-function Footer() {
+function Footer(props) {
   return (
     <footer>
-      <div className='footer-container'>
+      <div className='footer-container' style={{ backgroundColor: props.mode === 'dark' ? 'black' : 'white', borderTop: props.mode === 'dark' ? '1px solid white' : '1px solid black', borderBottom: props.mode === 'dark' ? '1px solid white' : '1px solid black' }}>
         <div className='footer-about'>
           <div className='footer-note'>
             <Link to="/">
@@ -59,5 +60,10 @@ function Footer() {
     </footer>
   )
 }
+
+Footer.propTypes = {
+  showAlert: PropTypes.func,
+  mode: PropTypes.func,
+};
 
 export default Footer;
