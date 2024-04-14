@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Make sure to import BrowserRouter as Routerimport './App.css';
 import About from './component/About';
 import Alert from './component/Alert';
@@ -9,21 +9,32 @@ import Navbar from './component/Navbar';
 import Signup from './component/Signup';
 import ProjectState from './context/ProjectState';
 import ProfileState from './context/ProfileState';
+<<<<<<< HEAD
 import Feedback from './component/Footers/Feedback';
 import ContactUs from './component/Footers/ContactUs';
 import PrivacyPolicy from './component/Footers/PrivacyPolicy';
 import CodeOfConduct from './component/Footers/CodeOfConduct'
+=======
+import CodeOfConduct from './component/Footers/CodeOfConduct';
+import Feedback from './component/Footers/Feedback';
+import ContactUs from './component/Footers/ContactUs';
+import PrivacyPolicy from './component/Footers/PrivacyPolicy';
+>>>>>>> 724f42145b465dafbcca7e12339517589fda4955
 import TermOfUse from './component/Footers/TermOfUse';
 import Community from './component/Community';
 import MyProfile from './component/MyProfile'
 import ScrollTop from './component/ScrollTop';
 import EditProfile from './component/EditProfile';
 import Contributers from './component/Contributers';
+<<<<<<< HEAD
+=======
+// import { Link } from 'react-router-dom';
+
+>>>>>>> 724f42145b465dafbcca7e12339517589fda4955
 
 function App() {
-  const [mode, setMode] = useState('light'); //Whether dark mode is enabled or not
-  const [alert, setAlert] = useState(null);
 
+  const [alert, setAlert] = useState(null);
   const showAlert = (message, type) => {
     setAlert({
       msg: message,
@@ -36,25 +47,45 @@ function App() {
 
   // Define routes where the footer should not be shown
   const hideFooterRoutes = ['/login', '/signup'];
+
+  // Toggle Dark Mode
+
+  // Retrieve mode from local storage or default to 'light'
+  const [mode, setMode] = useState(localStorage.getItem('mode') || 'light');
+
+  // Effect to update local storage when mode changes
+  useEffect(() => {
+    localStorage.setItem('mode', mode);
+  }, [mode]);
+
   const toggleMode = () => {
     if (mode === 'light') {
       setMode('dark');
 
+      // Set background color to dark mode
       document.body.style.backgroundColor = '#374151';
-        document.querySelectorAll('*').forEach(element => {
-            element.style.color = 'white';
-        });
 
-      document.body.style.backgroundColor = 'black';
-      showAlert("Dark Mode Enabled", "success")
+      // Set text color to white for all elements
+      document.querySelectorAll('*').forEach(element => {
+        element.style.color = 'white';
+      });
 
+      // Show alert for dark mode enabled
+      showAlert("Dark Mode Enabled", "success");
     }
     else {
       setMode('light');
+      // Set background color to light mode
       document.body.style.backgroundColor = 'white';
-      showAlert("Light Mode Enabled", "success")
+      // Reset text color for all elements to default
+      document.querySelectorAll('*').forEach(element => {
+        element.style.color = ''; // Reset to default
+      });
+      // Show alert for light mode enabled
+      showAlert("Light Mode Enabled", "success");
     }
   }
+
 
   return (
     <>
@@ -88,7 +119,7 @@ function App() {
               </Routes>
             </div>
             {/* Conditionally render the footer based on the current route */}
-            {!hideFooterRoutes.includes(window.location.pathname) && <Footer mode={mode} setAlert={showAlert}/>}
+            {!hideFooterRoutes.includes(window.location.pathname) && <Footer mode={mode} setAlert={showAlert} />}
           </Router>
         </ProfileState>
       </ProjectState>

@@ -1,5 +1,6 @@
 import "./css/About.css";
-import { useState, useEffect } from "react";
+import PropTypes from 'prop-types';
+// import { useEffect } from "react";
 import img1 from "../assets/images/Anuj.png";
 import img2 from "../assets/images/Jitendra.png";
 import img3 from "../assets/images/Harshit.png";
@@ -10,7 +11,8 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import {Contri} from './Contributers'
 // import { Link } from "react-router-dom";
-export default function About() {
+
+export default function About(props) {
   var popoverTriggerList = [].slice.call(
     document.querySelectorAll('[data-bs-toggle="popover"]')
   );
@@ -20,12 +22,12 @@ export default function About() {
   });
   popoverList; // Necessary code, but suppressed the warning for unused variable
 
-  const [visitorsCount, setVisitorsCount] = useState(100000); // Initial count of visitors
+  // const [visitorsCount, setVisitorsCount] = useState(100000); // Initial count of visitors
 
-  useEffect(() => {
-    // Increment visitors count when component mounts (new user visits)
-    setVisitorsCount(prevCount => prevCount + 1);
-  }, []); // Empty dependency array ensures this effect runs only once when component mounts
+  // useEffect(() => {
+  //   // Increment visitors count when component mounts (new user visits)
+  //   setVisitorsCount(prevCount => prevCount + 1);
+  // }, []); // Empty dependency array ensures this effect runs only once when component mounts
 
   return (
     <div>
@@ -34,7 +36,7 @@ export default function About() {
         <section className="about-main-section">
           <div className="about-content-left">
             <h2 className="Heading-Page">About Us</h2>
-            <p className="about-section-desc fs-4">
+            <div className="about-section-desc fs-4">
               Bitbox is like a friendly community where people working on
               projects can come together. If you’re stuck or need advice, you
               can ask for help. And if you know something, you can share your
@@ -46,7 +48,7 @@ export default function About() {
               code, where creativity flourishes and solutions come to life.
               Join our vibrant community of developers, enthusiasts, and
               visionaries, as we build the future together, one line at a time
-            </p>
+            </div>
           </div>
           <div className="about-right-page" data-engine="three.js r149">
             <div className="container noselect">
@@ -96,17 +98,17 @@ export default function About() {
             <div className="team-grid container ">
               {/* card 1 */}
               <div className="team-card">
-                <div className="team-text">
+                <div className="team-text" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum blanditiis expedita mollitia itaque ipsum ratione. Debitis odit repellendus, ducimus officiis culpa obcaecati?
                 </div>
                 <div className="team-avatar">
                   <img src={img1} />
                 </div>
                 <div className="team-details">
-                  <h3 className="team-name">
+                  <h3 className="team-name" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                     Anuj Verma
                   </h3>
-                  <p className="team-desc">
+                  <p className="team-desc" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                     BTech CSE AIML <br /> 3rd Year
                   </p>
                 </div>
@@ -121,17 +123,17 @@ export default function About() {
               </div>
               {/* card 2 */}
               <div className="team-card">
-                <div className="team-text">
+                <div className="team-text" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum blanditiis expedita mollitia itaque ipsum ratione. Debitis odit repellendus, ducimus officiis culpa obcaecati?
                 </div>
                 <div className="team-avatar">
                   <img src={img2} />
                 </div>
                 <div className="team-details">
-                  <h3 className="team-name">
+                  <h3 className="team-name" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                     Jitendra Kumar
                   </h3>
-                  <p className="team-desc">
+                  <p className="team-desc" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                     BTech CSE AIML <br /> 3rd Year
                   </p>
                 </div>
@@ -146,17 +148,17 @@ export default function About() {
               </div>
               {/* card 3  */}
               <div className="team-card">
-                <div className="team-text">
+                <div className="team-text" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum blanditiis expedita mollitia itaque ipsum ratione. Debitis odit repellendus, ducimus officiis culpa obcaecati?
                 </div>
                 <div className="team-avatar">
                   <img src={img3} />
                 </div>
                 <div className="team-details">
-                  <h3 className="team-name">
+                  <h3 className="team-name" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                     Harshit Singh
                   </h3>
-                  <p className="team-desc">
+                  <p className="team-desc" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                     BTech CSE AIML <br /> 3rd Year
                   </p>
                 </div>
@@ -190,43 +192,43 @@ export default function About() {
             <h2 className="Heading-Page">
               Visitors
             </h2>
-            <div class="container">
-              <div class="row">
-                <div class="col-md-3 col-sm-6">
-                  <div class="counter">
-                    <div class="counter-icon">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-3 col-sm-6">
+                  <div className="counter">
+                    <div className="counter-icon">
                       <FontAwesomeIcon icon={faUser} />
                     </div>
-                    <span class="counter-value">876K+</span>
+                    <span className="counter-value">876K+</span>
                     <h3>VisitorCount</h3>
                   </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                  <div class="counter blue">
-                    <div class="counter-icon">
-                      {/* <i class="fa fa-youtube"></i> */}
-                      <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+                <div className="col-md-3 col-sm-6">
+                  <div className="counter blue">
+                    <div className="counter-icon">
+                      {/* <i className="fa fa-youtube"></i> */}
+                      <i className="fa-sharp fa-solid fa-pen-to-square"></i>
                     </div>
-                    <span class="counter-value">876K+</span>
+                    <span className="counter-value">876K+</span>
                     <h3>Registrations</h3>
                   </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                  <div class="counter">
-                    <div class="counter-icon">
-                    <i class="fa-solid fa-user-group"></i>
+                <div className="col-md-3 col-sm-6">
+                  <div className="counter">
+                    <div className="counter-icon">
+                      <i className="fa-solid fa-user-group"></i>
                     </div>
-                    <span class="counter-value">876K+</span>
+                    <span className="counter-value">876K+</span>
                     <h3>Participants</h3>
                   </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                  <div class="counter blue">
-                    <div class="counter-icon">
-                      {/* <i class="fa fa-rocket"></i> */}
+                <div className="col-md-3 col-sm-6">
+                  <div className="counter blue">
+                    <div className="counter-icon">
+                      {/* <i className="fa fa-rocket"></i> */}
                       <FontAwesomeIcon icon={faCoffee} />
                     </div>
-                    <span class="counter-value">828K+</span>
+                    <span className="counter-value">828K+</span>
                     <h3>Total Projects</h3>
                   </div>
                 </div>
@@ -245,13 +247,13 @@ export default function About() {
               <div className="accordion" id="accordionExample">
                 <div className="accordion-item">
                   <h2 className="accordion-header">
-                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style={{ background: props.mode === 'dark' ? 'black' : 'white' }}>
                       Will a beginner, with absolutely no knowledge of github, gain
                       anything fruitful?
                     </button>
                   </h2>
                   <div id="collapseOne" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div className="accordion-body fs-5">
+                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'black' : 'white' }}>
                       Yeah, definitely. The organization is meant to assist the
                       beginners grow in the field of development. We’ll have distinct
                       projects appropriate both for beginners as well as the accolades
@@ -263,24 +265,24 @@ export default function About() {
                 </div>
                 <div className="accordion-item">
                   <h2 className="accordion-header">
-                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style={{ background: props.mode === 'dark' ? 'black' : 'white' }}>
                       Are there any charges for registration?
                     </button>
                   </h2>
                   <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div className="accordion-body fs-5">
+                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'black' : 'white' }}>
                       No, there are no fees associated with participation. It is completely free of charge.
                     </div>
                   </div>
                 </div>
                 <div className="accordion-item">
                   <h2 className="accordion-header">
-                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style={{ background: props.mode === 'dark' ? 'black' : 'white' }}>
                       Is there a specific age requirement for participation?
                     </button>
                   </h2>
                   <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div className="accordion-body fs-5">
+                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'black' : 'white' }}>
                       No, there are no age restrictions for joining GSSoC. All age groups are welcome to participate.
                     </div>
                   </div>
@@ -288,12 +290,12 @@ export default function About() {
 
                 <div className="accordion-item">
                   <h2 className="accordion-header">
-                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style={{ background: props.mode === 'dark' ? 'black' : 'white' }}>
                       What are the project requirements?
                     </button>
                   </h2>
                   <div id="collapseFour" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div className="accordion-body fs-5">
+                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'black' : 'white' }}>
                       Projects are not bound by specific conditions. Mentors can propose ideas in their areas of expertise without restriction.
                     </div>
                   </div>
@@ -301,12 +303,12 @@ export default function About() {
 
                 <div className="accordion-item">
                   <h2 className="accordion-header">
-                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseive">
+                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseive" style={{ background: props.mode === 'dark' ? 'black' : 'white' }}>
                       As a beginner, where should we begin to contribute effectively to projects?
                     </button>
                   </h2>
                   <div id="collapseFive" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div className="accordion-body fs-5">
+                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'black' : 'white' }}>
                       You can kickstart your journey by accessing the resources available on our official website. We offer links to GitHub and other development tools to ensure that everyone can contribute effectively to the projects.
                     </div>
                   </div>
@@ -323,3 +325,11 @@ export default function About() {
     </div>
   );
 }
+
+
+// Props Validation
+About.propTypes = {
+  mode: PropTypes.func,
+  toggleMode: PropTypes.func,
+  showAlert: PropTypes.func,
+};
