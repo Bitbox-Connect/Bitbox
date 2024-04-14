@@ -167,10 +167,9 @@ Navbar.propTypes = {
     community: PropTypes.string,
     myProjects: PropTypes.string,
     about: PropTypes.string,
-    mode: PropTypes.func,
+    mode: PropTypes.string,
     toggleMode: PropTypes.func,
     showAlert: PropTypes.func,
-    // mode: PropTypes.func,
     isAuthenticated: PropTypes.bool,
 };
 

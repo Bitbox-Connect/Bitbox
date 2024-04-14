@@ -519,7 +519,7 @@ const Community = (props) => {
 
 // Props Vadilation
 Community.propTypes = {
-  mode: PropTypes.func,
+  mode: PropTypes.string,
   toggleMode: PropTypes.func,
   project: PropTypes.string,
   showAlert: PropTypes.func,

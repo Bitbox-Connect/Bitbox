@@ -225,7 +225,6 @@ h3 {
 
 /* Service Section */
 .service-section {
-    margin-top: 5rem;
     min-height: 60vh;
     display: flex;
     flex-direction: column;
@@ -285,6 +284,7 @@ h3 {
     height: 47.5vh;
     padding: 20px;
     width: 30vw;
+    color: blue;
     outline: 2px solid blue;
     text-align: center;
     border-radius: 1rem;
