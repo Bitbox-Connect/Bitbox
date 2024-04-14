@@ -10,7 +10,10 @@ import Signup from './component/Signup';
 import ProjectState from './context/ProjectState';
 import ProfileState from './context/ProfileState';
 import CodeOfConduct from './component/Footers/CodeOfConduct';
+import CodeOfConduct from './component/Footers/CodeOfConduct';
 import Feedback from './component/Footers/Feedback';
+import ContactUs from './component/Footers/ContactUs';
+import PrivacyPolicy from './component/Footers/PrivacyPolicy';
 import ContactUs from './component/Footers/ContactUs';
 import PrivacyPolicy from './component/Footers/PrivacyPolicy';
 import TermOfUse from './component/Footers/TermOfUse';
@@ -41,6 +44,12 @@ function App() {
   const toggleMode = () => {
     if (mode === 'light') {
       setMode('dark');
+
+      document.body.style.backgroundColor = '#374151';
+        document.querySelectorAll('*').forEach(element => {
+            element.style.color = 'white';
+        });
+
       document.body.style.backgroundColor = 'black';
       showAlert("Dark Mode Enabled", "success")
 
@@ -84,7 +93,7 @@ function App() {
               </Routes>
             </div>
             {/* Conditionally render the footer based on the current route */}
-            {!hideFooterRoutes.includes(window.location.pathname) && <Footer />}
+            {!hideFooterRoutes.includes(window.location.pathname) && <Footer mode={mode} setAlert={showAlert}/>}
           </Router>
         </ProfileState>
       </ProjectState>
