@@ -3,7 +3,10 @@ import PropTypes from "prop-types";
 import projectContext from "../context/projectContext";
 import avatarImg from "../assets/images/logo.png";
 import "./css/ProjectCard.css";
-
+import FavourModalImg from '../assets/images/Modal Image/Favourite.png'
+import commentModalImg from '../assets/images/Modal Image/comment.png'
+import LikeModalImg from '../assets/images/Modal Image/Like.png'
+import DetailCardImg from '../assets/images/Modal Image/Details.png'
 const MyProfileCard = (props) => {
   const { project, updateProject, showDetailProject, showAlert } = props;
   const [showModal, setShowModal] = useState(false);
@@ -64,19 +67,19 @@ const MyProfileCard = (props) => {
             <div className="projectEngagementContainer">
               <div className="project-love">
                 <img
-                  src="./src/assets/images/Project Card/love.png"
+                  src={FavourModalImg}
                   alt="Love"
                 />
               </div>
               <div className="project-comment">
                 <img
-                  src="./src/assets/images/Project Card/comment.png"
+                  src={commentModalImg}
                   alt="Comment"
                 />
               </div>
               <div className="project-link">
                 <img
-                  src="./src/assets/images/Project Card/link.png"
+                  src={LikeModalImg}
                   alt="Link"
                 />
               </div>
@@ -85,7 +88,7 @@ const MyProfileCard = (props) => {
                 onClick={() => showDetailProject(project)}
               >
                 <img
-                  src="./src/assets/images/Project Card/info.png"
+                  src={DetailCardImg}
                   alt="Details"
                 />
               </div>

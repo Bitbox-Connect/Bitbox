@@ -530,74 +530,7 @@ h2 {
   color: #316ce8 4px solid;
 }
 
-/* FAQ */
-.faq-section .container {
-  min-width: 100vw;
-  padding: 2rem;
-}
-
-.faq-section {
-  min-height: 55vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Style for the accordion body */
-.accordion-body {
-  background-color: #fff;
-  border-radius: 5px;
-  outline: 1px solid #ced4da;
-  padding: 10px 15px;
-  margin-top: 5px;
-}
-
-/* Style for the accordion items */
-.accordion-item {
-  margin-bottom: 10px;
-}
-
-/* Style for the accordion buttons */
-.accordion-button {
-  background-color: rgb(250, 251, 253);
-  border: none;
-  border-radius: 5px;
-  padding: 10px 15px;
-  width: 100%;
-  text-align: left;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.accordion-button:hover {
-  background-color: #e9ecef;
-}
-
-.contain {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.visitors-container {
-  padding: 2rem;
-  margin: 0 auto;
-  max-width: 100%;
-  text-align: center;
-}
-
-.visitors-content {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.accordion-container {
-  max-width: 100%;
-  text-align: center;
-  display: flex;
-}
+/* Visitors */
 
 .counter {
   /* font-family: 'Open Sans', sans-sericolor: #f27f21; */
@@ -615,7 +548,6 @@ h2 {
 .counter:before,
 .counter:after {
   content: "";
-  background: #f3f3f3;
   border-radius: 20px;
   box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2);
   position: absolute;
@@ -683,8 +615,77 @@ h2 {
   border-left-color: #4accdb;
 }
 
+.visitors-container {
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 100%;
+  text-align: center;
+}
+
+.visitors-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media screen and (max-width:990px) {
   .counter {
     margin-bottom: 40px;
   }
+}
+
+/* FAQ */
+.faq-section .container {
+  min-width: 100vw;
+  padding: 2rem;
+}
+
+.faq-section {
+  min-height: 55vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style for the accordion body */
+.accordion-body {
+  background-color: #fff;
+  border-radius: 5px;
+  outline: 1px solid #ced4da;
+  padding: 10px 15px;
+  margin-top: 5px;
+}
+
+/* Style for the accordion items */
+.accordion-item {
+  margin-bottom: 10px;
+  background-color: transparent;
+}
+
+/* Style for the accordion buttons */
+.accordion-button {
+  background-color: rgb(250, 251, 253);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-button:hover {
+  background-color: #e9ecef;
+}
+
+.accordion-container {
+  max-width: 100%;
+  display: flex;
 }

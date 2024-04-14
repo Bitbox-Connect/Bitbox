@@ -78,8 +78,7 @@ const EditProfile = ({ showAlert }) => {
                                     alt="avatar"
                                 />
                             )}
-                            <h6>Upload a different photo...</h6>
-                            <input type="file" className="form-control" onChange={e => setFile(e.target.files[0])} />
+                            <input type="file" className="form-control mt-2" onChange={e => setFile(e.target.files[0])} />
                         </div>
                     </div>
                     <div className="col-md-9 editprofile-info-container">

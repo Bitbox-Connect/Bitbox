@@ -10,6 +10,20 @@ import avatar from '../assets/images/Dropdown/avatar.png';
 // import projectDummyImage from '../assets/images/Others/projects.png'
 import './css/Modal.css'
 import './css/MyProfile.css'
+import ViewAllModalImg from '../assets/images/Modal Image/ViewAll.png'
+import githubModalImg from '../assets/images/Modal Image/GitHub.png'
+import unlinkModalImg from '../assets/images/Modal Image/Unlink.png'
+import optionModalImg from '../assets/images/Modal Image/Option.png'
+import closeModalImg from '../assets/images/Modal Image/Close.png'
+import AavtarModalImg from '../assets/images/Modal Image/Aavtar.png'
+import VisitModalImg from '../assets/images/Modal Image/visitor.png'
+import LikeModalImg from '../assets/images/Modal Image/Like.png'
+import LinkModalImg from '../assets/images/Modal Image/Link.png'
+ import FavourModalImg from '../assets/images/Modal Image/Favourite.png'
+ import commentModalImg from '../assets/images/Modal Image/comment.png'
+ import ShareModalImg from '../assets/images/Modal Image/Share.png'
+ 
+
 const MyProfile = (props) => {
     const host = "http://localhost:5000"
     const [showVideo, setShowVideo] = useState(false);
@@ -270,22 +284,22 @@ const MyProfile = (props) => {
                                                             </div>
                                                             <div className="modal-project-engagement-container">
                                                                 <div className="modal-project-love">
-                                                                    <img src="" alt="Like" />
+                                                                    <img src={LikeModalImg} alt="Like" />
                                                                 </div>
                                                                 <div className="modal-project-comment">
-                                                                    <img src="" alt="Comment" />
+                                                                    <img src={commentModalImg} alt="Comment" />
                                                                 </div>
                                                                 <div className="modal-favourite-details">
-                                                                    <img src="" alt="Favourite" />
+                                                                    <img src={FavourModalImg} alt="Favourite" />
                                                                 </div>
                                                                 <div className="modal-project-link">
-                                                                    <img src="" alt="Link" />
+                                                                    <img src={LinkModalImg} alt="Link" />
                                                                 </div>
                                                             </div>
                                                             <section className="modal-comment-section">
                                                                 <div className="modal-post-commment">
                                                                     <div className="modal-post-commment-avatar">
-                                                                        <img src="" alt="avatar-image" />
+                                                                        <img src={AavtarModalImg} alt="avatar-image" />
                                                                     </div>
                                                                     <span>Share Your Thoughts</span>
                                                                     <div className="modal-post-commment-button">
@@ -295,7 +309,7 @@ const MyProfile = (props) => {
                                                                 <div className="modal-comment-container">
                                                                     <header className="modal-comment-header">
                                                                         <div className="modal-comment-user-avatar">
-                                                                            <img src="" alt="user-avatar" />
+                                                                            <img src={AavtarModalImg} alt="user-avatar" />
                                                                         </div>
                                                                         <div className="modal-comment-user-details">
                                                                             <div className="modal-comment-user-name">
@@ -316,16 +330,16 @@ const MyProfile = (props) => {
                                                                         </div>
                                                                         <div className="modal-comment-engagement-container">
                                                                             <div className="modal-comment-project-love">
-                                                                                <img src="" alt="Like" />
+                                                                                <img src={LikeModalImg} alt="Like" />
                                                                             </div>
                                                                             <div className="modal-project-comment">
-                                                                                <img src="" alt="Comment" />
+                                                                                <img src={commentModalImg} alt="Comment" />
                                                                             </div>
                                                                             <div className="modal-favourite-details">
-                                                                                <img src="" alt="Share" />
+                                                                                <img src={FavourModalImg} alt="Share" />
                                                                             </div>
                                                                             <div className="modal-project-link">
-                                                                                <img src="" alt="Option" />
+                                                                                <img src={LikeModalImg} alt="Option" />
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -337,19 +351,19 @@ const MyProfile = (props) => {
                                                         <div className="modal-right-head">
                                                             {project.egitHubLink ? (
                                                                 <a className="button-github-modal" href={project.egitHubLink} target="_blank" rel="noopener noreferrer" title='GitHub Link'>
-                                                                    <img src="path_to_github_logo_image" alt="GitHub" />
+                                                                    <img src={githubModalImg} alt="GitHub" />
                                                                     GitHub
                                                                 </a>
                                                             ) : (
                                                                 <a title='Unavailable GitHub Link'>
                                                                     <div className="button-github-modal" >
-                                                                        <img src="path_to_unavailable_image" alt="GitHub" />
+                                                                        <img src={LinkModalImg} alt="GitHub" />
                                                                         Unavailable
                                                                     </div>
                                                                 </a>
                                                             )}
                                                             <div className="project-modal-head-buttons">
-                                                                <div className="close-modal-button"><img src="" alt="option" /></div>
+                                                                <div className="close-modal-button"><img src={optionModalImg} alt="option" /></div>
                                                                 {/* Bootstap close button */}
                                                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
@@ -357,7 +371,7 @@ const MyProfile = (props) => {
                                                         <div className="modal-profile-details-container">
                                                             <div className="modal-profile-details">
                                                                 <div className="modal-profile-image">
-                                                                    <img src="" alt="avatar-image" />
+                                                                    <img src={AavtarModalImg} alt="avatar-image" />
                                                                 </div>
                                                                 <div className="modal-profile-user-details">
                                                                     <div className="modal-profile-name">Anuj Verma</div>
@@ -365,8 +379,9 @@ const MyProfile = (props) => {
                                                                 </div>
                                                             </div>
                                                             <div className="modal-visit-profile-btn">
-                                                                <img src="" alt="visit" />
                                                                 Visit
+                                                                <img src={ShareModalImg} alt="visit" />
+                                                                
                                                             </div>
                                                         </div>
                                                         <div className="modal-suggestion-container">
@@ -375,7 +390,7 @@ const MyProfile = (props) => {
                                                             <div className="modal-suggestion-project-container">
                                                                 <div className="modal-suggestion-project">
                                                                     <div className="modal-suggestion-project-img">
-                                                                        <img src="" alt="image" />
+                                                                        <img src={AavtarModalImg} alt="image" />
                                                                     </div>
                                                                     <div className="modal-suggestion-project-details">
                                                                         <div className="modal-suggestion-project-details-title">
@@ -393,7 +408,7 @@ const MyProfile = (props) => {
                                                                 </div>
                                                                 <div className="modal-suggestion-project">
                                                                     <div className="modal-suggestion-project-img">
-                                                                        <img src="" alt="image" />
+                                                                        <img src={AavtarModalImg} alt="image" />
                                                                     </div>
                                                                     <div className="modal-suggestion-project-details">
                                                                         <div className="modal-suggestion-project-details-title">
@@ -411,7 +426,7 @@ const MyProfile = (props) => {
                                                                 </div>
                                                                 <div className="modal-suggestion-project">
                                                                     <div className="modal-suggestion-project-img">
-                                                                        <img src="" alt="image" />
+                                                                        <img src={AavtarModalImg} alt="image" />
                                                                     </div>
                                                                     <div className="modal-suggestion-project-details">
                                                                         <div className="modal-suggestion-project-details-title">
@@ -432,7 +447,7 @@ const MyProfile = (props) => {
                                                             <div className="modal-suggestion-viewall">
                                                                 View all
                                                                 <div className="viewall-image">
-                                                                    <img src="" alt=">" />
+                                                                    <img src={ViewAllModalImg} alt=">" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -442,7 +457,7 @@ const MyProfile = (props) => {
                                                             <div className="modal-suggestion-project-container">
                                                                 <div className="modal-suggestion-project">
                                                                     <div className="modal-suggestion-project-img">
-                                                                        <img src="" alt="image" />
+                                                                        <img src={AavtarModalImg} alt="image" />
                                                                     </div>
                                                                     <div className="modal-suggestion-project-details">
                                                                         <div className="modal-suggestion-project-details-title">
@@ -460,7 +475,7 @@ const MyProfile = (props) => {
                                                                 </div>
                                                                 <div className="modal-suggestion-project">
                                                                     <div className="modal-suggestion-project-img">
-                                                                        <img src="" alt="image" />
+                                                                        <img src={AavtarModalImg} alt="image" />
                                                                     </div>
                                                                     <div className="modal-suggestion-project-details">
                                                                         <div className="modal-suggestion-project-details-title">
@@ -478,7 +493,7 @@ const MyProfile = (props) => {
                                                                 </div>
                                                                 <div className="modal-suggestion-project">
                                                                     <div className="modal-suggestion-project-img">
-                                                                        <img src="" alt="image" />
+                                                                        <img src={AavtarModalImg} alt="image" />
                                                                     </div>
                                                                     <div className="modal-suggestion-project-details">
                                                                         <div className="modal-suggestion-project-details-title">
@@ -499,7 +514,7 @@ const MyProfile = (props) => {
                                                             <div className="modal-suggestion-viewall">
                                                                 View all
                                                                 <div className="viewall-image">
-                                                                    <img src="" alt=">" />
+                                                                    <img src={ViewAllModalImg} alt=">" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -509,7 +524,7 @@ const MyProfile = (props) => {
                                                             <div className="modal-suggestion-project-container">
                                                                 <div className="modal-suggestion-project">
                                                                     <div className="modal-suggestion-project-img">
-                                                                        <img src="" alt="image" />
+                                                                        <img src={AavtarModalImg} alt="image" />
                                                                     </div>
                                                                     <div className="modal-suggestion-project-details">
                                                                         <div className="modal-suggestion-project-details-title">
@@ -524,7 +539,7 @@ const MyProfile = (props) => {
                                                                 </div>
                                                                 <div className="modal-suggestion-project">
                                                                     <div className="modal-suggestion-project-img">
-                                                                        <img src="" alt="image" />
+                                                                        <img src={AavtarModalImg} alt="image" />
                                                                     </div>
                                                                     <div className="modal-suggestion-project-details">
                                                                         <div className="modal-suggestion-project-details-title">
@@ -539,7 +554,7 @@ const MyProfile = (props) => {
                                                                 </div>
                                                                 <div className="modal-suggestion-project">
                                                                     <div className="modal-suggestion-project-img">
-                                                                        <img src="" alt="image" />
+                                                                        <img src={AavtarModalImg} alt="image" />
                                                                     </div>
                                                                     <div className="modal-suggestion-project-details">
                                                                         <div className="modal-suggestion-project-details-title">
@@ -557,7 +572,7 @@ const MyProfile = (props) => {
                                                             <div className="modal-suggestion-viewall">
                                                                 I&apos;m feeling lucky
                                                                 <div className="viewall-image">
-                                                                    <img src="" alt=">" />
+                                                                    <img src={ViewAllModalImg} alt=">" />
                                                                 </div>
                                                             </div>
                                                         </div>
