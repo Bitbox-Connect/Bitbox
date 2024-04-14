@@ -97,8 +97,8 @@ function Navbar(props) {
                                 <>
                                     <ul className="navbar-nav">
                                         <div className="Navbar-Btn-Group">
-                                            <Link role="button" to='/login' className="Navbar-Btn mx-2">Login</Link>
-                                            <Link role="button" to='/signup' className="Navbar-Btn mx-2">Signup</Link>
+                                            <Link role="button" to='/login' className="btn btn-primary mx-2" style={{ height: "45px" }}>Login</Link>
+                                            <Link role="button" to='/signup' className="btn btn-primary mx-2" style={{ height: "45px" }}>Signup</Link>
                                         </div>
                                     </ul>
                                 </>
