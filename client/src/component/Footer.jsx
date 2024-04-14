@@ -45,7 +45,7 @@ function Footer(props) {
             <h3 className='fw-bold fs-2'>Follow us on</h3>
             <ul>
               <li><a href="https://www.linkedin.com/in/bit-box-community"><FaLinkedin color="#0077b5" fontSize="2rem" />Linkedin</a></li>
-              <li><a href="https://twitter.com/home"><FaTwitter color="#1da1f2" fontSize="2rem" />Twitter</a></li>
+              <li><a href="https://twitter.com/BITBOX688152"><FaTwitter color="#1da1f2" fontSize="2rem" />Twitter</a></li>
               <li><a href="https://github.com/bitboxcommunity"><FaGithub color="#211F1F" fontSize="2rem" />GitHub</a></li>
               <li><a href="https://www.facebook.com/bit-box-community"><FaFacebookSquare color="#3b5998" fontSize="2rem" />Facebook</a></li>
             </ul>

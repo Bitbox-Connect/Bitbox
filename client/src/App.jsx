@@ -13,12 +13,12 @@ import CodeOfConduct from './component/Footers/CodeOfConduct'
 import Feedback from './component/Footers/Feedback';
 import ContactUs from './component/Footers/ContactUs';
 import TermOfUse from './component/Footers/TermOfUse';
-import PrivacyPolicy from './component/Footers/PrivacyPolicy';
 import Community from './component/Community';
 import MyProfile from './component/MyProfile'
 import ScrollTop from './component/ScrollTop';
 import EditProfile from './component/EditProfile';
 import Contributers from './component/Contributers';
+import PrivacyPolicy from './component/Footers/Privacypolicy'
 // import { Link } from 'react-router-dom';
 
 
