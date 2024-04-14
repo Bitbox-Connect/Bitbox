@@ -152,6 +152,10 @@
     padding: 2rem 0;
 }
 
+.Card-Info-Sec h2 {
+    color: blue;
+}
+
 .Card-Infos {
     display: flex;
     justify-content: center;
@@ -174,16 +178,23 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    outline: 1px solid rgb(47, 41, 41);
+    outline: 2px solid blue;
+    color: blue;
     border-radius: 1rem;
     transition: all 0.2s ease-in-out;
 }
 
-.Card-Info:hover {
-    outline: rgb(82, 187, 228) 2px solid;
-    background-color: #ecebeb65;
-    scale: 1.02;
+.Card-Info p {
     color: blue;
+}
+
+.Card-Info:hover {
+    color: white;
+}
+
+.Card-Info:hover {
+    background-color: blue;
+    scale: 1.02;
 }
 
 .Card-Info h3 {
@@ -242,6 +253,10 @@ h3 {
     align-items: center;
 }
 
+.work-Sec h2{
+    color: blue;
+}
+
 .work-row1,
 .work-row2 {
     min-height: 38vh;
@@ -258,7 +273,6 @@ h3 {
 .work-cont3 h3 {
     text-align: center;
     width: max-content;
-
 }
 
 .work-cont1,
@@ -271,7 +285,7 @@ h3 {
     height: 47.5vh;
     padding: 20px;
     width: 30vw;
-    outline: 1px solid rgb(47, 41, 41);
+    outline: 2px solid blue;
     text-align: center;
     border-radius: 1rem;
     transition: all 0.2s ease-in-out;
@@ -280,10 +294,9 @@ h3 {
 .work-cont1:hover,
 .work-cont2:hover,
 .work-cont3:hover {
-    outline: rgb(73, 168, 209) 2px solid;
-    background-color: #ecebeb65;
+    background-color: blue;
     scale: 1.02;
-    color: blue;
+    color: white;
 }
 
 /* Technology Section */

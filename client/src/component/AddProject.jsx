@@ -1,7 +1,7 @@
 import { useContext, useState, useRef, useEffect } from 'react';
 import projectContext from '../context/projectContext';
 import PropTypes from 'prop-types';
-import projectDummyImage from '../assets/images/Others/projects.png'
+// import projectDummyImage from '../assets/images/Others/projects.png'
 
 function AddProject(props) {
     const context = useContext(projectContext);
@@ -78,7 +78,7 @@ function AddProject(props) {
                         <div className="modal-body">
                             <div className="pro-card">
                                 <div className="card-body">
-                                    <div className="mb-3">
+                                    {/* <div className="mb-3">
                                         <label htmlFor="title" className="form-label">Upload Image</label>
                                         <div className='d-flex justify-content-center'>
                                             <img
@@ -91,7 +91,7 @@ function AddProject(props) {
                                             <input type="file" className="form-control" style={{ width: "80%" }} />
                                             <button className='btn btn-secondary h-50'>Upload</button>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="mb-3">
                                         <label htmlFor="title" className="form-label">Project Title</label>
                                         <input autoFocus type="text" className="form-control" id="title" name='title' value={project.title} onChange={onChange} placeholder="Enter Project Title Here *" required onKeyDown={handleKeyDown} />

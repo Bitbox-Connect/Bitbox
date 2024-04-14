@@ -160,6 +160,7 @@
     border-width: 1px;
     border-radius: 16px;
     padding: 13px;
+    gap: 4.5rem;
     width: 34.5vw;
 }
 
@@ -282,7 +283,7 @@
     align-items: center;
     margin-top: 12px;
     pointer-events: auto;
-    gap: 12px;
+    gap: 8rem;
 }
 
 /* Right Section */

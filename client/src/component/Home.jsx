@@ -82,33 +82,28 @@ const Home = () => {
                 </div>
             </section>
             {/* Cards Page Section */}
-            <div className="Cards-Page">
+            <div className="Cards-Page" style={{ background: "#f5f5f5" }}>
                 <section className='Card-Info-Sec'>
                     <h2 className='Heading-Page text-center mb-2'>Be a part of Bitbox Community</h2>
                     <div className="Card-Infos">
                         <div className="Card-Info-Row1">
                             <div className="Card-Info">
                                 <h3>Start your journey</h3>
-                                <p>Engaging in GSSoC’23 offers a chance to elevate your GitHub presence. Elevate your knowledge, delve into new horizons, refine, amplify, forge connections, and foster teamwork to cultivate your abilities and character. Seize the opportunity to delve into open-source, mastering fundamental tools like Git and GitHub under the guidance of adept mentors.</p>
-                                {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
+                                <div>Engaging in GSSoC’23 offers a chance to elevate your GitHub presence. Elevate your knowledge, delve into new horizons, refine, amplify, forge connections, and foster teamwork to cultivate your abilities and character. Seize the opportunity to delve into open-source, mastering fundamental tools like Git and GitHub under the guidance of adept mentors.</div>
                             </div>
                             <div className="Card-Info">
                                 <h3>Inviting Projects & NGOs</h3>
-                                <p>If your organization harbors a vision for a project, whether it&apos;s a website, an app, or any other initiative, seize this golden opportunity to join our vibrant community. Our aspiring developers, mentored by seasoned experts, are eager to collaborate on your projects, aiming for nothing short of excellence. Submit your application now, and let&apos;s join forces because Together Everyone Achieves More.</p>
-                                {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
+                                <div>If your organization harbors a vision for a project, whether it&apos;s a website, an app, or any other initiative, seize this golden opportunity to join our vibrant community. Our aspiring developers, mentored by seasoned experts, are eager to collaborate on your projects, aiming for nothing short of excellence. Submit your application now, and let&apos;s join forces because Together Everyone Achieves More.</div>
                             </div>
                         </div>
                         <div className="Card-Info-Row2">
                             <div className="Card-Info">
                                 <h3>Lead the pack</h3>
-                                <p>In the realm of open-source projects, mentors serve as the vanguards, charting the course for the team&apos;s journey. They provide invaluable guidance to fellow participants, navigating them through every stage of the project roadmap. Acting as the cornerstone of the team, mentors remain accessible throughout the summer, reviewing pull requests and offering suggestions for improvement. Seize the opportunity to become a mentor at GirlScript Summer of Code and lay the groundwork for your team&apos;s success.</p>
-                                {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
+                                <div>In the realm of open-source projects, mentors serve as the vanguards, charting the course for the team&apos;s journey. They provide invaluable guidance to fellow participants, navigating them through every stage of the project roadmap. Acting as the cornerstone of the team, mentors remain accessible throughout the summer, reviewing pull requests and offering suggestions for improvement. Seize the opportunity to become a mentor at GirlScript Summer of Code and lay the groundwork for your team&apos;s success.</div>
                             </div>
                             <div className="Card-Info">
                                 <h3>Add your shade to GSSoC&apos;23</h3>
-                                <p>
-                                    Supporters play a crucial role in ensuring the seamless execution of GirlScript events by providing valuable resources. Their contribution enables us to reward our top participants with perks, fostering talent within our community. In appreciation of their support, we offer extensive publicity on our social platforms and media exposure to showcase our sponsors. Join us as a sponsor and illuminate our program with your generosity.</p>
-                                {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
+                                <div>Supporters play a crucial role in ensuring the seamless execution of GirlScript events by providing valuable resources. Their contribution enables us to reward our top participants with perks, fostering talent within our community. In appreciation of their support, we offer extensive publicity on our social platforms and media exposure to showcase our sponsors. Join us as a sponsor and illuminate our program with your generosity.</div>
                             </div>
                         </div>
                     </div>
@@ -126,45 +121,45 @@ const Home = () => {
                 </div>
             </div>
             {/* Works Section */}
-            <div className="work-Sec">
-                <h2 className='Heading-Page text-center mb-2'>What We Works</h2>
+            <div className="work-Sec mb-2" style={{ background: "#f5f5f5" }}>
+                <h2 className='Heading-Page text-center mb-2 mt-5'>What We Works</h2>
                 <div className="work-row1 my-1">
                     <div className="work-cont1">
                         <h3 className='text'>Community Collaboration</h3>
                         <div className="work-box1">
-                            <p >Engage with a diverse community of developers, designers, and enthusiasts passionate about creating impactful software.</p>
+                            <div>Engage with a diverse community of developers, designers, and enthusiasts passionate about creating impactful software.</div>
                         </div>
                     </div>
                     <div className="work-cont2">
                         <h3 className='text'>Transparency and Accessibility</h3>
                         <div className="work-box2">
-                            <p > Access and contribute to projects with full transparency, ensuring that everyone can benefit from shared knowledge and resources.</p>
+                            <div> Access and contribute to projects with full transparency, ensuring that everyone can benefit from shared knowledge and resources.</div>
                         </div>
                     </div>
                     <div className="work-cont3">
                         <h3 className='text'>Innovation and Creativity</h3>
                         <div className="work-box3">
-                            <p >Explore endless possibilities for innovation by harnessing the collective creativity of a global network of contributors.</p>
+                            <div>Explore endless possibilities for innovation by harnessing the collective creativity of a global network of contributors.</div>
                         </div>
                     </div>
                 </div>
-                <div className="work-row2">
+                <div className="work-row2" style={{ marginBottom: "2rem" }}>
                     <div className="work-cont1">
                         <h3 className='text'>Flexibility and Customization</h3>
                         <div className="work-box1">
-                            <p >Customize and adapt open source projects to suit your specific needs, empowering you to build solutions tailored to your requirements.</p>
+                            <div>Customize and adapt open source projects to suit your specific needs, empowering you to build solutions tailored to your requirements.</div>
                         </div>
                     </div>
                     <div className="work-cont2">
                         <h3 className='text'>Learning and Skill Development</h3>
                         <div className="work-box2">
-                            <p > Accelerate your learning and skill development through hands-on collaboration, mentorship, and continuous feedback within the open source community.</p>
+                            <div> Accelerate your learning and skill development through hands-on collaboration, mentorship, and continuous feedback within the open source community.</div>
                         </div>
                     </div>
                     <div className="work-cont3">
                         <h3 className='text'>Global Impact</h3>
                         <div className="work-box3">
-                            <p >Make a meaningful impact on a global scale by contributing to projects that address real-world challenges and improve the lives of people everywhere.</p>
+                            <div>Make a meaningful impact on a global scale by contributing to projects that address real-world challenges and improve the lives of people everywhere.</div>
                         </div>
                     </div>
                 </div>
