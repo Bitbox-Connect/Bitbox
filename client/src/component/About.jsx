@@ -247,13 +247,13 @@ export default function About(props) {
               <div className="accordion" id="accordionExample">
                 <div className="accordion-item">
                   <h2 className="accordion-header">
-                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style={{ background: props.mode === 'dark' ? 'black' : 'white' }}>
+                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                       Will a beginner, with absolutely no knowledge of github, gain
                       anything fruitful?
                     </button>
                   </h2>
                   <div id="collapseOne" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'black' : 'white' }}>
+                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                       Yeah, definitely. The organization is meant to assist the
                       beginners grow in the field of development. We’ll have distinct
                       projects appropriate both for beginners as well as the accolades
@@ -265,24 +265,24 @@ export default function About(props) {
                 </div>
                 <div className="accordion-item">
                   <h2 className="accordion-header">
-                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style={{ background: props.mode === 'dark' ? 'black' : 'white' }}>
+                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                       Are there any charges for registration?
                     </button>
                   </h2>
                   <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'black' : 'white' }}>
+                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                       No, there are no fees associated with participation. It is completely free of charge.
                     </div>
                   </div>
                 </div>
                 <div className="accordion-item">
                   <h2 className="accordion-header">
-                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style={{ background: props.mode === 'dark' ? 'black' : 'white' }}>
+                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                       Is there a specific age requirement for participation?
                     </button>
                   </h2>
                   <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'black' : 'white' }}>
+                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                       No, there are no age restrictions for joining GSSoC. All age groups are welcome to participate.
                     </div>
                   </div>
@@ -290,12 +290,12 @@ export default function About(props) {
 
                 <div className="accordion-item">
                   <h2 className="accordion-header">
-                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style={{ background: props.mode === 'dark' ? 'black' : 'white' }}>
+                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                       What are the project requirements?
                     </button>
                   </h2>
                   <div id="collapseFour" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'black' : 'white' }}>
+                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                       Projects are not bound by specific conditions. Mentors can propose ideas in their areas of expertise without restriction.
                     </div>
                   </div>
@@ -303,12 +303,12 @@ export default function About(props) {
 
                 <div className="accordion-item">
                   <h2 className="accordion-header">
-                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseive" style={{ background: props.mode === 'dark' ? 'black' : 'white' }}>
+                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseive" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                       As a beginner, where should we begin to contribute effectively to projects?
                     </button>
                   </h2>
                   <div id="collapseFive" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'black' : 'white' }}>
+                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                       You can kickstart your journey by accessing the resources available on our official website. We offer links to GitHub and other development tools to ensure that everyone can contribute effectively to the projects.
                     </div>
                   </div>
