@@ -176,14 +176,6 @@ export default function About(props) {
         </div>
       </div>
 
-      {/* Contributers */}
-      {/* <div className="contri">
-        <div className="contributers">
-          <Link to={Contri}/>
-          <h2>Contri</h2>
-        </div>
-       </div> */}
-
       {/* No of Visitors */}
 
       <div className="Team-Sec">

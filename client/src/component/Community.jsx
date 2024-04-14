@@ -14,7 +14,6 @@ import unlinkModalImg from '../assets/images/Modal Image/Unlink.png'
 import optionModalImg from '../assets/images/Modal Image/Option.png'
 import closeModalImg from '../assets/images/Modal Image/Close.png'
 import AavtarModalImg from '../assets/images/Modal Image/Aavtar.png'
-import VisitModalImg from '../assets/images/Modal Image/visitor.png'
 import LikeModalImg from '../assets/images/Modal Image/Like.png'
 import LinkModalImg from '../assets/images/Modal Image/Link.png'
 import FavourModalImg from '../assets/images/Modal Image/Favourite.png'
@@ -73,9 +72,9 @@ const Community = (props) => {
   return (
     <>
       <div className="user-profile-dashboard">
-        <div className="user-details">
-          <div className="globalproject-left">
-            <div className="globaldetail-left">
+        <div className="user-details"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+          <div className="globalproject-left" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+            <div className="globaldetail-left" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
               <div className="profile-picture mb-3 mt-2">
                 {image ? (
                   <img src={image} alt="avatar" />
@@ -116,7 +115,7 @@ const Community = (props) => {
               </div>
             </div>
           </div>
-          <div className="globalproject-right">
+          <div className="globalproject-right" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
             <div className="globaldetail-right">
               <h2 className='Heading-Page'>Welcome to Bitbox Community</h2>
               <div>
@@ -520,6 +519,8 @@ const Community = (props) => {
 
 // Props Vadilation
 Community.propTypes = {
+  mode: PropTypes.func,
+  toggleMode: PropTypes.func,
   project: PropTypes.string,
   showAlert: PropTypes.func,
 };

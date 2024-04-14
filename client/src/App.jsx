@@ -53,7 +53,7 @@ function App() {
       setMode('dark');
 
       // Set background color to dark mode
-      document.body.style.backgroundColor = '#374151';
+      document.body.style.backgroundColor = 'black';
 
       // Set text color to white for all elements
       document.querySelectorAll('*').forEach(element => {
@@ -78,7 +78,7 @@ function App() {
 
 
   return (
-    <>
+    <div>
       <ProjectState>
         <ProfileState>
           <Router>
@@ -113,7 +113,7 @@ function App() {
           </Router>
         </ProfileState>
       </ProjectState>
-    </>
+    </div>
   );
 }
 

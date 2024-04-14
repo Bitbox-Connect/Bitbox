@@ -6,19 +6,19 @@ import Share from '../assets/images/Share.png'
 import Grow from '../assets/images/Grow.png'
 import glichBitboxGif from '../assets/images/Other Gifs/Bitbox Glitch.gif'
 
-const Home = () => {
+const Home = (props) => {
     // const { showAlert } = props;
     return (
         <div>
             {/* Landing Page Section */}
-            <div className="content landing-page-container">
-                <section className="main-section">
+            <div className="content landing-page-container"  style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+                <section className="main-section" >
                     <div className="content-left">
-                        <p className="section-label">Very proud to introduce</p>
-                        <h1 className="section-title">Seamless Learning for Brighter Futures</h1>
-                        <p className="section-description">
+                        <div className="section-label"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? '#6366f2' : '#6366f1' }}>Very proud to introduce</div>
+                        <h1 className="section-title"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Seamless Learning for Brighter Futures</h1>
+                        <div className="section-description"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                             Our innovative platform offers an effortless and seamless approach to learning, empowering students of all ages to achieve brighter futures. Join us on a transformative journey to simplify education and unlock your full potential.
-                        </p>
+                        </div>
                         <div className="button-group">
                             <a href="#start" className="start-button">Start Now</a>
                             <a href="#tour" className="tour-button">Take Tour</a>
@@ -32,21 +32,21 @@ const Home = () => {
                 </section>
             </div>
             {/* share grow and help section */}
-            <section>
-                <div className="container my-5">
+            <section  style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+                <div className="container my-5" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                     <h2 className='Heading-Page text-center mb-2'>Bitbox<span> Community Cornerstone</span></h2>
                     <div className="row">
-                        <div className="col-lg-6">
+                        <div className="col-lg-6"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                             <img className="w-100 rounded-5" src={Grow} />
                         </div>
                         <div className="col-lg-6">
-                            <div className="p-5 mt-4">
-                                <h1 className="display-4"> Grow</h1>
-                                <p className="lead">Within Bitbox&apos;s open-source embrace,
+                            <div className="p-5 mt-4"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+                                <h1 className="display-4" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}> Grow</h1>
+                                <div className="lead" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Within Bitbox&apos;s open-source embrace,
                                     Ideas flourish, boundless space.
                                     Collaborating minds, a vibrant symphony,
-                                    Innovating together, unlocking our destiny.</p>
-                                <a href="#" className="btn btn-outline-dark">Read More</a>
+                                    Innovating together, unlocking our destiny.</div>
+                                <a href="#" className="btn btn-outline-dark"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Read More</a>
                             </div>
                         </div>
                     </div>
@@ -55,9 +55,9 @@ const Home = () => {
                         <div className="row">
                             <div className="col-lg-6">
                                 <div className="p-5 mt-4">
-                                    <h1 className="display-4">Learn</h1>
-                                    <p className="lead">📚 Within this dynamic ecosystem, ideas are shared freely, nurtured by the collective intellect of passionate developers and enthusiasts alike. From seasoned veterans to eager newcomers, all are welcomed into the fold, united by a common mission: to push the boundaries of what&apos;s possible in the realm of digital exchange. </p>
-                                    <a href="#" className="btn btn-outline-dark">Read More</a>
+                                    <h1 className="display-4" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Learn</h1>
+                                    <p className="lead" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>📚 Within this dynamic ecosystem, ideas are shared freely, nurtured by the collective intellect of passionate developers and enthusiasts alike. From seasoned veterans to eager newcomers, all are welcomed into the fold, united by a common mission: to push the boundaries of what&apos;s possible in the realm of digital exchange. </p>
+                                    <a href="#" className="btn btn-outline-dark"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Read More</a>
                                 </div>
                             </div>
                             <div className="col-lg-6">
@@ -72,9 +72,9 @@ const Home = () => {
                             </div>
                             <div className="col-lg-6">
                                 <div className="p-5 mt-4">
-                                    <h1 className="display-4">Share</h1>
-                                    <p className="lead">🌐 Join the vibrant Bitbox Opensource Community today! Whether you&apos;re a seasoned developer or just starting out, there&apos;s a place for you to collaborate, innovate, and make a difference. Let&apos;s shape the future of digital exchange together! #BitboxCommunity #OpenSource 🚀💻 </p>
-                                    <a href="#" className="btn btn-outline-dark">Read More</a>
+                                    <h1 className="display-4" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Share</h1>
+                                    <p className="lead" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>🌐 Join the vibrant Bitbox Opensource Community today! Whether you&apos;re a seasoned developer or just starting out, there&apos;s a place for you to collaborate, innovate, and make a difference. Let&apos;s shape the future of digital exchange together! #BitboxCommunity #OpenSource 🚀💻 </p>
+                                    <a href="#" className="btn btn-outline-dark"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Read More</a>
                                 </div>
                             </div>
                         </div>
@@ -82,9 +82,9 @@ const Home = () => {
                 </div>
             </section>
             {/* Cards Page Section */}
-            <div className="Cards-Page" style={{ background: "#f5f5f5" }}>
+            <div className="Cards-Page"  style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <section className='Card-Info-Sec'>
-                    <h2 className='Heading-Page text-center mb-2'>Be a part of Bitbox Community</h2>
+                    <h2 className='Heading-Page text-center mb-2'style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Be a part of Bitbox Community</h2>
                     <div className="Card-Infos">
                         <div className="Card-Info-Row1">
                             <div className="Card-Info">
@@ -111,20 +111,20 @@ const Home = () => {
             </div>
 
             {/* Service Section */}
-            <div className="service-section">
-                <p className='text-center'>We&apos;re Still</p>
-                <h1 className="service-heading text-center">Cooking Our Service</h1>
-                <div className="service-description text-center">We are going to launch our service Very Soon,</div>
-                <div className='text-center'>Stay Tune.</div>
-                <div className="service-splash-gif">
+            <div className="service-section"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+                <p className='text-center'style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>We&apos;re Still</p>
+                <h1 className="service-heading text-center"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Cooking Our Service</h1>
+                <div className="service-description text-center"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>We are going to launch our service Very Soon,</div>
+                <div className='text-center'style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Stay Tune.</div>
+                <div className="service-splash-gif" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                     <img src={glichBitboxGif} alt="bitbox gif" />
                 </div>
             </div>
             {/* Works Section */}
-            <div className="work-Sec mb-2" style={{ background: "#f5f5f5" }}>
-                <h2 className='Heading-Page text-center mb-2 mt-5'>What We Works</h2>
+            <div className="work-Sec mb-2"  style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+                <h2 className='Heading-Page text-center mb-2 mt-5'style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>What We Works</h2>
                 <div className="work-row1 my-1">
-                    <div className="work-cont1">
+                    <div className="work-cont1" >
                         <h3 className='text'>Community Collaboration</h3>
                         <div className="work-box1">
                             <div>Engage with a diverse community of developers, designers, and enthusiasts passionate about creating impactful software.</div>
@@ -165,7 +165,7 @@ const Home = () => {
                 </div>
             </div>
             {/* Technology Section */}
-            <div className='Technology-Sec'>
+            <div className='Technology-Sec'  style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <div className="Technology-Container">
                     <h2 className='Heading-Page mb-4'>Project Technology</h2>
                     <div className="content">
@@ -712,6 +712,8 @@ const Home = () => {
 
 // Props Vadilation
 Home.propTypes = {
+    mode: PropTypes.func,
+    toggleMode: PropTypes.func,
     showAlert: PropTypes.func,
 };
 
