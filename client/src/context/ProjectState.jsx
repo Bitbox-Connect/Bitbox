@@ -21,7 +21,6 @@ const ProjectStates = (props) => {
     });
     const json = await response.json();
     setGlobalProjects(json.reverse());
-    props.setProgress(100)
   }
 
   // Get All Your Project

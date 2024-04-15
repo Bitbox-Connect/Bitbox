@@ -7,6 +7,7 @@
 }
 
 .userprofile-left {
+  border-right: 2px solid black;
   width: 18vw;
 }
 
@@ -19,11 +20,11 @@
   height: 100px;
   border-radius: 50%;
   outline: 2px solid black;
+  background: white;
 }
 
 .userdetail-left {
   min-height: 100%;
-  background-color: #dcddd1;
   padding: 20px;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -33,7 +34,6 @@
 
 .userproject-right {
   flex: 1;
-  background-color: #f3efef;
 }
 
 .userdetail-right {

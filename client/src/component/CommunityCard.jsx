@@ -13,6 +13,21 @@ const CommunityCard = (props) => {
   const generateImageUrl = (projectId) => {
     return `https://source.unsplash.com/910x900/?computer/?coding/&${projectId}`;
   };
+
+  // Function to format date
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+
+    const year = date.getFullYear().toString().slice(-2); // Get last 2 digits of the year
+    const month = ('0' + (date.getMonth() + 1)).slice(-2); // Add leading zero for single-digit months
+    const day = ('0' + date.getDate()).slice(-2); // Add leading zero for single-digit days
+    const hours = ('0' + date.getHours()).slice(-2); // Add leading zero for single-digit hours
+    const minutes = ('0' + date.getMinutes()).slice(-2); // Add leading zero for single-digit minutes
+
+    // Format the date and time
+    return `${month}/${day}/${year} | ${hours}:${minutes}`;
+  };
+
   return (
     <div className='col-md-4 my-3'>
       <div className="projectContainer">
@@ -22,14 +37,14 @@ const CommunityCard = (props) => {
               <img src={avatarImg} alt="avatar" />
             </div>
             <div className="projectText">
-              <div className="projectTitle">{project.title}</div>
+              <div className="projectTitle" style={{ color: props.mode === 'dark' ? '#100000' : '' }}>{project.title}</div>
               <div className="projectDetails">
-                <div className="projectUserName">Anuj Verma</div>
-                <div className="projectTime">07/01/02 | 09:30</div>
+                {/* <div className="projectUserName">Anuj Verma</div> */}
+                <div className="projectTime" style={{ color: props.mode === 'dark' ? '#100000' : '' }}>{formatDate(project.date)}</div>
               </div>
             </div>
           </div>
-          <div className="projectDescription">
+          <div className="projectDescription" style={{ color: props.mode === 'dark' ? '#100000' : '' }}>
             {project.description}
           </div>
           <div className="project-bottom-container">
@@ -60,7 +75,8 @@ const CommunityCard = (props) => {
 // Props Vadilation
 CommunityCard.propTypes = {
   project: PropTypes.object,
-  showDetailProject: PropTypes.func.isRequired,
+  showDetailProject: PropTypes.func,
+  mode: PropTypes.string,
 };
 
 export default CommunityCard

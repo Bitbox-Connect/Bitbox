@@ -234,7 +234,7 @@ export default function About(props) {
 
         <div className="faq-section">
           <div className="container">
-            <h2 className="Heading-Page">Frequent Asked Questions</h2>
+            <h2 className="Heading-Page mb-3">Frequent Asked Questions</h2>
             <section>
               <div className="accordion" id="accordionExample">
                 <div className="accordion-item">

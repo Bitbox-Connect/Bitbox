@@ -43,11 +43,15 @@
     rotate: 180deg;
     width: 40px;
     cursor: pointer;
+    background: white;
+    border-radius: 50%;
 }
 
 .right-navigation img {
     width: 40px;
     cursor: pointer;
+    background: white;
+    border-radius: 50%;
 }
 
 .modal-tag-group {

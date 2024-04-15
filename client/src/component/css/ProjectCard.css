@@ -25,6 +25,9 @@ i {
   flex: 1;
   display: flex;
   flex-direction: column;
+  color: black !important;
+  background: white;
+  border-radius: 10px;
 }
 
 .projectInfo {
@@ -42,7 +45,7 @@ i {
 }
 
 .projectText {
-  margin-right: 20px;
+  margin-right: 55px;
   font-size: 13px;
   line-height: 18px;
   word-break: break-word;
@@ -85,6 +88,11 @@ i {
   margin-top: auto;
 }
 
+.projectVisualContainer {
+  margin-top: 8px;
+  padding: 2px;
+}
+
 .projectVisualContainer img {
   height: 175px;
   border-radius: 8px;
@@ -95,10 +103,6 @@ i {
   justify-content: space-around;
   align-items: center;
   margin: 5px 0;
-}
-
-.projectVisualContainer {
-  margin-top: 8px;
 }
 
 .project-love img,
@@ -220,6 +224,8 @@ i {
   font-size: 20px;
   font-weight: 700;
   color: rgb(27, 27, 27);
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .card-description {

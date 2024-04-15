@@ -27,6 +27,7 @@ import ShareModalImg from '../assets/images/Modal Image/Share.png'
 
 const MyProfile = (props) => {
     const host = "http://localhost:5000"
+    const { mode } = props;
     const [showVideo, setShowVideo] = useState(false);
 
     const handleVideoClose = () => {
@@ -115,11 +116,10 @@ const MyProfile = (props) => {
     })
 
     return (
-        <>
-            {/* {editMode ? <EditProfile/>:( */}
+        <div>
             <div className="user-profile-dashboard">
                 <div className="user-details">
-                    <div className="userprofile-left">
+                    <div className="userprofile-left" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', borderRight: props.mode === 'dark' ? '1px solid white' : '' }}>
                         <div className="userdetail-left">
                             {/* User Profile Information */}
                             {/* <Link to='/edituser' onClick={handleEditClick}>Edit</Link> */}
@@ -136,33 +136,33 @@ const MyProfile = (props) => {
                                 )}
                             </div>
                             <div className="user-bio">
-                                <p>Name: <span>{userProfile.name}</span></p>
-                                <p>Address : <span>{userProfile.address}</span></p>
-                                <p>College : <span>{userProfile.college}</span></p>
-                                <p>Phone : <span>{userProfile.phone}</span></p>
+                                <div>Name: <span>{userProfile.name}</span></div>
+                                <div>Address : <span>{userProfile.address}</span></div>
+                                <div>College : <span>{userProfile.college}</span></div>
+                                <div>Phone : <span>{userProfile.phone}</span></div>
                             </div>
                             <hr />
                             <div className="user-links">
                                 <h3>Discover</h3>
-                                <p>Popular</p>
-                                <p>Most Viewed</p>
-                                <p>Top rated</p>
+                                <div>Popular</div>
+                                <div>Most Viewed</div>
+                                <div>Top rated</div>
                             </div>
                             <hr />
                             <div className="user-skills">
                                 <h3>Contri</h3>
-                                <p>Discussion</p>
+                                <div>Discussion</div>
 
                             </div>
                             <hr />
                             <div className="user-experience">
                                 <h3>Manage</h3>
-                                <p>Saved</p>
+                                <div>Saved</div>
                             </div>
 
                             <div className="user-share">
                                 <h3>Share</h3>
-                                <p>Invite friends</p>
+                                <div>Invite friends</div>
                             </div>
                         </div>
                     </div>
@@ -176,8 +176,8 @@ const MyProfile = (props) => {
 
                             {/* Project Edit Modal */}
                             <div className="modal fade text-start" id="newModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div className="modal-dialog">
-                                    <div className="modal-content">
+                                <div className="modal-dialog" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : ''  }}>
+                                    <div className="modal-content" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                                         <div className="modal-header">
                                             <h1 className="modal-title fs-5" id="exampleModalLabel">Edit Project</h1>
                                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -236,9 +236,9 @@ const MyProfile = (props) => {
                             <div className="modal fade" id="detailToggle" tabIndex="-1" aria-labelledby="detailToggle" aria-hidden="true">
                                 <div className="modal-dialog project-modal-section" style={{ maxWidth: "100%" }}>
                                     <div className="modal-content" style={{ background: "transparent", border: "none" }}>
-                                        <div className="modal-body">
+                                        <div className="modal-body" >
                                             <section className="project-modal-section-container">
-                                                <div className="project-modal-container">
+                                                <div className="project-modal-container" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : ''  }}>
                                                     <div className="project-modal-left">
                                                         {/* <!-- Modal Head --> */}
                                                         <div className="modal-left-head">
@@ -251,8 +251,8 @@ const MyProfile = (props) => {
                                                                 </div>
                                                             </div>
                                                             <div className="modal-tag-group">
-                                                                <div className="modal-project-tag">Category</div>
-                                                                <div className="modal-project-tag">Latest</div>
+                                                                <div className="modal-project-tag" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : ''  }}>Category</div>
+                                                                <div className="modal-project-tag" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : ''  }}>Latest</div>
                                                             </div>
                                                         </div>
                                                         {/* <!-- Modal Section --> */}
@@ -588,10 +588,10 @@ const MyProfile = (props) => {
                             </div>
                             <div className='container User-Sec-Container'>
                                 <h2 className='Heading-Page text-center mb-4'>My Uploaded Projects</h2>
-                                {userProjects.length === 0 && <UploadProject showAlert={props.showAlert} title="Click Here To Upload" />}
+                                {userProjects.length === 0 && <UploadProject mode={mode} showAlert={props.showAlert} title="Click Here To Upload" />}
                                 <div className='row'>
                                     {userProjects.map((project) => {
-                                        return <MyProfileCard key={project._id} updateProject={updateProject} showDetailProject={showDetailProject} project={project} showAlert={props.showAlert} />;
+                                        return <MyProfileCard style={{ color: props.mode === 'dark' ? '#100000' : '100001' }} key={project._id} mode={mode} updateProject={updateProject} showDetailProject={showDetailProject} project={project} showAlert={props.showAlert} />;
                                     })}
                                 </div>
                             </div>
@@ -611,7 +611,7 @@ const MyProfile = (props) => {
                                                 </button>
                                                 <p className="video-heading fs-1">Project Video</p>
                                                 <p>
-                                                    <iframe className='youtube-Frame' width="350" height="315" src={project.youTubeLink} frameBorder="0" allowFullScreen></iframe>
+                                                    <iframe className='youtube-Frame' width="350" height="315" src={project.eyouTubeLink} frameBorder="0" allowFullScreen></iframe>
                                                 </p>
                                             </div>
                                             <div className="card-button-wrapper">
@@ -625,14 +625,14 @@ const MyProfile = (props) => {
                     </div>
                 </div>
             </div>
-            {/* )} */}
-        </>
+        </div>
     )
 }
 
 // Props Validation
 MyProfile.propTypes = {
     showAlert: PropTypes.func,
+    mode: PropTypes.string,
 };
 
 export default MyProfile;

@@ -12,7 +12,7 @@ function Navbar(props) {
     const host = "http://localhost:5000"
     const navigate = useNavigate();
     const location = useLocation();
-    const { showAlert } = props;
+    const { showAlert, mode } = props;
     const [isScrolled, setIsScrolled] = useState(false); // State to keep track of whether page has been scrolled
 
     useEffect(() => {
@@ -43,7 +43,7 @@ function Navbar(props) {
 
     const renderUploadButton = () => {
         if (location.pathname === '/myprofile') {
-            return <AddProject showAlert={showAlert} />;
+            return <AddProject mode={mode} showAlert={showAlert} />;
         }
         return null;
     };
@@ -131,7 +131,7 @@ function Navbar(props) {
                                                 <a className="nav-link profile-img" href="#" id="navbarScrollingDropdown" role="button"
                                                     data-bs-toggle="dropdown" aria-expanded="false">
                                                     {image ? (
-                                                        <img src={image} style={{ width: "3.2rem", height: "3.2rem" }} alt="avatar" />
+                                                        <img src={image} style={{ width: "3.2rem", height: "3.2rem", outline: props.mode === 'dark' ? '1.8px solid white' : '' }} alt="avatar" />
                                                     ) : (
                                                         <img
                                                             src={avatarDropdown}
@@ -140,13 +140,13 @@ function Navbar(props) {
                                                         />
                                                     )}
                                                 </a>
-                                                <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                                    <li><a className="dropdown-item" href="/myprofile">My Profile</a></li>
-                                                    <li><a className="dropdown-item" href="/editprofile">Edit Profile</a></li>
+                                                <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown" style={{ backgroundColor: props.mode === 'dark' ? 'black' : 'white', borderBottom: props.mode === 'dark' ? '1px solid white' : '1px solid black', outline: props.mode === 'dark' ? '2px solid white' : '2px solid black' }}>
+                                                    <li><Link to="/myprofile">My Profile</Link></li>
+                                                    <li><Link to="/editprofile">Edit Profile</Link></li>
                                                     <li>
-                                                        <hr className="dropdown-divider" />
+                                                        <hr className="dropdown-divider" style={{ backgroundColor: props.mode === 'dark' ? 'black' : 'white', borderBottom: props.mode === 'dark' ? '1px solid white' : '1px solid black', outline: props.mode === 'dark' ? '2px solid black' : '2px solid white' }} />
                                                     </li>
-                                                    <li><a className="dropdown-item" onClick={handleLogout}>Logout</a></li>
+                                                    <li><a onClick={handleLogout} style={{ cursor: 'pointer' }}>Logout</a></li>
                                                 </ul>
                                             </li>
                                         </div>

@@ -17,3 +17,11 @@
     flex-direction: column;
     align-items: center;
 }
+
+.editprofile-avatar-container img{
+    height: 15rem;
+    width: 15rem;
+    border-radius: 50%;
+    background-color: white;
+    outline: 1px solid white;
+}

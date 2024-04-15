@@ -38,8 +38,8 @@ function App() {
   const hideFooterRoutes = ['/login', '/signup'];
 
   // Toggle Dark Mode
-
-  // Retrieve mode from local storage or default to 'light'
+  
+  // Retrieve mode default to 'light'
   const [mode, setMode] = useState('light');
 
   // Effect to update local storage when mode changes

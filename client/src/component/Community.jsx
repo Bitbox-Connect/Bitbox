@@ -1,7 +1,7 @@
 import { useContext, useRef, useState, useEffect } from 'react'
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import projectContext from '../context/projectContext';
-import PropTypes from 'prop-types';
 import axios from 'axios';
 import CommunityCard from './CommunityCard';
 import profileContext from '../context/profileContext';
@@ -25,6 +25,7 @@ import ShareModalImg from '../assets/images/Modal Image/Share.png'
 
 const Community = (props) => {
   const host = "http://localhost:5000"
+  const {mode} = props;
   const ref = useRef(null)
   const [project, setproject] = useState({ id: "", etitle: "", edescription: "", egitHubLink: "", eyouTubeLink: "" });
 
@@ -83,8 +84,8 @@ const Community = (props) => {
   return (
     <>
       <div className="user-profile-dashboard">
-        <div className="user-details" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
-          <div className="globalproject-left" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+        <div className="user-details">
+          <div className="globalproject-left" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', borderRight: props.mode === 'dark' ? '1px solid white' : '' }}>
             <div className="globaldetail-left" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
               <div className="profile-picture mb-3 mt-2">
                 {image ? (
@@ -98,35 +99,35 @@ const Community = (props) => {
                 )}
               </div>
               <div className="global-bio">
-                <p>Name: <span>{userProfile.name}</span></p>
-                <p>College: <span>{userProfile.college}</span></p>
+                <div>Name: <span>{userProfile.name}</span></div>
+                <div>College: <span>{userProfile.college}</span></div>
               </div>
               <hr />
               <div className="global-links">
                 <h3>Discover</h3>
-                <p>Popular</p>
-                <p>Most Viewed</p>
-                <p>Top rated</p>
+                <div>Popular</div>
+                <div>Most Viewed</div>
+                <div>Top rated</div>
               </div>
               <hr />
               <div className="global-skills">
                 <h3>Contri</h3>
-                <p>Discussion</p>
+                <div>Discussion</div>
 
               </div>
               <hr />
               <div className="global-experience">
                 <h3>Manage</h3>
-                <p>Saved</p>
+                <div>Saved</div>
               </div>
 
               <div className="global-share">
                 <h3>Share</h3>
-                <p>Invite friends</p>
+                <div>Invite friends</div>
               </div>
             </div>
           </div>
-          <div className="globalproject-right" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+          <div className="globalproject-right">
             <div className="globaldetail-right">
               <h2 className='Heading-Page'>Welcome to Bitbox Community</h2>
               <div>
@@ -139,8 +140,8 @@ const Community = (props) => {
                     <div className="modal-content" style={{ background: "transparent", border: "none" }}>
                       <div className="modal-body">
                         <section className="project-modal-section-container">
-                          <div className="project-modal-container">
-                            <div className="project-modal-left">
+                          <div className="project-modal-container" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : ''  }}>
+                            <div className="project-modal-left" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : ''  }}>
                               {/* <!-- Modal Head --> */}
                               <div className="modal-left-head">
                                 <div className="modal-project-navigation">
@@ -152,8 +153,8 @@ const Community = (props) => {
                                   </div>
                                 </div>
                                 <div className="modal-tag-group">
-                                  <div className="modal-project-tag">Category</div>
-                                  <div className="modal-project-tag">Latest</div>
+                                  <div className="modal-project-tag" style={{ outline: props.mode === 'dark' ? '1px solid white' : ''  }}>Category</div>
+                                  <div className="modal-project-tag" style={{ outline: props.mode === 'dark' ? '1px solid white' : ''  }}>Latest</div>
                                 </div>
                               </div>
                               {/* <!-- Modal Section --> */}
@@ -491,7 +492,7 @@ const Community = (props) => {
                 <div className='container Global-Sec-Container'>
                   <div className='row'>
                     {globalProjects.map((project) => {
-                      return <CommunityCard showAlert={props.showAlert} showDetailProject={showDetailProject} key={project._id} project={project} />;
+                      return <CommunityCard showAlert={props.showAlert} mode={mode} showDetailProject={showDetailProject} key={project._id} project={project} />;
                     })}
                     {/* <div className="container community-prev-next d-flex justify-content-between">
                       <button type='button' className='btn btn-dark' onClick={handlePrevClick}>&larr; Previous</button>

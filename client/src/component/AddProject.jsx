@@ -1,6 +1,6 @@
 import { useContext, useState, useRef, useEffect } from 'react';
-import projectContext from '../context/projectContext';
 import PropTypes from 'prop-types';
+import projectContext from '../context/projectContext';
 // import projectDummyImage from '../assets/images/Others/projects.png'
 
 function AddProject(props) {
@@ -70,8 +70,8 @@ function AddProject(props) {
             </button>
 
             <div className="modal fade text-start" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog">
-                    <div className="modal-content">
+                <div className="modal-dialog" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : ''  }}>
+                    <div className="modal-content" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                         <div className="modal-header">
                             <h1 className="modal-title fs-5" id="exampleModalLabel">Upload Project</h1>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -125,6 +125,7 @@ function AddProject(props) {
 
 AddProject.propTypes = {
     showAlert: PropTypes.func,
+    mode: PropTypes.string,
 };
 
 export default AddProject;
