@@ -11,12 +11,12 @@ const Home = (props) => {
     return (
         <div>
             {/* Landing Page Section */}
-            <div className="content landing-page-container"  style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+            <div className="content landing-page-container" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <section className="main-section" >
                     <div className="content-left">
-                        <div className="section-label"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? '#6366f2' : '#6366f1' }}>Very proud to introduce</div>
-                        <h1 className="section-title"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Seamless Learning for Brighter Futures</h1>
-                        <div className="section-description"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+                        <div className="section-label" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? '#6366f2' : '#6366f1' }}>Very proud to introduce</div>
+                        <h1 className="section-title" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Seamless Learning for Brighter Futures</h1>
+                        <div className="section-description" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                             Our innovative platform offers an effortless and seamless approach to learning, empowering students of all ages to achieve brighter futures. Join us on a transformative journey to simplify education and unlock your full potential.
                         </div>
                         <div className="button-group">
@@ -32,21 +32,21 @@ const Home = (props) => {
                 </section>
             </div>
             {/* share grow and help section */}
-            <section  style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+            <section style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <div className="container my-5" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                    <h2 className='Heading-Page text-center mb-2'>Bitbox<span> Community Cornerstone</span></h2>
+                    <h2 className='Heading-Page text-center mb-4'>Bitbox<span> Community Cornerstone</span></h2>
                     <div className="row">
-                        <div className="col-lg-6"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+                        <div className="col-lg-6" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                             <img className="w-100 rounded-5" src={Grow} />
                         </div>
                         <div className="col-lg-6">
-                            <div className="p-5 mt-4"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+                            <div className="p-5 mt-4" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                                 <h1 className="display-4" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}> Grow</h1>
                                 <div className="lead" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Within Bitbox&apos;s open-source embrace,
                                     Ideas flourish, boundless space.
                                     Collaborating minds, a vibrant symphony,
                                     Innovating together, unlocking our destiny.</div>
-                                <a href="#" className="btn btn-outline-dark"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Read More</a>
+                                <a href="#" className="btn btn-outline-dark" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Read More</a>
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@ const Home = (props) => {
                                 <div className="p-5 mt-4">
                                     <h1 className="display-4" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Learn</h1>
                                     <p className="lead" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>📚 Within this dynamic ecosystem, ideas are shared freely, nurtured by the collective intellect of passionate developers and enthusiasts alike. From seasoned veterans to eager newcomers, all are welcomed into the fold, united by a common mission: to push the boundaries of what&apos;s possible in the realm of digital exchange. </p>
-                                    <a href="#" className="btn btn-outline-dark"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Read More</a>
+                                    <a href="#" className="btn btn-outline-dark" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Read More</a>
                                 </div>
                             </div>
                             <div className="col-lg-6">
@@ -74,7 +74,7 @@ const Home = (props) => {
                                 <div className="p-5 mt-4">
                                     <h1 className="display-4" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Share</h1>
                                     <p className="lead" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>🌐 Join the vibrant Bitbox Opensource Community today! Whether you&apos;re a seasoned developer or just starting out, there&apos;s a place for you to collaborate, innovate, and make a difference. Let&apos;s shape the future of digital exchange together! #BitboxCommunity #OpenSource 🚀💻 </p>
-                                    <a href="#" className="btn btn-outline-dark"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Read More</a>
+                                    <a href="#" className="btn btn-outline-dark" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Read More</a>
                                 </div>
                             </div>
                         </div>
@@ -82,26 +82,26 @@ const Home = (props) => {
                 </div>
             </section>
             {/* Cards Page Section */}
-            <div className="Cards-Page"  style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+            <div className="Cards-Page" style={{ background: props.mode === 'dark' ? 'black' : '#f7f7f7', color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <section className='Card-Info-Sec'>
-                    <h2 className='Heading-Page text-center mb-2'style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Be a part of Bitbox Community</h2>
+                    <h2 className='Heading-Page text-center mb-3' style={{ color: props.mode === 'dark' ? 'white' : '' }}>Be a part of Bitbox Community</h2>
                     <div className="Card-Infos">
                         <div className="Card-Info-Row1">
-                            <div className="Card-Info">
+                            <div className="Card-Info" style={{ color: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
                                 <h3>Start your journey</h3>
                                 <div>Engaging in GSSoC’23 offers a chance to elevate your GitHub presence. Elevate your knowledge, delve into new horizons, refine, amplify, forge connections, and foster teamwork to cultivate your abilities and character. Seize the opportunity to delve into open-source, mastering fundamental tools like Git and GitHub under the guidance of adept mentors.</div>
                             </div>
-                            <div className="Card-Info">
+                            <div className="Card-Info" style={{ color: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
                                 <h3>Inviting Projects & NGOs</h3>
                                 <div>If your organization harbors a vision for a project, whether it&apos;s a website, an app, or any other initiative, seize this golden opportunity to join our vibrant community. Our aspiring developers, mentored by seasoned experts, are eager to collaborate on your projects, aiming for nothing short of excellence. Submit your application now, and let&apos;s join forces because Together Everyone Achieves More.</div>
                             </div>
                         </div>
                         <div className="Card-Info-Row2">
-                            <div className="Card-Info">
+                            <div className="Card-Info" style={{ color: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
                                 <h3>Lead the pack</h3>
                                 <div>In the realm of open-source projects, mentors serve as the vanguards, charting the course for the team&apos;s journey. They provide invaluable guidance to fellow participants, navigating them through every stage of the project roadmap. Acting as the cornerstone of the team, mentors remain accessible throughout the summer, reviewing pull requests and offering suggestions for improvement. Seize the opportunity to become a mentor at GirlScript Summer of Code and lay the groundwork for your team&apos;s success.</div>
                             </div>
-                            <div className="Card-Info">
+                            <div className="Card-Info" style={{ color: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
                                 <h3>Add your shade to GSSoC&apos;23</h3>
                                 <div>Supporters play a crucial role in ensuring the seamless execution of GirlScript events by providing valuable resources. Their contribution enables us to reward our top participants with perks, fostering talent within our community. In appreciation of their support, we offer extensive publicity on our social platforms and media exposure to showcase our sponsors. Join us as a sponsor and illuminate our program with your generosity.</div>
                             </div>
@@ -111,53 +111,83 @@ const Home = (props) => {
             </div>
 
             {/* Service Section */}
-            <div className="service-section"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                <p className='text-center'style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>We&apos;re Still</p>
-                <h1 className="service-heading text-center"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Cooking Our Service</h1>
-                <div className="service-description text-center"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>We are going to launch our service Very Soon,</div>
-                <div className='text-center'style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Stay Tune.</div>
+            <div className="service-section" style={{ marginTop: "5rem", background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+                <div className='text-center' style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>We&apos;re Still</div>
+                <h1 className="service-heading text-center" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Cooking Our Service</h1>
+                <div className="service-description text-center" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>We are going to launch our service Very Soon,</div>
+                <div className='text-center' style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Stay Tune.</div>
                 <div className="service-splash-gif" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                     <img src={glichBitboxGif} alt="bitbox gif" />
                 </div>
             </div>
             {/* Works Section */}
-            <div className="work-Sec mb-2"  style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                <h2 className='Heading-Page text-center mb-2 mt-5'style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>What We Works</h2>
+            <div className="work-Sec mb-2" style={{ background: props.mode === 'dark' ? 'black' : '#f7f7f7', color: props.mode === 'dark' ? 'white' : 'black' }}>
+                <h2 className='Heading-Page text-center mb-3 mt-5' style={{ color: props.mode === 'dark' ? 'white' : '' }}>What We Works</h2>
                 <div className="work-row1 my-1">
+<<<<<<< HEAD
                     <div className="work-cont1" >
                         <h3 className='text'style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Community Collaboration</h3>
+=======
+                    <div className="work-cont1" style={{ color: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
+                        <h3 className='text'>Community Collaboration</h3>
+>>>>>>> e35ef26282ed8492895b0000be68d36c4a7a1d58
                         <div className="work-box1">
                             <div style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Engage with a diverse community of developers, designers, and enthusiasts passionate about creating impactful software.</div>
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div className="work-cont2">
                         <h3 className='text' style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Transparency and Accessibility</h3>
+=======
+                    <div className="work-cont2" style={{ color: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
+                        <h3 className='text'>Transparency and Accessibility</h3>
+>>>>>>> e35ef26282ed8492895b0000be68d36c4a7a1d58
                         <div className="work-box2">
                             <div style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}> Access and contribute to projects with full transparency, ensuring that everyone can benefit from shared knowledge and resources.</div>
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div className="work-cont3">
                         <h3 className='text'style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Innovation and Creativity</h3>
+=======
+                    <div className="work-cont3" style={{ color: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
+                        <h3 className='text'>Innovation and Creativity</h3>
+>>>>>>> e35ef26282ed8492895b0000be68d36c4a7a1d58
                         <div className="work-box3">
                             <div style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Explore endless possibilities for innovation by harnessing the collective creativity of a global network of contributors.</div>
                         </div>
                     </div>
                 </div>
                 <div className="work-row2" style={{ marginBottom: "2rem" }}>
+<<<<<<< HEAD
                     <div className="work-cont1">
                         <h3 className='text' style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Flexibility and Customization</h3>
+=======
+                    <div className="work-cont1" style={{ color: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
+                        <h3 className='text'>Flexibility and Customization</h3>
+>>>>>>> e35ef26282ed8492895b0000be68d36c4a7a1d58
                         <div className="work-box1">
                             <div style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Customize and adapt open source projects to suit your specific needs, empowering you to build solutions tailored to your requirements.</div>
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div className="work-cont2">
                         <h3 className='text' style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Learning and Skill Development</h3>
+=======
+                    <div className="work-cont2" style={{ color: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
+                        <h3 className='text'>Learning and Skill Development</h3>
+>>>>>>> e35ef26282ed8492895b0000be68d36c4a7a1d58
                         <div className="work-box2">
                             <div style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}> Accelerate your learning and skill development through hands-on collaboration, mentorship, and continuous feedback within the open source community.</div>
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div className="work-cont3">
                         <h3 className='text' style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Global Impact</h3>
+=======
+                    <div className="work-cont3" style={{ color: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
+                        <h3 className='text'>Global Impact</h3>
+>>>>>>> e35ef26282ed8492895b0000be68d36c4a7a1d58
                         <div className="work-box3">
                             <div style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Make a meaningful impact on a global scale by contributing to projects that address real-world challenges and improve the lives of people everywhere.</div>
                         </div>
@@ -165,7 +195,7 @@ const Home = (props) => {
                 </div>
             </div>
             {/* Technology Section */}
-            <div className='Technology-Sec'  style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+            <div className='Technology-Sec' style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <div className="Technology-Container">
                     <h2 className='Heading-Page mb-4' style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Project Technology</h2>
                     <div className="content">
@@ -712,7 +742,7 @@ const Home = (props) => {
 
 // Props Vadilation
 Home.propTypes = {
-    mode: PropTypes.func,
+    mode: PropTypes.string,
     toggleMode: PropTypes.func,
     showAlert: PropTypes.func,
 };

@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './css/Footer.css';
+<<<<<<< HEAD
 import {  FaGithub, FaLinkedin, FaTwitter,FaYoutube } from 'react-icons/fa';
+=======
+import {  FaGithub, FaLinkedin, FaTwitter, FaYoutube, FaFacebookSquare } from 'react-icons/fa';
+// import { faYoutube } from '@fortawesome/free-brands-svg-icons';
+>>>>>>> e35ef26282ed8492895b0000be68d36c4a7a1d58
 import logo from '../assets/images/logo.png';
 function Footer(props) {
   return (
@@ -21,7 +26,7 @@ function Footer(props) {
             </div>
           </div>
         </div>
-        <div className="new_Details m-4">
+        <div className="new_Details">
           <h3 className='fs-2 fw-bold'>About Bitbox</h3>
           <div className='Detail'>
             <ul className='fs-5'>
@@ -30,7 +35,7 @@ function Footer(props) {
             </ul>
           </div>
         </div>
-        <div className="Legal m-4">
+        <div className="Legal">
           <div>
             <h3 className='fs-2 fw-bold'>Legal</h3>
             <ul className='fs-5'>
@@ -40,16 +45,23 @@ function Footer(props) {
             </ul>
           </div>
         </div>
-        <div className="social m-4">
+        <div className="social">
           <div className='fs-5'>
             <h3 className='fw-bold fs-2'>Follow us on</h3>
             <ul>
               <li><a href="https://www.linkedin.com/in/bit-box-community" target='blank'><FaLinkedin color="#0077b5" fontSize="2rem" />Linkedin</a></li>
+<<<<<<< HEAD
               <li><a href="https://twitter.com/BITBOX688152" target='_blank-1'><FaTwitter color="#1da1f2" fontSize="2rem" />Twitter</a></li>
               <li><a href="https://github.com/bitboxcommunity" target='_blank-2'><FaGithub color="#211F1F" fontSize="2rem" />GitHub</a></li>
               {/* <li><a href="https://www.facebook.com/bit-box-community" target='blank-3'><FaFacebookSquare color="#3b5998" fontSize="2rem" />Facebook</a></li> */}
               <li><a href="https://www.youtube.com/channel/UCXUTdcw27jaH_go9iyUjJnA" target='_blank-3'><FaYoutube color="red" fontSize="2rem" />Youtube</a></li>
 
+=======
+              <li><a href="https://twitter.com/BITBOX688152" target='blank-1'><FaTwitter color="#1da1f2" fontSize="2rem" />Twitter</a></li>
+              <li><a href="https://github.com/bitboxcommunity" target='blank-2'><FaGithub color="#211F1F" fontSize="2rem" />GitHub</a></li>
+              <li><a href="https://www.facebook.com/bit-box-community" target='blank-3'><FaFacebookSquare color="#3b5998" fontSize="2rem" />Facebook</a></li>
+              <li><a href="https://www.youtube.com/channel/UCXUTdcw27jaH_go9iyUjJnA" target='blank-3'><FaYoutube color="red" fontSize="2rem" />Youtube</a></li>
+>>>>>>> e35ef26282ed8492895b0000be68d36c4a7a1d58
             </ul>
           </div>
         </div>
@@ -65,7 +77,7 @@ function Footer(props) {
 
 Footer.propTypes = {
   showAlert: PropTypes.func,
-  mode: PropTypes.func,
+  mode: PropTypes.string,
 };
 
 export default Footer;

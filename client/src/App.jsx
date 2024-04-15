@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Make sure to import BrowserRouter as Routerimport './App.css';
+import LoadingBar from 'react-top-loading-bar'
 import About from './component/About';
 import Alert from './component/Alert';
 import Footer from './component/Footer';
@@ -19,7 +20,10 @@ import MyProfile from './component/MyProfile'
 import ScrollTop from './component/ScrollTop';
 import EditProfile from './component/EditProfile';
 import Contributers from './component/Contributers';
+<<<<<<< HEAD
 
+=======
+>>>>>>> e35ef26282ed8492895b0000be68d36c4a7a1d58
 
 function App() {
 
@@ -75,6 +79,8 @@ function App() {
     }
   }
 
+  // Loading Bar
+  const [progress, setProgress] = useState(0)
 
   return (
     <div>
@@ -83,32 +89,40 @@ function App() {
           <Router>
             {/* Navbar */}
             <div className="content">
-              <Navbar title="Bitbox" home="Home" community="Community" about="About us" myProjects="My projects" mode={mode} toggleMode={toggleMode} showAlert={showAlert} />
+              <Navbar title="Bitbox" home="Home" community="Community" about="About us" myProjects="My projects" mode={mode} setProgress={setProgress}
+                toggleMode={toggleMode} showAlert={showAlert} />
             </div>
+            <LoadingBar
+              color='blue'
+              progress={100}
+              setProgressprogress={progress}
+              onLoaderFinished={() => setProgress(0)}
+            />
             <div className="First-Bc">
               <div className="alert-container">
                 <Alert alert={alert} />
               </div>
               <ScrollTop />
               <Routes>
-                <Route exact path="/" element={<Home mode={mode} showAlert={showAlert} />} />
-                <Route exact path="/community" element={<Community mode={mode} showAlert={showAlert} />} />
-                <Route exact path="/about" element={<About mode={mode} showAlert={showAlert} />} />
-                <Route exact path="/myprofile" element={<MyProfile mode={mode} showAlert={showAlert} />} />
-                <Route exact path="/editprofile" element={<EditProfile mode={mode} showAlert={showAlert} />} />
-                <Route exact path="/contibuters" element={<Contributers mode={mode} showAlert={showAlert} />} />
-                <Route exact path="/login" element={<Login mode={mode} showAlert={showAlert} />} />
-                <Route exact path="/signup" element={<Signup mode={mode} showAlert={showAlert} />} />
+                <Route exact path="/" element={<Home mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path="/community" element={<Community mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path="/about" element={<About mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path="/myprofile" element={<MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path="/editprofile" element={<EditProfile mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path="/contibuters" element={<Contributers mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path="/login" element={<Login mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path="/signup" element={<Signup mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 {/* Footer */}
-                <Route exact path="/codeofconduct" element={<CodeOfConduct mode={mode} showAlert={showAlert} />} />
-                <Route exact path="/feedback" element={<Feedback mode={mode} showAlert={showAlert} />} />
-                <Route exact path="/contactus" element={<ContactUs mode={mode} showAlert={showAlert} />} />
-                <Route exact path="/privacypolicy" element={<PrivacyPolicy mode={mode} showAlert={showAlert} />} />
-                <Route exact path="/termofuse" element={<TermOfUse mode={mode} showAlert={showAlert} />} />
+                <Route exact path="/codeofconduct" element={<CodeOfConduct mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path="/feedback" element={<Feedback mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path="/contactus" element={<ContactUs mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path="/privacypolicy" element={<PrivacyPolicy mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path="/termofuse" element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               </Routes>
             </div>
             {/* Conditionally render the footer based on the current route */}
-            {!hideFooterRoutes.includes(window.location.pathname) && <Footer mode={mode} setAlert={showAlert} />}
+            {!hideFooterRoutes.includes(window.location.pathname) && <Footer mode={mode} setProgress={setProgress}
+              setAlert={showAlert} />}
           </Router>
         </ProfileState>
       </ProjectState>

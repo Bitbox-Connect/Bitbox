@@ -4,9 +4,12 @@ import projectContext from '../context/projectContext';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import CommunityCard from './CommunityCard';
-import './css/Community.css'
 import profileContext from '../context/profileContext';
 import './EditProfile'
+// CSS
+import './css/Community.css'
+// PNG
+// import projectDummyImage from '../assets/images/Others/projects.png'
 import avatar from '../assets/images/Dropdown/avatar.png';
 import ViewAllModalImg from '../assets/images/Modal Image/ViewAll.png'
 import githubModalImg from '../assets/images/Modal Image/GitHub.png'
@@ -19,8 +22,6 @@ import LinkModalImg from '../assets/images/Modal Image/Link.png'
 import FavourModalImg from '../assets/images/Modal Image/Favourite.png'
 import commentModalImg from '../assets/images/Modal Image/comment.png'
 import ShareModalImg from '../assets/images/Modal Image/Share.png'
-
-
 
 const Community = (props) => {
   const host = "http://localhost:5000"
@@ -37,6 +38,7 @@ const Community = (props) => {
   const { globalProjects, getGlobalProjects } = context;
   useEffect(() => {
     getGlobalProjects();
+    // eslint-disable-next-line
   }, [getGlobalProjects]);
   const refDetails = useRef(null)
 
@@ -69,10 +71,19 @@ const Community = (props) => {
       .catch(err => console.log(err))
   })
 
+  // // Next & Previous Page
+  // const handlePrevClick = () => {
+  //   console.log("Previous")
+  // }
+
+  // const handleNextClick = () => {
+  //   console.log("Next")
+  // }
+
   return (
     <>
       <div className="user-profile-dashboard">
-        <div className="user-details"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+        <div className="user-details" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
           <div className="globalproject-left" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
             <div className="globaldetail-left" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
               <div className="profile-picture mb-3 mt-2">
@@ -154,7 +165,7 @@ const Community = (props) => {
                                 <div className="modal-Time">12/22/32</div>
                                 {/* <div className="modal-project-image">
                                   <img src="./src/assets/images/Vector Gif/R.gif" alt="" />
-                            </div>  */}
+                                </div>  */}
                                 <div className="modal-project-vedio">
                                   {project.eyouTubeLink ? (
                                     <iframe className='youtube-Frame' src={project.eyouTubeLink} frameBorder="0" allowFullScreen></iframe>
@@ -248,7 +259,7 @@ const Community = (props) => {
                                 ) : (
                                   <a title='Unavailable GitHub Link'>
                                     <div className="button-github-modal" >
-                                      <img src={unlinkModalImg} alt="Broken Link" />
+                                      <img src={unlinkModalImg} alt="Invalid Link" />
                                       Unavailable
                                     </div>
                                   </a>
@@ -257,7 +268,8 @@ const Community = (props) => {
                                   <div className="option-modal-button"><img src={optionModalImg} alt="option" title='option' /></div>
                                   {/* Bootstap close button */}
                                   <div className="close-modal-button" data-bs-dismiss="modal" aria-label="Close">
-                                    <img src={closeModalImg} title='close' alt="close" /></div>
+                                    <img src={closeModalImg} title='close' alt="close" />
+                                  </div>
                                 </div>
                               </div>
                               <div className="modal-profile-details-container">
@@ -481,6 +493,10 @@ const Community = (props) => {
                     {globalProjects.map((project) => {
                       return <CommunityCard showAlert={props.showAlert} showDetailProject={showDetailProject} key={project._id} project={project} />;
                     })}
+                    {/* <div className="container community-prev-next d-flex justify-content-between">
+                      <button type='button' className='btn btn-dark' onClick={handlePrevClick}>&larr; Previous</button>
+                      <button type='button' className='btn btn-dark' onClick={handleNextClick}>Next &larr;</button>
+                    </div> */}
                   </div>
                 </div>
                 {/* youTube video Modal */}
@@ -519,7 +535,7 @@ const Community = (props) => {
 
 // Props Vadilation
 Community.propTypes = {
-  mode: PropTypes.func,
+  mode: PropTypes.string,
   toggleMode: PropTypes.func,
   project: PropTypes.string,
   showAlert: PropTypes.func,

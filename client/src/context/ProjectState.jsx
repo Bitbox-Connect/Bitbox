@@ -21,6 +21,7 @@ const ProjectStates = (props) => {
     });
     const json = await response.json();
     setGlobalProjects(json.reverse());
+    props.setProgress(100)
   }
 
   // Get All Your Project
@@ -50,6 +51,7 @@ const ProjectStates = (props) => {
     });
     const project = await response.json();
     setUserProjects([project, ...userProjects]);
+    props.setProgress(100)
   }
 
   // Delete a Project
@@ -112,7 +114,8 @@ const ProjectStates = (props) => {
 }
 
 ProjectStates.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  setProgress: PropTypes.string,
 };
 
 export default ProjectStates;
