@@ -34,7 +34,7 @@ const Home = (props) => {
             {/* share grow and help section */}
             <section style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <div className="container my-5" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                    <h2 className='Heading-Page text-center mb-2'>Bitbox<span> Community Cornerstone</span></h2>
+                    <h2 className='Heading-Page text-center mb-4'>Bitbox<span> Community Cornerstone</span></h2>
                     <div className="row">
                         <div className="col-lg-6" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                             <img className="w-100 rounded-5" src={Grow} />
@@ -84,7 +84,7 @@ const Home = (props) => {
             {/* Cards Page Section */}
             <div className="Cards-Page" style={{ background: props.mode === 'dark' ? 'black' : '#f7f7f7', color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <section className='Card-Info-Sec'>
-                    <h2 className='Heading-Page text-center mb-2' style={{ color: props.mode === 'dark' ? 'white' : '' }}>Be a part of Bitbox Community</h2>
+                    <h2 className='Heading-Page text-center mb-3' style={{ color: props.mode === 'dark' ? 'white' : '' }}>Be a part of Bitbox Community</h2>
                     <div className="Card-Infos">
                         <div className="Card-Info-Row1">
                             <div className="Card-Info" style={{ color: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
@@ -111,8 +111,8 @@ const Home = (props) => {
             </div>
 
             {/* Service Section */}
-            <div className="service-section" style={{marginTop: "5rem" , background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                <p className='text-center' style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>We&apos;re Still</p>
+            <div className="service-section" style={{ marginTop: "5rem", background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+                <div className='text-center' style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>We&apos;re Still</div>
                 <h1 className="service-heading text-center" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Cooking Our Service</h1>
                 <div className="service-description text-center" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>We are going to launch our service Very Soon,</div>
                 <div className='text-center' style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Stay Tune.</div>
@@ -122,7 +122,7 @@ const Home = (props) => {
             </div>
             {/* Works Section */}
             <div className="work-Sec mb-2" style={{ background: props.mode === 'dark' ? 'black' : '#f7f7f7', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                <h2 className='Heading-Page text-center mb-2 mt-5' style={{ color: props.mode === 'dark' ? 'white' : '' }}>What We Works</h2>
+                <h2 className='Heading-Page text-center mb-3 mt-5' style={{ color: props.mode === 'dark' ? 'white' : '' }}>What We Works</h2>
                 <div className="work-row1 my-1">
                     <div className="work-cont1" style={{ color: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
                         <h3 className='text'>Community Collaboration</h3>
