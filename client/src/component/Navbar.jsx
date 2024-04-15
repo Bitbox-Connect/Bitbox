@@ -146,7 +146,7 @@ function Navbar(props) {
                                                     <li>
                                                         <hr className="dropdown-divider" />
                                                     </li>
-                                                    <li><a className="dropdown-item" onClick={handleLogout} href="#">Logout</a></li>
+                                                    <li><a className="dropdown-item" onClick={handleLogout}>Logout</a></li>
                                                 </ul>
                                             </li>
                                         </div>

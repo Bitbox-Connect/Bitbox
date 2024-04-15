@@ -62,6 +62,7 @@ function AddProject(props) {
             return link; // Return unmodified link if it doesn't match expected format
         }
     };
+    
     return (
         <div>
             <button type="button" className="btn btn-primary mx-2" style={{height: '45px'}} data-bs-toggle="modal" data-bs-target="#exampleModal">

@@ -25,7 +25,7 @@ const CommunityCard = (props) => {
               <div className="projectTitle">{project.title}</div>
               <div className="projectDetails">
                 <div className="projectUserName">Anuj Verma</div>
-                <div className="projectTime">07/01/02</div>
+                <div className="projectTime">07/01/02 | 09:30</div>
               </div>
             </div>
           </div>

@@ -6,23 +6,24 @@ import projectContext from '../context/projectContext';
 import profileContext from '../context/profileContext';
 import MyProfileCard from './MyProfileCard';
 import UploadProject from './UploadProject';
-import avatar from '../assets/images/Dropdown/avatar.png';
-// import projectDummyImage from '../assets/images/Others/projects.png'
+// CSS
 import './css/Modal.css'
 import './css/MyProfile.css'
+// PNG
+// import projectDummyImage from '../assets/images/Others/projects.png'
+import avatar from '../assets/images/Dropdown/avatar.png';
 import ViewAllModalImg from '../assets/images/Modal Image/ViewAll.png'
 import githubModalImg from '../assets/images/Modal Image/GitHub.png'
 import unlinkModalImg from '../assets/images/Modal Image/Unlink.png'
 import optionModalImg from '../assets/images/Modal Image/Option.png'
 import closeModalImg from '../assets/images/Modal Image/Close.png'
 import AavtarModalImg from '../assets/images/Modal Image/Aavtar.png'
-import VisitModalImg from '../assets/images/Modal Image/visitor.png'
 import LikeModalImg from '../assets/images/Modal Image/Like.png'
 import LinkModalImg from '../assets/images/Modal Image/Link.png'
- import FavourModalImg from '../assets/images/Modal Image/Favourite.png'
- import commentModalImg from '../assets/images/Modal Image/comment.png'
- import ShareModalImg from '../assets/images/Modal Image/Share.png'
- 
+import FavourModalImg from '../assets/images/Modal Image/Favourite.png'
+import commentModalImg from '../assets/images/Modal Image/comment.png'
+import ShareModalImg from '../assets/images/Modal Image/Share.png'
+
 
 const MyProfile = (props) => {
     const host = "http://localhost:5000"
@@ -357,15 +358,17 @@ const MyProfile = (props) => {
                                                             ) : (
                                                                 <a title='Unavailable GitHub Link'>
                                                                     <div className="button-github-modal" >
-                                                                        <img src={LinkModalImg} alt="GitHub" />
+                                                                        <img src={unlinkModalImg} alt="Invalid Link" />
                                                                         Unavailable
                                                                     </div>
                                                                 </a>
                                                             )}
                                                             <div className="project-modal-head-buttons">
-                                                                <div className="close-modal-button"><img src={optionModalImg} alt="option" /></div>
+                                                                <div className="option-modal-button"><img src={optionModalImg} alt="option" /></div>
                                                                 {/* Bootstap close button */}
-                                                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                <div className="close-modal-button" data-bs-dismiss="modal" aria-label="Close">
+                                                                    <img src={closeModalImg} title='close' alt="close" />
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div className="modal-profile-details-container">
@@ -381,7 +384,7 @@ const MyProfile = (props) => {
                                                             <div className="modal-visit-profile-btn">
                                                                 Visit
                                                                 <img src={ShareModalImg} alt="visit" />
-                                                                
+
                                                             </div>
                                                         </div>
                                                         <div className="modal-suggestion-container">

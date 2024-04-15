@@ -321,7 +321,7 @@ export default function About(props) {
 
 // Props Validation
 About.propTypes = {
-  mode: PropTypes.func,
+  mode: PropTypes.string,
   toggleMode: PropTypes.func,
   showAlert: PropTypes.func,
 };
