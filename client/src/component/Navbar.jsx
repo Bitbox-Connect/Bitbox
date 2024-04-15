@@ -127,9 +127,9 @@ function Navbar(props) {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <li className="nav-item dropdown mx-2">
+                                            <li className="nav-item dropdown mx-2"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black'}}>
                                                 <a className="nav-link profile-img" href="#" id="navbarScrollingDropdown" role="button"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                    data-bs-toggle="dropdown" aria-expanded="false" >
                                                     {image ? (
                                                         <img src={image} style={{ width: "3.2rem", height: "3.2rem" }} alt="avatar" />
                                                     ) : (
@@ -139,14 +139,15 @@ function Navbar(props) {
                                                             alt="avatar"
                                                         />
                                                     )}
+                                                    
                                                 </a>
-                                                <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                                    <li><a className="dropdown-item" href="/myprofile">My Profile</a></li>
-                                                    <li><a className="dropdown-item" href="/editprofile">Edit Profile</a></li>
+                                                <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '2px solid white' : 'black'}}>
+                                                    <li><a className="dropdown-item" href="/myprofile"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black'}}>My Profile</a></li>
+                                                    <li><a className="dropdown-item" href="/editprofile" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black'}}>Edit Profile</a></li>
                                                     <li>
-                                                        <hr className="dropdown-divider" />
+                                                        <hr className="dropdown-divider" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline : props.mode==='dark'?'1px solid white':'black'}}/>
                                                     </li>
-                                                    <li><a className="dropdown-item" onClick={handleLogout} href="#">Logout</a></li>
+                                                    <li><a className="dropdown-item" onClick={handleLogout} href="#" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black'}}>Logout</a></li>
                                                 </ul>
                                             </li>
                                         </div>

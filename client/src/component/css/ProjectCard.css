@@ -6,6 +6,7 @@ i {
   cursor: pointer;
 }
 
+
 /* Project Card */
 
 .projectContainer {
@@ -15,16 +16,18 @@ i {
   width: 340px;
   min-height: 420px;
   padding: 8px;
-  border-radius: 8px;
+  border-radius: 10px;
   border-width: 1px;
   display: flex;
   flex-direction: column;
+  
 }
 
 .projectBox {
   flex: 1;
   display: flex;
   flex-direction: column;
+  border-radius: 14px;
 }
 
 .projectInfo {
@@ -56,7 +59,7 @@ i {
 
 .projectDetails {
   display: flex;
-  color: #a8b3cf;
+  /* color: #a8b3cf; */
 }
 
 .projectTime {
@@ -138,7 +141,7 @@ i {
 
 .primary {
   background-color: rgb(255, 114, 109);
-  color: white;
+  /* color: white; */
 }
 
 .primary:hover {
@@ -303,18 +306,19 @@ i {
 }
 
 .project-love img{
-  height: 24px;
-  width: 24px;
+  height: 27px;
+  width: 27px;
 }
+
 .project-comment img{
-  width: 24px;
-  height: 24px;
+  width: 27px;
+  height: 27px;
 }
 .project-link img{
-  width: 24px;
-  height: 24px;
+  width: 27px;
+  height: 27px;
 }
 .project-details img{
-  width: 24px;
-  height: 24px;
+  width: 27px;
+  height: 27px;
 }

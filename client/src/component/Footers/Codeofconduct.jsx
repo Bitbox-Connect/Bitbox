@@ -1,6 +1,7 @@
 import '../css/Main.css';
+import PropTypes from 'prop-types';
 
-const CodeOfConduct = () => {
+const CodeOfConduct = (props) => {
     return (
         <div>
             <div className="container codeofconduct-container">
@@ -61,5 +62,9 @@ const CodeOfConduct = () => {
     )
 }
 
+CodeOfConduct.propTypes = {
+    showAlert: PropTypes.func,
+    mode: PropTypes.func,
+  };
 
 export default CodeOfConduct
