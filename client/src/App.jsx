@@ -10,7 +10,7 @@ import Navbar from './component/Navbar';
 import Signup from './component/Signup';
 import ProjectState from './context/ProjectState';
 import ProfileState from './context/ProfileState';
-import CodeOfConduct from './component/Footers/CodeOfConduct';
+import CodeOfConduct from './component/Footers/CodeofConduct';
 import Feedback from './component/Footers/Feedback';
 import ContactUs from './component/Footers/ContactUs';
 import PrivacyPolicy from './component/Footers/PrivacyPolicy';

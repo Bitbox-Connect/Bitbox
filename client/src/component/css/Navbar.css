@@ -149,7 +149,10 @@
 
 .Navbar-Btn-Group a {
   text-decoration: none;
+  display: flex;
   color: black;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Dark Mode Toggle Button */

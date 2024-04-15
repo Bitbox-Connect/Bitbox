@@ -37,7 +37,7 @@ const CommunityCard = (props) => {
   return (
     <div className='col-md-4 my-3'>
       <div className="projectContainer" style={{borderradius: props.mode ==='10px'}} >
-        <div className="projectBox" style={{ background: props.mode === 'dark' ? ' black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+        <div className="projectBox" style={{ background: props.mode === 'dark' ? ' white' : '', color: props.mode === 'dark' ? 'white' : 'black' }}>
           <div className="projectInfo">
             <div className="projectAvatar">
               <img src={avatarImg} alt="avatar" />
