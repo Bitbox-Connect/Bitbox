@@ -20,10 +20,6 @@ import MyProfile from './component/MyProfile'
 import ScrollTop from './component/ScrollTop';
 import EditProfile from './component/EditProfile';
 import Contributers from './component/Contributers';
-<<<<<<< HEAD
-
-=======
->>>>>>> e35ef26282ed8492895b0000be68d36c4a7a1d58
 
 function App() {
 

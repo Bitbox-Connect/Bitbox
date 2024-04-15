@@ -306,17 +306,11 @@ i {
 }
 
 .project-love img{
-<<<<<<< HEAD
   height: 27px;
   width: 27px;
-=======
-  height: 30px;
-  width: 30px;
->>>>>>> e35ef26282ed8492895b0000be68d36c4a7a1d58
 }
 
 .project-comment img{
-<<<<<<< HEAD
   width: 27px;
   height: 27px;
 }
@@ -327,16 +321,4 @@ i {
 .project-details img{
   width: 27px;
   height: 27px;
-=======
-  width: 30px;
-  height: 30px;
-}
-.project-link img{
-  width: 30px;
-  height: 30px;
-}
-.project-details img{
-  width: 30px;
-  height: 30px;
->>>>>>> e35ef26282ed8492895b0000be68d36c4a7a1d58
 }

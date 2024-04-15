@@ -147,11 +147,7 @@ function Navbar(props) {
                                                     <li>
                                                         <hr className="dropdown-divider" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline : props.mode==='dark'?'1px solid white':'black'}}/>
                                                     </li>
-<<<<<<< HEAD
                                                     <li><a className="dropdown-item" onClick={handleLogout} href="#" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black'}}>Logout</a></li>
-=======
-                                                    <li><a className="dropdown-item" onClick={handleLogout}>Logout</a></li>
->>>>>>> e35ef26282ed8492895b0000be68d36c4a7a1d58
                                                 </ul>
                                             </li>
                                         </div>
