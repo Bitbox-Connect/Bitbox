@@ -1,10 +1,11 @@
 import '../css/Main.css';
+import PropTypes from 'prop-types';
 
-const PrivacyPolicy = () => {
+const PrivacyPolicy = (props) => {
   return (
-    <div className="privacy-policy-container">
+    <div className="privacy-policy-container"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black',}}>
       <h2 className="Heading-Page mb-3">Privacy Policy</h2>
-      <div className="container">
+      <div className="container"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black',}}>
         <div>Last updated: April 13, 2024</div>
         <div>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</div>
         <div>We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy.</div>
@@ -63,7 +64,7 @@ const PrivacyPolicy = () => {
         </ul></div>
         <h4>Usage Data</h4>
         <div>Usage Data is collected automatically when using the Service.</div>
-        <div>Usage Data may include information such as Your Device&apos;s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.</div>
+        <div>Usage Data may include information such as Your Device's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.</div>
         <div>When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data.</div>
         <div>We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.</div>
         <h4>Tracking Technologies and Cookies</h4>
@@ -85,7 +86,7 @@ const PrivacyPolicy = () => {
             <div><strong>For the performance of a contract:</strong> the development, compliance and undertaking of the purchase contract for the products, items or services You have purchased or of any other contract with Us through the Service.</div>
           </li>
           <li>
-            <div><strong>To contact You:</strong> To contact You by email, telephone calls, SMS, or other equivalent forms of electronic communication, such as a mobile application&apos;s push notifications regarding updates or informative communications related to the functionalities, products or contracted services, including the security updates, when necessary or reasonable for their implementation.</div>
+            <div><strong>To contact You:</strong> To contact You by email, telephone calls, SMS, or other equivalent forms of electronic communication, such as a mobile application's push notifications regarding updates or informative communications related to the functionalities, products or contracted services, including the security updates, when necessary or reasonable for their implementation.</div>
           </li>
           <li>
             <div><strong>To provide You</strong> with news, special offers and general information about other goods, services and events which we offer that are similar to those that you have already purchased or enquired about unless You have opted not to receive such information.</div>
@@ -113,7 +114,7 @@ const PrivacyPolicy = () => {
         <div>The Company will retain Your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use Your Personal Data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies.</div>
         <div>The Company will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter period of time, except when this data is used to strengthen the security or to improve the functionality of Our Service, or We are legally obligated to retain this data for longer time periods.</div>
         <h3>Transfer of Your Personal Data</h3>
-        <div>Your information, including Personal Data, is processed at the Company&apos;s operating offices and in any other places where the parties involved in the processing are located. It means that this information may be transferred to — and maintained on — computers located outside of Your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from Your jurisdiction.</div>
+        <div>Your information, including Personal Data, is processed at the Company's operating offices and in any other places where the parties involved in the processing are located. It means that this information may be transferred to — and maintained on — computers located outside of Your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from Your jurisdiction.</div>
         <div>Your consent to this Privacy Policy followed by Your submission of such information represents Your agreement to that transfer.</div>
         <div>The Company will take all steps reasonably necessary to ensure that Your data is treated securely and in accordance with this Privacy Policy and no transfer of Your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of Your data and other personal information.</div>
         <h3>Delete Your Personal Data</h3>
@@ -137,9 +138,9 @@ const PrivacyPolicy = () => {
         </ul>
         <h3>Security of Your Personal Data</h3>
         <div>The security of Your Personal Data is important to Us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While We strive to use commercially acceptable means to protect Your Personal Data, We cannot guarantee its absolute security.</div>
-        <div>If We need to rely on consent as a legal basis for processing Your information and Your country requires consent from a parent, We may require Your parent&apos;s consent before We collect and use that information.</div>
+        <div>If We need to rely on consent as a legal basis for processing Your information and Your country requires consent from a parent, We may require Your parent's consent before We collect and use that information.</div>
         <h2>Links to Other Websites</h2>
-        <div>Our Service may contain links to other websites that are not operated by Us. If You click on a third party link, You will be directed to that third party&apos;s site. We strongly advise You to review the Privacy Policy of every site You visit.</div>
+        <div>Our Service may contain links to other websites that are not operated by Us. If You click on a third party link, You will be directed to that third party's site. We strongly advise You to review the Privacy Policy of every site You visit.</div>
         <div>We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.</div>
         <h2>Changes to this Privacy Policy</h2>
         <div>We may update Our Privacy Policy from time to time. We will notify You of any changes by posting the new Privacy Policy on this page.</div>
@@ -149,5 +150,8 @@ const PrivacyPolicy = () => {
     </div>
   );
 };
-
+PrivacyPolicy.propTypes = {
+  showAlert: PropTypes.func,
+  mode: PropTypes.func,
+};
 export default PrivacyPolicy;

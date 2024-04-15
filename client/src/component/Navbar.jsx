@@ -127,9 +127,9 @@ function Navbar(props) {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <li className="nav-item dropdown mx-2">
+                                            <li className="nav-item dropdown mx-2"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black'}}>
                                                 <a className="nav-link profile-img" href="#" id="navbarScrollingDropdown" role="button"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                    data-bs-toggle="dropdown" aria-expanded="false" >
                                                     {image ? (
                                                         <img src={image} style={{ width: "3.2rem", height: "3.2rem", outline: props.mode === 'dark' ? '1.8px solid white' : '' }} alt="avatar" />
                                                     ) : (
@@ -139,6 +139,7 @@ function Navbar(props) {
                                                             alt="avatar"
                                                         />
                                                     )}
+                                                    
                                                 </a>
                                                 <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown" style={{ backgroundColor: props.mode === 'dark' ? 'black' : 'white', borderBottom: props.mode === 'dark' ? '1px solid white' : '1px solid black', outline: props.mode === 'dark' ? '2px solid white' : '2px solid black' }}>
                                                     <li><Link to="/myprofile">My Profile</Link></li>
