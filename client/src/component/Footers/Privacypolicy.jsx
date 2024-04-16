@@ -152,6 +152,6 @@ const PrivacyPolicy = (props) => {
 };
 PrivacyPolicy.propTypes = {
   showAlert: PropTypes.func,
-  mode: PropTypes.func,
+  mode: PropTypes.string,
 };
 export default PrivacyPolicy;

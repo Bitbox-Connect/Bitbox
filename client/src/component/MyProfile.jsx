@@ -176,11 +176,15 @@ const MyProfile = (props) => {
 
                             {/* Project Edit Modal */}
                             <div className="modal fade text-start" id="newModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div className="modal-dialog" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : ''  }}>
+                                <div className="modal-dialog" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : '' }}>
                                     <div className="modal-content" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                                         <div className="modal-header">
                                             <h1 className="modal-title fs-5" id="exampleModalLabel">Edit Project</h1>
                                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            {/* close button */}
+                                            <div className="close-modal-button" data-bs-dismiss="modal" aria-label="Close" style={{ background: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '1px solid white' : ''}}>
+                                                <img src={closeModalImg} title='close' alt="close" />
+                                            </div>
                                         </div>
                                         <div className="modal-body">
                                             <div className="pro-card">
@@ -202,19 +206,19 @@ const MyProfile = (props) => {
                                                     </div> */}
                                                     <div className="mb-3">
                                                         <label htmlFor="etitle" className="form-label">Project Title</label>
-                                                        <input type="text" className="form-control" id="etitle" name='etitle' value={project.etitle} onChange={onChange} placeholder="Enter Project Title Here" />
+                                                        <input type="text" className="form-control" id="etitle" name='etitle' value={project.etitle} onChange={onChange} placeholder="Enter Project Title Here" style={{ color: props.mode === 'dark' ? 'black' : '', }} />
                                                     </div>
                                                     <div className="mb-3">
                                                         <label htmlFor="edescription" className="form-label">Project Description</label>
-                                                        <textarea type="text" className="form-control" id="edescription" name='edescription' value={project.edescription} onChange={onChange} placeholder="Enter Project Description Here" rows="3"></textarea>
+                                                        <textarea type="text" className="form-control" id="edescription" name='edescription' value={project.edescription} onChange={onChange} placeholder="Enter Project Description Here" rows="3" style={{ color: props.mode === 'dark' ? 'black' : '', }}></textarea>
                                                     </div>
                                                     <div className="mb-3">
                                                         <label htmlFor="egitHubLink" className="form-label">Github Link</label>
-                                                        <input type="text" className="form-control" id="egitHubLink" name='egitHubLink' value={project.egitHubLink} onChange={onChange} placeholder="Enter Github Link Here" />
+                                                        <input type="text" className="form-control" id="egitHubLink" name='egitHubLink' value={project.egitHubLink} onChange={onChange} placeholder="Enter Github Link Here" style={{ color: props.mode === 'dark' ? 'black' : '', }} />
                                                     </div>
                                                     <div className="mb-3">
                                                         <label htmlFor="eyouTubeLink" className="form-label">YouTube Link</label>
-                                                        <input type="text" className="form-control" id="eyouTubeLink" name='eyouTubeLink' value={project.eyouTubeLink} onChange={onChange} placeholder="Enter YouTube Link Here" />
+                                                        <input type="text" className="form-control" id="eyouTubeLink" name='eyouTubeLink' value={project.eyouTubeLink} onChange={onChange} placeholder="Enter YouTube Link Here" style={{ color: props.mode === 'dark' ? 'black' : '', }} />
                                                     </div>
                                                 </div>
                                             </div>
@@ -238,7 +242,7 @@ const MyProfile = (props) => {
                                     <div className="modal-content" style={{ background: "transparent", border: "none" }}>
                                         <div className="modal-body" >
                                             <section className="project-modal-section-container">
-                                                <div className="project-modal-container" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : ''  }}>
+                                                <div className="project-modal-container" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : '' }}>
                                                     <div className="project-modal-left">
                                                         {/* <!-- Modal Head --> */}
                                                         <div className="modal-left-head">
@@ -251,8 +255,8 @@ const MyProfile = (props) => {
                                                                 </div>
                                                             </div>
                                                             <div className="modal-tag-group">
-                                                                <div className="modal-project-tag" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : ''  }}>Category</div>
-                                                                <div className="modal-project-tag" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : ''  }}>Latest</div>
+                                                                <div className="modal-project-tag" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : '' }}>Category</div>
+                                                                <div className="modal-project-tag" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : '' }}>Latest</div>
                                                             </div>
                                                         </div>
                                                         {/* <!-- Modal Section --> */}

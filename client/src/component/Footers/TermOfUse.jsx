@@ -149,5 +149,5 @@ export default function TermOfUse() {
 }
 TermOfUse.propTypes = {
   showAlert: PropTypes.func,
-  mode: PropTypes.func,
+  mode: PropTypes.string,
 };

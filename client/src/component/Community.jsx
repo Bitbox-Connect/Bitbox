@@ -141,7 +141,7 @@ const Community = (props) => {
                       <div className="modal-body">
                         <section className="project-modal-section-container">
                           <div className="project-modal-container" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : ''  }}>
-                            <div className="project-modal-left" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : ''  }}>
+                            <div className="project-modal-left">
                               {/* <!-- Modal Head --> */}
                               <div className="modal-left-head">
                                 <div className="modal-project-navigation">
@@ -267,7 +267,7 @@ const Community = (props) => {
                                 )}
                                 <div className="project-modal-head-buttons">
                                   <div className="option-modal-button"><img src={optionModalImg} alt="option" title='option' /></div>
-                                  {/* Bootstap close button */}
+                                  {/* close button */}
                                   <div className="close-modal-button" data-bs-dismiss="modal" aria-label="Close">
                                     <img src={closeModalImg} title='close' alt="close" />
                                   </div>

@@ -121,6 +121,5 @@ EditProfile.propTypes = {
     showAlert: PropTypes.func,
     mode: PropTypes.string,
     onUpdateProfile: PropTypes.func, // Function to notify parent about profile update
-    mode: PropTypes.func,
 };
 export default EditProfile;

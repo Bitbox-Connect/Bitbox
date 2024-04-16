@@ -1,7 +1,9 @@
 import { useContext, useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import projectContext from '../context/projectContext';
+// ASSETS
 // import projectDummyImage from '../assets/images/Others/projects.png'
+import closeModalImg from '../assets/images/Modal Image/Close.png'
 
 function AddProject(props) {
     const context = useContext(projectContext);
@@ -62,19 +64,22 @@ function AddProject(props) {
             return link; // Return unmodified link if it doesn't match expected format
         }
     };
-    
+
     return (
         <div>
-            <button type="button" className="btn btn-primary mx-2" style={{height: '45px'}} data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" className="btn btn-primary mx-2" style={{ height: '45px' }} data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Upload
             </button>
 
             <div className="modal fade text-start" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : ''  }}>
+                <div className="modal-dialog" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : '' }}>
                     <div className="modal-content" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                         <div className="modal-header">
                             <h1 className="modal-title fs-5" id="exampleModalLabel">Upload Project</h1>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            {/* close button */}
+                            <div className="close-modal-button" data-bs-dismiss="modal" aria-label="Close" >
+                                <img src={closeModalImg} title='close' alt="close" style={{ background: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '1px solid white' : ''}} />
+                            </div>
                         </div>
                         <div className="modal-body">
                             <div className="pro-card">
@@ -95,19 +100,19 @@ function AddProject(props) {
                                     </div> */}
                                     <div className="mb-3">
                                         <label htmlFor="title" className="form-label">Project Title</label>
-                                        <input autoFocus type="text" className="form-control" id="title" name='title' value={project.title} onChange={onChange} placeholder="Enter Project Title Here *" required onKeyDown={handleKeyDown} />
+                                        <input autoFocus type="text" className="form-control" id="title" name='title' value={project.title} onChange={onChange} placeholder="Enter Project Title Here *" required onKeyDown={handleKeyDown} style={{ color: props.mode === 'dark' ? 'black' : '', }} />
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="description" className="form-label">Project Description</label>
-                                        <textarea type="text" className="form-control" id="description" name='description' value={project.description} onChange={onChange} placeholder="Enter Project Description Here" rows="3" onKeyDown={handleKeyDown}></textarea>
+                                        <textarea type="text" className="form-control" id="description" name='description' value={project.description} onChange={onChange} placeholder="Enter Project Description Here" rows="3" onKeyDown={handleKeyDown} style={{ color: props.mode === 'dark' ? 'black' : '', }}></textarea>
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="gitHubLink" className="form-label">Github Link</label>
-                                        <input type="text" className="form-control" id="gitHubLink" name='gitHubLink' value={project.gitHubLink} onChange={onChange} placeholder="Enter Github Link Here" onKeyDown={handleKeyDown} />
+                                        <input type="text" className="form-control" id="gitHubLink" name='gitHubLink' value={project.gitHubLink} onChange={onChange} placeholder="Enter Github Link Here" onKeyDown={handleKeyDown} style={{ color: props.mode === 'dark' ? 'black' : '', }} />
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="youTubeLink" className="form-label">YouTube Link</label>
-                                        <input type="text" className="form-control" id="youTubeLink" name='youTubeLink' value={project.youTubeLink} onChange={onChange} placeholder="Enter YouTube Link Here" onKeyDown={handleKeyDown} />
+                                        <input type="text" className="form-control" id="youTubeLink" name='youTubeLink' value={project.youTubeLink} onChange={onChange} placeholder="Enter YouTube Link Here" onKeyDown={handleKeyDown} style={{ color: props.mode === 'dark' ? 'black' : '', }} />
                                     </div>
                                 </div>
                             </div>
