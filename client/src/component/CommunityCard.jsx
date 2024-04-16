@@ -31,7 +31,7 @@ const CommunityCard = (props) => {
     const minutes = ('0' + date.getMinutes()).slice(-2); // Add leading zero for single-digit minutes
 
     // Format the date and time
-    return `${month}/${day}/${year} | ${hours}:${minutes}`;
+    return `${day}/${month}/${year} | ${hours}:${minutes}`;
   };
 
   return (

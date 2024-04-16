@@ -9,7 +9,7 @@ import "./css/ProjectCard.css";
 import avatarImg from "../assets/images/logo.png";
 import FavourModalImg from '../assets/images/Modal Image/Favourite.png'
 import commentModalImg from '../assets/images/Modal Image/comment.png'
-import LikeModalImg from '../assets/images/Modal Image/Like.png'
+import githubCardImg from '../assets/images/Modal Image/githubcard.png'
 import DetailCardImg from '../assets/images/Modal Image/Details.png'
 
 const MyProfileCard = (props) => {
@@ -61,7 +61,7 @@ const MyProfileCard = (props) => {
     const minutes = ('0' + date.getMinutes()).slice(-2); // Add leading zero for single-digit minutes
 
     // Format the date and time
-    return `${month}/${day}/${year} | ${hours}:${minutes}`;
+    return `${day}/${month}/${year} | ${hours}:${minutes}`;
   };
 
   return (
@@ -96,31 +96,16 @@ const MyProfileCard = (props) => {
             </div>
             <div className="projectEngagementContainer">
               <div className="project-love">
-                <img
-                  src={FavourModalImg}
-                  alt="Love"
-                />
+                <img src={FavourModalImg} alt="Love" />
               </div>
               <div className="project-comment">
-                <img
-                  src={commentModalImg}
-                  alt="Comment"
-                />
+                <img src={commentModalImg} alt="Comment" />
               </div>
               <div className="project-link">
-                <img
-                  src={LikeModalImg}
-                  alt="Link"
-                />
+                <img src={githubCardImg} alt="Link" />
               </div>
-              <div
-                className="project-details"
-                onClick={() => showDetailProject(project)}
-              >
-                <img
-                  src={DetailCardImg}
-                  alt="Details"
-                />
+              <div className="project-details" onClick={() => showDetailProject(project)}              >
+                <img src={DetailCardImg} alt="Details" />
               </div>
             </div>
           </div>
@@ -129,8 +114,8 @@ const MyProfileCard = (props) => {
 
       {/* Delete Confirmation Modal */}
       {showModal && (
-        <div className="modal-wrapper" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : ''  }}>
-          <div className="modal-card" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : ''  }}>
+        <div className="modal-wrapper" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : '' }}>
+          <div className="modal-card" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : '' }}>
             <div className="card-content">
               <p className="card-heading">{project.title}</p>
               <p className="card-description">
