@@ -115,18 +115,17 @@
   padding-left: 15%;
   padding-right: 15%;
 }
-
 /* Term of Use */
-.termofuse-container {
-  margin-top: 100px;
-  margin-bottom: 40px;
+.container-T{
+  border: 1px solid white;
+  border-radius: 4px;
+ padding: 12%;
+ padding-top: 5%;
+
 }
-.container-T strong{
-  margin-left: 15%;
-  font-size: 20px;
+.name-term{
+  padding-top: 100px;
 }
-.container-T p{
-  font-size: 19px;
-  margin-left: 15%;
-  margin-right: 15%;
+.container-T{
+  justify-content: center;
 }

@@ -3,7 +3,8 @@ import '../css/Main.css'
 export default function TermOfUse() {
   return (
     <div className='container termofuse-container'>
-      <h2 className='text-center Heading-Page mb-3'>Terms Of Use</h2>
+      <div className='name-term'>
+      <h2 className='text-center Heading-Page'>Terms Of Use</h2></div>
       <div className="container-T">
         <p>Version 1.0</p>
         <p>The BITBOX website located at http://localhost:5173/termofuse is a copyrighted work belonging to BITBOX. Certain features of the Site may be subject to additional guidelines, terms, or rules, which will be posted on the Site in connection with such features.</p>
@@ -75,17 +76,6 @@ export default function TermOfUse() {
           <h2>Copyright Policy.</h2>
 
           <p>Company respects the intellectual property of others and asks that users of our Site do the same.  In connection with our Site, we have adopted and implemented a policy respecting copyright law that provides for the removal of any infringing materials and for the termination of users of our online Site who are repeated infringers of intellectual property rights, including copyrights.  If you believe that one of our users is, through the use of our Site, unlawfully infringing the copyright(s) in a work, and wish to have the allegedly infringing material removed, the following information in the form of a written notification (pursuant to 17 U.S.C. § 512(c)) must be provided to our designated Copyright Agent:</p>
-
-          <ul>
-            <li>your physical or electronic signature;</li>
-            <li>identification of the copyrighted work(s) that you claim to have been infringed;</li>
-            <li>identification of the material on our services that you claim is infringing and that you request us to remove;</li>
-            <li>sufficient information to permit us to locate such material;</li>
-            <li>your address, telephone number, and e-mail address;</li>
-            <li>a statement that you have a good faith belief that use of the objectionable material is not authorized by the copyright owner, its agent, or under the law; and</li>
-            <li>a statement that the information in the notification is accurate, and under penalty of perjury, that you are either the owner of the copyright that has allegedly been infringed or that you are authorized to act on behalf of the copyright owner.</li>
-          </ul>
-
           <p>Please note that, pursuant to 17 U.S.C. § 512(f), any misrepresentation of material fact in a written notification automatically subjects the complaining party to liability for any damages, costs and attorney's fees incurred by us in connection with the written notification and allegation of copyright infringement.</p>
 
           <h2>General</h2>
@@ -136,12 +126,6 @@ export default function TermOfUse() {
           <p><strong>Your Privacy.</strong> Please read our Privacy Policy.</p>
 
           <p><strong>Copyright/Trademark Information.</strong> Copyright ©. All rights reserved.  All trademarks, logos and service marks displayed on the Site are our property or the property of other third-parties. You are not permitted to use these Marks without our prior written consent or the consent of such third party which may own the Marks.</p>
-
-          <h2>Contact Information</h2>
-
-          <p>Address: http://localhost:5173/contactus</p>
-          <p>Email: bitboxcommunity@gmail.com</p>
-
         </div>
       </div>
       )
