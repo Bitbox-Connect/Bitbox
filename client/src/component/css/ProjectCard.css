@@ -8,7 +8,6 @@ i {
 
 
 /* Project Card */
-
 .projectContainer {
   position: relative;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
@@ -20,7 +19,7 @@ i {
   border-width: 1px;
   display: flex;
   flex-direction: column;
-  
+
 }
 
 .projectBox {
@@ -107,20 +106,28 @@ i {
   margin: 5px 0;
 }
 
-.project-love img,
-.project-comment img {
-  width: 27px;
+.project-love img {
   cursor: pointer;
+  height: 27px;
+  width: 27px;
+}
+
+.project-comment img {
+  cursor: pointer;
+  width: 27px;
+  height: 27px;
 }
 
 .project-link img {
-  width: 35px;
   cursor: pointer;
+  width: 27px;
+  height: 27px;
 }
 
 .project-details img {
-  width: 45px;
   cursor: pointer;
+  width: 27px;
+  height: 27px;
 }
 
 /* Delete Project */
@@ -171,12 +178,8 @@ i {
   cursor: pointer;
 }
 
-.exit-button:hover svg {
-  fill: black;
-}
-
 .exit-button svg {
-  fill: rgb(175, 175, 175);
+  fill: rgb(187, 187, 187);
 }
 
 .modal-wrapper {
@@ -252,26 +255,6 @@ i {
   background-color: rgb(197, 197, 197);
 }
 
-.exit-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  background-color: transparent;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-}
-
-.exit-button:hover svg {
-  fill: black;
-}
-
-.exit-button svg {
-  fill: rgb(175, 175, 175);
-}
-
 .video-overlays {
   position: fixed;
   top: 0;
@@ -308,22 +291,4 @@ i {
   background: yellow;
   border: none;
   cursor: pointer;
-}
-
-.project-love img{
-  height: 27px;
-  width: 27px;
-}
-
-.project-comment img{
-  width: 27px;
-  height: 27px;
-}
-.project-link img{
-  width: 27px;
-  height: 27px;
-}
-.project-details img{
-  width: 27px;
-  height: 27px;
 }

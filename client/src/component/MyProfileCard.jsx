@@ -64,6 +64,10 @@ const MyProfileCard = (props) => {
     return `${day}/${month}/${year} | ${hours}:${minutes}`;
   };
 
+  // Max Length for title and description
+  const maxTitleLength = 30; 
+  const maxDescriptionLength = 75;
+
   return (
     <div className="col-md-4 my-3">
       {/* Project Card */}
@@ -74,7 +78,7 @@ const MyProfileCard = (props) => {
               <img src={avatarImg} alt="avatar" />
             </div>
             <div className="projectText">
-              <div className="projectTitle" style={{ color: props.mode === 'dark' ? '#100000' : '' }}>{project.title}</div>
+              <div className="projectTitle" style={{ color: props.mode === 'dark' ? '#100000' : '' }}>{project.title.length > maxTitleLength ? project.title.slice(0, maxTitleLength) + '...' : project.title}</div>
               <div className="projectDetails">
                 <div className="projectUserName" style={{ color: props.mode === 'dark' ? '#100000' : '' }}>{userProfile.name}</div>
                 <div className="projectTime" style={{ color: props.mode === 'dark' ? '#100000' : '' }}>{formatDate(project.date)}</div>
@@ -85,7 +89,7 @@ const MyProfileCard = (props) => {
               <i className="fa-solid fa-pen-to-square" style={{ color: props.mode === 'dark' ? '#100000' : '' }} onClick={() => updateProject(project)}></i>
             </div>
           </div>
-          <div className="projectDescription" style={{ color: props.mode === 'dark' ? '#100000' : '' }}>{project.description}</div>
+          <div className="projectDescription" style={{ color: props.mode === 'dark' ? '#100000' : '' }}>{project.description.length > maxDescriptionLength ? project.description.slice(0, maxDescriptionLength) + '...' : project.description}</div>
           <div className="project-bottom-container">
             <div className="projectVisualContainer">
               <img
@@ -114,11 +118,11 @@ const MyProfileCard = (props) => {
 
       {/* Delete Confirmation Modal */}
       {showModal && (
-        <div className="modal-wrapper" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : '' }}>
-          <div className="modal-card" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : '' }}>
+        <div className="modal-wrapper" style={{ background: props.mode === 'dark' ? 'black' : '', outline: props.mode === 'dark' ? '1px solid white' : '' }}>
+          <div className="modal-card" style={{ background: props.mode === 'dark' ? 'black' : '', outline: props.mode === 'dark' ? '1px solid white' : '' }}>
             <div className="card-content">
-              <p className="card-heading">{project.title}</p>
-              <p className="card-description">
+              <p className="card-heading" style={{ color: props.mode === 'dark' ? 'white' : ''}}>{project.title}</p>
+              <p className="card-description" style={{ color: props.mode === 'dark' ? 'white' : ''}}>
                 Are you sure want to Delete project ?
               </p>
             </div>
@@ -134,7 +138,7 @@ const MyProfileCard = (props) => {
               </button>
             </div>
             <button className="exit-button" onClick={handleModalClose}>
-              <svg height="20px" viewBox="0 0 384 512">
+              <svg height="20px" viewBox="0 0 384 512" style={{ color: props.mode === 'dark' ? 'white' : ''}}> 
                 <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path>
               </svg>
             </button>

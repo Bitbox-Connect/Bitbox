@@ -127,19 +127,19 @@ const Home = (props) => {
                     <div className="work-cont1" style={{ color: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
                         <h3 className='text'>Community Collaboration</h3>
                         <div className="work-box1">
-                            <div style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>Engage with a diverse community of developers, designers, and enthusiasts passionate about creating impactful software.</div>
+                            <div style={{ color: props.mode === 'dark' ? 'white' : '' }}>Engage with a diverse community of developers, designers, and enthusiasts passionate about creating impactful software.</div>
                         </div>
                     </div>
                     <div className="work-cont2" style={{ color: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
                         <h3 className='text'>Transparency and Accessibility</h3>
                         <div className="work-box2">
-                            <div style={{ color: props.mode === 'dark' ? 'white' : 'black' }}> Access and contribute to projects with full transparency, ensuring that everyone can benefit from shared knowledge and resources.</div>
+                            <div style={{ color: props.mode === 'dark' ? 'white' : '' }}> Access and contribute to projects with full transparency, ensuring that everyone can benefit from shared knowledge and resources.</div>
                         </div>
                     </div>
                     <div className="work-cont3" style={{ color: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
                         <h3 className='text'>Innovation and Creativity</h3>
                         <div className="work-box3">
-                            <div style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>Explore endless possibilities for innovation by harnessing the collective creativity of a global network of contributors.</div>
+                            <div style={{ color: props.mode === 'dark' ? 'white' : '' }}>Explore endless possibilities for innovation by harnessing the collective creativity of a global network of contributors.</div>
                         </div>
                     </div>
                 </div>
@@ -147,19 +147,19 @@ const Home = (props) => {
                     <div className="work-cont1" style={{ color: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
                         <h3 className='text'>Flexibility and Customization</h3>
                         <div className="work-box1">
-                            <div style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>Customize and adapt open source projects to suit your specific needs, empowering you to build solutions tailored to your requirements.</div>
+                            <div style={{ color: props.mode === 'dark' ? 'white' : '' }}>Customize and adapt open source projects to suit your specific needs, empowering you to build solutions tailored to your requirements.</div>
                         </div>
                     </div>
                     <div className="work-cont2" style={{ color: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
                         <h3 className='text'>Learning and Skill Development</h3>
                         <div className="work-box2">
-                            <div style={{ color: props.mode === 'dark' ? 'white' : 'black' }}> Accelerate your learning and skill development through hands-on collaboration, mentorship, and continuous feedback within the open source community.</div>
+                            <div style={{ color: props.mode === 'dark' ? 'white' : '' }}> Accelerate your learning and skill development through hands-on collaboration, mentorship, and continuous feedback within the open source community.</div>
                         </div>
                     </div>
                     <div className="work-cont3" style={{ color: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
                         <h3 className='text'>Global Impact</h3>
                         <div className="work-box3">
-                            <div style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>Make a meaningful impact on a global scale by contributing to projects that address real-world challenges and improve the lives of people everywhere.</div>
+                            <div style={{ color: props.mode === 'dark' ? 'white' : '' }}>Make a meaningful impact on a global scale by contributing to projects that address real-world challenges and improve the lives of people everywhere.</div>
                         </div>
                     </div>
                 </div>

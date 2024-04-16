@@ -11,9 +11,9 @@ const CommunityCard = (props) => {
   const { project, showDetailProject } = props;
   // const [like,setLike]=useState(false)
 
- const HandleColor =()=>{
-  
- }
+  const HandleColor = () => {
+
+  }
 
   // Function to generate a unique image URL for each project
   const generateImageUrl = (projectId) => {
@@ -33,16 +33,20 @@ const CommunityCard = (props) => {
     return `${day}/${month}/${year} | ${hours}:${minutes}`;
   };
 
+  // Max Length for title and description
+  const maxTitleLength = 30;
+  const maxDescriptionLength = 75;
+
   return (
     <div className='col-md-4 my-3'>
-      <div className="projectContainer" style={{borderradius: props.mode ==='10px'}} >
+      <div className="projectContainer" style={{ borderradius: props.mode === '10px' }} >
         <div className="projectBox" style={{ background: props.mode === 'dark' ? ' white' : '', color: props.mode === 'dark' ? 'white' : 'black' }}>
           <div className="projectInfo">
             <div className="projectAvatar">
               <img src={avatarImg} alt="avatar" />
             </div>
             <div className="projectText">
-              <div className="projectTitle" style={{ color: props.mode === 'dark' ? '#100000' : '' }}>{project.title}</div>
+              <div className="projectTitle" style={{ color: props.mode === 'dark' ? '#100000' : '' }}>{project.title.length > maxTitleLength ? project.title.slice(0, maxTitleLength) + '...' : project.title}</div>
               <div className="projectDetails">
                 {/* <div className="projectUserName">Anuj Verma</div> */}
                 <div className="projectTime" style={{ color: props.mode === 'dark' ? '#100000' : '', margin: "0" }}>{formatDate(project.date)}</div>
@@ -50,7 +54,7 @@ const CommunityCard = (props) => {
             </div>
           </div>
           <div className="projectDescription" style={{ color: props.mode === 'dark' ? '#100000' : '' }}>
-            {project.description}
+            {project.description.length > maxDescriptionLength ? project.description.slice(0, maxDescriptionLength) + '...' : project.description}
           </div>
           <div className="project-bottom-container">
             <div className="projectVisualContainer">

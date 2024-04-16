@@ -307,6 +307,10 @@
     height: 45px;
 }
 
+.modal-right-head a{
+    text-decoration: none;
+}
+
 .project-modal-head-buttons {
     display: flex;
     justify-content: space-around;

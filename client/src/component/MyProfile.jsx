@@ -139,10 +139,10 @@ const MyProfile = (props) => {
                             {/* <button onClick={handleEditClick}><link rel="stylesheet" href="/editprofile" />Edit</button> */}
                             <div className="profile-picture mb-3 mt-2">
                                 {image ? (
-                                    <img src={image} alt="avatar" />
+                                    <img src={image} alt="avatar" style={{ background: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }} />
                                 ) : (
                                     <img
-                                        src={avatar}
+                                        src={avatar} style={{ background: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}
                                         className="avatar img-circle"
                                         alt="avatar"
                                     />
@@ -193,7 +193,6 @@ const MyProfile = (props) => {
                                     <div className="modal-content" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                                         <div className="modal-header">
                                             <h1 className="modal-title fs-3" id="exampleModalLabel" style={{ color: props.mode === 'dark' ? 'white' : '' }} >Edit Project</h1>
-                                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             {/* close button */}
                                             <div className="close-modal-button" data-bs-dismiss="modal" aria-label="Close" >
                                                 <img src={closeModalImg} title='close' alt="close" style={{ background: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '1px solid white' : '' }} />
