@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 export default function TermOfUse() {
   return (
     <div className='container termofuse-container'>
-      <h2 className='text-center Heading-Page mb-3'>Terms Of Use</h2>
+      <div className='name-term'>
+      <h2 className='text-center Heading-Page'>Terms Of Use</h2></div>
       <div className="container-T">
         <div>Version 1.0</div>
         <div>The BITBOX website located at http://localhost:5173/termofuse is a copyrighted work belonging to BITBOX. Certain features of the Site may be subject to additional guidelines, terms, or rules, which will be posted on the Site in connection with such features.</div>
@@ -75,6 +76,10 @@ export default function TermOfUse() {
 
         <h2>Copyright Policy.</h2>
 
+<<<<<<< HEAD
+          <p>Company respects the intellectual property of others and asks that users of our Site do the same.  In connection with our Site, we have adopted and implemented a policy respecting copyright law that provides for the removal of any infringing materials and for the termination of users of our online Site who are repeated infringers of intellectual property rights, including copyrights.  If you believe that one of our users is, through the use of our Site, unlawfully infringing the copyright(s) in a work, and wish to have the allegedly infringing material removed, the following information in the form of a written notification (pursuant to 17 U.S.C. § 512(c)) must be provided to our designated Copyright Agent:</p>
+          <p>Please note that, pursuant to 17 U.S.C. § 512(f), any misrepresentation of material fact in a written notification automatically subjects the complaining party to liability for any damages, costs and attorney's fees incurred by us in connection with the written notification and allegation of copyright infringement.</p>
+=======
           <div>Company respects the intellectual property of others and asks that users of our Site do the same.  In connection with our Site, we have adopted and implemented a policy respecting copyright law that provides for the removal of any infringing materials and for the termination of users of our online Site who are repeated infringers of intellectual property rights, including copyrights.  If you believe that one of our users is, through the use of our Site, unlawfully infringing the copyright(s) in a work, and wish to have the allegedly infringing material removed, the following information in the form of a written notification (pursuant to 17 U.S.C. § 512(c)) must be provided to our designated Copyright Agent:</div>
 
         <ul>
@@ -88,6 +93,7 @@ export default function TermOfUse() {
         </ul>
 
           <div>Please note that, pursuant to 17 U.S.C. § 512(f), any misrepresentation of material fact in a written notification automatically subjects the complaining party to liability for any damages, costs and attorney's fees incurred by us in connection with the written notification and allegation of copyright infringement.</div>
+>>>>>>> 4ec2f859882626e7ab59362f88655d3ae987d09c
 
         <h2>General</h2>
 
@@ -136,6 +142,10 @@ export default function TermOfUse() {
 
           <div><strong>Your Privacy.</strong> Please read our Privacy Policy.</div>
 
+<<<<<<< HEAD
+          <p><strong>Copyright/Trademark Information.</strong> Copyright ©. All rights reserved.  All trademarks, logos and service marks displayed on the Site are our property or the property of other third-parties. You are not permitted to use these Marks without our prior written consent or the consent of such third party which may own the Marks.</p>
+        </div>
+=======
           <div><strong>Copyright/Trademark Information.</strong> Copyright ©. All rights reserved.  All trademarks, logos and service marks displayed on the Site are our property or the property of other third-parties. You are not permitted to use these Marks without our prior written consent or the consent of such third party which may own the Marks.</div>
 
         <h2>Contact Information</h2>
@@ -143,6 +153,7 @@ export default function TermOfUse() {
           <div>Address: http://localhost:5173/contactus</div>
           <div>Email: bitboxcommunity@gmail.com</div>
 
+>>>>>>> 4ec2f859882626e7ab59362f88655d3ae987d09c
       </div>
     </div>
   )

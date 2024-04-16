@@ -115,12 +115,21 @@
   padding-left: 15%;
   padding-right: 15%;
 }
-
 /* Term of Use */
-.termofuse-container {
-  margin-top: 100px;
-  margin-bottom: 40px;
+.container-T{
+  border: 1px solid white;
+  border-radius: 4px;
+ padding: 12%;
+ padding-top: 5%;
+
 }
+<<<<<<< HEAD
+.name-term{
+  padding-top: 100px;
+}
+.container-T{
+  justify-content: center;
+=======
 
 .container-T strong {
   margin-left: 15%;
@@ -131,4 +140,5 @@
   font-size: 19px;
   margin-left: 15%;
   margin-right: 15%;
+>>>>>>> 4ec2f859882626e7ab59362f88655d3ae987d09c
 }

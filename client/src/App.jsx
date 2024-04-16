@@ -10,7 +10,11 @@ import Navbar from './component/Navbar';
 import Signup from './component/Signup';
 import ProjectState from './context/ProjectState';
 import ProfileState from './context/ProfileState';
+<<<<<<< HEAD
+import CodeOfConduct from './component/Footers/CodeOfConduct';
+=======
 import CodeOfConduct from './component/Footers/CodeofConduct';
+>>>>>>> 4ec2f859882626e7ab59362f88655d3ae987d09c
 import Feedback from './component/Footers/Feedback';
 import ContactUs from './component/Footers/ContactUs';
 import PrivacyPolicy from './component/Footers/PrivacyPolicy';
@@ -20,6 +24,11 @@ import MyProfile from './component/MyProfile'
 import ScrollTop from './component/ScrollTop';
 import EditProfile from './component/EditProfile';
 import Contributers from './component/Contributers';
+<<<<<<< HEAD
+// import { Link } from 'react-router-dom';
+
+=======
+>>>>>>> 4ec2f859882626e7ab59362f88655d3ae987d09c
 
 function App() {
 

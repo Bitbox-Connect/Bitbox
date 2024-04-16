@@ -99,7 +99,7 @@ export default function About(props) {
               {/* card 1 */}
               <div className="team-card">
                 <div className="team-text" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum blanditiis expedita mollitia itaque ipsum ratione. Debitis odit repellendus, ducimus officiis culpa obcaecati?
+                  Anuj Verma is a tech-savvy person who loves working with AI and building websites. He's gained experience through internships and projects, showing that he's ready to do great things in the tech world.
                 </div>
                 <div className="team-avatar">
                   <img src={img1} />
@@ -114,17 +114,17 @@ export default function About(props) {
                 </div>
                 <div className="team-links">
                   <ul className="list-inline">
-                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-facebook"></i></a></li>
-                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-twitter"></i></a></li>
-                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-instagram"></i></a></li>
-                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-linkedin"></i></a></li>
+                    <li className="list-inline-item"><a href="https://github.com/Anuj3553" className="text-decoration-none d-block px-1" target="blank"><i className="fab fa-github"></i></a></li>
+                    <li className="list-inline-item"><a href="" className="text-decoration-none d-block px-1" target="blank-1"><i className="fab fa-twitter"></i></a></li>
+                    <li className="list-inline-item"><a href="https://www.instagram.com/anuj.verma_official/?next=%2F" className="text-decoration-none d-block px-1" target="blank-2"><i className="fab fa-instagram"></i></a></li>
+                    <li className="list-inline-item"><a href="https://linkedin.com/in/anuj-verma-67493125a/" className="text-decoration-none d-block px-1" target="blank-3"><i className="fab fa-linkedin"></i></a></li>
                   </ul>
                 </div>
               </div>
               {/* card 2 */}
               <div className="team-card">
                 <div className="team-text" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum blanditiis expedita mollitia itaque ipsum ratione. Debitis odit repellendus, ducimus officiis culpa obcaecati?
+                Jitendra Kumar: Tech enthusiast skilled in web development and database management, showcasing expertise in projects like weather app and algorithm analyzer, poised for impactful contributions in the tech industry.
                 </div>
                 <div className="team-avatar">
                   <img src={img2} />
@@ -139,17 +139,17 @@ export default function About(props) {
                 </div>
                 <div className="team-links">
                   <ul className="list-inline">
-                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-facebook"></i></a></li>
-                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-twitter"></i></a></li>
-                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-instagram"></i></a></li>
-                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-linkedin"></i></a></li>
+                    <li className="list-inline-item"><a href="https://github.com/technical-jitendra" className="text-decoration-none d-block px-1" target="blank"><i className="fab fa-github"></i></a></li>
+                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1" target="blank-1"><i className="fab fa-twitter"></i></a></li>
+                    <li className="list-inline-item"><a href="https://www.instagram.com/jitendra_technical_?igsh=MTR1cXEzeDNjejJxag==" className="text-decoration-none d-block px-1" target="blank-2"><i className="fab fa-instagram"></i></a></li>
+                    <li className="list-inline-item"><a href="https://www.linkedin.com/in/technicaljitendra" className="text-decoration-none d-block px-1" target="blank-3"><i className="fab fa-linkedin"></i></a></li>
                   </ul>
                 </div>
               </div>
               {/* card 3  */}
               <div className="team-card">
                 <div className="team-text" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum blanditiis expedita mollitia itaque ipsum ratione. Debitis odit repellendus, ducimus officiis culpa obcaecati?
+                  Harshit Singh: Entry-level software engineer skilled in C, C++, Python, HTML, CSS, and JavaScript. Eager to leverage abilities in problem-solving and project development for organizational growth.
                 </div>
                 <div className="team-avatar">
                   <img src={img3} />
@@ -164,10 +164,10 @@ export default function About(props) {
                 </div>
                 <div className="team-links">
                   <ul className="list-inline">
-                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-facebook"></i></a></li>
-                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-twitter"></i></a></li>
-                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-instagram"></i></a></li>
-                    <li className="list-inline-item"><a href="#" className="text-decoration-none d-block px-1"><i className="fab fa-linkedin"></i></a></li>
+                    <li className="list-inline-item"><a href="https://github.com/harshit7492" className="text-decoration-none d-block px-1" target="blank-3"><i className="fab fa-github"></i></a></li>
+                    <li className="list-inline-item"><a href="https://twitter.com/HarshitSin56914" className="text-decoration-none d-block px-1" target="blank-2"><i className="fab fa-twitter"></i></a></li>
+                    <li className="list-inline-item"><a href="https://www.instagram.com/thakurharshit9462/" className="text-decoration-none d-block px-1" target="blank-1"><i className="fab fa-instagram"></i></a></li>
+                    <li className="list-inline-item"><a href="https://www.linkedin.com/in/harshit-singh8" className="text-decoration-none d-block px-1" target="blank"><i className="fab fa-linkedin"></i></a></li>
                   </ul>
                 </div>
               </div>
