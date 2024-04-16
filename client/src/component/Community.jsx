@@ -1,12 +1,15 @@
 import { useContext, useRef, useState, useEffect } from 'react'
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import projectContext from '../context/projectContext';
-import PropTypes from 'prop-types';
 import axios from 'axios';
 import CommunityCard from './CommunityCard';
-import './css/Community.css'
 import profileContext from '../context/profileContext';
 import './EditProfile'
+// CSS
+import './css/Community.css'
+// PNG
+// import projectDummyImage from '../assets/images/Others/projects.png'
 import avatar from '../assets/images/Dropdown/avatar.png';
 import ViewAllModalImg from '../assets/images/Modal Image/ViewAll.png'
 import githubModalImg from '../assets/images/Modal Image/GitHub.png'
@@ -14,17 +17,15 @@ import unlinkModalImg from '../assets/images/Modal Image/Unlink.png'
 import optionModalImg from '../assets/images/Modal Image/Option.png'
 import closeModalImg from '../assets/images/Modal Image/Close.png'
 import AavtarModalImg from '../assets/images/Modal Image/Aavtar.png'
-import VisitModalImg from '../assets/images/Modal Image/visitor.png'
 import LikeModalImg from '../assets/images/Modal Image/Like.png'
 import LinkModalImg from '../assets/images/Modal Image/Link.png'
 import FavourModalImg from '../assets/images/Modal Image/Favourite.png'
 import commentModalImg from '../assets/images/Modal Image/comment.png'
 import ShareModalImg from '../assets/images/Modal Image/Share.png'
 
-
-
 const Community = (props) => {
   const host = "http://localhost:5000"
+  const {mode} = props;
   const ref = useRef(null)
   const [project, setproject] = useState({ id: "", etitle: "", edescription: "", egitHubLink: "", eyouTubeLink: "" });
 
@@ -38,6 +39,7 @@ const Community = (props) => {
   const { globalProjects, getGlobalProjects } = context;
   useEffect(() => {
     getGlobalProjects();
+    // eslint-disable-next-line
   }, [getGlobalProjects]);
   const refDetails = useRef(null)
 
@@ -70,12 +72,21 @@ const Community = (props) => {
       .catch(err => console.log(err))
   })
 
+  // // Next & Previous Page
+  // const handlePrevClick = () => {
+  //   console.log("Previous")
+  // }
+
+  // const handleNextClick = () => {
+  //   console.log("Next")
+  // }
+
   return (
     <>
       <div className="user-profile-dashboard">
         <div className="user-details">
-          <div className="globalproject-left">
-            <div className="globaldetail-left">
+          <div className="globalproject-left" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', borderRight: props.mode === 'dark' ? '1px solid white' : '' }}>
+            <div className="globaldetail-left" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
               <div className="profile-picture mb-3 mt-2">
                 {image ? (
                   <img src={image} alt="avatar" />
@@ -88,31 +99,31 @@ const Community = (props) => {
                 )}
               </div>
               <div className="global-bio">
-                <p>Name: <span>{userProfile.name}</span></p>
-                <p>College: <span>{userProfile.college}</span></p>
+                <div>Name: <span>{userProfile.name}</span></div>
+                <div>College: <span>{userProfile.college}</span></div>
               </div>
               <hr />
               <div className="global-links">
                 <h3>Discover</h3>
-                <p>Popular</p>
-                <p>Most Viewed</p>
-                <p>Top rated</p>
+                <div>Popular</div>
+                <div>Most Viewed</div>
+                <div>Top rated</div>
               </div>
               <hr />
               <div className="global-skills">
                 <h3>Contri</h3>
-                <p>Discussion</p>
+                <div>Discussion</div>
 
               </div>
               <hr />
               <div className="global-experience">
                 <h3>Manage</h3>
-                <p>Saved</p>
+                <div>Saved</div>
               </div>
 
               <div className="global-share">
                 <h3>Share</h3>
-                <p>Invite friends</p>
+                <div>Invite friends</div>
               </div>
             </div>
           </div>
@@ -129,7 +140,7 @@ const Community = (props) => {
                     <div className="modal-content" style={{ background: "transparent", border: "none" }}>
                       <div className="modal-body">
                         <section className="project-modal-section-container">
-                          <div className="project-modal-container">
+                          <div className="project-modal-container" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : ''  }}>
                             <div className="project-modal-left">
                               {/* <!-- Modal Head --> */}
                               <div className="modal-left-head">
@@ -142,8 +153,8 @@ const Community = (props) => {
                                   </div>
                                 </div>
                                 <div className="modal-tag-group">
-                                  <div className="modal-project-tag">Category</div>
-                                  <div className="modal-project-tag">Latest</div>
+                                  <div className="modal-project-tag" style={{ outline: props.mode === 'dark' ? '1px solid white' : ''  }}>Category</div>
+                                  <div className="modal-project-tag" style={{ outline: props.mode === 'dark' ? '1px solid white' : ''  }}>Latest</div>
                                 </div>
                               </div>
                               {/* <!-- Modal Section --> */}
@@ -155,7 +166,7 @@ const Community = (props) => {
                                 <div className="modal-Time">12/22/32</div>
                                 {/* <div className="modal-project-image">
                                   <img src="./src/assets/images/Vector Gif/R.gif" alt="" />
-                            </div>  */}
+                                </div>  */}
                                 <div className="modal-project-vedio">
                                   {project.eyouTubeLink ? (
                                     <iframe className='youtube-Frame' src={project.eyouTubeLink} frameBorder="0" allowFullScreen></iframe>
@@ -249,16 +260,17 @@ const Community = (props) => {
                                 ) : (
                                   <a title='Unavailable GitHub Link'>
                                     <div className="button-github-modal" >
-                                      <img src={unlinkModalImg} alt="Broken Link" />
+                                      <img src={unlinkModalImg} alt="Invalid Link" />
                                       Unavailable
                                     </div>
                                   </a>
                                 )}
                                 <div className="project-modal-head-buttons">
                                   <div className="option-modal-button"><img src={optionModalImg} alt="option" title='option' /></div>
-                                  {/* Bootstap close button */}
+                                  {/* close button */}
                                   <div className="close-modal-button" data-bs-dismiss="modal" aria-label="Close">
-                                    <img src={closeModalImg} title='close' alt="close" /></div>
+                                    <img src={closeModalImg} title='close' alt="close" />
+                                  </div>
                                 </div>
                               </div>
                               <div className="modal-profile-details-container">
@@ -480,8 +492,12 @@ const Community = (props) => {
                 <div className='container Global-Sec-Container'>
                   <div className='row'>
                     {globalProjects.map((project) => {
-                      return <CommunityCard showAlert={props.showAlert} showDetailProject={showDetailProject} key={project._id} project={project} />;
+                      return <CommunityCard showAlert={props.showAlert} mode={mode} showDetailProject={showDetailProject} key={project._id} project={project} />;
                     })}
+                    {/* <div className="container community-prev-next d-flex justify-content-between">
+                      <button type='button' className='btn btn-dark' onClick={handlePrevClick}>&larr; Previous</button>
+                      <button type='button' className='btn btn-dark' onClick={handleNextClick}>Next &larr;</button>
+                    </div> */}
                   </div>
                 </div>
                 {/* youTube video Modal */}
@@ -520,6 +536,8 @@ const Community = (props) => {
 
 // Props Vadilation
 Community.propTypes = {
+  mode: PropTypes.string,
+  toggleMode: PropTypes.func,
   project: PropTypes.string,
   showAlert: PropTypes.func,
 };

@@ -50,6 +50,7 @@ const ProjectStates = (props) => {
     });
     const project = await response.json();
     setUserProjects([project, ...userProjects]);
+    props.setProgress(100)
   }
 
   // Delete a Project
@@ -112,7 +113,8 @@ const ProjectStates = (props) => {
 }
 
 ProjectStates.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  setProgress: PropTypes.string,
 };
 
 export default ProjectStates;

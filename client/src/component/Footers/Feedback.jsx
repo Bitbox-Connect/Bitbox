@@ -33,11 +33,11 @@ function Feedback(props) {
       <form className="feedback-container container mt-4" name="submit-to-google-sheet" onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="Name" className="form-label">Name:</label>
-          <input type="text" id="Name" name='Name' className="form-control" placeholder='Enter your name here *' required />
+          <input type="text" id="Name" name='Name' className="form-control" placeholder='Enter your name here *' required='true' />
         </div>
         <div className="mb-3">
           <label htmlFor="Email" className="form-label">Email:</label>
-          <input type="email" id="Email" name='Email' className="form-control" placeholder='Enter your email here' />
+          <input type="email" id="Email" name='Email' className="form-control" placeholder='Enter your email here' required='true' />
         </div>
         <div className="mb-3">
           <label htmlFor="Rating" className="form-label">Rating &nbsp;(1-10):</label>
@@ -46,9 +46,9 @@ function Feedback(props) {
         <div className="mb-3">
           <label htmlFor="Feedback" className="form-label">Feedback:</label>
           <textarea
-            id="Feedback" className="form-control" name='Feedback' rows="5" placeholder='Enter your feedback here' ></textarea>
+            id="Feedback" className="form-control" name='Feedback' rows="5" placeholder='Enter your feedback here' required='true' ></textarea>
         </div>
-        <button className="btn btn-primary" type="submit" disabled={isSubmitting}>Submit</button>
+        <button className="btn btn-primary" type="submit" disabled={isSubmitting} style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode=== 'dark' ? '2px solid white': '2px solid black'}}>Submit</button>
       </form>
     </div>
   );
@@ -56,6 +56,7 @@ function Feedback(props) {
 
 Feedback.propTypes = {
   showAlert: PropTypes.func,
+  mode: PropTypes.string,
 };
 
 export default Feedback;

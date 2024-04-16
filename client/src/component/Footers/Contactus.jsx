@@ -32,19 +32,19 @@ function ContactUs(props) {
     <div className="container contactus-container">
       <h2 className='text-center Heading-Page'>Contact Us</h2>
       <form className='mt-4 contactus-main-box' name="submit-to-google-sheet" onSubmit={handleSubmit}>
-        <div className="mb-3">
+        <div className="mb-3" >
           <label htmlFor="Name" className="form-label">Your Name:</label>
-          <input type="text" id="Name" name="Name" className="form-control" />
+          <input type="text" id="Name" name="Name" className="form-control" placeholder='Enter your Name'required='true'/>
         </div>
         <div className="mb-3">
           <label htmlFor="Email" className="form-label">Your Email:</label>
-          <input type="email" id="Email" name="Email" className="form-control" />
+          <input type="email" id="Email" name="Email" className="form-control" placeholder='Enter your Email' required='true' />
         </div>
         <div className="mb-3">
           <label htmlFor="Message" className="form-label">Message:</label>
-          <textarea id="Message" name="Message" className="form-control" rows="5"></textarea>
+          <textarea id="Message" name="Message" className="form-control" rows="5" placeholder='Write your message...' required='true'></textarea>
         </div>
-        <button className="btn btn-primary" type="submit" disabled={isSubmitting}>Submit</button>
+        <button className="btn btn-light" type="submit" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode=== 'dark' ? '2px solid white': '2px solid black'}}>Submit</button>
       </form>
     </div>
   );
@@ -52,6 +52,7 @@ function ContactUs(props) {
 
 ContactUs.propTypes = {
   showAlert: PropTypes.func,
+  mode: PropTypes.string,
 };
 
 export default ContactUs;

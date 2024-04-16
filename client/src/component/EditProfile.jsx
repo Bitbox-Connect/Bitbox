@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 import axios from 'axios'
 import profileContext from '../context/profileContext';
+import userDummyImg from '../assets/images/User/User.png'
 // CSS
 import './css/EditProfile.css'
 
-const EditProfile = ({ showAlert }) => {
+const EditProfile = (props) => {
     const host = 'http://localhost:5000'
     const userProfileContext = useContext(profileContext);
     const { updateUserProfile } = userProfileContext;
@@ -42,9 +43,9 @@ const EditProfile = ({ showAlert }) => {
                     .catch(err => console.log(err))
             }
             reader.readAsDataURL(file);
-            showAlert("Profile Updated Successfully", "success");
+            props.showAlert("Profile Updated Successfully", "success");
         } catch (error) {
-            showAlert("Profile Updated Failed", "danger");
+            props.showAlert("Profile Updated Failed", "danger");
         }
     };
 
@@ -67,18 +68,18 @@ const EditProfile = ({ showAlert }) => {
                         <h2>Edit Details</h2>
                         <div className="text-center">
                             {image ? (
-                                <img src={image} style={{ width: "22vw", height : "38vh" }}
+                                <img src={image} 
                                     className="avatar img-circle"
                                     alt="avatar"
                                 />
                             ) : (
                                 <img
-                                    src="https://png.pngitem.com/pimgs/s/150-1503945_transparent-user-png-default-user-image-png-png.png"
+                                    src={userDummyImg}
                                     className="avatar img-circle"
                                     alt="avatar"
                                 />
                             )}
-                            <input type="file" className="form-control mt-2" onChange={e => setFile(e.target.files[0])} />
+                            <input type="file" className="form-control mt-2"  style={{ color: props.mode === 'dark' ? 'black' : '' }} onChange={e => setFile(e.target.files[0])} />
                         </div>
                     </div>
                     <div className="col-md-9 editprofile-info-container">
@@ -118,7 +119,7 @@ const EditProfile = ({ showAlert }) => {
 
 EditProfile.propTypes = {
     showAlert: PropTypes.func,
+    mode: PropTypes.string,
     onUpdateProfile: PropTypes.func, // Function to notify parent about profile update
 };
-
 export default EditProfile;

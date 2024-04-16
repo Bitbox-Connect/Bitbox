@@ -108,7 +108,7 @@ export default function About(props) {
                   <h3 className="team-name" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                     Anuj Verma
                   </h3>
-                  <p className="team-desc" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
+                  <p className="team-desc" style={{ color: props.mode === 'dark' ? 'white' : '#777' }}>
                     BTech CSE AIML <br /> 3rd Year
                   </p>
                 </div>
@@ -133,7 +133,7 @@ export default function About(props) {
                   <h3 className="team-name" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                     Jitendra Kumar
                   </h3>
-                  <p className="team-desc" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
+                  <p className="team-desc" style={{ color: props.mode === 'dark' ? 'white' : '#777' }}>
                     BTech CSE AIML <br /> 3rd Year
                   </p>
                 </div>
@@ -158,7 +158,7 @@ export default function About(props) {
                   <h3 className="team-name" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                     Harshit Singh
                   </h3>
-                  <p className="team-desc" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
+                  <p className="team-desc" style={{ color: props.mode === 'dark' ? 'white' : '#777' }}>
                     BTech CSE AIML <br /> 3rd Year
                   </p>
                 </div>
@@ -176,14 +176,6 @@ export default function About(props) {
         </div>
       </div>
 
-      {/* Contributers */}
-      {/* <div className="contri">
-        <div className="contributers">
-          <Link to={Contri}/>
-          <h2>Contri</h2>
-        </div>
-       </div> */}
-
       {/* No of Visitors */}
 
       <div className="Team-Sec">
@@ -199,18 +191,18 @@ export default function About(props) {
                     <div className="counter-icon">
                       <FontAwesomeIcon icon={faUser} />
                     </div>
-                    <span className="counter-value">876K+</span>
+                    <span className="counter-value" style={{ color: props.mode === 'dark' ? 'white' : '#555' }}>876K+</span>
                     <h3>VisitorCount</h3>
                   </div>
                 </div>
                 <div className="col-md-3 col-sm-6">
                   <div className="counter blue">
-                    <div className="counter-icon">
+                    <div className="counter-icon" style={{ color: props.mode === 'dark' ? 'white' : '#4accdb' }}>
                       {/* <i className="fa fa-youtube"></i> */}
                       <i className="fa-sharp fa-solid fa-pen-to-square"></i>
                     </div>
-                    <span className="counter-value">876K+</span>
-                    <h3>Registrations</h3>
+                    <span className="counter-value" style={{ color: props.mode === 'dark' ? 'white' : '#555' }}>876K+</span>
+                    <h3 style={{ color: props.mode === 'dark' ? 'white' : '#4accdb' }}>Registrations</h3>
                   </div>
                 </div>
                 <div className="col-md-3 col-sm-6">
@@ -218,18 +210,18 @@ export default function About(props) {
                     <div className="counter-icon">
                       <i className="fa-solid fa-user-group"></i>
                     </div>
-                    <span className="counter-value">876K+</span>
+                    <span className="counter-value" style={{ color: props.mode === 'dark' ? 'white' : '#555' }}>876K+</span>
                     <h3>Participants</h3>
                   </div>
                 </div>
                 <div className="col-md-3 col-sm-6">
                   <div className="counter blue">
-                    <div className="counter-icon">
+                    <div className="counter-icon" style={{ color: props.mode === 'dark' ? 'white' : '#4accdb' }}>
                       {/* <i className="fa fa-rocket"></i> */}
                       <FontAwesomeIcon icon={faCoffee} />
                     </div>
-                    <span className="counter-value">828K+</span>
-                    <h3>Total Projects</h3>
+                    <span className="counter-value" style={{ color: props.mode === 'dark' ? 'white' : '#555' }}>828K+</span>
+                    <h3 style={{ color: props.mode === 'dark' ? 'white' : '#4accdb' }}>Total Projects</h3>
                   </div>
                 </div>
               </div>
@@ -242,7 +234,7 @@ export default function About(props) {
 
         <div className="faq-section">
           <div className="container">
-            <h2 className="Heading-Page">Frequent Asked Questions</h2>
+            <h2 className="Heading-Page mb-3">Frequent Asked Questions</h2>
             <section>
               <div className="accordion" id="accordionExample">
                 <div className="accordion-item">
@@ -329,7 +321,7 @@ export default function About(props) {
 
 // Props Validation
 About.propTypes = {
-  mode: PropTypes.func,
+  mode: PropTypes.string,
   toggleMode: PropTypes.func,
   showAlert: PropTypes.func,
 };

@@ -1,4 +1,5 @@
 import '../css/Main.css';
+import PropTypes from 'prop-types';
 
 const CodeOfConduct = () => {
     return (
@@ -61,5 +62,9 @@ const CodeOfConduct = () => {
     )
 }
 
+CodeOfConduct.propTypes = {
+    showAlert: PropTypes.func,
+    mode: PropTypes.string,
+  };
 
 export default CodeOfConduct

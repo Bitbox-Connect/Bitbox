@@ -38,14 +38,16 @@ body {
 
 .Heading-Page {
     font-size: 3.5rem;
+    font-weight: bolder;
 }
 
 .content {
-    margin-bottom: 10vh;
+    margin-bottom: 11.1vh;
 }
 
 .alert-container {
-    position: absolute;
+    z-index: 10000;
+    position: fixed;
     top: 13%;
     left: 40%;
 }

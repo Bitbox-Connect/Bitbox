@@ -1,12 +1,17 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import profileContext from '../context/profileContext';
 import projectContext from "../context/projectContext";
-import avatarImg from "../assets/images/logo.png";
+// CSS
 import "./css/ProjectCard.css";
+// Image
+import avatarImg from "../assets/images/logo.png";
 import FavourModalImg from '../assets/images/Modal Image/Favourite.png'
 import commentModalImg from '../assets/images/Modal Image/comment.png'
 import LikeModalImg from '../assets/images/Modal Image/Like.png'
 import DetailCardImg from '../assets/images/Modal Image/Details.png'
+
 const MyProfileCard = (props) => {
   const { project, updateProject, showDetailProject, showAlert } = props;
   const [showModal, setShowModal] = useState(false);
@@ -31,31 +36,56 @@ const MyProfileCard = (props) => {
     handleModalClose();
   };
 
+  // Profile Context
+  let navigate = useNavigate();
+  const userProfileContext = useContext(profileContext);
+  const { userProfile, getUserProfile } = userProfileContext;
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      getUserProfile();
+    }
+    else {
+      navigate('/login')
+    }
+    // eslint-disable-next-line
+  }, [])
+
+  // Function to format date
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+
+    const year = date.getFullYear().toString().slice(-2); // Get last 2 digits of the year
+    const month = ('0' + (date.getMonth() + 1)).slice(-2); // Add leading zero for single-digit months
+    const day = ('0' + date.getDate()).slice(-2); // Add leading zero for single-digit days
+    const hours = ('0' + date.getHours()).slice(-2); // Add leading zero for single-digit hours
+    const minutes = ('0' + date.getMinutes()).slice(-2); // Add leading zero for single-digit minutes
+
+    // Format the date and time
+    return `${month}/${day}/${year} | ${hours}:${minutes}`;
+  };
+
   return (
     <div className="col-md-4 my-3">
       {/* Project Card */}
       <div className="projectContainer">
         <div className="projectBox">
-          <div className="projectInfo">
+          <div className="projectInfo" >
             <div className="projectAvatar">
               <img src={avatarImg} alt="avatar" />
             </div>
             <div className="projectText">
-              <div className="projectTitle">{project.title}</div>
+              <div className="projectTitle" style={{ color: props.mode === 'dark' ? '#100000' : '' }}>{project.title}</div>
               <div className="projectDetails">
-                <div className="projectUserName">Anuj Verma</div>
-                <div className="projectTime">07/01/02</div>
+                <div className="projectUserName" style={{ color: props.mode === 'dark' ? '#100000' : '' }}>{userProfile.name}</div>
+                <div className="projectTime" style={{ color: props.mode === 'dark' ? '#100000' : '' }}>{formatDate(project.date)}</div>
               </div>
             </div>
             <div className="project-modify">
-              <i className="fa-solid fa-trash" onClick={handleModalOpen}></i>
-              <i
-                className="fa-solid fa-pen-to-square"
-                onClick={() => updateProject(project)}
-              ></i>
+              <i className="fa-solid fa-trash" style={{ color: props.mode === 'dark' ? '#100000' : '' }} onClick={handleModalOpen}></i>
+              <i className="fa-solid fa-pen-to-square" style={{ color: props.mode === 'dark' ? '#100000' : '' }} onClick={() => updateProject(project)}></i>
             </div>
           </div>
-          <div className="projectDescription">{project.description}</div>
+          <div className="projectDescription" style={{ color: props.mode === 'dark' ? '#100000' : '' }}>{project.description}</div>
           <div className="project-bottom-container">
             <div className="projectVisualContainer">
               <img
@@ -99,10 +129,10 @@ const MyProfileCard = (props) => {
 
       {/* Delete Confirmation Modal */}
       {showModal && (
-        <div className="modal-wrapper">
-          <div className="modal-card">
+        <div className="modal-wrapper" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : ''  }}>
+          <div className="modal-card" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : ''  }}>
             <div className="card-content">
-              <p className="card-heading">Project Details</p>
+              <p className="card-heading">{project.title}</p>
               <p className="card-description">
                 Are you sure want to Delete project ?
               </p>
@@ -131,10 +161,12 @@ const MyProfileCard = (props) => {
 };
 
 MyProfileCard.propTypes = {
-  project: PropTypes.object.isRequired,
-  updateProject: PropTypes.func.isRequired,
-  showDetailProject: PropTypes.func.isRequired,
-  showAlert: PropTypes.func.isRequired,
+  project: PropTypes.object,
+  profile: PropTypes.object,
+  updateProject: PropTypes.func,
+  showDetailProject: PropTypes.func,
+  showAlert: PropTypes.func,
+  mode: PropTypes.string,
 };
 
 export default MyProfileCard;
