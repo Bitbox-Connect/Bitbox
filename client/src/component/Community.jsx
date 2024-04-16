@@ -25,7 +25,7 @@ import ShareModalImg from '../assets/images/Modal Image/Share.png'
 
 const Community = (props) => {
   const host = "http://localhost:5000"
-  const {mode} = props;
+  const { mode } = props;
   const ref = useRef(null)
   const [project, setproject] = useState({ id: "", etitle: "", edescription: "", egitHubLink: "", eyouTubeLink: "" });
 
@@ -81,6 +81,20 @@ const Community = (props) => {
   //   console.log("Next")
   // }
 
+  // Function to format date
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+
+    const year = date.getFullYear().toString().slice(-2); // Get last 2 digits of the year
+    const month = ('0' + (date.getMonth() + 1)).slice(-2); // Add leading zero for single-digit months
+    const day = ('0' + date.getDate()).slice(-2); // Add leading zero for single-digit days
+    const hours = ('0' + date.getHours()).slice(-2); // Add leading zero for single-digit hours
+    const minutes = ('0' + date.getMinutes()).slice(-2); // Add leading zero for single-digit minutes
+
+    // Format the date and time
+    return `${day}/${month}/${year} | ${hours}:${minutes}`;
+  };
+
   return (
     <>
       <div className="user-profile-dashboard">
@@ -89,10 +103,10 @@ const Community = (props) => {
             <div className="globaldetail-left" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
               <div className="profile-picture mb-3 mt-2">
                 {image ? (
-                  <img src={image} alt="avatar" />
+                  <img src={image} alt="avatar" style={{ background: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }} />
                 ) : (
                   <img
-                    src={avatar}
+                    src={avatar} style={{ background: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}
                     className="avatar img-circle"
                     alt="avatar"
                   />
@@ -140,7 +154,7 @@ const Community = (props) => {
                     <div className="modal-content" style={{ background: "transparent", border: "none" }}>
                       <div className="modal-body">
                         <section className="project-modal-section-container">
-                          <div className="project-modal-container" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : ''  }}>
+                          <div className="project-modal-container" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : '' }}>
                             <div className="project-modal-left">
                               {/* <!-- Modal Head --> */}
                               <div className="modal-left-head">
@@ -153,17 +167,17 @@ const Community = (props) => {
                                   </div>
                                 </div>
                                 <div className="modal-tag-group">
-                                  <div className="modal-project-tag" style={{ outline: props.mode === 'dark' ? '1px solid white' : ''  }}>Category</div>
-                                  <div className="modal-project-tag" style={{ outline: props.mode === 'dark' ? '1px solid white' : ''  }}>Latest</div>
+                                  <div className="modal-project-tag" style={{ background: props.mode === 'dark' ? 'white' : '', color: props.mode === 'dark' ? 'black' : '', outline: props.mode === 'dark' ? '1px solid white' : '' }}>Category</div>
+                                  <div className="modal-project-tag" style={{ background: props.mode === 'dark' ? 'white' : '', color: props.mode === 'dark' ? 'black' : '', outline: props.mode === 'dark' ? '1px solid white' : '' }}>Latest</div>
                                 </div>
                               </div>
                               {/* <!-- Modal Section --> */}
                               <div className="modal-left-section">
-                                <div className="modal-title">{project.etitle}</div>
+                                <div className="modal-title" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>{project.etitle}</div>
                                 <div className="modal-technology-tag">
-                                  <a href="">Web</a>
+                                  <a href="" style={{ background: props.mode === 'dark' ? 'white' : '', color: props.mode === 'dark' ? 'black' : '' }}>Web</a>
                                 </div>
-                                <div className="modal-Time">12/22/32</div>
+                                <div className="modal-Time" style={{ color: props.mode === 'dark' ? 'white' : '' }}>{formatDate(project.date)}</div>
                                 {/* <div className="modal-project-image">
                                   <img src="./src/assets/images/Vector Gif/R.gif" alt="" />
                                 </div>  */}
@@ -174,18 +188,18 @@ const Community = (props) => {
                                     <iframe className='youtube-Frame' src="https://www.youtube.com/embed/lwv_0SEJ4NQ" frameBorder="0" allowFullScreen></iframe>
                                   )}
                                 </div>
-                                <div className="modal-description">
+                                <div className="modal-description" style={{ color: props.mode === 'dark' ? 'white' : '' }}>
                                   {project.edescription ? (<p>{project.edescription}</p>) : (<p>No description to display</p>)}
                                 </div>
                                 <div className="modal-project-details">
-                                  <div className="modal-project-likecount">
+                                  <div className="modal-project-likecount" style={{ color: props.mode === 'dark' ? 'white' : '' }}>
                                     1 Like
                                   </div>
-                                  <div className="modal-project-comment">
+                                  <div className="modal-project-comment" style={{ color: props.mode === 'dark' ? 'white' : '' }}>
                                     8 comments
                                   </div>
                                 </div>
-                                <div className="modal-project-engagement-container">
+                                <div className="modal-project-engagement-container" style={{ background: props.mode === 'dark' ? 'white' : '', color: props.mode === 'dark' ? 'black' : '', outline: props.mode === 'dark' ? '1px solid white' : '' }}>
                                   <div className="modal-project-love">
                                     <img src={LikeModalImg} alt="Like" />
                                   </div>
@@ -200,35 +214,34 @@ const Community = (props) => {
                                   </div>
                                 </div>
                                 <section className="modal-comment-section">
-                                  <div className="modal-post-commment">
+                                  <div className="modal-post-commment" style={{ background: props.mode === 'dark' ? 'white' : '' }}>
                                     <div className="modal-post-commment-avatar">
                                       <img src={AavtarModalImg} alt="avatar-image" />
                                     </div>
-                                    <span>Share Your Thoughts...</span>
-                                    <div className="modal-post-commment-button">
+                                    <span style={{ color: props.mode === 'dark' ? 'black' : '' }}>Share Your Thoughts...</span>
+                                    <div className="modal-post-commment-button" style={{ color: props.mode === 'dark' ? 'black' : '' }}>
                                       Post
                                     </div>
                                   </div>
-                                  <div className="modal-comment-container">
+                                  <div className="modal-comment-container" style={{ background: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '1px solid white' : '' }}>
                                     <header className="modal-comment-header">
                                       <div className="modal-comment-user-avatar">
                                         <img src={AavtarModalImg} alt="user-avatar" />
                                       </div>
-                                      <div className="modal-comment-user-details">
-                                        <div className="modal-comment-user-name">
+                                      <div className="modal-comment-user-details mx-2">
+                                        <div className="modal-comment-user-name" style={{ color: props.mode === 'dark' ? 'black' : '' }}>
                                           Anuj Verma
                                         </div>
-                                        <div className="modal-comment-user-id">
+                                        <div className="modal-comment-user-id" style={{ color: props.mode === 'dark' ? 'black' : '' }}>
                                           @anujverma
-                                          <div className="modal-dot-symbol"></div>
-                                          <div className="modal-comment-user-time">
+                                          <div className="modal-comment-user-time mx-2" style={{ color: props.mode === 'dark' ? 'black' : '' }}>
                                             12 hours ago
                                           </div>
                                         </div>
                                       </div>
                                     </header>
                                     <div className="modal-comment-content-container">
-                                      <div className="modal-comment-content">
+                                      <div className="modal-comment-content" style={{ color: props.mode === 'dark' ? 'black' : '' }}>
                                         nerds - always gotta prove they are hardcore
                                       </div>
                                       <div className="modal-comment-engagement-container">
@@ -253,45 +266,43 @@ const Community = (props) => {
                             <div className="project-modal-right">
                               <div className="modal-right-head">
                                 {project.egitHubLink ? (
-                                  <a className="button-github-modal" href={project.egitHubLink} target="_blank" rel="noopener noreferrer" title='GitHub Link'>
+                                  <a className="button-github-modal" href={project.egitHubLink} target="_blank" rel="noopener noreferrer" title='GitHub Link' style={{ background: props.mode === 'dark' ? 'white' : '', color: props.mode === 'dark' ? 'black' : '', outline: props.mode === 'dark' ? '1px solid white' : '' }}>
                                     <img src={githubModalImg} alt="GitHub" />
                                     GitHub
                                   </a>
                                 ) : (
-                                  <a title='Unavailable GitHub Link'>
-                                    <div className="button-github-modal" >
-                                      <img src={unlinkModalImg} alt="Invalid Link" />
-                                      Unavailable
-                                    </div>
+                                  <a className="button-github-modal" href={project.egitHubLink} title='Unavailable GitHub Link' style={{ background: props.mode === 'dark' ? 'white' : '', color: props.mode === 'dark' ? 'black' : '', outline: props.mode === 'dark' ? '1px solid white' : '' }}>
+                                    <img src={unlinkModalImg} alt="Invalid Link" />
+                                    Unavailable
                                   </a>
                                 )}
-                                <div className="project-modal-head-buttons">
+                                <div className="project-modal-head-buttons" style={{ background: props.mode === 'dark' ? 'white' : '' }}>
                                   <div className="option-modal-button"><img src={optionModalImg} alt="option" title='option' /></div>
                                   {/* close button */}
-                                  <div className="close-modal-button" data-bs-dismiss="modal" aria-label="Close">
+                                  <div className="close-modal-button mx-2" data-bs-dismiss="modal" aria-label="Close">
                                     <img src={closeModalImg} title='close' alt="close" />
                                   </div>
                                 </div>
                               </div>
-                              <div className="modal-profile-details-container">
+                              <div className="modal-profile-details-container" style={{ background: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '1px solid white' : '' }}>
                                 <div className="modal-profile-details">
                                   <div className="modal-profile-image">
                                     <img src={AavtarModalImg} alt="avatar-image" />
                                   </div>
                                   <div className="modal-profile-user-details">
-                                    <div className="modal-profile-name">Anuj Verma</div>
-                                    <div className="modal-profile-username">@anuj3553</div>
+                                    <div className="modal-profile-name" style={{ color: props.mode === 'dark' ? 'black' : '' }}>Anuj Verma</div>
+                                    <div className="modal-profile-username" style={{ color: props.mode === 'dark' ? 'black' : '' }}>@anuj3553</div>
                                   </div>
                                 </div>
-                                <div className="modal-visit-profile-btn">
+                                <div className="modal-visit-profile-btn" style={{ color: props.mode === 'dark' ? 'black' : '' }}>
                                   Visit
                                   <img src={ShareModalImg} alt="visit" />
 
                                 </div>
                               </div>
-                              <div className="modal-suggestion-container">
-                                <div className="modal-suggestion-title">You might like</div>
-                                <div className="modal-project-divider"></div>
+                              <div className="modal-suggestion-container" style={{ outline: props.mode === 'dark' ? '1px solid white' : '' }}>
+                                <div className="modal-suggestion-title" style={{ color: props.mode === 'dark' ? 'white' : '' }}>You might like</div>
+                                <div className="modal-project-divider" style={{ outline: props.mode === 'dark' ? '1px solid white' : '' }}></div>
                                 <div className="modal-suggestion-project-container">
                                   <div className="modal-suggestion-project">
                                     <div className="modal-suggestion-project-img">
@@ -348,17 +359,17 @@ const Community = (props) => {
                                     </div>
                                   </div>
                                 </div>
-                                <div className="modal-project-divider"></div>
+                                <div className="modal-project-divider" style={{ outline: props.mode === 'dark' ? '1px solid white' : '' }}></div>
                                 <div className="modal-suggestion-viewall">
                                   View all
-                                  <div className="viewall-image">
+                                  <div className="viewall-image mx-2" style={{ background: props.mode === 'dark' ? 'white' : '', borderRadius: "50%" }}>
                                     <img src={ViewAllModalImg} alt=">" />
                                   </div>
                                 </div>
                               </div>
-                              <div className="modal-suggestion-container">
+                              <div className="modal-suggestion-container" style={{ outline: props.mode === 'dark' ? '1px solid white' : '' }}>
                                 <div className="modal-suggestion-title">Most Liked Project</div>
-                                <div className="modal-project-divider"></div>
+                                <div className="modal-project-divider" style={{ outline: props.mode === 'dark' ? '1px solid white' : '' }}></div>
                                 <div className="modal-suggestion-project-container">
                                   <div className="modal-suggestion-project">
                                     <div className="modal-suggestion-project-img">
@@ -415,17 +426,17 @@ const Community = (props) => {
                                     </div>
                                   </div>
                                 </div>
-                                <div className="modal-project-divider"></div>
+                                <div className="modal-project-divider" style={{ outline: props.mode === 'dark' ? '1px solid white' : '' }}></div>
                                 <div className="modal-suggestion-viewall">
                                   View all
-                                  <div className="viewall-image">
+                                  <div className="viewall-image mx-2" style={{ background: props.mode === 'dark' ? 'white' : '', borderRadius: "50%" }}>
                                     <img src={ViewAllModalImg} alt=">" />
                                   </div>
                                 </div>
                               </div>
-                              <div className="modal-suggestion-container">
+                              <div className="modal-suggestion-container" style={{ outline: props.mode === 'dark' ? '1px solid white' : '' }}>
                                 <div className="modal-suggestion-title">Best Discussion</div>
-                                <div className="modal-project-divider"></div>
+                                <div className="modal-project-divider" style={{ outline: props.mode === 'dark' ? '1px solid white' : '' }}></div>
                                 <div className="modal-suggestion-project-container">
                                   <div className="modal-suggestion-project">
                                     <div className="modal-suggestion-project-img">
@@ -473,10 +484,10 @@ const Community = (props) => {
                                     </div>
                                   </div>
                                 </div>
-                                <div className="modal-project-divider"></div>
+                                <div className="modal-project-divider" style={{ outline: props.mode === 'dark' ? '1px solid white' : '' }}></div>
                                 <div className="modal-suggestion-viewall">
                                   I&apos;m feeling lucky
-                                  <div className="viewall-image">
+                                  <div className="viewall-image mx-2" style={{ background: props.mode === 'dark' ? 'white' : '', borderRadius: "50%" }}>
                                     <img src={ViewAllModalImg} alt=">" />
                                   </div>
                                 </div>

@@ -70,15 +70,15 @@ function AddProject(props) {
             <button type="button" className="btn btn-primary mx-2" style={{ height: '45px' }} data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Upload
             </button>
-
+            {/* Upload Project Modal */}
             <div className="modal fade text-start" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : '' }}>
                     <div className="modal-content" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                         <div className="modal-header">
-                            <h1 className="modal-title fs-5" id="exampleModalLabel">Upload Project</h1>
+                            <h1 className="modal-title fs-3" id="exampleModalLabel" style={{ color: props.mode === 'dark' ? 'white' : '' }}>Upload Project</h1>
                             {/* close button */}
                             <div className="close-modal-button" data-bs-dismiss="modal" aria-label="Close" >
-                                <img src={closeModalImg} title='close' alt="close" style={{ background: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '1px solid white' : ''}} />
+                                <img src={closeModalImg} title='close' alt="close" style={{ background: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '1px solid white' : '' }} />
                             </div>
                         </div>
                         <div className="modal-body">

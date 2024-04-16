@@ -309,9 +309,10 @@
 
 .project-modal-head-buttons {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    gap: 0.5rem;
+    border-radius: 2px;
+    padding: 2px;
 }
 
 .option-modal-button img{

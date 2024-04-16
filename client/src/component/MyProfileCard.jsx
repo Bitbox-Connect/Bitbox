@@ -102,7 +102,7 @@ const MyProfileCard = (props) => {
                 <img src={commentModalImg} alt="Comment" />
               </div>
               <div className="project-link">
-                <img src={githubCardImg} alt="Link" />
+                <img src={githubCardImg} href={project.gitHubLinkt} alt="Link" />
               </div>
               <div className="project-details" onClick={() => showDetailProject(project)}              >
                 <img src={DetailCardImg} alt="Details" />

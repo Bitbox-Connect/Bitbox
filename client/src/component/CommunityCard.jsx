@@ -23,7 +23,6 @@ const CommunityCard = (props) => {
   // Function to format date
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-
     const year = date.getFullYear().toString().slice(-2); // Get last 2 digits of the year
     const month = ('0' + (date.getMonth() + 1)).slice(-2); // Add leading zero for single-digit months
     const day = ('0' + date.getDate()).slice(-2); // Add leading zero for single-digit days
@@ -46,7 +45,7 @@ const CommunityCard = (props) => {
               <div className="projectTitle" style={{ color: props.mode === 'dark' ? '#100000' : '' }}>{project.title}</div>
               <div className="projectDetails">
                 {/* <div className="projectUserName">Anuj Verma</div> */}
-                <div className="projectTime" style={{ color: props.mode === 'dark' ? '#100000' : '' }}>{formatDate(project.date)}</div>
+                <div className="projectTime" style={{ color: props.mode === 'dark' ? '#100000' : '', margin: "0" }}>{formatDate(project.date)}</div>
               </div>
             </div>
           </div>
@@ -65,7 +64,7 @@ const CommunityCard = (props) => {
                 <img src={commentModalImg} alt="Comment" />
               </div>
               <div className="project-link">
-                <img src={githubCardImg} alt="Link" />
+                <img src={githubCardImg} href={project.gitHubLinkt} alt="Link" />
               </div>
               <div className="project-details" onClick={() => showDetailProject(project)}>
                 <img src={DetailCardImg} alt="Details" />
