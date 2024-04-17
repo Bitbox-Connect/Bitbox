@@ -1,4 +1,3 @@
-import React from 'react'
 import './css/Contributers.css'
 
 export default function Contributers() {

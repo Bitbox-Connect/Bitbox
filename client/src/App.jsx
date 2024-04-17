@@ -20,6 +20,7 @@ import MyProfile from './component/MyProfile'
 import ScrollTop from './component/ScrollTop';
 import EditProfile from './component/EditProfile';
 import Contributers from './component/Contributers';
+import Discussion from './component/Discussion'
 
 function App() {
 
@@ -85,7 +86,7 @@ function App() {
           <Router>
             {/* Navbar */}
             <div className="content">
-              <Navbar title="Bitbox" home="Home" community="Community" about="About us" myProjects="My projects" mode={mode} setProgress={setProgress}
+              <Navbar title="Bitbox" home="Home" community="Community" about="About us" myProjects="My projects" discussion="Discussion" mode={mode} setProgress={setProgress}
                 toggleMode={toggleMode} showAlert={showAlert} />
             </div>
             <LoadingBar
@@ -101,6 +102,7 @@ function App() {
               <ScrollTop />
               <Routes>
                 <Route exact path="/" element={<Home mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path="/discussion" element={<Discussion mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/community" element={<Community mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/about" element={<About mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/myprofile" element={<MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} />} />

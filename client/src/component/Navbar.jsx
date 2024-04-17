@@ -90,6 +90,9 @@ function Navbar(props) {
                                 <li className="nav-item fs-4">
                                     <Link className={`nav-link ${location.pathname === '/community' ? 'active' : ''}`} aria-current="page" to="/community">{props.community}</Link>
                                 </li>
+                                <li className="nav-item fs-4">
+                                    <Link className={`nav-link ${location.pathname === '/discussion' ? 'active' : ''}`} aria-current="page" to="/discussion">{props.discussion}</Link>
+                                </li>
                             </ul>
                         </div>
                         <form className="d-flex fs-4 fw-medium">
@@ -116,8 +119,8 @@ function Navbar(props) {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <Link role="button" to='/login' className="btn btn-primary mx-2" style={{height: '45px', color: "white"}}>Login</Link>
-                                            <Link role="button" to='/signup' className="btn btn-primary mx-2" style={{height: '45px', color: "white"}}>Signup</Link>
+                                            <Link role="button" to='/login' className="btn btn-primary mx-2" style={{ height: '45px', color: "white" }}>Login</Link>
+                                            <Link role="button" to='/signup' className="btn btn-primary mx-2" style={{ height: '45px', color: "white" }}>Signup</Link>
                                         </div>
                                     </ul>
                                 </>
@@ -146,7 +149,7 @@ function Navbar(props) {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <li className="nav-item dropdown mx-2"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black'}}>
+                                            <li className="nav-item dropdown mx-2" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                                                 <a className="nav-link profile-img" href="#" id="navbarScrollingDropdown" role="button"
                                                     data-bs-toggle="dropdown" aria-expanded="false" >
                                                     {image ? (
@@ -158,7 +161,7 @@ function Navbar(props) {
                                                             alt="avatar"
                                                         />
                                                     )}
-                                                    
+
                                                 </a>
                                                 <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown" style={{ backgroundColor: props.mode === 'dark' ? 'black' : 'white', borderBottom: props.mode === 'dark' ? '1px solid white' : '1px solid black', outline: props.mode === 'dark' ? '2px solid white' : '2px solid black' }}>
                                                     <li><Link to="/myprofile">My Profile</Link></li>
@@ -180,11 +183,13 @@ function Navbar(props) {
         </div>
     );
 }
+
 // Props Validation
 Navbar.propTypes = {
     title: PropTypes.string,
     home: PropTypes.string,
     community: PropTypes.string,
+    discussion: PropTypes.string,
     myProjects: PropTypes.string,
     about: PropTypes.string,
     mode: PropTypes.string,

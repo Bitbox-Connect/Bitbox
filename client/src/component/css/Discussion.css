@@ -1,0 +1,147 @@
+/* Main Container */
+.discussion-main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 89vh;
+    width: 100vw;
+}
+
+.discussion-container-section{
+    width: 100vw;
+    height: 85vh;
+}
+
+/* First Container */
+.img-container {
+    margin: 20px 0;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+}
+
+.logoName1 {
+    font-family: fantasy;
+    margin: 0 2rem;
+    color: #ff9191;
+    -webkit-text-stroke: 2.5px;
+    -webkit-text-stroke-color: #000000;
+    font-size: 2.6rem;
+}
+
+.logoName2 {
+    font-family: fantasy;
+    color: #91dcff;
+    -webkit-text-stroke: 2.5px;
+    -webkit-text-stroke-color: #000000;
+    font-size: 2.6rem;
+}
+
+.logo-img {
+    border: 3px solid rgb(0, 0, 0);
+    width: 90vw;
+    background-image: radial-gradient(#000000 1px, #f7f0f0 0.8px);
+    background-size: 10px 10px;
+    height: 70px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Second Container */
+
+.discussion-container {
+    height: 78vh;
+    width: 80%;
+    background-image: url(../../assets/images/Discussion/chat-pattern.png);
+    margin: auto;
+    padding-bottom: 10rem;
+    border: 2px solid black;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 2px 2px 2px;
+    border-radius: 25px;
+    overflow-y: auto;
+}
+
+.message {
+    position: relative;
+    top: 20px;
+    width: 24%;
+    padding: 10px 8px;
+    margin: 10px 12px;
+    border: 3.5px solid black;
+    font-family: cursive;
+    border-radius: 15px;
+}
+
+.left {
+    float: left;
+    clear: both;
+    background-color: #ff9191;
+}
+
+.center1 {
+    margin: auto;
+    text-align: center;
+    border-radius: 50px;
+    width: 22vw;
+    font-size: large;
+    scale: 0.8;
+    clear: both;
+    background-color: white;
+}
+
+.center2 {
+    margin: auto;
+    width: 22vw;
+    font-size: large;
+    scale: 0.8;
+    text-align: center;
+    border-radius: 50px;
+    clear: both;
+    background-color: rgb(231, 225, 225);
+}
+
+.right {
+    float: right;
+    clear: both;
+    background-color: #2dc5db;
+}
+
+/* Third Container */
+
+#discussion-send-container {
+    position: relative;
+    top: 0.7rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+#messageInp {
+    width: 73%;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 2px 2px 2px;
+    border: 2px solid black;
+    border-radius: 6px;
+    height: 34px;
+}
+
+.discussion-btn {
+    cursor: pointer;
+    border: 2.5px solid black;
+    background-color: rgb(186, 226, 186);
+    border-radius: 100px;
+    height: 50px;
+    margin-left: 10px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 2px 2px 2px;
+    width: 80px;
+    font-weight: bolder;
+    font-family: cursive;
+}
