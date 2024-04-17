@@ -7,7 +7,7 @@
     width: 100vw;
 }
 
-.discussion-container-section{
+.discussion-container-section {
     width: 100vw;
     height: 85vh;
 }
@@ -94,12 +94,14 @@
     font-size: large;
     scale: 0.8;
     clear: both;
-    background-color: white;
+    background-color: #00ffca;
 }
 
 .center2 {
+    outline: 5px solid black;
+    padding: 5px;
     margin: auto;
-    width: 22vw;
+    width: max-content;
     font-size: large;
     scale: 0.8;
     text-align: center;

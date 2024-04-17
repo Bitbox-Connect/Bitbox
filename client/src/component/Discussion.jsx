@@ -14,7 +14,6 @@ const Discussion = (props) => {
     const [messages, setMessages] = useState([]); // State to store chat messages
     const [messageInput, setMessageInput] = useState(''); // State to store user input message
     const [userName, setUserName] = useState(null); // State to store user's name
-    console.log(userName)
 
     useEffect(() => {
         // Ask new user for his/her name and let the server know
@@ -80,6 +79,7 @@ const Discussion = (props) => {
             <div className='discussion-container-section'>
                 {/* Container for displaying chat messages */}
                 <div className="discussion-container" style={{ color: props.mode === 'dark' ? 'black' : ''}}>
+                    <div className="center2 fs-3 mt-3">{`Welcome  ${userName} to the Bitbox Community`}</div>
                     {messages.map((message, index) => (
                         <div key={index} className={`message ${message.position}`}>{message.content}</div>
                     ))}

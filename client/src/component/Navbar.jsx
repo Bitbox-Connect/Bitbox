@@ -80,7 +80,7 @@ function Navbar(props) {
                             </div>
                         </Link>
                         <div className="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                            <ul className="navbar-nav mb-2 mb-lg-0 gap-3 fw-medium" style={{ position: "absolute", left: "40%" }}>
+                            <ul className="navbar-nav mb-2 mb-lg-0 gap-3 fw-medium" style={{ position: "absolute", left: "36%" }}>
                                 <li className="nav-item fs-4 fw-medium">
                                     <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} aria-current="page" to="/">{props.home}</Link>
                                 </li>

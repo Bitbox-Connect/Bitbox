@@ -11,7 +11,7 @@ function Alert(props) {
 
     return (
         <div className='alert-bar'>
-            {props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
+            {props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert" style={{ color: props.mode === 'dark' ? 'black' : '' }}>
                 <strong>{capitalize(props.alert.type)}</strong> : {props.alert.msg}
             </div>}
         </div>
@@ -21,6 +21,7 @@ function Alert(props) {
 // Props Vadilation
 Alert.propTypes = {
     message: PropTypes.string,
+    mode: PropTypes.string,
     alert: PropTypes.object,
 };
 
