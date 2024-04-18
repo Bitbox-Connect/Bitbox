@@ -79,7 +79,7 @@ const Discussion = (props) => {
             <div className='discussion-container-section'>
                 {/* Container for displaying chat messages */}
                 <div className="discussion-container" style={{ color: props.mode === 'dark' ? 'black' : ''}}>
-                    <div className="center2 fs-3 mt-3">{`Welcome  ${userName} to the Bitbox Community`}</div>
+                    <div className="welcome-center fs-3 mt-3">{`Welcome  ${userName} to the Bitbox Community`}</div>
                     {messages.map((message, index) => (
                         <div key={index} className={`message ${message.position}`}>{message.content}</div>
                     ))}

@@ -86,6 +86,18 @@
     background-color: #ff9191;
 }
 
+.welcome-center {
+    margin: auto;
+    text-align: center;
+    border-radius: 50px;
+    width: max-content;
+    scale: 0.8;
+    padding: 10px;
+    clear: both;
+    background-color: #ffc200;
+    outline: 4px solid black;
+}
+
 .center1 {
     margin: auto;
     text-align: center;
@@ -98,10 +110,9 @@
 }
 
 .center2 {
-    outline: 5px solid black;
     padding: 5px;
     margin: auto;
-    width: max-content;
+    width: 22vw;
     font-size: large;
     scale: 0.8;
     text-align: center;
