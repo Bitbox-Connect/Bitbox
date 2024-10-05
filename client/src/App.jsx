@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Make sure to import BrowserRouter as Routerimport './App.css';
-import LoadingBar from 'react-top-loading-bar'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import './App.css';
+import LoadingBar from 'react-top-loading-bar';
 import About from './component/About';
 import Alert from './component/Alert';
 import Footer from './component/Footer';
@@ -10,40 +11,71 @@ import Navbar from './component/Navbar';
 import Signup from './component/Signup';
 import ProjectState from './context/ProjectState';
 import ProfileState from './context/ProfileState';
-import CodeOfConduct from './component/Footers/CodeOfConduct';
+import CodeOfConduct from './component/Footers/Codeofconduct';
 import Feedback from './component/Footers/Feedback';
-import ContactUs from './component/Footers/ContactUs';
-import PrivacyPolicy from './component/Footers/PrivacyPolicy';
+import ContactUs from './component/Footers/Contactus';
+import PrivacyPolicy from './component/Footers/Privacypolicy';
 import TermOfUse from './component/Footers/TermOfUse';
 import Community from './component/Community';
-import MyProfile from './component/MyProfile'
+import MyProfile from './component/MyProfile';
 import ScrollTop from './component/ScrollTop';
 import EditProfile from './component/EditProfile';
 import Contributers from './component/Contributers';
-import Discussion from './component/Discussion'
+import Discussion from './component/Discussion';
+
+// Main Layout Component
+const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
+  const location = useLocation(); // Use location inside Router
+  
+  // Define routes where the footer or navbar should not be shown
+  const hideNavbarRoutes = ['/login', '/signup'];
+  const hideFooterRoutes = ['/login', '/signup'];
+
+  return (
+    <>
+      {/* Conditionally render the Navbar */}
+      {!hideNavbarRoutes.includes(location.pathname) && (
+        <Navbar 
+          title="Bitbox" 
+          home="Home" 
+          community="Community" 
+          about="About us" 
+          myProjects="My projects" 
+          discussion="Discussion" 
+          mode={mode} 
+          setProgress={setProgress} 
+          toggleMode={toggleMode} 
+          showAlert={showAlert} 
+        />
+      )}
+
+      {/* Main content */}
+      {children}
+
+      {/* Conditionally render the Footer */}
+      {!hideFooterRoutes.includes(location.pathname) && (
+        <Footer 
+          mode={mode} 
+          setProgress={setProgress} 
+          setAlert={showAlert} 
+        />
+      )}
+    </>
+  );
+};
 
 function App() {
-
   const [alert, setAlert] = useState(null);
   const showAlert = (message, type) => {
-    setAlert({
-      msg: message,
-      type: type
-    });
+    setAlert({ msg: message, type: type });
     setTimeout(() => {
       setAlert(null);
     }, 1500);
   };
 
-  // Define routes where the footer should not be shown
-  const hideFooterRoutes = ['/login', '/signup'];
-
-  // Toggle Dark Mode
-  
-  // Retrieve mode default to 'light'
   const [mode, setMode] = useState('light');
+  const [progress, setProgress] = useState(0);
 
-  // Effect to update local storage when mode changes
   useEffect(() => {
     localStorage.setItem('mode', mode);
   }, [mode]);
@@ -51,55 +83,34 @@ function App() {
   const toggleMode = () => {
     if (mode === 'light') {
       setMode('dark');
-
-      // Set background color to dark mode
       document.body.style.backgroundColor = 'black';
-
-      // Set text color to white for all elements
-      document.querySelectorAll('*').forEach(element => {
-        element.style.color = 'white';
-      });
-
-      // Show alert for dark mode enabled
+      document.querySelectorAll('*').forEach(element => element.style.color = 'white');
       showAlert("Dark Mode Enabled", "success");
-    }
-    else {
+    } else {
       setMode('light');
-      // Set background color to light mode
       document.body.style.backgroundColor = 'white';
-      // Reset text color for all elements to default
-      document.querySelectorAll('*').forEach(element => {
-        element.style.color = ''; // Reset to default
-      });
-      // Show alert for light mode enabled
+      document.querySelectorAll('*').forEach(element => element.style.color = '');
       showAlert("Light Mode Enabled", "success");
     }
-  }
-
-  // Loading Bar
-  const [progress, setProgress] = useState(0)
+  };
 
   return (
     <div>
       <ProjectState>
         <ProfileState>
           <Router>
-            {/* Navbar */}
-            <div className="content">
-              <Navbar title="Bitbox" home="Home" community="Community" about="About us" myProjects="My projects" discussion="Discussion" mode={mode} setProgress={setProgress}
-                toggleMode={toggleMode} showAlert={showAlert} />
-            </div>
             <LoadingBar
               color='blue'
-              progress={100}
-              setProgressprogress={progress}
+              progress={progress}
               onLoaderFinished={() => setProgress(0)}
             />
-            <div className="First-Bc">
-              <div className="alert-container">
-                <Alert alert={alert} />
-              </div>
-              <ScrollTop />
+            <div className="alert-container">
+              <Alert alert={alert} />
+            </div>
+            <ScrollTop />
+
+            {/* Wrap everything inside the Layout component */}
+            <Layout mode={mode} setProgress={setProgress} toggleMode={toggleMode} showAlert={showAlert}>
               <Routes>
                 <Route exact path="/" element={<Home mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/discussion" element={<Discussion mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
@@ -107,20 +118,16 @@ function App() {
                 <Route exact path="/about" element={<About mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/myprofile" element={<MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/editprofile" element={<EditProfile mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path="/contibuters" element={<Contributers mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path="/contributers" element={<Contributers mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/login" element={<Login mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/signup" element={<Signup mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                {/* Footer */}
                 <Route exact path="/codeofconduct" element={<CodeOfConduct mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/feedback" element={<Feedback mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/contactus" element={<ContactUs mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/privacypolicy" element={<PrivacyPolicy mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/termofuse" element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               </Routes>
-            </div>
-            {/* Conditionally render the footer based on the current route */}
-            {!hideFooterRoutes.includes(window.location.pathname) && <Footer mode={mode} setProgress={setProgress}
-              setAlert={showAlert} />}
+            </Layout>
           </Router>
         </ProfileState>
       </ProjectState>
