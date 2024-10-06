@@ -50,7 +50,7 @@ const Login = (props) => {
               <label htmlFor="password" className="password">Password</label>
               <input type="password" className="form-control" id='password' placeholder='Enter Your Password' value={credentials.password} onChange={onChange} name='password' autoComplete='on' />
             </div>
-            <div className="text-center forgot-password"><a href="#">Forgot Password ?</a></div>
+            <div className="text-center forgot-password"><a href="/ForgotPassword">Forgot Password ?</a></div>
             <div className="Signup-button">
               <button type="submit" className="btn btn-primary" onChange={onChange} onSubmit={handleSubmit}>Login</button>
             </div>
