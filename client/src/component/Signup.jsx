@@ -1,14 +1,16 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Eye, EyeOff, Lock, Mail, User } from 'lucide-react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import './css/Auth.css'
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
 // import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 // import { auth } from '../component/Firebase/Setup';
 const host = "http://localhost:5000";
 
 const Signup = (props) => {
   // const [value, setValue] = useState('');
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const navigate = useNavigate();
 
   // useEffect(() => {
@@ -64,31 +66,143 @@ const Signup = (props) => {
   }
 
   return (
-    <div className="Login signup">
-      <div className='container main-bx'>
-        <div className="heading">SignUp</div>
+    <div className="min-h-screen flex items-center justify-center bg-white p-4">
+      <div className='w-full max-w-full sm:max-w-md shadow-lg border border-blue-100 '>
+        <div className='bg-blue-50 p-6 flex justify-center w-full'>
+          <User className="text-blue-600 w-12 h-12"/>
+        </div>
+        <div className="p-6">
+          <h2 className="text-2xl font-bold text-center text-blue-600">Create An Account</h2>
+        </div>
         <div className='p-3'>
           <form onSubmit={handleSubmit}>
-            <div className="mb-2">
-              <label htmlFor="name" className="label">Name</label>
-              <input type="text" className="form-control" onChange={onChange} id="name" placeholder='Enter Your Full Name' name="name" aria-describedby="emailHelp" autoComplete='on' required />
+            <div className='space-y-4'>
+            <div className="space-y-2">
+              <label htmlFor="name" className="text-md leading-none font-medium text-blue-600">Full Name</label>
+              <div className='relative'>
+                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400"/>
+              <input 
+               type="text"
+               className="pl-10 border-blue-200 focus:border-blue-400 focus:ring-blue-400 transition-all 
+               duration-200 flex h-10 w-full rounded-md border px-10 py-2 
+               text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2" 
+               onChange={onChange} id="name" 
+               placeholder='Enter Your Full Name' 
+               name="name" 
+               aria-describedby="emailHelp" 
+               autoComplete='on' 
+               required />
+               </div>
             </div>
-            <div className="mb-2">
-              <label htmlFor="email" className="form-label">Email address</label>
-              <input type="email" className="form-control" onChange={onChange} id="email" name="email" placeholder='Enter Your Email' aria-describedby="emailHelp" autoComplete='on' required />
+            <div className="space-y-2">
+              <label 
+              htmlFor="email"
+              className="text-md leading-none font-medium text-blue-600">
+                Email
+              </label>
+              <div className='relative'>
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400" />
+
+              <input 
+              type="email" 
+              className="pl-10 border-blue-200 focus:border-blue-400 focus:ring-blue-400 transition-all 
+              duration-200 flex h-10 w-full rounded-md border px-10 py-2 
+              text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2"   
+              onChange={onChange} 
+              id="email" 
+              name="email" 
+              placeholder='Enter Your Email' 
+              aria-describedby="emailHelp" 
+              autoComplete='on' 
+              required />
+              </div>
             </div>
 
-            <div className="mb-2">
-              <label htmlFor="password" className="form-label">Password</label>
-              <input type="password" className="form-control" onChange={onChange} id="password" name='password' placeholder='Enter Your Password' minLength={5} autoComplete='on' required />
+            <div className="space-y-2">
+              <label 
+              htmlFor="password" 
+              className="text-md text-blue-600 font-medium">
+                Password
+              </label>
+              <div className='relative'>
+                <Lock  className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400"/>
+              <input 
+              type={showPassword ? "text" : "password"}
+              className="pl-10 pr-10 border-blue-200 focus:border-blue-400 focus:ring-blue-400 transition-all duration-200
+              flex h-10 w-full rounded-md border px-10 py-2 text-sm placeholder:text-muted-foreground 
+              focus-visible:outline-none focus-visible:ring-2" 
+              onChange={onChange} id="password" name='password' 
+              placeholder='Enter Your Password' 
+              minLength={5} 
+              autoComplete='on' 
+              required />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-400 hover:text-blue-600 transition-colors duration-200"
+              >
+                {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+              </button>
+              </div>
             </div>
-            <div className="mb-2">
-              <label htmlFor="cpassword" className="form-label">Confirm Password</label>
-              <input type="password" className="form-control" onChange={onChange} id="cpassword" name='cpassword' placeholder='Enter Again Your Password' minLength={5} autoComplete='on' required />
+            <div className="space-y-2">
+              <label 
+              htmlFor="cpassword"  
+              className="text-md text-blue-600 font-medium">
+                Confirm Password
+              </label>
+              <div className='relative'>
+              <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400" />
+              <input 
+               type={showConfirmPassword ? "text" : "password"} 
+              className="pl-10 pr-10 border-blue-200 focus:border-blue-400 focus:ring-blue-400 transition-all duration-200
+              flex h-10 w-full rounded-md border px-10 py-2 text-sm placeholder:text-muted-foreground 
+              focus-visible:outline-none focus-visible:ring-2"  
+              onChange={onChange} id="cpassword" name='cpassword' 
+              placeholder='Enter Again Your Password' 
+              minLength={5} 
+              autoComplete='on' 
+              required />
+              <button
+                type="button"
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-400 hover:text-blue-600 transition-colors duration-200"
+              >
+                {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+              </button>
+              </div>
+              </div>
             </div>
-            <div className="Login-button d-flex justify-content-center">
-              <button type="submit" className="btn btn-primary">Signup</button>
+           <div className='space-y-9'>
+            <div className="flex items-center mt-4 space-x-2">
+            <input  
+              id="remember" 
+              type="checkbox"
+              className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" />
+              <label htmlFor="remember" className="text-sm text-blue-600">
+                I agree to the <Link href="#" className="underline hover:text-blue-800">Terms and conditions</Link>
+              </label>
+             </div>
+             <div className="flex flex-col space-y-4">
+              <button 
+              type="submit"
+              className="w-full h-10 px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white 
+              transition-colors duration-200 inline-flex items-center justify-center rounded-md 
+              text-sm font-medium focus-visible:ring-2 focus-visible:ring-offset-2">
+              Sign Up
+              </button>
+              <div className="text-center text-sm">
+              <span className="text-blue-600">Already have an account? </span>
+                <Link to="/login" className="text-blue-600 font-medium hover:text-blue-800 transition-colors duration-200">
+                    Log in
+                </Link>
+              </div>
             </div>
+            </div>
+
+
+            
+
           </form>
           {/* {!value ? <p></p> :
             <button className="social-button google" onClick={handleClick}>
@@ -97,11 +211,6 @@ const Signup = (props) => {
               </svg>
             </button>
           } */}
-        </div>
-        <h5 className='text-center'>or</h5>
-        <div className='text-center'>
-          Have an account?
-          <Link to="/Login">Login</Link>
         </div>
       </div>
     </div>

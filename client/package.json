@@ -24,7 +24,9 @@
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "firebase": "^10.10.0",
+    "jotai": "^2.10.0",
     "localforage": "^1.10.0",
+    "lucide-react": "^0.447.0",
     "match-sorter": "^6.3.4",
     "mdb-react-ui-kit": "^7.2.0",
     "otp-input-react": "^0.3.0",
@@ -48,10 +50,13 @@
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.20",
     "eslint": "^8.56.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
     "vite": "^5.1.0"
   }
 }

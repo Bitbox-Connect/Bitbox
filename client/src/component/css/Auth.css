@@ -1,141 +1,141 @@
-    .heading {
-      text-align: center;
-      font-weight: 900;
-      font-size: 30px;
-      color: rgb(16, 137, 211);
-    }
+.heading {
+  text-align: center;
+  font-weight: 900;
+  font-size: 30px;
+  color: rgb(16, 137, 211);
+}
 
-    .form {
-      margin-top: 20px;
-    }
+.form {
+  margin-top: 20px;
+}
 
-    .form .input::-moz-placeholder {
-      color: rgb(170, 170, 170);
-    }
+.form .input::-moz-placeholder {
+  color: rgb(170, 170, 170);
+}
 
-    .form .input::placeholder {
-      color: rgb(170, 170, 170);
-    }
+.form .input::placeholder {
+  color: rgb(170, 170, 170);
+}
 
-    .form .input:focus {
-      outline: none;
-      border-inline: 2px solid #12B1D1;
-    }
+.form .input:focus {
+  outline: none;
+  border-inline: 2px solid #12B1D1;
+}
 
-    .form .forgot-password {
-      display: block;
-      margin-top: 10px;
-      margin-left: 10px;
-    }
+.form .forgot-password {
+  display: block;
+  margin-top: 10px;
+  margin-left: 10px;
+}
 
-    .form .forgot-password a {
-      font-size: 19px;
-      color: #0099ff;
-      text-decoration: none;
-    }
+.form .forgot-password a {
+  font-size: 19px;
+  color: #0099ff;
+  text-decoration: none;
+}
 
-    .form .login-button {
-      display: block;
-      width: 100%;
-      font-weight: bold;
-      background: linear-gradient(45deg, rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%);
-      color: white;
-      padding-block: 15px;
-      margin: 20px auto;
-      border-radius: 20px;
-      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
-      border: none;
-      transition: all 0.2s ease-in-out;
-    }
+.form .login-button {
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  background: linear-gradient(45deg, rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%);
+  color: white;
+  padding-block: 15px;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
 
-    .form .login-button:hover {
-      transform: scale(1.03);
-      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
-    }
+.form .login-button:hover {
+  transform: scale(1.03);
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
+}
 
-    .form .login-button:active {
-      transform: scale(0.95);
-      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
-    }
+.form .login-button:active {
+  transform: scale(0.95);
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
+}
 
-    .social-account-container {
-      margin-top: 25px;
-    }
+.social-account-container {
+  margin-top: 25px;
+}
 
-    .social-account-container .title {
-      display: block;
-      text-align: center;
-      font-size: 10px;
-      color: rgb(170, 170, 170);
-    }
+.social-account-container .title {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  color: rgb(170, 170, 170);
+}
 
-    .social-account-container .social-accounts {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 5px;
-    }
+.social-account-container .social-accounts {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 5px;
+}
 
-    .social-account-container .social-accounts .social-button {
-      /* background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(112, 112, 112) 100%); */
-      border: 2px solid white;
-      padding: 5px;
-      border-radius: 50%;
-      width: 40px;
-      aspect-ratio: 1;
-      display: grid;
-      place-content: center;
-      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 12px 10px -8px;
-      transition: all 0.2s ease-in-out;
-    }
+.social-account-container .social-accounts .social-button {
+  /* background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(112, 112, 112) 100%); */
+  border: 2px solid white;
+  padding: 5px;
+  border-radius: 50%;
+  width: 40px;
+  aspect-ratio: 1;
+  display: grid;
+  place-content: center;
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 12px 10px -8px;
+  transition: all 0.2s ease-in-out;
+}
 
-    .social-account-container .social-accounts .social-button .svg {
-      fill: white;
-      margin: auto;
-    }
+.social-account-container .social-accounts .social-button .svg {
+  fill: white;
+  margin: auto;
+}
 
-    .social-account-container .social-accounts .social-button:hover {
-      transform: scale(1.2);
-    }
+.social-account-container .social-accounts .social-button:hover {
+  transform: scale(1.2);
+}
 
-    .social-account-container .social-accounts .social-button:active {
-      transform: scale(0.9);
-    }
+.social-account-container .social-accounts .social-button:active {
+  transform: scale(0.9);
+}
 
-    .Login {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 80vh;
-      margin-bottom: 2rem;
-    }
+.Login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  margin-bottom: 2rem;
+}
 
-    .main-bx {
-      width: 400px;
-      background: lightblue;
-      border: 2px solid black;
-    }
+.main-bx {
+  width: 400px;
+  background: lightblue;
+  border: 2px solid black;
+}
 
-    form {
-      display: flex;
-      flex-direction: column;
-    }
+form {
+  display: flex;
+  flex-direction: column;
+}
 
-    .Signup-button {
-      display: flex;
-      justify-content: center;
-    }
+.Signup-button {
+  display: flex;
+  justify-content: center;
+}
 
 
-    .social-accounts {
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-    }
+.social-accounts {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
 
-    .agreement a {
-      text-align: center;
-      align-items: center;
-      justify-content: center;
-    }
+.agreement a {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
