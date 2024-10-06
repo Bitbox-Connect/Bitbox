@@ -1,19 +1,16 @@
-import { Lock, Mail, Eye, EyeOff } from 'lucide-react';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './css/Auth.css';
 const host = "http://localhost:5000";
 
 const Login = (props) => {
-  const [showPassword, setShowPassword] = useState(false);
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   let navigate = useNavigate();
-
   const handleSubmit = async (e) => {
-    // To prevent reload after form submit
+    // To not Reload after click submit 
     e.preventDefault();
-
     const response = await fetch(`${host}/api/auth/login`, {
       method: "POST",
       headers: {
@@ -27,118 +24,70 @@ const Login = (props) => {
     if (json.success) {
       // Save the auth token and redirect
       localStorage.setItem('token', json.authtoken);
-      props.showAlert("Logged in Successfully", "success");
+      props.showAlert("Logged in Successfully", "success")
       navigate("/");
-    } else {
-      props.showAlert("Invalid Credentials", "danger");
     }
-  };
-
+    else {
+      props.showAlert("Invalid Credentials", "danger")
+    }
+  }
   const onChange = (e) => {
-    setCredentials({ ...credentials, [e.target.name]: e.target.value });
-  };
+    setCredentials({ ...credentials, [e.target.name]: e.target.value })
+  }
 
   return (
-    <div className="flex items-center justify-center bg-white p-4">
-      <div  className="w-full max-w-full sm:max-w-md shadow-lg border border-blue-100  ">
-        <div className="bg-blue-50 p-6 flex justify-center w-full">
-          <Lock className="text-blue-600 w-12 h-12" />
-        </div>
-        <div className="p-6">
-          <h2 className="text-2xl font-bold text-center text-blue-600">Welcome Back</h2>
-        </div>
-        <div className="p-3">
-          <form className="form" onSubmit={handleSubmit}>
-            <div className="space-y-4">
-              <div className="space-y-2"> 
-                <label 
-                  htmlFor="email" 
-                  className="text-md leading-none font-medium text-blue-600" 
-                  id="email">
-                  Email
-                </label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400" />
-                  <input 
-                    type="email"
-                    className="pl-10 border-blue-200 focus:border-blue-400 focus:ring-blue-400 transition-all 
-                    duration-200 flex h-10 w-full rounded-md border px-10 py-2 
-                    text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2"
-                    required
-                    placeholder="Enter Your Email"
-                    value={credentials.email}
-                    onChange={onChange}
-                    id="email"
-                    name="email"
-                    autoComplete="on" />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <label 
-                  htmlFor="password" 
-                  className="text-md text-blue-600 font-medium">
-                  Password
-                </label>
-                <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400" />
-                  <input 
-                    type={showPassword ? "text" : "password"}
-                    className="pl-10 pr-10 border-blue-200 focus:border-blue-400 focus:ring-blue-400 transition-all duration-200 
-                    flex h-10 w-full rounded-md border px-10 py-2 text-sm placeholder:text-muted-foreground 
-                    focus-visible:outline-none focus-visible:ring-2"
-                    placeholder="Enter Your Password"
-                    value={credentials.password}
-                    onChange={onChange}
-                    name="password"
-                    id="password"
-                    autoComplete="on" />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-400 hover:text-blue-600 transition-colors duration-200">
-                    {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                  </button>
-                </div>
-              </div>
-              <div className='space-y-8'>
-              <div className="flex items-center space-x-2">
-                <input
-                  id="remember" 
-                  type="checkbox"
-                  className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" />
-                <label htmlFor="remember" className="text-sm text-blue-600">
-                  Remember me
-                </label>
-              </div>
-              <div className="flex flex-col space-y-4">
-                <button 
-                  type="submit"
-                  className="w-full h-10 px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white 
-                  transition-colors duration-200 inline-flex items-center justify-center rounded-md 
-                  text-sm font-medium focus-visible:ring-2 focus-visible:ring-offset-2">
-                  Login
-                </button>
-                <div className="flex justify-between w-full text-sm">
-                  <Link to="/ForgotPassword" className="text-blue-600 hover:text-blue-800 transition-colors duration-200">
-                    Forgot Password?
-                  </Link>
-                  <Link to="/signup" className="text-blue-600 hover:text-blue-800 transition-colors duration-200">
-                    Sign up
-                  </Link>
-                </div>
-              </div>
-              </div>
+    <div className="Login">
+      <div className='container main-bx'>
+        <div className="heading">Login</div>
+        <div className='p-3'>
+          {/* <h2>Login into Bitbox</h2> */}
+          <form className='form' onSubmit={handleSubmit}>
+            <div className="mb-2">
+              <label htmlFor="email" className="" id='email'>Email address</label>
+              <input type="email" className="form-control" placeholder='Enter Your Email' value={credentials.email} onChange={onChange} id="email" name='email' aria-describedby="emailHelp" autoComplete='on' />
+            </div>
+            <div className="mb-2">
+              <label htmlFor="password" className="password">Password</label>
+              <input type="password" className="form-control" id='password' placeholder='Enter Your Password' value={credentials.password} onChange={onChange} name='password' autoComplete='on' />
+            </div>
+            <div className="text-center forgot-password"><a href="/ForgotPassword">Forgot Password ?</a></div>
+            <div className="Signup-button">
+              <button type="submit" className="btn btn-primary" onChange={onChange} onSubmit={handleSubmit}>Login</button>
             </div>
           </form>
+          <div className="social-account-container">
+            <div className='my-4 p-2 text-center'>Don&#39;t have an account? 
+              <Link to="/Signup"> Signup</Link>
+            </div>
+            {/* <span className="title">Or Sign in with</span> */}
+            {/* <div className="social-accounts">
+              <button className="social-button google">
+                <svg className="svg" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 488 512">
+                  <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" fill="#4285F4"></path>
+                </svg>
+              </button>
+              <button className="social-button apple">
+                <svg className="svg" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512">
+                  <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" fill="#181717"></path>
+                </svg>
+              </button>
+              <button className="social-button twitter">
+                <svg className="svg" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                  <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" fill="#1DA1F2"></path>
+                </svg>
+              </button>
+            </div> */}
+            {/* <div className="agreement text-center"><a href="#">Learn user licence agreement</a></div> */}
+          </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-// PropTypes validation
+// Props Vadilation
 Login.propTypes = {
-  showAlert: PropTypes.func.isRequired,
+  showAlert: PropTypes.func,
 };
 
-export default Login;
+export default Login
