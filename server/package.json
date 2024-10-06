@@ -22,7 +22,7 @@
     "google-auth-library": "^9.7.0",
     "jotai": "^2.10.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.1.2",
+    "mongoose": "^8.7.0",
     "multer": "^1.4.5-lts.1",
     "socket.io": "^4.7.5"
   },

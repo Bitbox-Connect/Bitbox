@@ -24,7 +24,7 @@ import Contributers from './component/Contributers';
 import Discussion from './component/Discussion';
 import { useAtom } from 'jotai';
 import { modeAtom } from './atom/Atom';
-
+import ForgotPassword from './component/forgotpass';
 // Main Layout Component
 const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
   const location = useLocation(); // Use location inside Router
@@ -114,6 +114,7 @@ function App() {
                 <Route exact path="/contributers" element={<Contributers mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/login" element={<Login mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/signup" element={<Signup mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path="/ForgotPassword" element={<ForgotPassword mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/codeofconduct" element={<CodeOfConduct mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/feedback" element={<Feedback mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/contactus" element={<ContactUs mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
