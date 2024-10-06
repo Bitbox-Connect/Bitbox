@@ -36,16 +36,16 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
       {/* Conditionally render the Navbar */}
       {!hideNavbarRoutes.includes(location.pathname) && (
         <Navbar 
-          title="Bitbox" 
-          home="Home" 
-          community="Community" 
-          about="About us" 
-          myProjects="My projects" 
-          discussion="Discussion" 
-          mode={mode} 
-          setProgress={setProgress} 
-          toggleMode={toggleMode} 
-          showAlert={showAlert} 
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
         />
       )}
 

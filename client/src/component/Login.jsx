@@ -50,7 +50,7 @@ const Login = (props) => {
         <div className="p-3">
           <form className="form" onSubmit={handleSubmit}>
             <div className="space-y-4">
-              <div className="space-y-2">
+              <div className="space-y-2"> 
                 <label 
                   htmlFor="email" 
                   className="text-md leading-none font-medium text-blue-600" 
