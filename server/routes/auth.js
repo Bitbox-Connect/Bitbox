@@ -50,7 +50,34 @@ router.post('/googlelogin', async (req, res) => {
         res.status(500).send("Internal Server Error");
     }
 });
+router.post("/forgot", async (req, res) => {
+  const { email, password } = req.body;
+  console.log(email);
+  try {
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
+    }
 
+    // Example: Hash the password before saving (implement password hashing)
+    const salt = await bcrypt.genSalt(10);
+    const secPass = await bcrypt.hash(password, salt);
+    user.password = secPass; // Ensure this is hashed before saving
+    await user.save();
+
+    return res.json({
+      success: true,
+      message: "Password updated successfully",
+    });
+  } catch (err) {
+    console.error(err);
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server error" });
+  }
+});
 // ROUTE 1 : Create a User using : POST: "/api/auth/createuser". No login required
 router.post('/createuser', [
     // Creating check vadilation for user credentials like name, email and password  
