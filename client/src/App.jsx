@@ -22,6 +22,8 @@ import ScrollTop from './component/ScrollTop';
 import EditProfile from './component/EditProfile';
 import Contributers from './component/Contributers';
 import Discussion from './component/Discussion';
+import { useAtom } from 'jotai';
+import { modeAtom } from './atom/Atom';
 
 // Main Layout Component
 const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
@@ -36,16 +38,6 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
       {/* Conditionally render the Navbar */}
       {!hideNavbarRoutes.includes(location.pathname) && (
         <Navbar 
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
         />
       )}
 
@@ -65,6 +57,7 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
 };
 
 function App() {
+  const [mode]= useAtom(modeAtom)
   const [alert, setAlert] = useState(null);
   const showAlert = (message, type) => {
     setAlert({ msg: message, type: type });
@@ -73,7 +66,7 @@ function App() {
     }, 1500);
   };
 
-  const [mode, setMode] = useState('light');
+  
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {

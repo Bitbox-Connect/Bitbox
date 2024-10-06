@@ -5,6 +5,8 @@ import Learn from '../assets/images/Learn.png'
 import Share from '../assets/images/Share.png'
 import Grow from '../assets/images/Grow.png'
 import glichBitboxGif from '../assets/images/Other Gifs/Bitbox Glitch.gif'
+import { useAtom } from 'jotai';
+import { modeAtom } from '../atom/Atom';
 
 const Home = (props) => {
     // const { showAlert } = props;

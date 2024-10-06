@@ -24,6 +24,7 @@
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "firebase": "^10.10.0",
+    "jotai": "^2.10.0",
     "localforage": "^1.10.0",
     "lucide-react": "^0.447.0",
     "match-sorter": "^6.3.4",

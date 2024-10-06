@@ -5,8 +5,10 @@ import AddProject from './AddProject';
 import logo from '../assets/images/logo.png';
 import avatarDropdown from '../assets/images/Dropdown/avatar.png';
 import { auth } from '../component/Firebase/Setup';
+import {useAtom} from 'jotai'
+import { modeAtom } from '../atom/Atom';
 
-function Navbar({ title, home, community, discussion, about, mode, toggleMode, showAlert }) {
+function Navbar({ showAlert }) {
     const host = "http://localhost:5000";
     const navigate = useNavigate();
     const location = useLocation();
@@ -15,8 +17,23 @@ function Navbar({ title, home, community, discussion, about, mode, toggleMode, s
     const [imageError, setImageError] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const dropdownRef = useRef(null);
+    const [mode, setMode] = useAtom(modeAtom); // Default mode
 
-    
+    useEffect(() => {
+        const savedMode = localStorage.getItem('mode') || 'light';
+        setMode(savedMode);
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('mode', mode);
+    }, [mode]);
+
+    const toggleMode = () => {
+        const newMode = mode === 'dark' ? 'light' : 'dark';
+        setMode(newMode);
+    };
+
+    // Handle scrolling effects
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
@@ -25,7 +42,7 @@ function Navbar({ title, home, community, discussion, about, mode, toggleMode, s
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-   
+    // Fetch avatar image
     useEffect(() => {
         axios.get(`${host}/getAvatarImage`)
             .then(res => {
@@ -37,18 +54,13 @@ function Navbar({ title, home, community, discussion, about, mode, toggleMode, s
             });
     }, [host]);
 
-  
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
                 setDropdownOpen(false);
             }
         };
-
-      
         document.addEventListener('mousedown', handleClickOutside);
-
-        
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
@@ -75,7 +87,7 @@ function Navbar({ title, home, community, discussion, about, mode, toggleMode, s
 
     return (
         <>
-            <nav className={`flex items-center justify-between p-4 border-b ${isScrolled ? 'bg-white shadow-lg border-b-2 fixed top-0 left-0 right-0 z-50 transform -translate-y-2' : 'bg-transparent border-b-0'} transition-all duration-300 ease-in-out shadow-2xl hover:translate-y-1 hover:shadow-2xl`}>
+            <nav className={`flex items-center justify-between p-4 border-b ${isScrolled ? 'shadow-lg border-b-2 fixed top-0 left-0 right-0 z-50 transform -translate-y-2' : 'border-b-0'} transition-all duration-300 ease-in-out shadow-2xl hover:translate-y-1 hover:shadow-2xl ${mode === 'dark' ? 'bg-gray-900 dark-mode' : 'bg-white light-mode'}`}>
                 <div className="flex items-center space-x-4">
                     <img src={logo} alt="logo" className="h-10 w-10" />
                     <span className={`text-xl font-bold ${mode === 'dark' ? 'text-white' : 'text-gray-900'}`}>Bitbox</span>
