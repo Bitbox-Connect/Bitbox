@@ -2,18 +2,15 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import './css/Auth.css'
-
+import './css/Auth.css';
 const host = "http://localhost:5000";
 
 const Login = (props) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   let navigate = useNavigate();
-
   const handleSubmit = async (e) => {
     // To not Reload after click submit 
     e.preventDefault();
-
     const response = await fetch(`${host}/api/auth/login`, {
       method: "POST",
       headers: {
@@ -34,7 +31,6 @@ const Login = (props) => {
       props.showAlert("Invalid Credentials", "danger")
     }
   }
-
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value })
   }
@@ -47,21 +43,21 @@ const Login = (props) => {
           {/* <h2>Login into Bitbox</h2> */}
           <form className='form' onSubmit={handleSubmit}>
             <div className="mb-2">
-              <label htmlFor="email" className="input" id='email'>Email address</label>
+              <label htmlFor="email" className="" id='email'>Email address</label>
               <input type="email" className="form-control" placeholder='Enter Your Email' value={credentials.email} onChange={onChange} id="email" name='email' aria-describedby="emailHelp" autoComplete='on' />
             </div>
             <div className="mb-2">
               <label htmlFor="password" className="password">Password</label>
               <input type="password" className="form-control" id='password' placeholder='Enter Your Password' value={credentials.password} onChange={onChange} name='password' autoComplete='on' />
             </div>
-            <div className="text-center forgot-password"><a href="#">Forgot Password ?</a></div>
+            <div className="text-center forgot-password"><a href="/ForgotPassword">Forgot Password ?</a></div>
             <div className="Signup-button">
               <button type="submit" className="btn btn-primary" onChange={onChange} onSubmit={handleSubmit}>Login</button>
             </div>
           </form>
           <div className="social-account-container">
-            <div className='my-4 p-2 text-center'>Don&#39;t have an account?
-              <Link to="/Signup">Signup</Link>
+            <div className='my-4 p-2 text-center'>Don&#39;t have an account? 
+              <Link to="/Signup"> Signup</Link>
             </div>
             {/* <span className="title">Or Sign in with</span> */}
             {/* <div className="social-accounts">

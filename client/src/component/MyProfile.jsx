@@ -7,8 +7,8 @@ import profileContext from '../context/profileContext';
 import MyProfileCard from './MyProfileCard';
 import UploadProject from './UploadProject';
 // CSS
-import './css/Modal.css'
-import './css/MyProfile.css'
+import './css/Modal.css';
+import './css/Myprofile.css';
 // PNG
 // import projectDummyImage from '../assets/images/Others/projects.png'
 import avatar from '../assets/images/Dropdown/avatar.png';

@@ -70,7 +70,7 @@ function Navbar(props) {
 
     return (
         <div>
-            <nav className={`navbar navbar-expand-lg ${isScrolled ? 'sticky' : ''} navbar-${props.mode}`} style={{ backgroundColor: props.mode === 'dark' ? 'black' : 'white', borderBottom: props.mode === 'dark' ? '1px solid white' : '1px solid black' }} id='navbar'>
+            <nav className={`navbar navbar-expand-lg ${isScrolled ? 'sticky' : ''} navbar-${props.mode}`} style={{ backgroundColor: props.mode === 'dark' ? 'black' : 'white', borderBottom: props.mode === 'dark' ? '1px solid white' : '1px solid white' }} id='navbar'>
                 <div className="container-fluid" style={{ backgroundColor: "{props.mode}" }}>
                     <div className="collapse navbar-collapse" id="navbarNavDropdown" >
                         <Link className="navbar-brand d-flex fs-2 fw-bold font-monospace" to="/">
@@ -82,16 +82,16 @@ function Navbar(props) {
                         <div className="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                             <ul className="navbar-nav mb-2 mb-lg-0 gap-3 fw-medium" style={{ position: "absolute", left: "36%" }}>
                                 <li className="nav-item fs-4 fw-medium">
-                                    <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} aria-current="page" to="/">{props.home}</Link>
+                                    <button className='button'><Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} aria-current="page" to="/">{props.home}</Link></button>
                                 </li>
                                 <li className="nav-item fs-4">
-                                    <Link className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`} aria-current="page" to="/about">{props.about}</Link>
+                                    <button className='button'><Link className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`} aria-current="page" to="/about">{props.about}</Link></button>
                                 </li>
                                 <li className="nav-item fs-4">
-                                    <Link className={`nav-link ${location.pathname === '/community' ? 'active' : ''}`} aria-current="page" to="/community">{props.community}</Link>
+                                    <button className='button'><Link className={`nav-link ${location.pathname === '/community' ? 'active' : ''}`} aria-current="page" to="/community">{props.community}</Link></button>
                                 </li>
                                 <li className="nav-item fs-4">
-                                    <Link className={`nav-link ${location.pathname === '/discussion' ? 'active' : ''}`} aria-current="page" to="/discussion">{props.discussion}</Link>
+                                    <button className='button'><Link className={`nav-link ${location.pathname === '/discussion' ? 'active' : ''}`} aria-current="page" to="/discussion">{props.discussion}</Link></button>
                                 </li>
                             </ul>
                         </div>
@@ -119,8 +119,8 @@ function Navbar(props) {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <Link role="button" to='/login' className="btn btn-primary mx-2" style={{ height: '45px', color: "white" }}>Login</Link>
-                                            <Link role="button" to='/signup' className="btn btn-primary mx-2" style={{ height: '45px', color: "white" }}>Signup</Link>
+                                            <Link role="button" to='/login' className="btn loginbtn mx-2" style={{ height: '45px', color: "black" }}>Login</Link>
+                                            <Link role="button" to='/signup' className="btn loginbtn mx-2" style={{ height: '45px', color: "black" }}>Signup</Link>
                                         </div>
                                     </ul>
                                 </>

@@ -1,4 +1,4 @@
-import '../css/Main.css';
+import '../css/main.css';
 import PropTypes from 'prop-types';
 
 const PrivacyPolicy = (props) => {

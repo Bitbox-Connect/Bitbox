@@ -10,10 +10,10 @@ import Navbar from './component/Navbar';
 import Signup from './component/Signup';
 import ProjectState from './context/ProjectState';
 import ProfileState from './context/ProfileState';
-import CodeOfConduct from './component/Footers/CodeOfConduct';
-import Feedback from './component/Footers/Feedback';
-import ContactUs from './component/Footers/ContactUs';
-import PrivacyPolicy from './component/Footers/PrivacyPolicy';
+import CodeOfConduct from './component/Footers/Codeofconduct';
+import Feedback from './component/Footers/Contactus';
+import ContactUs from './component/Footers/Feedback';
+import PrivacyPolicy from './component/Footers/Privacypolicy';
 import TermOfUse from './component/Footers/TermOfUse';
 import Community from './component/Community';
 import MyProfile from './component/MyProfile'
@@ -21,7 +21,7 @@ import ScrollTop from './component/ScrollTop';
 import EditProfile from './component/EditProfile';
 import Contributers from './component/Contributers';
 import Discussion from './component/Discussion'
-
+import ForgotPassword from './component/forgotpass';
 function App() {
 
   const [alert, setAlert] = useState(null);
@@ -110,6 +110,7 @@ function App() {
                 <Route exact path="/contibuters" element={<Contributers mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/login" element={<Login mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/signup" element={<Signup mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path="/ForgotPassword" element={<ForgotPassword mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 {/* Footer */}
                 <Route exact path="/codeofconduct" element={<CodeOfConduct mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/feedback" element={<Feedback mode={mode} setProgress={setProgress} showAlert={showAlert} />} />

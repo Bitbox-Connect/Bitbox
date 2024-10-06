@@ -1,141 +1,178 @@
-    .heading {
-      text-align: center;
-      font-weight: 900;
-      font-size: 30px;
-      color: rgb(16, 137, 211);
-    }
-
-    .form {
-      margin-top: 20px;
-    }
-
-    .form .input::-moz-placeholder {
-      color: rgb(170, 170, 170);
-    }
-
-    .form .input::placeholder {
-      color: rgb(170, 170, 170);
-    }
-
-    .form .input:focus {
-      outline: none;
-      border-inline: 2px solid #12B1D1;
-    }
-
-    .form .forgot-password {
-      display: block;
-      margin-top: 10px;
-      margin-left: 10px;
-    }
-
-    .form .forgot-password a {
-      font-size: 19px;
-      color: #0099ff;
-      text-decoration: none;
-    }
-
-    .form .login-button {
-      display: block;
-      width: 100%;
-      font-weight: bold;
-      background: linear-gradient(45deg, rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%);
-      color: white;
-      padding-block: 15px;
-      margin: 20px auto;
-      border-radius: 20px;
-      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
-      border: none;
-      transition: all 0.2s ease-in-out;
-    }
-
-    .form .login-button:hover {
-      transform: scale(1.03);
-      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
-    }
-
-    .form .login-button:active {
-      transform: scale(0.95);
-      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
-    }
-
-    .social-account-container {
-      margin-top: 25px;
-    }
-
-    .social-account-container .title {
-      display: block;
-      text-align: center;
-      font-size: 10px;
-      color: rgb(170, 170, 170);
-    }
-
-    .social-account-container .social-accounts {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 5px;
-    }
-
-    .social-account-container .social-accounts .social-button {
-      /* background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(112, 112, 112) 100%); */
-      border: 2px solid white;
-      padding: 5px;
-      border-radius: 50%;
-      width: 40px;
-      aspect-ratio: 1;
-      display: grid;
-      place-content: center;
-      box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 12px 10px -8px;
-      transition: all 0.2s ease-in-out;
-    }
-
-    .social-account-container .social-accounts .social-button .svg {
-      fill: white;
-      margin: auto;
-    }
-
-    .social-account-container .social-accounts .social-button:hover {
-      transform: scale(1.2);
-    }
-
-    .social-account-container .social-accounts .social-button:active {
-      transform: scale(0.9);
-    }
-
-    .Login {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 80vh;
-      margin-bottom: 2rem;
-    }
-
-    .main-bx {
-      width: 400px;
-      background: lightblue;
-      border: 2px solid black;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .Signup-button {
-      display: flex;
-      justify-content: center;
-    }
 
 
-    .social-accounts {
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-    }
+.heading {
+  text-align: center;
+  font-weight: 900;
+  font-size: 30px;
+  color: rgb(70, 134, 174);
+}
 
-    .agreement a {
-      text-align: center;
-      align-items: center;
-      justify-content: center;
-    }
+.Login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  margin-top: 0;
+  /* Ensure no top margin */
+  margin-bottom: 1rem;
+  /* Slight bottom margin, adjust as needed */
+}
+
+.main-bx {
+  width: 400px;
+  background: lightblue;
+  border: none;
+  /* Removed border */
+  border-radius: 10px;
+  /* Rounded corners for container */
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 30px;
+  /* Floating effect */
+  padding: 20px;
+  /* margin-top: 100px; */
+
+  /* Padding for content */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.form .input {
+  border-radius: 5px;
+  /* Rounded corners for input boxes */
+  border: 1px solid #ccc;
+  /* Light border */
+  padding: 10px;
+  /* Padding for input fields */
+  margin-bottom: 15px;
+  /* Space between inputs */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px;
+  /* Add shadow to input */
+}
+
+.form .input::-moz-placeholder {
+  color: rgb(170, 170, 170);
+}
+
+.form .input::placeholder {
+  color: rgb(170, 170, 170);
+}
+
+.form .input:focus {
+  outline: none;
+  border: 2px solid #12B1D1;
+  /* Focus border color */
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+  /* Focus shadow */
+}
+
+.form .forgot-password {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: right;
+  /* Aligning to the right */
+}
+
+.form .forgot-password a {
+  font-size: 16px;
+  /* Increase font size */
+  color: #0099ff;
+  text-decoration: none;
+}
+
+.form .login-button {
+  display: block;
+  width: 60%;
+  /* Set button width to 60% of the container */
+  margin: 20px auto;
+  /* Center the button and add vertical space */
+  font-weight: bold;
+  background: linear-gradient(45deg, rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%);
+  color: white;
+  border-radius: 20px;
+  /* Rounded corners for button */
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 20px;
+  /* Shadow effect for button */
+  border: none;
+  /* Removed border */
+  padding: 15px;
+  /* Increased padding for larger button */
+  transition: all 0.2s ease-in-out;
+}
+
+.form .login-button:hover {
+  transform: scale(1.05);
+  /* Slightly increased hover effect */
+  background: linear-gradient(45deg, rgb(18, 177, 209) 0%, rgb(16, 137, 211) 100%);
+  /* Darker shade on hover */
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 15px 25px;
+  /* Enhanced shadow on hover */
+}
+
+.form .login-button:active {
+  transform: scale(0.95);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 15px;
+  /* Shadow effect on active state */
+}
+
+.social-account-container a:hover,
+.form .forgot-password a:hover {
+  color: #0056b3;
+  /* Change this to your desired hover color */
+}
+.social-account-container a {
+  text-decoration: none !important;
+  /* Force remove underline */
+  color: inherit;
+  /* Optional: Keep the same color as surrounding text */
+}
+
+.social-account-container .title {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  color: rgb(170, 170, 170);
+}
+
+.social-account-container .social-accounts {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+.social-account-container .social-accounts .social-button {
+  border: 2px solid white;
+  padding: 5px;
+  border-radius: 50%;
+  width: 40px;
+  aspect-ratio: 1;
+  /* Maintain aspect ratio */
+  display: grid;
+  place-content: center;
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 12px 10px -8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.social-account-container .social-accounts .social-button:hover {
+  transform: scale(1.2);
+}
+
+.social-account-container .social-accounts .social-button:active {
+  transform: scale(0.9);
+}
+
+.Signup-button {
+  display: flex;
+  justify-content: center;
+}
+
+.agreement a {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}

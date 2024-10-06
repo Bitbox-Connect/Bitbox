@@ -4,7 +4,7 @@ const connectToMongo = require('./db');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const Avatar = require('./Models/Avatar');
-
+const authRoutes = require("./routes/auth"); 
 // Connect to MongoDB
 connectToMongo();
 
@@ -20,6 +20,7 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 // Middleware to parse JSON requests
 app.use(express.json());
+
 
 // Available routes
 app.use('/api/auth', require('./routes/auth'));

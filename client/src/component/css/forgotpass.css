@@ -1,0 +1,148 @@
+.heading {
+    text-align: center;
+    font-weight: 900;
+    font-size: 30px;
+    color: rgb(70, 134, 174);
+}
+
+.Login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin-bottom: 10rem;
+}
+
+.main-bx {
+    width: 400px;
+    background: lightblue;
+    border: none;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 30px;
+    padding: 20px;
+    /* margin-top: ; */
+    /* margin-bottom: 200px; */
+    /* Adding margin-bottom for spacing */
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.form .input {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px;
+}
+
+.form .input::-moz-placeholder {
+    color: rgb(170, 170, 170);
+}
+
+.form .input::placeholder {
+    color: rgb(170, 170, 170);
+}
+
+.form .input:focus {
+    outline: none;
+    border: 2px solid #12B1D1;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+}
+
+.form .forgot-password {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.form .forgot-password a {
+    font-size: 16px;
+    color: #0099ff;
+    text-decoration: none;
+}
+
+.form .login-button {
+    display: block;
+    width: 60%;
+    margin: 20px auto;
+    font-weight: bold;
+    background: linear-gradient(45deg, rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%);
+    color: white;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 20px;
+    border: none;
+    padding: 15px;
+    transition: all 0.2s ease-in-out;
+}
+
+.form .login-button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, rgb(18, 177, 209) 0%, rgb(16, 137, 211) 100%);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 15px 25px;
+}
+
+.form .login-button:active {
+    transform: scale(0.95);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 15px;
+}
+
+.social-account-container a:hover,
+.form .forgot-password a:hover {
+    color: #0056b3;
+}
+
+.social-account-container a {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+.social-account-container .title {
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    color: rgb(170, 170, 170);
+}
+
+.social-account-container .social-accounts {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.social-account-container .social-accounts .social-button {
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 50%;
+    width: 40px;
+    aspect-ratio: 1;
+    display: grid;
+    place-content: center;
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 12px 10px -8px;
+    transition: all 0.2s ease-in-out;
+}
+
+.social-account-container .social-accounts .social-button:hover {
+    transform: scale(1.2);
+}
+
+.social-account-container .social-accounts .social-button:active {
+    transform: scale(0.9);
+}
+
+.Signup-button {
+    display: flex;
+    justify-content: center;
+}
+
+.agreement a {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
