@@ -1,6 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300;700;900&display=swap");
 
 /* title heading change */
+#navbar {
+  z-index: 1000;
+  min-height: 10vh;
+  background: #ffffff;
+  /* Set the background to white */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  /* Black shadow */
+  border-bottom: none;
+  /* Remove the bottom line */
+}
+
 .header {
   max-width: 1200px;
   margin: 0 auto;
@@ -46,12 +57,12 @@
 
 .bitbox-title span:before {
   left: 2px;
-  text-shadow: -2px 0 #165bfb;
+  text-shadow: -2px 0 #41537e;
 }
 
 .bitbox-title span:after {
   left: -2px;
-  text-shadow: 2px 0 #165bfb;
+  text-shadow: 2px 0 #4e535f;
 }
 
 .bitbox-title span:nth-child(1),
@@ -167,9 +178,9 @@
 }
 
 .darkThemeBtn label {
-  border: 1px solid blue;
-  background: #cbdcf9;
-  border-radius: 10px;
+  /* border: 1px solid rgb(119, 119, 123); */
+  background: #c6cace;
+  border-radius: 30px;
   height: 50px;
   width: 50px;
   margin: auto;
@@ -195,7 +206,7 @@
 .darkThemeBtn label svg.sun {
   width: 20px;
   opacity: 1;
-  fill: blue;
+  fill: rgb(248, 248, 254);
 }
 
 .darkThemeBtn label svg.moon {
@@ -204,7 +215,7 @@
 
 .darkThemeBtn input:checked+label {
   border: 1px solid white;
-  background: #212529;
+  background: #c6cace;
 }
 
 .darkThemeBtn input:checked+label svg.sun {
@@ -225,6 +236,51 @@
 
 .darkThemeBtn input:checked~span {
   background-color: #16174b;
+}
+
+.loginbtn {
+  background: none;
+  color: #486c98;
+  padding: 0.5rem 1rem;
+  /* Add padding for better appearance */
+  text-decoration: none;
+  /* Remove underline from text */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  /* Shadow to create a floating effect */
+  transition: color 0.3s, box-shadow 0.3s;
+  /* Smooth transition for color and shadow changes */
+}
+
+/* Add hover effect */
+.loginbtn:hover {
+  color: white;
+  /* Change text color on hover */
+  background: rgba(72, 108, 152, 0.5);
+  /* Optional: Light background on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  /* Enhanced shadow on hover for a more pronounced floating effect */
+}
+
+.button {
+  padding-top: 5%;
+  border: #ffffff;
+  background-color: inherit;
+  font-family: sans-serif;
+  font-size: medium;
+
+}
+
+.button:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Add hover effect */
+.loginbtn:hover {
+  color: white;
+  /* Change text color on hover */
+  background: #1173eb;
+  /* Background color on hover */
+  /* Optional: you can use a different color or remove this line */
 }
 
 /* .......................... */
