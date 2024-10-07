@@ -1,13 +1,3 @@
-```markdown
-# 🚀 BitBox
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub issues](https://img.shields.io/github/issues/yourusername/BitBox.svg)](https://github.com/yourusername/BitBox/issues)
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/BitBox.svg)](https://github.com/yourusername/BitBox/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/yourusername/BitBox.svg)](https://github.com/yourusername/BitBox/network)
-
----
-
 ## 📖 Overview
 
 **BitBox** is a platform designed to facilitate the upload and sharing of projects. It aims to provide a collaborative environment for developers to showcase their work, collaborate with others, and learn from each other's projects.
