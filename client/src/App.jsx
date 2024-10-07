@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
+import './index.css';
 import LoadingBar from 'react-top-loading-bar';
 import About from './component/About';
 import Alert from './component/Alert';
