@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: arial;
+    color: #fff;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    background:white;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+::-webkit-input-placeholder{
+    color: #eee;
+}
+
+
+.wrapper{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.title{
+    font-size: 4rem;
+    color:#6366F1 ;
+    font-weight:bolder;
+}
+
+.title-line {
+        width: 7rem;
+        padding: 3px;
+        background-color:#6366F1;
+        border-radius: 50px;
+        margin-top: 5px;
+}
+
+.inp{
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+.input{
+    color: black;
+    border: none;
+    outline: none;
+    background: none;
+    width: 350px;
+    margin-top: 25px;
+    padding-right: 10px;
+    font-size: 17px;
+}
+.submit{
+    border: none;
+    outline: none;
+    width: 350px;
+    margin-top: 25px;
+    padding: 10px 0;
+    font-size: 20px;
+    border-radius: 40px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background:#6366F1;
+}
+.footer{
+    margin-top: 30px;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+}
+.link{
+    color:#6366F1;
+    text-decoration: none;
+}
+
+
+
+
+.banner{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 67vw;
+    height: 100%;
+    background: #6366F1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 60% 100%);
+    padding-right: 70px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    color: white;
+}
+.wel_text{
+    font-size: 6rem;
+    margin-top: -50px;
+    line-height: 80px;
+    font-weight: bolder;
+    color: white;
+
+}
+.para{
+    margin-top: 10px;
+    font-size: 2rem;
+    line-height: 35px;
+    letter-spacing: 1px;
+    color: white;
+}
+
+/* ========= Sign Up ======= */
+
+.rev {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.banner-signup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 67vw;
+    height: 100%;
+    background: #6366F1;
+    clip-path: polygon(0 0%, 90% 0, 40% 100%, 0% 100%);
+    padding-left: 70px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: white;
+}
