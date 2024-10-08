@@ -6,6 +6,7 @@ import { io } from 'socket.io-client';
 import recieveMsg from '../assets/music/recieveMsg.mp3';
 import userJoin from '../assets/music/userJoin.mp3';
 import userLeft from '../assets/music/userLeft.mp3';
+import InputModal from './InputModal';
 
 // Create a Socket
 const socket = io("http://localhost:5000", { transports: ["websocket"] });
@@ -13,17 +14,12 @@ const socket = io("http://localhost:5000", { transports: ["websocket"] });
 const Discussion = (props) => {
     const [messages, setMessages] = useState([]); // State to store chat messages
     const [messageInput, setMessageInput] = useState(''); // State to store user input message
-    const [userName, setUserName] = useState(null); // State to store user's name
+    const [userName, setUserName] = useState(''); // State to store user's name
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
-        // Ask new user for his/her name and let the server know
-        const name = prompt("Enter your name to join");
-        if (name) {
-            setUserName(name); // Set the user's name in state
-            socket.emit('new-user-joined', name); // Emit 'new-user-joined' event to the server
-        }
+        setIsModalOpen(true);
 
-        // Event listener for a new user joining the chat
         socket.on('user-joined', name => {
             // Update messages state with the new user's joining message
             setMessages(prevMessages => [...prevMessages, { content: `${name} joined the chat`, position: 'center1' }]);
@@ -73,12 +69,22 @@ const Discussion = (props) => {
             setMessageInput(''); // Clear the message input field
         }
     };
-
+    const handleJoin = (name) => {
+        setUserName(name);
+        socket.emit('join', name); // Notify the server that a user has joined
+        setIsModalOpen(false); // Close the modal after a successful join
+      };
     return (
-        <div className='discussion-main-container'>
+        <div className='discussion-main-container mt-20'>
+            <InputModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                onSubmit={handleJoin}
+            />
+
             <div className='discussion-container-section'>
                 {/* Container for displaying chat messages */}
-                <div className="discussion-container" style={{ color: props.mode === 'dark' ? 'black' : ''}}>
+                <div className="discussion-container" style={{ color: props.mode === 'dark' ? 'black' : '' }}>
                     <div className="welcome-center fs-3 mt-3">{`Welcome  ${userName} to the Bitbox Community`}</div>
                     {messages.map((message, index) => (
                         <div key={index} className={`message ${message.position}`}>{message.content}</div>
@@ -88,7 +94,7 @@ const Discussion = (props) => {
                 {/* Form for sending messages */}
                 <div className="discussion-send">
                     <form id="discussion-send-container" onSubmit={handleSubmit}>
-                        <input style={{ color: props.mode === 'dark' ? 'black' : ''}}
+                        <input style={{ color: props.mode === 'dark' ? 'black' : '' }}
                             type="text"
                             name="messageImp"
                             id="messageInp"
@@ -96,7 +102,7 @@ const Discussion = (props) => {
                             value={messageInput}
                             onChange={e => setMessageInput(e.target.value)}
                         />
-                        <button className="discussion-btn" type="submit" style={{ color: props.mode === 'dark' ? 'black' : ''}}>Send</button>
+                        <button className="discussion-btn" type="submit" style={{ color: props.mode === 'dark' ? 'black' : '' }}>Send</button>
                     </form>
                 </div>
             </div>
