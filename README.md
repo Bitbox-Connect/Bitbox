@@ -70,7 +70,7 @@ We welcome contributions! Follow these steps to contribute:
 
 For any inquiries, feel free to reach out:
 
-- **Your Name**  
+- **Anuj Verma**  
   Email: [anuj3553@gmail.com](mailto:anuj3553@gmail.com)
 
 **Project Link**: [BitBox GitHub Repository](https://github.com/Anuj3553/BitBox)
