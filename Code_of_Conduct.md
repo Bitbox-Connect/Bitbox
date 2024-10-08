@@ -6,7 +6,7 @@ Welcome to the **Bitbox** repository! Our project aims to foster innovation in A
 
 ## Our Pledge
 
-We, as contributors and maintainers, pledge to make participation in the **GenieAI** project a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, education, socioeconomic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
+We, as contributors and maintainers, pledge to make participation in the **Bitbox** project a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, education, socioeconomic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
 
 We commit to contributing to a friendly, inclusive, and welcoming environment for all participants.
 
