@@ -1,4 +1,3 @@
-```md
 # BitBox
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
@@ -127,7 +126,6 @@ For any inquiries, feel free to reach out:
 
 ---
 
-```
 
 ### Key Enhancements:
 1. **Highlighted Main Contributors**: I used the `diff` syntax to highlight them with `+ 🌟`.
