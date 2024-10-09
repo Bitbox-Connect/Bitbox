@@ -1,3 +1,5 @@
+const Profile = require("../Models/Profile");
+
 const createProfile =async (req, res) => {
     const { name, phone, college, address } = req.body;
     const profileFields = {

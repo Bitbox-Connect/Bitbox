@@ -47,7 +47,7 @@ const handleSubmit = async (e) => {
 
     if (validateForm()) {
         console.log("inforgot")
-        const response = await fetch(`${host}/api/auth/forgot`, {
+        const response = await fetch(`${host}/api/auth/forget`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
