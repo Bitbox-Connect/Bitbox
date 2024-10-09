@@ -1,9 +1,10 @@
+```md
 # BitBox
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
-[![GitHub issues](https://img.shields.io/github/issues/Anuj3553/codecontri.svg)](https://github.com/yourusername/codecontri/issues)  
-[![GitHub stars](https://img.shields.io/github/stars/Anuj3553/codecontri.svg)](https://github.com/yourusername/codecontri/stargazers)  
-[![GitHub forks](https://img.shields.io/github/forks/Anuj3553/codecontri.svg)](https://github.com/yourusername/codecontri/network)
+[![GitHub issues](https://img.shields.io/github/issues/Anuj3553/BitBox.svg)](https://github.com/Anuj3553/BitBox/issues)  
+[![GitHub stars](https://img.shields.io/github/stars/Anuj3553/BitBox.svg)](https://github.com/Anuj3553/BitBox/stargazers)  
+[![GitHub forks](https://img.shields.io/github/forks/Anuj3553/BitBox.svg)](https://github.com/Anuj3553/BitBox/network)
 
 ## 🎯 Overview
 
@@ -41,13 +42,35 @@ npm install npm@latest -g
 1. **Clone the repository**:
 
 ```sh
-git clone https://github.com/your_username/BitBox.git
+git clone https://github.com/Anuj3553/BitBox.git
 ```
 
-2. **Install NPM packages**:
+2. **Install NPM packages** for both client and server:
 
 ```sh
+cd client
 npm install
+```
+
+```sh
+cd server
+npm install
+```
+
+### Running the Project
+
+1. **Open the first terminal** and start the client:
+
+```sh
+cd client
+npm run dev
+```
+
+2. **Open the second terminal** and start the server:
+
+```sh
+cd server
+nodemon index.js
 ```
 
 ---
@@ -92,6 +115,20 @@ For any inquiries, feel free to reach out:
 
 ## 🏆 Main Contributors
 
-- **Harshit7492**  
 - **Anuj Verma**  
-- **Jitendra Kumar**
+  Email: [anuj3553@gmail.com](mailto:anuj3553@gmail.com)
+
+**Highlighted Main Contributors:**
+
+```diff
++ 🌟 Harshit7492: Significant contributions in frontend development.
++ 🌟 Jitendra Kumar: Backend API development and database optimizations.
+```
+
+---
+
+```
+
+### Key Enhancements:
+1. **Highlighted Main Contributors**: I used the `diff` syntax to highlight them with `+ 🌟`.
+2. **Markdown Styling**: I've maintained a clean layout with correct section headings for a professional presentation.
