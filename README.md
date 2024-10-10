@@ -120,13 +120,8 @@ For any inquiries, feel free to reach out:
 **Highlighted Main Contributors:**
 
 ```diff
-+ 🌟 Harshit7492: Significant contributions in frontend development.
-+ 🌟 Jitendra Kumar: Backend API development and database optimizations.
++ 🌟 Harshit7492: Backend API development and database optimizations. 
++ 🌟 Jitendra Kumar: Significant contributions in frontend development.
 ```
 
 ---
-
-
-### Key Enhancements:
-1. **Highlighted Main Contributors**: I used the `diff` syntax to highlight them with `+ 🌟`.
-2. **Markdown Styling**: I've maintained a clean layout with correct section headings for a professional presentation.
