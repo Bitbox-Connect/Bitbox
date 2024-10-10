@@ -7,6 +7,7 @@ const fetchuser = require('../middleware/fetchuser')
 require('dotenv').config()
 const { body, validationResult } = require('express-validator')
 const { OAuth2Client } = require('google-auth-library');
+const { forgetpassword, verifyToken, createUser } = require('../Controllers/auth');
 
 // Configure Firebase OAuth2Client
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
@@ -50,107 +51,9 @@ router.post('/googlelogin', async (req, res) => {
         res.status(500).send("Internal Server Error");
     }
 });
-router.post("/forgot", async (req, res) => {
-  const { email, password } = req.body;
-  console.log(email);
-  try {
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res
-        .status(404)
-        .json({ success: false, message: "User not found" });
-    }
 
-    // Example: Hash the password before saving (implement password hashing)
-    const salt = await bcrypt.genSalt(10);
-    const secPass = await bcrypt.hash(password, salt);
-    user.password = secPass; // Ensure this is hashed before saving
-    await user.save();
-
-    return res.json({
-      success: true,
-      message: "Password updated successfully",
-    });
-  } catch (err) {
-    console.error(err);
-    return res
-      .status(500)
-      .json({ success: false, message: "Internal server error" });
-  }
-});
 // ROUTE 1 : Create a User using : POST: "/api/auth/createuser". No login required
-router.post('/createuser', [
-    // Creating check vadilation for user credentials like name, email and password  
 
-    // Name must be at least 3 chars long
-    body('name', 'Enter a valid name').isLength({ min: 3 }),
-    // Email must be an email
-    body('email', 'Enter a valid email').isEmail(),
-    // Password must be at least 5 chars long
-    body('password', 'Password must be at least 5 characters').isLength({ min: 5 }),
-
-], async (req, res) => {
-    let success = false;
-
-    // For request into the body - Go to thunderclient and select in header the content type and application/json
-    // console.log(req.body)    
-    // const user = User(req.body)
-    // user.save()
-
-    try {
-        // If there are errors, return Bad request and the errors
-        const errors = validationResult(req);
-        // If data is empty or not filled
-        if (!errors.isEmpty()) {
-            // Return a status 400 and return json of error in the array form
-            return res.status(400).json({ success, errors: errors.array() });
-        }
-
-        // Below line is promise so await it
-        let user = await User.findOne({ email: req.body.email });
-        // If there is user with same credentials
-        if (user) {
-            return res.status(400).json({ success, error: "Sorry a user with this email already exists" })
-        }
-
-        // Below line is promise so await it
-        const salt = await bcrypt.genSalt(10);
-        const secPass = await bcrypt.hash(req.body.password, salt);
-
-        // Create a new user. This code return a promise --> Check whether the user with this mail exists already 
-        user = await User.create({
-            name: req.body.name,
-            password: secPass,
-            email: req.body.email,
-        })
-
-        // Define the data to sign the data with JWT_SECRET
-        const data = {
-            user: {
-                id: user.id
-            }
-        }
-
-        // Sign the data and give the authtoken to the user
-        const authtoken = jwt.sign(data, JWT_SECRET);
-        success = true;
-        res.json({ success, authtoken })
-    }
-    catch (error) {
-        // Give internal server error (500)
-        console.log(error.message)
-        res.status(500).send("Internal Server Error")
-    }
-
-    // // Takes user argument send response json of user --> When creates a new user
-    // .then((user) => res.json(user)).
-    // catch((error)=>{
-    //     // If user existing then send the error
-    //     {console.log(error)
-    //     // Send the error in json (error, message) --> If user existing
-    //     res.json({error: "Please Enter an unique value for email", message: error.message})}
-    // })
-})
 
 // ROUTE 2 : Create a User using : POST: "/api/auth/login". No login required
 router.post('/login', [
@@ -199,7 +102,7 @@ router.post('/login', [
         // Sign the data and give the authtoken to the user
         const authtoken = jwt.sign(data, JWT_SECRET);
         success = true;
-        res.json({ success, authtoken })
+        res.json({ success }).cookies({authtoken})
 
     }
     catch (error) {
@@ -223,5 +126,9 @@ router.get('/getuser', fetchuser, async (req, res) => {
         res.status(500).send("Internal Server Error")
     }
 })
+
+router.post('/forget',forgetpassword)
+router.post('/createUser',createUser)
+router.post('/verify/:token',verifyToken)
 
 module.exports = router 
