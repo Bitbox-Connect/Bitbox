@@ -1,40 +1,70 @@
-import PropTypes from 'prop-types';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-// import './css/Auth.css';
-import './css/Login.css'
+import PropTypes from "prop-types";
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { Modal, Input, Button } from "antd";
+import "./css/Login.css";
+
 const host = "http://localhost:5000";
 
 const Login = (props) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const [forgotPasswordModalVisible, setForgotPasswordModalVisible] =
+    useState(false);
+  const [forgotEmail, setForgotEmail] = useState("");
   let navigate = useNavigate();
+
   const handleSubmit = async (e) => {
-    // To not Reload after click submit 
     e.preventDefault();
     const response = await fetch(`${host}/api/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email: credentials.email, password: credentials.password }),
+      body: JSON.stringify({
+        email: credentials.email,
+        password: credentials.password,
+      }),
     });
     const json = await response.json();
-    console.log(json);
 
     if (json.success) {
-      // Save the auth token and redirect
-      localStorage.setItem('token', json.authtoken);
-      props.showAlert("Logged in Successfully", "success")
+      localStorage.setItem("token", json.authtoken);
+      props.showAlert("Logged in Successfully", "success");
       navigate("/");
+    } else {
+      props.showAlert("Invalid Credentials", "danger");
     }
-    else {
-      props.showAlert("Invalid Credentials", "danger")
+  };
+  const handleForgotPassword = async () => {
+    try {
+      const response = await fetch(`${host}/api/auth/ResetByEmail`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: forgotEmail }), // Send email as the request body
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await response.json();
+      if (response.ok) {
+        alert(data.message || "Reset email sent successfully!");
+        setForgotPasswordModalVisible(false);
+        setForgotEmail(" ");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setForgotPasswordModalVisible(false);
+      alert("Failed to send reset email. Please try again.");
     }
-  }
+  };
+
   const onChange = (e) => {
-    setCredentials({ ...credentials, [e.target.name]: e.target.value })
-  }
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
 
   // return (
   //   <div className="Login">
@@ -57,7 +87,7 @@ const Login = (props) => {
   //           </div>
   //         </form>
   //         <div className="social-account-container">
-  //           <div className='my-4 p-2 text-center'>Don&#39;t have an account? 
+  //           <div className='my-4 p-2 text-center'>Don&#39;t have an account?
   //             <Link to="/Signup"> Signup</Link>
   //           </div>
   //           {/* <span className="title">Or Sign in with</span> */}
@@ -84,42 +114,105 @@ const Login = (props) => {
   //     </div>
   //   </div>
   // )
-
- return (
-  <div className="wrapper">
-  <form onSubmit={handleSubmit} className="form">
-
-      <h1 className="title">Login</h1>
-      <span className="title-line"></span>
-      <div className="inp">
-          <input type="email" className="input" placeholder="Email" value={credentials.email} onChange={onChange} id="email" name='email' aria-describedby="emailHelp" autoComplete='on'/>
+  //
+  return (
+    <div className="wrapper">
+      <form onSubmit={handleSubmit} className="form">
+        <h1 className="title">Login</h1>
+        <span className="title-line"></span>
+        <div className="inp">
+          <Input
+            type="email"
+            className="input"
+            placeholder="Email"
+            value={credentials.email}
+            onChange={onChange}
+            id="email"
+            name="email"
+            aria-describedby="emailHelp"
+            autoComplete="on"
+          />
           <i className="fa-solid fa-user"></i>
-      </div>
-      <div className="inp">
-          <input type="password" className="input" placeholder="Password" id='password' value={credentials.password} onChange={onChange} name='password' autoComplete='on'/>
+        </div>
+        <div className="inp">
+          <Input
+            type="password"
+            className="input"
+            placeholder="Password"
+            id="password"
+            value={credentials.password}
+            onChange={onChange}
+            name="password"
+            autoComplete="on"
+          />
           <i className="fa-solid fa-lock"></i>
+        </div>
+        <Button className="submit" type="submit" onChange={onChange}>
+          Login
+        </Button>
+        <p className="footer">
+          Don't have an account?{" "}
+          <Link className="link" to="/Signup">
+            Sign Up
+          </Link>
+        </p>
+        <Button
+          style={{ backgroundColor: "#6366f1" }}
+          onClick={() => setForgotPasswordModalVisible(true)}
+          className="mt-3"
+        >
+          Forgot Password?
+        </Button>
+      </form>
+
+      <div className="banner">
+        <h1 className="wel_text">
+          WELCOME
+          <br />
+          BACK!
+        </h1>
+        <p className="para">
+          Please Sign In here
+          <br />
+          with your real info
+        </p>
       </div>
-      <button className="submit" type='submit' onChange={onChange} onSubmit={handleSubmit}>Login</button>
-      <p className="footer">Dont have an account?  <Link className='link' to="/Signup"> Please Sign Up</Link></p>
-     
-      <a href="/ForgotPassword">Forgot Password ?</a>
 
-  </form>
-  <div></div>
-  <div className="banner">
-      <h1 className="wel_text">WELCOME<br/>BACK !</h1>
-      <p className="para">Please Sign In here<br/>with your some<br/>-- real info</p>
-  </div>
-</div>
+      {/* Antd Modal for Forgot Password */}
+      <Modal
+        title={<h2 className="text-2xl font-bold">Reset Password via Email</h2>}
+        visible={forgotPasswordModalVisible}
+        onOk={handleForgotPassword}
+        onCancel={() => setForgotPasswordModalVisible(false)}
+        okText="Submit"
+        className=""
+        okButtonProps={{
+          style: { backgroundColor: "#6366f1", color: "#000" },
+        }}
+        cancelButtonProps={{
+          style: { backgroundColor: "#000000" },
+        }}
+      >
+        <div className="p-4">
+          <p className="text-red-600 text-sm">
+            Enter your email and we will send you a link to reset your password
+          </p>
+          <Input
+            type="email"
+            placeholder="Enter your email"
+            value={forgotEmail}
+            onChange={(e) => setForgotEmail(e.target.value)}
+            required
+          />
+        </div>
+      </Modal>
+    </div>
+  );
+};
 
- )
-
-
-}
-
-// Props Vadilation
+// Prop Validation
 Login.propTypes = {
   showAlert: PropTypes.func,
 };
 
-export default Login
+export default Login;

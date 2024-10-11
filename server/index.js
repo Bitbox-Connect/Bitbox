@@ -26,6 +26,7 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/projects', require('./routes/projects'));
 app.use('/api/profile', require('./routes/profile'));
 
+
 // Set up socket.io server
 const httpServer = require('http').createServer(app); // Create HTTP server
 const io = new Server(httpServer, {

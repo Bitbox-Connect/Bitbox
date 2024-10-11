@@ -20,6 +20,7 @@
     "@splinetool/react-spline": "^2.2.6",
     "@splinetool/runtime": "^1.0.67",
     "@splinetool/viewer": "^1.0.67",
+    "antd": "^5.21.3",
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
