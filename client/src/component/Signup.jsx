@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./css/Login.css";
+import { registerValidation } from "../validations/validation";
 
 // import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 // import { auth } from '../component/Firebase/Setup';
@@ -51,25 +52,47 @@ const Signup = (props) => {
     }
   };
 
-  const [credentials, setCredentials] = useState({
-    name: "",
-    email: "",
-    password: "",
-    cpassword: "",
-  });
+  // const [credentials, setCredentials] = useState({
+  //   name: "",
+  //   email: "",
+  //   password: "",
+  //   cpassword: "",
+  // });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [cpassword, setCPassword] = useState("");
+  const [errors, setErrors] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { name, email, password } = credentials;
+    try {
+      await registerValidation.validate(
+        { name, email, password, cpassword },
+        { abortEarly: false }
+      );
+      setErrors({});
+    } catch (error) {
+      const newErrors = {};
+      error.inner.forEach((err) => {
+        newErrors[err.path] = err.message;
+        // newErrors[err.path] = err.errors[0];
+      });
+
+      setErrors(newErrors);
+      return;
+    }
+
+    // const { name, email, password, cpassword } = credentials;
 
     // Perform signup with email and password
     await signUpWithGoogle(email, name, password);
   };
 
-  const onChange = (e) => {
-    setCredentials({ ...credentials, [e.target.name]: e.target.value });
-  };
+  // const onChange = (e) => {
+  //   setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  // };
 
   // return (
   //   <div className="min-h-screen flex items-center justify-center bg-white p-4">
@@ -236,7 +259,7 @@ const Signup = (props) => {
         </p>
       </div>
       <div></div>
-      <form onSubmit={handleSubmit} className="form">
+      <form onSubmit={handleSubmit} className="form" noValidate>
         <h1 className="title">Sign Up</h1>
         <span className="title-line"></span>
         <div className="inp">
@@ -246,11 +269,12 @@ const Signup = (props) => {
             placeholder="Name"
             name="name"
             aria-describedby="emailHelp"
-            onChange={onChange}
+            onChange={(e) => setName(e.target.value)}
             id="name"
             autoComplete="on"
-            required
+            value={name}
           />
+          {errors.name && <div className="text-danger">{errors.name}</div>}
           <i className="fa-solid fa-user"></i>
         </div>
         <div className="inp">
@@ -258,13 +282,14 @@ const Signup = (props) => {
             type="email"
             className="input"
             placeholder="Email"
-            onChange={onChange}
+            onChange={(e) => setEmail(e.target.value)}
             id="email"
             name="email"
             aria-describedby="emailHelp"
             autoComplete="on"
-            required
+            value={email}
           />
+          {errors.email && <div className="text-danger">{errors.email}</div>}
           <i className="fa-solid fa-user"></i>
         </div>
         <div className="inp">
@@ -272,13 +297,16 @@ const Signup = (props) => {
             type={showPassword ? "text" : "password"}
             className="input"
             placeholder="Password"
-            onChange={onChange}
+            onChange={(e) => setPassword(e.target.value)}
             id="password"
             name="password"
             minLength={5}
             autoComplete="on"
-            required
+            value={password}
           />
+          {errors.password && (
+            <div className="text-danger">{errors.password}</div>
+          )}
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
@@ -297,25 +325,30 @@ const Signup = (props) => {
             type={showConfirmPassword ? "text" : "password"}
             className="input"
             placeholder="Confirm Password"
-            onChange={onChange} id="cpassword" name='cpassword'
+            onChange={(e) => setCPassword(e.target.value)}
+            id="cpassword"
+            name="cpassword"
             minLength={5}
-            autoComplete='on'
-            required />
-                 <button
-                   type="button"
-                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                   className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-400 hover:text-blue-600 transition-colors duration-200"
-                 >
-                   {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                 </button>
+            autoComplete="on"
+            value={cpassword}
+          />
+          {errors.cpassword && (
+            <div className="text-danger">{errors.cpassword}</div>
+          )}
+          <button
+            type="button"
+            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-400 hover:text-blue-600 transition-colors duration-200"
+          >
+            {showConfirmPassword ? (
+              <EyeOff className="w-5 h-5" />
+            ) : (
+              <Eye className="w-5 h-5" />
+            )}
+          </button>
           <i className="fa-solid fa-lock"></i>
         </div>
-        <button
-          className="submit"
-          type="submit"
-          onChange={onChange}
-          onSubmit={handleSubmit}
-        >
+        <button className="submit" type="submit" onSubmit={handleSubmit}>
           Sign Up
         </button>
         <p className="footer">
