@@ -29,6 +29,7 @@
     "lucide-react": "^0.447.0",
     "match-sorter": "^6.3.4",
     "mdb-react-ui-kit": "^7.2.0",
+    "open-source": "file:",
     "otp-input-react": "^0.3.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
@@ -44,7 +45,8 @@
     "react-top-loading-bar": "^2.3.1",
     "socket.io": "^4.7.5",
     "socket.io-client": "^4.7.5",
-    "sort-by": "^1.2.0"
+    "sort-by": "^1.2.0",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.55",

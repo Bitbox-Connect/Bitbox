@@ -6,7 +6,7 @@
 }
 body{
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
     background:white;
     display: grid;
     justify-content: center;
@@ -20,7 +20,7 @@ body{
 .wrapper{
     position: relative;
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -31,6 +31,7 @@ body{
     align-items: center;
 }
 .title{
+    margin-top: 50px;
     font-size: 4rem;
     color:#6366F1 ;
     font-weight:bolder;
