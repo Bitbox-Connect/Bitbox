@@ -11,6 +11,7 @@ const {
   forgetpassword,
   verifyToken,
   createUser,
+  ResetPasswordByEmail,
 } = require("../Controllers/auth");
 
 // Configure Firebase OAuth2Client
@@ -88,12 +89,10 @@ router.post(
       // If user is not available in database
       if (!user) {
         success = false;
-        return res
-          .status(400)
-          .json({
-            success,
-            error: "Please try to login with correct credentials",
-          });
+        return res.status(400).json({
+          success,
+          error: "Please try to login with correct credentials",
+        });
       }
 
       // Below line is promise so await it
@@ -101,12 +100,10 @@ router.post(
       // If password does'nt matches with original password
       if (!passwordCompare) {
         success = false;
-        return res
-          .status(400)
-          .json({
-            success,
-            error: "Please try to login with correct credentials",
-          });
+        return res.status(400).json({
+          success,
+          error: "Please try to login with correct credentials",
+        });
       }
 
       // Define the data to sign the data with JWT_SECRET
@@ -145,5 +142,6 @@ router.get("/getuser", fetchuser, async (req, res) => {
 router.post("/forget", forgetpassword);
 router.post("/createUser", createUser);
 router.post("/verify/:token", verifyToken);
+router.post("/ResetByEmail", ResetPasswordByEmail);
 
 module.exports = router;
