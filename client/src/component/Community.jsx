@@ -45,7 +45,7 @@ const Community = (props) => {
     const fetchData = async () => {
       setLoading(true); // Set loading to true before fetching
       await getGlobalProjects();
-      // setLoading(false); // Set loading to false after data is fetched
+      setLoading(false); // Set loading to false after data is fetched
     };
     fetchData();
     // eslint-disable-next-line
