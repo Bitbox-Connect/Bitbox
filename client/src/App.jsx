@@ -27,6 +27,7 @@ import { useAtom } from 'jotai';
 import { modeAtom } from './atom/Atom';
 import ForgotPassword from './component/forgotpass';
 import VerifyEmail from './component/Verify';
+import NotFound from './component/NotFound';
 // Main Layout Component
 const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
   const location = useLocation(); // Use location inside Router
@@ -123,7 +124,10 @@ function App() {
                 <Route exact path="/privacypolicy" element={<PrivacyPolicy mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/termofuse" element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/verify/:token" element={<VerifyEmail/>} />
+                {/* 404 Route */}
+                <Route exact path="*" element={<NotFound/>} /> 
               </Routes>
+                
             </Layout>
           </Router>
         </ProfileState>
