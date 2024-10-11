@@ -1,51 +1,34 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-// import './css/Auth.css';
+import { useNavigate, Link } from "react-router-dom";
+import { Modal, Input, Button } from "antd";
 import "./css/Login.css";
-import { loginValidation } from "../validations/validation";
+
 const host = "http://localhost:5000";
 
 const Login = (props) => {
-  // const [credentials, setCredentials] = useState({ email: "", password: "" });
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState({});
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const [forgotPasswordModalVisible, setForgotPasswordModalVisible] =
+    useState(false);
+  const [forgotEmail, setForgotEmail] = useState("");
+
   let navigate = useNavigate();
+
   const handleSubmit = async (e) => {
-    // To not Reload after click submit
     e.preventDefault();
-
-    try {
-      await loginValidation.validate(
-        { email, password },
-        { abortEarly: false }
-      );
-      setErrors({});
-    } catch (error) {
-      const newErrors = {};
-      error.inner.forEach((err) => {
-        newErrors[err.path] = err.message;
-        // newErrors[err.path] = err.errors[0];
-      });
-
-      setErrors(newErrors);
-      return;
-    }
-
     const response = await fetch(`${host}/api/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email: email, password: password }),
+      body: JSON.stringify({
+        email: credentials.email,
+        password: credentials.password,
+      }),
     });
     const json = await response.json();
-    console.log(json);
 
     if (json.success) {
-      // Save the auth token and redirect
       localStorage.setItem("token", json.authtoken);
       props.showAlert("Logged in Successfully", "success");
       navigate("/");
@@ -53,6 +36,33 @@ const Login = (props) => {
       props.showAlert("Invalid Credentials", "danger");
     }
   };
+  const handleForgotPassword = async () => {
+    try {
+      const response = await fetch(`${host}/api/auth/ResetByEmail`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: forgotEmail }), // Send email as the request body
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await response.json();
+      if (response.ok) {
+        alert(data.message || "Reset email sent successfully!");
+        setForgotPasswordModalVisible(false);
+        setForgotEmail(" ");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setForgotPasswordModalVisible(false);
+      alert("Failed to send reset email. Please try again.");
+    }
+  };
+
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
@@ -105,81 +115,103 @@ const Login = (props) => {
   //     </div>
   //   </div>
   // )
-
+  //
   return (
     <div className="wrapper">
-      <form onSubmit={handleSubmit} className="form" noValidate>
+      <form onSubmit={handleSubmit} className="form">
         <h1 className="title">Login</h1>
         <span className="title-line"></span>
         <div className="inp">
-          <input
+          <Input
             type="email"
             className="input"
             placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={credentials.email}
+            onChange={onChange}
             id="email"
             name="email"
             aria-describedby="emailHelp"
             autoComplete="on"
           />
-          {errors.email && <div className="text-danger">{errors.email}</div>}
           <i className="fa-solid fa-user"></i>
         </div>
         <div className="inp">
-          <input
+          <Input
             type="password"
             className="input"
             placeholder="Password"
             id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={credentials.password}
+            onChange={onChange}
             name="password"
             autoComplete="on"
           />
-          {errors.password && (
-            <div className="text-danger">{errors.password}</div>
-          )}
           <i className="fa-solid fa-lock"></i>
         </div>
-        <button
-          className="submit"
-          type="submit"
-          onChange={onChange}
-          onSubmit={handleSubmit}
-        >
+        <Button className="submit" type="submit" onChange={onChange}>
           Login
-        </button>
+        </Button>
         <p className="footer">
-          Dont have an account?{" "}
+          Don't have an account?{" "}
           <Link className="link" to="/Signup">
-            {" "}
-            Please Sign Up
+            Sign Up
           </Link>
         </p>
-
-        <a href="/ForgotPassword">Forgot Password ?</a>
+        <Button
+          style={{ backgroundColor: "#6366f1" }}
+          onClick={() => setForgotPasswordModalVisible(true)}
+          className="mt-3"
+        >
+          Forgot Password?
+        </Button>
       </form>
-      <div></div>
+
       <div className="banner">
         <h1 className="wel_text">
           WELCOME
           <br />
-          BACK !
+          BACK!
         </h1>
         <p className="para">
           Please Sign In here
           <br />
-          with your some
-          <br />
-          -- real info
+          with your real info
         </p>
       </div>
+
+      {/* Antd Modal for Forgot Password */}
+      <Modal
+        title={<h2 className="text-2xl font-bold">Reset Password via Email</h2>}
+        visible={forgotPasswordModalVisible}
+        onOk={handleForgotPassword}
+        onCancel={() => setForgotPasswordModalVisible(false)}
+        okText="Submit"
+        className=""
+        okButtonProps={{
+          style: { backgroundColor: "#6366f1", color: "#000" },
+        }}
+        cancelButtonProps={{
+          style: { backgroundColor: "#000000" },
+        }}
+      >
+        <div className="p-4">
+          <p className="text-red-600 text-sm">
+            Enter your email and we will send you a link to reset your password
+          </p>
+          <Input
+            type="email"
+            placeholder="Enter your email"
+            value={forgotEmail}
+            onChange={(e) => setForgotEmail(e.target.value)}
+            required
+          />
+        </div>
+      </Modal>
     </div>
   );
 };
 
-// Props Vadilation
+// Prop Validation
 Login.propTypes = {
   showAlert: PropTypes.func,
 };
