@@ -1,40 +1,66 @@
-.rating-container {
-  display: flex;
-  justify-content: center;
-  /* Add space between rating buttons */
-  gap: 10px;
-}
-
-.star {
-  background-color: transparent;
-  border: none;
-  font-size: 50px;
-  cursor: pointer;
-  /* Smooth transition for color change */
-  transition: color 0.3s ease;
-}
-
-.star:hover,
-.star.active {
-  /* Change color to gold on hover and when active */
-  color: gold;
-}
-
 .feedback-main-box {
-  margin-top: 100px;
-  margin-bottom: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.heading-page {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .feedback-container {
-  /* Add border to the container */
-  border: 2px solid #ccc;
-  /* Add padding to the container */
-  padding: 20px;
-  /* Add border radius for rounded corners */
-  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
 }
 
 .form-label {
-  /* Make form labels bold */
   font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  transition: border-color 0.2s ease;
+}
+
+.form-control:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+.form-range {
+  width: 100%;
+}
+
+.btn-submit {
+  padding: 12px 20px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #4a90e2;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:disabled {
+  background-color: #aaa;
+}
+
+.btn-submit:hover {
+  background-color: #357ABD;
 }

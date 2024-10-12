@@ -1,0 +1,5 @@
+.toast-body-black-text {
+    color: #000 !important;    /* Force the toast body text color to black */
+    background-color: #fff !important;  /* Ensure white background */
+  }
+  
