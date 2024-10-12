@@ -88,7 +88,7 @@ const Home = (props) => {
                 </div>
             </section>
             {/* Cards Page Section */}
-            <CardsPage/>
+            <CardsPage mode={props.mode} />
 
             {/* Service Section */}
             <div className="service-section" style={{ marginTop: "5rem", background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
