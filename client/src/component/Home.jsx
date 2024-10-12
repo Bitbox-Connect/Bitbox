@@ -2,7 +2,7 @@ import './css/Home.css'
 import PropTypes from 'prop-types';
 import HeroImg from '../assets/images/Vector Gif/Hero.gif'
 import Learn from '../assets/images/Learn.png'
-import Share from '../assets/images/Share.png'
+import ShareComponent from './Share';
 import Grow from '../assets/images/Grow.png'
 import glichBitboxGif from '../assets/images/Other Gifs/Bitbox Glitch.gif'
 import CardsPage from './HomePage/Card';
@@ -71,19 +71,9 @@ const Home = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className="container my-5">
-                        <div className="row">
-                            <div className="col-lg-6">
-                                <img className="w-100 rounded-5" src={Share} />
-                            </div>
-                            <div className="col-lg-6">
-                                <div className="p-5 mt-4">
-                                    <h1 className="display-4" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Share</h1>
-                                    <p className="lead" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>🌐 Join the vibrant Bitbox Opensource Community today! Whether you&apos;re a seasoned developer or just starting out, there&apos;s a place for you to collaborate, innovate, and make a difference. Let&apos;s shape the future of digital exchange together! #BitboxCommunity #OpenSource 🚀💻 </p>
-                                    <a href="#" className="btn btn-outline-dark" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Read More</a>
-                                </div>
-                            </div>
-                        </div>
+                    <div style={{color:'black'}}>
+
+                   <ShareComponent/>
                     </div>
                 </div>
             </section>
