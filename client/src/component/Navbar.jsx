@@ -9,11 +9,14 @@ import avatarDropdown from "../assets/images/Dropdown/avatar.png";
 import { auth } from "../component/Firebase/Setup";
 
 function Navbar(props) {
+  const { title, home, about, community, discussion, showAlert, mode, toggleMode } = props;
   const host = "http://localhost:5000";
   const navigate = useNavigate();
   const location = useLocation();
-  const { showAlert, mode } = props;
   const [isScrolled, setIsScrolled] = useState(false); // State to keep track of whether page has been scrolled
+  const [isOpen, setIsOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   useEffect(() => {
     window.onscroll = function () {
       myFunction();
@@ -66,42 +69,64 @@ function Navbar(props) {
     // Fetch initial image when component mounts
     axios
       .get(`${host}/getAvatarImage`)
-      .then((res) => setImage(res.data[res.data.length - 1].image)) // Fetch the last uploaded image
-      .catch((err) => console.log(err));
-  });
+      .then((res) => {
+        // Check if response data is valid
+        if (res.data && res.data.length > 0) {
+          setImage(res.data[res.data.length - 1].image); // Fetch the last uploaded image
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []); 
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen); // Toggle sidebar visibility
+  };
+  
 
   return (
     <div>
-      <nav
-        className={`navbar navbar-expand-lg ${
-          isScrolled ? "sticky" : ""
-        } navbar-${props.mode}`}
+           <nav
+        className={`navbar navbar-expand-lg ${isScrolled ? "sticky" : ""} navbar-${props.mode === "dark" ? "dark" : "light"}`}
         style={{
           backgroundColor: props.mode === "dark" ? "black" : "white",
-          borderBottom:
-            props.mode === "dark" ? "1px solid white" : "1px solid white",
+          borderBottom: "1px solid white",
         }}
         id="navbar"
       >
-        <div
-          className="container-fluid"
-          style={{ backgroundColor: "{props.mode}" }}
+        {/* Hamburger icon */}
+        <button
+          className="navbar-toggler block lg:hidden absolute right-0 focus:outline-none"
+          type="button"
+          onClick={toggleSidebar}
+          aria-controls="navbarNavDropdown"
+          aria-expanded={isSidebarOpen}
+          aria-label="Toggle navigation"
+          style={{ color: props.mode === "dark" ? "white" : "black" }}
         >
-          <div className="collapse navbar-collapse" id="navbarNavDropdown">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          className={`visible navbar-collapse rnav ${isOpen ? "show" : ""}` }
+          style={{ backgroundColor: props.mode === "dark" ? "black" : "white" }}
+        >
+          {/* <div className="collapse navbar-collapse" id="navbarNavDropdown"> */}
             <Link
               className="navbar-brand d-flex fs-2 fw-bold font-monospace"
               to="/"
             >
               <img
-                className="mx-3"
-                style={{ width: "3rem" }}
+                className="mx-3 logoImg"
+                style={{ width: "3rem"}}
                 src={logo}
                 alt="logo"
               />
-              <div className="logoTitle">{props.title}</div>
+              <div className="logoTitle" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>{props.title}</div>
             </Link>
             <div
-              className="collapse navbar-collapse justify-content-center"
+            className={`collapse navbar-collapse justify-content-center ${isOpen ? "show" : ""}`}
               id="navbarSupportedContent"
             >
               <ul
@@ -109,7 +134,7 @@ function Navbar(props) {
                 style={{ position: "absolute", left: "36%" }}
               >
                 <li className="nav-item fs-4 fw-medium">
-                  <button className="button">
+                  
                     <Link
                       className={`nav-link ${
                         location.pathname === "/" ? "active" : ""
@@ -119,10 +144,10 @@ function Navbar(props) {
                     >
                       {props.home}
                     </Link>
-                  </button>
+                  
                 </li>
                 <li className="nav-item fs-4">
-                  <button className="button">
+                  
                     <Link
                       className={`nav-link ${
                         location.pathname === "/about" ? "active" : ""
@@ -132,10 +157,10 @@ function Navbar(props) {
                     >
                       {props.about}
                     </Link>
-                  </button>
+                  
                 </li>
                 <li className="nav-item fs-4">
-                  <button className="button">
+                 
                     <Link
                       className={`nav-link ${
                         location.pathname === "/community" ? "active" : ""
@@ -145,10 +170,10 @@ function Navbar(props) {
                     >
                       {props.community}
                     </Link>
-                  </button>
+                  
                 </li>
                 <li className="nav-item fs-4">
-                  <button className="button">
+                  
                     <Link
                       className={`nav-link ${
                         location.pathname === "/discussion" ? "active" : ""
@@ -158,7 +183,7 @@ function Navbar(props) {
                     >
                       {props.discussion}
                     </Link>
-                  </button>
+                  
                 </li>
               </ul>
             </div>
@@ -212,7 +237,7 @@ function Navbar(props) {
                       <Link
                         role="button"
                         to="/login"
-                        className="btn loginbtn mx-2"
+                        className="btn loginbtn mx-2  h-10 "
                         style={{ height: "45px", color: "black" }}
                       >
                         Login
@@ -220,7 +245,7 @@ function Navbar(props) {
                       <Link
                         role="button"
                         to="/signup"
-                        className="btn loginbtn mx-2"
+                        className="btn loginbtn mx-2  h-10 "
                         style={{ height: "45px", color: "black" }}
                       >
                         Signup
@@ -244,7 +269,7 @@ function Navbar(props) {
                               checked={props.mode === "dark"}
                               onChange={props.toggleMode}
                             />
-                            <label htmlFor="darkmode-toggle">
+                            <label htmlFor="darkmode-toggle" className="darkmode">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 512 512"
@@ -366,9 +391,37 @@ function Navbar(props) {
                 </>
               )}
             </form>
-          </div>
+          {/* </div> */}
         </div>
       </nav>
+       {/* Sidebar for smaller devices */}
+       <div className={`sidebar ${isSidebarOpen ? "open" : ""}`} style={{ backgroundColor: props.mode === "dark" ? "black" : "white" }}>
+        <button className="close-btn" onClick={() => setIsSidebarOpen(false)} style={{
+                          color: props.mode === "dark" ? "white" : "black",
+                        }}>Close</button>
+        <ul className="sidebar-links">
+          <li>
+            <Link to="/" onClick={() => setIsSidebarOpen(false)}>Home</Link>
+          </li>
+          <li>
+            <Link to="/about" onClick={() => setIsSidebarOpen(false)}>About</Link>
+          </li>
+          <li>
+            <Link to="/community" onClick={() => setIsSidebarOpen(false)}>Community</Link>
+          </li>
+          <li>
+            <Link to="/discussion" onClick={() => setIsSidebarOpen(false)}>Discussion</Link>
+          </li>
+        </ul>
+      </div>
+
+      <button
+        className="sidebar-toggle"
+        onClick={() => setIsSidebarOpen(true)}
+        style={{ display: isOpen ? 'block' : 'none' }}
+      >
+        Menu
+      </button>
     </div>
   );
 }

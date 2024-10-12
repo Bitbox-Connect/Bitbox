@@ -10,7 +10,10 @@
   /* Black shadow */
   border-bottom: none;
   /* Remove the bottom line */
+  overflow: initial;
+  /* Avoid conflicts with other layouts */
 }
+
 
 .header {
   max-width: 1200px;
@@ -99,13 +102,6 @@
   }
 }
 
-/* navbaar css start */
-#navbar {
-  overflow: initial;
-  z-index: 1000;
-  min-height: 10vh;
-}
-
 .logoTitle {
   font-family: 'medium';
   font-weight: lighter;
@@ -117,6 +113,10 @@
 
 #navbar ul li {
   margin-bottom: 0;
+}
+
+.nav-link {
+  font-family: "Exo 2", sans-serif !important;
 }
 
 .sticky {
@@ -251,14 +251,12 @@
   /* Smooth transition for color and shadow changes */
 }
 
-/* Add hover effect */
 .loginbtn:hover {
   color: white;
-  /* Change text color on hover */
-  background: rgba(72, 108, 152, 0.5);
-  /* Optional: Light background on hover */
+  background: #1173eb;
+  /* Make sure only one hover color is applied */
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  /* Enhanced shadow on hover for a more pronounced floating effect */
+  /* Enhanced shadow effect */
 }
 
 .button {
@@ -274,14 +272,6 @@
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Add hover effect */
-.loginbtn:hover {
-  color: white;
-  /* Change text color on hover */
-  background: #1173eb;
-  /* Background color on hover */
-  /* Optional: you can use a different color or remove this line */
-}
 
 /* .......................... */
 
@@ -364,4 +354,155 @@
 /* Upload Project */
 .modal-backdrop {
   --bs-backdrop-zindex: 0;
+}
+
+/* Media query for desktop screens */
+@media (min-width: 1024px) {
+  .collapse {
+    visibility: visible;
+  }
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+  .logoTitle {
+    font-size: 1rem;
+  }
+
+  .logoImg {
+    width: 1.25rem !important;
+  }
+
+  form .btn {
+    height: 30px !important;
+    padding: 0.5rem !important;
+  }
+
+  .darkmode {
+    width: 30px !important;
+    height: 30px;
+  }
+
+  .Navbar-Btn-Group {
+    margin-left: 1rem !important;
+  }
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  /* Hide off-screen */
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  /* Change according to your theme */
+  transition: left 0.3s ease;
+  z-index: 1000;
+  /* Ensure it is above other elements */
+}
+
+.sidebar.open {
+  left: 0;
+  /* Show sidebar */
+}
+
+.sidebar-links {
+  list-style: none;
+  padding: 20px;
+}
+
+.sidebar-links li {
+  margin: 15px 0;
+}
+
+.sidebar-links a {
+  text-decoration: none;
+  color: black !important;
+  /* Change according to your theme */
+  font-size: 18px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin: 15px;
+}
+
+.sidebar-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    display: none;
+    /* Hide on larger screens */
+  }
+
+  .sidebar-toggle {
+    display: none;
+    /* Hide toggle on larger screens */
+  }
+
+
+}
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  /* Hidden by default */
+  width: 250px;
+  height: 100%;
+  background-color: black;
+  color: white;
+  transition: right 0.3s ease;
+}
+
+.sidebar.open {
+  right: 0;
+  /* Slide in */
+  top: 11%;
+}
+
+.sidebar-links {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-links li {
+  padding: 1rem;
+}
+
+.sidebar-links li a {
+  color: white;
+  text-decoration: none;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.rnav {
+  display: flex;
 }

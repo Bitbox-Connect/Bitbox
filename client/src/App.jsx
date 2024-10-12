@@ -36,11 +36,20 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
   const hideNavbarRoutes = ['/login', '/signup'];
   const hideFooterRoutes = ['/login', '/signup'];
 
+
   return (
     <>
       {/* Conditionally render the Navbar */}
       {!hideNavbarRoutes.includes(location.pathname) && (
         <Navbar 
+        title="BITBOX"
+        home="Home"
+        about="About Us"
+        community="Community"
+        discussion="Discussion"
+        showAlert={showAlert}
+        mode={mode}
+        toggleMode={toggleMode}
         />
       )}
 
@@ -60,7 +69,7 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
 };
 
 function App() {
-  const [mode]= useAtom(modeAtom)
+  const [mode, setMode]= useAtom(modeAtom)
   const [alert, setAlert] = useState(null);
   const showAlert = (message, type) => {
     setAlert({ msg: message, type: type });
