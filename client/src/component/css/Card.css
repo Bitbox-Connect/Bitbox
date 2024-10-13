@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap');
+
+.comm-card {
+    outline: 2px solid blue;
+    color: #0000ff;
+}
+
+.comm-card h3,
+.comm-card p {
+    font-family: 'Exo 2', sans-serif;
+}
+
+.comm-card:hover {
+    background-color: blue;
+    transform: scale(1.02);
+    color: white;
+}
+
+.comm-card:hover>p {
+    color: white;
+}
