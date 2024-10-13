@@ -27,6 +27,7 @@ import { modeAtom } from './atom/Atom';
 import ForgotPassword from './component/forgotpass';
 import VerifyEmail from './component/Verify';
 import NotFound from './component/NotFound';
+import { useState, useEffect } from "react";
 // Main Layout Component
 const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
   const location = useLocation(); // Use location inside Router
