@@ -80,6 +80,7 @@ const Discussion = (props) => {
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
                 onSubmit={handleJoin}
+                mode={props.mode} 
             />
 
             <div className='discussion-container-section'>
