@@ -40,7 +40,7 @@ const Home = (props) => {
             {/* share grow and help section */}
             <section style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <div className="container my-5" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                    <h2 className='Heading-Page text-center mb-4'>Bitbox<span> Community Cornerstone</span></h2>
+                    <h2 className='Heading-Page text-center mb-4' >Bitbox<span style={{color: props.mode === 'dark' ? 'white' : 'black' }}> Community Cornerstone</span></h2>
                     <div className="row">
                         <div className="col-lg-6" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                             <img className="w-100 rounded-5" src={Grow} />
