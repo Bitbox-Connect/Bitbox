@@ -6,8 +6,6 @@ import ShareComponent from './Share';
 import Grow from '../assets/images/Grow.png'
 import glichBitboxGif from '../assets/images/Other Gifs/Bitbox Glitch.gif'
 import CardsPage from './HomePage/Card';
-import { useAtom } from 'jotai';
-import { modeAtom } from '../atom/Atom';
 import MiniChatbot from './MiniChatbot';
 
 const Home = (props) => {

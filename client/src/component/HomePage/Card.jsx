@@ -1,10 +1,8 @@
-import React from "react";
-import "../css/Card.css"
-
+ import PropTypes from "prop-types"; // Import PropTypes
+import "../css/Card.css";
 
 const CardsPage = (props) => {
   const { mode } = props;
- 
 
   // Array card information
   const cardData = [
@@ -38,13 +36,14 @@ const CardsPage = (props) => {
         <div className="flex items-center justify-center">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-12 pb-16">
             {cardData.map((card, index) => (
-              <div key={index}
+              <div
+                key={index}
                 className="py-16 px-5 rounded-2xl border-2 space-y-3 comm-card"
                 style={{
                   outline: mode === 'dark' ? '2px solid white' : '',
                 }}
-            >
-                <h3 className="font-semibold  text-[28px] text-center" style={{ color: mode === 'dark' ? 'white' : '' }}>{card.title}</h3>
+              >
+                <h3 className="font-semibold text-[28px] text-center" style={{ color: mode === 'dark' ? 'white' : '' }}>{card.title}</h3>
                 <p className="font-medium text-blue-main" style={{ color: mode === 'dark' ? 'white' : '' }}>{card.content}</p>
               </div>
             ))}
@@ -53,6 +52,11 @@ const CardsPage = (props) => {
       </section>
     </div>
   );
+};
+
+// Add PropTypes for props validation
+CardsPage.propTypes = {
+  mode: PropTypes.oneOf(['light', 'dark']).isRequired,
 };
 
 export default CardsPage;

@@ -1,7 +1,8 @@
-import React from 'react';
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Share from '../assets/images/Share.png';
+import PropTypes from 'prop-types'; // Import PropTypes
 
 const ShareComponent = (props) => {
   const handleShareClick = () => {
@@ -38,8 +39,8 @@ const ShareComponent = (props) => {
               Share
             </h1>
             <p className="lead" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
-              🌐 Join the vibrant Bitbox Opensource Community today! Whether you're a seasoned developer or just starting out, there's a place for you to collaborate,
-              innovate, and make a difference. Let's shape the future of digital exchange together! #BitboxCommunity #OpenSource 🚀💻
+              🌐 Join the vibrant Bitbox Opensource Community today! Whether you&apos;re a seasoned developer or just starting out, there&apos;s a place for you to collaborate,
+              innovate, and make a difference. Let&apos;s shape the future of digital exchange together! #BitboxCommunity #OpenSource 🚀💻
             </p>
             <button
               onClick={handleShareClick}
@@ -54,6 +55,10 @@ const ShareComponent = (props) => {
       <ToastContainer />
     </div>
   );
+};
+
+ShareComponent.propTypes = {
+  mode: PropTypes.string.isRequired, // Expecting 'mode' to be a string and required
 };
 
 export default ShareComponent;

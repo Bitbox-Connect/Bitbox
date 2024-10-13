@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types'; // Import PropTypes
 import './App.css';
 import './index.css';
 import LoadingBar from 'react-top-loading-bar';
@@ -28,7 +29,6 @@ import { modeAtom } from './atom/Atom';
 import ForgotPassword from './component/forgotpass';
 import VerifyEmail from './component/Verify';
 import NotFound from './component/NotFound';
-import React, { useState, useEffect } from 'react';
 
 // Main Layout Component
 const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
@@ -38,20 +38,19 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
   const hideNavbarRoutes = ['/login', '/signup'];
   const hideFooterRoutes = ['/login', '/signup'];
 
-
   return (
     <>
       {/* Conditionally render the Navbar */}
       {!hideNavbarRoutes.includes(location.pathname) && (
         <Navbar
-        title="BITBOX"
-        home="Home"
-        about="About Us"
-        community="Community"
-        discussion="Discussion"
-        showAlert={showAlert}
-        mode={mode}
-        toggleMode={toggleMode}
+          title="BITBOX"
+          home="Home"
+          about="About Us"
+          community="Community"
+          discussion="Discussion"
+          showAlert={showAlert}
+          mode={mode}
+          toggleMode={toggleMode}
         />
       )}
 
@@ -61,7 +60,7 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
       {/* Conditionally render the Footer */}
       {!hideFooterRoutes.includes(location.pathname) && (
         <Footer
-          mode={mode}
+          mode={mode} 
           setProgress={setProgress}
           setAlert={showAlert}
         />
@@ -70,8 +69,17 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
   );
 };
 
+// Add PropTypes for props validation
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+  mode: PropTypes.string.isRequired,
+  setProgress: PropTypes.func.isRequired,
+  toggleMode: PropTypes.func.isRequired,
+  showAlert: PropTypes.func.isRequired,
+};
+
 function App() {
-  const [mode, setMode]= useAtom(modeAtom)
+  const [mode, setMode] = useAtom(modeAtom);
   const [alert, setAlert] = useState(null);
   const showAlert = (message, type) => {
     setAlert({ msg: message, type: type });
@@ -79,7 +87,6 @@ function App() {
       setAlert(null);
     }, 1500);
   };
-
 
   const [progress, setProgress] = useState(0);
 
@@ -134,11 +141,10 @@ function App() {
                 <Route exact path="/contactus" element={<ContactUs mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/privacypolicy" element={<PrivacyPolicy mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/termofuse" element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path="/verify/:token" element={<VerifyEmail/>} />
+                <Route exact path="/verify/:token" element={<VerifyEmail />} />
                 {/* 404 Route */}
-                <Route exact path="*" element={<NotFound/>} />
+                <Route exact path="*" element={<NotFound />} />
               </Routes>
-
             </Layout>
           </Router>
         </ProfileState>

@@ -1,5 +1,4 @@
 import { useContext, useRef, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import projectContext from "../context/projectContext";
 import profileContext from "../context/profileContext";
 import CommunityCard from "./CommunityCard";
@@ -37,7 +36,6 @@ const Community = (props) => {
   const { globalProjects, getGlobalProjects } = context;
   const userProfileContext = useContext(profileContext);
   const { userProfile, getUserProfile } = userProfileContext;
-  const navigate = useNavigate();
   const [image, setImage] = useState();
 
   // Fetch projects on component mount
@@ -972,7 +970,7 @@ const Community = (props) => {
                         return (
                           <CommunityCard
                             showAlert={props.showAlert}
-                            mode={mode}
+                            mode={props.mode}
                             showDetailProject={showDetailProject}
                             key={project._id}
                             project={project}

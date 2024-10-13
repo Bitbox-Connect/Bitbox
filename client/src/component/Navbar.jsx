@@ -9,7 +9,7 @@ import avatarDropdown from "../assets/images/Dropdown/avatar.png";
 import { auth } from "../component/Firebase/Setup";
 
 function Navbar(props) {
-  const { title, home, about, community, discussion, showAlert, mode, toggleMode } = props;
+  const { title, home, about, community, discussion, showAlert, mode, toggleMode } = props;  // eslint-disable-line no-unused-vars
   const host = "http://localhost:5000";
   const navigate = useNavigate();
   const location = useLocation();
@@ -238,7 +238,7 @@ function Navbar(props) {
                         role="button"
                         to="/login"
                         className="btn loginbtn mx-2  h-10 "
-                        style={{ height: "45px", color: "black" }}
+                        style={{ height: "45px",  color: props.mode === "dark" ? "white" : "black", }}
                       >
                         Login
                       </Link>
@@ -246,7 +246,7 @@ function Navbar(props) {
                         role="button"
                         to="/signup"
                         className="btn loginbtn mx-2  h-10 "
-                        style={{ height: "45px", color: "black" }}
+                        style={{ height: "45px",  color: props.mode === "dark" ? "white" : "black", }} /*Fixed this for light mode */
                       >
                         Signup
                       </Link>

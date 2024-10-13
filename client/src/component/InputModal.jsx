@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import PropTypes from 'prop-types'; // Import PropTypes
 
-const InputModal = ({ isOpen, onClose, onSubmit }) => {
+const InputModal = ({ isOpen, onClose, onSubmit, mode }) => {
+
   const [name, setName] = useState('');
   const [modalMessage, setModalMessage] = useState('');
 
@@ -29,13 +31,19 @@ const InputModal = ({ isOpen, onClose, onSubmit }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div className="bg-white rounded-lg shadow-lg p-8 w-[24rem] h-auto ">
-        <h2 className="text-lg font-semibold mb-4 text-center">Enter your name to join:</h2>
+        <h2 className="text-lg font-semibold mb-4 text-center"
+         style={{ /*fixed the dark mode | light mode issue */
+          color: mode === "dark" ? "white" : "black",
+        }}>Enter your name to join:</h2>
         <input
           type="text"
           value={name}
           onChange={(e) => {
             setName(e.target.value);
             setModalMessage(''); // Clear error message on input change
+          }}
+          style={{
+            color: mode === "dark" ? "white" : "black",
           }}
           onKeyDown={handleKeyDown} // Allow Enter key to submit
           placeholder="Enter your name"
@@ -53,6 +61,13 @@ const InputModal = ({ isOpen, onClose, onSubmit }) => {
       </div>
     </div>
   );
+};
+
+InputModal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  mode: PropTypes.string.isRequired,
 };
 
 export default InputModal;
