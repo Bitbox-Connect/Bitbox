@@ -27,10 +27,12 @@ import { modeAtom } from './atom/Atom';
 import ForgotPassword from './component/forgotpass';
 import VerifyEmail from './component/Verify';
 import NotFound from './component/NotFound';
+import React, { useState, useEffect } from 'react';
+
 // Main Layout Component
 const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
   const location = useLocation(); // Use location inside Router
-  
+
   // Define routes where the footer or navbar should not be shown
   const hideNavbarRoutes = ['/login', '/signup'];
   const hideFooterRoutes = ['/login', '/signup'];
@@ -40,7 +42,7 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
     <>
       {/* Conditionally render the Navbar */}
       {!hideNavbarRoutes.includes(location.pathname) && (
-        <Navbar 
+        <Navbar
         title="BITBOX"
         home="Home"
         about="About Us"
@@ -57,10 +59,10 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
 
       {/* Conditionally render the Footer */}
       {!hideFooterRoutes.includes(location.pathname) && (
-        <Footer 
-          mode={mode} 
-          setProgress={setProgress} 
-          setAlert={showAlert} 
+        <Footer
+          mode={mode}
+          setProgress={setProgress}
+          setAlert={showAlert}
         />
       )}
     </>
@@ -77,7 +79,7 @@ function App() {
     }, 1500);
   };
 
-  
+
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -133,9 +135,9 @@ function App() {
                 <Route exact path="/termofuse" element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/verify/:token" element={<VerifyEmail/>} />
                 {/* 404 Route */}
-                <Route exact path="*" element={<NotFound/>} /> 
+                <Route exact path="*" element={<NotFound/>} />
               </Routes>
-                
+
             </Layout>
           </Router>
         </ProfileState>
