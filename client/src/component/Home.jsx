@@ -90,50 +90,53 @@ const Home = (props) => {
                 </div>
             </div>
 
-            {/* Works Section */}
-            <div className="work-Sec mb-2" style={{ background: props.mode === '' ? 'black' : '', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                <h2 className='Heading-Page text-center mb-3 mt-5' style={{ color: props.mode === 'dark' ? 'white' : '' }}>What We Works</h2>
-                <div className="work-row1 my-1">
-                    <div className="work-cont1" style={{ color: props.mode === '' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
-                        <h3 className='text'>Community Collaboration</h3>
-                        <div className="work-box1">
-                            <div style={{ color: props.mode === '' ? 'white' : '' }}>Engage with a diverse community of developers, designers, and enthusiasts passionate about creating impactful software.</div>
-                        </div>
-                    </div>
-                    <div className="work-cont2" style={{ color: props.mode === '' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
-                        <h3 className='text'>Transparency and Accessibility</h3>
-                        <div className="work-box2">
-                            <div style={{ color: props.mode === '' ? 'white' : '' }}> Access and contribute to projects with full transparency, ensuring that everyone can benefit from shared knowledge and resources.</div>
-                        </div>
-                    </div>
-                    <div className="work-cont3" style={{ color: props.mode === '' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
-                        <h3 className='text'>Innovation and Creativity</h3>
-                        <div className="work-box3">
-                            <div style={{ color: props.mode === '' ? 'white' : '' }}>Explore endless possibilities for innovation by harnessing the collective creativity of a global network of contributors.</div>
-                        </div>
-                    </div>
-                </div>
-                <div className="work-row2" style={{ marginBottom: "2rem" }}>
-                    <div className="work-cont1" style={{ color: props.mode === '' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
-                        <h3 className='text'>Flexibility and Customization</h3>
-                        <div className="work-box1">
-                            <div style={{ color: props.mode === '' ? 'white' : '' }}>Customize and adapt open source projects to suit your specific needs, empowering you to build solutions tailored to your requirements.</div>
-                        </div>
-                    </div>
-                    <div className="work-cont2" style={{ color: props.mode === '' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
-                        <h3 className='text'>Learning and Skill Development</h3>
-                        <div className="work-box2">
-                            <div style={{ color: props.mode === '' ? 'white' : '' }}> Accelerate your learning and skill development through hands-on collaboration, mentorship, and continuous feedback within the open source community.</div>
-                        </div>
-                    </div>
-                    <div className="work-cont3" style={{ color: props.mode === '' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}>
-                        <h3 className='text'>Global Impact</h3>
-                        <div className="work-box3">
-                            <div style={{ color: props.mode === '' ? 'white' : '' }}>Make a meaningful impact on a global scale by contributing to projects that address real-world challenges and improve the lives of people everywhere.</div>
-                        </div>
-                    </div>
-                </div>
+           {/* Works Section */}
+<div className="work-Sec mb-2" style={{ background: props.mode === 'dark' ? 'black' : '#f7f7f7', color: props.mode === 'dark' ? 'white' : 'black' }}>
+<h2 className='work-heading' style={{ textAlign: 'center', marginBottom: '1rem', fontWeight: 'bold', textTransform: 'uppercase' }}>
+        What We Work On
+    </h2>
+    <div className="work-row1 my-1">
+        <div className="work-cont1">
+            <h3 className='text hover-text'>Community Collaboration</h3>
+            <div className="work-description">
+                Engage with a diverse community of developers, designers, and enthusiasts passionate about creating impactful software.
             </div>
+        </div>
+        <div className="work-cont2">
+            <h3 className='text hover-text'>Transparency and Accessibility</h3>
+            <div className="work-description">
+                Access and contribute to projects with full transparency, ensuring that everyone can benefit from shared knowledge and resources.
+            </div>
+        </div>
+        <div className="work-cont3">
+            <h3 className='text hover-text'>Innovation and Creativity</h3>
+            <div className="work-description">
+                Explore endless possibilities for innovation by harnessing the collective creativity of a global network of contributors.
+            </div>
+        </div>
+    </div>
+    <div className="work-row2" style={{ marginBottom: "2rem" }}>
+        <div className="work-cont1">
+            <h3 className='text hover-text'>Flexibility and Customization</h3>
+            <div className="work-description">
+                Customize and adapt open-source projects to suit your specific needs, empowering you to build solutions tailored to your requirements.
+            </div>
+        </div>
+        <div className="work-cont2">
+            <h3 className='text hover-text'>Learning and Skill Development</h3>
+            <div className="work-description">
+                Accelerate your learning and skill development through hands-on collaboration, mentorship, and continuous feedback within the open-source community.
+            </div>
+        </div>
+        <div className="work-cont3">
+            <h3 className='text hover-text'>Global Impact</h3>
+            <div className="work-description">
+                Make a meaningful impact on a global scale by contributing to projects that address real-world challenges and improve the lives of people everywhere.
+            </div>
+        </div>
+    </div>
+</div>
+
 
             {/* Technology Section */}
             <div className='Technology-Sec' style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>

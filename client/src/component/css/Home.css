@@ -204,7 +204,7 @@ h3 {
     width: 90vw;
 }
 
-/* work Section */
+/* Work Section */
 .work-Sec {
     min-height: 100vh;
     width: 100vw;
@@ -234,6 +234,8 @@ h3 {
 .work-cont3 h3 {
     text-align: center;
     width: max-content;
+    color: blue; /* Set default color to blue */
+    font-size:1.5rem;
 }
 
 .work-cont1,
@@ -246,19 +248,59 @@ h3 {
     height: 47.5vh;
     padding: 20px;
     width: 30vw;
-    color: blue;
     outline: 2px solid blue;
     text-align: center;
     border-radius: 1rem;
     transition: all 0.2s ease-in-out;
+    color: blue; /* Set default color to blue */
 }
 
+/* Change background and text color on hover */
 .work-cont1:hover,
 .work-cont2:hover,
 .work-cont3:hover {
-    background-color: blue;
-    scale: 1.02;
-    color: white;
+    background-color: blue; /* Background color on hover */
+    scale: 1.02; /* Slightly enlarge the container */
+}
+
+/* Change text color on hover */
+.work-cont1:hover h3,
+.work-cont2:hover h3,
+.work-cont3:hover h3 {
+    color: white; 
+  /* Change text color to white on hover */
+}
+
+/* Hover text class */
+.hover-text {
+    color: blue; /* Default text color */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition effect */
+    padding: 5px; /* Optional: add some padding for better spacing */
+    border-radius: 5px; /* Optional: add rounded corners */
+}
+
+.hover-text:hover {
+    background-color: blue; /* Background color on hover */
+    color: white; /* Text color on hover */
+}
+.work-description {
+    color: blue; /* Default text color */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+/* Change text color on hover */
+.work-cont1:hover .work-description,
+.work-cont2:hover .work-description,
+.work-cont3:hover .work-description {
+    color: white; /* Change text color to white on hover */
+}
+.work-Sec h2 {
+    color: blue; /* Heading color */
+    font-size: 4rem; /* Increase the font size as needed */
+    margin-bottom: 1rem; /* Adjust the spacing below the heading */
+    text-align: center; /* Center the heading text */
+    font-weight: bold; /* Ensure the text is bold */
+    text-transform: uppercase; /* Make the text uppercase */
 }
 
 /* Technology Section */
@@ -276,6 +318,7 @@ h3 {
     height: 100%;
     overflow: hidden;
 }
+
 
 .Technology-Container .content::before {
     content: "";
