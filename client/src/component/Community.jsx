@@ -96,7 +96,7 @@ const Community = (props) => {
       <div className="user-profile-dashboard">
         <div className="user-details">
           <div
-            className="globalproject-left"
+            className="globalproject-left mt-[6rem]"
             style={{
               background: props.mode === "dark" ? "black" : "white",
               color: props.mode === "dark" ? "white" : "black",
@@ -977,7 +977,7 @@ const Community = (props) => {
                           />
                         );
                       })}
-                      {/* <div className="container community-prev-next d-flex justify-content-between">
+                      {/* <div className="container community-prev-next flex justify-content-between">
                       <button type='button' className='btn btn-dark' onClick={handlePrevClick}>&larr; Previous</button>
                       <button type='button' className='btn btn-dark' onClick={handleNextClick}>Next &larr;</button>
                     </div> */}

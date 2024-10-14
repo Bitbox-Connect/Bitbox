@@ -1,0 +1,48 @@
+name: Bitbox Feature Request ✨
+description: Suggest a new feature or improvement for the Bitbox project
+title: "[Feature Request]: "
+labels: enhancement
+body:
+  - type: checkboxes
+    id: existing-request
+    attributes:
+      label: Is there an existing feature request for this?
+      description: Please search the issue tracker to see if this feature has already been requested.
+      options:
+        - label: I have searched the existing feature requests
+          required: true
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Describe the feature you would like to request
+      description: Provide a clear and detailed explanation of the feature or enhancement you have in mind.
+      placeholder: Explain the feature and its potential benefits.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this feature solve?
+      description: Explain the problem that this feature would address. Why do you think this feature is necessary?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative solutions
+      description: Are there any alternative solutions or features you’ve considered? If so, describe them.
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirmation
+      options:
+        - label: "I have read the Bitbox Contributing Guidelines"
+          required: true
+        - label: "I am a GSSOC-EXT contributor"
+          required: false
+        - label: "I am a HACKTOBERFEST contributor"
+          required: false
+        - label: "I have starred the Bitbox repository"
+          required: true
+        - label: "I would like to help implement this feature"
+          required: false
