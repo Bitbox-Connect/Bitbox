@@ -31,8 +31,7 @@ export default function About(props) {
 
   return (
     <div>
-      {/* About Hero Section */}
-      <div className="about-content">
+      <div className="about-content container h-[100vh] px-[2rem] mt-[10vh]">
         <section className="about-main-section">
           <div className="about-content-left">
             <h2 className="Heading-Page">About Us</h2>
@@ -90,7 +89,7 @@ export default function About(props) {
 
       {/* Team Section */}
       <div className="Team-Sec">
-        <div className="team-container">
+        <div className="px-[2.5rem] m-0 text-center">
           <div className="team-content">
             <h2 className="Heading-Page">
               Our Team
@@ -99,7 +98,7 @@ export default function About(props) {
               {/* card 1 */}
               <div className="team-card">
                 <div className="team-text" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
-                  Anuj Verma is a tech-savvy person who loves working with AI and building websites. He's gained experience through internships and projects, showing that he's ready to do great things in the tech world.
+                  Anuj Verma is a tech-savvy person who loves working with AI and building websites. He&apos;s gained experience through internships and projects, showing that he&apos;s ready to do great things in the tech world.
                 </div>
                 <div className="team-avatar">
                   <img src={img1} />
@@ -124,7 +123,7 @@ export default function About(props) {
               {/* card 2 */}
               <div className="team-card">
                 <div className="team-text" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
-                Jitendra Kumar: Tech enthusiast skilled in web development and database management, showcasing expertise in projects like weather app and algorithm analyzer, poised for impactful contributions in the tech industry.
+                  Jitendra Kumar: Tech enthusiast skilled in web development and database management, showcasing expertise in projects like weather app and algorithm analyzer, poised for impactful contributions in the tech industry.
                 </div>
                 <div className="team-avatar">
                   <img src={img2} />

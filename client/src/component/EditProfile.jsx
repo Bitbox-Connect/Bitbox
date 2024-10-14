@@ -105,7 +105,7 @@ const EditProfile = (props) => {
                                     <label htmlFor="phone" className="form-label">Phone Number</label>
                                     <input autoFocus type="text" className="form-control" placeholder="Enter your phone number" id="phone" name='phone' value={profile.phone} onChange={onChange} required onKeyDown={handleKeyDown} />
                                 </div>
-                                <div className='d-flex justify-content-center'>
+                                <div className='flex justify-content-center'>
                                     <Button variant="primary" style={{ width: "100%" }} onClick={handleClick}>Update Profile</Button>
                                 </div>
                             </div>

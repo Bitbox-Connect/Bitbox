@@ -21,7 +21,6 @@
 }
 
 @keyframes slideFromLeft {
-
   0% {
     opacity: 0;
     transform: translateX(-100%);
@@ -444,12 +443,6 @@ h2 {
 }
 
 /* Our Team */
-.team-container {
-  padding: 2.5rem;
-  margin: 0 auto;
-  max-width: 100%;
-  text-align: center;
-}
 
 .team-content {
   display: flex;

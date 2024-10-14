@@ -1,7 +1,7 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import {useState, useEffect} from 'react';
 import './App.css';
 import './index.css';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import PropTypes from "prop-types";
 import LoadingBar from 'react-top-loading-bar';
 import About from './component/About';
 import Alert from './component/Alert';
@@ -28,9 +28,11 @@ import { modeAtom } from './atom/Atom';
 import ForgotPassword from './component/forgotpass';
 import VerifyEmail from './component/Verify';
 import NotFound from './component/NotFound';
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import MiniChatbot from './component/MiniChatbot';
 
 // Main Layout Component
+
 const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
   const location = useLocation(); // Use location inside Router
 
@@ -38,20 +40,19 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
   const hideNavbarRoutes = ['/login', '/signup'];
   const hideFooterRoutes = ['/login', '/signup'];
 
-
   return (
     <>
       {/* Conditionally render the Navbar */}
       {!hideNavbarRoutes.includes(location.pathname) && (
         <Navbar
-        title="BITBOX"
-        home="Home"
-        about="About Us"
-        community="Community"
-        discussion="Discussion"
-        showAlert={showAlert}
-        mode={mode}
-        toggleMode={toggleMode}
+          title="BITBOX"
+          home="Home"
+          about="About Us"
+          community="Community"
+          discussion="Discussion"
+          showAlert={showAlert}
+          mode={mode}
+          toggleMode={toggleMode}
         />
       )}
 
@@ -71,7 +72,7 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
 };
 
 function App() {
-  const [mode, setMode]= useAtom(modeAtom)
+  const [mode, setMode] = useAtom(modeAtom)
   const [alert, setAlert] = useState(null);
   const showAlert = (message, type) => {
     setAlert({ msg: message, type: type });
@@ -115,6 +116,7 @@ function App() {
               <Alert alert={alert} />
             </div>
             <ScrollTop />
+            <MiniChatbot />
 
             {/* Wrap everything inside the Layout component */}
             <Layout mode={mode} setProgress={setProgress} toggleMode={toggleMode} showAlert={showAlert}>
@@ -134,9 +136,9 @@ function App() {
                 <Route exact path="/contactus" element={<ContactUs mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/privacypolicy" element={<PrivacyPolicy mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/termofuse" element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path="/verify/:token" element={<VerifyEmail/>} />
+                <Route exact path="/verify/:token" element={<VerifyEmail />} />
                 {/* 404 Route */}
-                <Route exact path="*" element={<NotFound/>} />
+                <Route exact path="*" element={<NotFound />} />
               </Routes>
 
             </Layout>
@@ -147,4 +149,29 @@ function App() {
   );
 }
 
+// Props Validation
+App.propTypes = {
+  children: PropTypes.string,
+  mode: PropTypes.string,
+  setProgress: PropTypes.string,
+  toggleMode: PropTypes.func,
+  showAlert: PropTypes.func,
+  myProjects: PropTypes.string,
+  about: PropTypes.string,
+  isAuthenticated: PropTypes.bool,
+};
+
+// Props Validation
+Layout.propTypes = {
+  children: PropTypes.node, // Allows children to be any renderable React node, including JSX
+  mode: PropTypes.string,
+  setProgress: PropTypes.func, // Should be a function
+  toggleMode: PropTypes.func,
+  showAlert: PropTypes.func,
+  myProjects: PropTypes.string,
+  about: PropTypes.string,
+  isAuthenticated: PropTypes.bool,
+};
+
 export default App;
+
