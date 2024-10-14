@@ -1,8 +1,10 @@
+
 const mongoose = require('mongoose');
 require('dotenv').config(); // Load environment variables from .env file
 
 // MongoDB URI
 let mongoURI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/Bitbox"; // Use environment variable if available
+
 
 const connectToMongo = async () => {
     try {

@@ -10,6 +10,10 @@
     box-sizing: border-box;
 }
 
+body{
+    overflow-x: hidden;
+}
+
 :root {
     --primary-color: #6366F1;
     --accent-color: #3f83f8;
