@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import './index.css';
+import { useEffect, useState } from "react";
 import LoadingBar from 'react-top-loading-bar';
 import About from './component/About';
 import Alert from './component/Alert';
@@ -27,7 +28,7 @@ import { modeAtom } from './atom/Atom';
 import ForgotPassword from './component/forgotpass';
 import VerifyEmail from './component/Verify';
 import NotFound from './component/NotFound';
-import { useState, useEffect } from "react";
+
 // Main Layout Component
 const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
   const location = useLocation(); // Use location inside Router
