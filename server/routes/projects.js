@@ -13,7 +13,9 @@ router.get('/fetchallglobalprojects',fetchallglobalprojects);
 router.get('/fetchalluserprojects', fetchuser,fetchalluserprojects);
 
 // ROUTE 3 : Add a New Project : POST: "/api/projects/addproject". Login required
-router.post('/addproject', fetchuser,addproject)
+router.post('/addproject', fetchuser, [
+    body('title', 'Title is required').not().isEmpty(),
+], addproject);
 
 // ROUTE 4 : Update an Existing Project : PUT: "/api/projects/updateproject". Login required
 router.put('/updateproject/:id', fetchuser, updateproject);

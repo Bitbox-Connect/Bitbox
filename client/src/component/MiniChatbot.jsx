@@ -1,5 +1,7 @@
 // components/MiniChatbot.jsx
-import React, { useState } from 'react';
+
+import { useState } from 'react';
+import PropTypes from "prop-types";
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 const MiniChatbot = () => {
@@ -45,7 +47,7 @@ const MiniChatbot = () => {
   };
 
   return (
-    <div style={{ position: 'fixed', bottom: '20px', right: '20px', zIndex: 1000 }}>
+    <div style={{ position: 'fixed', bottom: '80px', right: '30px', zIndex: 1000 }}>
       <button
         onClick={toggleChatbot}
         style={{
@@ -90,7 +92,7 @@ const MiniChatbot = () => {
                   alignSelf: message.sender === 'user' ? 'flex-end' : 'flex-start',
                   backgroundColor: message.sender === 'user' ? '#e1ffc7' : '#f1f1f1',
                   borderRadius: '8px',
-                  color:'black',
+                  color: 'black',
                   padding: '8px 12px',
                   maxWidth: '80%',
                   wordWrap: 'break-word'
@@ -111,7 +113,7 @@ const MiniChatbot = () => {
                 padding: '8px',
                 borderRadius: '4px',
                 border: '1px solid #ddd',
-                color:'black'
+                color: 'black'
               }}
               onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
             />
@@ -134,6 +136,15 @@ const MiniChatbot = () => {
       )}
     </div>
   );
+};
+
+// Props Validation
+MiniChatbot.propTypes = {
+  children: PropTypes.string,
+  mode: PropTypes.string,
+  setProgress: PropTypes.string,
+  toggleMode: PropTypes.string,
+  showAlert: PropTypes.string,
 };
 
 export default MiniChatbot;

@@ -1,11 +1,6 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 const CardsPage = (props) => {
-  const { mode } = props;
-  const backgroundStyle = {
-    background: mode === "dark" ? "black" : "#f7f7f7",
-    color: mode === "dark" ? "white" : "black",
-  };
 
   // Array card information
   const cardData = [
@@ -28,11 +23,11 @@ const CardsPage = (props) => {
   ];
 
   return (
-    <div className="flex items-center justify-center" style={backgroundStyle}>
+    <div className="Community-Blocks flex items-center justify-center" style={{ background: props.mode === 'dark' ? 'black' : '', color: props.mode === 'dark' ? 'white' : 'black' }}>
       <section className="max-sm:px-2.5 max-xl:px-5 max-w-7xl">
         <h2
           className="font-bold text-blue-main text-4xl md:text-5xl lg:text-[3.5rem] pt-16"
-          style={{ color: mode === "dark" ? "white" : "" }}
+          style={{ color: props.mode === "dark" ? "white" : "" }}
         >
           Be a part of Bitbox Community
         </h2>
@@ -49,6 +44,10 @@ const CardsPage = (props) => {
       </section>
     </div>
   );
+};
+
+CardsPage.propTypes = {
+  mode: PropTypes.string,
 };
 
 export default CardsPage;

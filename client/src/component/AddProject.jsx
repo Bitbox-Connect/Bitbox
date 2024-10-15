@@ -86,14 +86,14 @@ function AddProject(props) {
                                 <div className="card-body">
                                     {/* <div className="mb-3">
                                         <label htmlFor="title" className="form-label">Upload Image</label>
-                                        <div className='d-flex justify-content-center'>
+                                        <div className='flex justify-content-center'>
                                             <img
                                                 src={projectDummyImage}
                                                 className="avatar w-100"
                                                 alt="project"
                                             />
                                         </div>
-                                        <div className='d-flex justify-content-around align-items-center mt-2'>
+                                        <div className='flex justify-content-around align-items-center mt-2'>
                                             <input type="file" className="form-control" style={{ width: "80%" }} />
                                             <button className='btn btn-secondary h-50'>Upload</button>
                                         </div>

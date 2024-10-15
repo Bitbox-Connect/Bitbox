@@ -6,15 +6,19 @@ const ProfileSchema = new Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user',
+        required: true
     },
     image: {
         image: String,
     },
     name: {
         type: String,
+        required: true
     },
     email: {
         type: String,
+        required: true,
+        unique: true,
     },
     address: {
         type: String,
@@ -33,7 +37,8 @@ const ProfileSchema = new Schema({
     },
     password: {
         type: String,
+        required: true,
     },
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model('profile', ProfileSchema);

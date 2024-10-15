@@ -82,6 +82,7 @@ const Discussion = (props) => {
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
                 onSubmit={handleJoin}
+                mode={props.mode} 
             />
             <div className='discussion-container-section'>
                 <div className="discussion-container" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
@@ -92,8 +93,7 @@ const Discussion = (props) => {
                 </div>
                 <div className="discussion-send">
                     <form id="discussion-send-container" onSubmit={handleSubmit}>
-                        <input
-                            style={{ color: props.mode === 'dark' ? 'white' : 'black' }}
+                        <input style={{ color: props.mode === 'dark' ? 'black' : '' }}
                             type="text"
                             name="messageInput"
                             id="messageInp"

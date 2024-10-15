@@ -14,7 +14,6 @@
   /* Avoid conflicts with other layouts */
 }
 
-
 .header {
   max-width: 1200px;
   margin: 0 auto;
@@ -268,11 +267,6 @@
 
 }
 
-.button:hover {
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-
-
 /* .......................... */
 
 .title-wrapper {
@@ -369,10 +363,6 @@
     font-size: 1rem;
   }
 
-  .logoImg {
-    width: 1.25rem !important;
-  }
-
   form .btn {
     height: 30px !important;
     padding: 0.5rem !important;
@@ -386,20 +376,6 @@
   .Navbar-Btn-Group {
     margin-left: 1rem !important;
   }
-}
-
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: -250px;
-  /* Hide off-screen */
-  width: 250px;
-  height: 100%;
-  background-color: white;
-  /* Change according to your theme */
-  transition: left 0.3s ease;
-  z-index: 1000;
-  /* Ensure it is above other elements */
 }
 
 .sidebar.open {
@@ -453,8 +429,6 @@
     display: none;
     /* Hide toggle on larger screens */
   }
-
-
 }
 
 /* Navbar styles */
@@ -467,19 +441,17 @@
 .sidebar {
   position: fixed;
   top: 0;
+  left: -250px;
   right: -300px;
-  /* Hidden by default */
   width: 250px;
   height: 100%;
-  background-color: black;
-  color: white;
-  transition: right 0.3s ease;
+  background-color: white;
+  z-index: 1000;
 }
 
 .sidebar.open {
   right: 0;
-  /* Slide in */
-  top: 11%;
+  top: 15%;
 }
 
 .sidebar-links {

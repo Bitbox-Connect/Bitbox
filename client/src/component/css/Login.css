@@ -2,8 +2,8 @@
     margin: 0;
     padding: 0;
     font-family: arial;
-    color: #fff;
 }
+
 body{
     width: 100vw;
     /* height: 100vh; */
@@ -15,7 +15,6 @@ body{
 ::-webkit-input-placeholder{
     color: #eee;
 }
-
 
 .wrapper{
     position: relative;
@@ -50,7 +49,7 @@ body{
     border-bottom: 2px solid #eee;
 }
 .input{
-    color: black;
+    color:"#000000";
     border: none;
     outline: none;
     background: none;
@@ -58,6 +57,12 @@ body{
     margin-top: 25px;
     padding-right: 10px;
     font-size: 17px;
+}
+
+/*Changed this for dark-mode input toggle (by anothercoder-nik)*/
+.dark-mode .input {
+    color: #ffffff; /* White text for dark mode */
+    background: #000000; /* Black background for dark mode */
 }
 .submit{
     border: none;
