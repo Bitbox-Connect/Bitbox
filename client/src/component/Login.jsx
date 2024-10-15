@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Modal, Input, Button, Typography, Row, Col } from "antd";
+import { Modal, Input, Button, Typography } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "./css/Login.css"; // Ensure you have appropriate CSS for layout
 
@@ -25,22 +25,25 @@ const Login = (props) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          email: credentials.email,
-          password: credentials.password,
-        }),
+        body: JSON.stringify(credentials), // Send credentials directly
       });
 
       const json = await response.json();
 
-    if (json.success) {
-      localStorage.setItem("token", json.authtoken);
-      props.showAlert("Logged in Successfully", "success");
-      navigate("/");
-    } else {
-      props.showAlert("Invalid Credentials", "danger");
+      if (response.ok) { // Check if response is okay
+        localStorage.setItem("token", json.authtoken);
+        props.showAlert("Logged in Successfully", "success");
+        setCredentials({ email: "", password: "" }); // Clear credentials
+        navigate("/");
+      } else {
+        props.showAlert(json.message || "Invalid Credentials", "danger");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      props.showAlert("An error occurred. Please try again later.", "danger");
     }
   };
+
   const handleForgotPassword = async () => {
     try {
       const response = await fetch(`${host}/api/auth/ResetByEmail`, {
@@ -51,18 +54,16 @@ const Login = (props) => {
         body: JSON.stringify({ email: forgotEmail }), // Send email as the request body
       });
 
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-
       const data = await response.json();
       if (response.ok) {
         alert(data.message || "Reset email sent successfully!");
         setForgotPasswordModalVisible(false);
-        setForgotEmail(" ");
+        setForgotEmail(""); // Clear the email field
+      } else {
+        props.showAlert(data.message || "Failed to send reset email", "danger");
       }
     } catch (error) {
-      console.error("Error during login:", error);
+      console.error("Error during password reset:", error);
       props.showAlert("An error occurred. Please try again later.", "danger");
     }
   };
@@ -84,12 +85,9 @@ const Login = (props) => {
             name="email"
             value={credentials.email}
             onChange={onChange}
-            id="email"
-            name="email"
             aria-describedby="emailHelp"
             autoComplete="on"
           />
-          <i className="fa-solid fa-user"></i>
         </div>
         <div className="inp">
           <Input
@@ -99,12 +97,10 @@ const Login = (props) => {
             name="password"
             value={credentials.password}
             onChange={onChange}
-            name="password"
             autoComplete="on"
           />
-          <i className="fa-solid fa-lock"></i>
         </div>
-        <Button className="submit" type="submit" onChange={onChange}>
+        <Button className="submit" type="submit">
           Login
         </Button>
         <p className="footer">
@@ -139,13 +135,9 @@ const Login = (props) => {
       <Modal
         title="Reset Password"
         visible={forgotPasswordModalVisible}
-        onOk={() => {
-          // Implement reset password logic here
-          setForgotPasswordModalVisible(false);
-        }}
+        onOk={handleForgotPassword} // Call handleForgotPassword on submit
         onCancel={() => setForgotPasswordModalVisible(false)}
         okText="Submit"
-        className=""
         okButtonProps={{
           style: { backgroundColor: "#6366f1", color: "#000" },
         }}
@@ -166,12 +158,12 @@ const Login = (props) => {
           />
         </div>
       </Modal>
-    </Row>
+    </div>
   );
 };
 
 Login.propTypes = {
-  showAlert: PropTypes.func,
+  showAlert: PropTypes.func.isRequired,
 };
 
 export default Login;
