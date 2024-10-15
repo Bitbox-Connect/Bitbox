@@ -63,6 +63,41 @@ p {
 .footer-container a:hover {
     color: #0d0d0e;
 }
+/* Icon styles */
+.footer-container .social a {
+    color: #0a0a0a; /* Default color for light mode */
+}
+
+.footer-container .social a:hover {
+    color: #0d0d0e; /* Hover color for light mode */
+}
+
+/* Dark mode styles */
+.footer-container.dark-mode .social a {
+    color: white; /* Icon color in dark mode */
+}
+
+.footer-container.dark-mode .social a:hover {
+    color: #cccccc; /* Lighter hover color in dark mode */
+}
+
+/* Specific icon color overrides */
+.footer-container.dark-mode .social a .FaLinkedin {
+    color: white; /* LinkedIn icon color in dark mode */
+}
+
+.footer-container.dark-mode .social a .FaTwitter {
+    color: white; /* Twitter icon color in dark mode */
+}
+
+.footer-container.dark-mode .social a .FaGithub {
+    color: white; /* GitHub icon color in dark mode */
+}
+
+.footer-container.dark-mode .social a .FaYoutube {
+    color: white; /* YouTube icon color in dark mode */
+}
+
 
 ul {
     list-style-type: none;
