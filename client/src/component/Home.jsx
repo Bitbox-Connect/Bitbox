@@ -7,6 +7,7 @@ import Share from '../assets/images/Share.png';
 import glichBitboxGif from '../assets/images/Other Gifs/Bitbox Glitch.gif'
 import CardsPage from './HomePage/Card';
 
+
 const Home = (props) => {
 
     return (
