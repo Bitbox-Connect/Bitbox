@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./css/Login.css";
 import { registerValidation } from "../validations/validation";
+import toast from "react-hot-toast";
 
 // import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 // import { auth } from '../component/Firebase/Setup';
@@ -46,9 +47,11 @@ const Signup = (props) => {
     if (json.success) {
       localStorage.setItem("token", json.authtoken);
       navigate("/"); // Redirect to home page after successful sign-up
+      toast.success("Account Created Successfully!");
       props.showAlert("Account Created Successfully", "success");
     } else {
       props.showAlert("Invalid Details", "danger");
+      toast.error("Account not created!");
     }
   };
 

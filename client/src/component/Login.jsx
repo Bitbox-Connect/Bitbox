@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Modal, Input, Button } from "antd";
 import "./css/Login.css";
+import toast from "react-hot-toast";
 
 const host = "http://localhost:5000";
 
@@ -31,9 +32,11 @@ const Login = (props) => {
     if (json.success) {
       localStorage.setItem("token", json.authtoken);
       props.showAlert("Logged in Successfully", "success");
+      toast.success("Login Successfully!");
       navigate("/");
     } else {
       props.showAlert("Invalid Credentials", "danger");
+      toast.error("Login failed!");
     }
   };
   const handleForgotPassword = async () => {
