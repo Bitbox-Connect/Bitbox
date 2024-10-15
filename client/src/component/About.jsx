@@ -31,7 +31,13 @@ export default function About(props) {
 
   return (
     <div>
-      <div className="about-content container h-[100vh] px-[2rem] mt-[10vh]">
+     <div
+      className="about-content container h-[100vh] px-[2rem] mt-[10vh]"
+      style={{
+        background: props.mode === "dark" ? "#121212" : "#ffffff",
+        color: props.mode === "dark" ? "white" : "black",
+      }}
+    >
         <section className="about-main-section">
           <div className="about-content-left">
             <h2 className="Heading-Page">About Us</h2>
