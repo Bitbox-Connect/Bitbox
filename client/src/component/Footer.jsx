@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './css/Footer.css';
-import { FaGithub, FaLinkedin, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaXTwitter } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa';
 // import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 import logo from '../assets/images/logo.png';
 function Footer(props) {
@@ -46,7 +47,7 @@ function Footer(props) {
             <h3 className='fw-bold fs-2'>Follow us on</h3>
             <ul>
               <li><a href="https://www.linkedin.com/in/bit-box-community" target='blank'><FaLinkedin color="#0077b5" fontSize="2rem" />Linkedin</a></li>
-              <li><a href="https://twitter.com/BITBOX688152" target='_blank-1'><FaTwitter color="#1da1f2" fontSize="2rem" />Twitter</a></li>
+              <li><a href="https://twitter.com/BITBOX688152" target='_blank-1'><FaXTwitter color="#1da1f2" fontSize="2rem" />Twitter</a></li>
               <li><a href="https://github.com/bitboxcommunity" target='_blank-2'><FaGithub color="#211F1F" fontSize="2rem" />GitHub</a></li>
               {/* <li><a href="https://www.facebook.com/bit-box-community" target='blank-3'><FaFacebookSquare color="#3b5998" fontSize="2rem" />Facebook</a></li> */}
               <li><a href="https://www.youtube.com/channel/UCXUTdcw27jaH_go9iyUjJnA" target='_blank-3'><FaYoutube color="red" fontSize="2rem" />Youtube</a></li>
