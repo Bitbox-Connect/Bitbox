@@ -2,6 +2,7 @@ import { Eye, EyeOff, Lock, Mail, User } from "lucide-react";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import {  Input  } from "antd";
 import "./css/Login.css";
 import { registerValidation } from "../validations/validation";
 
@@ -263,7 +264,7 @@ const Signup = (props) => {
         <h1 className="title">Sign Up</h1>
         <span className="title-line"></span>
         <div className="inp">
-          <input
+          <Input
             type="text"
             className="input"
             placeholder="Name"
