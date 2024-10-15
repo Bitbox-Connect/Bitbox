@@ -6,7 +6,7 @@ import "./css/Login.css";
 
 const host = "http://localhost:5000";
 
-const Login = (props) => {
+const Login = ({mode}) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const [forgotPasswordModalVisible, setForgotPasswordModalVisible] =
     useState(false);
@@ -132,6 +132,11 @@ const Login = (props) => {
             name="email"
             aria-describedby="emailHelp"
             autoComplete="on"
+            style={{
+              backgroundColor: mode === 'dark' ? 'black' : 'white',
+              color: mode === 'dark' ? 'white' : 'black',
+            }}
+
           />
           <i className="fa-solid fa-user"></i>
         </div>
@@ -145,8 +150,15 @@ const Login = (props) => {
             onChange={onChange}
             name="password"
             autoComplete="on"
+            style={{
+              backgroundColor: mode === 'dark' ? 'black' : 'white',
+              color: mode === 'dark' ? 'white' : 'black',
+            }}
           />
-          <i className="fa-solid fa-lock"></i>
+          <i className="fa-solid fa-lock"  style={{
+        backgroundColor: mode === 'dark' ? 'black' : 'white',
+        color: mode === 'dark' ? 'white' : 'black',
+      }}></i>
         </div>
         <Button className="submit" type="submit" onChange={onChange}>
           Login
