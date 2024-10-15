@@ -8,51 +8,62 @@ const crypto = require("crypto");
 const createUser = async (req, res) => {
   const { name, email, password } = req.body;
 
-  // Create a new user (save in your database)
-  const user = new User({ name, email, password, verified: false });
-  await user.save();
+  try {
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-  // Generate verification token
-  const verificationToken = crypto.randomBytes(32).toString("hex");
+    const user = new User({
+      name,
+      email,
+      password: hashedPassword,
+      verified: false,
+    });
+    await user.save();
 
-  // Save the verification token to the user (or in another collection)
-  user.verificationToken = verificationToken;
-  await user.save();
+    const verificationToken = crypto.randomBytes(32).toString("hex");
+    user.verificationToken = verificationToken;
+    await user.save();
 
-  // Send verification email
-  const transporter = nodemailer.createTransport({
-    service: "Gmail",
-    auth: {
-      user: process.env.EMAIL_USER, // Use the environment variable
-      pass: process.env.EMAIL_PASS, // Use the environment variable
-    },
-  });
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
 
-  const verificationLink = `http://localhost:5173/verify/${verificationToken}`;
-  const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: email,
-    subject: "Email Verification",
-    text: `Click this link to verify your email: ${verificationLink}`,
-  };
+    const verificationLink = `http://localhost:5173/verify/${verificationToken}`;
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: "Email Verification",
+      text: `Click this link to verify your email: ${verificationLink}`,
+    };
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      return res.status(500).send("Error sending verification email");
-    }
-    res
-      .status(200)
-      .send(
-        "Signup successful! Please check your email for verification link."
-      );
-  });
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error("Error sending email:", error);
+        return res.status(500).json({
+          success: false,
+          message: `Error sending verification email: ${error.message}`,
+        });
+      }
+      res.status(200).json({
+        success: true,
+        message: "Signup successful! Please check your email for the verification link.",
+      });
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'An error occurred during signup' });
+  }
 };
+
+
 
 const verifyToken = async (req, res) => {
   const { token } = req.params;
 
   try {
-    // Find the user by verification token
     const user = await User.findOne({ verificationToken: token });
     if (!user) {
       return res.status(400).json({
@@ -62,22 +73,15 @@ const verifyToken = async (req, res) => {
     }
     console.log(user);
 
-    // Mark user as verified
     user.verified = true;
-    user.verificationToken = undefined; // Clear the token after verification
+    user.verificationToken = undefined;
     await user.save();
 
-    // Optionally send a success message to the client
-    res
-      .status(200)
-      .json({ success: true, message: "Email verified successfully!" });
-
-    // Redirect to the frontend's home page or login page
-    // You can choose where to redirect the user after verification
-    res.redirect("http://localhost:5173/"); // Replace with your frontend home URL
+    // Redirect to the frontend's home page after verification
+    return res.redirect("http://localhost:5173/"); // Replace with your frontend home URL
   } catch (err) {
     console.error(err);
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       message: "Server error. Please try again later.",
     });
