@@ -7,9 +7,9 @@ const crypto = require("crypto");
 // Signup route
 const createUser = async (req, res) => {
   const { name, email, password } = req.body;
-
+  const img = `https://api.dicebear.com/5.x/initials/svg?seed=${name}`;
   // Create a new user (save in your database)
-  const user = new User({ name, email, password, verified: false });
+  const user = new User({ name, image:img, email, password, verified: false });
   await user.save();
 
   // Generate verification token
