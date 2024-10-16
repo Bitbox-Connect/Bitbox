@@ -12,13 +12,10 @@ const createUser = async (req, res) => {
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-    const user = new User({
-      name,
-      email,
-      password: hashedPassword,
-      verified: false,
-    });
-    await user.save();
+  const img = `https://api.dicebear.com/5.x/initials/svg?seed=${name}`;
+  // Create a new user (save in your database)
+  const user = new User({ name, image:img, email, password, verified: false });
+  await user.save();
 
     const verificationToken = crypto.randomBytes(32).toString("hex");
     user.verificationToken = verificationToken;

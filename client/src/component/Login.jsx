@@ -3,13 +3,15 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Modal, Input, Button, Typography } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import "./css/Login.css"; // Ensure you have appropriate CSS for layout
+import "./css/Login.css";
+import toast from "react-hot-toast";
+
 
 const { Title, Paragraph } = Typography;
 
 const host = "http://localhost:5000"; // Your backend URL
 
-const Login = (props) => {
+const Login = ({mode}) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const [forgotPasswordModalVisible, setForgotPasswordModalVisible] = useState(false);
   const [forgotEmail, setForgotEmail] = useState("");
@@ -17,30 +19,27 @@ const Login = (props) => {
   let navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
+    const response = await fetch(`${host}/api/auth/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: credentials.email,
+        password: credentials.password,
+      }),
+    });
+    const json = await response.json();
 
-    try {
-      const response = await fetch(`${host}/api/auth/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(credentials), // Send credentials directly
-      });
-
-      const json = await response.json();
-
-      if (response.ok) { // Check if response is okay
-        localStorage.setItem("token", json.authtoken);
-        props.showAlert("Logged in Successfully", "success");
-        setCredentials({ email: "", password: "" }); // Clear credentials
-        navigate("/");
-      } else {
-        props.showAlert(json.message || "Invalid Credentials", "danger");
-      }
-    } catch (error) {
-      console.error("Error during login:", error);
-      props.showAlert("An error occurred. Please try again later.", "danger");
+    if (json.success) {
+      localStorage.setItem("token", json.authtoken);
+      props.showAlert("Logged in Successfully", "success");
+      toast.success("Login Successfully!");
+      navigate("/");
+    } else {
+      props.showAlert("Invalid Credentials", "danger");
+      toast.error("Login failed!");
     }
   };
 
@@ -87,6 +86,11 @@ const Login = (props) => {
             onChange={onChange}
             aria-describedby="emailHelp"
             autoComplete="on"
+            style={{
+              backgroundColor: mode === 'dark' ? 'black' : 'white',
+              color: mode === 'dark' ? 'white' : 'black',
+            }}
+
           />
         </div>
         <div className="inp">
@@ -99,6 +103,15 @@ const Login = (props) => {
             onChange={onChange}
             autoComplete="on"
           />
+            style={{
+              backgroundColor: mode === 'dark' ? 'black' : 'white',
+              color: mode === 'dark' ? 'white' : 'black',
+            }}
+          />
+          <i className="fa-solid fa-lock"  style={{
+        backgroundColor: mode === 'dark' ? 'black' : 'white',
+        color: mode === 'dark' ? 'white' : 'black',
+      }}></i>
         </div>
         <Button className="submit" type="submit">
           Login

@@ -59,11 +59,14 @@ body{
     font-size: 17px;
 }
 
+
+
 /*Changed this for dark-mode input toggle (by anothercoder-nik)*/
-.dark-mode .input {
+/* .dark-mode .input {
     color: #ffffff; /* White text for dark mode */
-    background: #000000; /* Black background for dark mode */
-}
+/*     background: #000000; /* Black background for dark mode */ 
+/* } */ 
+
 .submit{
     border: none;
     outline: none;
