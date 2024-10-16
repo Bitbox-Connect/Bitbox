@@ -7,6 +7,8 @@ const fetchuser = require("../middleware/fetchuser");
 require("dotenv").config();
 const { body, validationResult } = require("express-validator");
 const { OAuth2Client } = require("google-auth-library");
+const rateLimit = require("express-rate-limit");
+
 const {
   forgetpassword,
   verifyToken,
@@ -62,8 +64,18 @@ router.post("/googlelogin", async (req, res) => {
 // ROUTE 1 : Create a User using : POST: "/api/auth/createuser". No login required
 
 // ROUTE 2 : Create a User using : POST: "/api/auth/login". No login required
-router.post(
+
+// Set up rate limiting
+const loginLimiter = rateLimit({
+  windowMs: 5 * 60 * 1000, // for 5 minutes
+  max: 5, // Limit each IP to 5 requests per windowMs edit as you need
+  message:
+    "Too many login attempts from this IP, please try again after 5 minutes.",
+});
+
+router.post( 
   "/login",
+  loginLimiter, // rate limiter middleware
   [
     // Creating check vadilation for user credentials like name, email and password
 
