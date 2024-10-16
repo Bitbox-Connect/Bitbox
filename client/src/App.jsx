@@ -30,6 +30,7 @@ import ForgotPassword from './component/forgotpass';
 import VerifyEmail from './component/Verify';
 import NotFound from './component/NotFound';
 import MiniChatbot from './component/MiniChatbot'
+import ProgressBar from './component/ProgressBar/ProgressBar';
 // Main Layout Component
 
 const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
@@ -114,6 +115,7 @@ function App() {
             <div className="alert-container">
               <Alert alert={alert} />
             </div>
+            <ProgressBar mode={mode}/>
             <ScrollTop />
             <MiniChatbot />
 
