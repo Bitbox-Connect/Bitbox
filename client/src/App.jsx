@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react'; // Import useState and useEffect
 import './App.css';
 import './index.css';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
@@ -28,9 +29,7 @@ import { modeAtom } from './atom/Atom';
 import ForgotPassword from './component/forgotpass';
 import VerifyEmail from './component/Verify';
 import NotFound from './component/NotFound';
-import { useEffect, useState } from 'react';
-import MiniChatbot from './component/MiniChatbot';
-
+import MiniChatbot from './component/MiniChatbot'
 // Main Layout Component
 
 const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {

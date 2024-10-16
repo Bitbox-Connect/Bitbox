@@ -1,11 +1,8 @@
-
 const mongoose = require('mongoose');
 require('dotenv').config(); // Load environment variables from .env file
 
 // MongoDB URI
-let mongoURI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/Bitbox"; // Use environment variable if available
-
-
+let mongoURI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/Bitbox";
 const connectToMongo = async () => {
     try {
         mongoose.set('strictQuery', false); // Set to false for backwards compatibility

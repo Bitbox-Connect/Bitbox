@@ -1,16 +1,19 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Modal, Input, Button } from "antd";
+import { Modal, Input, Button, Typography } from "antd";
+import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "./css/Login.css";
 import toast from "react-hot-toast";
 
-const host = "http://localhost:5000";
+
+const { Title, Paragraph } = Typography;
+
+const host = "http://localhost:5000"; // Your backend URL
 
 const Login = ({mode}) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
-  const [forgotPasswordModalVisible, setForgotPasswordModalVisible] =
-    useState(false);
+  const [forgotPasswordModalVisible, setForgotPasswordModalVisible] = useState(false);
   const [forgotEmail, setForgotEmail] = useState("");
 
   let navigate = useNavigate();
@@ -47,23 +50,20 @@ const Login = ({mode}) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email: forgotEmail }),
+        body: JSON.stringify({ email: forgotEmail }), // Send email as the request body
       });
-
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
 
       const data = await response.json();
       if (response.ok) {
         alert(data.message || "Reset email sent successfully!");
         setForgotPasswordModalVisible(false);
-        setForgotEmail("");
+        setForgotEmail(""); // Clear the email field
+      } else {
+        props.showAlert(data.message || "Failed to send reset email", "danger");
       }
     } catch (error) {
-      console.error("Error:", error);
-      setForgotPasswordModalVisible(false);
-      alert("Failed to send reset email. Please try again.");
+      console.error("Error during password reset:", error);
+      props.showAlert("An error occurred. Please try again later.", "danger");
     }
   };
 
@@ -72,19 +72,18 @@ const Login = ({mode}) => {
   };
 
   return (
-    <div className={`wrapper ${props.mode === 'dark' ? 'dark-mode' : ''}`}>
+    <div className="wrapper">
       <form onSubmit={handleSubmit} className="form">
         <h1 className="title">Login</h1>
         <span className="title-line"></span>
         <div className="inp">
           <Input
+            prefix={<UserOutlined />}
             type="email"
-            className="input"
             placeholder="Email"
+            name="email"
             value={credentials.email}
             onChange={onChange}
-            id="email"
-            name="email"
             aria-describedby="emailHelp"
             autoComplete="on"
             style={{
@@ -93,18 +92,17 @@ const Login = ({mode}) => {
             }}
 
           />
-          <i className="fa-solid fa-user"></i>
         </div>
         <div className="inp">
           <Input
+            prefix={<LockOutlined />}
             type="password"
-            className="input"
             placeholder="Password"
-            id="password"
+            name="password"
             value={credentials.password}
             onChange={onChange}
-            name="password"
             autoComplete="on"
+          />
             style={{
               backgroundColor: mode === 'dark' ? 'black' : 'white',
               color: mode === 'dark' ? 'white' : 'black',
@@ -119,7 +117,7 @@ const Login = ({mode}) => {
           Login
         </Button>
         <p className="footer">
-          Dont have an account?{" "}
+          Don't have an account?{" "}
           <Link className="link" to="/Signup">
             Sign Up
           </Link>
@@ -146,10 +144,11 @@ const Login = ({mode}) => {
         </p>
       </div>
 
+      {/* Antd Modal for Forgot Password */}
       <Modal
-        title={<h2 className="text-2xl font-bold">Reset Password via Email</h2>}
+        title="Reset Password"
         visible={forgotPasswordModalVisible}
-        onOk={handleForgotPassword}
+        onOk={handleForgotPassword} // Call handleForgotPassword on submit
         onCancel={() => setForgotPasswordModalVisible(false)}
         okText="Submit"
         okButtonProps={{
@@ -169,7 +168,6 @@ const Login = ({mode}) => {
             value={forgotEmail}
             onChange={(e) => setForgotEmail(e.target.value)}
             required
-            style={{ backgroundColor: props.mode === 'dark' ? '#333' : '#fff', color: props.mode === 'dark' ? '#fff' : '#000' }}
           />
         </div>
       </Modal>
@@ -178,8 +176,7 @@ const Login = ({mode}) => {
 };
 
 Login.propTypes = {
-  showAlert: PropTypes.func,
-  mode: PropTypes.string.isRequired,
+  showAlert: PropTypes.func.isRequired,
 };
 
 export default Login;

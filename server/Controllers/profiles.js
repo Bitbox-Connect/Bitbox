@@ -33,16 +33,28 @@ const createProfile =async (req, res) => {
 
 const fetchProfile = async (req, res) => {
     try {
-        const profile = await Profile.findOne({ user: req.user.id });
+        // Find the user's profile by user ID and select only the required fields
+        const profile = await Profile.findOne(
+            { user: req.user.id },
+            'name username' // Adjust this to include any other fields you need
+        );
+
+        // Check if the profile was found
         if (!profile) {
             return res.status(404).json({ error: "Profile not found" });
         }
-        res.json(profile);
+
+        // Return only name and username in the response
+        res.json({
+            name: profile.name,
+            username: profile.username,
+        });
     } catch (error) {
         console.error(error.message);
         res.status(500).send("Internal Server Error");
     }
-}
+};
+
 
 const updateprofile =  async (req, res) => {
     const { name, phone, college, address } = req.body;
