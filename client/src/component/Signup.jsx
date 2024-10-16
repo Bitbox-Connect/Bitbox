@@ -2,6 +2,7 @@ import { Eye, EyeOff} from "lucide-react";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import {  Input  } from "antd";
 import "./css/Login.css";
 import { registerValidation } from "../validations/validation";
 
@@ -9,7 +10,7 @@ import { registerValidation } from "../validations/validation";
 // import { auth } from '../component/Firebase/Setup';
 const host = "http://localhost:5000";
 
-const Signup = (props) => {
+const Signup = ({mode}) => {
   // const [value, setValue] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -263,7 +264,7 @@ const Signup = (props) => {
         <h1 className="title">Sign Up</h1>
         <span className="title-line"></span>
         <div className="inp">
-          <input
+          <Input
             type="text"
             className="input"
             placeholder="Name"
@@ -273,9 +274,16 @@ const Signup = (props) => {
             id="name"
             autoComplete="on"
             value={name}
+            style={{
+              backgroundColor: mode === 'dark' ? 'black' : 'white',
+              color: mode === 'dark' ? 'white' : 'black',
+            }}
           />
           {errors.name && <div className="text-danger">{errors.name}</div>}
-          <i className="fa-solid fa-user"></i>
+          <i className="fa-solid fa-user"  style={{
+        backgroundColor: mode === 'dark' ? 'black' : 'white',
+        color: mode === 'dark' ? 'white' : 'black',
+      }}></i>
         </div>
         <div className="inp">
           <input
@@ -288,11 +296,18 @@ const Signup = (props) => {
             aria-describedby="emailHelp"
             autoComplete="on"
             value={email}
+            style={{
+              backgroundColor: mode === 'dark' ? 'black' : 'white',
+              color: mode === 'dark' ? 'white' : 'black',
+            }}
           />
           {errors.email && <div className="text-danger">{errors.email}</div>}
           <i className="fa-solid fa-user"></i>
         </div>
-        <div className="inp">
+        <div className="inp"  style={{
+        backgroundColor: mode === 'dark' ? 'black' : 'white',
+        color: mode === 'dark' ? 'white' : 'black',
+      }}>
           <input
             type={showPassword ? "text" : "password"}
             className="input"
@@ -303,9 +318,16 @@ const Signup = (props) => {
             minLength={5}
             autoComplete="on"
             value={password}
+            style={{
+              backgroundColor: mode === 'dark' ? 'black' : 'white',
+              color: mode === 'dark' ? 'white' : 'black',
+            }}
           />
           {errors.password && (
-            <div className="text-danger">{errors.password}</div>
+            <div className="text-danger"  style={{
+              backgroundColor: mode === 'dark' ? 'black' : 'white',
+              color: mode === 'dark' ? 'white' : 'black',
+            }}>{errors.password}</div>
           )}
           <button
             type="button"
@@ -318,7 +340,10 @@ const Signup = (props) => {
               <Eye className="w-5 h-5" />
             )}
           </button>
-          <i className="fa-solid fa-user"></i>
+          <i className="fa-solid fa-user"  style={{
+        backgroundColor: mode === 'dark' ? 'black' : 'white',
+        color: mode === 'dark' ? 'white' : 'black',
+      }}></i>
         </div>
         <div className="inp">
           <input
