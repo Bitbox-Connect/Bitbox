@@ -251,7 +251,8 @@
 }
 
 .loginbtn {
-  background: none;
+  background: black;
+  border : 3px solid white ;
   color: #486c98;
   padding: 0.5rem 1rem;
   /* Add padding for better appearance */
