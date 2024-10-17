@@ -6,14 +6,14 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "./css/Login.css";
 import toast from "react-hot-toast";
 
-
 const { Title, Paragraph } = Typography;
 
 const host = "http://localhost:5000"; // Your backend URL
 
-const Login = ({mode}) => {
+const Login = ({ mode }) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
-  const [forgotPasswordModalVisible, setForgotPasswordModalVisible] = useState(false);
+  const [forgotPasswordModalVisible, setForgotPasswordModalVisible] =
+    useState(false);
   const [forgotEmail, setForgotEmail] = useState("");
 
   let navigate = useNavigate();
@@ -87,13 +87,12 @@ const Login = ({mode}) => {
             aria-describedby="emailHelp"
             autoComplete="on"
             style={{
-              backgroundColor: mode === 'dark' ? 'black' : 'white',
-              color: mode === 'dark' ? 'white' : 'black',
+              backgroundColor: mode === "dark" ? "black" : "white",
+              color: mode === "dark" ? "white" : "black",
             }}
-
           />
         </div>
-        <div className="inp">
+        {/* <div className="inp">
           <Input
             prefix={<LockOutlined />}
             type="password"
@@ -112,6 +111,28 @@ const Login = ({mode}) => {
         backgroundColor: mode === 'dark' ? 'black' : 'white',
         color: mode === 'dark' ? 'white' : 'black',
       }}></i>
+        </div> */}
+        <div className="inp">
+          <Input
+            prefix={<LockOutlined />}
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={credentials.password}
+            onChange={onChange}
+            autoComplete="on"
+            style={{
+              backgroundColor: mode === "dark" ? "black" : "white",
+              color: mode === "dark" ? "white" : "black",
+            }}
+          />
+          <i
+            className="fa-solid fa-lock"
+            style={{
+              backgroundColor: mode === "dark" ? "black" : "white",
+              color: mode === "dark" ? "white" : "black",
+            }}
+          ></i>
         </div>
         <Button className="submit" type="submit">
           Login
