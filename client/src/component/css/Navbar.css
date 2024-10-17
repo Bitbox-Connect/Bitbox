@@ -14,7 +14,7 @@
   /* Avoid conflicts with other layouts */
 
   background-color: #b3bef9;
-  background: linear-gradient(72deg , #000000eb , #6386f42e);
+  /* background: linear-gradient(72deg , #000000eb , #6386f42e); */
 }
 
 .header {
@@ -188,9 +188,7 @@
 }
 
 .darkThemeBtn label {
-  /* border: 1px solid rgb(119, 119, 123); */
-  background: #c6cace;
-  
+  background-color: #000000;
   height: 50px;
   width: 50px;
   margin: auto;
@@ -212,30 +210,33 @@
   width: 16px;
   transition: 0.3s;
   z-index: 1;
-  fill: white;
+  /* fill: white; */
 }
 
-.darkThemeBtn label svg.sun {
+.darkThemeBtn label .sun {
   width: 20px;
   opacity: 1;
-  fill: rgb(248, 248, 254);
+  fill: orange;
 }
 
-.darkThemeBtn label svg.moon {
+.darkThemeBtn label .moon {
   opacity: 0;
 }
 
 .darkThemeBtn input:checked+label {
+  background-color: white;
   border: 1px solid white;
-  background: #c6cace;
 }
 
 .darkThemeBtn input:checked+label svg.sun {
+  fill: orange;
+  color: orange;
   opacity: 0;
 }
 
-.darkThemeBtn input:checked+label svg.moon {
+.darkThemeBtn input:checked+label .moon {
   opacity: 1;
+  fill: black;
 }
 
 .darkThemeBtn input:not(:checked)+label svg.sun {
@@ -244,10 +245,6 @@
 
 .darkThemeBtn input:not(:checked)+label svg.moon {
   opacity: 0;
-}
-
-.darkThemeBtn input:checked~span {
-  background-color: #16174b;
 }
 
 .loginbtn {
