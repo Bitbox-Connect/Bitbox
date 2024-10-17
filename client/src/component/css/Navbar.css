@@ -4,7 +4,7 @@
 #navbar {
   z-index: 1000;
   min-height: 10vh;
-  background: #ffffff;
+ 
   /* Set the background to white */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   /* Black shadow */
@@ -12,6 +12,9 @@
   /* Remove the bottom line */
   overflow: initial;
   /* Avoid conflicts with other layouts */
+
+  background-color: #b3bef9;
+  background: linear-gradient(72deg , #000000eb , #6386f42e);
 }
 
 .header {
@@ -114,6 +117,13 @@
   margin-bottom: 0;
 }
 
+#navbar ul li:hover{
+  box-shadow: 0 5px 15px rgb(137 , 137 ,255);
+  border-radius: 1rem;
+  transform: scale(1.025);
+}
+
+
 .nav-link {
   font-family: "Exo 2", sans-serif !important;
 }
@@ -158,9 +168,10 @@
 }
 
 .Navbar-Btn-Group a {
+  font-weight: bold;
   text-decoration: none;
   display: flex;
-  color: black;
+  color: white;
   justify-content: center;
   align-items: center;
 }
@@ -179,7 +190,7 @@
 .darkThemeBtn label {
   /* border: 1px solid rgb(119, 119, 123); */
   background: #c6cace;
-  border-radius: 30px;
+  
   height: 50px;
   width: 50px;
   margin: auto;
@@ -188,6 +199,8 @@
   align-items: center;
   position: relative;
   cursor: pointer;
+
+  border-radius: 3rem;
 }
 
 .darkThemeBtn label:active {
