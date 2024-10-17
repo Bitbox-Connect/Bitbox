@@ -6,10 +6,10 @@ import Grow from '../assets/images/Grow.png'
 import Share from '../assets/images/Share.png';
 import glichBitboxGif from '../assets/images/Other Gifs/Bitbox Glitch.gif'
 import CardsPage from './HomePage/Card';
-
+import './Home.css'
 
 const Home = (props) => {
-
+    
     return (
         <div>
             {/* Landing Page Section */}
