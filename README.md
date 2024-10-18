@@ -1,9 +1,7 @@
 # BitBox
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
-[![GitHub issues](https://img.shields.io/github/issues/Anuj3553/BitBox.svg)](https://github.com/Anuj3553/BitBox/issues)  
-[![GitHub stars](https://img.shields.io/github/stars/Anuj3553/BitBox.svg)](https://github.com/Anuj3553/BitBox/stargazers)  
-[![GitHub forks](https://img.shields.io/github/forks/Anuj3553/BitBox.svg)](https://github.com/Anuj3553/BitBox/network)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![GitHub issues](https://img.shields.io/github/issues/Anuj3553/BitBox.svg)](https://github.com/Anuj3553/BitBox/issues) [![GitHub stars](https://img.shields.io/github/stars/Anuj3553/BitBox.svg)](https://github.com/Anuj3553/BitBox/stargazers) [![GitHub forks](https://img.shields.io/github/forks/Anuj3553/BitBox.svg)](https://github.com/Anuj3553/BitBox/network)
+
  
 ## 🎯 Overview
 
@@ -125,8 +123,6 @@ For any inquiries, feel free to reach out:
 + 🌟 Harshit7492: Backend API development and database optimizations. 
 + 🌟 Jitendra Kumar: Significant contributions in frontend development.
 ```
-
----
 
 <hr>
 <h2 align = "center">Our Valuable  Contributors ❤️</h2>
