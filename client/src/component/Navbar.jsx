@@ -255,7 +255,7 @@ function Navbar(props) {
                             onChange={props.toggleMode}
                           />
                           <label htmlFor="darkmode-toggle">
-                            <FaRegSun
+                            <FaSun
                               // className="sun"
                               style={{
                                 color: props.mode === "dark" ? "white" : "orange", // Change color for dark mode

@@ -49,3 +49,44 @@ html.dark-mode {
 .modal-content button:hover {
   background-color: #0056b3;
 }
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border-radius: 10px;
+  border: 3px solid #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a2a2a2;
+}
+
+/* Dark Theme Scrollbar */
+body.dark-mode ::-webkit-scrollbar {
+  width: 12px;
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
+  background: #000000;
+  /* Black track */
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+  background-color: #ffffff;
+  /* White thumb */
+  border-radius: 10px;
+  border: 3px solid #1a1a1a;
+  /* Dark border for the thumb */
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: #e5e5e5;
+  /* Lighter color on hover */
+}
