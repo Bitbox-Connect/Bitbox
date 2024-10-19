@@ -31,6 +31,7 @@ import VerifyEmail from './component/Verify';
 import NotFound from './component/NotFound';
 import MiniChatbot from './component/MiniChatbot'
 import ProgressBar from './component/ProgressBar/ProgressBar';
+
 // Main Layout Component
 
 const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
@@ -139,9 +140,9 @@ function App() {
                 <Route exact path="/termofuse" element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/verify/:token" element={<VerifyEmail />} />
                 {/* 404 Route */}
-                <Route exact path="*" element={<NotFound />} />
+            <Route exact path="/*" element={<NotFound />} />   
               </Routes>
-
+              
             </Layout>
           </Router>
         </ProfileState>
