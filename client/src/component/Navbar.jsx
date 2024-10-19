@@ -223,7 +223,7 @@ function Navbar(props) {
                       role="button"
                       to="/login"
                       className="btn loginbtn mx-2  h-10 "
-                      style={{ height: "45px", color: "black" }}
+                      style={{ height: "45px", color: "white" }}
                     >
                       Login
                     </Link>
@@ -231,7 +231,7 @@ function Navbar(props) {
                       role="button"
                       to="/signup"
                       className="btn loginbtn mx-2  h-10 "
-                      style={{ height: "45px", color: "black" }}
+                      style={{ height: "45px", color: "white" }}
                     >
                       Signup
                     </Link>
