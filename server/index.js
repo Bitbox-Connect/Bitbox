@@ -1,22 +1,26 @@
 const express = require("express");
-const { Server } = require("socket.io"); // Import Server class from socket.io
+const { Server } = require("socket.io");
 const connectToMongo = require("./db");
 const cors = require("cors");
-const bodyParser = require("body-parser");
 const Avatar = require("./Models/Avatar");
 
 // Connect to MongoDB
 connectToMongo();
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
+
+// Middleware to log requests
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`, req.body);
+  next();
+});
 
 // Set up CORS middleware
-app.use(cors());
-
-// Increase payload limits for body-parser
-app.use(bodyParser.json({ limit: "50mb" }));
-app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
+app.use(cors({
+  origin: "*", // Update to specific origins in production
+  methods: ['GET', 'POST', 'OPTIONS'],
+}));
 
 // Middleware to parse JSON requests
 app.use(express.json());
@@ -27,59 +31,72 @@ app.use("/api/projects", require("./routes/projects"));
 app.use("/api/profile", require("./routes/profile"));
 
 // Set up socket.io server
-const httpServer = require("http").createServer(app); // Create HTTP server
+const httpServer = require("http").createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "*",
+    origin: "*", // Update to specific origins in production
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
   },
 });
 
 const users = {};
 
 io.on("connection", (socket) => {
-  // If any new user joins, let others users connected to the server know.
+  // Notify other users when a new user joins
   socket.on("new-user-joined", (name) => {
-    users[socket.id] = name;
-    socket.broadcast.emit("user-joined", name);
+    try {
+      users[socket.id] = name;
+      socket.broadcast.emit("user-joined", name);
+    } catch (error) {
+      console.error("Error handling new user join:", error);
+    }
   });
 
-  // If someone sends a message, broadcast it to other people.
+  // Broadcast messages to other users
   socket.on("send", (message) => {
-    socket.broadcast.emit("receive", {
-      message: message,
-      name: users[socket.id],
-    });
+    try {
+      socket.broadcast.emit("receive", {
+        message: message,
+        name: users[socket.id],
+      });
+    } catch (error) {
+      console.error("Error sending message:", error);
+    }
   });
 
-  // If someone leaves the chat, let other people know.
+  // Notify other users when someone leaves the chat
   socket.on("disconnect", () => {
-    socket.broadcast.emit("left", users[socket.id]);
-    delete users[socket.id];
+    try {
+      if (users[socket.id]) {
+        socket.broadcast.emit("left", users[socket.id]);
+        delete users[socket.id];
+      }
+    } catch (error) {
+      console.error("Error handling user disconnect:", error);
+    }
   });
 });
 
-// For uploading Avatar image
+// Endpoint for uploading avatar image
 app.post("/uploadAvatarImage", async (req, res) => {
   try {
-    // Find and delete the previous image, if any
-    await Avatar.deleteMany(); // Delete all documents in the collection
-
-    // Save new image
+    await Avatar.deleteMany(); // Delete all previous images in the collection
     const result = await Avatar.create({ image: req.body.image });
     res.json(result);
   } catch (err) {
-    console.log(err);
+    console.error(err);
     res.status(500).json({ error: "Internal server error" });
   }
 });
 
-// Get Avatar image
+// Endpoint for getting avatar image
 app.get("/getAvatarImage", async (req, res) => {
   try {
     const avatar = await Avatar.find();
     res.json(avatar);
   } catch (err) {
-    console.log(err);
+    console.error(err);
     res.status(500).json({ error: "Internal server error" });
   }
 });
@@ -87,4 +104,10 @@ app.get("/getAvatarImage", async (req, res) => {
 // Start HTTP server
 httpServer.listen(port, () => {
   console.log(`App listening on http://localhost:${port}`);
+});
+
+// Centralized error-handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something broke!");
 });

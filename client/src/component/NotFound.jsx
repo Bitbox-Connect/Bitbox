@@ -1,23 +1,41 @@
-// src/components/NotFound.jsx
-
 import React from 'react';
-
-const NotFound = () => {
+import gif from "../assets/images/Vector Gif/R.gif"
+import PropTypes from 'prop-types';
+const ErrorPage = (props) => {
   return (
-    <div className="flex flex-col items-center lg:top-8 lg:relative m-2 justify-center min-h-screen bg-white text-center">
-      <h1 className="text-6xl font-bold text-gray-800 mb-4">404</h1>
-      <p className="text-xl text-gray-600 mb-8">Oops! Page Not Found</p>
-      <p className="text-md text-gray-500 mb-4">
-        The page you are looking for might have been removed or is temporarily unavailable.
-      </p>
-      <a
-        href="/"
-        className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition duration-300"
-      >
-        Go to Homepage
-      </a>
+    <div className="flex items-center justify-center h-[100vh] w-[100vw] bg-blue-100 mt-8 left-0 z-50">
+      <div className="w-[75vw] h-[75vh] p-4 text-center bg-white shadow-md rounded-lg">
+        <img 
+          src={gif}
+          alt="Error"
+          className="w-[75vw] h-[40vh]  rounded-md"
+        />
+        <div className='ErrorPage'>
+        <h1 className="mt-4 text-3xl font-bold text-gray-800" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Oops! Page not found</h1>
+        <p className="mt-2 text-gray-600" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+          The page you are looking for doesn’t exist or has been moved.
+        </p>
+        </div>
+        
+        <button
+          onClick={() => window.location.href = '/'}
+          className="px-4 py-2 mt-6 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
+        >
+          Go to Homepage
+        </button>
+        <button
+          onClick={() => window.location.href = '/community'}
+          className="px-4 py-2 mt-6 text-white bg-blue-500 rounded-lg hover:bg-blue-600 ml-4"
+        >
+          Go to Community
+        </button>
+      </div>
     </div>
   );
 };
-
-export default NotFound;
+ErrorPage.propTypes = {
+    showAlert: PropTypes.func,
+    mode: PropTypes.string,
+  };
+  
+export default ErrorPage;

@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react'; // Import useState and useEffect
 import './App.css';
 import './index.css';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
@@ -28,8 +29,8 @@ import { modeAtom } from './atom/Atom';
 import ForgotPassword from './component/forgotpass';
 import VerifyEmail from './component/Verify';
 import NotFound from './component/NotFound';
-import { useEffect, useState } from 'react';
-import MiniChatbot from './component/MiniChatbot';
+import MiniChatbot from './component/MiniChatbot'
+import ProgressBar from './component/ProgressBar/ProgressBar';
 
 // Main Layout Component
 
@@ -115,6 +116,7 @@ function App() {
             <div className="alert-container">
               <Alert alert={alert} />
             </div>
+            <ProgressBar mode={mode}/>
             <ScrollTop />
             <MiniChatbot />
 
@@ -138,9 +140,9 @@ function App() {
                 <Route exact path="/termofuse" element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/verify/:token" element={<VerifyEmail />} />
                 {/* 404 Route */}
-                <Route exact path="*" element={<NotFound />} />
+            <Route exact path="/*" element={<NotFound />} />   
               </Routes>
-
+              
             </Layout>
           </Router>
         </ProfileState>

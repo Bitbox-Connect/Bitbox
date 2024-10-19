@@ -4,7 +4,7 @@
 #navbar {
   z-index: 1000;
   min-height: 10vh;
-  background: #ffffff;
+ 
   /* Set the background to white */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   /* Black shadow */
@@ -12,6 +12,9 @@
   /* Remove the bottom line */
   overflow: initial;
   /* Avoid conflicts with other layouts */
+
+  background-color: #b3bef9;
+  /* background: linear-gradient(72deg , #000000eb , #6386f42e); */
 }
 
 .header {
@@ -114,6 +117,13 @@
   margin-bottom: 0;
 }
 
+#navbar ul li:hover{
+  box-shadow: 0 5px 15px rgb(137 , 137 ,255);
+  border-radius: 1rem;
+  transform: scale(1.025);
+}
+
+
 .nav-link {
   font-family: "Exo 2", sans-serif !important;
 }
@@ -158,9 +168,10 @@
 }
 
 .Navbar-Btn-Group a {
+  font-weight: bold;
   text-decoration: none;
   display: flex;
-  color: black;
+  color: white;
   justify-content: center;
   align-items: center;
 }
@@ -177,9 +188,7 @@
 }
 
 .darkThemeBtn label {
-  /* border: 1px solid rgb(119, 119, 123); */
-  background: #c6cace;
-  border-radius: 30px;
+  background-color: #000000;
   height: 50px;
   width: 50px;
   margin: auto;
@@ -188,6 +197,8 @@
   align-items: center;
   position: relative;
   cursor: pointer;
+
+  border-radius: 3rem;
 }
 
 .darkThemeBtn label:active {
@@ -199,30 +210,33 @@
   width: 16px;
   transition: 0.3s;
   z-index: 1;
-  fill: white;
+  /* fill: white; */
 }
 
-.darkThemeBtn label svg.sun {
+.darkThemeBtn label .sun {
   width: 20px;
   opacity: 1;
-  fill: rgb(248, 248, 254);
+  fill: orange;
 }
 
-.darkThemeBtn label svg.moon {
+.darkThemeBtn label .moon {
   opacity: 0;
 }
 
 .darkThemeBtn input:checked+label {
+  background-color: white;
   border: 1px solid white;
-  background: #c6cace;
 }
 
 .darkThemeBtn input:checked+label svg.sun {
+  fill: orange;
+  color: orange;
   opacity: 0;
 }
 
-.darkThemeBtn input:checked+label svg.moon {
+.darkThemeBtn input:checked+label .moon {
   opacity: 1;
+  fill: black;
 }
 
 .darkThemeBtn input:not(:checked)+label svg.sun {
@@ -233,12 +247,9 @@
   opacity: 0;
 }
 
-.darkThemeBtn input:checked~span {
-  background-color: #16174b;
-}
-
 .loginbtn {
-  background: none;
+  background: black;
+  border : 3px solid white ;
   color: #486c98;
   padding: 0.5rem 1rem;
   /* Add padding for better appearance */
