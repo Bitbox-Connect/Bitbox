@@ -1,136 +1,153 @@
 /* Footer Section */
 
 .footer-about {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .footer-logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
 }
 
 .footer-container {
-    display: flex;
-    justify-content: space-around;
-    padding: 15px;
-    width: 100vw;
-    font-weight: 500;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+  width: 100vw;
+  font-weight: 500;
+  background-color: var(
+    --bg-color
+  ); /* Use CSS variable for easy theme change */
+  transition: background-color 0.3s ease-in-out; /* Smooth transition for theme changes */
 }
 
 .icon {
-    size: 2rem;
+  size: 2rem;
 }
 
 .About_us {
-    flex: 1;
+  flex: 1;
 }
 
 .new_Details,
 .Legal,
 .social {
-    flex: 0 1 20%;
+  flex: 0 1 20%;
 }
 
 h1 {
-    font-size: 24px;
-    color: #333;
+  font-size: 24px;
+  color: #333;
 }
 
 .info,
 h1 {
-    font-weight: 700;
-    font-size: 5rem;
+  font-weight: 700;
+  font-size: 5rem;
 }
 
 .code {
-    color: #3b5998;
+  color: #3b5998;
 }
 
 p {
-    font-size: 14px;
-    line-height: 1.5;
-    color: #040404;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #040404;
 }
 
+/* Hover effect for links */
 .footer-container a {
-    color: #0a0a0a;
-    text-decoration: none;
+  color: #0a0a0a;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .footer-container a:hover {
-    color: #0d0d0e;
+  color: #0d0d0e;
+  transform: scale(1.05); /* Slightly scale up on hover for a smooth effect */
+  text-decoration: underline; /* Underline on hover for emphasis */
 }
+
 /* Icon styles */
 .footer-container .social a {
-    color: #0a0a0a; /* Default color for light mode */
+  color: #0a0a0a; /* Default color for light mode */
 }
 
 .footer-container .social a:hover {
-    color: #0d0d0e; /* Hover color for light mode */
+  color: #0d0d0e; /* Hover color for light mode */
+  transform: scale(
+    1.1
+  ); /* Scale up icons slightly for a more interactive feel */
 }
 
 /* Dark mode styles */
+.footer-container.dark-mode {
+  background-color: #222;
+}
+
 .footer-container.dark-mode .social a {
-    color: white; /* Icon color in dark mode */
+  color: white; /* Icon color in dark mode */
 }
 
 .footer-container.dark-mode .social a:hover {
-    color: #cccccc; /* Lighter hover color in dark mode */
+  color: #cccccc; /* Lighter hover color in dark mode */
 }
 
 /* Specific icon color overrides */
 .footer-container.dark-mode .social a .FaLinkedin {
-    color: white; /* LinkedIn icon color in dark mode */
+  color: white; /* LinkedIn icon color in dark mode */
 }
 
 .footer-container.dark-mode .social a .FaTwitter {
-    color: white; /* Twitter icon color in dark mode */
+  color: white; /* Twitter icon color in dark mode */
 }
 
 .footer-container.dark-mode .social a .FaGithub {
-    color: white; /* GitHub icon color in dark mode */
+  color: white; /* GitHub icon color in dark mode */
 }
 
 .footer-container.dark-mode .social a .FaYoutube {
-    color: white; /* YouTube icon color in dark mode */
+  color: white; /* YouTube icon color in dark mode */
 }
 
-
 ul {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 ul li {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .copy-content {
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: white;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: white;
 }
 
 h4 a {
-    color: #009688;
-    text-decoration: none;
+  color: #009688;
+  text-decoration: none;
 }
 
 h4 a:hover {
-    color: #00796b;
+  color: #00796b;
 }
 
 .project-info {
-    width: 500px;
+  width: 500px;
 }
 
 .copy-right {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-    background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  background-color: black;
+  color: white;
 }
