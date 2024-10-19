@@ -75,7 +75,7 @@ const Discussion = (props) => {
         setIsModalOpen(false); // Close the modal after a successful join
       };
     return (
-        <div className='discussion-main-container mt-20'>
+        <div className='discussion-main-container mt-20 mb-[50px]'>
             <InputModal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
@@ -92,8 +92,8 @@ const Discussion = (props) => {
                 </div>
 
                 {/* Form for sending messages */}
-                <div className="discussion-send">
-                    <form id="discussion-send-container" onSubmit={handleSubmit}>
+                <div className="discussion-send pb-[20px]">
+                    <form id="discussion-send-container pb-[20px]" onSubmit={handleSubmit}>
                         <input style={{ color: props.mode === 'dark' ? 'black' : '' }}
                             type="text"
                             name="messageImp"
