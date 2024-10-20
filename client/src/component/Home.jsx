@@ -167,33 +167,32 @@ const Home = (props) => {
                 </div>
             </div>
 
-           {/* Works Section */}
+
+{/* Works Section */}
 <div className="work-Sec mb-2" style={{ background: props.mode === 'dark' ? 'black' : '#f7f7f7', color: props.mode === 'dark' ? 'white' : 'black' }}>
-<h2 className='work-heading' style={{ textAlign: 'center', marginBottom: '1rem', fontWeight: 'bold', textTransform: 'uppercase' }}>
+    <h2 className="work-heading text-center mb-4 font-bold uppercase text-2xl md:text-3xl">
         What We Work On
     </h2>
 
- 
-<div className="work-row1  flex items-center justify-center">
-<div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-4 pt-12 pb-16 ">
-    {worddata.map((word,index)=>(
+    {/* Work Row 1 */}
+    <div className="work-row1 flex items-center justify-center px-4">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-8 pb-12 w-full max-w-6xl">
+            {worddata.map((word, index) => (
+                <div
+                    key={index}
+                    className="py-10 px-4 rounded-2xl border-2 border-blue-main space-y-3 transition-transform duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-main hover:shadow-lg group"
+                >
+                    <h3 className="font-semibold text-xl md:text-2xl text-center text-blue-main group-hover:text-white">
+                        {word.title}
+                    </h3>
+                    <p className="font-medium text-blue-main group-hover:text-white">
+                        {word.content}
+                    </p>
+                </div>
+            ))}
+        </div>
+    </div>
 
-        <div
-        key={index}
-        className="py-16 px-3 rounded-2xl border-blue-main border-2 space-y-3 transition-transform duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-main hover:shadow-lg group"
-      >
-        <h3 className="font-semibold text-[28px] text-center text-blue-main group-hover:text-white">
-          {word.title}
-        </h3>
-        <p className="font-medium text-blue-main pl-6 group-hover:text-white">
-          {word.content}
-        </p>
-      </div>
-
-))}
-</div>
-
-</div>
 
     {/* <div className="work-row2" style={{ marginBottom: "2rem" }}>
         <div className="work-cont1">
