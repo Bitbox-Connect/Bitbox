@@ -98,19 +98,19 @@ const Home = (props) => {
     </h2>
     <div className="work-row1 my-1 flex !md:flex-row !flex-col !flex-wrap">
         <div className="work-cont1 h-[47vh] lg:w-[30vw] md:w-[45%] sm:w-[90%]">
-            <h3 className='text hover-text'>Community Collaboration</h3>
+            <h3 className='text hover-text lg:text-[22px] md:text-[20px] sm:text-[16px] text-[14px]'>Community Collaboration</h3>
             <div className="work-description">
                 Engage with a diverse community of developers, designers, and enthusiasts passionate about creating impactful software.
             </div>
         </div>
         <div className="work-cont2 h-[47vh] lg:w-[30vw] md:w-[45%] sm:w-[90%]">
-            <h3 className='text hover-text'>Transparency and Accessibility</h3>
+            <h3 className='text hover-text lg:text-[22px] md:text-[20px] sm:text-[16px] text-[14px]'>Transparency and Accessibility</h3>
             <div className="work-description">
                 Access and contribute to projects with full transparency, ensuring that everyone can benefit from shared knowledge and resources.
             </div>
         </div>
         <div className="work-cont3 h-[47vh] lg:w-[30vw] md:w-[45%] sm:w-[90%]">
-            <h3 className='text hover-text'>Innovation and Creativity</h3>
+            <h3 className='text hover-text lg:text-[22px] md:text-[20px] sm:text-[16px] text-[14px]'>Innovation and Creativity</h3>
             <div className="work-description">
                 Explore endless possibilities for innovation by harnessing the collective creativity of a global network of contributors.
             </div>
@@ -118,19 +118,19 @@ const Home = (props) => {
     </div>
     <div className="work-row2 flex !md:flex-row !flex-col !flex-wrap" style={{ marginBottom: "2rem" }}>
         <div className="work-cont1 h-[47vh] lg:w-[30vw] md:w-[45%] sm:w-[90%]">
-            <h3 className='text hover-text'>Flexibility and Customization</h3>
+            <h3 className='text hover-text lg:text-[22px] md:text-[20px] sm:text-[16px] text-[14px]'>Flexibility and Customization</h3>
             <div className="work-description">
                 Customize and adapt open-source projects to suit your specific needs, empowering you to build solutions tailored to your requirements.
             </div>
         </div>
         <div className="work-cont2 h-[47vh] lg:w-[30vw] md:w-[45%] sm:w-[90%]">
-            <h3 className='text hover-text'>Learning and Skill Development</h3>
+            <h3 className='text hover-text lg:text-[22px] md:text-[20px] sm:text-[16px] text-[14px]'>Learning and Skill Development</h3>
             <div className="work-description">
                 Accelerate your learning and skill development through hands-on collaboration, mentorship, and continuous feedback within the open-source community.
             </div>
         </div>
         <div className="work-cont3 h-[47vh] lg:w-[30vw] md:w-[45%] sm:w-[90%]">
-            <h3 className='text hover-text'>Global Impact</h3>
+            <h3 className='text hover-text lg:text-[22px] md:text-[20px] sm:text-[16px] text-[14px]'>Global Impact</h3>
             <div className="work-description">
                 Make a meaningful impact on a global scale by contributing to projects that address real-world challenges and improve the lives of people everywhere.
             </div>
