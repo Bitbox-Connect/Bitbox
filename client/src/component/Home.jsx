@@ -92,8 +92,8 @@ const Home = (props) => {
             </div>
 
            {/* Works Section */}
-<div className="work-Sec mb-2" style={{ background: props.mode === 'dark' ? 'black' : '#f7f7f7', color: props.mode === 'dark' ? 'white' : 'black' }}>
-<h2 className='work-heading' style={{ textAlign: 'center', marginBottom: '1rem', fontWeight: 'bold', textTransform: 'uppercase' }}>
+            <div className="work-Sec mb-2" style={{ background: props.mode === 'dark' ? 'black' : '#f7f7f7', color: props.mode === 'dark' ? 'white' : 'black' }}>
+            <h2 className='work-heading' style={{ textAlign: 'center', marginBottom: '1rem', fontWeight: 'bold', textTransform: 'uppercase' }}>
         What We Work On
     </h2>
     <div className="work-row1 my-1 flex !md:flex-row !flex-col !flex-wrap">
