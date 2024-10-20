@@ -233,7 +233,8 @@ h3 {
 .work-cont2 h3,
 .work-cont3 h3 {
     text-align: center;
-    width: max-content;
+/*     width: max-content;  */
+    margin-bottom: 1rem;
     color: blue; /* Set default color to blue */
     font-size:1.5rem;
 }
