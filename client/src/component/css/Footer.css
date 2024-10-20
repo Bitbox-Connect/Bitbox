@@ -1,205 +1,335 @@
-nav_ul li {
-    padding: 0 0.6rem;
-  }
-  
-  .nav_ul a {
-    font-size: 1.05rem;
-    color: #000 !important;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-  }
-  
-  .code {
-    color: #0D92F4;
-  }
+/* Footer Section */
 
-  .btn1 {
-    border: 0;
-    padding: 0.5rem 1.8rem;
-    color: #fff;
-    background-color: #01193c;
-  }
-  
-  .btn2 {
-    border: 0;
-    padding: 0.5rem 1.2rem;
-    color: #fff;
-    background-color: #f60838;
-  }
-  
-  .Footer {
-    padding: 2rem 0;
-  }
-  
-  .ft-1 {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .ft-1 h3 {
-    font-weight: 700;
-    font-family: cursive;
-    letter-spacing: 2px;
-    padding: 0.5rem 0;
-    margin-left: 0; /* Remove the margin-left */
-  }
-  
-  .ft-1 span {
-    color: #0D92F4;
-  }
-  
-  .ft-1 p {
-    padding: 0.8rem 0; /* Simplified padding */
-    font-weight: 500;
-    text-align: center;
-    max-width: 80%; /* Optional: prevents text from stretching too wide */
-    margin: 0 auto; /* Centers the paragraph if max-width is used */
-  }
-  
-  .footer-icons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-    width: 100%; /* Ensures the icons container spans full width */
-  }
-  
-  .footer-icons i {
-    padding: 0.4rem 0.5rem;
-    background: #e1e1e1;
-    color: #0D92F4;
-    border-radius: 80%;
-  }
-  
-  
-  .Footer h5 {
-    font-weight: bold;
-    font-size: 1.5rem;
-    color: #091057;
-  }
-  
-  .ft-2 ul, .ft-3 ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  
-  .ft-2 ul li, .ft-3 ul li {
-    padding: 0.35rem 0;
-    font-weight: 500;
-  }
-  
-  .ft-2 ul a, .ft-3 ul a {
-    text-decoration: none;
-    color: #000;
-    font-size: 1.06rem;
-  }
-  
-  .ft-3 p {
-    font-weight: 500;
-    padding: 0.1rem 0;
-    font-size: 1.06rem;
-  }
-  
-  .ft-3 i {
-    padding-right: 0.5rem;
-  }
-  
-  .Last-footer {
-    background: #0D92F4;
-    text-align: center;
-    padding: 1rem 0;
-  }
-  
-  .Last-footer p {
-    margin-bottom: 0;
-    font-size: 1.2rem;
-    font-weight: 700;
-  }
+.footer-about {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+  width: 100vw;
+  font-weight: 500;
+  background-color: var(--bg-color); /* Use CSS variable for easy theme change */
+  transition: background-color 0.3s ease-in-out; /* Smooth transition for theme changes */
+}
+
+.icon {
+  size: 2rem;
+}
+
+.About_us {
+  flex: 1;
+}
+
+.new_Details,
+.Legal,
+.social {
+  flex: 0 1 20%;
+}
+
+h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+.info,
+h1 {
+  font-weight: 700;
+  font-size: 5rem;
+}
+
+.code {
+  color: #0D92F4;
+}
+
+p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #040404;
+}
+
+/* Hover effect for links */
+.footer-container a {
+  color: #0a0a0a;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.footer-container a:hover {
+  color: #0d0d0e;
+  transform: scale(1.05); /* Slightly scale up on hover for a smooth effect */
+  text-decoration: underline; /* Underline on hover for emphasis */
+}
+
+/* Icon styles */
+.footer-container .social a {
+  color: #0a0a0a; /* Default color for light mode */
+}
+
+.footer-container .social a:hover {
+  color: #0d0d0e; /* Hover color for light mode */
+  transform: scale(1.1); /* Scale up icons slightly for a more interactive feel */
+}
 
 /* Dark mode styles */
-.container.dark-mode .row span .code{
-    color: #f3f3f3;
+.footer-container.dark-mode {
+  background-color: #222;
 }
-  
-  /* Media Queries for Mobile Devices */
-  @media screen and (max-width: 768px) {
-    .nav_ul li {
-      padding: 0 0.3rem;
-    }
-  
-    .nav_ul a {
-      font-size: 0.9rem;
-    }
-  
-    .btn1, .btn2 {
-      padding: 0.4rem 1rem;
-      font-size: 0.9rem;
-    }
-  
-    .Footer {
-      padding: 1rem 0;
-    }
-  
-    .ft-1 h3 {
-      margin-left: 0;
-      text-align: center;
-      font-size: 1.5rem;
-    }
-  
-    .ft-1 p {
-        max-width: 90%; /* Slightly wider on mobile */
-      }
-      
-      .footer-icons {
-        gap: 0.8rem;
-      }
-  
-    .Footer h5 {
-      font-size: 1.2rem;
-      text-align: center;
-      margin-top: 1.5rem;
-    }
-  
-    .ft-2 ul, .ft-3 ul {
-      text-align: center;
-    }
-  
-    .ft-2 ul a, .ft-3 ul a {
-      font-size: 0.95rem;
-    }
-  
-    .ft-3 p {
-      font-size: 0.95rem;
-      text-align: center;
-    }
-  
-    .Last-footer p {
-      font-size: 1rem;
-    }
+
+.footer-container.dark-mode .social a {
+  color: white; /* Icon color in dark mode */
+}
+
+.footer-container.dark-mode .social a:hover {
+  color: #cccccc; /* Lighter hover color in dark mode */
+}
+
+/* Specific icon color overrides */
+.footer-container.dark-mode .social a .FaLinkedin,
+.footer-container.dark-mode .social a .FaTwitter,
+.footer-container.dark-mode .social a .FaGithub,
+.footer-container.dark-mode .social a .FaYoutube {
+  color: white; /* Icon color in dark mode */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+.copy-content {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+h4 a {
+  color: #009688;
+  text-decoration: none;
+}
+
+h4 a:hover {
+  color: #00796b;
+}
+
+.project-info {
+  width: 500px;
+}
+
+.copy-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  background-color: black;
+  color: white;
+}
+
+/* Nav and button styles */
+nav_ul li {
+  padding: 0 0.6rem;
+}
+
+.nav_ul a {
+  font-size: 1.05rem;
+  color: #000 !important;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.btn1 {
+  border: 0;
+  padding: 0.5rem 1.8rem;
+  color: #fff;
+  background-color: #01193c;
+}
+
+.btn2 {
+  border: 0;
+  padding: 0.5rem 1.2rem;
+  color: #fff;
+  background-color: #f60838;
+}
+
+/* Footer structure */
+.Footer {
+  padding: 2rem 0;
+}
+
+.ft-1 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ft-1 h3 {
+  font-weight: 700;
+  font-family: cursive;
+  letter-spacing: 2px;
+  padding: 0.5rem 0;
+}
+
+.ft-1 span {
+  color: #0D92F4;
+}
+
+.ft-1 p {
+  padding: 0.8rem 0; /* Simplified padding */
+  font-weight: 500;
+  text-align: center;
+  max-width: 80%;
+  margin: 0 auto; /* Centers the paragraph if max-width is used */
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.footer-icons i {
+  padding: 0.4rem 0.5rem;
+  background: #e1e1e1;
+  color: #0D92F4;
+  border-radius: 80%;
+}
+
+.Footer h5 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #091057;
+}
+
+.ft-2 ul, .ft-3 ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.ft-2 ul li, .ft-3 ul li {
+  padding: 0.35rem 0;
+  font-weight: 500;
+}
+
+.ft-2 ul a, .ft-3 ul a {
+  text-decoration: none;
+  color: #000;
+  font-size: 1.06rem;
+}
+
+.ft-3 p {
+  font-weight: 500;
+  padding: 0.1rem 0;
+  font-size: 1.06rem;
+}
+
+.ft-3 i {
+  padding-right: 0.5rem;
+}
+
+.Last-footer {
+  background: #0D92F4;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.Last-footer p {
+  margin-bottom: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* Media Queries for Mobile Devices */
+@media screen and (max-width: 768px) {
+  .nav_ul li {
+    padding: 0 0.3rem;
   }
-  
-  /* Additional adjustments for very small screens */
-  @media screen and (max-width: 480px) {
-    .nav_ul li {
-      padding: 0 0.2rem;
-    }
-  
-    .nav_ul a {
-      font-size: 0.85rem;
-    }
-  
-    .btn1, .btn2 {
-      padding: 0.3rem 0.8rem;
-      font-size: 0.85rem;
-    }
-  
-    .ft-1 h3 {
-      font-size: 1.3rem;
-    }
-  
-    .footer-icons i {
-      padding: 0.3rem 0.4rem;
-    }
+
+  .nav_ul a {
+    font-size: 0.9rem;
   }
+
+  .btn1, .btn2 {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .Footer {
+    padding: 1rem 0;
+  }
+
+  .ft-1 h3 {
+    font-size: 1.5rem;
+  }
+
+  .ft-1 p {
+    max-width: 90%;
+  }
+
+  .footer-icons {
+    gap: 0.8rem;
+  }
+
+  .Footer h5 {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
+  .ft-2 ul, .ft-3 ul {
+    text-align: center;
+  }
+
+  .ft-2 ul a, .ft-3 ul a {
+    font-size: 0.95rem;
+  }
+
+  .ft-3 p {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .Last-footer p {
+    font-size: 1rem;
+  }
+}
+
+/* Additional adjustments for very small screens */
+@media screen and (max-width: 480px) {
+  .nav_ul li {
+    padding: 0 0.2rem;
+  }
+
+  .nav_ul a {
+    font-size: 0.85rem;
+  }
+
+  .btn1, .btn2 {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .ft-1 h3 {
+    font-size: 1.3rem;
+  }
+
+  .footer-icons i {
+    padding: 0.3rem 0.4rem;
+  }
+}
