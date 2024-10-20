@@ -640,6 +640,15 @@ h2 {
 .faq-section .container {
   max-width:70vw ;
   padding: 2rem;
+
+    bottom: 3rem;
+    background-color: #c6fdff;
+    border-radius: 2rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.Heading-Page {
+  color: #16538f;
 }
 
 .faq-section {
@@ -653,6 +662,8 @@ h2 {
 /* Style for the accordion body */
 .accordion-body {
   background-color: #fff;
+  background: #bef5ff;
+ 
   border-radius: 5px;
   outline: 1px solid #ced4da;
   color: #1000ff;
@@ -669,6 +680,8 @@ h2 {
 /* Style for the accordion buttons */
 .accordion-button {
   background-color: rgb(238, 241, 248);
+
+  background: #8fe1f1;
   border-bottom: 4px solid rgb(255, 255, 255);
   border-radius: 5px;
   padding: 10px;
