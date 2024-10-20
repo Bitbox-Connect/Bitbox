@@ -1,9 +1,7 @@
 # BitBox
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
-[![GitHub issues](https://img.shields.io/github/issues/Anuj3553/BitBox.svg)](https://github.com/Anuj3553/BitBox/issues)  
-[![GitHub stars](https://img.shields.io/github/stars/Anuj3553/BitBox.svg)](https://github.com/Anuj3553/BitBox/stargazers)  
-[![GitHub forks](https://img.shields.io/github/forks/Anuj3553/BitBox.svg)](https://github.com/Anuj3553/BitBox/network)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![GitHub issues](https://img.shields.io/github/issues/Anuj3553/BitBox.svg)](https://github.com/Anuj3553/BitBox/issues) [![GitHub stars](https://img.shields.io/github/stars/Anuj3553/BitBox.svg)](https://github.com/Anuj3553/BitBox/stargazers) [![GitHub forks](https://img.shields.io/github/forks/Anuj3553/BitBox.svg)](https://github.com/Anuj3553/BitBox/network)
+
  
 ## 🎯 Overview
 
@@ -111,17 +109,6 @@ For any inquiries, feel free to reach out:
 - [React Icons](https://react-icons.github.io/react-icons/)
 
 ---
-x
-
-<hr>
-<h2 align = "center">Our Valuable  Contributors ❤️</h2>
-<div align = "center">
- <h3>Thank you for contributing to our repository</h3>
-
-<p><a href="https://github.com/Bitbox-Connect/Bitbox.git">
-  <img src="https://contrib.rocks/image?repo=Bitbox-Connect/Bitbox" />
-  
-</a></p>
 
 </div>
 
@@ -136,5 +123,16 @@ x
 + 🌟 Harshit7492: Backend API development and database optimizations. 
 + 🌟 Jitendra Kumar: Significant contributions in frontend development.
 ```
+
+<hr>
+<h2 align = "center">Our Valuable  Contributors ❤️</h2>
+<div align = "center">
+ <h3>Thank you for contributing to our repository</h3>
+
+<p>
+ <a href="https://github.com/Bitbox-Connect/Bitbox.git">
+  <img src="https://contrib.rocks/image?repo=Bitbox-Connect/Bitbox" /> 
+ </a>
+</p>
 
 ---
