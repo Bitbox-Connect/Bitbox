@@ -8,6 +8,38 @@ import glichBitboxGif from '../assets/images/Other Gifs/Bitbox Glitch.gif'
 import CardsPage from './HomePage/Card';
 import './Home.css'
 
+const  worddata =[
+    {
+        title:"Community Collaboration",
+        content:"Engage with a diverse community of developers, designers, and enthusiasts passionate about creating impactful software.",
+  
+    },
+    {
+        title:"Transparency and Accessibility",
+        content:"Explore endless possibilities for innovation by harnessing the collective creativity of a global network of contributors",
+  
+    },
+    {
+        title:"Innovation and Creativity",
+        content:"Explore endless possibilities for innovation by harnessing the collective creativity of a global network of contributors",
+  
+    },
+    {
+        title:"Flexibility and Customization",
+        content:"Customize and adapt open-source projects to suit your specific needs, empowering you to build solutions tailored to your requirements.",
+    },
+    {
+        title:"Learning and Skill Development",
+        content:"Accelerate your learning and skill development through hands-on collaboration, mentorship, and continuous feedback within the open-source community.",
+    },
+    {
+        title:"Global Impact",
+        content:"Make a meaningful impact on a global scale by contributing to projects that address real-world challenges and improve the lives of people everywhere.",
+    },
+    
+
+]
+
 const Home = (props) => {
     
     return (
@@ -96,27 +128,30 @@ const Home = (props) => {
 <h2 className='work-heading' style={{ textAlign: 'center', marginBottom: '1rem', fontWeight: 'bold', textTransform: 'uppercase' }}>
         What We Work On
     </h2>
-    <div className="work-row1 my-1">
-        <div className="work-cont1">
-            <h3 className='text hover-text'>Community Collaboration</h3>
-            <div className="work-description">
-                Engage with a diverse community of developers, designers, and enthusiasts passionate about creating impactful software.
-            </div>
-        </div>
-        <div className="work-cont2">
-            <h3 className='text hover-text'>Transparency and Accessibility</h3>
-            <div className="work-description">
-                Access and contribute to projects with full transparency, ensuring that everyone can benefit from shared knowledge and resources.
-            </div>
-        </div>
-        <div className="work-cont3">
-            <h3 className='text hover-text'>Innovation and Creativity</h3>
-            <div className="work-description">
-                Explore endless possibilities for innovation by harnessing the collective creativity of a global network of contributors.
-            </div>
-        </div>
-    </div>
-    <div className="work-row2" style={{ marginBottom: "2rem" }}>
+
+ 
+<div className="work-row1  flex items-center justify-center">
+<div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-4 pt-12 pb-16 ">
+    {worddata.map((word,index)=>(
+
+        <div
+        key={index}
+        className="py-16 px-3 rounded-2xl border-blue-main border-2 space-y-3 transition-transform duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-main hover:shadow-lg group"
+      >
+        <h3 className="font-semibold text-[28px] text-center text-blue-main group-hover:text-white">
+          {word.title}
+        </h3>
+        <p className="font-medium text-blue-main pl-6 group-hover:text-white">
+          {word.content}
+        </p>
+      </div>
+
+))}
+</div>
+
+</div>
+
+    {/* <div className="work-row2" style={{ marginBottom: "2rem" }}>
         <div className="work-cont1">
             <h3 className='text hover-text'>Flexibility and Customization</h3>
             <div className="work-description">
@@ -135,8 +170,8 @@ const Home = (props) => {
                 Make a meaningful impact on a global scale by contributing to projects that address real-world challenges and improve the lives of people everywhere.
             </div>
         </div>
-    </div>
-</div>
+    </div>*/}
+</div> 
 
 
             {/* Technology Section */}
