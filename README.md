@@ -67,7 +67,8 @@ npm run dev
 
 ```sh
 cd server
-nodemon index.js
+cp .env.sample .env
+npm run dev
 ```
 
 ---

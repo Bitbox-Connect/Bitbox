@@ -86,6 +86,15 @@ function App() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    const savedMode = localStorage.getItem('mode');
+    if (savedMode) {
+      setMode(savedMode);
+      document.body.style.backgroundColor = savedMode === 'dark' ? 'black' : 'white';
+      document.querySelectorAll('*').forEach(element => element.style.color = savedMode === 'dark' ? 'white' : '');
+    }
+  }, [setMode]);
+
+  useEffect(() => {
     localStorage.setItem('mode', mode);
   }, [mode]);
 
