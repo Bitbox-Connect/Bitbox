@@ -1,11 +1,6 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 const CardsPage = (props) => {
-  const { mode } = props;
-  const backgroundStyle = {
-    background: mode === "dark" ? "black" : "#f7f7f7",
-    color: mode === "dark" ? "white" : "black",
-  };
 
   // Array card information
   const cardData = [
@@ -28,27 +23,39 @@ const CardsPage = (props) => {
   ];
 
   return (
-    <div className="flex items-center justify-center" style={backgroundStyle}>
+    <div className="Community-Blocks flex items-center justify-center" style={{ background: props.mode === 'dark' ? 'black' : '', color: props.mode === 'dark' ? 'white' : 'black' }}>
       <section className="max-sm:px-2.5 max-xl:px-5 max-w-7xl">
         <h2
           className="font-bold text-blue-main text-4xl md:text-5xl lg:text-[3.5rem] pt-16"
-          style={{ color: mode === "dark" ? "white" : "" }}
+          style={{ color: props.mode === "dark" ? "white" : "" }}
         >
           Be a part of Bitbox Community
         </h2>
         <div className="flex items-center justify-center">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-12 pb-16">
             {cardData.map((card, index) => (
-              <div key={index} className="py-16 px-5 rounded-2xl border-blue-main border-2 space-y-3">
-                <h3 className="font-semibold text-blue-main text-[28px] text-center">{card.title}</h3>
-                <p className="text-blue-main font-medium">{card.content}</p>
+              <div
+                key={index}
+                className="py-16 px-5 rounded-2xl border-blue-main border-2 space-y-3 transition-transform duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-main hover:shadow-lg group"
+              >
+                <h3 className="font-semibold text-[28px] text-center text-blue-main group-hover:text-white">
+                  {card.title}
+                </h3>
+                <p className="font-medium text-blue-main group-hover:text-white">
+                  {card.content}
+                </p>
               </div>
             ))}
           </div>
+
         </div>
       </section>
     </div>
   );
+};
+
+CardsPage.propTypes = {
+  mode: PropTypes.string,
 };
 
 export default CardsPage;

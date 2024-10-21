@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'; // Import useState and useEffect
 import './App.css';
 import './index.css';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import PropTypes from "prop-types";
 import LoadingBar from 'react-top-loading-bar';
 import About from './component/About';
 import Alert from './component/Alert';
@@ -27,10 +28,15 @@ import { useAtom } from 'jotai';
 import { modeAtom } from './atom/Atom';
 import ForgotPassword from './component/forgotpass';
 import VerifyEmail from './component/Verify';
+import NotFound from './component/NotFound';
+import MiniChatbot from './component/MiniChatbot'
+import ProgressBar from './component/ProgressBar/ProgressBar';
+
 // Main Layout Component
+
 const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
   const location = useLocation(); // Use location inside Router
-  
+
   // Define routes where the footer or navbar should not be shown
   const hideNavbarRoutes = ['/login', '/signup'];
   const hideFooterRoutes = ['/login', '/signup'];
@@ -39,7 +45,15 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
     <>
       {/* Conditionally render the Navbar */}
       {!hideNavbarRoutes.includes(location.pathname) && (
-        <Navbar 
+        <Navbar
+          title="BITBOX"
+          home="Home"
+          about="About Us"
+          community="Community"
+          discussion="Discussion"
+          showAlert={showAlert}
+          mode={mode}
+          toggleMode={toggleMode}
         />
       )}
 
@@ -48,10 +62,10 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
 
       {/* Conditionally render the Footer */}
       {!hideFooterRoutes.includes(location.pathname) && (
-        <Footer 
-          mode={mode} 
-          setProgress={setProgress} 
-          setAlert={showAlert} 
+        <Footer
+          mode={mode}
+          setProgress={setProgress}
+          setAlert={showAlert}
         />
       )}
     </>
@@ -59,7 +73,7 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
 };
 
 function App() {
-  const [mode]= useAtom(modeAtom)
+  const [mode, setMode] = useAtom(modeAtom)
   const [alert, setAlert] = useState(null);
   const showAlert = (message, type) => {
     setAlert({ msg: message, type: type });
@@ -68,8 +82,17 @@ function App() {
     }, 1500);
   };
 
-  
+
   const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const savedMode = localStorage.getItem('mode');
+    if (savedMode) {
+      setMode(savedMode);
+      document.body.style.backgroundColor = savedMode === 'dark' ? 'black' : 'white';
+      document.querySelectorAll('*').forEach(element => element.style.color = savedMode === 'dark' ? 'white' : '');
+    }
+  }, [setMode]);
 
   useEffect(() => {
     localStorage.setItem('mode', mode);
@@ -102,7 +125,9 @@ function App() {
             <div className="alert-container">
               <Alert alert={alert} />
             </div>
+            <ProgressBar mode={mode}/>
             <ScrollTop />
+            <MiniChatbot />
 
             {/* Wrap everything inside the Layout component */}
             <Layout mode={mode} setProgress={setProgress} toggleMode={toggleMode} showAlert={showAlert}>
@@ -122,8 +147,11 @@ function App() {
                 <Route exact path="/contactus" element={<ContactUs mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/privacypolicy" element={<PrivacyPolicy mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/termofuse" element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path="/verify/:token" element={<VerifyEmail/>} />
+                <Route exact path="/verify/:token" element={<VerifyEmail />} />
+                {/* 404 Route */}
+            <Route exact path="/*" element={<NotFound />} />   
               </Routes>
+              
             </Layout>
           </Router>
         </ProfileState>
@@ -132,4 +160,32 @@ function App() {
   );
 }
 
+// Props Validation
+App.propTypes = {
+  children: PropTypes.string,
+  mode: PropTypes.string,
+  setProgress: PropTypes.string,
+  toggleMode: PropTypes.func,
+  showAlert: PropTypes.func,
+  myProjects: PropTypes.string,
+  about: PropTypes.string,
+  isAuthenticated: PropTypes.bool,
+};
+
+// Props Validation
+Layout.propTypes = {
+  children: PropTypes.node, // Allows children to be any renderable React node, including JSX
+  mode: PropTypes.string,
+  setProgress: PropTypes.func, // Should be a function
+  toggleMode: PropTypes.func,
+  showAlert: PropTypes.func,
+  myProjects: PropTypes.string,
+  about: PropTypes.string,
+  isAuthenticated: PropTypes.bool,
+};
+
+
 export default App;
+
+
+

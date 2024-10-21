@@ -31,12 +31,17 @@ export default function About(props) {
 
   return (
     <div>
-      {/* About Hero Section */}
-      <div className="about-content">
+     <div
+      className="about-content container h-[100vh] px-[2rem] mt-[10vh]"
+      style={{
+        background: props.mode === "dark" ? "#121212" : "#ffffff",
+        color: props.mode === "dark" ? "white" : "black",
+      }}
+    >
         <section className="about-main-section">
           <div className="about-content-left">
-            <h2 className="Heading-Page">About Us</h2>
-            <div className="about-section-desc fs-4">
+            <h2 className="Heading-Page !bg-gradient-to-r from-cyan-500 to-blue-500 !bg-clip-text !text-transparent  ">About Us</h2>
+            <div className="about-section-desc w-[70%] text-sm leading-relaxed mx-auto fs-4">
               Bitbox is like a friendly community where people working on
               projects can come together. If you’re stuck or need advice, you
               can ask for help. And if you know something, you can share your
@@ -47,7 +52,7 @@ export default function About(props) {
               bounds and collaboration is key. Dive into our repository of
               code, where creativity flourishes and solutions come to life.
               Join our vibrant community of developers, enthusiasts, and
-              visionaries, as we build the future together, one line at a time
+              visionaries, as we build the future together, one line at a time.
             </div>
           </div>
           <div className="about-right-page" data-engine="three.js r149">
@@ -90,23 +95,23 @@ export default function About(props) {
 
       {/* Team Section */}
       <div className="Team-Sec">
-        <div className="team-container">
+        <div className="px-[2.5rem] m-0 text-center">
           <div className="team-content">
             <h2 className="Heading-Page">
-              Our Team
+              Our <span className="!bg-gradient-to-r from-cyan-500 to-blue-500 !bg-clip-text !text-transparent ">Team</span>
             </h2>
             <div className="team-grid container ">
               {/* card 1 */}
               <div className="team-card">
                 <div className="team-text" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
-                  Anuj Verma is a tech-savvy person who loves working with AI and building websites. He's gained experience through internships and projects, showing that he's ready to do great things in the tech world.
+                  <b>Anuj Verma</b> is a tech-savvy person who loves working with AI and building websites. He&apos;s gained experience through internships and projects, showing that he&apos;s ready to do great things in the tech world.
                 </div>
                 <div className="team-avatar">
                   <img src={img1} />
                 </div>
                 <div className="team-details">
                   <h3 className="team-name" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
-                    Anuj Verma
+                    <b>Anuj Verma</b>
                   </h3>
                   <p className="team-desc" style={{ color: props.mode === 'dark' ? 'white' : '#777' }}>
                     BTech CSE AIML <br /> 3rd Year
@@ -124,14 +129,14 @@ export default function About(props) {
               {/* card 2 */}
               <div className="team-card">
                 <div className="team-text" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
-                Jitendra Kumar: Tech enthusiast skilled in web development and database management, showcasing expertise in projects like weather app and algorithm analyzer, poised for impactful contributions in the tech industry.
+                  <b>Jitendra Kumar</b>: Tech enthusiast skilled in web development and database management, showcasing expertise in projects like weather app and algorithm analyzer, poised for impactful contributions in the tech industry.
                 </div>
                 <div className="team-avatar">
                   <img src={img2} />
                 </div>
                 <div className="team-details">
                   <h3 className="team-name" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
-                    Jitendra Kumar
+                    <b>Jitendra Kumar</b>
                   </h3>
                   <p className="team-desc" style={{ color: props.mode === 'dark' ? 'white' : '#777' }}>
                     BTech CSE AIML <br /> 3rd Year
@@ -149,14 +154,14 @@ export default function About(props) {
               {/* card 3  */}
               <div className="team-card">
                 <div className="team-text" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
-                  Harshit Singh: Entry-level software engineer skilled in C, C++, Python, HTML, CSS, and JavaScript. Eager to leverage abilities in problem-solving and project development for organizational growth.
+                  <b>Harshit Singh</b>: Entry-level software engineer skilled in C, C++, Python, HTML, CSS, and JavaScript. Eager to leverage abilities in problem-solving and project development for organizational growth.
                 </div>
                 <div className="team-avatar">
                   <img src={img3} />
                 </div>
                 <div className="team-details">
                   <h3 className="team-name" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
-                    Harshit Singh
+                    <b>Harshit Singh</b>
                   </h3>
                   <p className="team-desc" style={{ color: props.mode === 'dark' ? 'white' : '#777' }}>
                     BTech CSE AIML <br /> 3rd Year
@@ -234,18 +239,18 @@ export default function About(props) {
 
         <div className="faq-section">
           <div className="container">
-            <h2 className="Heading-Page mb-3">Frequent Asked Questions</h2>
+            <h2 className="Heading-Page mb-7">Frequently Asked <span className="!bg-gradient-to-r from-cyan-500 to-blue-500 !bg-clip-text !text-transparent ">Questions</span></h2>
             <section>
               <div className="accordion" id="accordionExample">
                 <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+                  <h2 className="accordion-header flex justify-center">
+                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style={{background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                       Will a beginner, with absolutely no knowledge of github, gain
                       anything fruitful?
                     </button>
                   </h2>
                   <div id="collapseOne" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+                    <div className="accordion-body fs-5 mb-1" style={{ background: props.mode === 'dark' ? 'linear-gradient(0deg, rgba(31,52,141,1) 2%, rgba(21,21,21,1) 96%)' : 'linear-gradient(to bottom right, #d1d5db, #f3f4f6) ', color: props.mode === 'dark' ? 'white' : 'black' }}>
                       Yeah, definitely. The organization is meant to assist the
                       beginners grow in the field of development. We’ll have distinct
                       projects appropriate both for beginners as well as the accolades
@@ -256,51 +261,51 @@ export default function About(props) {
                   </div>
                 </div>
                 <div className="accordion-item">
-                  <h2 className="accordion-header">
+                  <h2 className="accordion-header flex justify-center">
                     <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                       Are there any charges for registration?
                     </button>
                   </h2>
                   <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'linear-gradient(0deg, rgba(31,52,141,1) 2%, rgba(21,21,21,1) 96%)' : 'linear-gradient(to bottom right, #d1d5db, #f3f4f6) ', color: props.mode === 'dark' ? 'white' : 'black' }}>
                       No, there are no fees associated with participation. It is completely free of charge.
                     </div>
                   </div>
                 </div>
                 <div className="accordion-item">
-                  <h2 className="accordion-header">
+                  <h2 className="accordion-header flex justify-center">
                     <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                       Is there a specific age requirement for participation?
                     </button>
                   </h2>
                   <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'linear-gradient(0deg, rgba(31,52,141,1) 2%, rgba(21,21,21,1) 96%)' : 'linear-gradient(to bottom right, #d1d5db, #f3f4f6) ', color: props.mode === 'dark' ? 'white' : 'black' }}>
                       No, there are no age restrictions for joining GSSoC. All age groups are welcome to participate.
                     </div>
                   </div>
                 </div>
 
                 <div className="accordion-item">
-                  <h2 className="accordion-header">
+                  <h2 className="accordion-header flex justify-center">
                     <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                       What are the project requirements?
                     </button>
                   </h2>
                   <div id="collapseFour" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'linear-gradient(0deg, rgba(31,52,141,1) 2%, rgba(21,21,21,1) 96%)' : 'linear-gradient(to bottom right, #d1d5db, #f3f4f6) ', color: props.mode === 'dark' ? 'white' : 'black' }}>
                       Projects are not bound by specific conditions. Mentors can propose ideas in their areas of expertise without restriction.
                     </div>
                   </div>
                 </div>
 
                 <div className="accordion-item">
-                  <h2 className="accordion-header">
+                  <h2 className="accordion-header flex justify-center">
                     <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseive" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                       As a beginner, where should we begin to contribute effectively to projects?
                     </button>
                   </h2>
                   <div id="collapseFive" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'linear-gradient(0deg, rgba(31,52,141,1) 2%, rgba(21,21,21,1) 96%)' : 'linear-gradient(to bottom right, #d1d5db, #f3f4f6) ', color: props.mode === 'dark' ? 'white' : 'black' }}>
                       You can kickstart your journey by accessing the resources available on our official website. We offer links to GitHub and other development tools to ensure that everyone can contribute effectively to the projects.
                     </div>
                   </div>

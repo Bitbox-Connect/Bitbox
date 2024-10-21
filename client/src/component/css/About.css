@@ -21,7 +21,6 @@
 }
 
 @keyframes slideFromLeft {
-
   0% {
     opacity: 0;
     transform: translateX(-100%);
@@ -444,12 +443,6 @@ h2 {
 }
 
 /* Our Team */
-.team-container {
-  padding: 2.5rem;
-  margin: 0 auto;
-  max-width: 100%;
-  text-align: center;
-}
 
 .team-content {
   display: flex;
@@ -645,8 +638,17 @@ h2 {
 
 /* FAQ */
 .faq-section .container {
-  min-width: 100vw;
+  max-width:70vw ;
   padding: 2rem;
+
+    bottom: 3rem;
+    background-color: #c6fdff;
+    border-radius: 2rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.Heading-Page {
+  color: #16538f;
 }
 
 .faq-section {
@@ -660,6 +662,8 @@ h2 {
 /* Style for the accordion body */
 .accordion-body {
   background-color: #fff;
+  background: #bef5ff;
+ 
   border-radius: 5px;
   outline: 1px solid #ced4da;
   color: #1000ff;
@@ -675,13 +679,16 @@ h2 {
 
 /* Style for the accordion buttons */
 .accordion-button {
-  background-color: rgb(250, 251, 253);
-  border: none;
+  background-color: rgb(238, 241, 248);
+
+  background: #8fe1f1;
+  border-bottom: 4px solid rgb(255, 255, 255);
   border-radius: 5px;
-  padding: 10px 15px;
+  padding: 10px;
   width: 100%;
-  text-align: left;
+  text-align: center;
   cursor: pointer;
+  font-size: small;
   transition: background-color 0.3s ease;
 }
 
@@ -690,6 +697,5 @@ h2 {
 }
 
 .accordion-container {
-  max-width: 100%;
-  display: flex;
+  max-width:100vw ;
 }

@@ -1,0 +1,57 @@
+name: Bitbox Bug Report 🐞
+description: File a bug report for the Bitbox project
+title: "[Bug]: "
+labels: bug
+body:
+  - type: checkboxes
+    id: existing-issue
+    attributes:
+      label: Is there an existing issue for this?
+      description: Please search to see if an issue already exists for the bug you encountered in Bitbox.
+      options:
+        - label: I have searched the existing issues
+          required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Describe the bug
+      description: A concise description of the bug or issue you are experiencing in Bitbox.
+      placeholder: Tell us what went wrong or what unexpected behavior you encountered.
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behaviour
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen in Bitbox.
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Add screenshots (if applicable)
+      description: Upload screenshots to help explain your issue in Bitbox, if possible.
+  - type: dropdown
+    id: devices
+    attributes:
+      label: On which device or platform are you experiencing this bug?
+      multiple: true
+      options:
+        - Android
+        - iPhone
+        - Linux
+        - Chrome
+        - Windows
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirmation
+      options:
+        - label: "I have read the Bitbox Contributing Guidelines"
+          required: true
+        - label: "I am a GSSOC-EXT contributor"
+          required: false
+        - label: "I am a HACKTOBERFEST contributor"
+          required: false
+        - label: "I have starred the Bitbox repository"
+          required: true
