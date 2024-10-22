@@ -2,7 +2,25 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![GitHub issues](https://img.shields.io/github/issues/Anuj3553/BitBox.svg)](https://github.com/Anuj3553/BitBox/issues) [![GitHub stars](https://img.shields.io/github/stars/Anuj3553/BitBox.svg)](https://github.com/Anuj3553/BitBox/stargazers) [![GitHub forks](https://img.shields.io/github/forks/Anuj3553/BitBox.svg)](https://github.com/Anuj3553/BitBox/network)
 
+
+
+## 📑 Table of Contents
+
+- [🎯 Overview](#-overview)
+- [📦 Built With](#-built-with)
+- [🚀 Features](#features)
+- [🛠️ Getting Started](#-getting-started)
+  - [🔧 Prerequisites](#-prerequisites)
+  - [⚙️ Installation](#-installation)
+  - [▶️ Running the Project](#️-running-the-project)
+- [🤝 Contributing](#-contributing)
+- [📧 Contact](#-contact)
+- [📝 Acknowledgments](#-acknowledgments)
+- [🏆 Main Contributors](#-main-contributors)
+
+
  
+
 ## 🎯 Overview
 
 **BitBox** is a platform designed to make it easy for developers to upload, share, and collaborate on projects. Users can showcase their work, connect with others, and learn from the community's shared knowledge.
