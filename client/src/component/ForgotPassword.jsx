@@ -38,21 +38,6 @@ const ForgotPassword = ({ showAlert, mode }) => {
     }
   };
 
-  const buttonStyle = {
-    marginTop: "10px",
-    transition: "background-color 0.3s ease, color 0.3s ease",
-  };
-
-  const buttonHoverStyle = {
-    backgroundColor: "#6366f1",
-    color: "#ffffff",
-  };
-
-  const buttonActiveStyle = {
-    backgroundColor: "#4f46e5",
-    color: "#ffffff",
-  };
-
   return (
     <div
       className='wrapper'
@@ -90,26 +75,51 @@ const ForgotPassword = ({ showAlert, mode }) => {
           className='back-to-login'
           type='default'
           onClick={() => navigate("/login")}
-          style={buttonStyle}
+          style={{
+            marginTop: "10px",
+            transition: "background-color 0.3s ease, color 0.3s ease",
+          }}
           onMouseEnter={(e) => {
-            e.target.style.backgroundColor = buttonHoverStyle.backgroundColor;
-            e.target.style.color = buttonHoverStyle.color;
+            e.target.style.backgroundColor = "#6366f1";
+            e.target.style.color = "#ffffff";
           }}
           onMouseLeave={(e) => {
             e.target.style.backgroundColor = "";
             e.target.style.color = "";
           }}
           onMouseDown={(e) => {
-            e.target.style.backgroundColor = buttonActiveStyle.backgroundColor;
-            e.target.style.color = buttonActiveStyle.color;
+            e.target.style.backgroundColor = "#4f46e5";
+            e.target.style.color = "#ffffff";
           }}
           onMouseUp={(e) => {
-            e.target.style.backgroundColor = buttonHoverStyle.backgroundColor;
-            e.target.style.color = buttonHoverStyle.color;
+            e.target.style.backgroundColor = "#6366f1";
+            e.target.style.color = "#ffffff";
           }}
         >
           Back to Login
         </Button>
+      </div>
+
+      <div className='banner'>
+        <h1
+          className='wel_text'
+          style={{
+            color: mode === "dark" ? "black" : "white",
+          }}
+        >
+          FORGOT
+          <br />
+          PASSWORD?
+        </h1>
+        <p
+          className='para'
+          style={{
+            color: mode === "dark" ? "black" : "white",
+            marginLeft: "200px",
+          }}
+        >
+          No worries, we've got you covered!"
+        </p>
       </div>
     </div>
   );
