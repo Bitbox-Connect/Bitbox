@@ -82,7 +82,7 @@ body {
 
 .footer {
     margin-top: 20px;
-    font-size: 0.9rem;
+    /* font-size: 0.9rem; */
 }
 
 .link {
@@ -224,7 +224,7 @@ body {
 
     .footer {
         margin-top: 15px;
-        font-size: 0.85rem;
+        /* font-size: 0.85rem; */
     }
 
     .link {

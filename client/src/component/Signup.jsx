@@ -1,4 +1,4 @@
-import { Eye, EyeOff } from "lucide-react";
+
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Input } from "antd";
@@ -6,6 +6,10 @@ import PropTypes from "prop-types";
 import "./css/Signup.css";
 import { registerValidation } from "../validations/validation";
 import toast from "react-hot-toast";
+import {
+  EyeInvisibleOutlined,
+  EyeTwoTone,
+} from "@ant-design/icons";
 
 const host = "http://localhost:5000";
 
@@ -156,8 +160,7 @@ const Signup = ({ mode }) => {
                 >
                   Password
                 </label>
-                <Input
-                  type={showPassword ? "text" : "password"}
+                <Input.Password
                   className="signup-input"
                   onChange={(e) => setPassword(e.target.value)}
                   id="password"
@@ -170,19 +173,11 @@ const Signup = ({ mode }) => {
                     backgroundColor: mode === "dark" ? "#333" : "white",
                     color: mode === "dark" ? "white" : "black",
                   }}
+                  iconRender={(visible) =>
+                    visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                  }
                 />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-purple-200
-                   hover:text-purple-300 transition-colors duration-200"
-                >
-                  {showPassword ? (
-                    <EyeOff className="w-5 h-5" />
-                  ) : (
-                    <Eye className="w-5 h-5" />
-                  )}
-                </button>
+                
               </div>
 
               <div className="signup-form-group relative">
@@ -195,8 +190,7 @@ const Signup = ({ mode }) => {
                 >
                   Confirm Password
                 </label>
-                <Input
-                  type={showConfirmPassword ? "text" : "password"}
+                <Input.Password
                   className="signup-input"
                   onChange={(e) => setCPassword(e.target.value)}
                   id="cpassword"
@@ -209,18 +203,11 @@ const Signup = ({ mode }) => {
                     backgroundColor: mode === "dark" ? "#333" : "white",
                     color: mode === "dark" ? "white" : "black",
                   }}
+                  iconRender={(visible) =>
+                    visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                  }
                 />
-                <button
-                  type="button"
-                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-purple-200 hover:text-purple-300 transition-colors duration-200"
-                >
-                  {showConfirmPassword ? (
-                    <EyeOff className="w-5 h-5" />
-                  ) : (
-                    <Eye className="w-5 h-5" />
-                  )}
-                </button>
+                
                 {errors.cpassword && (
                   <div className="text-danger">{errors.cpassword}</div>
                 )}

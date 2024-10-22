@@ -81,8 +81,9 @@ const Login = ({ mode, showAlert }) => {
   };
 
   return (
+    <div className="h-screen">
     <div
-      className="wrapper"
+      className="wrapper h-3/4 mt-10"
       style={{
         backgroundColor: mode === "dark" ? "black" : "white",
         color: mode === "dark" ? "white" : "black",
@@ -104,6 +105,7 @@ const Login = ({ mode, showAlert }) => {
             onChange={onChange}
             autoComplete="on"
             required
+            className="h-10 text-xl"
             style={{
               backgroundColor: mode === "dark" ? "black" : "white",
               color: mode === "dark" ? "white" : "black",
@@ -119,27 +121,28 @@ const Login = ({ mode, showAlert }) => {
             value={credentials.password}
             onChange={onChange}
             autoComplete="on"
-            iconRender={(visible) =>
-              visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-            }
+            className="h-10 text-xl"
             style={{
               backgroundColor: mode === "dark" ? "black" : "white",
               color: mode === "dark" ? "white" : "black",
             }}
             required
+            iconRender={(visible) =>
+              visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+            }
           />
         </div>
 
-        <Button className="submit" type="submit" disabled={loading}>
+        <Button className="submit h-10 text-xl" type="submit" disabled={loading}>
           {loading ? <Spin size="small" /> : "Login"}
         </Button>
 
-        <p className="footer" style={{
+        <p className="footer text-xl" style={{
         backgroundColor: mode === "dark" ? "black" : "white",
         color: mode === "dark" ? "white" : "black",
       }}>
           Don&apos;t have an account?
-          <Link className="link" to="/Signup">
+          <Link className="link text-xl" to="/Signup">
             {" "}
             Sign Up
           </Link>
@@ -148,7 +151,7 @@ const Login = ({ mode, showAlert }) => {
         <Button
           style={{ backgroundColor: "#6366f1", color: "#FFFFFF" }}
           onClick={() => setForgotPasswordModalVisible(true)}
-          className="mt-3"
+          className="mt-3 h-10 text-xl"
         >
           Forgot Password?
         </Button>
@@ -199,6 +202,7 @@ const Login = ({ mode, showAlert }) => {
           />
         </div>
       </Modal>
+    </div>
     </div>
   );
 };
