@@ -54,7 +54,7 @@ const Login = ({ mode, showAlert }) => {
   };
 
   return (
-    <div className="h-screen">
+    <div className="h-screen flex items-center justify-center">
     <div
       className="wrapper h-3/4 mt-10"
       style={{
@@ -119,7 +119,7 @@ const Login = ({ mode, showAlert }) => {
         color: mode === "dark" ? "white" : "black",
       }}>
           Don&apos;t have an account?
-          <Link className="link text-xl" to="/Signup">
+          <Link className="link text-xl" to="/signup">
             {" "}
             Sign Up
           </Link>

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Input } from "antd";
@@ -6,16 +5,11 @@ import PropTypes from "prop-types";
 import "./css/Signup.css";
 import { registerValidation } from "../validations/validation";
 import toast from "react-hot-toast";
-import {
-  EyeInvisibleOutlined,
-  EyeTwoTone,
-} from "@ant-design/icons";
+import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 
 const host = "http://localhost:5000";
 
 const Signup = ({ mode }) => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
@@ -88,9 +82,9 @@ const Signup = ({ mode }) => {
             Create An Account
           </h2>
 
-          <form onSubmit={handleSubmit}>
+          <form className="w-3/4" onSubmit={handleSubmit}>
             <div className="space-y-4 w-full">
-              <div className="signup-form-group">
+              <div className="signup-form-group items-start flex flex-col gap-2">
                 <label
                   htmlFor="name"
                   className="text-md leading-none font-medium"
@@ -120,7 +114,7 @@ const Signup = ({ mode }) => {
                 )}
               </div>
 
-              <div className="signup-form-group">
+              <div className="signup-form-group items-start flex flex-col gap-2">
                 <label
                   htmlFor="email"
                   className="text-md leading-none font-medium"
@@ -150,7 +144,7 @@ const Signup = ({ mode }) => {
                 )}
               </div>
 
-              <div className="signup-form-group relative">
+              <div className="signup-form-group relative items-start flex flex-col gap-2">
                 <label
                   htmlFor="password"
                   className="text-md font-medium"
@@ -177,10 +171,9 @@ const Signup = ({ mode }) => {
                     visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
                   }
                 />
-                
               </div>
 
-              <div className="signup-form-group relative">
+              <div className="signup-form-group items-start flex flex-col gap-2 relative">
                 <label
                   htmlFor="cpassword"
                   className="text-md font-medium"
@@ -207,7 +200,7 @@ const Signup = ({ mode }) => {
                     visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
                   }
                 />
-                
+
                 {errors.cpassword && (
                   <div className="text-danger">{errors.cpassword}</div>
                 )}
