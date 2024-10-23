@@ -221,7 +221,6 @@ const Home = (props) => {
                     <img src={glichBitboxGif} alt="bitbox gif" />
                 </div>
             </div>
-
             {/* Works Section */}
             <div className="work-Sec mb-2" style={{ background: props.mode === 'dark' ? 'black' : '#f7f7f7', color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <h2 className='work-heading' style={{ textAlign: 'center', marginBottom: '1rem', fontWeight: 'bold', textTransform: 'uppercase' }}>
@@ -251,6 +250,7 @@ const Home = (props) => {
                 </div>
 
                 {/* <div className="work-row2" style={{ marginBottom: "2rem" }}>
+
         <div className="work-cont1">
             <h3 className='text hover-text'>Flexibility and Customization</h3>
             <div className="work-description">
@@ -270,7 +270,7 @@ const Home = (props) => {
             </div>
         </div>
     </div>*/}
-            </div>
+   </div>
 
 
             {/* Technology Section */}
