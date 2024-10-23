@@ -9,39 +9,40 @@ import CardsPage from './HomePage/Card';
 import { motion } from 'framer-motion'; // Importing framer-motion
 import './Home.css';
 
-const  worddata =[
+const worddata = [
     {
-        title:"Community Collaboration",
-        content:"Engage with a diverse community of developers, designers, and enthusiasts passionate about creating impactful software.",
-  
+        title: "Community Collaboration",
+        content: "Engage with a diverse community of developers, designers, and enthusiasts passionate about creating impactful software.",
+
     },
     {
-        title:"Transparency and Accessibility",
-        content:"Explore endless possibilities for innovation by harnessing the collective creativity of a global network of contributors",
-  
+        title: "Transparency and Accessibility",
+        content: "Explore endless possibilities for innovation by harnessing the collective creativity of a global network of contributors",
+
     },
     {
-        title:"Innovation and Creativity",
-        content:"Explore endless possibilities for innovation by harnessing the collective creativity of a global network of contributors",
-  
+        title: "Innovation and Creativity",
+        content: "Explore endless possibilities for innovation by harnessing the collective creativity of a global network of contributors",
+
     },
     {
-        title:"Flexibility and Customization",
-        content:"Customize and adapt open-source projects to suit your specific needs, empowering you to build solutions tailored to your requirements.",
+        title: "Flexibility and Customization",
+        content: "Customize and adapt open-source projects to suit your specific needs, empowering you to build solutions tailored to your requirements.",
     },
     {
-        title:"Learning and Skill Development",
-        content:"Accelerate your learning and skill development through hands-on collaboration, mentorship, and continuous feedback within the open-source community.",
+        title: "Learning and Skill Development",
+        content: "Accelerate your learning and skill development through hands-on collaboration, mentorship, and continuous feedback within the open-source community.",
     },
     {
-        title:"Global Impact",
-        content:"Make a meaningful impact on a global scale by contributing to projects that address real-world challenges and improve the lives of people everywhere.",
+        title: "Global Impact",
+        content: "Make a meaningful impact on a global scale by contributing to projects that address real-world challenges and improve the lives of people everywhere.",
     },
-    
+
 
 ]
 
 const Home = (props) => {
+    const text = "Bitbox Community Cornerstone";
     return (
         <div>
             {/* Landing Page Section */}
@@ -61,7 +62,7 @@ const Home = (props) => {
                             At BitBox, we simplify version control and collaboration by providing a user-friendly platform for developers. Whether you’re a solo programmer or part of a large team, BitBox offers intuitive tools to manage your projects efficiently. Experience fast, reliable performance and seamless integration with modern development workflows. With BitBox, managing and sharing your code becomes a smooth process, enabling you to focus on building better software.
                         </div>
                     </div>
-                    <motion.div 
+                    <motion.div
                         className="content-right"
                         initial={{ opacity: 0, scale: 0.8 }} // Starting state of animation
                         whileInView={{ opacity: 1, scale: 1 }} // Animation on scroll
@@ -91,25 +92,51 @@ const Home = (props) => {
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
                     >
-                        Bitbox Community Cornerstone
+                        {text.split('').map((char, index) => (
+                            <motion.span
+                                key={index} // Unique key for each character
+                                initial={{ opacity: 0, y: 20 }} // Start with invisible and slightly lower
+                                whileInView={{ opacity: 1, y: 0 }} // Animate to visible and original position
+                                transition={{ duration: 0.6, delay: index * 0.1 }} // Add delay for staggered effect
+                                viewport={{ once: true }} // Animation triggers once when in view
+                            >
+                                {char === ' ' ? '\u00A0' : char} {/* Preserve spaces */}
+                            </motion.span>
+                        ))}
                     </motion.h2>
 
                     {/* Grow Section */}
-                    <motion.div 
+                    <motion.div
                         className="flex justify-center items-center"
                         initial={{ opacity: 0, x: -100 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
                     >
-                        <img className="w-[500px] rounded-5" src={Grow} alt="Grow" />
-                        <div className="p-5 mt-4 w-[60%]">
-                            <h1 className="display-4">Grow</h1>
+
+                        <motion.div className="flex justify-center items-center">
+                            <motion.img
+                                whileHover={{ scale: 1.1 }} className="w-[500px] rounded-5"
+                                src={Grow}
+                                alt="Grow"
+                            />
+                        </motion.div>
+                        <motion.div className="p-5 mt-4 w-[60%]" animate={{ x: [0, 100, 0] }}>
+
+                        <motion.h1
+                                className="display-4"
+                                initial={{ opacity: 0, x: -100 }} 
+                                whileInView={{ opacity: 1, x: 0 }} 
+                                transition={{ duration: 0.8 }} 
+                                viewport={{ once: true }} 
+                            >
+                                Grow
+                            </motion.h1>
                             <p className="lead">
                                 Within Bitbox&apos;s open-source embrace, ideas flourish, boundless space.
                                 Collaborating minds, a vibrant symphony, innovating together, unlocking our destiny.
                             </p>
-                        </div>
+                        </motion.div>
                     </motion.div>
 
                     {/* Learn Section */}
@@ -121,27 +148,55 @@ const Home = (props) => {
                         viewport={{ once: true }}
                     >
                         <div className="p-5 mt-4 w-[60%]">
-                            <h1 className="display-4">Learn</h1>
+                        <motion.h1
+                                className="display-4"
+                                initial={{ opacity: 0, x: -100 }} 
+                                whileInView={{ opacity: 1, x: 0 }} 
+                                transition={{ duration: 0.8 }} 
+                                viewport={{ once: true }} 
+                            >
+                                Learn
+                            </motion.h1>
                             <p className="lead">
                                 📚 Within this dynamic ecosystem, ideas are shared freely, nurtured by the collective intellect of passionate developers and enthusiasts alike.
                                 From seasoned veterans to eager newcomers, all are welcomed into the fold, united by a common mission:
                                 to push the boundaries of what&apos;s possible in the realm of digital exchange.
                             </p>
                         </div>
-                        <img className="w-[500px] rounded-5" src={Learn} alt="Learn" />
+                        <motion.div className="flex justify-center items-center">
+                            <motion.img
+                                whileHover={{ scale: 1.1 }} className="w-[500px] rounded-5"
+                                src={Learn}
+                                alt="Learn"
+                            />
+                        </motion.div>
                     </motion.div>
 
                     {/* Share Section */}
-                    <motion.div 
+                    <motion.div
                         className="flex justify-center items-center my-5"
                         initial={{ opacity: 0, x: -100 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
                     >
-                        <img className="w-[500px] rounded-5" src={Share} alt="Share" />
+                        <motion.div className="flex justify-center items-center">
+                            <motion.img
+                                whileHover={{ scale: 1.1 }} className="w-[500px] rounded-5"
+                                src={Share}
+                                alt="Share"
+                            />
+                        </motion.div>
                         <div className="p-5 mt-4 w-[60%]">
-                            <h1 className="display-4">Share</h1>
+                            <motion.h1
+                                className="display-4"
+                                initial={{ opacity: 0, x: -100 }} 
+                                whileInView={{ opacity: 1, x: 0 }} 
+                                transition={{ duration: 0.8 }} 
+                                viewport={{ once: true }} 
+                            >
+                                Share
+                            </motion.h1>
                             <p className="lead">
                                 🌐 Join the vibrant Bitbox Open Source Community today! Whether you&apos;re a seasoned developer or just starting out,
                                 there&apos;s a place for you to collaborate, innovate, and make a difference.
@@ -166,35 +221,36 @@ const Home = (props) => {
                     <img src={glichBitboxGif} alt="bitbox gif" />
                 </div>
             </div>
+            {/* Works Section */}
+            <div className="work-Sec mb-2" style={{ background: props.mode === 'dark' ? 'black' : '#f7f7f7', color: props.mode === 'dark' ? 'white' : 'black' }}>
+                <h2 className='work-heading' style={{ textAlign: 'center', marginBottom: '1rem', fontWeight: 'bold', textTransform: 'uppercase' }}>
+                    What We Work On
+                </h2>
 
 
-{/* Works Section */}
-<div className="work-Sec mb-2" style={{ background: props.mode === 'dark' ? 'black' : '#f7f7f7', color: props.mode === 'dark' ? 'white' : 'black' }}>
-    <h2 className="work-heading text-center mb-4 font-bold uppercase text-2xl md:text-3xl">
-        What We Work On
-    </h2>
+                <div className="work-row1  flex items-center justify-center">
+                    <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-4 pt-12 pb-16 ">
+                        {worddata.map((word, index) => (
 
-    {/* Work Row 1 */}
-    <div className="work-row1 flex items-center justify-center px-4">
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-8 pb-12 w-full max-w-6xl">
-            {worddata.map((word, index) => (
-                <div
-                    key={index}
-                    className="py-10 px-4 rounded-2xl border-2 border-blue-main space-y-3 transition-transform duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-main hover:shadow-lg group"
-                >
-                    <h3 className="font-semibold text-xl md:text-2xl text-center text-blue-main group-hover:text-white">
-                        {word.title}
-                    </h3>
-                    <p className="font-medium text-blue-main group-hover:text-white">
-                        {word.content}
-                    </p>
+                            <div
+                                key={index}
+                                className="py-16 px-3 rounded-2xl border-blue-main border-2 space-y-3 transition-transform duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-main hover:shadow-lg group"
+                            >
+                                <h3 className="font-semibold text-[28px] text-center text-blue-main group-hover:text-white">
+                                    {word.title}
+                                </h3>
+                                <p className="font-medium text-blue-main pl-6 group-hover:text-white">
+                                    {word.content}
+                                </p>
+                            </div>
+
+                        ))}
+                    </div>
+
                 </div>
-            ))}
-        </div>
-    </div>
 
+                {/* <div className="work-row2" style={{ marginBottom: "2rem" }}>
 
-    {/* <div className="work-row2" style={{ marginBottom: "2rem" }}>
         <div className="work-cont1">
             <h3 className='text hover-text'>Flexibility and Customization</h3>
             <div className="work-description">
@@ -214,7 +270,7 @@ const Home = (props) => {
             </div>
         </div>
     </div>*/}
-</div> 
+   </div>
 
 
             {/* Technology Section */}

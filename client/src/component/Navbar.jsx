@@ -8,7 +8,7 @@ import logo from "../assets/images/logo.png";
 import avatarDropdown from "../assets/images/Dropdown/avatar.png";
 import { auth } from "../component/Firebase/Setup";
 import { FaSun } from "react-icons/fa6";
-import {FaMoon} from "react-icons/fa6";
+import { FaMoon } from "react-icons/fa6";
 
 function Navbar(props) {
   const { showAlert, mode } = props;
@@ -122,11 +122,13 @@ function Navbar(props) {
             to="/"
           >
             <img
-              className="mx-3 logoImg w-[3.5rem] h-[3.5rem] rounded-full"
+              className="mx-3 logoImg w-[3.5rem] h-[3.5rem] rounded-full transition-transform transform rotate-0 hover:rotate-180 duration-1000 ease-in-out"
               src={logo}
               alt="logo"
             />
-            <div className="logoTitle md:block hidden" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>{props.title}</div>
+            <div className={`logoTitle md:block hidden ${props.mode === 'dark' ? 'text-white' : 'text-black'}`}>
+              {props.title}
+            </div>
           </Link>
           <div
             className={`collapse navbar-collapse justify-content-center ${isOpen ? "show" : ""}`}
