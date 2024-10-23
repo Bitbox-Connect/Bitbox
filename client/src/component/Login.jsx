@@ -15,9 +15,6 @@ const host = "http://localhost:5000";
 
 const Login = ({ mode, showAlert }) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
-  const [forgotPasswordModalVisible, setForgotPasswordModalVisible] =
-    useState(false);
-  const [forgotEmail, setForgotEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -48,31 +45,7 @@ const Login = ({ mode, showAlert }) => {
       showAlert("An error occurred. Please try again later.", "danger");
       console.error("Error during login:", error);
     } finally {
-      setLoading(false); 
-    }
-  };
-
-  const handleForgotPassword = async () => {
-    try {
-      const response = await fetch(`${host}/api/auth/ResetByEmail`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email: forgotEmail }),
-      });
-
-      const data = await response.json();
-      if (response.ok) {
-        toast.success(data.message || "Reset email sent successfully!");
-        setForgotPasswordModalVisible(false);
-        setForgotEmail("");
-      } else {
-        showAlert(data.message || "Failed to send reset email", "danger");
-      }
-    } catch (error) {
-      console.error("Error during password reset:", error);
-      showAlert("An error occurred. Please try again later.", "danger");
+      setLoading(false);
     }
   };
 
@@ -89,21 +62,25 @@ const Login = ({ mode, showAlert }) => {
         color: mode === "dark" ? "white" : "black",
       }}
     >
-      <form onSubmit={handleSubmit} className="form" style={{
-        backgroundColor: mode === "dark" ? "black" : "white",
-        color: mode === "dark" ? "white" : "black",
-      }}>
-        <h1 className="title">Login</h1>
-        <span className="title-line"></span>
-        <div className="inp">
+      <form
+        onSubmit={handleSubmit}
+        className='form'
+        style={{
+          backgroundColor: mode === "dark" ? "black" : "white",
+          color: mode === "dark" ? "white" : "black",
+        }}
+      >
+        <h1 className='title'>Login</h1>
+        <span className='title-line'></span>
+        <div className='inp'>
           <Input
             prefix={<UserOutlined />}
-            type="email"
-            placeholder="Email"
-            name="email"
+            type='email'
+            placeholder='Email'
+            name='email'
             value={credentials.email}
             onChange={onChange}
-            autoComplete="on"
+            autoComplete='on'
             required
             className="h-10 text-xl"
             style={{
@@ -113,11 +90,11 @@ const Login = ({ mode, showAlert }) => {
           />
         </div>
 
-        <div className="inp">
+        <div className='inp'>
           <Input.Password
             prefix={<LockOutlined />}
-            placeholder="Password"
-            name="password"
+            placeholder='Password'
+            name='password'
             value={credentials.password}
             onChange={onChange}
             autoComplete="on"
@@ -150,58 +127,35 @@ const Login = ({ mode, showAlert }) => {
 
         <Button
           style={{ backgroundColor: "#6366f1", color: "#FFFFFF" }}
-          onClick={() => setForgotPasswordModalVisible(true)}
+          onClick={() => navigate("/forgot-password")}
           className="mt-3 h-10 text-xl"
         >
           Forgot Password?
         </Button>
       </form>
 
-      <div className="banner" >
-        <h1 className="wel_text" style={{
-        
-        color: mode === "dark" ? "black" : "white",
-      }}>
+      <div className='banner'>
+        <h1
+          className='wel_text'
+          style={{
+            color: mode === "dark" ? "black" : "white",
+          }}
+        >
           WELCOME
           <br />
           BACK!
         </h1>
-        <p className="para" style={{
-        
-        color: mode === "dark" ? "black" : "white",
-      }}>
+        <p
+          className='para'
+          style={{
+            color: mode === "dark" ? "black" : "white",
+          }}
+        >
           Please Sign In here
           <br />
           with your real info
         </p>
       </div>
-
-      <Modal
-        title="Reset Password"
-        visible={forgotPasswordModalVisible}
-        onOk={handleForgotPassword}
-        onCancel={() => setForgotPasswordModalVisible(false)}
-        okText="Submit"
-        okButtonProps={{
-          style: { backgroundColor: "#6366f1", color: "#000" },
-        }}
-        cancelButtonProps={{
-          style: { backgroundColor: "#000000" },
-        }}
-      >
-        <div className="p-4">
-          <p className="text-red-600 text-sm">
-            Enter your email and we will send you a link to reset your password
-          </p>
-          <Input
-            type="email"
-            placeholder="Enter your email"
-            value={forgotEmail}
-            onChange={(e) => setForgotEmail(e.target.value)}
-            required
-          />
-        </div>
-      </Modal>
     </div>
     </div>
   );
