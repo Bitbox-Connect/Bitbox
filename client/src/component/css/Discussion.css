@@ -60,7 +60,7 @@
 .discussion-container {
     height: 78vh;
     width: 80%;
-    background-image: url(../../assets/images/Discussion/chat-pattern.png);
+    background-image: url(../../assets/images/Discussion/chat-pattern.png);         /*handled by inline css from discussion.jsx */
     margin: auto;
     padding-bottom: 10rem;
     border: 2px solid black;
