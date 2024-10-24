@@ -36,6 +36,7 @@ import VerifyEmail from "./component/Verify";
 import NotFound from "./component/NotFound";
 import MiniChatbot from "./component/MiniChatbot";
 import ProgressBar from "./component/ProgressBar/ProgressBar";
+import ProtectedRoute from '../../client/src/component/ProtectedRoute'
 
 // Main Layout Component
 
