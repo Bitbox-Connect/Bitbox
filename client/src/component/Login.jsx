@@ -13,7 +13,7 @@ import toast from "react-hot-toast";
 
 const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';
 
-const Login = ({ mode, showAlert }) => {
+const Login = ({ mode, showAlert,isloggedin,setloggedin  }) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
 
@@ -36,6 +36,7 @@ const Login = ({ mode, showAlert }) => {
         localStorage.setItem("token", json.authtoken);
         showAlert("Logged in Successfully", "success");
         toast.success("Login Successfully!");
+         setloggedin(!isloggedin)
         navigate("/");
       } else {
         showAlert("Invalid Credentials", "danger");
