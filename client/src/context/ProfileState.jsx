@@ -3,7 +3,7 @@ import { useState } from 'react';
 import ProfileContext from './profileContext';
 
 const ProfileState = (props) => {
-    const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'http://localhost:5000';
+    const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';
     const profileInitial = [];
 
     const [userProfile, setUserProfile] = useState(profileInitial);

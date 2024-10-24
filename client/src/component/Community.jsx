@@ -20,7 +20,7 @@ import commentModalImg from "../assets/images/Modal Image/comment.png";
 import ShareModalImg from "../assets/images/Modal Image/Share.png";
 
 const Community = (props) => {
-  const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'http://localhost:5000';
+  const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';
   const [loading, setLoading] = useState(true); // State to track loading
   const [project, setProject] = useState({
     id: "",

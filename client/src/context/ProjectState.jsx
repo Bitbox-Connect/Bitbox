@@ -4,7 +4,7 @@ import projectContext from "./projectContext.jsx";
 // import SearchProjects from "../component/SearchProject.jsx";
 
 const ProjectStates = (props) => {
-  const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'http://localhost:5000';
+  const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';
   const projectsInitial = [];
 
   const [userProjects, setUserProjects] = useState(projectsInitial);

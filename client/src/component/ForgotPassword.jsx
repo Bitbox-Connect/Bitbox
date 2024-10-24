@@ -4,7 +4,7 @@ import { Input, Button } from "antd";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'http://localhost:5000';
+const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';
 
 const ForgotPassword = ({ showAlert, mode }) => {
   const [forgotEmail, setForgotEmail] = useState("");

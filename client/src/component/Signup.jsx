@@ -7,7 +7,7 @@ import { registerValidation } from "../validations/validation";
 import toast from "react-hot-toast";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 
-const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'http://localhost:5000';
+const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';
 
 const Signup = ({ mode }) => {
   const navigate = useNavigate();

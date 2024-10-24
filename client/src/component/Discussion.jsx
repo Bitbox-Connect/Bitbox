@@ -9,7 +9,7 @@ import userLeft from "../assets/music/userLeft.mp3";
 import InputModal from "./InputModal";
 
 // Create a Socket
-const socket = io("http://localhost:5000", { transports: ["websocket"] });
+const socket = io("https://bitbox-uxbo.onrender.com", { transports: ["websocket"] });
 
 const Discussion = (props) => {
   const [messages, setMessages] = useState([]); // State to store chat messages

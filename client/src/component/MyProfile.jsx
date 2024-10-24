@@ -26,7 +26,7 @@ import ShareModalImg from '../assets/images/Modal Image/Share.png'
 
 
 const MyProfile = (props) => {
-    const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'http://localhost:5000';
+    const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';
     const { mode } = props;
     const [showVideo, setShowVideo] = useState(false);
 
