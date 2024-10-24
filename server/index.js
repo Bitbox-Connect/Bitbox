@@ -2,13 +2,15 @@ const express = require("express");
 const { Server } = require("socket.io");
 const connectToMongo = require("./db");
 const cors = require("cors");
+const helmet = require("helmet");
 const Avatar = require("./Models/Avatar");
 require('dotenv').config(); // Load environment variables from .env file
 
 // Connect to MongoDB
 connectToMongo();
 
-const app = express(); 
+const app = express();
+ 
 const httpServer = require("http").createServer(app);
 const io = new Server(httpServer, {
   cors: {
@@ -35,6 +37,7 @@ app.use(cors({
 
 // Middleware to parse JSON requests
 app.use(express.json());
+app.use(helmet());  
 
 // Available routes
 app.use("/api/auth", require("./routes/auth"));
