@@ -5,7 +5,7 @@ import axios from 'axios'
 import profileContext from '../context/profileContext';
 import userDummyImg from '../assets/images/User/User.png'
 // CSS
-import './css/EditProfile.css'
+import '../css/EditProfile.css';
 
 const EditProfile = (props) => {
     const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';

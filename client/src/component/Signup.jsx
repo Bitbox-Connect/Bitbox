@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Input } from "antd";
 import PropTypes from "prop-types";
-import "./css/Signup.css";
+import "../css/Signup.css";
 import { registerValidation } from "../validations/validation";
 import toast from "react-hot-toast";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";

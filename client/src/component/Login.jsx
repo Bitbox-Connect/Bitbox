@@ -8,7 +8,7 @@ import {
   EyeInvisibleOutlined,
   EyeTwoTone,
 } from "@ant-design/icons";
-import "./css/Login.css";
+import "../css/Login.css";
 import toast from "react-hot-toast";
 
 const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';

@@ -1,4 +1,4 @@
-import "./css/Navbar.css";
+import "../css/Navbar.css";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";

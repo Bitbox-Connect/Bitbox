@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import "./css/Discussion.css";
+import "../css/Discussion.css";
 import { io } from "socket.io-client";
 // AUDIO
 import recieveMsg from "../assets/music/recieveMsg.mp3";

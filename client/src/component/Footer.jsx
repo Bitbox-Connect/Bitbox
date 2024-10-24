@@ -1,21 +1,30 @@
-import '../component/css/Footer.css';
+import '../css/Footer.css';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { FaXTwitter } from "react-icons/fa6";
 import { FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa';
+
 const Footer = (props) => {
     return (
         <>
+            {/* Divider line */}
             <hr style={{ border: '3px solid #0D92F4' }} />
-            <div className="Footer" style={{ backgroundColor: props.mode === 'dark' ? '#0B192C' : 'white' }}>
 
+            {/* Footer container with dynamic background color */}
+            <div className="Footer" style={{ backgroundColor: props.mode === 'dark' ? '#0B192C' : 'white' }}>
                 <div className="container">
                     <div className="row">
+                        {/* Left section with branding and social icons */}
                         <div className="col-md-6 col-lg-5 col-12 ft-1">
-                            <h3 style={{ fontFamily: "medium", fontSize: "2.5rem" }}>BIT<span className='code' style={{ Color: "#0D92F4" }}>BOX</span></h3>
-                            <p>Empowering Developers,<br />
-                                Where Projects Find solution together</p>
+                            <h3 style={{ fontFamily: "medium", fontSize: "2.5rem" }}>
+                                BIT<span className='code' style={{ color: "#0D92F4" }}>BOX</span>
+                            </h3>
+                            <p>
+                                Empowering Developers,<br />
+                                Where Projects Find Solutions Together
+                            </p>
                             <div className="footer-icons">
+                                {/* Social media icons with links */}
                                 <a href="https://github.com/bitboxcommunity" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                                     <FaGithub color="#211F1F" fontSize="2rem" />
                                 </a>
@@ -29,9 +38,9 @@ const Footer = (props) => {
                                     <FaLinkedin color="#0077b5" fontSize="2rem" />
                                 </a>
                             </div>
-
-
                         </div>
+
+                        {/* Middle section with About links */}
                         <div className="col-md-6 col-lg-3 col-12 ft-2">
                             <h5>About</h5>
                             <ul>
@@ -43,6 +52,8 @@ const Footer = (props) => {
                                 </li>
                             </ul>
                         </div>
+
+                        {/* Right section with Legal links */}
                         <div className="col-md-7 col-lg-4 col-13 ft-3">
                             <h5>Legals</h5>
                             <ul>
@@ -53,24 +64,28 @@ const Footer = (props) => {
                                     <Link to="/privacypolicy">Privacy Policy</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <li><Link to="/termofuse">Terms of use</Link></li>
+                                    <Link to="/termofuse">Terms of use</Link>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
+
+            {/* Last footer section with copyright info */}
             <div className='Last-footer'>
-                <p className='copy-content'>© 2024 Bitbox.&nbsp; Made with 🤍 by Bitbox India.&nbsp; All rights reserved.</p>
+                <p className='copy-content'>
+                    © 2024 Bitbox.&nbsp; Made with 🤍 by Bitbox India.&nbsp; All rights reserved.
+                </p>
             </div>
         </>
-    )
+    );
 }
 
-
+// Prop types for validation
 Footer.propTypes = {
     showAlert: PropTypes.func,
     mode: PropTypes.string,
 };
 
-export default Footer
+export default Footer;

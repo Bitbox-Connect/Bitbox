@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import profileContext from '../context/profileContext';
 import projectContext from "../context/projectContext";
 // CSS
-import "./css/ProjectCard.css";
+import "../css/ProjectCard.css";
 // Image
 import avatarImg from "../assets/images/logo.png";
 import FavourModalImg from '../assets/images/Modal Image/Favourite.png'

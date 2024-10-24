@@ -5,7 +5,7 @@ import CommunityCard from "./CommunityCard";
 import axios from "axios";
 import PropTypes from "prop-types";
 import Skeleton from "@mui/material/Skeleton"; // Import Material UI Skeleton
-import "./css/Community.css";
+import "../css/Community.css";
 import avatar from "../assets/images/Dropdown/avatar.png";
 import ViewAllModalImg from "../assets/images/Modal Image/ViewAll.png";
 import githubModalImg from "../assets/images/Modal Image/GitHub.png";
