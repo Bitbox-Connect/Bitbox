@@ -8,7 +8,7 @@ import userDummyImg from '../assets/images/User/User.png'
 import './css/EditProfile.css'
 
 const EditProfile = (props) => {
-    const host = 'http://localhost:5000'
+    const SERVER_PORT = import.meta.env.SERVER_PORT || 'http://localhost:5000';
     const userProfileContext = useContext(profileContext);
     const { updateUserProfile } = userProfileContext;
 
@@ -32,11 +32,11 @@ const EditProfile = (props) => {
             const reader = new FileReader();
             reader.onloadend = () => {
                 const imageData = reader.result;
-                axios.post(`${host}/uploadAvatarImage`, { image: imageData })
+                axios.post(`${SERVER_PORT}/uploadAvatarImage`, { image: imageData })
                     .then(res => {
                         console.log(res)
                         // After successful upload, fetch the updated image
-                        axios.get(`${host}/getAvatarImage`)
+                        axios.get(`${SERVER_PORT}/getAvatarImage`)
                             .then(res => setImage(res.data[res.data.length - 1].image)) // Fetch the last uploaded image
                             .catch(err => console.log(err))
                     })

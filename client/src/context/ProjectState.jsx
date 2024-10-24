@@ -4,7 +4,7 @@ import projectContext from "./projectContext.jsx";
 // import SearchProjects from "../component/SearchProject.jsx";
 
 const ProjectStates = (props) => {
-  const host = 'http://localhost:5000';
+  const SERVER_PORT = import.meta.env.SERVER_PORT || 'http://localhost:5000';
   const projectsInitial = [];
 
   const [userProjects, setUserProjects] = useState(projectsInitial);
@@ -13,7 +13,7 @@ const ProjectStates = (props) => {
   // Get All Globally Project
   const getGlobalProjects = async () => {
     // API CALL - Fetch All Global Projects
-    const response = await fetch(`${host}/api/projects/fetchallglobalprojects`, {
+    const response = await fetch(`${SERVER_PORT}/api/projects/fetchallglobalprojects`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -26,7 +26,7 @@ const ProjectStates = (props) => {
   // Get All Your Project
   const getUserProjects = async () => {
     // API CALL - Fetch All User Projects
-    const response = await fetch(`${host}/api/projects/fetchalluserprojects`, {
+    const response = await fetch(`${SERVER_PORT}/api/projects/fetchalluserprojects`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +40,7 @@ const ProjectStates = (props) => {
   // Add a Project
   const addProject = async (title, description, gitHubLink, youTubeLink) => {
     // API CALL  - Add Projects
-    const response = await fetch(`${host}/api/projects/addproject`, {
+    const response = await fetch(`${SERVER_PORT}/api/projects/addproject`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -56,7 +56,7 @@ const ProjectStates = (props) => {
   // Delete a Project
   const deleteProject = async (id) => {
     // API CALL - Delete Project
-    const response = await fetch(`${host}/api/projects/deleteproject/${id}`, {
+    const response = await fetch(`${SERVER_PORT}/api/projects/deleteproject/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -73,7 +73,7 @@ const ProjectStates = (props) => {
   // Edit a Project
   const editProject = async (id, title, description, gitHubLink, youTubeLink) => {
     // API CALL - Update Project
-    const response = await fetch(`${host}/api/projects/updateproject/${id}`, {
+    const response = await fetch(`${SERVER_PORT}/api/projects/updateproject/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

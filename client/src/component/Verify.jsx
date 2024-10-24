@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-const host = "http://localhost:5000";
+const SERVER_PORT = import.meta.env.SERVER_PORT || 'http://localhost:5000';
 
 const VerifyEmail = () => {
   const { token } = useParams();
@@ -12,7 +12,7 @@ const VerifyEmail = () => {
   const navigate = useNavigate();
 
   const handleVerification = () => {
-    fetch(`${host}/api/auth/verify/${token}`, {
+    fetch(`${SERVER_PORT}/api/auth/verify/${token}`, {
       method: 'POST',
     })
       .then(response => {
@@ -33,6 +33,7 @@ const VerifyEmail = () => {
   useEffect(() => {
     setIsLoading(true);
     handleVerification();
+    // eslint-disable-next-line
   }, [token]);
 
   const handleModalClose = () => {

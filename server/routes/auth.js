@@ -8,6 +8,7 @@ require("dotenv").config();
 const { body, validationResult } = require("express-validator");
 const { OAuth2Client } = require("google-auth-library");
 const rateLimit = require("express-rate-limit");
+require('dotenv').config(); // Load environment variables from .env file
 
 const {
   forgetpassword,

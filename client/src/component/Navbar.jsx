@@ -12,7 +12,7 @@ import { FaMoon } from "react-icons/fa6";
 
 function Navbar(props) {
   const { showAlert, mode } = props;
-  const host = "http://localhost:5000";
+  const SERVER_PORT = import.meta.env.SERVER_PORT || 'http://localhost:5000';
   const navigate = useNavigate();
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false); // State to keep track of whether page has been scrolled
@@ -73,7 +73,7 @@ function Navbar(props) {
   useEffect(() => {
     // Fetch initial image when component mounts
     axios
-      .get(`${host}/getAvatarImage`)
+      .get(`${SERVER_PORT}/getAvatarImage`)
       .then((res) => {
         // Check if response data is valid
         if (res.data && res.data.length > 0) {

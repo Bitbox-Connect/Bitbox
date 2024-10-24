@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './css/Auth.css';
 
-const host = "http://localhost:5000";
+const SERVER_PORT = import.meta.env.SERVER_PORT || 'http://localhost:5000';
 
 const ForgotPassword = (props) => {
 const [formData, setFormData] = useState({ email: "", newPassword: "", confirmPassword: "" });
@@ -46,7 +46,7 @@ const handleSubmit = async (e) => {
 
     if (validateForm()) {
         console.log("inforgot")
-        const response = await fetch(`${host}/api/auth/forget`, {
+        const response = await fetch(`${SERVER_PORT}/api/auth/forget`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

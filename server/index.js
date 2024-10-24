@@ -3,12 +3,13 @@ const { Server } = require("socket.io");
 const connectToMongo = require("./db");
 const cors = require("cors");
 const Avatar = require("./Models/Avatar");
+require('dotenv').config(); // Load environment variables from .env file
 
 // Connect to MongoDB
 connectToMongo();
 
 const app = express();
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
 // Middleware to log requests
 app.use((req, res, next) => {
@@ -102,8 +103,8 @@ app.get("/getAvatarImage", async (req, res) => {
 });
 
 // Start HTTP server
-httpServer.listen(port, () => {
-  console.log(`App listening on http://localhost:${port}`);
+httpServer.listen(PORT, () => {
+  console.log(`App listening on http://localhost:${PORT}`);
 });
 
 // Centralized error-handling middleware
