@@ -10,6 +10,7 @@ import {
 import PropTypes from "prop-types";
 import LoadingBar from "react-top-loading-bar";
 import About from "./component/About";
+import BlogPage from "./component/Blog";
 import Alert from "./component/Alert";
 import Footer from "./component/Footer";
 import Home from "./component/Home";
@@ -55,6 +56,7 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
           home='Home'
           about='About Us'
           community='Community'
+          BlogPage="Blogs"
           discussion='Discussion'
           showAlert={showAlert}
           mode={mode}
@@ -185,6 +187,17 @@ function App() {
                   path='/about'
                   element={
                     <About
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path='/blog'
+                  element={
+                    <BlogPage
                       mode={mode}
                       setProgress={setProgress}
                       showAlert={showAlert}
