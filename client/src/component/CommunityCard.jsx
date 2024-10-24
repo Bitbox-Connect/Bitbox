@@ -1,4 +1,4 @@
-import './css/ProjectCard.css'
+import '../css/ProjectCard.css'
 // import { useState } from 'react';
 import PropTypes from 'prop-types';
 import avatarImg from '../assets/images/logo.png'

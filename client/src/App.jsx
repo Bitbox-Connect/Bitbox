@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"; // Import useState and useEffect
+import { useEffect, useState } from "react"; // Import useState and useEffect
 import "./App.css";
 import "./index.css";
 import {
@@ -47,9 +47,9 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
   const hideFooterRoutes = ["/login", "/signup", "/forgot-password"];
 
   return (
-    <>
+    <div className="h-full w-full">
       {/* Conditionally render the Navbar */}
-      {!hideNavbarRoutes.includes(location.pathname) && (
+      {/* {!hideNavbarRoutes.includes(location.pathname) && ( */}
         <Navbar
           title='BITBOX'
           home='Home'
@@ -60,16 +60,16 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
           mode={mode}
           toggleMode={toggleMode}
         />
-      )}
+      {/* )} */}
 
       {/* Main content */}
       {children}
 
       {/* Conditionally render the Footer */}
-      {!hideFooterRoutes.includes(location.pathname) && (
+      {/* {!hideFooterRoutes.includes(location.pathname) && ( */}
         <Footer mode={mode} setProgress={setProgress} setAlert={showAlert} />
-      )}
-    </>
+      {/* )} */}
+    </div>
   );
 };
 
@@ -123,7 +123,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="h-full w-screen">
       <ProjectState>
         <ProfileState>
           <Router>
