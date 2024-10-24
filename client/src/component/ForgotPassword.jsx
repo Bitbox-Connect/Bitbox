@@ -4,7 +4,7 @@ import { Input, Button } from "antd";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-const SERVER_PORT = import.meta.env.SERVER_PORT || 'http://localhost:5000';
+const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'http://localhost:5000';
 
 const ForgotPassword = ({ showAlert, mode }) => {
   const [forgotEmail, setForgotEmail] = useState("");
@@ -14,7 +14,7 @@ const ForgotPassword = ({ showAlert, mode }) => {
   const handleForgotPassword = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${SERVER_PORT}/api/auth/ResetByEmail`, {
+      const response = await fetch(`${VITE_SERVER_PORT}/api/auth/ResetByEmail`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

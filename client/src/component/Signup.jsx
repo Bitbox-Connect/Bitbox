@@ -7,7 +7,7 @@ import { registerValidation } from "../validations/validation";
 import toast from "react-hot-toast";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 
-const SERVER_PORT = import.meta.env.SERVER_PORT || 'http://localhost:5000';
+const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'http://localhost:5000';
 
 const Signup = ({ mode }) => {
   const navigate = useNavigate();
@@ -20,13 +20,13 @@ const Signup = ({ mode }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       await registerValidation.validate(
         { name, email, password, cpassword },
         { abortEarly: false }
       );
       setErrors({});
+      console.log("Signup form submitted");
     } catch (error) {
       const newErrors = {};
       error.inner.forEach((err) => {
@@ -41,7 +41,7 @@ const Signup = ({ mode }) => {
   };
 
   const signUpWithGoogle = async (email, name, password) => {
-    const response = await fetch(`${SERVER_PORT}/api/auth/createuser`, {
+    const response = await fetch(`${VITE_SERVER_PORT}/api/auth/createuser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

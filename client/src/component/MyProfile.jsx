@@ -26,7 +26,7 @@ import ShareModalImg from '../assets/images/Modal Image/Share.png'
 
 
 const MyProfile = (props) => {
-    const SERVER_PORT = import.meta.env.SERVER_PORT || 'http://localhost:5000';
+    const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'http://localhost:5000';
     const { mode } = props;
     const [showVideo, setShowVideo] = useState(false);
 
@@ -110,7 +110,7 @@ const MyProfile = (props) => {
 
     useEffect(() => {
         // Fetch initial image when component mounts
-        axios.get(`${SERVER_PORT}/getAvatarImage`)
+        axios.get(`${VITE_SERVER_PORT}/getAvatarImage`)
             .then(res => setImage(res.data[res.data.length - 1].image)) // Fetch the last uploaded image
             .catch(err => console.log(err))
     })

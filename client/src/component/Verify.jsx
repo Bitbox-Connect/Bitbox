@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-const SERVER_PORT = import.meta.env.SERVER_PORT || 'http://localhost:5000';
+const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'http://localhost:5000';
 
 const VerifyEmail = () => {
   const { token } = useParams();
@@ -12,7 +12,7 @@ const VerifyEmail = () => {
   const navigate = useNavigate();
 
   const handleVerification = () => {
-    fetch(`${SERVER_PORT}/api/auth/verify/${token}`, {
+    fetch(`${VITE_SERVER_PORT}/api/auth/verify/${token}`, {
       method: 'POST',
     })
       .then(response => {

@@ -3,14 +3,14 @@ import { useState } from 'react';
 import ProfileContext from './profileContext';
 
 const ProfileState = (props) => {
-    const SERVER_PORT = import.meta.env.SERVER_PORT || 'http://localhost:5000';
+    const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'http://localhost:5000';
     const profileInitial = [];
 
     const [userProfile, setUserProfile] = useState(profileInitial);
 
     const createUserProfile = async (name, college, phone, address) => {
         try {
-            const response = await fetch(`${SERVER_PORT}/api/profile/createprofile`, {
+            const response = await fetch(`${VITE_SERVER_PORT}/api/profile/createprofile`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ const ProfileState = (props) => {
 
     const getUserProfile = async () => {
         try {
-            const response = await fetch(`${SERVER_PORT}/api/profile/fetchprofile`, {
+            const response = await fetch(`${VITE_SERVER_PORT}/api/profile/fetchprofile`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ const ProfileState = (props) => {
 
     const updateUserProfile = async (name, college, phone, address) => {
         try {
-            const response = await fetch(`${SERVER_PORT}/api/profile/updateprofile`, {
+            const response = await fetch(`${VITE_SERVER_PORT}/api/profile/updateprofile`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

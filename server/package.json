@@ -4,8 +4,11 @@
   "description": "Opensource - Project help from the experts",
   "main": ".index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "dev": "nodemon -r dotenv/config index.js",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "keywords": [
     "Anuj",

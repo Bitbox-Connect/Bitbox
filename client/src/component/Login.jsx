@@ -11,7 +11,7 @@ import {
 import "./css/Login.css";
 import toast from "react-hot-toast";
 
-const SERVER_PORT = import.meta.env.SERVER_PORT || 'http://localhost:5000';
+const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'http://localhost:5000';
 
 const Login = ({ mode, showAlert }) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -23,7 +23,7 @@ const Login = ({ mode, showAlert }) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch(`${SERVER_PORT}/api/auth/login`, {
+      const response = await fetch(`${VITE_SERVER_PORT}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

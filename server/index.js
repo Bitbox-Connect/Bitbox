@@ -8,8 +8,18 @@ require('dotenv').config(); // Load environment variables from .env file
 // Connect to MongoDB
 connectToMongo();
 
-const app = express();
-const PORT = process.env.PORT || 5000;
+const app = express(); 
+const httpServer = require("http").createServer(app);
+const io = new Server(httpServer, {
+  cors: {
+    origin: "*", // Update to specific origins in production
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  },
+});
+
+// Correctly set the PORT to listen on
+const PORT = process.env.PORT || 5000; // Render will provide the PORT
 
 // Middleware to log requests
 app.use((req, res, next) => {
@@ -31,80 +41,35 @@ app.use("/api/auth", require("./routes/auth"));
 app.use("/api/projects", require("./routes/projects"));
 app.use("/api/profile", require("./routes/profile"));
 
-// Set up socket.io server
-const httpServer = require("http").createServer(app);
-const io = new Server(httpServer, {
-  cors: {
-    origin: "*", // Update to specific origins in production
-    methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-  },
-});
-
+// Socket.io connection handling
 const users = {};
 
 io.on("connection", (socket) => {
-  // Notify other users when a new user joins
   socket.on("new-user-joined", (name) => {
-    try {
-      users[socket.id] = name;
-      socket.broadcast.emit("user-joined", name);
-    } catch (error) {
-      console.error("Error handling new user join:", error);
-    }
+    users[socket.id] = name;
+    socket.broadcast.emit("user-joined", name);
   });
 
-  // Broadcast messages to other users
   socket.on("send", (message) => {
-    try {
-      socket.broadcast.emit("receive", {
-        message: message,
-        name: users[socket.id],
-      });
-    } catch (error) {
-      console.error("Error sending message:", error);
-    }
+    socket.broadcast.emit("receive", {
+      message: message,
+      name: users[socket.id],
+    });
   });
 
-  // Notify other users when someone leaves the chat
   socket.on("disconnect", () => {
-    try {
-      if (users[socket.id]) {
-        socket.broadcast.emit("left", users[socket.id]);
-        delete users[socket.id];
-      }
-    } catch (error) {
-      console.error("Error handling user disconnect:", error);
+    if (users[socket.id]) {
+      socket.broadcast.emit("left", users[socket.id]);
+      delete users[socket.id];
     }
   });
 });
 
-// Endpoint for uploading avatar image
-app.post("/uploadAvatarImage", async (req, res) => {
-  try {
-    await Avatar.deleteMany(); // Delete all previous images in the collection
-    const result = await Avatar.create({ image: req.body.image });
-    res.json(result);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Internal server error" });
-  }
-});
-
-// Endpoint for getting avatar image
-app.get("/getAvatarImage", async (req, res) => {
-  try {
-    const avatar = await Avatar.find();
-    res.json(avatar);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Internal server error" });
-  }
-});
-
-// Start HTTP server
+// Start HTTP server - listen on the correct PORT
 httpServer.listen(PORT, () => {
-  console.log(`App listening on http://localhost:${PORT}`);
+  console.log(`App listening on port ${PORT}`);
+}).on('error', (err) => {
+  console.error('Server error:', err);
 });
 
 // Centralized error-handling middleware

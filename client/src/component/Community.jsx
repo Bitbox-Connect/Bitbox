@@ -20,7 +20,7 @@ import commentModalImg from "../assets/images/Modal Image/comment.png";
 import ShareModalImg from "../assets/images/Modal Image/Share.png";
 
 const Community = (props) => {
-  const SERVER_PORT = import.meta.env.SERVER_PORT || 'http://localhost:5000';
+  const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'http://localhost:5000';
   const [loading, setLoading] = useState(true); // State to track loading
   const [project, setProject] = useState({
     id: "",
@@ -59,7 +59,7 @@ const Community = (props) => {
   // Avatar Profile Image
   useEffect(() => {
     axios
-      .get(`${SERVER_PORT}/getAvatarImage`)
+      .get(`${VITE_SERVER_PORT}/getAvatarImage`)
       .then((res) => setImage(res.data[res.data.length - 1].image)) // Fetch the last uploaded image
       .catch((err) => console.log(err));
   });
