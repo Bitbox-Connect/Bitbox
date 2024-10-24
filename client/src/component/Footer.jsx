@@ -1,5 +1,5 @@
 import React from 'react'
-import '../component/css/footer.css'
+import '../component/css/Footer.css';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { FaXTwitter } from "react-icons/fa6";
