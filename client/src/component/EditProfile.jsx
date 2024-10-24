@@ -5,10 +5,10 @@ import axios from 'axios'
 import profileContext from '../context/profileContext';
 import userDummyImg from '../assets/images/User/User.png'
 // CSS
-import './css/EditProfile.css'
+import '../css/EditProfile.css';
 
 const EditProfile = (props) => {
-    const host = 'http://localhost:5000'
+    const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';
     const userProfileContext = useContext(profileContext);
     const { updateUserProfile } = userProfileContext;
 
@@ -32,11 +32,11 @@ const EditProfile = (props) => {
             const reader = new FileReader();
             reader.onloadend = () => {
                 const imageData = reader.result;
-                axios.post(`${host}/uploadAvatarImage`, { image: imageData })
+                axios.post(`${VITE_SERVER_PORT}/uploadAvatarImage`, { image: imageData })
                     .then(res => {
                         console.log(res)
                         // After successful upload, fetch the updated image
-                        axios.get(`${host}/getAvatarImage`)
+                        axios.get(`${VITE_SERVER_PORT}/getAvatarImage`)
                             .then(res => setImage(res.data[res.data.length - 1].image)) // Fetch the last uploaded image
                             .catch(err => console.log(err))
                     })

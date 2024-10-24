@@ -1,17 +1,17 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Modal, Input, Button, Spin } from "antd";
+import { Input, Button, Spin } from "antd";
 import {
   UserOutlined,
   LockOutlined,
   EyeInvisibleOutlined,
   EyeTwoTone,
 } from "@ant-design/icons";
-import "./css/Login.css";
+import "../css/Login.css";
 import toast from "react-hot-toast";
 
-const host = "http://localhost:5000";
+const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';
 
 const Login = ({ mode, showAlert }) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -23,7 +23,7 @@ const Login = ({ mode, showAlert }) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch(`${host}/api/auth/login`, {
+      const response = await fetch(`${VITE_SERVER_PORT}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,23 +55,24 @@ const Login = ({ mode, showAlert }) => {
 
   return (
     <div className="h-screen flex items-center justify-center">
+
     <div
 
       className="wrapper h-3/4 mt-10"
 
       style={{
-        backgroundColor: mode === "dark" ? "black" : "white",
-        color: mode === "dark" ? "white" : "black",
-      }}
-    >
-      <form
-        onSubmit={handleSubmit}
-        className="form"
-        style={{
           backgroundColor: mode === "dark" ? "black" : "white",
           color: mode === "dark" ? "white" : "black",
         }}
       >
+      <form
+        onSubmit={handleSubmit}
+        className="form"
+
+      <div
+        className="wrapper h-3/4 mt-10"
+
+       
         <h1 className="title">Login</h1>
         <span className="title-line"></span>
         <div className="inp">
@@ -177,7 +178,6 @@ const Login = ({ mode, showAlert }) => {
           with your real info
         </p>
       </div>
-    </div>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import CommunityCard from "./CommunityCard";
 import axios from "axios";
 import PropTypes from "prop-types";
 import Skeleton from "@mui/material/Skeleton"; // Import Material UI Skeleton
-import "./css/Community.css";
+import "../css/Community.css";
 import avatar from "../assets/images/Dropdown/avatar.png";
 import ViewAllModalImg from "../assets/images/Modal Image/ViewAll.png";
 import githubModalImg from "../assets/images/Modal Image/GitHub.png";
@@ -20,7 +20,7 @@ import commentModalImg from "../assets/images/Modal Image/comment.png";
 import ShareModalImg from "../assets/images/Modal Image/Share.png";
 
 const Community = (props) => {
-  const host = "http://localhost:5000";
+  const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';
   const [loading, setLoading] = useState(true); // State to track loading
   const [project, setProject] = useState({
     id: "",
@@ -59,7 +59,7 @@ const Community = (props) => {
   // Avatar Profile Image
   useEffect(() => {
     axios
-      .get(`${host}/getAvatarImage`)
+      .get(`${VITE_SERVER_PORT}/getAvatarImage`)
       .then((res) => setImage(res.data[res.data.length - 1].image)) // Fetch the last uploaded image
       .catch((err) => console.log(err));
   });

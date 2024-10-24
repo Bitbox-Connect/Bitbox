@@ -1,4 +1,4 @@
-import './css/Contributers.css'
+import '../css/Contributers.css'
 
 export default function Contributers() {
 

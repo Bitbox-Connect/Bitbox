@@ -1,4 +1,4 @@
-import './css/Home.css';
+import '../css/Home.css';
 import PropTypes from 'prop-types';
 import HeroImg from '../assets/images/Vector Gif/Hero.gif';
 import Learn from '../assets/images/Learn.png';

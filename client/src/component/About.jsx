@@ -1,4 +1,4 @@
-import "./css/About.css";
+import "../css/About.css";
 import PropTypes from 'prop-types';
 // import { useEffect } from "react";
 import img1 from "../assets/images/Anuj.png";

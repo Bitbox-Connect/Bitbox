@@ -4,7 +4,7 @@ import { Input, Button } from "antd";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-const host = "http://localhost:5000";
+const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';
 
 const ForgotPassword = ({ showAlert, mode }) => {
   const [forgotEmail, setForgotEmail] = useState("");
@@ -14,7 +14,7 @@ const ForgotPassword = ({ showAlert, mode }) => {
   const handleForgotPassword = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${host}/api/auth/ResetByEmail`, {
+      const response = await fetch(`${VITE_SERVER_PORT}/api/auth/ResetByEmail`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -118,7 +118,7 @@ const ForgotPassword = ({ showAlert, mode }) => {
             marginLeft: "200px",
           }}
         >
-          No worries, we've got you covered!"
+          No worries, we&apos;ve got you covered!&quot;
         </p>
       </div>
     </div>
