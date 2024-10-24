@@ -211,6 +211,11 @@ nav_ul li {
   border-radius: 80%;
 }
 
+.footer-icons a:hover{
+  transform: scale(1.2);
+  color: #0077B5;
+}
+
 .Footer h5 {
   font-weight: bold;
   font-size: 1.5rem;
@@ -285,6 +290,7 @@ nav_ul li {
   .footer-icons {
     gap: 0.8rem;
   }
+
 
   .Footer h5 {
     font-size: 1.2rem;
