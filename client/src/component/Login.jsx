@@ -55,107 +55,128 @@ const Login = ({ mode, showAlert }) => {
 
   return (
     <div className="h-screen flex items-center justify-center">
-      <div
-        className="wrapper h-3/4 mt-10"
-        style={{
+
+    <div
+
+      className="wrapper h-3/4 mt-10"
+
+      style={{
           backgroundColor: mode === "dark" ? "black" : "white",
           color: mode === "dark" ? "white" : "black",
         }}
       >
-        <form
-          onSubmit={handleSubmit}
-          className='form'
+      <form
+        onSubmit={handleSubmit}
+        className="form"
+
+      <div
+        className="wrapper h-3/4 mt-10"
+
+       
+        <h1 className="title">Login</h1>
+        <span className="title-line"></span>
+        <div className="inp">
+          <Input
+            prefix={<UserOutlined />}
+            type="email"
+            placeholder="Email"
+            name="email"
+            value={credentials.email}
+            onChange={onChange}
+            autoComplete="on"
+            required
+            className="h-10 text-xl"
+            style={{
+              backgroundColor: mode === "dark" ? "black" : "white",
+              color: mode === "dark" ? "white" : "black",
+            }}
+          />
+        </div>
+
+        <div className="inp">
+          <Input.Password
+            prefix={<LockOutlined />}
+            placeholder="Password"
+            name="password"
+            value={credentials.password}
+            onChange={onChange}
+            autoComplete="on"
+
+            iconRender={(visible) =>
+              visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+            }
+
+            className="h-10 text-xl"
+
+            style={{
+              backgroundColor: mode === "dark" ? "black" : "white",
+              color: mode === "dark" ? "white" : "black",
+            }}
+            required
+            iconRender={(visible) =>
+              visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+            }
+          />
+        </div>
+
+        <button
+          className="submit"
+          disabled={loading}
+          onClick={() => {
+            handleSubmit();
+          }}
+        >
+          {loading ? <Spin size="small" /> : "Login"}
+        </button>
+
+        <p
+          className="footer"
           style={{
             backgroundColor: mode === "dark" ? "black" : "white",
             color: mode === "dark" ? "white" : "black",
           }}
         >
-          <h1 className='title'>Login</h1>
-          <span className='title-line'></span>
-          <div className='inp'>
-            <Input
-              prefix={<UserOutlined />}
-              type='email'
-              placeholder='Email'
-              name='email'
-              value={credentials.email}
-              onChange={onChange}
-              autoComplete='on'
-              required
-              className="h-10 text-xl"
-              style={{
-                backgroundColor: mode === "dark" ? "black" : "white",
-                color: mode === "dark" ? "white" : "black",
-              }}
-            />
-          </div>
+          Don&apos;t have an account?
+          <Link className="link" to="/Signup">
 
-          <div className='inp'>
-            <Input.Password
-              prefix={<LockOutlined />}
-              placeholder='Password'
-              name='password'
-              value={credentials.password}
-              onChange={onChange}
-              autoComplete="on"
-              className="h-10 text-xl"
-              style={{
-                backgroundColor: mode === "dark" ? "black" : "white",
-                color: mode === "dark" ? "white" : "black",
-              }}
-              required
-              iconRender={(visible) =>
-                visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-              }
-            />
-          </div>
+            {" "}
+            Sign Up
+          </Link>
+        </p>
 
-          <Button className="submit h-10 text-xl" type="submit" disabled={loading}>
-            {loading ? <Spin size="small" /> : "Login"}
-          </Button>
+        <Button
+          style={{ backgroundColor: "#6366f1", color: "#FFFFFF" }}
+          onClick={() => navigate("/forgot-password")}
 
-          <p className="footer text-xl" style={{
-            backgroundColor: mode === "dark" ? "black" : "white",
-            color: mode === "dark" ? "white" : "black",
-          }}>
-            Don&apos;t have an account?
-            <Link className="link text-xl" to="/signup">
-              {" "}
-              Sign Up
-            </Link>
-          </p>
+          
+          className="mt-3 h-10 text-xl"
 
-          <Button
-            style={{ backgroundColor: "#6366f1", color: "#FFFFFF" }}
-            onClick={() => navigate("/forgot-password")}
-            className="mt-3 h-10 text-xl"
-          >
-            Forgot Password?
-          </Button>
-        </form>
+        >
+          Forgot Password?
+        </Button>
+      </form>
 
-        <div className='banner'>
-          <h1
-            className='wel_text'
-            style={{
-              color: mode === "dark" ? "black" : "white",
-            }}
-          >
-            WELCOME
-            <br />
-            BACK!
-          </h1>
-          <p
-            className='para'
-            style={{
-              color: mode === "dark" ? "black" : "white",
-            }}
-          >
-            Please Sign In here
-            <br />
-            with your real info
-          </p>
-        </div>
+      <div className="banner">
+        <h1
+          className="wel_text"
+          style={{
+            color: mode === "dark" ? "black" : "white",
+          }}
+        >
+          WELCOME
+          <br />
+          BACK!
+        </h1>
+        <p
+          className="para"
+          style={{
+            color: mode === "dark" ? "black" : "white",
+          }}
+        >
+          Please Sign In here
+          <br />
+          with your real info
+        </p>
       </div>
     </div>
   );
