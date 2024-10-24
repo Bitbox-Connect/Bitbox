@@ -7,6 +7,7 @@ import LoadingBar from 'react-top-loading-bar';
 import About from './component/About';
 import Alert from './component/Alert';
 import Footer from './component/Footer';
+import Preloader from './component/Preloader'
 import Home from './component/Home';
 import Login from './component/Login';
 import Navbar from './component/Navbar';
@@ -31,7 +32,6 @@ import VerifyEmail from './component/Verify';
 import NotFound from './component/NotFound';
 import MiniChatbot from './component/MiniChatbot'
 import ProgressBar from './component/ProgressBar/ProgressBar';
-
 // Main Layout Component
 
 const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
@@ -73,6 +73,14 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
 };
 
 function App() {
+  const [isPreloaderVisible, SetIsPreloaderVisible] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      SetIsPreloaderVisible(false);
+    }, 5000)
+    return()=> clearTimeout(timer);
+  }, []);
+
   const [mode, setMode] = useAtom(modeAtom)
   const [alert, setAlert] = useState(null);
   const showAlert = (message, type) => {
@@ -114,6 +122,9 @@ function App() {
 
   return (
     <div>
+      {isPreloaderVisible ?(
+        <Preloader />
+      ):(
       <ProjectState>
         <ProfileState>
           <Router>
@@ -125,7 +136,7 @@ function App() {
             <div className="alert-container">
               <Alert alert={alert} />
             </div>
-            <ProgressBar mode={mode}/>
+            <ProgressBar mode={mode} />
             <ScrollTop />
             <MiniChatbot />
 
@@ -149,14 +160,16 @@ function App() {
                 <Route exact path="/termofuse" element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/verify/:token" element={<VerifyEmail />} />
                 {/* 404 Route */}
-            <Route exact path="/*" element={<NotFound />} />   
+                <Route exact path="/*" element={<NotFound />} />
               </Routes>
-              
+
             </Layout>
           </Router>
         </ProfileState>
       </ProjectState>
+      )}
     </div>
+
   );
 }
 

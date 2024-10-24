@@ -8,7 +8,7 @@ import logo from "../assets/images/logo.png";
 import avatarDropdown from "../assets/images/Dropdown/avatar.png";
 import { auth } from "../component/Firebase/Setup";
 import { FaSun } from "react-icons/fa6";
-import {FaMoon} from "react-icons/fa6";
+import { FaMoon } from "react-icons/fa6";
 
 function Navbar(props) {
   const { showAlert, mode } = props;
@@ -222,18 +222,18 @@ function Navbar(props) {
                     <Link
                       role="button"
                       to="/login"
-                      className="btn loginbtn mx-2  h-10 "
-                      style={{ height: "45px", color: "white" }}
+                      className={`relative inline-block h-full w-full rounded 
+              border-2 px-4 py-1 font-bold transition duration-100 
+              hover:bg-yellow-400 dark:hover:bg-yellow-400 
+              shadow-[4px_4px_0px_0px_black] dark:shadow-[4px_4px_0px_0px_white]`}
+                      style={{
+                        height: "45px",
+                        backgroundColor: props.mode === "dark" ? "#4B5563" : "#F5F5DC", // Dark mode: gray background
+                        color: props.mode === "dark" ? "white" : "black",
+                        borderColor: props.mode === "dark" ? "#D1D5DB" : "black", // Dark mode: light gray border, light mode: black border
+                      }}
                     >
                       Login
-                    </Link>
-                    <Link
-                      role="button"
-                      to="/signup"
-                      className="btn loginbtn mx-2  h-10 "
-                      style={{ height: "45px", color: "white" }}
-                    >
-                      Signup
                     </Link>
                   </div>
                 </ul>

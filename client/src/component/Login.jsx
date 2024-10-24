@@ -48,7 +48,7 @@ const Login = ({ mode, showAlert }) => {
       showAlert("An error occurred. Please try again later.", "danger");
       console.error("Error during login:", error);
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
@@ -84,14 +84,22 @@ const Login = ({ mode, showAlert }) => {
     <div
       className="wrapper"
       style={{
-        backgroundColor: mode === "dark" ? "black" : "white",
+        backgroundColor: mode === "dark" ? "#1A1A1A" : "white", // Dark background
         color: mode === "dark" ? "white" : "black",
       }}
     >
-      <form onSubmit={handleSubmit} className="form" style={{
-        backgroundColor: mode === "dark" ? "black" : "white",
-        color: mode === "dark" ? "white" : "black",
-      }}>
+      <form
+        onSubmit={handleSubmit}
+        className="form"
+        style={{
+          backgroundColor: mode === "dark" ? "#1A1A1A" : "white",
+          color: mode === "dark" ? "white" : "black",
+          border: mode === "dark" ? "2px solid #6366F1" : "none", // Border for dark theme
+          borderRadius: "15px",
+          padding: "40px", // Add padding for better aesthetics
+          boxShadow: mode === "dark" ? "0 8px 16px rgba(255, 255, 255, 0.1)" : "0 8px 16px rgba(0, 0, 0, 0.2)"
+        }}
+      >
         <h1 className="title">Login</h1>
         <span className="title-line"></span>
         <div className="inp">
@@ -105,8 +113,7 @@ const Login = ({ mode, showAlert }) => {
             autoComplete="on"
             required
             style={{
-              backgroundColor: mode === "dark" ? "black" : "white",
-              color: mode === "dark" ? "white" : "black",
+              border: mode === "dark" ? "1px solid #6366F1" : "1px solid #ddd", // Input border for dark mode
             }}
           />
         </div>
@@ -123,8 +130,7 @@ const Login = ({ mode, showAlert }) => {
               visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
             }
             style={{
-              backgroundColor: mode === "dark" ? "black" : "white",
-              color: mode === "dark" ? "white" : "black",
+              border: mode === "dark" ? "1px solid #6366F1" : "1px solid #ddd", // Input border for dark mode
             }}
             required
           />
@@ -135,9 +141,8 @@ const Login = ({ mode, showAlert }) => {
         </Button>
 
         <p className="footer" style={{
-        backgroundColor: mode === "dark" ? "black" : "white",
-        color: mode === "dark" ? "white" : "black",
-      }}>
+          color: mode === "dark" ? "white" : "black",
+        }}>
           Don&apos;t have an account?
           <Link className="link" to="/Signup">
             {" "}
@@ -154,19 +159,17 @@ const Login = ({ mode, showAlert }) => {
         </Button>
       </form>
 
-      <div className="banner" >
+      <div className="banner">
         <h1 className="wel_text" style={{
-        
-        color: mode === "dark" ? "black" : "white",
-      }}>
+          color: mode === "dark" ? "white" : "black",
+        }}>
           WELCOME
           <br />
           BACK!
         </h1>
         <p className="para" style={{
-        
-        color: mode === "dark" ? "black" : "white",
-      }}>
+          color: mode === "dark" ? "white" : "black",
+        }}>
           Please Sign In here
           <br />
           with your real info

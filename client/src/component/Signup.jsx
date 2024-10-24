@@ -66,7 +66,19 @@ const Signup = ({ mode }) => {
       <div
         className="signup-wrapper"
         style={{
-          backgroundColor: mode === "dark" ? "black" : "white",
+          backgroundColor: mode === "dark" ? "#444444" : "white", // Gray for dark mode
+          transition: "background-color 0.3s ease", // Smooth transition
+          boxShadow: mode === "dark" ? "0 0 15px rgba(255, 255, 255, 0.2)" : "none" // Light shadow in dark mode
+        }}
+        onMouseEnter={(e) => {
+          if (mode === "dark") {
+            e.currentTarget.style.boxShadow = "0 0 20px rgba(255, 255, 255, 0.5)";
+          }
+        }}
+        onMouseLeave={(e) => {
+          if (mode === "dark") {
+            e.currentTarget.style.boxShadow = "0 0 15px rgba(255, 255, 255, 0.2)";
+          }
         }}
       >
         <div
@@ -86,6 +98,7 @@ const Signup = ({ mode }) => {
 
           <form onSubmit={handleSubmit}>
             <div className="space-y-4 w-full">
+              {/* Full Name Field */}
               <div className="signup-form-group">
                 <label
                   htmlFor="name"
@@ -107,8 +120,9 @@ const Signup = ({ mode }) => {
                   autoComplete="on"
                   required
                   style={{
-                    backgroundColor: mode === "dark" ? "#333" : "white",
-                    color: mode === "dark" ? "white" : "black",
+                    '::placeholder': {
+                      color: mode === "dark" ? "#bbb" : "#999", // Adjust the color as needed
+                    },
                   }}
                 />
                 {errors.name && (
@@ -116,6 +130,7 @@ const Signup = ({ mode }) => {
                 )}
               </div>
 
+              {/* Email Field */}
               <div className="signup-form-group">
                 <label
                   htmlFor="email"
@@ -137,8 +152,6 @@ const Signup = ({ mode }) => {
                   autoComplete="on"
                   required
                   style={{
-                    backgroundColor: mode === "dark" ? "#333" : "white",
-                    color: mode === "dark" ? "white" : "black",
                   }}
                 />
                 {errors.email && (
@@ -146,6 +159,7 @@ const Signup = ({ mode }) => {
                 )}
               </div>
 
+              {/* Password Field */}
               <div className="signup-form-group relative">
                 <label
                   htmlFor="password"
@@ -167,15 +181,12 @@ const Signup = ({ mode }) => {
                   autoComplete="on"
                   required
                   style={{
-                    backgroundColor: mode === "dark" ? "#333" : "white",
-                    color: mode === "dark" ? "white" : "black",
                   }}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-purple-200
-                   hover:text-purple-300 transition-colors duration-200"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-purple-200 hover:text-purple-300 transition-colors duration-200"
                 >
                   {showPassword ? (
                     <EyeOff className="w-5 h-5" />
@@ -185,6 +196,7 @@ const Signup = ({ mode }) => {
                 </button>
               </div>
 
+              {/* Confirm Password Field */}
               <div className="signup-form-group relative">
                 <label
                   htmlFor="cpassword"
@@ -206,8 +218,6 @@ const Signup = ({ mode }) => {
                   autoComplete="on"
                   required
                   style={{
-                    backgroundColor: mode === "dark" ? "#333" : "white",
-                    color: mode === "dark" ? "white" : "black",
                   }}
                 />
                 <button
@@ -244,6 +254,7 @@ const Signup = ({ mode }) => {
       </div>
     </div>
   );
+
 };
 
 Signup.propTypes = {
