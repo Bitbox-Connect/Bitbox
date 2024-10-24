@@ -26,6 +26,7 @@
     "express-validator": "^7.0.1",
     "firebase": "^10.10.0",
     "google-auth-library": "^9.7.0",
+    "helmet": "^8.0.0",
     "jotai": "^2.10.0",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.10.0",
