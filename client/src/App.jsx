@@ -84,7 +84,7 @@ function App() {
   };
 
   const [progress, setProgress] = useState(0);
-
+  const [islogged,setloggedin]=useState(false)
   useEffect(() => {
     const savedMode = localStorage.getItem("mode");
     if (savedMode) {
@@ -158,39 +158,9 @@ function App() {
                     />
                   }
                 />
-                <Route
-                  exact
-                  path='/discussion'
-                  element={
-                    <Discussion
-                      mode={mode}
-                      setProgress={setProgress}
-                      showAlert={showAlert}
-                    />
-                  }
-                />
-                <Route
-                  exact
-                  path='/community'
-                  element={
-                    <Community
-                      mode={mode}
-                      setProgress={setProgress}
-                      showAlert={showAlert}
-                    />
-                  }
-                />
-                <Route
-                  exact
-                  path='/about'
-                  element={
-                    <About
-                      mode={mode}
-                      setProgress={setProgress}
-                      showAlert={showAlert}
-                    />
-                  }
-                />
+          <Route exact path="/discussion" element={<ProtectedRoute loggedin={islogged}><Discussion mode={mode} setProgress={setProgress} showAlert={showAlert} /></ProtectedRoute>} />
+                <Route exact path="/community" element={<ProtectedRoute loggedin={islogged}><Community mode={mode} setProgress={setProgress} showAlert={showAlert} /></ProtectedRoute>} />
+               <Route exact path="/about" element={<ProtectedRoute loggedin={islogged}><About mode={mode} setProgress={setProgress} showAlert={showAlert} /></ProtectedRoute>} />
                 <Route
                   exact
                   path='/myprofile'
@@ -224,17 +194,7 @@ function App() {
                     />
                   }
                 />
-                <Route
-                  exact
-                  path='/login'
-                  element={
-                    <Login
-                      mode={mode}
-                      setProgress={setProgress}
-                      showAlert={showAlert}
-                    />
-                  }
-                />
+                 <Route exact path="/login" element={<Login mode={mode} setProgress={setProgress} showAlert={showAlert} loggedin={islogged} setloggedin={setloggedin}/>} />
                 <Route
                   exact
                   path='/signup'
