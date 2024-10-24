@@ -113,7 +113,7 @@ const Login = ({ mode, showAlert }) => {
             autoComplete="on"
             required
             style={{
-              border: mode === "dark" ? "1px solid #6366F1" : "1px solid #ddd", // Input border for dark mode
+              border: mode === "dark" ? "1px solid #6366F1" : "1px solid #ddd", 
             }}
           />
         </div>
@@ -130,7 +130,7 @@ const Login = ({ mode, showAlert }) => {
               visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
             }
             style={{
-              border: mode === "dark" ? "1px solid #6366F1" : "1px solid #ddd", // Input border for dark mode
+              border: mode === "dark" ? "1px solid #6366F1" : "1px solid #ddd", 
             }}
             required
           />

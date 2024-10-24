@@ -5,7 +5,7 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
-    font-family: 'Montserrat', sans-serif; /* Use a modern font */
+    font-family: 'Montserrat', sans-serif; 
 }
 
 .wrapper {
@@ -13,7 +13,7 @@ body {
     grid-template-columns: 1fr 1fr;
     width: 90vw;
     max-width: 1200px;
-    background: #f9f9f9; /* Lighter background for better contrast */
+    background: #f9f9f9;
     border-radius: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -32,9 +32,9 @@ body {
 
 .title {
     font-size: 3rem;
-    color: #6366F1; /* Primary brand color */
+    color: #6366F1; 
     font-weight: 700;
-    margin-bottom: 10px; /* Added margin for spacing */
+    margin-bottom: 10px; 
 }
 
 .title-line {
@@ -58,7 +58,7 @@ body {
     font-size: 1rem;
     outline: none;
     transition: all 0.3s ease;
-    font-family: 'Montserrat', sans-serif; /* Ensure input text uses the same font */
+    font-family: 'Montserrat', sans-serif; 
 }
 
 .input:focus {
@@ -215,7 +215,7 @@ body {
         padding: 12px;
         font-size: 1rem;
         border-radius: 8px;
-        border: 1px solid #ccc; /* Lighter border for better contrast */
+        border: 1px solid #ccc; 
     }
 
     .submit {

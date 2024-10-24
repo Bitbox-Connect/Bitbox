@@ -66,9 +66,9 @@ const Signup = ({ mode }) => {
       <div
         className="signup-wrapper"
         style={{
-          backgroundColor: mode === "dark" ? "#444444" : "white", // Gray for dark mode
-          transition: "background-color 0.3s ease", // Smooth transition
-          boxShadow: mode === "dark" ? "0 0 15px rgba(255, 255, 255, 0.2)" : "none" // Light shadow in dark mode
+          backgroundColor: mode === "dark" ? "#444444" : "white", 
+          transition: "background-color 0.3s ease",
+          boxShadow: mode === "dark" ? "0 0 15px rgba(255, 255, 255, 0.2)" : "none" 
         }}
         onMouseEnter={(e) => {
           if (mode === "dark") {
@@ -121,7 +121,7 @@ const Signup = ({ mode }) => {
                   required
                   style={{
                     '::placeholder': {
-                      color: mode === "dark" ? "#bbb" : "#999", // Adjust the color as needed
+                      color: mode === "dark" ? "#bbb" : "#999", 
                     },
                   }}
                 />
