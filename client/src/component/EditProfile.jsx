@@ -35,7 +35,7 @@ const EditProfile = (props) => {
     try {
       // also update the user profile
       const updateProfileResponse = await axios.put(
-        `http://localhost:5000/api/profile/updateprofile`,
+        `${VITE_SERVER_PORT}/profile/updateprofile`,
         {
           name: profile.name,
           college: profile.college,
