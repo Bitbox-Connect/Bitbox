@@ -54,8 +54,11 @@ const Login = ({ mode, showAlert }) => {
   };
 
   return (
+    <div className="h-screen flex items-center justify-center">
     <div
-      className="wrapper"
+
+      className="wrapper h-3/4 mt-10"
+
       style={{
         backgroundColor: mode === "dark" ? "black" : "white",
         color: mode === "dark" ? "white" : "black",
@@ -81,6 +84,7 @@ const Login = ({ mode, showAlert }) => {
             onChange={onChange}
             autoComplete="on"
             required
+            className="h-10 text-xl"
             style={{
               backgroundColor: mode === "dark" ? "black" : "white",
               color: mode === "dark" ? "white" : "black",
@@ -96,14 +100,21 @@ const Login = ({ mode, showAlert }) => {
             value={credentials.password}
             onChange={onChange}
             autoComplete="on"
+
             iconRender={(visible) =>
               visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
             }
+
+            className="h-10 text-xl"
+
             style={{
               backgroundColor: mode === "dark" ? "black" : "white",
               color: mode === "dark" ? "white" : "black",
             }}
             required
+            iconRender={(visible) =>
+              visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+            }
           />
         </div>
 
@@ -126,6 +137,7 @@ const Login = ({ mode, showAlert }) => {
         >
           Don&apos;t have an account?
           <Link className="link" to="/Signup">
+
             {" "}
             Sign Up
           </Link>
@@ -134,7 +146,10 @@ const Login = ({ mode, showAlert }) => {
         <Button
           style={{ backgroundColor: "#6366f1", color: "#FFFFFF" }}
           onClick={() => navigate("/forgot-password")}
-          className="mt-3"
+
+          
+          className="mt-3 h-10 text-xl"
+
         >
           Forgot Password?
         </Button>
@@ -162,6 +177,7 @@ const Login = ({ mode, showAlert }) => {
           with your real info
         </p>
       </div>
+    </div>
     </div>
   );
 };
