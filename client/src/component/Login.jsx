@@ -14,7 +14,7 @@ import toast from "react-hot-toast";
 const VITE_SERVER_PORT =
   import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
 
-const Login = ({ mode, showAlert }) => {
+const Login = ({ mode, showAlert,isloggedin,setloggedin  }) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
 
@@ -37,6 +37,7 @@ const Login = ({ mode, showAlert }) => {
         localStorage.setItem("token", json.authtoken);
         showAlert("Logged in Successfully", "success");
         toast.success("Login Successfully!");
+         setloggedin(!isloggedin)
         navigate("/");
       } else {
         showAlert("Invalid Credentials", "danger");
@@ -56,13 +57,17 @@ const Login = ({ mode, showAlert }) => {
 
   return (
     <div className="h-screen flex items-center justify-center">
-      <div
-        className="wrapper h-3/4 mt-10"
-        style={{
+
+    <div
+
+      className="wrapper h-3/4 mt-10"
+
+      style={{
           backgroundColor: mode === "dark" ? "black" : "white",
           color: mode === "dark" ? "white" : "black",
         }}
       >
+
         <form
           onSubmit={handleSubmit}
           className="form"
@@ -145,9 +150,12 @@ const Login = ({ mode, showAlert }) => {
         <div className="banner">
           <h1
             className="wel_text"
+
             style={{
-              color: mode === "dark" ? "black" : "white",
+              backgroundColor: mode === "dark" ? "black" : "white",
+              color: mode === "dark" ? "white" : "black",
             }}
+
           >
             WELCOME
             <br />
@@ -155,15 +163,76 @@ const Login = ({ mode, showAlert }) => {
           </h1>
           <p
             className="para"
+
             style={{
-              color: mode === "dark" ? "black" : "white",
+              backgroundColor: mode === "dark" ? "black" : "white",
+              color: mode === "dark" ? "white" : "black",
             }}
-          >
-            Please Sign In here
-            <br />
-            with your real info
-          </p>
+            required
+            iconRender={(visible) =>
+              visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+            }
+          />
         </div>
+
+        <button
+          className="submit"
+          disabled={loading}
+          onClick={() => {
+            handleSubmit();
+          }}
+        >
+          {loading ? <Spin size="small" /> : "Login"}
+        </button>
+
+        <p
+          className="footer"
+          style={{
+            backgroundColor: mode === "dark" ? "black" : "white",
+            color: mode === "dark" ? "white" : "black",
+          }}
+        >
+          Don&apos;t have an account?
+          <Link className="link" to="/Signup">
+
+            {" "}
+            Sign Up
+          </Link>
+        </p>
+
+        <Button
+          style={{ backgroundColor: "#6366f1", color: "#FFFFFF" }}
+          onClick={() => navigate("/forgot-password")}
+
+          
+          className="mt-3 h-10 text-xl"
+
+        >
+          Forgot Password?
+        </Button>
+      </form>
+
+      <div className="banner">
+        <h1
+          className="wel_text"
+          style={{
+            color: mode === "dark" ? "black" : "white",
+          }}
+        >
+          WELCOME
+          <br />
+          BACK!
+        </h1>
+        <p
+          className="para"
+          style={{
+            color: mode === "dark" ? "black" : "white",
+          }}
+        >
+          Please Sign In here
+          <br />
+          with your real info
+        </p>
       </div>
     </div>
   );

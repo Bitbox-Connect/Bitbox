@@ -18,7 +18,6 @@ function Navbar(props) {
   const navigate = useNavigate();
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false); // State to keep track of whether page has been scrolled
-  // eslint-disable-next-line no-unused-vars
   const [isOpen, setIsOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -73,11 +72,9 @@ function Navbar(props) {
   const [image, setImage] = useState();
 
   useEffect(() => {
-    // Fetch initial image when component mounts
     axios
       .get(`${VITE_SERVER_PORT}/getAvatarImage`)
       .then((res) => {
-        // Check if response data is valid
         if (res.data && res.data.length > 0) {
           setImage(res.data[res.data.length - 1].image); // Fetch the last uploaded image
         }
@@ -111,7 +108,6 @@ function Navbar(props) {
           }`}
           style={{ backgroundColor: props.mode === "dark" ? "black" : "white" }}
         >
-          {/* <div className="collapse navbar-collapse" id="navbarNavDropdown"> */}
           <Link
             className="navbar-brand flex justify-center items-center fs-2 fw-bold font-monospace"
             to="/"
@@ -182,6 +178,7 @@ function Navbar(props) {
                 >
                   {props.discussion}
                 </Link>
+
               </li>
             </ul>
           </div>
@@ -379,8 +376,10 @@ function Navbar(props) {
             )}
           </form>
           {/* </div> */}
+
         </div>
       </nav>
+
       {/* Sidebar for smaller devices */}
       <div
         className={`sidebar ${isSidebarOpen ? "open" : ""}`}
@@ -416,6 +415,9 @@ function Navbar(props) {
               Discussion
             </Link>
           </li>
+          <li>
+            <Link to="/blog" onClick={() => setIsSidebarOpen(false)}>Blog</Link>
+          </li>
         </ul>
       </div>
 
@@ -436,7 +438,7 @@ Navbar.propTypes = {
   home: PropTypes.string,
   community: PropTypes.string,
   discussion: PropTypes.string,
-  myProjects: PropTypes.string,
+  BlogPage: PropTypes.string,
   about: PropTypes.string,
   mode: PropTypes.string,
   toggleMode: PropTypes.func,
