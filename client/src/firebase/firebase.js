@@ -7,16 +7,17 @@ import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDiZGqgpVvHYlX6ZqmJ5Bs7QBvUplNQM0s",
-  authDomain: "bitbox-sms.firebaseapp.com",
-  projectId: "bitbox-sms",
-  storageBucket: "bitbox-sms.appspot.com",
-  messagingSenderId: "663052856919",
-  appId: "1:663052856919:web:8e3f3015922c5a54717d12",
-  measurementId: "G-WJ940QQMH4"
+    apiKey: "AIzaSyC4jZOLTES2JBLpGGYGmkxA8IGbB-vSls4",
+    authDomain: "gssocbitbox.firebaseapp.com",
+    projectId: "gssocbitbox",
+    storageBucket: "gssocbitbox.appspot.com",
+    messagingSenderId: "1007470403116",
+    appId: "1:1007470403116:web:0ca732a35153070c19fb89",
+    measurementId: "G-TYDYZZ7V1S"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
-export const auth = getAuth(app);
+export { app, auth };
