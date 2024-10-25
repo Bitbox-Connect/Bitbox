@@ -11,7 +11,8 @@ import {
 import "../css/Login.css";
 import toast from "react-hot-toast";
 
-const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';
+const VITE_SERVER_PORT =
+  import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
 
 const Login = ({ mode, showAlert }) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -64,23 +65,23 @@ const Login = ({ mode, showAlert }) => {
       >
         <form
           onSubmit={handleSubmit}
-          className='form'
+          className="form"
           style={{
             backgroundColor: mode === "dark" ? "black" : "white",
             color: mode === "dark" ? "white" : "black",
           }}
         >
-          <h1 className='title'>Login</h1>
-          <span className='title-line'></span>
-          <div className='inp'>
+          <h1 className="title">Login</h1>
+          <span className="title-line"></span>
+          <div className="inp">
             <Input
               prefix={<UserOutlined />}
-              type='email'
-              placeholder='Email'
-              name='email'
+              type="email"
+              placeholder="Email"
+              name="email"
               value={credentials.email}
               onChange={onChange}
-              autoComplete='on'
+              autoComplete="on"
               required
               className="h-10 text-xl"
               style={{
@@ -90,11 +91,11 @@ const Login = ({ mode, showAlert }) => {
             />
           </div>
 
-          <div className='inp'>
+          <div className="inp">
             <Input.Password
               prefix={<LockOutlined />}
-              placeholder='Password'
-              name='password'
+              placeholder="Password"
+              name="password"
               value={credentials.password}
               onChange={onChange}
               autoComplete="on"
@@ -110,14 +111,21 @@ const Login = ({ mode, showAlert }) => {
             />
           </div>
 
-          <Button className="submit h-10 text-xl" type="submit" disabled={loading}>
+          <Button
+            className="submit h-10 text-xl"
+            type="submit"
+            disabled={loading}
+          >
             {loading ? <Spin size="small" /> : "Login"}
           </Button>
 
-          <p className="footer text-xl" style={{
-            backgroundColor: mode === "dark" ? "black" : "white",
-            color: mode === "dark" ? "white" : "black",
-          }}>
+          <p
+            className="footer text-xl"
+            style={{
+              backgroundColor: mode === "dark" ? "black" : "white",
+              color: mode === "dark" ? "white" : "black",
+            }}
+          >
             Don&apos;t have an account?
             <Link className="link text-xl" to="/signup">
               {" "}
@@ -134,9 +142,9 @@ const Login = ({ mode, showAlert }) => {
           </Button>
         </form>
 
-        <div className='banner'>
+        <div className="banner">
           <h1
-            className='wel_text'
+            className="wel_text"
             style={{
               color: mode === "dark" ? "black" : "white",
             }}
@@ -146,7 +154,7 @@ const Login = ({ mode, showAlert }) => {
             BACK!
           </h1>
           <p
-            className='para'
+            className="para"
             style={{
               color: mode === "dark" ? "black" : "white",
             }}
