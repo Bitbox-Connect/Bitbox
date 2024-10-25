@@ -104,9 +104,15 @@ const EditProfile = (props) => {
     <div>
       <div className="editprofile-main-container">
         <div className="row">
-          <div className="col-md-3 editprofile-avatar-container">
-            <h2>Edit Details</h2>
-            <div className="text-center">
+          <div className=" editprofile-avatar-container">
+            <h2 style={{ width: "100%" }}>Edit Details</h2>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
               {image ? (
                 <img src={image} className="avatar img-circle" alt="avatar" />
               ) : (
@@ -126,7 +132,7 @@ const EditProfile = (props) => {
           </div>
           <div className="col-md-9 editprofile-info-container">
             <h2 className="Heading-Page">Personal info</h2>
-            <div className="col-lg-8 pb-5">
+            <div className="personalinfo pb-5">
               <div>
                 <div className="mb-3">
                   <label htmlFor="name" className="form-label">
