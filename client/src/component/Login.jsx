@@ -37,7 +37,9 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
         localStorage.setItem("token", json.authtoken);
         showAlert("Logged in Successfully", "success");
         toast.success("Login Successfully!");
+
         setloggedin(!isloggedin)
+
         navigate("/");
       } else {
         showAlert("Invalid Credentials", "danger");
@@ -64,6 +66,7 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
           color: mode === "dark" ? "white" : "black",
         }}
       >
+
         <form
           onSubmit={handleSubmit}
           className="form"
@@ -74,6 +77,7 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
         >
           <h1 className="title">Login</h1>
           <span className="title-line"></span>
+
           <div className="inp">
             <Input
               prefix={<UserOutlined />}
@@ -100,35 +104,37 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
               value={credentials.password}
               onChange={onChange}
               autoComplete="on"
+
+              iconRender={(visible) =>
+                visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+              }
+
               className="h-10 text-xl"
               style={{
                 backgroundColor: mode === "dark" ? "black" : "white",
                 color: mode === "dark" ? "white" : "black",
               }}
               required
-              iconRender={(visible) =>
-                visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-              }
+
             />
           </div>
 
-          <Button
-            className="submit h-10 text-xl"
-            type="submit"
-            disabled={loading}
-          >
+          <button className="submit" type="submit" disabled={loading}>
             {loading ? <Spin size="small" /> : "Login"}
-          </Button>
+          </button>
 
           <p
-            className="footer text-xl"
+            className="footer"
+
             style={{
               backgroundColor: mode === "dark" ? "black" : "white",
               color: mode === "dark" ? "white" : "black",
             }}
           >
             Don&apos;t have an account?
+
             <Link className="link text-xl" to="/signup">
+
               {" "}
               Sign Up
             </Link>
@@ -171,8 +177,10 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
 };
 
 Login.propTypes = {
-  showAlert: PropTypes.func.isRequired,
   mode: PropTypes.string.isRequired,
+  showAlert: PropTypes.func.isRequired,
+  isloggedin: PropTypes.bool.isRequired,
+  setloggedin: PropTypes.func.isRequired,
 };
 
 export default Login;
