@@ -12,7 +12,8 @@ import { FaMoon } from "react-icons/fa6";
 
 function Navbar(props) {
   const { showAlert, mode } = props;
-  const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';
+  const VITE_SERVER_PORT =
+    import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -90,7 +91,9 @@ function Navbar(props) {
   return (
     <div>
       <nav
-        className={`navbar navbar-expand-lg ${isScrolled ? "sticky" : ""} navbar-${props.mode === "dark" ? "dark" : "light"}`}
+        className={`navbar navbar-expand-lg ${
+          isScrolled ? "sticky" : ""
+        } navbar-${props.mode === "dark" ? "dark" : "light"}`}
         style={{
           backgroundColor: props.mode === "dark" ? "black" : "white",
           borderBottom: "1px solid white",
@@ -98,20 +101,11 @@ function Navbar(props) {
         id="navbar"
       >
         {/* Hamburger icon */}
-        <button
-          className="navbar-toggler block lg:hidden absolute right-2 focus:outline-none"
-          type="button"
-          onClick={toggleSidebar}
-          aria-controls="navbarNavDropdown"
-          aria-expanded={isSidebarOpen}
-          aria-label="Toggle navigation"
-          style={{ color: props.mode === "dark" ? "white" : "black" }}
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
 
         <div
-          className={`gap-[4.8rem] visible navbar-collapse rnav ${isOpen ? "show" : ""}`}
+          className={`gap-[3rem]  w-full visible navbar-collapse rnav ${
+            isOpen ? "show" : ""
+          }`}
           style={{ backgroundColor: props.mode === "dark" ? "black" : "white" }}
         >
           <Link
@@ -123,12 +117,18 @@ function Navbar(props) {
               src={logo}
               alt="logo"
             />
-            <div className={`logoTitle md:block hidden ${props.mode === 'dark' ? 'text-white' : 'text-black'}`}>
+            <div
+              className={`logoTitle md:block hidden ${
+                props.mode === "dark" ? "text-white" : "text-black"
+              }`}
+            >
               {props.title}
             </div>
           </Link>
           <div
-            className={`collapse navbar-collapse justify-content-center ${isOpen ? "show" : ""}`}
+            className={`collapse navbar-collapse justify-content-center ${
+              isOpen ? "show" : ""
+            }`}
             id="navbarSupportedContent"
           >
             <ul
@@ -137,8 +137,9 @@ function Navbar(props) {
             >
               <li className="nav-item fs-4 fw-medium">
                 <Link
-                  className={`nav-link ${location.pathname === "/" ? "active" : ""
-                    }`}
+                  className={`nav-link ${
+                    location.pathname === "/" ? "active" : ""
+                  }`}
                   aria-current="page"
                   to="/"
                 >
@@ -147,8 +148,9 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-4">
                 <Link
-                  className={`nav-link ${location.pathname === "/about" ? "active" : ""
-                    }`}
+                  className={`nav-link ${
+                    location.pathname === "/about" ? "active" : ""
+                  }`}
                   aria-current="page"
                   to="/about"
                 >
@@ -157,8 +159,9 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-4">
                 <Link
-                  className={`nav-link ${location.pathname === "/community" ? "active" : ""
-                    }`}
+                  className={`nav-link ${
+                    location.pathname === "/community" ? "active" : ""
+                  }`}
                   aria-current="page"
                   to="/community"
                 >
@@ -167,47 +170,250 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-4">
                 <Link
-                  className={`nav-link ${location.pathname === "/discussion" ? "active" : ""
-                    }`}
+                  className={`nav-link ${
+                    location.pathname === "/discussion" ? "active" : ""
+                  }`}
                   aria-current="page"
                   to="/discussion"
                 >
                   {props.discussion}
                 </Link>
-              </li>
-              <li className="nav-item fs-4">
-                <Link
-                  className={`nav-link ${location.pathname === "/blog" ? "active" : ""
-                    }`}
-                  aria-current="page"
-                  to="/blog"
-                >
-                  {props.BlogPage}
-                </Link>
+
               </li>
             </ul>
           </div>
-          {/* Additional form or buttons */}
+
+          <form className="flex fs-4 fw-medium">
+            {!localStorage.getItem("token") ? (
+              <>
+                <ul className="navbar-nav">
+                  <div className="Navbar-Btn-Group">
+                    {/* Toggle Dark Mode */}
+                    <div className="mx-2">
+                      {/* Toggle Dark Mode */}
+                      <div className="my-body">
+                        <div className="darkThemeBtn flex justify-content-center">
+                          <input
+                            id="darkmode-toggle"
+                            type="checkbox"
+                            checked={props.mode === "dark"}
+                            onChange={props.toggleMode}
+                          />
+                          <label htmlFor="darkmode-toggle">
+                            <FaSun className="sun" style={style} />
+                            <FaMoon
+                              className="moon"
+                              style={{
+                                color:
+                                  props.mode === "dark" ? "yellow" : "gray", // Change colors based on mode
+                                fontSize: "1.5rem",
+                              }}
+                            />
+                          </label>
+                          <span className="fake-body"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <Link
+                      role="button"
+                      to="/login"
+                      className="btn loginbtn mx-2  h-10 "
+                      style={{ height: "45px", color: "white" }}
+                    >
+                      Login
+                    </Link>
+                    <Link
+                      role="button"
+                      to="/signup"
+                      className="btn loginbtn mx-2  h-10 "
+                      style={{ height: "45px", color: "white" }}
+                    >
+                      Signup
+                    </Link>
+                    <button
+                      className="navbar-toggler block lg:hidden ml-5   focus:outline-none"
+                      type="button"
+                      onClick={toggleSidebar}
+                      aria-controls="navbarNavDropdown"
+                      aria-expanded={isSidebarOpen}
+                      aria-label="Toggle navigation"
+                      style={{
+                        color: props.mode === "dark" ? "white" : "black",
+                      }}
+                    >
+                      <span className="navbar-toggler-icon"></span>
+                    </button>
+                  </div>
+                </ul>
+              </>
+            ) : (
+              <>
+                <ul className="navbar-nav">
+                  <div className="Navbar-Btn-Group">
+                    {/* Add Project */}
+                    {renderUploadButton()}
+                    {/* Toggle Dark Mode */}
+                    <div>
+                      <div className="my-body">
+                        <div className="darkThemeBtn flex justify-content-center">
+                          <input
+                            id="darkmode-toggle"
+                            type="checkbox"
+                            checked={props.mode === "dark"}
+                            onChange={props.toggleMode}
+                          />
+                          <label htmlFor="darkmode-toggle">
+                            <FaSun
+                              // className="sun"
+                              style={{
+                                color:
+                                  props.mode === "dark" ? "white" : "orange", // Change color for dark mode
+                                fontSize: "1.5rem",
+                                marginRight: "8px",
+                              }}
+                            />
+                            <FaMoon
+                              className="moon"
+                              style={{
+                                color:
+                                  props.mode === "dark" ? "yellow" : "gray", // Change color for light mode
+                                fontSize: "1.5rem",
+                              }}
+                            />
+                          </label>
+                          <span className="fake-body"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <li
+                      className="nav-item dropdown mx-2"
+                      style={{
+                        background: props.mode === "dark" ? "black" : "white",
+                        color: props.mode === "dark" ? "white" : "black",
+                      }}
+                    >
+                      <a
+                        className="nav-link profile-img"
+                        href="#"
+                        id="navbarScrollingDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        {image ? (
+                          <img
+                            src={image}
+                            style={{
+                              width: "3.2rem",
+                              height: "3.2rem",
+                              outline:
+                                props.mode === "dark"
+                                  ? "1.8px solid white"
+                                  : "",
+                            }}
+                            alt="avatar"
+                          />
+                        ) : (
+                          <img
+                            src={avatarDropdown}
+                            className="avatar img-circle"
+                            alt="avatar"
+                          />
+                        )}
+                      </a>
+                      <ul
+                        className="dropdown-menu"
+                        aria-labelledby="navbarScrollingDropdown"
+                        style={{
+                          backgroundColor:
+                            props.mode === "dark" ? "black" : "white",
+                          borderBottom:
+                            props.mode === "dark"
+                              ? "1px solid white"
+                              : "1px solid black",
+                          outline:
+                            props.mode === "dark"
+                              ? "2px solid white"
+                              : "2px solid black",
+                        }}
+                      >
+                        <li>
+                          <Link to="/myprofile">My Profile</Link>
+                        </li>
+                        <li>
+                          <Link to="/editprofile">Edit Profile</Link>
+                        </li>
+                        <li>
+                          <hr
+                            className="dropdown-divider"
+                            style={{
+                              backgroundColor:
+                                props.mode === "dark" ? "black" : "white",
+                              borderBottom:
+                                props.mode === "dark"
+                                  ? "1px solid white"
+                                  : "1px solid black",
+                              outline:
+                                props.mode === "dark"
+                                  ? "2px solid black"
+                                  : "2px solid white",
+                            }}
+                          />
+                        </li>
+                        <li>
+                          <a
+                            onClick={handleLogout}
+                            style={{ cursor: "pointer" }}
+                          >
+                            Logout
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </div>
+                </ul>
+              </>
+            )}
+          </form>
+          {/* </div> */}
+
         </div>
       </nav>
 
       {/* Sidebar for smaller devices */}
-      <div className={`sidebar ${isSidebarOpen ? "open" : ""}`} style={{ backgroundColor: props.mode === "dark" ? "black" : "white" }}>
-        <button className="close-btn" onClick={() => setIsSidebarOpen(false)} style={{
-          color: props.mode === "dark" ? "white" : "black",
-        }}>Close</button>
+      <div
+        className={`sidebar ${isSidebarOpen ? "open" : ""}`}
+        style={{ backgroundColor: props.mode === "dark" ? "black" : "white" }}
+      >
+        <button
+          className="close-btn"
+          onClick={() => setIsSidebarOpen(false)}
+          style={{
+            color: props.mode === "dark" ? "white" : "black",
+          }}
+        >
+          Close
+        </button>
         <ul className="sidebar-links">
           <li>
-            <Link to="/" onClick={() => setIsSidebarOpen(false)}>Home</Link>
+            <Link to="/" onClick={() => setIsSidebarOpen(false)}>
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/about" onClick={() => setIsSidebarOpen(false)}>About</Link>
+            <Link to="/about" onClick={() => setIsSidebarOpen(false)}>
+              About
+            </Link>
           </li>
           <li>
-            <Link to="/community" onClick={() => setIsSidebarOpen(false)}>Community</Link>
+            <Link to="/community" onClick={() => setIsSidebarOpen(false)}>
+              Community
+            </Link>
           </li>
           <li>
-            <Link to="/discussion" onClick={() => setIsSidebarOpen(false)}>Discussion</Link>
+            <Link to="/discussion" onClick={() => setIsSidebarOpen(false)}>
+              Discussion
+            </Link>
           </li>
           <li>
             <Link to="/blog" onClick={() => setIsSidebarOpen(false)}>Blog</Link>
@@ -218,7 +424,7 @@ function Navbar(props) {
       <button
         className="sidebar-toggle"
         onClick={() => setIsSidebarOpen(true)}
-        style={{ display: isOpen ? 'block' : 'none' }}
+        style={{ display: isOpen ? "block" : "none" }}
       >
         Menu
       </button>
