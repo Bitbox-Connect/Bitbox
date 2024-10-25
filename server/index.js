@@ -2,8 +2,9 @@ const express = require("express");
 const { Server } = require("socket.io");
 const connectToMongo = require("./db");
 const cors = require("cors");
+const helmet = require("helmet");
 const Avatar = require("./Models/Avatar");
-require('dotenv').config(); // Load environment variables from .env file
+require("dotenv").config(); // Load environment variables from .env file
 
 // Connect to MongoDB
 connectToMongo();
@@ -13,8 +14,8 @@ const httpServer = require("http").createServer(app);
 const io = new Server(httpServer, {
   cors: {
     origin: "*", // Update to specific origins in production
-    methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   },
 });
 
@@ -28,13 +29,16 @@ app.use((req, res, next) => {
 });
 
 // Set up CORS middleware
-app.use(cors({
-  origin: "*", // Update to specific origins in production
-  methods: ['GET', 'POST', 'OPTIONS'],
-}));
+app.use(
+  cors({
+    origin: "*", // Update to specific origins in production
+    methods: ["GET", "POST", "OPTIONS", "PUT"],
+  })
+);
 
 // Middleware to parse JSON requests
 app.use(express.json());
+app.use(helmet());  
 
 // Available routes
 app.use("/api/auth", require("./routes/auth"));
@@ -66,11 +70,13 @@ io.on("connection", (socket) => {
 });
 
 // Start HTTP server - listen on the correct PORT
-httpServer.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}`);
-}).on('error', (err) => {
-  console.error('Server error:', err);
-});
+httpServer
+  .listen(PORT, () => {
+    console.log(`App listening on port ${PORT}`);
+  })
+  .on("error", (err) => {
+    console.error("Server error:", err);
+  });
 
 // Centralized error-handling middleware
 app.use((err, req, res, next) => {
