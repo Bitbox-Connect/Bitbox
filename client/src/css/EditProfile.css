@@ -1,0 +1,31 @@
+body {
+  padding: 0;
+}
+
+.editprofile-avatar-container {
+  margin-top: 5rem;
+  width: 100% !important;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.editprofile-info-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editprofile-avatar-container img {
+  height: 15rem;
+  width: 15rem;
+  border-radius: 50%;
+  background-color: white;
+  outline: 1px solid white;
+}
+.personalinfo {
+  width: 100%;
+}

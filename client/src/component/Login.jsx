@@ -1,23 +1,21 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Modal, Input, Button, Spin } from "antd";
+import { Input, Button, Spin } from "antd";
 import {
   UserOutlined,
   LockOutlined,
   EyeInvisibleOutlined,
   EyeTwoTone,
 } from "@ant-design/icons";
-import "./css/Login.css";
+import "../css/Login.css";
 import toast from "react-hot-toast";
 
-const host = "http://localhost:5000";
+const VITE_SERVER_PORT =
+  import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
 
-const Login = ({ mode, showAlert }) => {
+const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
-  const [forgotPasswordModalVisible, setForgotPasswordModalVisible] =
-    useState(false);
-  const [forgotEmail, setForgotEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -26,7 +24,7 @@ const Login = ({ mode, showAlert }) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch(`${host}/api/auth/login`, {
+      const response = await fetch(`${VITE_SERVER_PORT}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,6 +37,9 @@ const Login = ({ mode, showAlert }) => {
         localStorage.setItem("token", json.authtoken);
         showAlert("Logged in Successfully", "success");
         toast.success("Login Successfully!");
+
+        setloggedin(!isloggedin)
+
         navigate("/");
       } else {
         showAlert("Invalid Credentials", "danger");
@@ -49,6 +50,7 @@ const Login = ({ mode, showAlert }) => {
       console.error("Error during login:", error);
     } finally {
       setLoading(false);
+<<<<<<< HEAD
     }
   };
 
@@ -73,6 +75,8 @@ const Login = ({ mode, showAlert }) => {
     } catch (error) {
       console.error("Error during password reset:", error);
       showAlert("An error occurred. Please try again later.", "danger");
+=======
+>>>>>>> upstream/main
     }
   };
 
@@ -81,6 +85,7 @@ const Login = ({ mode, showAlert }) => {
   };
 
   return (
+<<<<<<< HEAD
     <div
       className="wrapper"
       style={{
@@ -187,28 +192,131 @@ const Login = ({ mode, showAlert }) => {
         }}
         cancelButtonProps={{
           style: { backgroundColor: "#000000" },
+=======
+    <div className="h-screen flex items-center justify-center">
+      <div
+        className="wrapper h-3/4 mt-10"
+        style={{
+          backgroundColor: mode === "dark" ? "black" : "white",
+          color: mode === "dark" ? "white" : "black",
+>>>>>>> upstream/main
         }}
       >
-        <div className="p-4">
-          <p className="text-red-600 text-sm">
-            Enter your email and we will send you a link to reset your password
+
+        <form
+          onSubmit={handleSubmit}
+          className="form"
+          style={{
+            backgroundColor: mode === "dark" ? "black" : "white",
+            color: mode === "dark" ? "white" : "black",
+          }}
+        >
+          <h1 className="title">Login</h1>
+          <span className="title-line"></span>
+
+          <div className="inp">
+            <Input
+              prefix={<UserOutlined />}
+              type="email"
+              placeholder="Email"
+              name="email"
+              value={credentials.email}
+              onChange={onChange}
+              autoComplete="on"
+              required
+              className="h-10 text-xl"
+              style={{
+                backgroundColor: mode === "dark" ? "black" : "white",
+                color: mode === "dark" ? "white" : "black",
+              }}
+            />
+          </div>
+
+          <div className="inp">
+            <Input.Password
+              prefix={<LockOutlined />}
+              placeholder="Password"
+              name="password"
+              value={credentials.password}
+              onChange={onChange}
+              autoComplete="on"
+
+              iconRender={(visible) =>
+                visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+              }
+
+              className="h-10 text-xl"
+              style={{
+                backgroundColor: mode === "dark" ? "black" : "white",
+                color: mode === "dark" ? "white" : "black",
+              }}
+              required
+
+            />
+          </div>
+
+          <button className="submit" type="submit" disabled={loading}>
+            {loading ? <Spin size="small" /> : "Login"}
+          </button>
+
+          <p
+            className="footer"
+
+            style={{
+              backgroundColor: mode === "dark" ? "black" : "white",
+              color: mode === "dark" ? "white" : "black",
+            }}
+          >
+            Don&apos;t have an account?
+
+            <Link className="link text-xl" to="/signup">
+
+              {" "}
+              Sign Up
+            </Link>
           </p>
-          <Input
-            type="email"
-            placeholder="Enter your email"
-            value={forgotEmail}
-            onChange={(e) => setForgotEmail(e.target.value)}
-            required
-          />
+
+          <Button
+            style={{ backgroundColor: "#6366f1", color: "#FFFFFF" }}
+            onClick={() => navigate("/forgot-password")}
+            className="mt-3 h-10 text-xl"
+          >
+            Forgot Password?
+          </Button>
+        </form>
+
+        <div className="banner">
+          <h1
+            className="wel_text"
+            style={{
+              color: mode === "dark" ? "black" : "white",
+            }}
+          >
+            WELCOME
+            <br />
+            BACK!
+          </h1>
+          <p
+            className="para"
+            style={{
+              color: mode === "dark" ? "black" : "white",
+            }}
+          >
+            Please Sign In here
+            <br />
+            with your real info
+          </p>
         </div>
-      </Modal>
+      </div>
     </div>
   );
 };
 
 Login.propTypes = {
-  showAlert: PropTypes.func.isRequired,
   mode: PropTypes.string.isRequired,
+  showAlert: PropTypes.func.isRequired,
+  isloggedin: PropTypes.bool.isRequired,
+  setloggedin: PropTypes.func.isRequired,
 };
 
 export default Login;

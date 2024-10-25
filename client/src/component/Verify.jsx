@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-const host = "http://localhost:5000";
+const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';
 
 const VerifyEmail = () => {
   const { token } = useParams();
@@ -12,7 +12,7 @@ const VerifyEmail = () => {
   const navigate = useNavigate();
 
   const handleVerification = () => {
-    fetch(`${host}/api/auth/verify/${token}`, {
+    fetch(`${VITE_SERVER_PORT}/api/auth/verify/${token}`, {
       method: 'POST',
     })
       .then(response => {
@@ -33,6 +33,7 @@ const VerifyEmail = () => {
   useEffect(() => {
     setIsLoading(true);
     handleVerification();
+    // eslint-disable-next-line
   }, [token]);
 
   const handleModalClose = () => {

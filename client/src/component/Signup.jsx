@@ -1,17 +1,15 @@
-import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Input } from "antd";
 import PropTypes from "prop-types";
-import "./css/Signup.css";
+import "../css/Signup.css";
 import { registerValidation } from "../validations/validation";
 import toast from "react-hot-toast";
+import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 
-const host = "http://localhost:5000";
+const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';
 
 const Signup = ({ mode }) => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
@@ -22,13 +20,13 @@ const Signup = ({ mode }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       await registerValidation.validate(
         { name, email, password, cpassword },
         { abortEarly: false }
       );
       setErrors({});
+      console.log("Signup form submitted");
     } catch (error) {
       const newErrors = {};
       error.inner.forEach((err) => {
@@ -43,7 +41,7 @@ const Signup = ({ mode }) => {
   };
 
   const signUpWithGoogle = async (email, name, password) => {
-    const response = await fetch(`${host}/api/auth/createuser`, {
+    const response = await fetch(`${VITE_SERVER_PORT}/api/auth/createuser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -96,10 +94,14 @@ const Signup = ({ mode }) => {
             Create An Account
           </h2>
 
-          <form onSubmit={handleSubmit}>
+          <form className="w-3/4" onSubmit={handleSubmit}>
             <div className="space-y-4 w-full">
+<<<<<<< HEAD
               {/* Full Name Field */}
               <div className="signup-form-group">
+=======
+              <div className="signup-form-group items-start flex flex-col gap-2">
+>>>>>>> upstream/main
                 <label
                   htmlFor="name"
                   className="text-md leading-none font-medium"
@@ -130,8 +132,12 @@ const Signup = ({ mode }) => {
                 )}
               </div>
 
+<<<<<<< HEAD
               {/* Email Field */}
               <div className="signup-form-group">
+=======
+              <div className="signup-form-group items-start flex flex-col gap-2">
+>>>>>>> upstream/main
                 <label
                   htmlFor="email"
                   className="text-md leading-none font-medium"
@@ -159,8 +165,12 @@ const Signup = ({ mode }) => {
                 )}
               </div>
 
+<<<<<<< HEAD
               {/* Password Field */}
               <div className="signup-form-group relative">
+=======
+              <div className="signup-form-group relative items-start flex flex-col gap-2">
+>>>>>>> upstream/main
                 <label
                   htmlFor="password"
                   className="text-md font-medium"
@@ -170,8 +180,7 @@ const Signup = ({ mode }) => {
                 >
                   Password
                 </label>
-                <Input
-                  type={showPassword ? "text" : "password"}
+                <Input.Password
                   className="signup-input"
                   onChange={(e) => setPassword(e.target.value)}
                   id="password"
@@ -182,7 +191,11 @@ const Signup = ({ mode }) => {
                   required
                   style={{
                   }}
+                  iconRender={(visible) =>
+                    visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                  }
                 />
+<<<<<<< HEAD
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
@@ -198,6 +211,11 @@ const Signup = ({ mode }) => {
 
               {/* Confirm Password Field */}
               <div className="signup-form-group relative">
+=======
+              </div>
+
+              <div className="signup-form-group items-start flex flex-col gap-2 relative">
+>>>>>>> upstream/main
                 <label
                   htmlFor="cpassword"
                   className="text-md font-medium"
@@ -207,8 +225,7 @@ const Signup = ({ mode }) => {
                 >
                   Confirm Password
                 </label>
-                <Input
-                  type={showConfirmPassword ? "text" : "password"}
+                <Input.Password
                   className="signup-input"
                   onChange={(e) => setCPassword(e.target.value)}
                   id="cpassword"
@@ -219,18 +236,11 @@ const Signup = ({ mode }) => {
                   required
                   style={{
                   }}
+                  iconRender={(visible) =>
+                    visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                  }
                 />
-                <button
-                  type="button"
-                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-purple-200 hover:text-purple-300 transition-colors duration-200"
-                >
-                  {showConfirmPassword ? (
-                    <EyeOff className="w-5 h-5" />
-                  ) : (
-                    <Eye className="w-5 h-5" />
-                  )}
-                </button>
+
                 {errors.cpassword && (
                   <div className="text-danger">{errors.cpassword}</div>
                 )}

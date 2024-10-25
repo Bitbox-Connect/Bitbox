@@ -8,6 +8,7 @@ require("dotenv").config();
 const { body, validationResult } = require("express-validator");
 const { OAuth2Client } = require("google-auth-library");
 const rateLimit = require("express-rate-limit");
+require('dotenv').config(); // Load environment variables from .env file
 
 const {
   forgetpassword,
@@ -19,7 +20,7 @@ const {
 // Configure Firebase OAuth2Client
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
-const JWT_SECRET = "mern$Open$SourceProject";
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // Route for Google Firebase authentication
 router.post("/googlelogin", async (req, res) => {

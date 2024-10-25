@@ -1,6 +1,6 @@
 // components/MiniChatbot.jsx
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from "prop-types";
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
@@ -46,94 +46,114 @@ const MiniChatbot = () => {
     }
   };
 
-  return (
-    <div style={{ position: 'fixed', bottom: '80px', right: '30px', zIndex: 1000 }}>
-      <button
-        onClick={toggleChatbot}
-        style={{
-          backgroundColor: '#6200ea',
-          color: 'white',
-          borderRadius: '50%',
-          width: '50px',
-          height: '50px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: '24px',
-          cursor: 'pointer',
-          boxShadow: '0 4px 8px rgba(0,0,0,0.2)'
-        }}
-      >
-        💬
-      </button>
+  const [isVisible, setIsVisible] = useState(false);
 
-      {isOpen && (
-        <div
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.pageYOffset > 20) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  return (
+    <div className={`Scroll-Top ${isVisible ? 'visible' : ''}`}>
+      <div style={{ position: 'fixed', bottom: '80px', right: '30px', zIndex: 1000 }}>
+        <button
+          onClick={toggleChatbot}
           style={{
-            position: 'absolute',
-            bottom: '70px',
-            right: '0',
-            width: '300px',
-            height: '400px',
-            backgroundColor: 'white',
-            borderRadius: '8px',
-            boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
-            padding: '16px',
+            backgroundColor: '#6200ea',
+            color: 'white',
+            borderRadius: '50%',
+            width: '50px',
+            height: '50px',
             display: 'flex',
-            flexDirection: 'column'
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '24px',
+            cursor: 'pointer',
+            boxShadow: '0 4px 8px rgba(0,0,0,0.2)'
           }}
         >
-          <div style={{ flex: 1, overflowY: 'auto', marginBottom: '8px' }}>
-            {messages.map((message, index) => (
-              <div
-                key={index}
+          💬
+        </button>
+
+        {isOpen && (
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '70px',
+              right: '0',
+              width: '300px',
+              height: '400px',
+              backgroundColor: 'white',
+              borderRadius: '8px',
+              boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
+              padding: '16px',
+              display: 'flex',
+              flexDirection: 'column'
+            }}
+          >
+            <div style={{ flex: 1, overflowY: 'auto', marginBottom: '8px' }}>
+              {messages.map((message, index) => (
+                <div
+                  key={index}
+                  style={{
+                    marginBottom: '10px',
+                    alignSelf: message.sender === 'user' ? 'flex-end' : 'flex-start',
+                    backgroundColor: message.sender === 'user' ? '#e1ffc7' : '#f1f1f1',
+                    borderRadius: '8px',
+                    color: 'black',
+                    padding: '8px 12px',
+                    maxWidth: '80%',
+                    wordWrap: 'break-word'
+                  }}
+                >
+                  {message.text}
+                </div>
+              ))}
+            </div>
+            <div style={{ display: 'flex', marginTop: '8px' }}>
+              <input
+                type="text"
+                value={userMessage}
+                onChange={(e) => setUserMessage(e.target.value)}
+                placeholder="Type a message..."
                 style={{
-                  marginBottom: '10px',
-                  alignSelf: message.sender === 'user' ? 'flex-end' : 'flex-start',
-                  backgroundColor: message.sender === 'user' ? '#e1ffc7' : '#f1f1f1',
-                  borderRadius: '8px',
-                  color: 'black',
+                  flex: 1,
+                  padding: '8px',
+                  borderRadius: '4px',
+                  border: '1px solid #ddd',
+                  color: 'black'
+                }}
+                onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
+              />
+              <button
+                onClick={sendMessage}
+                style={{
+                  backgroundColor: '#6200ea',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '4px',
+                  marginLeft: '8px',
                   padding: '8px 12px',
-                  maxWidth: '80%',
-                  wordWrap: 'break-word'
+                  cursor: 'pointer'
                 }}
               >
-                {message.text}
-              </div>
-            ))}
+                Send
+              </button>
+            </div>
           </div>
-          <div style={{ display: 'flex', marginTop: '8px' }}>
-            <input
-              type="text"
-              value={userMessage}
-              onChange={(e) => setUserMessage(e.target.value)}
-              placeholder="Type a message..."
-              style={{
-                flex: 1,
-                padding: '8px',
-                borderRadius: '4px',
-                border: '1px solid #ddd',
-                color: 'black'
-              }}
-              onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
-            />
-            <button
-              onClick={sendMessage}
-              style={{
-                backgroundColor: '#6200ea',
-                color: 'white',
-                border: 'none',
-                borderRadius: '4px',
-                marginLeft: '8px',
-                padding: '8px 12px',
-                cursor: 'pointer'
-              }}
-            >
-              Send
-            </button>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

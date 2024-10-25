@@ -7,8 +7,8 @@ import profileContext from '../context/profileContext';
 import MyProfileCard from './MyProfileCard';
 import UploadProject from './UploadProject';
 // CSS
-import './css/Modal.css'
-import './css/Myprofile.css'
+import '../css/Modal.css'
+import '../css/MyProfile.css'
 // PNG
 // import projectDummyImage from '../assets/images/Others/projects.png'
 import avatar from '../assets/images/Dropdown/avatar.png';
@@ -26,7 +26,7 @@ import ShareModalImg from '../assets/images/Modal Image/Share.png'
 
 
 const MyProfile = (props) => {
-    const host = "http://localhost:5000"
+    const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';
     const { mode } = props;
     const [showVideo, setShowVideo] = useState(false);
 
@@ -110,7 +110,7 @@ const MyProfile = (props) => {
 
     useEffect(() => {
         // Fetch initial image when component mounts
-        axios.get(`${host}/getAvatarImage`)
+        axios.get(`${VITE_SERVER_PORT}/getAvatarImage`)
             .then(res => setImage(res.data[res.data.length - 1].image)) // Fetch the last uploaded image
             .catch(err => console.log(err))
     })

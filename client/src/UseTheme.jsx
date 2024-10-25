@@ -1,6 +1,6 @@
 
-import React, { createContext, useState, useContext } from 'react';
-import './component/css/Theme.css'
+import { createContext, useState, useContext } from 'react';
+import './css/Theme.css'
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {

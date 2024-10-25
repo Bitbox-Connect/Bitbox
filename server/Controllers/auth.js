@@ -1,8 +1,8 @@
 const User = require("../Models/User");
 const bcrypt = require("bcrypt");
-
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
+require('dotenv').config(); // Load environment variables from .env file
 
 // Signup route
 const createUser = async (req, res) => {

@@ -3,7 +3,12 @@
 #navbar {
   z-index: 1000;
   min-height: 10vh;
+<<<<<<< HEAD:client/src/component/css/Navbar.css
  
+=======
+
+  /* Set the background to white */
+>>>>>>> upstream/main:client/src/css/Navbar.css
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   border-bottom: none;
   overflow: initial;
@@ -99,7 +104,7 @@
 }
 
 .logoTitle {
-  font-family: 'medium';
+  font-family: "medium";
   font-weight: lighter;
 }
 
@@ -111,12 +116,11 @@
   margin-bottom: 0;
 }
 
-#navbar ul li:hover{
-  box-shadow: 0 5px 15px rgb(137 , 137 ,255);
+#navbar ul li:hover {
+  box-shadow: 0 5px 15px rgb(137, 137, 255);
   border-radius: 1rem;
   transform: scale(1.025);
 }
-
 
 .nav-link {
   font-family: "Exo 2", sans-serif !important;
@@ -215,33 +219,33 @@
   opacity: 0;
 }
 
-.darkThemeBtn input:checked+label {
+.darkThemeBtn input:checked + label {
   background-color: white;
   border: 1px solid white;
 }
 
-.darkThemeBtn input:checked+label svg.sun {
+.darkThemeBtn input:checked + label svg.sun {
   fill: orange;
   color: orange;
   opacity: 0;
 }
 
-.darkThemeBtn input:checked+label .moon {
+.darkThemeBtn input:checked + label .moon {
   opacity: 1;
   fill: black;
 }
 
-.darkThemeBtn input:not(:checked)+label svg.sun {
+.darkThemeBtn input:not(:checked) + label svg.sun {
   opacity: 1;
 }
 
-.darkThemeBtn input:not(:checked)+label svg.moon {
+.darkThemeBtn input:not(:checked) + label svg.moon {
   opacity: 0;
 }
 
 .loginbtn {
   background: black;
-  border : 3px solid white ;
+  border: 3px solid white;
   color: #486c98;
   padding: 0.5rem 1rem;
   text-decoration: none;
@@ -261,7 +265,6 @@
   background-color: inherit;
   font-family: sans-serif;
   font-size: medium;
-
 }
 
 
@@ -372,7 +375,12 @@
 
 .sidebar.open {
   left: 0;
+<<<<<<< HEAD:client/src/component/css/Navbar.css
 
+=======
+  display: flex;
+  /* Show sidebar */
+>>>>>>> upstream/main:client/src/css/Navbar.css
 }
 
 .sidebar-links {
@@ -431,10 +439,9 @@
 }
 
 .sidebar {
-  position: fixed;
+  position: absolute;
   top: 0;
-  left: -250px;
-  right: -300px;
+  display: none;
   width: 250px;
   height: 100%;
   background-color: white;
