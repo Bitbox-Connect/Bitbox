@@ -8,6 +8,7 @@ import glichBitboxGif from '../assets/images/Other Gifs/Bitbox Glitch.gif';
 import CardsPage from './HomePage/Card';
 import { motion } from 'framer-motion'; // Importing framer-motion
 import './Home.css';
+import Testimonial from './Testimonial';
 
 const worddata = [
     {
@@ -123,12 +124,12 @@ const Home = (props) => {
                         </motion.div>
                         <motion.div className="p-5 mt-4 w-[60%]" animate={{ x: [0, 100, 0] }}>
 
-                        <motion.h1
+                            <motion.h1
                                 className="display-4"
-                                initial={{ opacity: 0, x: -100 }} 
-                                whileInView={{ opacity: 1, x: 0 }} 
-                                transition={{ duration: 0.8 }} 
-                                viewport={{ once: true }} 
+                                initial={{ opacity: 0, x: -100 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8 }}
+                                viewport={{ once: true }}
                             >
                                 Grow
                             </motion.h1>
@@ -148,12 +149,12 @@ const Home = (props) => {
                         viewport={{ once: true }}
                     >
                         <div className="p-5 mt-4 w-[60%]">
-                        <motion.h1
+                            <motion.h1
                                 className="display-4"
-                                initial={{ opacity: 0, x: -100 }} 
-                                whileInView={{ opacity: 1, x: 0 }} 
-                                transition={{ duration: 0.8 }} 
-                                viewport={{ once: true }} 
+                                initial={{ opacity: 0, x: -100 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8 }}
+                                viewport={{ once: true }}
                             >
                                 Learn
                             </motion.h1>
@@ -190,10 +191,10 @@ const Home = (props) => {
                         <div className="p-5 mt-4 w-[60%]">
                             <motion.h1
                                 className="display-4"
-                                initial={{ opacity: 0, x: -100 }} 
-                                whileInView={{ opacity: 1, x: 0 }} 
-                                transition={{ duration: 0.8 }} 
-                                viewport={{ once: true }} 
+                                initial={{ opacity: 0, x: -100 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8 }}
+                                viewport={{ once: true }}
                             >
                                 Share
                             </motion.h1>
@@ -270,8 +271,9 @@ const Home = (props) => {
             </div>
         </div>
     </div>*/}
-   </div>
+            </div>
 
+            <Testimonial />
 
             {/* Technology Section */}
             <div className='Technology-Sec' style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>

@@ -37,7 +37,9 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
         localStorage.setItem("token", json.authtoken);
         showAlert("Logged in Successfully", "success");
         toast.success("Login Successfully!");
-        setloggedin(!isloggedin);
+
+        setloggedin(!isloggedin)
+
         navigate("/");
       } else {
         showAlert("Invalid Credentials", "danger");
@@ -64,7 +66,15 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
           color: mode === "dark" ? "white" : "black",
         }}
       >
-        <form onSubmit={handleSubmit} className="form">
+
+        <form
+          onSubmit={handleSubmit}
+          className="form"
+          style={{
+            backgroundColor: mode === "dark" ? "black" : "white",
+            color: mode === "dark" ? "white" : "black",
+          }}
+        >
           <h1 className="title">Login</h1>
           <span className="title-line"></span>
 
@@ -94,15 +104,18 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
               value={credentials.password}
               onChange={onChange}
               autoComplete="on"
+
               iconRender={(visible) =>
                 visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
               }
+
               className="h-10 text-xl"
               style={{
                 backgroundColor: mode === "dark" ? "black" : "white",
                 color: mode === "dark" ? "white" : "black",
               }}
               required
+
             />
           </div>
 
@@ -112,13 +125,16 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
 
           <p
             className="footer"
+
             style={{
               backgroundColor: mode === "dark" ? "black" : "white",
               color: mode === "dark" ? "white" : "black",
             }}
           >
             Don&apos;t have an account?
-            <Link className="link" to="/Signup">
+
+            <Link className="link text-xl" to="/signup">
+
               {" "}
               Sign Up
             </Link>
