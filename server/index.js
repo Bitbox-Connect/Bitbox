@@ -8,7 +8,7 @@ require('dotenv').config(); // Load environment variables from .env file
 // Connect to MongoDB
 connectToMongo();
 
-const app = express(); 
+const app = express();
 const httpServer = require("http").createServer(app);
 const io = new Server(httpServer, {
   cors: {
