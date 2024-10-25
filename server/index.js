@@ -10,7 +10,6 @@ require("dotenv").config(); // Load environment variables from .env file
 connectToMongo();
 
 const app = express();
-
 const httpServer = require("http").createServer(app);
 const io = new Server(httpServer, {
   cors: {
