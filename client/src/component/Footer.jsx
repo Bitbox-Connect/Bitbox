@@ -3,8 +3,32 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { FaXTwitter } from "react-icons/fa6";
 import { FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa';
+import { useEffect } from 'react';
 
 const Footer = (props) => {
+    useEffect(() => {
+        // Configure the chatbot settings
+        window.embeddedChatbotConfig = {
+            chatbotId: "GzK_h2kRkJ8e-jLXJVgmy",
+            domain: "www.chatbase.co"
+        };
+
+        // Create the script element
+        const script = document.createElement('script');
+        script.src = "https://www.chatbase.co/embed.min.js";
+        script.defer = true;
+        script.setAttribute("chatbotId", "GzK_h2kRkJ8e-jLXJVgmy");
+        script.setAttribute("domain", "www.chatbase.co");
+
+        // Append the script to the body
+        document.body.appendChild(script);
+
+        // Cleanup function to remove the script on component unmount
+        return () => {
+            document.body.removeChild(script);
+        };
+    }, []);
+
     return (
         <>
             {/* Divider line */}
