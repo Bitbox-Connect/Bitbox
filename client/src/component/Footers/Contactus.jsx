@@ -92,7 +92,7 @@ function ContactUs(props) {
         </div>
         <div className="mb-3">
           <label htmlFor="Message" className="form-label">Message:</label>
-          <textarea id="Message" name="Message" className="form-control" rows="5" placeholder='Write your message...' required='true' onChange={(e) => setMessage(e.target.value)}></textarea>
+          <textarea id="Message" name="Message" className="form-control" rows="5" placeholder='Write your message...' required='true' value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
         </div>
         <button className="btn btn-light " type="submit" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '2px solid white' : '2px solid black' }}>
           Submit
