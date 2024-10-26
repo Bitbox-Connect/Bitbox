@@ -124,7 +124,7 @@ const Footer = (props) => {
                             </p>
                         )}
                     </div>
-                    <div className="flex flex-col items-center space-y-4 mb-4">
+                    <div className="flex flex-col items-center space-y-4 mb-4" data-aos='fade-up' data-aos-duration='1500'>
                         <a
                             href="https://github.com/Anuj3553/Bitbox"
                             target="_blank"
@@ -197,7 +197,7 @@ const Footer = (props) => {
                                     <Link to='/codeofconduct'>Code of Conduct</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="./src/contributor.html" id="ourvisionlink">Our Contributors</a>
+                                    <Link to='/contributors'>Our contributors</Link>
                                 </li>
                             </ul>
                         </div>

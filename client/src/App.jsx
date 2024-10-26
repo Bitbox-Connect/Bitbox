@@ -28,7 +28,7 @@ import Community from "./component/Community";
 import MyProfile from "./component/MyProfile";
 import ScrollTop from "./component/ScrollTop";
 import EditProfile from "./component/EditProfile";
-import Contributers from "./component/Contributers";
+import Contributors from "./component/Contributors";
 import Discussion from "./component/Discussion";
 import { useAtom } from "jotai";
 import { modeAtom } from "./atom/Atom";
@@ -205,9 +205,9 @@ function App() {
                 />
                 <Route
                   exact
-                  path='/contributers'
+                  path='/contributors'
                   element={
-                    <Contributers
+                    <Contributors
                       mode={mode}
                       setProgress={setProgress}
                       showAlert={showAlert}
@@ -287,6 +287,17 @@ function App() {
                   path='/termofuse'
                   element={
                     <TermOfUse
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path='/contributors'
+                  element={
+                    <Contributors
                       mode={mode}
                       setProgress={setProgress}
                       showAlert={showAlert}
