@@ -152,6 +152,13 @@ const Footer = (props) => {
                                 <li className="nav-item">
                                     <Link to='/codeofconduct'>Code of Conduct</Link>
                                 </li>
+                                <li className="nav-item">
+                                    <Link to="./src/contributor">Our Contributors</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <a href="./src/contributor.html" id="ourvisionlink">Our Contributors</a>
+                                </li>
+
                             </ul>
                         </div>
 
