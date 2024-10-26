@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { FaXTwitter } from "react-icons/fa6";
 import { FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Footer = (props) => {
     const [email, setEmail] = useState("");
@@ -197,12 +197,8 @@ const Footer = (props) => {
                                     <Link to='/codeofconduct'>Code of Conduct</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="./src/contributor">Our Contributors</Link>
-                                </li>
-                                <li className="nav-item">
                                     <a href="./src/contributor.html" id="ourvisionlink">Our Contributors</a>
                                 </li>
-
                             </ul>
                         </div>
 
