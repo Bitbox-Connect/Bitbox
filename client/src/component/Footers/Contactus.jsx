@@ -8,17 +8,22 @@ function ContactUs(props) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
+  const [message, setMessage] = useState('');
+  const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isSubmitting) return; // If already submitting, do nothing
-    setIsSubmitting(true); // Set isSubmitting to true to disable the button
+    if (isSubmitting) return; // Prevent multiple submissions
+    setIsSubmitting(true); // Disable the button
 
-    if(name==""){
+    // Validate name
+    if (!name.trim()) {
       toast.error("Please enter a valid name");
       setIsSubmitting(false);
       return;
     }
+
     // Basic email validation regex
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
@@ -27,24 +32,42 @@ function ContactUs(props) {
       return;
     }
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycby9s-kpS5yJrvU-igVgY4-B2m0YDoSVyhXHtpjmMAYjBQ2ECPBT7uZzy5qya9IyYq4/exec';
-    const form = document.forms['submit-to-google-sheet'];
+    // Validate message
+    if (!message.trim()) {
+      toast.error("Please enter a valid message");
+      setIsSubmitting(false);
+      return;
+    }
 
-    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-      .then(response => {
-        form.reset();
-        setIsSubmitting(false); // Re-enable the button
-        // props.showAlert("Form Submitted Successfully", "success");
-        toast.success("Form Submitted Successfully");
-        console.log('Success!', response);
-      })
-      .catch(error => {
-        setIsSubmitting(false); // Re-enable the button
-        // props.showAlert("Form Submission Failed", "danger");
-        toast.error("Form Submission Failed");
-        console.error('Error!', error.message);
+
+    try {
+      const response = await fetch(`${VITE_SERVER_PORT}/api/contact/submitContactForm`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, message }),
       });
+
+      const result = await response.json();
+      // Check if the request was successful
+      if (response.ok) {
+        toast.success('Message Sent Successfully!');
+        setName('');
+        setEmail('');
+        setMessage('');
+      } else {
+        toast.error(result.message || 'Error in submission!');
+      }
+    } catch (error) {
+      // Handle network or other fetch-related errors
+      toast.error('Something went wrong. Please try again.');
+    } finally {
+      // Reset the submitting state regardless of the outcome
+      setIsSubmitting(false);
+    }
   };
+
 
   return (
     <div className="container contactus-container">
@@ -69,7 +92,7 @@ function ContactUs(props) {
         </div>
         <div className="mb-3">
           <label htmlFor="Message" className="form-label">Message:</label>
-          <textarea id="Message" name="Message" className="form-control" rows="5" placeholder='Write your message...' required='true'></textarea>
+          <textarea id="Message" name="Message" className="form-control" rows="5" placeholder='Write your message...' required='true' onChange={(e) => setMessage(e.target.value)}></textarea>
         </div>
         <button className="btn btn-light " type="submit" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '2px solid white' : '2px solid black' }}>
           Submit
