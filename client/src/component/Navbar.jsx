@@ -17,7 +17,11 @@ function Navbar(props) {
 
   const navigate = useNavigate();
   const location = useLocation();
+<<<<<<< HEAD
+  const [isScrolled, setIsScrolled] = useState(false); 
+=======
   const [isScrolled, setIsScrolled] = useState(false); // State to keep track of whether page has been scrolled
+>>>>>>> upstream/main
   const [isOpen, setIsOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -47,7 +51,7 @@ function Navbar(props) {
     }
 
     return () => {
-      window.onscroll = null; // Cleanup function
+      window.onscroll = null; 
     };
   }, []);
 
@@ -60,7 +64,7 @@ function Navbar(props) {
 
   const handleLogout = async () => {
     try {
-      await auth.signOut(); // Sign out the user
+      await auth.signOut(); 
       localStorage.removeItem("token");
       navigate("/login");
     } catch (error) {
@@ -68,7 +72,6 @@ function Navbar(props) {
     }
   };
 
-  // Avatar Profile Image
   const [image, setImage] = useState();
 
   useEffect(() => {
@@ -76,7 +79,7 @@ function Navbar(props) {
       .get(`${VITE_SERVER_PORT}/getAvatarImage`)
       .then((res) => {
         if (res.data && res.data.length > 0) {
-          setImage(res.data[res.data.length - 1].image); // Fetch the last uploaded image
+          setImage(res.data[res.data.length - 1].image); 
         }
       })
       .catch((err) => {
@@ -85,7 +88,7 @@ function Navbar(props) {
   }, []);
 
   const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen); // Toggle sidebar visibility
+    setIsSidebarOpen(!isSidebarOpen); 
   };
 
   return (
@@ -204,8 +207,12 @@ function Navbar(props) {
                             <FaMoon
                               className="moon"
                               style={{
+<<<<<<< HEAD
+                                color: props.mode === "dark" ? "yellow" : "gray", 
+=======
                                 color:
                                   props.mode === "dark" ? "yellow" : "gray", // Change colors based on mode
+>>>>>>> upstream/main
                                 fontSize: "1.5rem",
                               }}
                             />
@@ -217,11 +224,21 @@ function Navbar(props) {
                     <Link
                       role="button"
                       to="/login"
-                      className="btn loginbtn mx-2  h-10 "
-                      style={{ height: "45px", color: "white" }}
+                      className={`relative inline-block h-full w-full rounded 
+              border-2 px-4 py-1 font-bold transition duration-100 
+              hover:bg-yellow-400 dark:hover:bg-yellow-400 
+              shadow-[4px_4px_0px_0px_black] dark:shadow-[4px_4px_0px_0px_white]`}
+                      style={{
+                        height: "45px",
+                        backgroundColor: props.mode === "dark" ? "#4B5563" : "#F5F5DC", 
+                        color: props.mode === "dark" ? "white" : "black",
+                        borderColor: props.mode === "dark" ? "#D1D5DB" : "black", 
+                      }}
                     >
                       Login
                     </Link>
+<<<<<<< HEAD
+=======
                     <Link
                       role="button"
                       to="/signup"
@@ -243,6 +260,7 @@ function Navbar(props) {
                     >
                       <span className="navbar-toggler-icon"></span>
                     </button>
+>>>>>>> upstream/main
                   </div>
                 </ul>
               </>
@@ -264,10 +282,13 @@ function Navbar(props) {
                           />
                           <label htmlFor="darkmode-toggle">
                             <FaSun
-                              // className="sun"
                               style={{
+<<<<<<< HEAD
+                                color: props.mode === "dark" ? "white" : "orange", 
+=======
                                 color:
                                   props.mode === "dark" ? "white" : "orange", // Change color for dark mode
+>>>>>>> upstream/main
                                 fontSize: "1.5rem",
                                 marginRight: "8px",
                               }}
@@ -275,8 +296,12 @@ function Navbar(props) {
                             <FaMoon
                               className="moon"
                               style={{
+<<<<<<< HEAD
+                                color: props.mode === "dark" ? "yellow" : "gray", 
+=======
                                 color:
                                   props.mode === "dark" ? "yellow" : "gray", // Change color for light mode
+>>>>>>> upstream/main
                                 fontSize: "1.5rem",
                               }}
                             />
@@ -432,7 +457,6 @@ function Navbar(props) {
   );
 }
 
-// Props Validation
 Navbar.propTypes = {
   title: PropTypes.string,
   home: PropTypes.string,

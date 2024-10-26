@@ -50,6 +50,33 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
       console.error("Error during login:", error);
     } finally {
       setLoading(false);
+<<<<<<< HEAD
+    }
+  };
+
+  const handleForgotPassword = async () => {
+    try {
+      const response = await fetch(`${host}/api/auth/ResetByEmail`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: forgotEmail }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        toast.success(data.message || "Reset email sent successfully!");
+        setForgotPasswordModalVisible(false);
+        setForgotEmail("");
+      } else {
+        showAlert(data.message || "Failed to send reset email", "danger");
+      }
+    } catch (error) {
+      console.error("Error during password reset:", error);
+      showAlert("An error occurred. Please try again later.", "danger");
+=======
+>>>>>>> upstream/main
     }
   };
 
@@ -58,12 +85,121 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
   };
 
   return (
+<<<<<<< HEAD
+    <div
+      className="wrapper"
+      style={{
+        backgroundColor: mode === "dark" ? "#1A1A1A" : "white", // Dark background
+        color: mode === "dark" ? "white" : "black",
+      }}
+    >
+      <form
+        onSubmit={handleSubmit}
+        className="form"
+        style={{
+          backgroundColor: mode === "dark" ? "#1A1A1A" : "white",
+          color: mode === "dark" ? "white" : "black",
+          border: mode === "dark" ? "2px solid #6366F1" : "none", // Border for dark theme
+          borderRadius: "15px",
+          padding: "40px", // Add padding for better aesthetics
+          boxShadow: mode === "dark" ? "0 8px 16px rgba(255, 255, 255, 0.1)" : "0 8px 16px rgba(0, 0, 0, 0.2)"
+        }}
+      >
+        <h1 className="title">Login</h1>
+        <span className="title-line"></span>
+        <div className="inp">
+          <Input
+            prefix={<UserOutlined />}
+            type="email"
+            placeholder="Email"
+            name="email"
+            value={credentials.email}
+            onChange={onChange}
+            autoComplete="on"
+            required
+            style={{
+              border: mode === "dark" ? "1px solid #6366F1" : "1px solid #ddd", 
+            }}
+          />
+        </div>
+
+        <div className="inp">
+          <Input.Password
+            prefix={<LockOutlined />}
+            placeholder="Password"
+            name="password"
+            value={credentials.password}
+            onChange={onChange}
+            autoComplete="on"
+            iconRender={(visible) =>
+              visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+            }
+            style={{
+              border: mode === "dark" ? "1px solid #6366F1" : "1px solid #ddd", 
+            }}
+            required
+          />
+        </div>
+
+        <Button className="submit" type="submit" disabled={loading}>
+          {loading ? <Spin size="small" /> : "Login"}
+        </Button>
+
+        <p className="footer" style={{
+          color: mode === "dark" ? "white" : "black",
+        }}>
+          Don&apos;t have an account?
+          <Link className="link" to="/Signup">
+            {" "}
+            Sign Up
+          </Link>
+        </p>
+
+        <Button
+          style={{ backgroundColor: "#6366f1", color: "#FFFFFF" }}
+          onClick={() => setForgotPasswordModalVisible(true)}
+          className="mt-3"
+        >
+          Forgot Password?
+        </Button>
+      </form>
+
+      <div className="banner">
+        <h1 className="wel_text" style={{
+          color: mode === "dark" ? "white" : "black",
+        }}>
+          WELCOME
+          <br />
+          BACK!
+        </h1>
+        <p className="para" style={{
+          color: mode === "dark" ? "white" : "black",
+        }}>
+          Please Sign In here
+          <br />
+          with your real info
+        </p>
+      </div>
+
+      <Modal
+        title="Reset Password"
+        visible={forgotPasswordModalVisible}
+        onOk={handleForgotPassword}
+        onCancel={() => setForgotPasswordModalVisible(false)}
+        okText="Submit"
+        okButtonProps={{
+          style: { backgroundColor: "#6366f1", color: "#000" },
+        }}
+        cancelButtonProps={{
+          style: { backgroundColor: "#000000" },
+=======
     <div className="h-screen flex items-center justify-center">
       <div
         className="wrapper h-3/4 mt-10"
         style={{
           backgroundColor: mode === "dark" ? "black" : "white",
           color: mode === "dark" ? "white" : "black",
+>>>>>>> upstream/main
         }}
       >
 

@@ -1,20 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300;700;900&display=swap");
 
-/* title heading change */
 #navbar {
   z-index: 1000;
   min-height: 10vh;
+<<<<<<< HEAD:client/src/component/css/Navbar.css
+ 
+=======
 
   /* Set the background to white */
+>>>>>>> upstream/main:client/src/css/Navbar.css
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  /* Black shadow */
   border-bottom: none;
-  /* Remove the bottom line */
   overflow: initial;
-  /* Avoid conflicts with other layouts */
 
   background-color: #b3bef9;
-  /* background: linear-gradient(72deg , #000000eb , #6386f42e); */
 }
 
 .header {
@@ -175,7 +174,6 @@
   align-items: center;
 }
 
-/* Dark Mode Toggle Button */
 .darkThemeBtn * {
   transition: all 0.3s;
 }
@@ -209,7 +207,6 @@
   width: 16px;
   transition: 0.3s;
   z-index: 1;
-  /* fill: white; */
 }
 
 .darkThemeBtn label .sun {
@@ -251,21 +248,15 @@
   border: 3px solid white;
   color: #486c98;
   padding: 0.5rem 1rem;
-  /* Add padding for better appearance */
   text-decoration: none;
-  /* Remove underline from text */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  /* Shadow to create a floating effect */
   transition: color 0.3s, box-shadow 0.3s;
-  /* Smooth transition for color and shadow changes */
 }
 
 .loginbtn:hover {
   color: white;
   background: #1173eb;
-  /* Make sure only one hover color is applied */
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  /* Enhanced shadow effect */
 }
 
 .button {
@@ -276,12 +267,10 @@
   font-size: medium;
 }
 
-/* .......................... */
 
 .title-wrapper {
   display: grid;
-  /* display: flex; */
-  align-items: center;
+=  align-items: center;
   justify-content: center;
 }
 
@@ -354,19 +343,16 @@
   }
 }
 
-/* Upload Project */
 .modal-backdrop {
   --bs-backdrop-zindex: 0;
 }
 
-/* Media query for desktop screens */
 @media (min-width: 1024px) {
   .collapse {
     visibility: visible;
   }
 }
 
-/* Media query for mobile screens */
 @media (max-width: 768px) {
   .logoTitle {
     font-size: 1rem;
@@ -389,8 +375,12 @@
 
 .sidebar.open {
   left: 0;
+<<<<<<< HEAD:client/src/component/css/Navbar.css
+
+=======
   display: flex;
   /* Show sidebar */
+>>>>>>> upstream/main:client/src/css/Navbar.css
 }
 
 .sidebar-links {
@@ -405,7 +395,7 @@
 .sidebar-links a {
   text-decoration: none;
   color: black !important;
-  /* Change according to your theme */
+ 
   font-size: 18px;
 }
 
@@ -432,16 +422,16 @@
 @media (min-width: 768px) {
   .sidebar {
     display: none;
-    /* Hide on larger screens */
+    
   }
 
   .sidebar-toggle {
     display: none;
-    /* Hide toggle on larger screens */
+  
   }
 }
 
-/* Navbar styles */
+
 .navbar {
   display: flex;
   justify-content: space-between;

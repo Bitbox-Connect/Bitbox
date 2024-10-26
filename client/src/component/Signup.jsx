@@ -64,7 +64,19 @@ const Signup = ({ mode }) => {
       <div
         className="signup-wrapper"
         style={{
-          backgroundColor: mode === "dark" ? "black" : "white",
+          backgroundColor: mode === "dark" ? "#444444" : "white", 
+          transition: "background-color 0.3s ease",
+          boxShadow: mode === "dark" ? "0 0 15px rgba(255, 255, 255, 0.2)" : "none" 
+        }}
+        onMouseEnter={(e) => {
+          if (mode === "dark") {
+            e.currentTarget.style.boxShadow = "0 0 20px rgba(255, 255, 255, 0.5)";
+          }
+        }}
+        onMouseLeave={(e) => {
+          if (mode === "dark") {
+            e.currentTarget.style.boxShadow = "0 0 15px rgba(255, 255, 255, 0.2)";
+          }
         }}
       >
         <div
@@ -84,7 +96,12 @@ const Signup = ({ mode }) => {
 
           <form className="w-3/4" onSubmit={handleSubmit}>
             <div className="space-y-4 w-full">
+<<<<<<< HEAD
+              {/* Full Name Field */}
+              <div className="signup-form-group">
+=======
               <div className="signup-form-group items-start flex flex-col gap-2">
+>>>>>>> upstream/main
                 <label
                   htmlFor="name"
                   className="text-md leading-none font-medium"
@@ -105,8 +122,9 @@ const Signup = ({ mode }) => {
                   autoComplete="on"
                   required
                   style={{
-                    backgroundColor: mode === "dark" ? "#333" : "white",
-                    color: mode === "dark" ? "white" : "black",
+                    '::placeholder': {
+                      color: mode === "dark" ? "#bbb" : "#999", 
+                    },
                   }}
                 />
                 {errors.name && (
@@ -114,7 +132,12 @@ const Signup = ({ mode }) => {
                 )}
               </div>
 
+<<<<<<< HEAD
+              {/* Email Field */}
+              <div className="signup-form-group">
+=======
               <div className="signup-form-group items-start flex flex-col gap-2">
+>>>>>>> upstream/main
                 <label
                   htmlFor="email"
                   className="text-md leading-none font-medium"
@@ -135,8 +158,6 @@ const Signup = ({ mode }) => {
                   autoComplete="on"
                   required
                   style={{
-                    backgroundColor: mode === "dark" ? "#333" : "white",
-                    color: mode === "dark" ? "white" : "black",
                   }}
                 />
                 {errors.email && (
@@ -144,7 +165,12 @@ const Signup = ({ mode }) => {
                 )}
               </div>
 
+<<<<<<< HEAD
+              {/* Password Field */}
+              <div className="signup-form-group relative">
+=======
               <div className="signup-form-group relative items-start flex flex-col gap-2">
+>>>>>>> upstream/main
                 <label
                   htmlFor="password"
                   className="text-md font-medium"
@@ -164,16 +190,32 @@ const Signup = ({ mode }) => {
                   autoComplete="on"
                   required
                   style={{
-                    backgroundColor: mode === "dark" ? "#333" : "white",
-                    color: mode === "dark" ? "white" : "black",
                   }}
                   iconRender={(visible) =>
                     visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
                   }
                 />
+<<<<<<< HEAD
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-purple-200 hover:text-purple-300 transition-colors duration-200"
+                >
+                  {showPassword ? (
+                    <EyeOff className="w-5 h-5" />
+                  ) : (
+                    <Eye className="w-5 h-5" />
+                  )}
+                </button>
+              </div>
+
+              {/* Confirm Password Field */}
+              <div className="signup-form-group relative">
+=======
               </div>
 
               <div className="signup-form-group items-start flex flex-col gap-2 relative">
+>>>>>>> upstream/main
                 <label
                   htmlFor="cpassword"
                   className="text-md font-medium"
@@ -193,8 +235,6 @@ const Signup = ({ mode }) => {
                   autoComplete="on"
                   required
                   style={{
-                    backgroundColor: mode === "dark" ? "#333" : "white",
-                    color: mode === "dark" ? "white" : "black",
                   }}
                   iconRender={(visible) =>
                     visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
@@ -224,6 +264,7 @@ const Signup = ({ mode }) => {
       </div>
     </div>
   );
+
 };
 
 Signup.propTypes = {

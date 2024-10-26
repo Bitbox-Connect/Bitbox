@@ -68,25 +68,77 @@ html.dark-mode {
   background: #a2a2a2;
 }
 
-/* Dark Theme Scrollbar */
 body.dark-mode ::-webkit-scrollbar {
   width: 12px;
 }
 
 body.dark-mode ::-webkit-scrollbar-track {
   background: #000000;
-  /* Black track */
 }
 
 body.dark-mode ::-webkit-scrollbar-thumb {
   background-color: #ffffff;
-  /* White thumb */
   border-radius: 10px;
   border: 3px solid #1a1a1a;
-  /* Dark border for the thumb */
 }
 
 body.dark-mode ::-webkit-scrollbar-thumb:hover {
   background: #e5e5e5;
-  /* Lighter color on hover */
 }
+
+ @layer components{
+  .animate-stroke{
+    text-transform:uppercase;
+    animation:stroke 2.5s infinite alternate;
+    stroke-width:5;
+    stroke:#5f6786;
+    font-size:80px;
+    font-family:"Arial",sans-serif;
+  }
+ }
+  body{
+  width:100%;
+  height:auto;
+  margin:0;
+  padding:0;
+  background:white;
+ 
+ }
+ @keyframes stroke{
+  0%{
+    fill:#fff;
+    stroke:#dfe2e4;
+    stroke-dashoffset:25%;
+    stroke-dasharray:0 50%;
+    stroke-width:2;
+ }
+  70%{
+    fill:#fff;
+    stroke:#dfe2e4;
+ }
+  80% {
+    fill: #fff;
+    stroke:#dfe2e4;
+    stroke-width: 3;
+ }
+  100% {
+    fill: #fff;
+    stroke: #dfe2e4;
+    stroke-dashoffset: -25%;
+    stroke-dasharray: 50% 0;
+    stroke-width: 0;
+    text-shadow: 0 0 10px #fff, 0 0 15px whitesmoke;
+ }
+ }
+ .tooltip {
+  @apply relative;
+ }
+
+ .tooltip::after {
+  @apply absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs rounded py-1 px-2 opacity-0 transition-opacity duration-300 pointer-events-none;
+  content: attr(data-tooltip);
+ }
+
+ .tooltip:hover::after {
+  @apply opacity-100;
+ }
