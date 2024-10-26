@@ -23,6 +23,7 @@ function Navbar(props) {
   const navigate = useNavigate();
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false); // State to keep track of whether page has been scrolled
+  // eslint-disable-next-line
   const [isOpen, setIsOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -232,7 +233,6 @@ function Navbar(props) {
                       </>
                       :
                       <>
-
                         <div className="relative w-16 flex justify-center">
                           {/* Placeholder image if user.picture is not available */}
                           <img

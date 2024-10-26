@@ -223,7 +223,7 @@ const Home = (props) => {
                 </div>
             </div>
             {/* Works Section */}
-            <div className="work-Sec mb-2" style={{ background: props.mode === 'dark' ? 'black' : '#f7f7f7', color: props.mode === 'dark' ? 'white' : 'black' }}>
+            <div className="work-Sec mb-2 pt-14" style={{ background: props.mode === 'dark' ? 'black' : '#f7f7f7', color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <h2 className='work-heading' style={{ textAlign: 'center', marginBottom: '1rem', fontWeight: 'bold', textTransform: 'uppercase' }} data-aos="zoom-out">
                     What We Work On
                 </h2>
