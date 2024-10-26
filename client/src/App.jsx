@@ -35,7 +35,7 @@ import { modeAtom } from "./atom/Atom";
 import ForgotPassword from "./component/ForgotPassword";
 import VerifyEmail from "./component/Verify";
 import NotFound from "./component/NotFound";
-import MiniChatbot from "./component/MiniChatbot";
+// import MiniChatbot from "./component/MiniChatbot";
 import ProgressBar from "./component/ProgressBar/ProgressBar";
 import ProtectedRoute from '../../client/src/component/ProtectedRoute'
 
@@ -52,17 +52,17 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
     <div className="h-full w-full">
       {/* Conditionally render the Navbar */}
       {/* {!hideNavbarRoutes.includes(location.pathname) && ( */}
-        <Navbar
-          title='BITBOX'
-          home='Home'
-          about='About Us'
-          community='Community'
-          BlogPage="Blogs"
-          discussion='Discussion'
-          showAlert={showAlert}
-          mode={mode}
-          toggleMode={toggleMode}
-        />
+      <Navbar
+        title='BITBOX'
+        home='Home'
+        about='About Us'
+        community='Community'
+        BlogPage="Blogs"
+        discussion='Discussion'
+        showAlert={showAlert}
+        mode={mode}
+        toggleMode={toggleMode}
+      />
       {/* )} */}
 
       {/* Main content */}
@@ -70,7 +70,7 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
 
       {/* Conditionally render the Footer */}
       {/* {!hideFooterRoutes.includes(location.pathname) && ( */}
-        <Footer mode={mode} setProgress={setProgress} setAlert={showAlert} />
+      <Footer mode={mode} setProgress={setProgress} setAlert={showAlert} />
       {/* )} */}
     </div>
   );
@@ -87,7 +87,7 @@ function App() {
   };
 
   const [progress, setProgress] = useState(0);
-  const [islogged,setloggedin]=useState(false)
+  const [islogged, setloggedin] = useState(false)
   useEffect(() => {
     const savedMode = localStorage.getItem("mode");
     if (savedMode) {
@@ -140,7 +140,7 @@ function App() {
             </div>
             <ProgressBar mode={mode} />
             <ScrollTop />
-            <MiniChatbot />
+            {/* <MiniChatbot /> */}
 
             {/* Wrap everything inside the Layout component */}
             <Layout
@@ -161,9 +161,9 @@ function App() {
                     />
                   }
                 />
-          <Route exact path="/discussion" element={<ProtectedRoute loggedin={islogged}><Discussion mode={mode} setProgress={setProgress} showAlert={showAlert} /></ProtectedRoute>} />
+                <Route exact path="/discussion" element={<ProtectedRoute loggedin={islogged}><Discussion mode={mode} setProgress={setProgress} showAlert={showAlert} /></ProtectedRoute>} />
                 <Route exact path="/community" element={<ProtectedRoute loggedin={islogged}><Community mode={mode} setProgress={setProgress} showAlert={showAlert} /></ProtectedRoute>} />
-               <Route exact path="/about" element={<ProtectedRoute loggedin={islogged}><About mode={mode} setProgress={setProgress} showAlert={showAlert} /></ProtectedRoute>} />
+                <Route exact path="/about" element={<ProtectedRoute loggedin={islogged}><About mode={mode} setProgress={setProgress} showAlert={showAlert} /></ProtectedRoute>} />
                 <Route
                   exact
                   path='/blog'
@@ -208,7 +208,7 @@ function App() {
                     />
                   }
                 />
-                 <Route exact path="/login" element={<Login mode={mode} setProgress={setProgress} showAlert={showAlert} loggedin={islogged} setloggedin={setloggedin}/>} />
+                <Route exact path="/login" element={<Login mode={mode} setProgress={setProgress} showAlert={showAlert} loggedin={islogged} setloggedin={setloggedin} />} />
                 <Route
                   exact
                   path='/signup'
