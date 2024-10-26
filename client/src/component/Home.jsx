@@ -207,9 +207,6 @@ const Home = (props) => {
                     </motion.div>
                 </div>
             </motion.section>
-
-
-
             <CardsPage />
 
             {/* Service Section */}
