@@ -88,7 +88,7 @@ const Footer = (props) => {
             {/* Footer container with dynamic background color */}
             <div className="Footer" style={{ backgroundColor: props.mode === 'dark' ? '#0B192C' : 'white' }}>
                 <div className="container">
-                    <div className='mb-4'>
+                    <div className='mb-4' data-aos="fade-up" data-aos-duration='1500'>
                         <h4 className="text-3xl font-semibold text-center text-black mb-4">Subscribe to our Newsletter</h4>
                         <form
                             className="flex flex-col items-center gap-4 md:flex-row md:justify-center"
@@ -117,7 +117,7 @@ const Footer = (props) => {
                     </div>
                     <div className="row">
                         {/* Left section with branding and social icons */}
-                        <div className="col-md-6 col-lg-5 col-12 ft-1">
+                        <div className="col-md-6 col-lg-5 col-12 ft-1" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1800">
                             <h3 style={{ fontFamily: "medium", fontSize: "2.5rem" }}>
                                 BIT<span className='code' style={{ color: "#0D92F4" }}>BOX</span>
                             </h3>
@@ -143,7 +143,7 @@ const Footer = (props) => {
                         </div>
 
                         {/* Middle section with About links */}
-                        <div className="col-md-6 col-lg-3 col-12 ft-2">
+                        <div className="col-md-6 col-lg-3 col-12 ft-2" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1800">
                             <h5>About</h5>
                             <ul>
                                 <li className="nav-item">
@@ -156,7 +156,7 @@ const Footer = (props) => {
                         </div>
 
                         {/* Right section with Legal links */}
-                        <div className="col-md-7 col-lg-4 col-13 ft-3">
+                        <div className="col-md-7 col-lg-4 col-13 ft-3" data-aos="fade-up" data-aos-delay='500' data-aos-duration="1800">
                             <h5>Legals</h5>
                             <ul>
                                 <li className="nav-item">
@@ -176,7 +176,7 @@ const Footer = (props) => {
 
             {/* Last footer section with copyright info */}
             <div className='Last-footer'>
-                <p className='copy-content'>
+                <p className='copy-content' data-aos="fade-up" data-aos-offset="30">
                     © 2024 Bitbox.&nbsp; Made with 🤍 by Bitbox India.&nbsp; All rights reserved.
                 </p>
             </div>

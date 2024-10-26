@@ -213,7 +213,7 @@ const Home = (props) => {
             <CardsPage />
 
             {/* Service Section */}
-            <div className="service-section" style={{ marginTop: "5rem", background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+            <div className="service-section" style={{ marginTop: "5rem", background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }} data-aos="fade-up" data-aos-duration='1600'>
                 <div className='text-center' style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>We&apos;re Still</div>
                 <h1 className="service-heading text-center" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Cooking Our Service</h1>
                 <div className="service-description text-center" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>We are going to launch our service Very Soon,</div>
@@ -224,7 +224,7 @@ const Home = (props) => {
             </div>
             {/* Works Section */}
             <div className="work-Sec mb-2" style={{ background: props.mode === 'dark' ? 'black' : '#f7f7f7', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                <h2 className='work-heading' style={{ textAlign: 'center', marginBottom: '1rem', fontWeight: 'bold', textTransform: 'uppercase' }}>
+                <h2 className='work-heading' style={{ textAlign: 'center', marginBottom: '1rem', fontWeight: 'bold', textTransform: 'uppercase' }} data-aos="zoom-out">
                     What We Work On
                 </h2>
 
@@ -236,6 +236,9 @@ const Home = (props) => {
                             <div
                                 key={index}
                                 className="py-16 px-3 rounded-2xl border-blue-main border-2 space-y-3 transition-transform duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-main hover:shadow-lg group"
+                                data-aos='zoom-in'
+                                data-aos-delay={100 * index}
+                                data-aos-duration='1700'
                             >
                                 <h3 className="font-semibold text-[28px] text-center text-blue-main group-hover:text-white">
                                     {word.title}
@@ -278,8 +281,8 @@ const Home = (props) => {
             {/* Technology Section */}
             <div className='Technology-Sec' style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <div className="Technology-Container">
-                    <h2 className='Heading-Page mb-4' style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Project Technology</h2>
-                    <div className="content">
+                    <h2 className='Heading-Page mb-4' style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }} data-aos="zoom-out">Project Technology</h2>
+                    <div className="content" data-aos="zoom-in" data-aos-duration="1700">
                         <div className="benefits">
                             <div className="basic-marquee basic-marquee-1">
                                 <a className="social-media-link" href="#">

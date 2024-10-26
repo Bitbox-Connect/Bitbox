@@ -31,15 +31,15 @@ export default function About(props) {
 
   return (
     <div>
-     <div
-      className="about-content container h-[100vh] px-[2rem] mt-[10vh]"
-      style={{
-        background: props.mode === "dark" ? "#121212" : "#ffffff",
-        color: props.mode === "dark" ? "white" : "black",
-      }}
-    >
+      <div
+        className="about-content container h-[100vh] px-[2rem] mt-[10vh]"
+        style={{
+          background: props.mode === "dark" ? "#121212" : "#ffffff",
+          color: props.mode === "dark" ? "white" : "black",
+        }}
+      >
         <section className="about-main-section">
-          <div className="about-content-left">
+          <div className="about-content-left" data-aos="fade-right" data-aos-duration="1300">
             <h2 className="Heading-Page !bg-gradient-to-r from-cyan-500 to-blue-500 !bg-clip-text !text-transparent  ">About Us</h2>
             <div className="about-section-desc w-[70%] text-sm leading-relaxed mx-auto fs-4">
               Bitbox is like a friendly community where people working on
@@ -83,7 +83,7 @@ export default function About(props) {
                 <div className="tracker tr-23"></div>
                 <div className="tracker tr-24"></div>
                 <div className="tracker tr-25"></div>
-                <div id="card">
+                <div id="card" data-aos="fade-left" data-aos-duration="1300">
                   <img src={AboutImgHero} id="propmpt" alt="aboutVectorImg" />
                 </div>
               </div>
@@ -97,12 +97,12 @@ export default function About(props) {
       <div className="Team-Sec">
         <div className="px-[2.5rem] m-0 text-center">
           <div className="team-content">
-            <h2 className="Heading-Page">
+            <h2 className="Heading-Page" data-aos="zoom-in" data-aos-duration="1400">
               Our <span className="!bg-gradient-to-r from-cyan-500 to-blue-500 !bg-clip-text !text-transparent ">Team</span>
             </h2>
             <div className="team-grid container ">
               {/* card 1 */}
-              <div className="team-card">
+              <div className="team-card" data-aos="fade-up" data-aos-duration="1700" data-aos-delay="100">
                 <div className="team-text" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                   <b>Anuj Verma</b> is a tech-savvy person who loves working with AI and building websites. He&apos;s gained experience through internships and projects, showing that he&apos;s ready to do great things in the tech world.
                 </div>
@@ -127,7 +127,7 @@ export default function About(props) {
                 </div>
               </div>
               {/* card 2 */}
-              <div className="team-card">
+              <div className="team-card" data-aos="fade-up" data-aos-duration="1700" data-aos-delay="300">
                 <div className="team-text" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                   <b>Jitendra Kumar</b>: Tech enthusiast skilled in web development and database management, showcasing expertise in projects like weather app and algorithm analyzer, poised for impactful contributions in the tech industry.
                 </div>
@@ -152,7 +152,7 @@ export default function About(props) {
                 </div>
               </div>
               {/* card 3  */}
-              <div className="team-card">
+              <div className="team-card" data-aos="fade-up" data-aos-duration="1700" data-aos-delay="500">
                 <div className="team-text" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                   <b>Harshit Singh</b>: Entry-level software engineer skilled in C, C++, Python, HTML, CSS, and JavaScript. Eager to leverage abilities in problem-solving and project development for organizational growth.
                 </div>
@@ -186,12 +186,12 @@ export default function About(props) {
       <div className="Team-Sec">
         <div className="visitors-container">
           <div className="visitors-content">
-            <h2 className="Heading-Page">
+            <h2 className="Heading-Page" data-aos='zoom-in'>
               Visitors
             </h2>
             <div className="container">
               <div className="row">
-                <div className="col-md-3 col-sm-6">
+                <div className="col-md-3 col-sm-6" data-aos="fade-up" data-aos-duration="1700" data-aos-delay="100">
                   <div className="counter">
                     <div className="counter-icon">
                       <FontAwesomeIcon icon={faUser} />
@@ -200,7 +200,7 @@ export default function About(props) {
                     <h3>VisitorCount</h3>
                   </div>
                 </div>
-                <div className="col-md-3 col-sm-6">
+                <div className="col-md-3 col-sm-6" data-aos="fade-up" data-aos-duration="1700" data-aos-delay="300">
                   <div className="counter blue">
                     <div className="counter-icon" style={{ color: props.mode === 'dark' ? 'white' : '#4accdb' }}>
                       {/* <i className="fa fa-youtube"></i> */}
@@ -210,7 +210,7 @@ export default function About(props) {
                     <h3 style={{ color: props.mode === 'dark' ? 'white' : '#4accdb' }}>Registrations</h3>
                   </div>
                 </div>
-                <div className="col-md-3 col-sm-6">
+                <div className="col-md-3 col-sm-6" data-aos="fade-up" data-aos-duration="1700" data-aos-delay="500">
                   <div className="counter">
                     <div className="counter-icon">
                       <i className="fa-solid fa-user-group"></i>
@@ -219,7 +219,7 @@ export default function About(props) {
                     <h3>Participants</h3>
                   </div>
                 </div>
-                <div className="col-md-3 col-sm-6">
+                <div className="col-md-3 col-sm-6" data-aos="fade-up" data-aos-duration="1700" data-aos-delay="700">
                   <div className="counter blue">
                     <div className="counter-icon" style={{ color: props.mode === 'dark' ? 'white' : '#4accdb' }}>
                       {/* <i className="fa fa-rocket"></i> */}
@@ -237,14 +237,14 @@ export default function About(props) {
       {/* FAQ */}
       <div className="accordion-container">
 
-        <div className="faq-section">
+        <div className="faq-section" data-aos="fade-up" data-aos-duration="1700">
           <div className="container">
             <h2 className="Heading-Page mb-7">Frequently Asked <span className="!bg-gradient-to-r from-cyan-500 to-blue-500 !bg-clip-text !text-transparent ">Questions</span></h2>
             <section>
               <div className="accordion" id="accordionExample">
                 <div className="accordion-item">
                   <h2 className="accordion-header flex justify-center">
-                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style={{background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
+                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                       Will a beginner, with absolutely no knowledge of github, gain
                       anything fruitful?
                     </button>

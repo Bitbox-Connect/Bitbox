@@ -85,11 +85,13 @@ const Testimonial = () => {
 
     return (
         <div>
-            <h1 className='text-center text-5xl'>
+            <h1 className='text-center text-5xl' data-aos="zoom-out">
                 See What our client say&apos;s about us !
             </h1>
 
-            <div className="slider" style={{ position: 'relative', marginTop: '100px', width: '100%', height: '550px', overflow: 'hidden' }}>
+            <div className="slider" style={{ position: 'relative', marginTop: '100px', width: '100%', height: '550px', overflow: 'hidden' }}
+                data-aos='zoom-in'
+                data-aos-duration='1700'>
                 {items.map((item, index) => (
                     <div className="item max-sm:!w-[300px] max-sm:!h-[430px] bg-blue-700 text-white" key={index} style={{
                         position: 'absolute',

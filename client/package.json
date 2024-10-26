@@ -25,6 +25,7 @@
     "@splinetool/runtime": "^1.0.67",
     "@splinetool/viewer": "^1.0.67",
     "antd": "^5.21.3",
+    "aos": "^3.0.0-beta.6",
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",

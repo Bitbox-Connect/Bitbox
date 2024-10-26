@@ -72,7 +72,7 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
   }
 
   return (
-    <div className="h-screen flex items-center justify-center">
+    <div className="h-screen flex items-center justify-center" data-aos="zoom-in" data-aos-duration="1800">
       {userLoggedIn && navigate('/')}
       <div
         className="wrapper h-3/4 mt-10"
@@ -136,7 +136,7 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
 
           <button className="submit" type="submit" disabled={loading}>
             {loading ? <Spin size="small" /> : "Login"}
-           </Button>
+          </button>
           <button
             disabled={isloggedin}
             onClick={(e) => { onGoogleSignIn(e) }}
@@ -155,7 +155,7 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
               </defs>
             </svg>
             {isloggedin ? 'Signing In...' : 'Continue with Google'}
- 
+
           </button>
 
           <p
