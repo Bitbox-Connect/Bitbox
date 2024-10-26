@@ -38,6 +38,8 @@ import NotFound from "./component/NotFound";
 // import MiniChatbot from "./component/MiniChatbot";
 import ProgressBar from "./component/ProgressBar/ProgressBar";
 import ProtectedRoute from '../../client/src/component/ProtectedRoute'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 // Main Layout Component
 
@@ -124,6 +126,10 @@ function App() {
       showAlert("Light Mode Enabled", "success");
     }
   };
+
+  useEffect(() => {
+    AOS.init();
+  }, [])
 
   return (
     <div className="h-full w-screen">
