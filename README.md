@@ -1,3 +1,34 @@
+## 📋 Participating Programs
+
+| Name                  | Logo                                                      | Purpose                                                                                                      |
+|-----------------------|-----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| GSSoC'2024-Extd       | ![GSSoC Logo](assets/GSSoC-Ext.png)                       | The coding period is from October 1st to October 30th, during which contributors make contributions and earn points on the platform. |
+| Hacktoberfest 2024    | ![Hacktoberfest Logo](assets/hacktoberfest.png)           | Hacktoberfest is a month-long October event welcoming all skill levels to join the open-source community.     |
+
+---
+
+## 📊 Project Metrics
+
+<table align="center">
+    <thead align="center">
+        <tr>
+            <td><b>🌟 Stars</b></td>
+            <td><b>🍴 Forks</b></td>
+            <td><b>🐛 Issues</b></td>
+            <td><b>🔔 Open PRs</b></td>
+            <td><b>🔕 Closed PRs</b></td>
+        </tr>
+     </thead>
+    <tbody>
+         <tr>
+            <td><img alt="Stars" src="https://img.shields.io/github/stars/Bitbox-Connect/Bitbox?style=flat&logo=github"/></td>
+            <td><img alt="Forks" src="https://img.shields.io/github/forks/Bitbox-Connect/Bitbox?style=flat&logo=github"/></td>
+            <td><img alt="Issues" src="https://img.shields.io/github/issues/Bitbox-Connect/Bitbox?style=flat&logo=github"/></td>
+            <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/Bitbox-Connect/Bitbox?style=flat&logo=github"/></td>
+            <td><img alt="Closed Pull Requests" src="https://img.shields.io/github/issues-pr-closed/Bitbox-Connect/Bitbox?style=flat&color=green&logo=github"/></td>
+        </tr>
+    </tbody>
+</table>
 
 <div align="center">
 <img  src="https://readme-typing-svg.herokuapp.com?color=990876ffaa&center=true&vCenter=true&size=40&width=900&height=80&lines=Welcome+to+BitBox"/>
