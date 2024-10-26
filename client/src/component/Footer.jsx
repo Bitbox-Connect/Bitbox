@@ -126,7 +126,7 @@ const Footer = (props) => {
                     </div>
                     <div className="flex flex-col items-center space-y-4 mb-4">
                         <a
-                            href="https://github.com/Avdhesh-Varshney/chanakya-niti"
+                            href="https://github.com/Anuj3553/Bitbox"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-700"
@@ -145,7 +145,7 @@ const Footer = (props) => {
                         <div className="flex flex-col items-center text-gray-800">
                             <div className="flex items-center space-x-2">
                                 <span className="font-bold text-2xl">Total Visitors : </span>
-                                <a href="https://www.hitwebcounter.com" target="_blank" rel="noopener noreferrer">
+                                <a href="https://github.com/Anuj3553/Bitbox" target="_blank" rel="noopener noreferrer">
                                     <img
                                         src="https://hitwebcounter.com/counter/counter.php?page=17062113&style=0006&nbdigits=5&type=page&initCount=1000"
                                         alt="Visit counter for websites"
