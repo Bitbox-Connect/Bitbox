@@ -1,5 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { MessageCircle, Users, Send, Smile, Image, Paperclip, Moon, Sun, ChevronDown } from 'lucide-react';
+// CHAT-PATTERN-IMAGE
+import chatPatternLight from "../assets/images/Discussion/chat-pattern.png";
+import chatPatternDark from "../assets/images/Discussion/chat-pattern-dark.png";
 
 const Discussion = ({ mode }) => {
   const [messages, setMessages] = useState([]);
@@ -107,36 +110,45 @@ const Discussion = ({ mode }) => {
 
           {/* Messages Container */}
           <div className="flex-1 flex flex-col">
-            <div className={`flex-1 overflow-y-auto p-4 space-y-4 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
-              {messages.map((message) => (
-                <div
-                  key={message.id}
-                  className={`flex ${message.position === 'right' ? 'justify-end' : 'justify-start'}`}
-                >
-                  <div
-                    className={`max-w-[70%] rounded-2xl p-4 ${
-                      message.position === 'right'
-                        ? `${isDarkMode ? 'bg-indigo-900' : 'bg-indigo-600'} text-white`
-                        : `${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'} ${isDarkMode ? 'text-white' : 'text-gray-800'}`
-                    } transform hover:scale-[1.02] transition-transform duration-200`}
-                  >
-                    <div className="flex items-center space-x-2 mb-1">
-                      <span className="font-medium text-sm">{message.sender}</span>
-                      <span className="text-xs opacity-75">
-                        {new Date(message.timestamp).toLocaleTimeString()}
-                      </span>
-                    </div>
-                    <p className="text-sm leading-relaxed">{message.content}</p>
-                    {message.position === 'right' && (
-                      <div className="text-right mt-1">
-                        <span className="text-xs opacity-75">✓✓</span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))}
-              <div ref={messagesEndRef} />
-            </div>
+
+
+<div
+  className="flex-1 overflow-y-auto p-4 space-y-4"
+  style={{
+    backgroundImage: `url(${isDarkMode ? chatPatternDark : chatPatternLight})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  }}
+>
+  {messages.map((message) => (
+    <div
+      key={message.id}
+      className={`flex ${message.position === 'right' ? 'justify-end' : 'justify-start'}`}
+    >
+      <div
+        className={`max-w-[70%] rounded-2xl p-4 ${
+          message.position === 'right'
+            ? `${isDarkMode ? 'bg-indigo-900' : 'bg-indigo-600'} text-white`
+            : `${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'} ${isDarkMode ? 'text-white' : 'text-gray-800'}`
+        } transform hover:scale-[1.02] transition-transform duration-200`}
+      >
+        <div className="flex items-center space-x-2 mb-1">
+          <span className="font-medium text-sm">{message.sender}</span>
+          <span className="text-xs opacity-75">
+            {new Date(message.timestamp).toLocaleTimeString()}
+          </span>
+        </div>
+        <p className="text-sm leading-relaxed">{message.content}</p>
+        {message.position === 'right' && (
+          <div className="text-right mt-1">
+            <span className="text-xs opacity-75">✓✓</span>
+          </div>
+        )}
+      </div>
+    </div>
+  ))}
+</div>
+
 
             {/* Message Input */}
             <div className={`p-4 border-t ${isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}`}>
