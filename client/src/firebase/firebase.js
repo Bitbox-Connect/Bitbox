@@ -8,7 +8,7 @@ import { getAuth } from "firebase/auth";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
     apiKey: "AIzaSyC7LlJ4Wg935AYnzdXAgEpd8CT4QZyFp9M",
-    authDomain: "https://bitbox-in.netlify.app/",
+    authDomain: "https://bitbox-in.netlify.app",
     projectId: "bitbox-3de42",
     storageBucket: "bitbox-3de42.appspot.com",
     messagingSenderId: "70105959999",
