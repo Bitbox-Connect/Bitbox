@@ -197,3 +197,18 @@ For any inquiries, feel free to reach out:
 </p>
 
 ---
+
+
+## Stargazers ❤️
+
+<div align='left'>
+
+[![Stargazers repo roster for @Bitbox-Connect/Bitbox](https://reporoster.com/stars/dark/Bitbox-Connect/Bitbox)](https://github.com/Bitbox-Connect/Bitbox/stargazers)
+
+</div>
+
+## Forkers ❤️
+
+[![Forkers repo roster for @Bitbox-Connect/Bitbox](https://reporoster.com/forks/dark/Bitbox-Connect/Bitbox)](https://github.com/Bitbox-Connect/Bitbox/network/members)
+
+---
