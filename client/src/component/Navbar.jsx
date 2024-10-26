@@ -6,11 +6,16 @@ import axios from "axios";
 import AddProject from "./AddProject";
 import logo from "../assets/images/logo.png";
 import avatarDropdown from "../assets/images/Dropdown/avatar.png";
-import { auth } from "../component/Firebase/Setup";
 import { FaSun } from "react-icons/fa6";
 import { FaMoon } from "react-icons/fa6";
+import { useAuth } from "../contexts/authContext";
+import { doSignOut } from "../firebase/auth";
 
 function Navbar(props) {
+  const { currentUser } = useAuth()
+  const { userLoggedIn } = useAuth();
+  const [isHovered, setIsHovered] = useState(false)
+
   const { showAlert, mode } = props;
   const VITE_SERVER_PORT =
     import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
@@ -60,7 +65,7 @@ function Navbar(props) {
 
   const handleLogout = async () => {
     try {
-      await auth.signOut(); // Sign out the user
+      doSignOut()
       localStorage.removeItem("token");
       navigate("/login");
     } catch (error) {
@@ -91,9 +96,8 @@ function Navbar(props) {
   return (
     <div>
       <nav
-        className={`navbar navbar-expand-lg ${
-          isScrolled ? "sticky" : ""
-        } navbar-${props.mode === "dark" ? "dark" : "light"}`}
+        className={`navbar navbar-expand-lg ${isScrolled ? "sticky" : ""
+          } navbar-${props.mode === "dark" ? "dark" : "light"}`}
         style={{
           backgroundColor: props.mode === "dark" ? "black" : "white",
           borderBottom: "1px solid white",
@@ -103,9 +107,8 @@ function Navbar(props) {
         {/* Hamburger icon */}
 
         <div
-          className={`gap-[3rem]  w-full visible navbar-collapse rnav ${
-            isOpen ? "show" : ""
-          }`}
+          className={`gap-[3rem]  w-full visible navbar-collapse rnav ${isOpen ? "show" : ""
+            }`}
           style={{ backgroundColor: props.mode === "dark" ? "black" : "white" }}
         >
           <Link
@@ -118,17 +121,15 @@ function Navbar(props) {
               alt="logo"
             />
             <div
-              className={`logoTitle md:block hidden ${
-                props.mode === "dark" ? "text-white" : "text-black"
-              }`}
+              className={`logoTitle md:block hidden ${props.mode === "dark" ? "text-white" : "text-black"
+                }`}
             >
               {props.title}
             </div>
           </Link>
           <div
-            className={`collapse navbar-collapse justify-content-center ${
-              isOpen ? "show" : ""
-            }`}
+            className={`collapse navbar-collapse justify-content-center ${isOpen ? "show" : ""
+              }`}
             id="navbarSupportedContent"
           >
             <ul
@@ -137,9 +138,8 @@ function Navbar(props) {
             >
               <li className="nav-item fs-4 fw-medium">
                 <Link
-                  className={`nav-link ${
-                    location.pathname === "/" ? "active" : ""
-                  }`}
+                  className={`nav-link ${location.pathname === "/" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/"
                 >
@@ -148,9 +148,8 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-4">
                 <Link
-                  className={`nav-link ${
-                    location.pathname === "/about" ? "active" : ""
-                  }`}
+                  className={`nav-link ${location.pathname === "/about" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/about"
                 >
@@ -159,9 +158,8 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-4">
                 <Link
-                  className={`nav-link ${
-                    location.pathname === "/community" ? "active" : ""
-                  }`}
+                  className={`nav-link ${location.pathname === "/community" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/community"
                 >
@@ -170,9 +168,8 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-4">
                 <Link
-                  className={`nav-link ${
-                    location.pathname === "/discussion" ? "active" : ""
-                  }`}
+                  className={`nav-link ${location.pathname === "/discussion" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/discussion"
                 >
@@ -214,22 +211,64 @@ function Navbar(props) {
                         </div>
                       </div>
                     </div>
-                    <Link
-                      role="button"
-                      to="/login"
-                      className="btn loginbtn mx-2  h-10 "
-                      style={{ height: "45px", color: "white" }}
-                    >
-                      Login
-                    </Link>
-                    <Link
-                      role="button"
-                      to="/signup"
-                      className="btn loginbtn mx-2  h-10 "
-                      style={{ height: "45px", color: "white" }}
-                    >
-                      Signup
-                    </Link>
+                    {userLoggedIn == false ?
+                      <>
+                        <Link
+                          role="button"
+                          to="/login"
+                          className="btn loginbtn mx-2  h-10 "
+                          style={{ height: "45px", color: "white" }}
+                        >
+                          Login
+                        </Link>
+                        <Link
+                          role="button"
+                          to="/signup"
+                          className="btn loginbtn mx-2  h-10 "
+                          style={{ height: "45px", color: "white" }}
+                        >
+                          Signup
+                        </Link>
+                      </>
+                      :
+                      <>
+
+                        <div className="relative w-16 flex justify-center">
+                          {/* Placeholder image if user.picture is not available */}
+                          <img
+                            src={currentUser.picture || 'https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?size=338&ext=jpg&ga=GA1.1.2113030492.1729036800&semt=ais_hybrid'}
+                            className="useremailbutton  rounded-full w-12 bg-black  cursor-pointer"
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
+                            alt="User Profile"
+                          />
+
+                          {/* Information box */}
+                          <div
+                            className={`absolute accountBox bg-gray-800 top-16 -right-24 py-2 pr-10 pl-2 text-start rounded-lg font-normal ${isHovered ? 'block' : 'hidden'
+                              }`}
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
+                          >
+                            <span className="text-gray-200 text-sm">Bitbox Account</span>
+                            <br />
+                            <span className="text-gray-400 text-sm">{currentUser.displayName}</span>
+                            <br />
+                            <span className="text-gray-400 text-sm">{currentUser.email}</span>
+                          </div>
+                        </div>
+
+                        <Link
+                          role="button"
+                          to="/signup"
+                          className="btn loginbtn mx-2  h-10 "
+                          style={{ height: "45px", color: "white" }}
+                          onClick={handleLogout}
+                        >
+                          Signout
+                        </Link>
+                      </>
+                    }
                     <button
                       className="navbar-toggler block lg:hidden ml-5   focus:outline-none"
                       type="button"
@@ -359,14 +398,6 @@ function Navbar(props) {
                                   : "2px solid white",
                             }}
                           />
-                        </li>
-                        <li>
-                          <a
-                            onClick={handleLogout}
-                            style={{ cursor: "pointer" }}
-                          >
-                            Logout
-                          </a>
                         </li>
                       </ul>
                     </li>
