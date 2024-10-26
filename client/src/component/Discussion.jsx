@@ -1,14 +1,18 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
+// eslint-disable-next-line
 import { MessageCircle, Users, Send, Smile, Image, Paperclip, Moon, Sun, ChevronDown } from 'lucide-react';
 // CHAT-PATTERN-IMAGE
 import chatPatternLight from "../assets/images/Discussion/chat-pattern.png";
 import chatPatternDark from "../assets/images/Discussion/chat-pattern-dark.png";
 
+// eslint-disable-next-line
 const Discussion = ({ mode }) => {
   const [messages, setMessages] = useState([]);
   const [messageInput, setMessageInput] = useState('');
+  // eslint-disable-next-line
   const [userName, setUserName] = useState('');
   const [showModal, setShowModal] = useState(true);
+  // eslint-disable-next-line
   const [onlineUsers, setOnlineUsers] = useState([
     { id: 1, name: 'Alice', status: 'active' },
     { id: 2, name: 'Bob', status: 'idle' },
@@ -60,7 +64,7 @@ const Discussion = ({ mode }) => {
   };
 
   return (
-    <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900' : 'bg-gray-50'} flex items-center justify-center p-4 transition-colors duration-300`}>
+    <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900' : 'bg-gray-50'} flex items-center justify-center p-4 mt-24 transition-colors duration-300`}>
       {/* Main Chat Container */}
       <div className={`w-full max-w-5xl ${isDarkMode ? 'bg-gray-800' : 'bg-white'} rounded-xl shadow-2xl overflow-hidden transition-colors duration-300`}>
         {/* Chat Header */}
