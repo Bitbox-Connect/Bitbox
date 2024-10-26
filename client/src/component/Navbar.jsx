@@ -134,7 +134,7 @@ function Navbar(props) {
             id="navbarSupportedContent"
           >
             <ul
-              className="navbar-nav mb-2 mb-lg-0 gap-3 fw-medium"
+              className="navbar-nav mb-2 mb-lg-0 gap-3 fw-medium menu2"
               style={{ position: "absolute", left: "36%" }}
             >
               <li className="nav-item fs-4 fw-medium">
