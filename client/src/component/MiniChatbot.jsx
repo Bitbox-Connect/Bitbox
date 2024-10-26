@@ -28,10 +28,10 @@ const MiniChatbot = () => {
       // Generate content based on the user's message
       const prompt = `
       You can do Hi hello but
-  You are an AI assistant for an educational platform. Only respond to questions related to education and all.
-  If the question is unrelated, respond with: "I can only assist with questions related to our learning platform and its services."
-  Here's the user's question: '${userMessage}'
-`;
+      You are an AI assistant for an educational platform. Only respond to questions related to education and all.
+      If the question is unrelated, respond with: "I can only assist with questions related to our learning platform and its services."
+      Here's the user's question: '${userMessage}'
+      `;
 
 
       const result = await model.generateContent(prompt);
