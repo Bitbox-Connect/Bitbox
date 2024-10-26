@@ -3,8 +3,57 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { FaXTwitter } from "react-icons/fa6";
 import { FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa';
-
+import React, { useState } from "react";
 const Footer = (props) => {
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+    const [isError, setIsError] = useState(false); // Flag to handle message color
+
+    const handleSubscribe = async (e) => {
+        e.preventDefault();
+        setMessage(""); // Reset message
+
+        if (!email) {
+            setIsError(true);
+            setMessage("Please enter a valid email.");
+            clearMessageAndResetEmail();
+            return;
+        }
+
+        try {
+            const response = await fetch("http://localhost:5000/api/profile/subscribe", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setIsError(false);
+                setMessage("Thank you for subscribing!");
+            } else {
+                setIsError(true);
+                setMessage(data.message || "Subscription failed, please try again.");
+            }
+
+            clearMessageAndResetEmail();
+        } catch (error) {
+            console.error("Error subscribing:", error);
+            setIsError(true);
+            setMessage("An error occurred, please try again later.");
+            clearMessageAndResetEmail();
+        }
+    };
+
+    const clearMessageAndResetEmail = () => {
+        setTimeout(() => {
+            setMessage("");
+            setEmail("");
+        }, 7000);
+    };
     return (
         <>
             {/* Divider line */}
@@ -13,6 +62,33 @@ const Footer = (props) => {
             {/* Footer container with dynamic background color */}
             <div className="Footer" style={{ backgroundColor: props.mode === 'dark' ? '#0B192C' : 'white' }}>
                 <div className="container">
+                    <div className='mb-4'>
+                        <h4 className="text-3xl font-semibold text-center text-black mb-4">Subscribe to our Newsletter</h4>
+                        <form
+                            className="flex flex-col items-center gap-4 md:flex-row md:justify-center"
+                            onSubmit={handleSubscribe}
+                        >
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                                className="px-4 py-2 border border-gray-300 rounded-md w-full max-w-xs focus:outline-none"
+                            />
+                            <button
+                                type="submit"
+                                className="px-6 py-2 bg-blue-600 text-white rounded-md w-full max-w-[120px] hover:bg-blue-700 transition"
+                            >
+                                Subscribe
+                            </button>
+                        </form>
+                        {message && (
+                            <p className={`text-2xl mt-4 ${isError ? 'text-red-500' : 'text-green-500'} text-center`}>
+                                {message}
+                            </p>
+                        )}
+                    </div>
                     <div className="row">
                         {/* Left section with branding and social icons */}
                         <div className="col-md-6 col-lg-5 col-12 ft-1">
