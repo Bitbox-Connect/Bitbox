@@ -74,3 +74,42 @@
     box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1),
                 0 2px 4px rgba(255, 255, 255, 0.05);
   }
+
+  .dark-mode .visitor-counter div {
+    color: #f0f0f0; /* Lighter text for dark mode */
+  }
+
+  .dark-mode .visitor-counter .website-counter {
+    color: #f0f0f0; /* Lighter color for consistency */
+  }
+
+  .dark-mode .visitor-counter {
+    background-color: rgba(0, 0, 0, 0.7); /* Darker background for dark mode */
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1),
+                0 2px 4px rgba(255, 255, 255, 0.05);
+  }
+
+  div .gt_float_switcher {
+    font-size: 14px;
+    background: #1e1e1e;
+    border-radius: 10px;
+    color: white;
+  }
+  
+  div .gt_float_switcher .gt_options a {
+    font-size: 14px;
+    background: #1e1e1e;
+    color: white;
+  }
+  
+  .gt-current-lang {
+    background-color: #1e1e1e;
+  }
+  
+  div .gt-lang-code {
+    color: white;
+  }
+  
+  div .gt_float_switcher-arrow {
+    color: white;
+  }

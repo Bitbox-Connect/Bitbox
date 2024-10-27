@@ -66,13 +66,14 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
     if (!isloggedin) {
       setloggedin(true)
       doSignInWithGoogle().catch(err => {
+        console.error(err)
         setloggedin(false)
       })
     }
   }
 
   return (
-    <div className="h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center mt-10" data-aos="zoom-in" data-aos-duration="1800">
       {userLoggedIn && navigate('/')}
       <div
         className="wrapper h-3/4 mt-10"
@@ -136,7 +137,7 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
 
           <button className="submit" type="submit" disabled={loading}>
             {loading ? <Spin size="small" /> : "Login"}
-           </button>
+           </button> 
           <button
             disabled={isloggedin}
             onClick={(e) => { onGoogleSignIn(e) }}
@@ -155,7 +156,7 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
               </defs>
             </svg>
             {isloggedin ? 'Signing In...' : 'Continue with Google'}
- 
+
           </button>
 
           <p
@@ -169,16 +170,14 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
             Don&apos;t have an account?
 
             <Link className="link text-xl" to="/signup">
-
-              {" "}
-              Sign Up
+              {" "} Sign Up
             </Link>
           </p>
 
           <Button
             style={{ backgroundColor: "#6366f1", color: "#FFFFFF" }}
             onClick={() => navigate("/forgot-password")}
-            className="mt-3 h-10 text-xl"
+            className="mt-3 h-10 text-xl text-white"
           >
             Forgot Password?
           </Button>

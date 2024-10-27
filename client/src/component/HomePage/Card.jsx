@@ -28,6 +28,7 @@ const CardsPage = (props) => {
         <h2
           className="font-bold text-blue-main text-4xl md:text-5xl lg:text-[3.5rem] pt-16"
           style={{ color: props.mode === "dark" ? "white" : "" }}
+          data-aos='zoom-out'
         >
           Be a part of Bitbox Community
         </h2>
@@ -37,6 +38,9 @@ const CardsPage = (props) => {
               <div
                 key={index}
                 className="py-16 px-5 rounded-2xl border-blue-main border-2 space-y-3 transition-transform duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-main hover:shadow-lg group"
+                data-aos='zoom-in'
+                data-aos-delay={100 * index}
+                data-aos-duration='1700'
               >
                 <h3 className="font-semibold text-[28px] text-center text-blue-main group-hover:text-white">
                   {card.title}

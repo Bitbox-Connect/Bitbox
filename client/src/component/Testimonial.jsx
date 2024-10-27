@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Testimonial = () => {
     const [active, setActive] = useState(3);
@@ -84,12 +84,14 @@ const Testimonial = () => {
     };
 
     return (
-        <div>
-            <h1 className='text-center text-5xl'>
+        <div className='pt-10'>
+            <h1 className='text-center text-5xl' data-aos="zoom-out">
                 See What our client say&apos;s about us !
             </h1>
 
-            <div className="slider" style={{ position: 'relative', marginTop: '100px', width: '100%', height: '550px', overflow: 'hidden' }}>
+            <div className="slider" style={{ position: 'relative', marginTop: '70px', width: '100%', height: '550px', overflow: 'hidden' }}
+                data-aos='zoom-in'
+                data-aos-duration='1700'>
                 {items.map((item, index) => (
                     <div className="item max-sm:!w-[300px] max-sm:!h-[430px] bg-blue-700 text-white" key={index} style={{
                         position: 'absolute',
@@ -112,7 +114,7 @@ const Testimonial = () => {
                         <img
                             src={item.img}
                             alt="User Avatar"
-                            className='w-[150px] h-[150px] rounded-lg object-cover mb-[20px] cursor-pointer max-sm:h-[120px] mb-0'
+                            className='w-[150px] h-[150px] rounded-lg object-cover mb-[20px] cursor-pointer max-sm:h-[120px] md:mb-0'
                             style={{
                                 transition: 'transform 0.3s ease, filter 0.3s ease',
                                 border: '3px solid #d0e7b0' // Green border for the image

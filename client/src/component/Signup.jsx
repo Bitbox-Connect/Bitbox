@@ -49,6 +49,7 @@ const Signup = ({ mode }) => {
     if (!isloggedin) {
       setloggedin(true)
       doSignInWithGoogle().catch(err => {
+        console.log(err)
         setloggedin(false)
       })
     }
@@ -74,7 +75,7 @@ const Signup = ({ mode }) => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
+    <div className="min-h-screen flex items-center justify-center mt-24 p-4">
       {userLoggedIn && navigate('/')}
 
       <div
