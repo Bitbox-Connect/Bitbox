@@ -85,6 +85,8 @@ function Navbar(props) {
       .catch((err) => {
         console.log(err);
       });
+
+    // eslint-disable-next-line
   }, []);
 
   const toggleSidebar = () => {
@@ -118,25 +120,21 @@ function Navbar(props) {
               alt="logo"
             />
             <div
-              className={`logoTitle md:block hidden ${props.mode === "dark" ? "text-white" : "text-black"
-                }`}
+              className={`logoTitle md:block hidden ${props.mode === "dark" ? "text-white" : "text-black"}`}
             >
               {props.title}
             </div>
           </Link>
           <div
-            className={`collapse navbar-collapse justify-content-center ${isOpen ? "show" : ""
-              }`}
+            className={`collapse navbar-collapse justify-content-center ${isOpen ? "show" : ""}`}
             id="navbarSupportedContent"
           >
             <ul
               className="navbar-nav mb-2 mb-lg-0 gap-3 fw-medium menu2"
-              style={{ position: "absolute", left: "36%" }}
             >
               <li className="nav-item fs-4 fw-medium">
                 <Link
-                  className={`nav-link ${location.pathname === "/" ? "active" : ""
-                    }`}
+                  className={`nav-link ${location.pathname === "/" ? "active" : ""}`}
                   aria-current="page"
                   to="/"
                 >
@@ -145,8 +143,7 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-4">
                 <Link
-                  className={`nav-link ${location.pathname === "/about" ? "active" : ""
-                    }`}
+                  className={`nav-link ${location.pathname === "/about" ? "active" : ""}`}
                   aria-current="page"
                   to="/about"
                 >
@@ -155,8 +152,7 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-4">
                 <Link
-                  className={`nav-link ${location.pathname === "/community" ? "active" : ""
-                    }`}
+                  className={`nav-link ${location.pathname === "/community" ? "active" : ""}`}
                   aria-current="page"
                   to="/community"
                 >
@@ -165,12 +161,20 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-4">
                 <Link
-                  className={`nav-link ${location.pathname === "/discussion" ? "active" : ""
-                    }`}
+                  className={`nav-link ${location.pathname === "/discussion" ? "active" : ""}`}
                   aria-current="page"
                   to="/discussion"
                 >
                   {props.discussion}
+                </Link>
+              </li>
+              <li className="nav-item fs-4">
+                <Link
+                  className={`nav-link ${location.pathname === "/blog" ? "active" : ""}`}
+                  aria-current="page"
+                  to="/blog"
+                >
+                  {props.blog}
                 </Link>
               </li>
             </ul>
@@ -411,31 +415,24 @@ function Navbar(props) {
       >
         <ul className="sidebar-links">
           <li>
-            <Link to="/" onClick={() => setIsSidebarOpen(false)}>
-              Home
-            </Link>
+            <Link to="/" onClick={() => setIsSidebarOpen(false)}>{props.home}</Link>
           </li>
           <li>
-            <Link to="/about" onClick={() => setIsSidebarOpen(false)}>
-              About
-            </Link>
+            <Link to="/about" onClick={() => setIsSidebarOpen(false)}>{props.about}</Link>
           </li>
           <li>
-            <Link to="/community" onClick={() => setIsSidebarOpen(false)}>
-              Community
-            </Link>
+            <Link to="/community" onClick={() => setIsSidebarOpen(false)}>{props.community}</Link>
           </li>
           <li>
-            <Link to="/discussion" onClick={() => setIsSidebarOpen(false)}>
-              Discussion
-            </Link>
+            <Link to="/discussion" onClick={() => setIsSidebarOpen(false)}>{props.discussion}</Link>
           </li>
           <li>
-            <Link to="/blog" onClick={() => setIsSidebarOpen(false)}>Blog</Link>
+            <Link to="/blog" onClick={() => setIsSidebarOpen(false)}>{props.blog}</Link>
           </li>
         </ul>
       </div>
 
+      {/* Sidebar Toggle Button */}
       <button
         className="sidebar-toggle"
         onClick={() => setIsSidebarOpen(true)}
@@ -453,7 +450,7 @@ Navbar.propTypes = {
   home: PropTypes.string,
   community: PropTypes.string,
   discussion: PropTypes.string,
-  BlogPage: PropTypes.string,
+  blog: PropTypes.string,
   about: PropTypes.string,
   mode: PropTypes.string,
   toggleMode: PropTypes.func,

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"; // Import useState and useEffect
+import { useEffect, useState } from "react";
 import "./App.css";
 import "./index.css";
 import {
@@ -51,12 +51,14 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
     <div className="h-full w-full">
       {/* Conditionally render the Navbar */}
       {/* {!hideNavbarRoutes.includes(location.pathname) && ( */}
+
+      {/* Naming Convention of Navbar */}
       <Navbar
         title='BITBOX'
         home='Home'
         about='About Us'
         community='Community'
-        BlogPage="Blogs"
+        blog="Blogs"
         discussion='Discussion'
         showAlert={showAlert}
         mode={mode}
@@ -132,15 +134,17 @@ function App() {
       <ProjectState>
         <ProfileState>
           <Router>
-            <LoadingBar color='blue' progress={progress} onLoaderFinished={() => setProgress(0)} />
+            <LoadingBar
+              color='blue'
+              progress={progress}
+              onLoaderFinished={() => setProgress(0)}
+            />
             <div className='alert-container'>
               <Alert alert={alert} />
             </div>
-            {/* Progress Bar */}
             <ProgressBar mode={mode} />
-
-            {/* Scroll Top Button */}
             <ScrollTop />
+            {/* <MiniChatbot /> */}
 
             {/* Wrap everything inside the Layout component */}
             <Layout mode={mode} setProgress={setProgress} toggleMode={toggleMode} showAlert={showAlert} >
@@ -151,7 +155,7 @@ function App() {
                 <Route exact path="/about" element={<About mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/blog' element={<BlogPage mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/myprofile' element={<ProtectedRoute loggedin={islogged}><MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} /></ProtectedRoute>} />
-                <Route exact path='/editprofile' element={<ProtectedRoute loggedin={islogged}><EditProfile mode={mode} setProgress={setProgress} showAlert={showAlert} /></ProtectedRoute>} />
+                <Route exact path='/editprofile' element={<EditProfile mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/contributors' element={<Contributors mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/login" element={<Login mode={mode} setProgress={setProgress} showAlert={showAlert} loggedin={islogged} setloggedin={setloggedin} />} />
                 <Route exact path='/signup' element={<Signup mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
@@ -162,14 +166,14 @@ function App() {
                 <Route exact path='/privacypolicy' element={<PrivacyPolicy mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/termofuse' element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/contributors' element={<Contributors mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path='/verify/:token' element={<VerifyEmail mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path='/*' element={<NotFound mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path='/verify/:token' element={<VerifyEmail />} />
+                <Route exact path='/*' element={<NotFound />} />
               </Routes>
             </Layout>
           </Router>
         </ProfileState>
       </ProjectState>
-    </div>
+    </div >
   );
 }
 
