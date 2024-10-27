@@ -128,13 +128,10 @@ const Testimonial = () => {
                                 e.currentTarget.style.filter = 'brightness(1)'; // Reset brightness
                             }}
                         />
-                        <div className="stars text-[#ffd700] text-2xl mt-auto max-sm:mt-2">{item.stars}</div>
+                        <div className="stars stars-testimonial text-[#ffd700] text-2xl mt-auto max-sm:mt-2">{item.stars}</div>
                         <p className='text-justify mb-[20px] max-sm:text-xs max-sm:mb-0 text-white text-[1rem]'>{item.text}</p>
                         <h2 className='mb-[10px] text-xl font-semibold max-sm:mb-1 max-sm:text-lg'>{item.name}</h2>
-
                     </div>
-
-
                 ))}
 
                 <button id="next" className=' absolute top-[40%] text-blue-700 bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 right-[50px] max-sm:text-white max-sm:text-2xl max-sm:right-2' onClick={() => setActive(prev => (prev + 1 < items.length ? prev + 1 : prev))}>{">>"}</button>

@@ -93,6 +93,7 @@ function Navbar(props) {
 
   return (
     <div>
+      {/* Sticky Navbar */}
       <nav
         className={`navbar navbar-expand-lg ${isScrolled ? "sticky" : ""
           } navbar-${props.mode === "dark" ? "dark" : "light"}`}
@@ -103,10 +104,8 @@ function Navbar(props) {
         id="navbar"
       >
         {/* Hamburger icon */}
-
         <div
-          className={`gap-[3rem]  w-full visible navbar-collapse rnav ${isOpen ? "show" : ""
-            }`}
+          className={`w-full gap-[1rem] visible navbar-collapse rnav ${isOpen ? "show" : ""}`}
           style={{ backgroundColor: props.mode === "dark" ? "black" : "white" }}
         >
           <Link
@@ -114,7 +113,7 @@ function Navbar(props) {
             to="/"
           >
             <img
-              className="mx-3 logoImg w-[3.5rem] h-[3.5rem] rounded-full transition-transform transform rotate-0 hover:rotate-180 duration-1000 ease-in-out"
+              className="md:w-[3.5rem] mx-4 md:mx-3 rounded-full transition-transform transform rotate-0 hover:rotate-180 duration-1000 ease-in-out"
               src={logo}
               alt="logo"
             />
@@ -173,7 +172,6 @@ function Navbar(props) {
                 >
                   {props.discussion}
                 </Link>
-
               </li>
             </ul>
           </div>
@@ -185,7 +183,6 @@ function Navbar(props) {
                   <div className="Navbar-Btn-Group">
                     {/* Toggle Dark Mode */}
                     <div className="mx-2">
-                      {/* Toggle Dark Mode */}
                       <div className="my-body">
                         <div className="darkThemeBtn flex justify-content-center">
                           <input
@@ -209,6 +206,7 @@ function Navbar(props) {
                         </div>
                       </div>
                     </div>
+                    {/* Login and Signup Buttons */}
                     {userLoggedIn == false ?
                       <>
                         <Link
@@ -233,7 +231,7 @@ function Navbar(props) {
                         <div className="relative w-16 flex justify-center">
                           {/* Placeholder image if user.picture is not available */}
                           <img
-                            src={currentUser.picture || 'https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?size=338&ext=jpg&ga=GA1.1.2113030492.1729036800&semt=ais_hybrid'}
+                            src={currentUser.photoURL || 'https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?size=338&ext=jpg&ga=GA1.1.2113030492.1729036800&semt=ais_hybrid'}
                             className="useremailbutton  rounded-full w-12 bg-black  cursor-pointer"
                             onMouseEnter={() => setIsHovered(true)}
                             onMouseLeave={() => setIsHovered(false)}
@@ -267,7 +265,7 @@ function Navbar(props) {
                       </>
                     }
                     <button
-                      className="navbar-toggler block lg:hidden ml-5   focus:outline-none"
+                      className="navbar-toggler block lg:hidden ml-1 focus:outline-none"
                       type="button"
                       onClick={toggleSidebar}
                       aria-controls="navbarNavDropdown"
@@ -300,7 +298,7 @@ function Navbar(props) {
                           />
                           <label htmlFor="darkmode-toggle">
                             <FaSun
-                              // className="sun"
+                              className="sun"
                               style={{
                                 color:
                                   props.mode === "dark" ? "white" : "orange", // Change color for dark mode
@@ -403,25 +401,14 @@ function Navbar(props) {
               </>
             )}
           </form>
-          {/* </div> */}
-
         </div>
       </nav>
 
-      {/* Sidebar for smaller devices */}
+      {/* Sidebar for Smaller devices */}
       <div
         className={`sidebar ${isSidebarOpen ? "open" : ""}`}
         style={{ backgroundColor: props.mode === "dark" ? "black" : "white" }}
       >
-        <button
-          className="close-btn"
-          onClick={() => setIsSidebarOpen(false)}
-          style={{
-            color: props.mode === "dark" ? "white" : "black",
-          }}
-        >
-          Close
-        </button>
         <ul className="sidebar-links">
           <li>
             <Link to="/" onClick={() => setIsSidebarOpen(false)}>

@@ -92,7 +92,8 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
           }}
         >
           <h1 className="title">Login</h1>
-          <span className="title-line"></span>
+          {/* Title Line */}
+          <span className="title-line" style={{ backgroundColor: mode === "dark" ? "white" : "" }}></span>
 
           <div className="inp">
             <Input
@@ -137,7 +138,7 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
 
           <button className="submit" type="submit" disabled={loading}>
             {loading ? <Spin size="small" /> : "Login"}
-           </button> 
+          </button>
           <button
             disabled={isloggedin}
             onClick={(e) => { onGoogleSignIn(e) }}

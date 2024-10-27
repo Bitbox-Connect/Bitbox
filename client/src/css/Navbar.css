@@ -247,8 +247,14 @@
   align-items: center;
   position: relative;
   cursor: pointer;
-
   border-radius: 3rem;
+}
+
+@media (max-width: 768px) {
+  .darkThemeBtn label {
+    width: 35px;
+    height: 35px;
+  }
 }
 
 .darkThemeBtn label:active {
@@ -260,7 +266,6 @@
   width: 16px;
   transition: 0.3s;
   z-index: 1;
-  /* fill: white; */
 }
 
 .darkThemeBtn label .sun {
@@ -511,7 +516,7 @@
 
 .sidebar.open {
   right: 0;
-  top: 15%;
+  top: 12%;
 }
 
 .sidebar-links {

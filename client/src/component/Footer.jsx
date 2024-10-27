@@ -154,10 +154,7 @@ const Footer = (props) => {
                                 </a>
                             </div>
                         </div>
-
                     </div>
-
-
 
                     <div className="row">
                         {/* Left section with branding and social icons */}
@@ -198,6 +195,9 @@ const Footer = (props) => {
                                 </li>
                                 <li className="nav-item">
                                     <Link to='/contributors'>Our contributors</Link>
+                                </li>
+                                <li className='nav-item'>
+                                    <Link to='/blog'>Blog</Link>
                                 </li>
                             </ul>
                         </div>
