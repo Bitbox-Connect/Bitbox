@@ -249,3 +249,12 @@ We welcome contributions! Follow these steps to contribute:
 [![Forkers repo roster for @Bitbox-Connect/Bitbox](https://reporoster.com/forks/dark/Bitbox-Connect/Bitbox)](https://github.com/Bitbox-Connect/Bitbox/network/members)
 
 <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
+---
+
+ <h2 align = "center">License 📁</h2> 
+
+This project is licensed under the **[MIT License](https://github.com/Bitbox-Connect/Bitbox/blob/main/LICENSE)**. You are free to use, modify, and distribute it under the terms of the MIT License.
+
+ <h1 align = "center">Happy Coding 👨‍💻🚀✨</h1> 
+
