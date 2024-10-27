@@ -6,16 +6,22 @@ require('dotenv').config(); // Load environment variables from .env file
 
 // Signup route
 const createUser = async (req, res) => {
+  const VITE_CLIENT_PORT = process.env.VITE_CLIENT_PORT || "https://bitbox-in.netlify.app";
+  console.log("Vite client port", VITE_CLIENT_PORT);
+  const EMAIL_USER = process.env.EMAIL_USER;
+  const EMAIL_PASS = process.env.EMAIL_PASS;
+
   const { name, email, password } = req.body;
 
   try {
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-  const img = `https://api.dicebear.com/5.x/initials/svg?seed=${name}`;
-  // Create a new user (save in your database)
-  const user = new User({ name, image:img, email, password, verified: false });
-  await user.save();
+    const img = `https://api.dicebear.com/5.x/initials/svg?seed=${name}`;
+    // Create a new user (save in your database)
+
+    const user = new User({ name, image: img, email, password, verified: false });
+    await user.save();
 
     const verificationToken = crypto.randomBytes(32).toString("hex");
     user.verificationToken = verificationToken;
@@ -24,14 +30,14 @@ const createUser = async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: EMAIL_USER,
+        pass: EMAIL_PASS,
       },
     });
 
-    const verificationLink = `http://localhost:5173/verify/${verificationToken}`;
+    const verificationLink = `${VITE_CLIENT_PORT}/verify/${verificationToken}`;
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: EMAIL_USER,
       to: email,
       subject: "Email Verification",
       text: `Click this link to verify your email: ${verificationLink}`,
@@ -75,7 +81,7 @@ const verifyToken = async (req, res) => {
     await user.save();
 
     // Redirect to the frontend's home page after verification
-    return res.redirect("http://localhost:5173/"); // Replace with your frontend home URL
+    return res.redirect({ VITE_CLIENT_PORT });
   } catch (err) {
     console.error(err);
     return res.status(500).json({
@@ -122,13 +128,13 @@ async function ResetPasswordByEmail(req, resp) {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "your email ",
-      pass: "your password",
+      user: EMAIL_USER,
+      pass: EMAIL_PASS,
     },
   });
 
   const mailOptions = {
-    from: "your email",
+    from: EMAIL_USER,
     to: email,
     subject: "Reset Your password on BitBox",
     html: `

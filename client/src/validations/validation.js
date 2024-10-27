@@ -1,3 +1,4 @@
+// validations/validation.js
 import * as yup from "yup";
 
 export const loginValidation = yup.object().shape({
@@ -9,17 +10,17 @@ export const loginValidation = yup.object().shape({
 });
 
 export const registerValidation = yup.object().shape({
-    name: yup.string().required("Name is required"),
-    email: yup
-      .string()
-      .email("Invalid email format")
-      .required("Email is required"),
-    password: yup
-      .string()
-      .min(6, "Password should be at least 6 characters")
-      .required("Password is required"),
-    cpassword: yup
-      .string()
-      .oneOf([yup.ref('password'), null], "Passwords must match")
-      .required("Confirm password is required"),
-  });
+  name: yup.string().required("Name is required"),
+  email: yup
+    .string()
+    .email("Invalid email format")
+    .required("Email is required"),
+  password: yup
+    .string()
+    .min(6, "Password should be at least 6 characters")
+    .required("Password is required"),
+  cpassword: yup
+    .string()
+    .oneOf([yup.ref('password'), null], "Passwords must match")
+    .required("Confirm password is required"),
+});

@@ -35,7 +35,7 @@ import ForgotPassword from "./component/ForgotPassword";
 import VerifyEmail from "./component/Verify";
 import NotFound from "./component/NotFound";
 import ProgressBar from "./component/ProgressBar/ProgressBar";
-import ProtectedRoute from '../../client/src/component/ProtectedRoute'
+// import ProtectedRoute from '../../client/src/component/ProtectedRoute'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -58,6 +58,7 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
         home='Home'
         about='About Us'
         community='Community'
+        profile='My Profile'
         blog="Blogs"
         discussion='Discussion'
         showAlert={showAlert}
@@ -144,7 +145,6 @@ function App() {
             </div>
             <ProgressBar mode={mode} />
             <ScrollTop />
-            {/* <MiniChatbot /> */}
 
             {/* Wrap everything inside the Layout component */}
             <Layout mode={mode} setProgress={setProgress} toggleMode={toggleMode} showAlert={showAlert} >
@@ -154,7 +154,8 @@ function App() {
                 <Route exact path="/community" element={<Community mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/about" element={<About mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/blog' element={<BlogPage mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path='/myprofile' element={<ProtectedRoute loggedin={islogged}><MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} /></ProtectedRoute>} />
+                {/* <Route exact path='/myprofile' element={<ProtectedRoute loggedin={islogged}><MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} /></ProtectedRoute>} /> */}
+                <Route exact path='/myprofile' element={<MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/editprofile' element={<EditProfile mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/contributors' element={<Contributors mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/login" element={<Login mode={mode} setProgress={setProgress} showAlert={showAlert} loggedin={islogged} setloggedin={setloggedin} />} />

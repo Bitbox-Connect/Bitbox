@@ -72,7 +72,7 @@ io.on("connection", (socket) => {
 // Start HTTP server - listen on the correct PORT
 httpServer
   .listen(PORT, () => {
-    console.log(`App listening on port ${PORT}`);
+    console.log(`App listening on port http://localhost:${PORT}`);
   })
   .on("error", (err) => {
     console.error("Server error:", err);

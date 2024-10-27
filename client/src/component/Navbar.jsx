@@ -132,7 +132,7 @@ function Navbar(props) {
             <ul
               className="navbar-nav mb-2 mb-lg-0 gap-3 fw-medium menu2"
             >
-              <li className="nav-item fs-4 fw-medium">
+              <li className="nav-item fs-6 fw-medium">
                 <Link
                   className={`nav-link ${location.pathname === "/" ? "active" : ""}`}
                   aria-current="page"
@@ -141,7 +141,7 @@ function Navbar(props) {
                   {props.home}
                 </Link>
               </li>
-              <li className="nav-item fs-4">
+              <li className="nav-item fs-6">
                 <Link
                   className={`nav-link ${location.pathname === "/about" ? "active" : ""}`}
                   aria-current="page"
@@ -150,7 +150,7 @@ function Navbar(props) {
                   {props.about}
                 </Link>
               </li>
-              <li className="nav-item fs-4">
+              <li className="nav-item fs-6">
                 <Link
                   className={`nav-link ${location.pathname === "/community" ? "active" : ""}`}
                   aria-current="page"
@@ -159,7 +159,7 @@ function Navbar(props) {
                   {props.community}
                 </Link>
               </li>
-              <li className="nav-item fs-4">
+              <li className="nav-item fs-6">
                 <Link
                   className={`nav-link ${location.pathname === "/discussion" ? "active" : ""}`}
                   aria-current="page"
@@ -168,13 +168,22 @@ function Navbar(props) {
                   {props.discussion}
                 </Link>
               </li>
-              <li className="nav-item fs-4">
+              <li className="nav-item fs-6">
                 <Link
                   className={`nav-link ${location.pathname === "/blog" ? "active" : ""}`}
                   aria-current="page"
                   to="/blog"
                 >
                   {props.blog}
+                </Link>
+              </li>
+              <li className="nav-item fs-6">
+                <Link
+                  className={`nav-link ${location.pathname === "/myprofile" ? "active" : ""}`}
+                  aria-current="page"
+                  to="/myprofile"
+                >
+                  {props.profile}
                 </Link>
               </li>
             </ul>
@@ -232,6 +241,10 @@ function Navbar(props) {
                       </>
                       :
                       <>
+                        {/* Add Project */}
+                        {renderUploadButton()}
+
+                        {/* User Profile */}
                         <div className="relative w-16 flex justify-center">
                           {/* Placeholder image if user.picture is not available */}
                           <img
@@ -289,7 +302,8 @@ function Navbar(props) {
                 <ul className="navbar-nav">
                   <div className="Navbar-Btn-Group">
                     {/* Add Project */}
-                    {renderUploadButton()}
+                    {/* {renderUploadButton()} */}
+
                     {/* Toggle Dark Mode */}
                     <div>
                       <div className="my-body">
@@ -429,6 +443,9 @@ function Navbar(props) {
           <li>
             <Link to="/blog" onClick={() => setIsSidebarOpen(false)}>{props.blog}</Link>
           </li>
+          <li>
+            <Link to="/myprofile" onClick={() => setIsSidebarOpen(false)}>{props.profile}</Link>
+          </li>
         </ul>
       </div>
 
@@ -452,6 +469,7 @@ Navbar.propTypes = {
   discussion: PropTypes.string,
   blog: PropTypes.string,
   about: PropTypes.string,
+  profile: PropTypes.string,
   mode: PropTypes.string,
   toggleMode: PropTypes.func,
   showAlert: PropTypes.func,
