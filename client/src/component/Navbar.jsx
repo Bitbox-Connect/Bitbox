@@ -12,21 +12,18 @@ import { useAuth } from "../contexts/authContext";
 import { doSignOut } from "../firebase/auth";
 
 function Navbar(props) {
+  const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
+  const { showAlert, mode } = props;
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const { currentUser } = useAuth()
   const { userLoggedIn } = useAuth();
   const [isHovered, setIsHovered] = useState(false)
-
-  const { showAlert, mode } = props;
-  const VITE_SERVER_PORT =
-    import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
-
-  const navigate = useNavigate();
-  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false); // State to keep track of whether page has been scrolled
   // eslint-disable-next-line
   const [isOpen, setIsOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
   const style = { color: "white", fontSize: "1.5em" };
 
   useEffect(() => {

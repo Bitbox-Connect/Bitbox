@@ -5,7 +5,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  useLocation,
 } from "react-router-dom";
 import PropTypes from "prop-types";
 import LoadingBar from "react-top-loading-bar";
@@ -44,11 +43,10 @@ import 'aos/dist/aos.css';
 // Main Layout Component
 
 const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
-  const location = useLocation(); // Use location inside Router
 
   // Define routes where the footer or navbar should not be shown
-  const hideNavbarRoutes = ["/login", "/signup", "/forgot-password"];
-  const hideFooterRoutes = ["/login", "/signup", "/forgot-password"];
+  // const hideNavbarRoutes = ["/login", "/signup", "/forgot-password"];
+  // const hideFooterRoutes = ["/login", "/signup", "/forgot-password"];
 
   return (
     <div className="h-full w-full">
