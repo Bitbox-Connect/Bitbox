@@ -130,7 +130,7 @@ const MyProfile = (props) => {
 
     return (
         <div>
-            <div className="user-profile-dashboard">
+            <div className="user-profile-dashboard mt-24">
                 <div className="user-details">
                     <div className="userprofile-left" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', borderRight: props.mode === 'dark' ? '1px solid white' : '' }}>
                         <div className="userdetail-left">

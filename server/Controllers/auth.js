@@ -7,10 +7,8 @@ require('dotenv').config(); // Load environment variables from .env file
 // Signup route
 const createUser = async (req, res) => {
   const VITE_CLIENT_PORT = process.env.VITE_CLIENT_PORT || "https://bitbox-in.netlify.app";
-  console.log("Vite client port", VITE_CLIENT_PORT);
-  const EMAIL_USER = process.env.EMAIL_USER;
-  const EMAIL_PASS = process.env.EMAIL_PASS;
-
+  console.log(process.env.EMAIL_USER);
+  console.log(process.env.EMAIL_PASS);
   const { name, email, password } = req.body;
 
   try {
@@ -18,8 +16,8 @@ const createUser = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
     const img = `https://api.dicebear.com/5.x/initials/svg?seed=${name}`;
-    // Create a new user (save in your database)
 
+    // Create a new user (save in your database)
     const user = new User({ name, image: img, email, password, verified: false });
     await user.save();
 
@@ -30,14 +28,14 @@ const createUser = async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: EMAIL_USER,
-        pass: EMAIL_PASS,
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
     const verificationLink = `${VITE_CLIENT_PORT}/verify/${verificationToken}`;
     const mailOptions = {
-      from: EMAIL_USER,
+      from: process.env.EMAIL_USER,
       to: email,
       subject: "Email Verification",
       text: `Click this link to verify your email: ${verificationLink}`,
@@ -60,8 +58,6 @@ const createUser = async (req, res) => {
     res.status(500).json({ success: false, message: 'An error occurred during signup' });
   }
 };
-
-
 
 const verifyToken = async (req, res) => {
   const { token } = req.params;

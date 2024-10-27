@@ -69,14 +69,13 @@ const Signup = ({ mode }) => {
       body: JSON.stringify({ name, email, password }),
     });
     const json = await response.json();
-    console.log("Response JSON", json)
 
     if (json.success) {
       localStorage.setItem("token", json.authtoken);
       navigate("/");
       toast.success("Account Created Successfully!");
     } else {
-      toast.error("Account not created!");
+      toast.error("Account not created. Please check your email inbox!");
     }
   };
 

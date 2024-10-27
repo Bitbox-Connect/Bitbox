@@ -302,10 +302,10 @@ function Navbar(props) {
                 <ul className="navbar-nav">
                   <div className="Navbar-Btn-Group">
                     {/* Add Project */}
-                    {/* {renderUploadButton()} */}
+                    {renderUploadButton()}
 
                     {/* Toggle Dark Mode */}
-                    <div>
+                    <div className="mx-2">
                       <div className="my-body">
                         <div className="darkThemeBtn flex justify-content-center">
                           <input
@@ -315,20 +315,12 @@ function Navbar(props) {
                             onChange={props.toggleMode}
                           />
                           <label htmlFor="darkmode-toggle">
-                            <FaSun
-                              className="sun"
-                              style={{
-                                color:
-                                  props.mode === "dark" ? "white" : "orange", // Change color for dark mode
-                                fontSize: "1.5rem",
-                                marginRight: "8px",
-                              }}
-                            />
+                            <FaSun className="sun" style={style} />
                             <FaMoon
                               className="moon"
                               style={{
                                 color:
-                                  props.mode === "dark" ? "yellow" : "gray", // Change color for light mode
+                                  props.mode === "dark" ? "yellow" : "gray", // Change colors based on mode
                                 fontSize: "1.5rem",
                               }}
                             />
@@ -373,6 +365,8 @@ function Navbar(props) {
                           />
                         )}
                       </a>
+
+                      {/* User DropDown Option */}
                       <ul
                         className="dropdown-menu"
                         aria-labelledby="navbarScrollingDropdown"
@@ -389,12 +383,15 @@ function Navbar(props) {
                               : "2px solid black",
                         }}
                       >
+                        {/* My Profile */}
                         <li>
-                          <Link to="/myprofile">My Profile</Link>
+                          <Link to="/myprofile" style={{ color: mode === "dark" ? "white" : "black" }}>My Profile</Link>
                         </li>
+                        {/* Edit Profile */}
                         <li>
-                          <Link to="/editprofile">Edit Profile</Link>
+                          <Link to="/editprofile" style={{ color: mode === "dark" ? "white" : "black" }}>Edit Profile</Link>
                         </li>
+                        {/* Dropdown Divider */}
                         <li>
                           <hr
                             className="dropdown-divider"
@@ -411,6 +408,12 @@ function Navbar(props) {
                                   : "2px solid white",
                             }}
                           />
+                        </li>
+                        {/* Logout Button */}
+                        <li>
+                          <Link role="button" to="/signup" onClick={handleLogout} style={{ color: mode === "dark" ? "white" : "black" }}>
+                            Logout
+                          </Link>
                         </li>
                       </ul>
                     </li>
