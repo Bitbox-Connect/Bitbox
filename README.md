@@ -1,22 +1,20 @@
-## 📋 Participating Programs
+<hr>
+<img  src="https://readme-typing-svg.herokuapp.com?color=990876ffaa&center=true&vCenter=true&size=90&width=900&height=100&lines=Welcome+to+BitBox" align="center" justify="center" width="100%" height="100%" />
 
-| Name                  | Logo                                                      | Purpose                                                                                                      |
-|-----------------------|-----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| GSSoC'2024-Extd       | ![GSSoC Logo](assets/GSSoC-Ext.png)                       | The coding period is from October 1st to October 30th, during which contributors make contributions and earn points on the platform. |
-| Hacktoberfest 2024    | ![Hacktoberfest Logo](assets/hacktoberfest.png)           | Hacktoberfest is a month-long October event welcoming all skill levels to join the open-source community.     |
+<hr>
 
----
+# BitBox
 
 ## 📊 Project Metrics
 
 <table align="center">
     <thead align="center">
         <tr>
-            <td><b>🌟 Stars</b></td>
-            <td><b>🍴 Forks</b></td>
-            <td><b>🐛 Issues</b></td>
-            <td><b>🔔 Open PRs</b></td>
-            <td><b>🔕 Closed PRs</b></td>
+            <td><b>⭐ Stars</b></td>
+            <td><b>📌 Forks</b></td>
+            <td><b>🐞 Issues</b></td>
+            <td><b>📬 Open PRs</b></td>
+            <td><b>📫 Closed PRs</b></td>
         </tr>
      </thead>
     <tbody>
@@ -30,16 +28,7 @@
     </tbody>
 </table>
 
-<div align="center">
-<img  src="https://readme-typing-svg.herokuapp.com?color=990876ffaa&center=true&vCenter=true&size=40&width=900&height=80&lines=Welcome+to+BitBox"/>
-</div>
-
-# BitBox
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![GitHub issues](https://img.shields.io/github/issues/Anuj3553/BitBox.svg)](https://github.com/Anuj3553/BitBox/issues) [![GitHub stars](https://img.shields.io/github/stars/Anuj3553/BitBox.svg)](https://github.com/Anuj3553/BitBox/stargazers) [![GitHub forks](https://img.shields.io/github/forks/Anuj3553/BitBox.svg)](https://github.com/Anuj3553/BitBox/network)
-
 <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
-
 
 <h2> <img src="https://user-images.githubusercontent.com/74038190/216120974-24a76b31-7f39-41f1-a38f-b3c1377cc612.png" alt="Rocket" width="40" height="40" />Contents</h2>
 
@@ -160,7 +149,7 @@ We welcome contributions! Follow these steps to contribute:
 </tr>
 </table>
 
-### Project Mentors✨
+### Project Mentors ✨
  
 <table>
 <tr>
@@ -175,12 +164,32 @@ We welcome contributions! Follow these steps to contribute:
 </td>
 </tr>
 </table>
-For any inquiries, feel free to reach out:
 
-- **Anuj Verma**  
-  Email: [anuj3553@gmail.com](mailto:anuj3553@gmail.com)
+### Main Contributor 🧩
+ 
+<table>
+<tr>
+<td align="center"><a href="https://github.com/Anuj3553"><img src="https://avatars.githubusercontent.com/u/116636066?v=4" width=150px height=150px /></a></br> <h4 style="color:red;">ANUJ VERMA</h4>
+ <a href="https://www.linkedin.com/in/anuj-verma-67493125a/"><img src="https://user-images.githubusercontent.com/74038190/235294012-0a55e343-37ad-4b0f-924f-c8431d9d2483.gif" width="32px" height="32px"></img></a>
+</td>
+</tr>
+</table>
 
-- **Project Link**: [BitBox GitHub Repository](https://github.com/Anuj3553/BitBox)
+**For any inquiries, feel free to reach out:**
+
+**Email:** [anuj3553@gmail.com](mailto:anuj3553@gmail.com)
+
+**Project Link:** [BitBox GitHub Repository](https://github.com/Anuj3553/BitBox)
+
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
+
+## 📋 Participating Programs
+
+| Name                  | Logo                                                      | Purpose                                                                                                      |
+|-----------------------|-----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| GSSoC'2024-Extd       | ![GSSoC Logo](assets/GSSoC-Ext.png)                       | The coding period is from October 1st to October 30th, during which contributors make contributions and earn points on the platform. |
+| Hacktoberfest 2024    | ![Hacktoberfest Logo](assets/hacktoberfest.png)           | Hacktoberfest is a month-long October event welcoming all skill levels to join the open-source community.     |
 
 <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
@@ -195,28 +204,22 @@ For any inquiries, feel free to reach out:
 - [Font Awesome](https://fontawesome.com/)
 - [React Icons](https://react-icons.github.io/react-icons/)
 
----
 
 </div>
 
 <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
-<h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Crown.png" alt="Crown" width="40" height="40" />Main Contributor</h2>
+<h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Crown.png" alt="Crown" width="40" height="40" /> Highlighted Main Contributors:</h2>
 
-
-- **Anuj Verma**  
-  Email: [anuj3553@gmail.com](mailto:anuj3553@gmail.com)
-
-<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
-
-**Highlighted Main Contributors:**
 
 ```diff
-+ 🌟 Harshit7492: Backend API development and database optimizations. 
++ 🌟 Anuj Verma: Handling Frontend, Backend, and DevOps responsibilities, contributing to a seamless integration and deployment process.
++ 🌟 Harshit Singh: Backend API development and database optimizations. 
 + 🌟 Jitendra Kumar: Significant contributions in frontend development.
 ```
 
-<hr>
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
 <h2 align = "center">Our Valuable  Contributors ❤️</h2>
 <div align = "center">
  <h3>Thank you for contributing to our repository</h3>
@@ -227,22 +230,22 @@ For any inquiries, feel free to reach out:
  </a>
 </p>
 
----
+
 <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
-## Stargazers ❤️
+## Stargazers ⭐
 
 <div align='left'>
 
-[![Stargazers repo roster for @Bitbox-Connect/Bitbox](https://reporoster.com/stars/dark/Bitbox-Connect/Bitbox)](https://github.com/Bitbox-Connect/Bitbox/stargazers)
+[![Stargazers repo roster for @Bitbox-Connect/Bitbox](https://reporoster.com/stars/light/Bitbox-Connect/Bitbox)](https://github.com/Bitbox-Connect/Bitbox/stargazers)
 
 </div>
 
 
 <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
-## Forkers ❤️
+## Forkers 📌
 
-[![Forkers repo roster for @Bitbox-Connect/Bitbox](https://reporoster.com/forks/dark/Bitbox-Connect/Bitbox)](https://github.com/Bitbox-Connect/Bitbox/network/members)
+[![Forkers repo roster for @Bitbox-Connect/Bitbox](https://reporoster.com/forks/light/Bitbox-Connect/Bitbox)](https://github.com/Bitbox-Connect/Bitbox/network/members)
 
----
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
