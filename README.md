@@ -30,7 +30,7 @@
 
 <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
-<h2> <img src="https://user-images.githubusercontent.com/74038190/216120974-24a76b31-7f39-41f1-a38f-b3c1377cc612.png" alt="Rocket" width="40" height="40" />Contents</h2>
+<h2> <img src="https://user-images.githubusercontent.com/74038190/216120974-24a76b31-7f39-41f1-a38f-b3c1377cc612.png" alt="Rocket" width="40" height="40" /> Contents</h2>
 
 
 - [🎯 Overview](#-overview)
@@ -47,7 +47,7 @@
 
 <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
  
-<h2> <img src="https://user-images.githubusercontent.com/74038190/216122069-5b8169d7-1d8e-4a13-b245-a8e4176c99f8.png" alt="Rocket" width="40" height="40" />Overview</h2>
+<h2> <img src="https://user-images.githubusercontent.com/74038190/216122069-5b8169d7-1d8e-4a13-b245-a8e4176c99f8.png" alt="Rocket" width="40" height="40" align="center" /> Overview</h2>
 
 
 **BitBox** is a platform designed to make it easy for developers to upload, share, and collaborate on projects. Users can showcase their work, connect with others, and learn from the community's shared knowledge.
@@ -62,7 +62,7 @@
 
 <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
-<h2> <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" alt="Rocket" width="40" height="40" />Features </h2>
+<h2> <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" alt="Rocket" width="40" height="40" /> Features </h2>
 
 - **Project Upload**: Easily upload your projects to the platform.
 - **Project Discovery**: Explore a wide range of projects shared by other users.
@@ -121,7 +121,7 @@ npm run dev
 <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 
-<h2> <img src="https://user-images.githubusercontent.com/74038190/216120981-b9507c36-0e04-4469-8e27-c99271b45ba5.png" alt="Rocket" width="40" height="40" /> Contribution </h2>
+<h2> <img src="https://user-images.githubusercontent.com/74038190/216120981-b9507c36-0e04-4469-8e27-c99271b45ba5.png" alt="Rocket" width="40" height="40" align="center" /> Contribution </h2>
 
 We welcome contributions! Follow these steps to contribute:
 
@@ -136,7 +136,7 @@ We welcome contributions! Follow these steps to contribute:
 <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 
-<h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Detective.png" alt="Detective" width="40" height="40" /> Contact</h2>
+<h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Detective.png" alt="Detective" width="40" height="40" align='center' /> Contact</h2>
 
 
 ### Project Admin⚡
