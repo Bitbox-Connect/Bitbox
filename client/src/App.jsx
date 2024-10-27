@@ -114,14 +114,14 @@ function App() {
       document
         .querySelectorAll("*")
         .forEach((element) => (element.style.color = "white"));
-      showAlert("Dark Mode Enabled", "success");
+      // showAlert("Dark Mode Enabled", "success");
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
       document
         .querySelectorAll("*")
         .forEach((element) => (element.style.color = ""));
-      showAlert("Light Mode Enabled", "success");
+      // showAlert("Light Mode Enabled", "success");
     }
   };
 

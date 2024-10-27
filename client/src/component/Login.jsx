@@ -136,7 +136,7 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
 
           <button className="submit" type="submit" disabled={loading}>
             {loading ? <Spin size="small" /> : "Login"}
-           </Button>
+           </button>
           <button
             disabled={isloggedin}
             onClick={(e) => { onGoogleSignIn(e) }}
