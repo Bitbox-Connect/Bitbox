@@ -237,7 +237,7 @@ We welcome contributions! Follow these steps to contribute:
 
 <div align='left'>
 
-[![Stargazers repo roster for @Bitbox-Connect/Bitbox](https://reporoster.com/stars/light/Bitbox-Connect/Bitbox)](https://github.com/Bitbox-Connect/Bitbox/stargazers)
+[![Stargazers repo roster for @Bitbox-Connect/Bitbox](https://reporoster.com/stars/dark/Bitbox-Connect/Bitbox)](https://github.com/Bitbox-Connect/Bitbox/stargazers)
 
 </div>
 
@@ -246,6 +246,6 @@ We welcome contributions! Follow these steps to contribute:
 
 ## Forkers 📌
 
-[![Forkers repo roster for @Bitbox-Connect/Bitbox](https://reporoster.com/forks/light/Bitbox-Connect/Bitbox)](https://github.com/Bitbox-Connect/Bitbox/network/members)
+[![Forkers repo roster for @Bitbox-Connect/Bitbox](https://reporoster.com/forks/dark/Bitbox-Connect/Bitbox)](https://github.com/Bitbox-Connect/Bitbox/network/members)
 
 <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
