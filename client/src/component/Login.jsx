@@ -26,6 +26,7 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
     e.preventDefault();
     setLoading(true);
     try {
+      console.log("Credentials  : ", credentials);
       const response = await fetch(`${VITE_SERVER_PORT}/api/auth/login`, {
         method: "POST",
         headers: {
@@ -34,14 +35,13 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
         body: JSON.stringify(credentials),
       });
       const json = await response.json();
+      console.log(json);
 
       if (json.success) {
         localStorage.setItem("token", json.authtoken);
         showAlert("Logged in Successfully", "success");
         toast.success("Login Successfully!");
-
         setloggedin(!isloggedin)
-
         navigate("/");
       } else {
         showAlert("Invalid Credentials", "danger");

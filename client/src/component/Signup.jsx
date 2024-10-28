@@ -73,9 +73,9 @@ const Signup = ({ mode }) => {
     if (json.success) {
       localStorage.setItem("token", json.authtoken);
       navigate("/");
-      toast.success("Account Created Successfully!");
+      toast.success(json.message || "Account Created Successfully!");
     } else {
-      toast.error("Account not created. Please check your email inbox!");
+      toast.error(json.message || "An error occurred. Please try again later.");
     }
   };
 

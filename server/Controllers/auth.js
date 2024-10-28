@@ -7,8 +7,6 @@ require('dotenv').config(); // Load environment variables from .env file
 // Signup route
 const createUser = async (req, res) => {
   const VITE_CLIENT_PORT = process.env.VITE_CLIENT_PORT || "https://bitbox-in.netlify.app";
-  console.log(process.env.EMAIL_USER);
-  console.log(process.env.EMAIL_PASS);
   const { name, email, password } = req.body;
 
   try {
@@ -18,7 +16,7 @@ const createUser = async (req, res) => {
     const img = `https://api.dicebear.com/5.x/initials/svg?seed=${name}`;
 
     // Create a new user (save in your database)
-    const user = new User({ name, image: img, email, password, verified: false });
+    const user = new User({ name, image: img, email, password: hashedPassword, verified: false });
     await user.save();
 
     const verificationToken = crypto.randomBytes(32).toString("hex");
@@ -49,10 +47,9 @@ const createUser = async (req, res) => {
           message: `Error sending verification email: ${error.message}`,
         });
       }
-      res.status(200).json({
-        success: true,
-        message: "Signup successful! Please check your email for the verification link.",
-      });
+      if (!user.verified) {
+        return res.status(401).json({ success: false, message: "Signup successful! Please check your email for the verification link." });
+      }
     });
   } catch (error) {
     res.status(500).json({ success: false, message: 'An error occurred during signup' });
@@ -70,14 +67,26 @@ const verifyToken = async (req, res) => {
         message: "Invalid or expired verification link",
       });
     }
-    console.log(user);
 
     user.verified = true;
-    user.verificationToken = undefined;
+    user.verificationToken = token;
     await user.save();
 
+    if (user) {
+      return res.status(200).json({
+        success: true,
+        message: "Email verified successfully",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Signup successfully",
+    });
+
+    const VITE_CLIENT_PORT = process.env.VITE_CLIENT_PORT || "https://bitbox-in.netlify.app";
     // Redirect to the frontend's home page after verification
-    return res.redirect({ VITE_CLIENT_PORT });
+    return res.redirect(`${VITE_CLIENT_PORT}/login`);
   } catch (err) {
     console.error(err);
     return res.status(500).json({

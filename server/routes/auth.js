@@ -74,7 +74,7 @@ const loginLimiter = rateLimit({
     "Too many login attempts from this IP, please try again after 5 minutes.",
 });
 
-router.post( 
+router.post(
   "/login",
   loginLimiter, // rate limiter middleware
   [
@@ -96,6 +96,8 @@ router.post(
     try {
       // Find user by email
       let user = await User.findOne({ email });
+
+      // If user does not exists
       if (!user) {
         success = false;
         return res.status(400).json({
@@ -106,6 +108,7 @@ router.post(
 
       // Compare provided password with stored password
       const passwordCompare = await bcrypt.compare(password, user.password);
+
       if (!passwordCompare) {
         success = false;
         return res.status(400).json({
