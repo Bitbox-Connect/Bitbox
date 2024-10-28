@@ -65,14 +65,10 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
         setloggedin(true);
 
         // Perform Google sign-in and retrieve the token
-        const { user, token } = await doSignInWithGoogle();
+        const { token } = await doSignInWithGoogle();
 
         // Store the token in local storage if needed for authentication
         localStorage.setItem("token", token);
-
-        // Optionally, you can store additional user information if required
-        console.log("User signed in:", user);
-
       } catch (error) {
         console.error("Google sign-in error:", error);
         setloggedin(false); // Reset logged-in state if sign-in fails
