@@ -44,6 +44,7 @@ app.use(helmet());
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/projects", require("./routes/projects"));
 app.use("/api/profile", require("./routes/profile"));
+app.use("/api/feedback", require("./routes/feedback"));
 app.use("/api/contact", require("./routes/contact"));
 
 // Socket.io connection handling

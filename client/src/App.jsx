@@ -36,25 +36,20 @@ import ResetPassword from "./component/ResetPassword";
 import VerifyEmail from "./component/Verify";
 import NotFound from "./component/NotFound";
 import ProgressBar from "./component/ProgressBar/ProgressBar";
+
+import Cursor from './component/Cursor';
 // import ProtectedRoute from '../../client/src/component/ProtectedRoute'
+
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Collab from "./component/Collab";
+import FAQ from "./component/FAQ"; // Import the FAQ component
 
 // Main Layout Component
-
 const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
-
-  // Define routes where the footer or navbar should not be shown
-  // const hideNavbarRoutes = ["/login", "/signup", "/forgot-password"];
-  // const hideFooterRoutes = ["/login", "/signup", "/forgot-password"];
-
   return (
     <div className="h-full w-full">
-      {/* Conditionally render the Navbar */}
-      {/* {!hideNavbarRoutes.includes(location.pathname) && ( */}
-
-      {/* Naming Convention of Navbar */}
       <Navbar
         title='BITBOX'
         home='Home'
@@ -67,15 +62,8 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
         mode={mode}
         toggleMode={toggleMode}
       />
-      {/* )} */}
-
-      {/* Main content */}
       {children}
-
-      {/* Conditionally render the Footer */}
-      {/* {!hideFooterRoutes.includes(location.pathname) && ( */}
       <Footer mode={mode} setProgress={setProgress} setAlert={showAlert} />
-      {/* )} */}
     </div>
   );
 };
@@ -91,7 +79,7 @@ function App() {
   };
 
   const [progress, setProgress] = useState(0);
-  const [islogged, setloggedin] = useState(false)
+  const [islogged, setloggedin] = useState(false);
 
   useEffect(() => {
     const savedMode = localStorage.getItem("mode");
@@ -130,10 +118,11 @@ function App() {
 
   useEffect(() => {
     AOS.init();
-  }, [])
+  }, []);
 
   return (
     <div className="h-full w-screen">
+      <Cursor/>
       <ProjectState>
         <ProfileState>
           <Router>
@@ -148,8 +137,7 @@ function App() {
             <ProgressBar mode={mode} />
             <ScrollTop />
 
-            {/* Wrap everything inside the Layout component */}
-            <Layout mode={mode} setProgress={setProgress} toggleMode={toggleMode} showAlert={showAlert} >
+            <Layout mode={mode} setProgress={setProgress} toggleMode={toggleMode} showAlert={showAlert}>
               <Routes>
                 <Route exact path='/' element={<Home mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/discussion" element={<Discussion mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
@@ -170,15 +158,14 @@ function App() {
                 <Route exact path='/contactus' element={<ContactUs mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/privacypolicy' element={<PrivacyPolicy mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/termofuse' element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path='/contributors' element={<Contributors mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path='/verify/:token' element={<VerifyEmail />} />
+                <Route exact path='/FAQ' element={<FAQ />} /> {/* Add this line */}
                 <Route exact path='/*' element={<NotFound />} />
               </Routes>
             </Layout>
           </Router>
         </ProfileState>
       </ProjectState>
-    </div >
+    </div>
   );
 }
 

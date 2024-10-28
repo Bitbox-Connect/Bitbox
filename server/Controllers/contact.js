@@ -1,8 +1,6 @@
 const ContactForm = require('../Models/Contact');
 
 const submitQueery = async (req, res) => {
-    console.log(req.body);
-
     // Extract data from the request body
     const { name, email, message } = req.body;
 
@@ -17,8 +15,6 @@ const submitQueery = async (req, res) => {
         msg: message,
         createdAt: new Date(),
     };
-
-    console.log(contactData);
 
     try {
         // Declare the variable properly
@@ -39,7 +35,6 @@ const submitQueery = async (req, res) => {
 }
 
 const sayHello = async (req, res) => {
-    console.log("GET request to contact form route");
     res.status(200).json({ message: 'Hello from the server!' });
 }
 

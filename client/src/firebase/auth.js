@@ -22,8 +22,16 @@ export const doSignInWithGoogle = async () => {
     const result = await signInWithPopup(auth, provider);
     const user = result.user;
 
-    // add user to firestore
+    // Retrieve the user's ID token
+    const token = await user.getIdToken();
+
+    // Store the token in local storage (if needed)
+    localStorage.setItem("token", token);
+
+    // Now token is stored and can be used for further requests
+    return { user, token };
 };
+
 
 export const doSignOut = () => {
     return auth.signOut();

@@ -1,0 +1,21 @@
+.main-cursor,
+.trailing-circle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.main-cursor {
+  background: radial-gradient(circle, rgba(53, 118, 239, 0.8), rgba(116, 218, 255, 0.8));
+  z-index: 800;
+}
+
+.trailing-circle {
+  background: radial-gradient(circle, rgba(53, 118, 239, 0.8), rgba(116, 218, 255, 0.8));
+  z-index: 999;
+  transition: transform 0.07s ease;
+}

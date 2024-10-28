@@ -26,7 +26,6 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
     e.preventDefault();
     setLoading(true);
     try {
-      console.log("Credentials  : ", credentials);
       const response = await fetch(`${VITE_SERVER_PORT}/api/auth/login`, {
         method: "POST",
         headers: {
@@ -35,7 +34,6 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
         body: JSON.stringify(credentials),
       });
       const json = await response.json();
-      console.log(json);
 
       if (json.success) {
         localStorage.setItem("token", json.authtoken);
@@ -59,16 +57,24 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
 
   const { userLoggedIn } = useAuth()
 
-  const onGoogleSignIn = (e) => {
-    e.preventDefault()
+  const onGoogleSignIn = async (e) => {
+    e.preventDefault();
+
     if (!isloggedin) {
-      setloggedin(true)
-      doSignInWithGoogle().catch(err => {
-        console.error(err)
-        setloggedin(false)
-      })
+      try {
+        setloggedin(true);
+
+        // Perform Google sign-in and retrieve the token
+        const { token } = await doSignInWithGoogle();
+
+        // Store the token in local storage if needed for authentication
+        localStorage.setItem("token", token);
+      } catch (error) {
+        console.error("Google sign-in error:", error);
+        setloggedin(false); // Reset logged-in state if sign-in fails
+      }
     }
-  }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center mt-10" data-aos="zoom-in" data-aos-duration="1800">
