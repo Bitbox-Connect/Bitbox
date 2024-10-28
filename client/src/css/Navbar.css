@@ -453,7 +453,6 @@
 
 .sidebar-links a {
   text-decoration: none;
-  color: black !important;
   /* Change according to your theme */
   font-size: 18px;
 }
@@ -522,7 +521,6 @@
 }
 
 .sidebar-links li a {
-  color: white;
   text-decoration: none;
 }
 
