@@ -40,8 +40,8 @@ const VerifyEmail = () => {
     setShowModal(false);
     if (isVerified) {
       navigate('/login');
-    }else{
-        navigate('/signup')
+    } else {
+      navigate('/signup')
     }
   };
 

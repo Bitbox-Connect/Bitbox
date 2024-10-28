@@ -3,7 +3,8 @@ const { Schema } = mongoose;
 
 const UserSchema = new Schema({
   image: {
-    image: String,
+    type: String,
+    required: true
   },
   name: {
     type: String,
@@ -22,16 +23,14 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  verificationToken:{
-    type:String,
+  verificationToken: {
+    type: String,
   },
-  verified:{
-    type:Boolean,
-    default:false
+  verified: {
+    type: Boolean,
+    default: false
   }
 });
 
 const User = mongoose.model('user', UserSchema);
-// create index just for tell the concept of create Indexes
-// User.createIndexes; // --> Don't uncomment it 
 module.exports = User;

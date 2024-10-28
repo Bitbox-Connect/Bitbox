@@ -1,17 +1,15 @@
-import { useContext, useEffect, useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { Button } from "react-bootstrap";
 import axios from "axios";
-import profileContext from "../context/profileContext";
 import userDummyImg from "../assets/images/User/User.png";
+
 // CSS
 import "../css/EditProfile.css";
 
 const EditProfile = (props) => {
   const VITE_SERVER_PORT =
     import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
-  const userProfileContext = useContext(profileContext);
-  const { updateUserProfile } = userProfileContext;
 
   const [profile, setProfile] = useState({
     name: "",
@@ -91,14 +89,6 @@ const EditProfile = (props) => {
   // For Avatar Uploading
   const [file, setFile] = useState();
   const [image, setImage] = useState();
-
-  useEffect(() => {
-    // Fetch initial image when component mounts
-    axios
-      .get(`{host}/getAvatarImage`)
-      .then((res) => setImage(res.data[res.data.length - 1].image)) // Fetch the last uploaded image
-      .catch((err) => console.log(err));
-  }, []);
 
   return (
     <div>

@@ -199,9 +199,11 @@ const Footer = (props) => {
                                 <li className='nav-item'>
                                     <Link to='/blog'>Blog</Link>
                                 </li>
+
                                 <li>
                                     <Link to='/faq'>FAQ</Link>
                                 </li>
+
                             </ul>
                         </div>
 
