@@ -4,151 +4,158 @@ import PropTypes from 'prop-types';
 const PrivacyPolicy = (props) => {
   const VITE_CLIENT_PORT = import.meta.env.VITE_CLIENT_PORT;
   return (
-    <div className="privacy-policy-container"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black',}}>
-      <h2 className="Heading-Page mb-3">Privacy Policy</h2>
-      <div className="container"style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black',}}>
-        <div>Last updated: April 13, 2024</div>
-        <div>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</div>
-        <div>We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy.</div>
-        {/* <h2>Interpretation and Definitions</h2> */}
-        <h3>Interpretation</h3>
-        <div>The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</div>
-        <h3>Definitions</h3>
-        <div>For the purposes of this Privacy Policy:</div>
-        <div className='list-n-1'>
-          <ul>
+    <div
+      className="privacy-policy-container p-6"
+      style={{
+        backgroundColor: props.mode === 'dark' ? '#111111' : '#f9f9f9',
+        color: props.mode === 'dark' ? '#f9f9f9' : '#1a1a1a',
+        lineHeight: '1.75',
+        fontFamily: "'Inter', sans-serif",
+      }}
+    >
+      <h2 className={`text-4xl font-extrabold mb-10 text-center tracking-wide ${props.mode === 'dark' ? 'text-gray-100' : 'text-gray-700'}`}>
+        Privacy Policy
+      </h2>
+
+      <div
+        className="container mx-auto p-8"
+        style={{
+          backgroundColor: props.mode === 'dark' ? '#282828' : '#ffffff',
+          color: props.mode === 'dark' ? '#eaeaea' : '#1a1a1a',
+          borderRadius: '12px',
+          boxShadow: props.mode === 'dark'
+            ? '0 10px 30px rgba(0, 0, 0, 0.5)'
+            : '0 10px 30px rgba(0, 0, 0, 0.1)',
+          transition: 'all 0.3s ease',
+        }}
+      >
+        <div className="text-sm text-gray-500 dark:text-gray-400 mb-6 italic">
+          Last updated: April 13, 2024
+        </div>
+
+        <div className="mb-8 text-lg leading-relaxed">
+          This Privacy Policy describes our policies and procedures on the
+          collection, use, and disclosure of your information when you use the
+          Service. It also explains your privacy rights and how the law protects
+          you.
+        </div>
+
+        <h3 className={`text-3xl font-semibold mb-6   ${props.mode === 'dark' ? 'text-gray-100' : 'text-gray-700'} `}>
+          Interpretation
+        </h3>
+        <p className="mb-8 text-lg leading-relaxed">
+          Words with capitalized initials have meanings defined under the following
+          conditions. These definitions shall apply whether they appear in singular
+          or plural.
+        </p>
+
+        <h3 className={`text-3xl font-semibold mb-6 ${props.mode === 'dark' ? 'text-gray-100' : 'text-gray-700'}`}>
+          Definitions
+        </h3>
+        <div className="space-y-6 text-lg">
+          <ul className="list-disc list-inside pl-6 space-y-4">
             <li>
-              <div><strong>•Account</strong> means a unique account created for You to access our Service or parts of our Service.</div>
+              <strong>Account:</strong> A unique account created for you to access
+              our Service or parts of our Service.
             </li>
             <li>
-              <div><strong>•Company</strong> (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers to BitBox.</div>
+              <strong>Company:</strong> Refers to BitBox (also referred to as "the
+              Company", "We", "Us", or "Our").
             </li>
             <li>
-              <div><strong>•Cookies</strong> are small files that are placed on Your computer, mobile device or any other device by a website, containing the details of Your browsing history on that website among its many uses.</div>
+              <strong>Cookies:</strong> Small files placed on your device (computer,
+              mobile, or tablet) that store details of your browsing history.
             </li>
             <li>
-              <div><strong>•Device</strong> means any device that can access the Service such as a computer, a cellphone or a digital tablet.</div>
+              <strong>Device:</strong> Any device that can access the Service, such
+              as a computer, cellphone, or tablet.
             </li>
             <li>
-              <div><strong>•Personal Data</strong> is any information that relates to an identified or identifiable individual.</div>
+              <strong>Personal Data:</strong> Information that relates to an
+              identifiable individual.
             </li>
             <li>
-              <div><strong>•Service</strong> refers to the Website.</div>
+              <strong>Service:</strong> Refers to the Website.
             </li>
             <li>
-              <div><strong>•Service Provider</strong> means any natural or legal person who processes the data on behalf of the Company.</div>
+              <strong>Service Provider:</strong> Any person or company who processes
+              data on behalf of the Company.
             </li>
             <li>
-              <div><strong>•Usage Data</strong> refers to data collected automatically, either generated by the use of the Service or from the Service infrastructure itself (for example, the duration of a page visit).</div>
+              <strong>Usage Data:</strong> Data collected automatically (such as the
+              duration of a page visit).
             </li>
             <li>
-              <div> <strong>•Website</strong> refers to BitBox, accessible from <a href={VITE_CLIENT_PORT} rel="external nofollow noopener" target="_blank">{VITE_CLIENT_PORT}/</a></div>
+              <strong>Website:</strong> Refers to BitBox, accessible from{' '}
+              <a
+                href={VITE_CLIENT_PORT}
+                rel="noopener noreferrer"
+                target="_blank"
+                className="text-blue-500 underline hover:text-blue-700 transition-colors duration-200"
+              >
+                {VITE_CLIENT_PORT}/
+              </a>
             </li>
             <li>
-              <div> <strong>•You</strong> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</div>
+              <strong>You:</strong> The individual using the Service, or the company
+              represented by that individual.
             </li>
-          </ul></div>
-        <h2>Collecting and Using Your Personal Data</h2>
-        <h3>Types of Data Collected</h3>
-        <h4>Personal Data</h4>
-        <div>While using Our Service, We may ask You to provide Us with certain personally identifiable information that can be used to contact or identify You. Personally identifiable information may include, but is not limited to:</div>
-        <div className='list-n-1'><ul>
-          <li>
-            <div>•Email address</div>
-          </li>
-          <li>
-            <div>•First name and last name</div>
-          </li>
-          <li>
-            <div>•Usage Data</div>
-          </li>
-        </ul></div>
-        <h4>Usage Data</h4>
-        <div>Usage Data is collected automatically when using the Service.</div>
-        <div>Usage Data may include information such as Your Device&apos;s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.</div>
-        <div>When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data.</div>
-        <div>We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.</div>
-        <h4>Tracking Technologies and Cookies</h4>
-        <div>We use Cookies and similar tracking technologies to track the activity on Our Service and store certain information. Tracking technologies used are beacons, tags, and scripts to collect and track information and to improve and analyze Our Service. The technologies We use may include:</div>
-        <ul>
-          <li><strong>Cookies or Browser Cookies.</strong> A cookie is a small file placed on Your Device. You can instruct Your browser to refuse all Cookies or to indicate when a Cookie is being sent. However, if You do not accept Cookies, You may not be able to use some parts of our Service. Unless you have adjusted Your browser setting so that it will refuse Cookies, our Service may use Cookies.</li>
-          <li><strong>Web Beacons.</strong> Certain sections of our Service and our emails may contain small electronic files known as web beacons (also referred to as clear gifs, pixel tags, and single-pixel gifs) that permit the Company, for example, to count users who have visited those pages or opened an email and for other related website statistics (for example, recording the popularity of a certain section and verifying system and server integrity).</li>
+          </ul>
+        </div>
+
+        <h2 className={`text-3xl font-semibold mt-12 mb-6 ${props.mode === 'dark' ? 'text-gray-100' : 'text-gray-700'}`}>
+          Collecting and Using Your Personal Data
+        </h2>
+
+        <h3 className={`text-2xl font-semibold mb-4 ${props.mode === 'dark' ? 'text-gray-100' : 'text-gray-700'}`}>
+          Types of Data Collected
+        </h3>
+
+        <h4 className={`text-xl font-semibold mb-3 ${props.mode === 'dark' ? 'text-gray-100' : 'text-gray-700'}"`}>
+          Personal Data
+        </h4>
+        <p className="mb-6 text-lg leading-relaxed">
+          We may ask you to provide personally identifiable information to contact
+          or identify you, including:
+        </p>
+        <ul className="list-disc list-inside pl-6 space-y-2 text-lg">
+          <li>Email address</li>
+          <li>First name and last name</li>
+          <li>Usage Data</li>
         </ul>
-        <h3>Use of Your Personal Data</h3>
-        <div>The Company may use Personal Data for the following purposes:</div>
-        <ul>
+
+        <h4 className="text-xl font-semibold mt-8 mb-3 ${props.mode === 'dark' ? 'text-gray-100' : 'text-gray-700'}">
+          Usage Data
+        </h4>
+        <p className="mb-6 text-lg leading-relaxed">
+          Usage Data is collected automatically and may include information like
+          your IP address, browser type, device details, and time spent on our
+          Service.
+        </p>
+
+        <h3 className="text-2xl font-semibold mt-10 mb-4 ${props.mode === 'dark' ? 'text-gray-100' : 'text-gray-700'}">
+          Tracking Technologies and Cookies
+        </h3>
+        <p className="mb-6 text-lg leading-relaxed">
+          We use cookies and similar tracking technologies (beacons, tags, and
+          scripts) to collect and analyze information to improve our Service. The
+          types of tracking we use include:
+        </p>
+        <ul className="list-disc list-inside pl-6 space-y-4 text-lg">
           <li>
-            <div><strong>To provide and maintain our Service</strong>, including to monitor the usage of our Service.</div>
+            <strong>Cookies:</strong> Small files placed on your device. You can
+            instruct your browser to refuse cookies or indicate when a cookie is
+            sent. Without cookies, parts of our Service may not work properly.
           </li>
           <li>
-            <div><strong>To manage Your Account:</strong> to manage Your registration as a user of the Service. The Personal Data You provide can give You access to different functionalities of the Service that are available to You as a registered user.</div>
-          </li>
-          <li>
-            <div><strong>For the performance of a contract:</strong> the development, compliance and undertaking of the purchase contract for the products, items or services You have purchased or of any other contract with Us through the Service.</div>
-          </li>
-          <li>
-            <div><strong>To contact You:</strong> To contact You by email, telephone calls, SMS, or other equivalent forms of electronic communication, such as a mobile application&apos;s push notifications regarding updates or informative communications related to the functionalities, products or contracted services, including the security updates, when necessary or reasonable for their implementation.</div>
-          </li>
-          <li>
-            <div><strong>To provide You</strong> with news, special offers and general information about other goods, services and events which we offer that are similar to those that you have already purchased or enquired about unless You have opted not to receive such information.</div>
-          </li>
-          <li>
-            <div><strong>To manage Your requests:</strong> To attend and manage Your requests to Us.</div>
-          </li>
-          <li>
-            <div><strong>For business transfers:</strong> We may use Your information to evaluate or conduct a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of Our assets, whether as a going concern or as part of bankruptcy, liquidation, or similar proceeding, in which Personal Data held by Us about our Service users is among the assets transferred.</div>
-          </li>
-          <li>
-            <div><strong>For other purposes</strong>: We may use Your information for other purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Service, products, services, marketing and your experience.</div>
+            <strong>Web Beacons:</strong> Small electronic files that permit the
+            Company to count users who visit certain pages or read emails.
           </li>
         </ul>
-        <div>We may share Your personal information in the following situations:</div>
-        <ul>
-          <li><strong>With Service Providers:</strong> We may share Your personal information with Service Providers to monitor and analyze the use of our Service,  to contact You.</li>
-          <li><strong>For business transfers:</strong> We may share or transfer Your personal information in connection with, or during negotiations of, any merger, sale of Company assets, financing, or acquisition of all or a portion of Our business to another company.</li>
-          <li><strong>With Affiliates:</strong> We may share Your information with Our affiliates, in which case we will require those affiliates to honor this Privacy Policy. Affiliates include Our parent company and any other subsidiaries, joint venture partners or other companies that We control or that are under common control with Us.</li>
-          <li><strong>With business partners:</strong> We may share Your information with Our business partners to offer You certain products, services or promotions.</li>
-          <li><strong>With other users:</strong> when You share personal information or otherwise interact in the public areas with other users, such information may be viewed by all users and may be publicly distributed outside.</li>
-          <li><strong>With Your consent</strong>: We may disclose Your personal information for any other purpose with Your consent.</li>
-        </ul>
-        <h3>Retention of Your Personal Data</h3>
-        <div>The Company will retain Your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use Your Personal Data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies.</div>
-        <div>The Company will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter period of time, except when this data is used to strengthen the security or to improve the functionality of Our Service, or We are legally obligated to retain this data for longer time periods.</div>
-        <h3>Transfer of Your Personal Data</h3>
-        <div>Your information, including Personal Data, is processed at the Company&apos;s operating offices and in any other places where the parties involved in the processing are located. It means that this information may be transferred to — and maintained on — computers located outside of Your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from Your jurisdiction.</div>
-        <div>Your consent to this Privacy Policy followed by Your submission of such information represents Your agreement to that transfer.</div>
-        <div>The Company will take all steps reasonably necessary to ensure that Your data is treated securely and in accordance with this Privacy Policy and no transfer of Your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of Your data and other personal information.</div>
-        <h3>Delete Your Personal Data</h3>
-        <div>You have the right to delete or request that We assist in deleting the Personal Data that We have collected about You.</div>
-        <div>Our Service may give You the ability to delete certain information about You from within the Service.</div>
-        <div>You may update, amend, or delete Your information at any time by signing in to Your Account, if you have one, and visiting the account settings section that allows you to manage Your personal information. You may also contact Us to request access to, correct, or delete any personal information that You have provided to Us.</div>
-        <div>Please note, however, that We may need to retain certain information when we have a legal obligation or lawful basis to do so.</div>
-        <h3>Disclosure of Your Personal Data</h3>
-        <h4>Business Transactions</h4>
-        <div>If the Company is involved in a merger, acquisition or asset sale, Your Personal Data may be transferred. We will provide notice before Your Personal Data is transferred and becomes subject to a different Privacy Policy.</div>
-        <h4>Law enforcement</h4>
-        <div>Under certain circumstances, the Company may be required to disclose Your Personal Data if required to do so by law or in response to valid requests by public authorities (e.g. a court or a government agency).</div>
-        <h4>Other legal requirements</h4>
-        <div>The Company may disclose Your Personal Data in the good faith belief that such action is necessary to:</div>
-        <ul>
-          <li>Comply with a legal obligation</li>
-          <li>Protect and defend the rights or property of the Company</li>
-          <li>Prevent or investigate possible wrongdoing in connection with the Service</li>
-          <li>Protect the personal safety of Users of the Service or the public</li>
-          <li>Protect against legal liability</li>
-        </ul>
-        <h3>Security of Your Personal Data</h3>
-        <div>The security of Your Personal Data is important to Us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While We strive to use commercially acceptable means to protect Your Personal Data, We cannot guarantee its absolute security.</div>
-        <div>If We need to rely on consent as a legal basis for processing Your information and Your country requires consent from a parent, We may require Your parent&apos;s consent before We collect and use that information.</div>
-        <h2>Links to Other Websites</h2>
-        <div>Our Service may contain links to other websites that are not operated by Us. If You click on a third party link, You will be directed to that third party&apos;s site. We strongly advise You to review the Privacy Policy of every site You visit.</div>
-        <div>We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.</div>
-        <h2>Changes to this Privacy Policy</h2>
-        <div>We may update Our Privacy Policy from time to time. We will notify You of any changes by posting the new Privacy Policy on this page.</div>
-        <div>We will let You know via email and/or a prominent notice on Our Service, prior to the change becoming effective and update the &quot;Last updated&quot; date at the top of this Privacy Policy.</div>
-        <div>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</div>
       </div>
     </div>
+
+
   );
 };
 PrivacyPolicy.propTypes = {
