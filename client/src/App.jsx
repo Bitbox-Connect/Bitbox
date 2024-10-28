@@ -44,6 +44,7 @@ import Cursor from './component/Cursor';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Collab from "./component/Collab";
+import Ai from "./component/AI";
 import FAQ from "./component/FAQ"; // Import the FAQ component
 
 // Main Layout Component
@@ -145,6 +146,8 @@ function App() {
                 <Route exact path="/about" element={<About mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/blog' element={<BlogPage mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/collab' element={<Collab mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                {/* <Route exact path='/myprofile' element={<ProtectedRoute loggedin={islogged}><MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} /></ProtectedRoute>} /> */}
+                <Route exact path='/ai' element={<Ai mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 {/* <Route exact path='/myprofile' element={<ProtectedRoute loggedin={islogged}><MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} /></ProtectedRoute>} /> */}
                 <Route exact path='/myprofile' element={<MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/editprofile' element={<EditProfile mode={mode} setProgress={setProgress} showAlert={showAlert} />} />

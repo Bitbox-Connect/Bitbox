@@ -536,3 +536,7 @@
 .rnav {
   display: flex;
 }
+
+.main-content {
+  margin-top: 10vh;
+}
