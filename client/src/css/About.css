@@ -1,7 +1,7 @@
 /* Hero About Section */
 .about-main-section {
   max-width: 1780px;
-  min-height: 90vh;
+  min-height: 90vh; 
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -646,8 +646,13 @@ h2 {
     border-radius: 2rem;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
-
+.team-heading{
+  margin-top: 200px;
+  margin-bottom: -20px;
+}
 .Heading-Page {
+  margin-top: 60px;
+  margin-bottom: 20px;
   color: #16538f;
 }
 

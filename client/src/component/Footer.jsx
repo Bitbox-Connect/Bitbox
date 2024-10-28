@@ -109,7 +109,8 @@ const Footer = (props) => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
-                                className="px-4 py-2 border border-gray-300 rounded-md w-full max-w-xs focus:outline-non"
+                                 className="px-4 py-2 border border-gray-300 rounded-md w-full max-w-xs focus:outline-none"
+ 
                             />
                             <button
                                 type="submit"
@@ -199,8 +200,9 @@ const Footer = (props) => {
                                 <li className='nav-item'>
                                     <Link to='/blog'>Blog</Link>
                                 </li>
-                                <li className='nav-item'>
-                                    <Link to='/FAQ'>FAQ</Link>
+
+                                <li>
+                                    <Link to='/faq'>FAQ</Link>
                                 </li>
 
                             </ul>
