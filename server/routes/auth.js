@@ -64,6 +64,8 @@ router.post("/googlelogin", async (req, res) => {
 
 // ROUTE 1 : Create a User using : POST: "/api/auth/createuser". No login required
 
+// server > Controllers > auth.js
+
 // ROUTE 2 : Create a User using : POST: "/api/auth/login". No login required
 
 // Set up rate limiting
@@ -138,7 +140,6 @@ router.post(
     }
   }
 );
-
 
 // ROUTE 3 : Get Loggedin User Details : GET: "/api/auth/getuser". Login required
 router.get("/getuser", fetchuser, async (req, res) => {

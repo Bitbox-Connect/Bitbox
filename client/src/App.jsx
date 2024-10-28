@@ -1,3 +1,5 @@
+import { useAtom } from "jotai";
+import { modeAtom } from "./atom/Atom";
 import { useEffect, useState } from "react";
 import "./App.css";
 import "./index.css";
@@ -29,9 +31,8 @@ import ScrollTop from "./component/ScrollTop";
 import EditProfile from "./component/EditProfile";
 import Contributors from "./component/Contributors";
 import Discussion from "./component/Discussion";
-import { useAtom } from "jotai";
-import { modeAtom } from "./atom/Atom";
 import ForgotPassword from "./component/ForgotPassword";
+import ResetPassword from "./component/ResetPassword";
 import VerifyEmail from "./component/Verify";
 import NotFound from "./component/NotFound";
 import ProgressBar from "./component/ProgressBar/ProgressBar";
@@ -160,7 +161,8 @@ function App() {
                 <Route exact path='/contributors' element={<Contributors mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/login" element={<Login mode={mode} setProgress={setProgress} showAlert={showAlert} loggedin={islogged} setloggedin={setloggedin} />} />
                 <Route exact path='/signup' element={<Signup mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path='/Forgot-Password' element={<ForgotPassword mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path='/forgot-password' element={<ForgotPassword mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path='/reset-password' element={<ResetPassword mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/codeofconduct' element={<CodeOfConduct mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/feedback' element={<Feedback mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/contactus' element={<ContactUs mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
