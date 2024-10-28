@@ -49,17 +49,28 @@ app.use("/api/contact", require("./routes/contact"));
 // Socket.io connection handling
 const users = {};
 
+let currentCode = '// Start coding collaboratively!\n';
+
 io.on("connection", (socket) => {
   socket.on("new-user-joined", (name) => {
     users[socket.id] = name;
     socket.broadcast.emit("user-joined", name);
   });
 
+  // Send the current code to the newly connected user
+  socket.emit('code_update', currentCode);
+
   socket.on("send", (message) => {
     socket.broadcast.emit("receive", {
       message: message,
       name: users[socket.id],
     });
+  });
+
+  // Listen for code changes and broadcast them
+  socket.on('code_change', (newCode) => {
+    currentCode = newCode;
+    socket.broadcast.emit('code_update', newCode);
   });
 
   socket.on("disconnect", () => {
