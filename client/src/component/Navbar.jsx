@@ -20,7 +20,14 @@ function Navbar(props) {
   const [isScrolled, setIsScrolled] = useState(false); // State to keep track of whether page has been scrolled
   // eslint-disable-next-line
   const [isOpen, setIsOpen] = useState(false);
+  // State to control the sidebar visibility
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = (e) => {
+    e.preventDefault();
+    setIsSidebarOpen((prev) => !prev); // Toggle sidebar visibility
+  };
+
   const style = { color: "white", fontSize: "1.5em" };
 
   useEffect(() => {
@@ -117,7 +124,7 @@ function Navbar(props) {
             to="/"
           >
             <img
-              className="md:w-[3.5rem] mx-4 md:mx-3 rounded-full transition-transform transform rotate-0 hover:rotate-180 duration-1000 ease-in-out"
+              className="w-[3.5rem] mx-4 md:mx-3 rounded-full transition-transform transform rotate-0 hover:rotate-180 duration-1000 ease-in-out"
               src={logo}
               alt="logo"
             />
@@ -192,7 +199,31 @@ function Navbar(props) {
           </div>
 
           {/* Right Links */}
-          <form className="flex fs-4 fw-medium">
+          <form className="flex fs-4 fw-medium justify-center items-center">
+            {/* Toggle Dark Mode */}
+            <div className="mr-8">
+              <div className="my-body">
+                <div className="darkThemeBtn flex justify-content-center">
+                  <input
+                    id="darkmode-toggle"
+                    type="checkbox"
+                    checked={props.mode === "dark"}
+                    onChange={props.toggleMode}
+                  />
+                  <label htmlFor="darkmode-toggle">
+                    <FaSun className="sun" style={style} />
+                    <FaMoon
+                      className="moon"
+                      style={{
+                        color: props.mode === "dark" ? "yellow" : "gray",
+                        fontSize: "1.5rem",
+                      }}
+                    />
+                  </label>
+                  <span className="fake-body"></span>
+                </div>
+              </div>
+            </div>
             {localStorage.getItem("token") ? (
               <>
                 <ul className="navbar-nav">
@@ -201,30 +232,7 @@ function Navbar(props) {
                     <li>
                       {renderUploadButton()}
                     </li>
-                    {/* Toggle Dark Mode */}
-                    <div className="mx-2">
-                      <div className="my-body">
-                        <div className="darkThemeBtn flex justify-content-center">
-                          <input
-                            id="darkmode-toggle"
-                            type="checkbox"
-                            checked={props.mode === "dark"}
-                            onChange={props.toggleMode}
-                          />
-                          <label htmlFor="darkmode-toggle">
-                            <FaSun className="sun" style={style} />
-                            <FaMoon
-                              className="moon"
-                              style={{
-                                color: props.mode === "dark" ? "yellow" : "gray",
-                                fontSize: "1.5rem",
-                              }}
-                            />
-                          </label>
-                          <span className="fake-body"></span>
-                        </div>
-                      </div>
-                    </div>
+
                     {/* User Profile */}
                     <li
                       className="nav-item dropdown mx-2"
@@ -294,7 +302,7 @@ function Navbar(props) {
                   role="button"
                   to="/login"
                   className="btn loginbtn mx-2  h-10 "
-                  style={{ height: "45px", color: "white" }}
+                  style={{ height: "45px", color: props.mode === "dark" ? "white" : "white", }}
                 >
                   Login
                 </Link>
@@ -302,12 +310,27 @@ function Navbar(props) {
                   role="button"
                   to="/signup"
                   className="btn loginbtn mx-2  h-10 "
-                  style={{ height: "45px", color: "white" }}
+                  style={{ height: "45px", color: props.mode === "dark" ? "white" : "white", }}
                 >
                   Signup
                 </Link>
               </div>
             )}
+            {/* Sidebar Toggle Button */}
+            <button className="sidebar-toggle mt-[0.4rem]" onClick={toggleSidebar}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M4.5 6.75a.75.75 0 000 1.5h15a.75.75 0 000-1.5h-15zm0 4.5a.75.75 0 000 1.5h15a.75.75 0 000-1.5h-15zm0 4.5a.75.75 0 000 1.5h15a.75.75 0 000-1.5h-15z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </button>
           </form>
         </div>
       </nav>
