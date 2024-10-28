@@ -250,13 +250,6 @@
   border-radius: 3rem;
 }
 
-@media (max-width: 768px) {
-  .darkThemeBtn label {
-    width: 35px;
-    height: 35px;
-  }
-}
-
 .darkThemeBtn label:active {
   border-radius: 5px;
 }
@@ -305,7 +298,7 @@
 .loginbtn {
   background: black;
   border: 3px solid white;
-  color: #486c98;
+  color: white;
   padding: 0.5rem 1rem;
   /* Add padding for better appearance */
   text-decoration: none;

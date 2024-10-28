@@ -20,9 +20,6 @@ const subscribeNewsletter = async (req, res) => {
     const newSubscriber = new Newsletter({ email });
     await newSubscriber.save();
 
-    // Console log the email that subscribed
-    console.log(`New subscriber: ${email}`);
-
     // Configure the transporter
     const transporter = nodemailer.createTransport({
       service: "gmail",

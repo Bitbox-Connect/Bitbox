@@ -1,33 +1,57 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Feedback(props) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [rating, setRating] = useState(0); // State to manage rating
+  const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';
 
   const handleRatingChange = (value) => {
     setRating(value); // Update the rating state
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Prevent multiple submissions
     if (isSubmitting) return;
-    setIsSubmitting(true);
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxJzYGZE0R6W2ZLGbJZlUoxNwWShpAYhcJY4zBM9LOycb7iiM4vncS1fbSpVnIXwKIU/exec';
-    const form = document.forms['submit-to-google-sheet'];
+    setIsSubmitting(true); // Set isSubmitting to true right after checking
 
-    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-      .then(response => {
-        form.reset();
-        setIsSubmitting(false);
-        props.showAlert("Feedback Submitted Successfully", "success");
-      })
-      .catch(error => {
-        setIsSubmitting(false);
-        props.showAlert("Feedback Submission Failed", "danger");
+    // Gather form data
+    const formData = new FormData(e.target);
+    const formValues = Object.fromEntries(formData.entries()); // Convert form data to an object
+
+    try {
+      const response = await fetch(`${VITE_SERVER_PORT}/api/feedback/submitFeedback`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formValues),
       });
+
+      const result = await response.json();
+
+      // Check if the request was successful
+      if (response.status === 200) {  // Updated to check response status properly
+        toast.success('Feedback Sent Successfully!');
+        setIsSubmitting(false)
+      } else {
+        toast.error(result.message || 'Error in submission!');
+      }
+    } catch (error) {
+      // Handle network or other fetch-related errors
+      toast.error('Something went wrong. Please try again.');
+    } finally {
+      // Reset the submitting state regardless of the outcome
+      setIsSubmitting(false);
+    }
   };
+
+
 
   return (
     <div className="max-w-7xl mx-auto p-10 bg-white shadow-lg rounded-lg relative overflow-hidden mt-28"
@@ -37,6 +61,7 @@ function Feedback(props) {
         border: '1px solid rgba(255, 255, 255, 0.2)',
         boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)'
       }}>
+      <ToastContainer />
 
       <h2 className="text-center text-4xl font-bold text-gray-800 mb-10">We Value Your Feedback</h2>
 
@@ -128,6 +153,7 @@ function Feedback(props) {
           {isSubmitting ? 'Submitting...' : 'Submit'}
         </button>
       </form>
+
     </div>
 
 

@@ -97,6 +97,39 @@ const verifyToken = async (req, res) => {
   }
 };
 
+async function ResetPasswordByEmail(req, resp) {
+  const VITE_CLIENT_PORT = process.env.VITE_CLIENT_PORT || "https://bitbox-in.netlify.app";
+
+  const { email } = req.body;
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
+
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: email,
+    subject: "Reset Your password on BitBox",
+    html: `
+    <p>Reset your password using the link below:</p>
+    <a href="${VITE_CLIENT_PORT}/reset-password"><button>Click here</button></a> to reset your password
+  `,
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log("Error sending email: " + error);
+      resp.status(500).send("Error sending email");
+    } else {
+      console.log("Email sent: " + info.response);
+      resp.status(200).send({ message: "email sent successfully" });
+    }
+  });
+}
+
 const forgetpassword = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -129,39 +162,6 @@ const forgetpassword = async (req, res) => {
       .json({ success: false, message: "Internal server error" });
   }
 };
-
-async function ResetPasswordByEmail(req, resp) {
-  const VITE_CLIENT_PORT = process.env.VITE_CLIENT_PORT || "https://bitbox-in.netlify.app";
-
-  const { email } = req.body;
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-  });
-
-  const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: email,
-    subject: "Reset Your password on BitBox",
-    html: `
-    <p>Reset your password using the link below:</p>
-    <a href="${VITE_CLIENT_PORT}/forgotpassword"><button>Click here</button></a> to reset your password
-  `,
-  };
-
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log("Error sending email: " + error);
-      resp.status(500).send("Error sending email");
-    } else {
-      console.log("Email sent: " + info.response);
-      resp.status(200).send({ message: "email sent successfully" });
-    }
-  });
-}
 
 module.exports = {
   forgetpassword,

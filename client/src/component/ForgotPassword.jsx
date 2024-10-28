@@ -61,7 +61,7 @@ const ForgotPassword = ({ showAlert, mode }) => {
                 backgroundColor: mode === "dark" ? "black" : "white",
                 color: mode === "dark" ? "white" : "black",
               }}
-              autoComplete="true"
+              autoComplete="on"
             />
           </div>
           <Button
