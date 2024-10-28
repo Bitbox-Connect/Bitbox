@@ -39,12 +39,10 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
 
       if (json.success) {
         localStorage.setItem("token", json.authtoken);
-        showAlert("Logged in Successfully", "success");
         toast.success("Login Successfully!");
         setloggedin(!isloggedin)
         navigate("/");
       } else {
-        showAlert("Invalid Credentials", "danger");
         toast.error("Login failed!");
       }
     } catch (error) {
