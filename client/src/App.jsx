@@ -36,6 +36,11 @@ import ResetPassword from "./component/ResetPassword";
 import VerifyEmail from "./component/Verify";
 import NotFound from "./component/NotFound";
 import ProgressBar from "./component/ProgressBar/ProgressBar";
+
+import Cursor from './component/Cursor';
+// import ProtectedRoute from '../../client/src/component/ProtectedRoute'
+
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import FAQ from "./component/FAQ"; // Import the FAQ component
@@ -116,6 +121,7 @@ function App() {
 
   return (
     <div className="h-full w-screen">
+      <Cursor/>
       <ProjectState>
         <ProfileState>
           <Router>
