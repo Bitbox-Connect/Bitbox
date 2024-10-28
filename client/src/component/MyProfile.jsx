@@ -1,7 +1,6 @@
 import { useContext, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 import projectContext from '../context/projectContext';
 import profileContext from '../context/profileContext';
 import MyProfileCard from './MyProfileCard';
@@ -26,7 +25,6 @@ import ShareModalImg from '../assets/images/Modal Image/Share.png'
 
 
 const MyProfile = (props) => {
-    const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';
     const { mode } = props;
     const [showVideo, setShowVideo] = useState(false);
 
@@ -105,16 +103,6 @@ const MyProfile = (props) => {
         }
     }
 
-    // Avatar Profile Image 
-    const [image, setImage] = useState()
-
-    useEffect(() => {
-        // Fetch initial image when component mounts
-        axios.get(`${VITE_SERVER_PORT}/getAvatarImage`)
-            .then(res => setImage(res.data[res.data.length - 1].image)) // Fetch the last uploaded image
-            .catch(err => console.log(err))
-    })
-
     // Function to format date
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -138,15 +126,11 @@ const MyProfile = (props) => {
                             {/* <Link to='/edituser' onClick={handleEditClick}>Edit</Link> */}
                             {/* <button onClick={handleEditClick}><link rel="stylesheet" href="/editprofile" />Edit</button> */}
                             <div className="profile-picture mb-3 mt-2">
-                                {image ? (
-                                    <img src={image} alt="avatar" style={{ background: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }} />
-                                ) : (
-                                    <img
-                                        src={avatar} style={{ background: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}
-                                        className="avatar img-circle"
-                                        alt="avatar"
-                                    />
-                                )}
+                                <img
+                                    src={avatar} style={{ background: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}
+                                    className="avatar img-circle"
+                                    alt="avatar"
+                                />
                             </div>
                             <div className="user-bio">
                                 <div>Name: <span>{userProfile.name}</span></div>

@@ -2,12 +2,12 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Input } from "antd";
 import PropTypes from "prop-types";
-import "../css/Signup.css";
-// import { registerValidation } from "../validations/validation";
 import toast from "react-hot-toast";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import { doSignInWithGoogle } from '../firebase/auth';
 import { useAuth } from '../contexts/authContext/index';
+// import { registerValidation } from "../validations/validation";
+import "../css/Signup.css";
 
 const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';
 
@@ -44,6 +44,14 @@ const Signup = ({ mode }) => {
     //   setErrors(newErrors);
     //   return;
     // }
+
+    setTimeout(() => {
+      e.target.reset(); // Reset the form after 1 second
+      setName("");
+      setEmail("");
+      setPassword("");
+      setCPassword("");
+    }, 1000);
 
     await signUpWithEmailPassword(email, name, password);
   };

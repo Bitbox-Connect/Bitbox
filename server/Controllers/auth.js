@@ -13,10 +13,10 @@ const createUser = async (req, res) => {
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-    const img = `https://api.dicebear.com/5.x/initials/svg?seed=${name}`;
+    const image = `https://api.dicebear.com/5.x/initials/svg?seed=${name}`;
 
     // Create a new user (save in your database)
-    const user = new User({ name, image: img, email, password: hashedPassword, verified: false });
+    const user = new User({ image: image, name, email, password: hashedPassword, verified: false });
     await user.save();
 
     const verificationToken = crypto.randomBytes(32).toString("hex");
@@ -60,6 +60,8 @@ const verifyToken = async (req, res) => {
   const { token } = req.params;
 
   try {
+    const VITE_CLIENT_PORT = process.env.VITE_CLIENT_PORT || "https://bitbox-in.netlify.app";
+
     const user = await User.findOne({ verificationToken: token });
     if (!user) {
       return res.status(400).json({
@@ -84,7 +86,6 @@ const verifyToken = async (req, res) => {
       message: "Signup successfully",
     });
 
-    const VITE_CLIENT_PORT = process.env.VITE_CLIENT_PORT || "https://bitbox-in.netlify.app";
     // Redirect to the frontend's home page after verification
     return res.redirect(`${VITE_CLIENT_PORT}/login`);
   } catch (err) {
@@ -95,6 +96,39 @@ const verifyToken = async (req, res) => {
     });
   }
 };
+
+async function ResetPasswordByEmail(req, resp) {
+  const VITE_CLIENT_PORT = process.env.VITE_CLIENT_PORT || "https://bitbox-in.netlify.app";
+
+  const { email } = req.body;
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
+
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: email,
+    subject: "Reset Your password on BitBox",
+    html: `
+    <p>Reset your password using the link below:</p>
+    <a href="${VITE_CLIENT_PORT}/reset-password"><button>Click here</button></a> to reset your password
+  `,
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log("Error sending email: " + error);
+      resp.status(500).send("Error sending email");
+    } else {
+      console.log("Email sent: " + info.response);
+      resp.status(200).send({ message: "email sent successfully" });
+    }
+  });
+}
 
 const forgetpassword = async (req, res) => {
   try {
@@ -128,35 +162,6 @@ const forgetpassword = async (req, res) => {
       .json({ success: false, message: "Internal server error" });
   }
 };
-async function ResetPasswordByEmail(req, resp) {
-  const { email } = req.body;
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: EMAIL_USER,
-      pass: EMAIL_PASS,
-    },
-  });
-
-  const mailOptions = {
-    from: EMAIL_USER,
-    to: email,
-    subject: "Reset Your password on BitBox",
-    html: `
-    <p>Reset your password from the link .</p>
-    <a href="https://bitbox-in.netlify.app/forgotpassword"><button>Click here</button></a> to reset password`,
-  };
-
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log("Error sending email: " + error);
-      resp.status(500).send("Error sending email");
-    } else {
-      console.log("Email sent: " + info.response);
-      resp.status(200).send({ message: "email sent successfully" });
-    }
-  });
-}
 
 module.exports = {
   forgetpassword,

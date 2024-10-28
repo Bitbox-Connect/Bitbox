@@ -81,8 +81,7 @@ const ProjectStates = (props) => {
       },
       body: JSON.stringify({ title, description, gitHubLink, youTubeLink }),
     });
-    const json = await response.json();
-    console.log(json)
+    await response.json();
 
     let newProjects = JSON.parse(JSON.stringify(userProjects));
     for (let index = 0; index < newProjects.length; index++) {

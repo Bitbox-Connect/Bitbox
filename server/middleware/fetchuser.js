@@ -15,7 +15,7 @@ const fetchuser = (req, res, next) => {
         // Call next to verify the user
         next()
     }
-    catch (error) { 
+    catch (error) {
         res.status(401).send({ error: "Please authenticate using a valid token" });
     }
 }
