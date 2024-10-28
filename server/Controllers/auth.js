@@ -60,6 +60,8 @@ const verifyToken = async (req, res) => {
   const { token } = req.params;
 
   try {
+    const VITE_CLIENT_PORT = process.env.VITE_CLIENT_PORT || "https://bitbox-in.netlify.app";
+
     const user = await User.findOne({ verificationToken: token });
     if (!user) {
       return res.status(400).json({
@@ -84,7 +86,6 @@ const verifyToken = async (req, res) => {
       message: "Signup successfully",
     });
 
-    const VITE_CLIENT_PORT = process.env.VITE_CLIENT_PORT || "https://bitbox-in.netlify.app";
     // Redirect to the frontend's home page after verification
     return res.redirect(`${VITE_CLIENT_PORT}/login`);
   } catch (err) {
@@ -128,23 +129,27 @@ const forgetpassword = async (req, res) => {
       .json({ success: false, message: "Internal server error" });
   }
 };
+
 async function ResetPasswordByEmail(req, resp) {
+  const VITE_CLIENT_PORT = process.env.VITE_CLIENT_PORT || "https://bitbox-in.netlify.app";
+
   const { email } = req.body;
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: EMAIL_USER,
-      pass: EMAIL_PASS,
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
     },
   });
 
   const mailOptions = {
-    from: EMAIL_USER,
+    from: process.env.EMAIL_USER,
     to: email,
     subject: "Reset Your password on BitBox",
     html: `
-    <p>Reset your password from the link .</p>
-    <a href="https://bitbox-in.netlify.app/forgotpassword"><button>Click here</button></a> to reset password`,
+    <p>Reset your password using the link below:</p>
+    <a href="${VITE_CLIENT_PORT}/forgotpassword"><button>Click here</button></a> to reset your password
+  `,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
