@@ -1,5 +1,5 @@
 import "../css/About.css";
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'; 
 // import { useEffect } from "react";
 import img1 from "../assets/images/Anuj.png";
 import img2 from "../assets/images/Jitendra.png";
@@ -98,7 +98,7 @@ export default function About(props) {
         <div className="px-[2.5rem] m-0 text-center">
           <div className="team-content">
             <h2 className="Heading-Page" data-aos="zoom-in" data-aos-duration="1400">
-              Our <span className="!bg-gradient-to-r from-cyan-500 to-blue-500 !bg-clip-text !text-transparent ">Team</span>
+              <div className="team-heading">Our <span className="!bg-gradient-to-r from-cyan-500 to-blue-500 !bg-clip-text !text-transparent ">Team</span></div>
             </h2>
             <div className="team-grid container ">
               {/* card 1 */}
@@ -237,83 +237,49 @@ export default function About(props) {
       {/* FAQ */}
       <div className="accordion-container">
 
-        <div className="faq-section" data-aos="fade-up" data-aos-duration="1700">
-          <div className="container">
-            <h2 className="Heading-Page mb-7">Frequently Asked <span className="!bg-gradient-to-r from-cyan-500 to-blue-500 !bg-clip-text !text-transparent ">Questions</span></h2>
-            <section>
-              <div className="accordion" id="accordionExample">
-                <div className="accordion-item">
-                  <h2 className="accordion-header flex justify-center">
-                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                      Will a beginner, with absolutely no knowledge of github, gain
-                      anything fruitful?
-                    </button>
-                  </h2>
-                  <div id="collapseOne" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div className="accordion-body fs-5 mb-1" style={{ background: props.mode === 'dark' ? 'linear-gradient(0deg, rgba(31,52,141,1) 2%, rgba(21,21,21,1) 96%)' : 'linear-gradient(to bottom right, #d1d5db, #f3f4f6) ', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                      Yeah, definitely. The organization is meant to assist the
-                      beginners grow in the field of development. We’ll have distinct
-                      projects appropriate both for beginners as well as the accolades
-                      and thereby we’ll make sure that each and every participant gets
-                      to learn something new from the projects he or she is
-                      contributing for.
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header flex justify-center">
-                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                      Are there any charges for registration?
-                    </button>
-                  </h2>
-                  <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'linear-gradient(0deg, rgba(31,52,141,1) 2%, rgba(21,21,21,1) 96%)' : 'linear-gradient(to bottom right, #d1d5db, #f3f4f6) ', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                      No, there are no fees associated with participation. It is completely free of charge.
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header flex justify-center">
-                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                      Is there a specific age requirement for participation?
-                    </button>
-                  </h2>
-                  <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'linear-gradient(0deg, rgba(31,52,141,1) 2%, rgba(21,21,21,1) 96%)' : 'linear-gradient(to bottom right, #d1d5db, #f3f4f6) ', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                      No, there are no age restrictions for joining GSSoC. All age groups are welcome to participate.
-                    </div>
-                  </div>
-                </div>
+      <div className="faq-container max-w-4xl mx-auto px-6 py-10">
+  <h2 className="faq-heading text-4xl font-bold text-center text-gray-800 dark:text-white mb-8">
+    <span className="highlight bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">Frequently Asked Questions</span>
+  </h2>
+  <div className="faq-list divide-y divide-gray-300 dark:divide-gray-700">
+    {[
+      {
+        question: "Will a beginner, with absolutely no knowledge of GitHub, gain anything fruitful?",
+        answer: "Absolutely! This program is designed to guide beginners, with projects and support for all experience levels."
+      },
+      {
+        question: "Are there any charges for registration?",
+        answer: "No, participating in this program is entirely free with no hidden costs."
+      },
+      {
+        question: "Is there a specific age requirement for participation?",
+        answer: "There are no age restrictions! People of all ages are welcome to join and contribute."
+      },
+      {
+        question: "What are the project requirements?",
+        answer: "Projects are open-ended, allowing mentors to share ideas in their fields of expertise without restrictions."
+      },
+      {
+        question: "As a beginner, where should we begin to contribute effectively to projects?",
+        answer: "The resources on our website, including GitHub links and tutorials, will help you contribute effectively."
+      },
+    ].map((item, index) => (
+      <div key={index} className="faq-item py-4">
+        <button
+          onClick={() => document.getElementById(`answer${index}`).classList.toggle("hidden")}
+          className="question-btn w-full text-left text-lg font-semibold text-gray-900 dark:text-black flex justify-between items-center focus:outline-none"
+        >
+          <span>{item.question}</span>
+          <i className="fa fa-chevron-down transition-transform duration-300"></i>
+        </button>
+        <p id={`answer${index}`} className="faq-answer hidden mt-2 text-grey-700 dark:text-black transition-all">
+          {item.answer}
+        </p>
+      </div>
+    ))}
+  </div>
+</div>
 
-                <div className="accordion-item">
-                  <h2 className="accordion-header flex justify-center">
-                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                      What are the project requirements?
-                    </button>
-                  </h2>
-                  <div id="collapseFour" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'linear-gradient(0deg, rgba(31,52,141,1) 2%, rgba(21,21,21,1) 96%)' : 'linear-gradient(to bottom right, #d1d5db, #f3f4f6) ', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                      Projects are not bound by specific conditions. Mentors can propose ideas in their areas of expertise without restriction.
-                    </div>
-                  </div>
-                </div>
-
-                <div className="accordion-item">
-                  <h2 className="accordion-header flex justify-center">
-                    <button className="accordion-button collapsed fs-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseive" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                      As a beginner, where should we begin to contribute effectively to projects?
-                    </button>
-                  </h2>
-                  <div id="collapseFive" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div className="accordion-body fs-5" style={{ background: props.mode === 'dark' ? 'linear-gradient(0deg, rgba(31,52,141,1) 2%, rgba(21,21,21,1) 96%)' : 'linear-gradient(to bottom right, #d1d5db, #f3f4f6) ', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                      You can kickstart your journey by accessing the resources available on our official website. We offer links to GitHub and other development tools to ensure that everyone can contribute effectively to the projects.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-        </div>
       </div>
       {/* Info */}
       {/* <div className="info">

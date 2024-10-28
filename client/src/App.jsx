@@ -35,6 +35,7 @@ import ForgotPassword from "./component/ForgotPassword";
 import ResetPassword from "./component/ResetPassword";
 import VerifyEmail from "./component/Verify";
 import NotFound from "./component/NotFound";
+import Faq from './component/Faq';
 import ProgressBar from "./component/ProgressBar/ProgressBar";
 
 import Cursor from './component/Cursor';
@@ -145,6 +146,10 @@ function App() {
                 <Route exact path="/community" element={<Community mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/about" element={<About mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/blog' element={<BlogPage mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+
+                <Route exact path='/faq' element={<Faq mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                
+
                 <Route exact path='/collab' element={<Collab mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 {/* <Route exact path='/myprofile' element={<ProtectedRoute loggedin={islogged}><MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} /></ProtectedRoute>} /> */}
                 <Route exact path='/ai' element={<Ai mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
