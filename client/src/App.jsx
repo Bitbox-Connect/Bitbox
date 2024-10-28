@@ -34,6 +34,7 @@ import { modeAtom } from "./atom/Atom";
 import ForgotPassword from "./component/ForgotPassword";
 import VerifyEmail from "./component/Verify";
 import NotFound from "./component/NotFound";
+import Faq from './component/Faq';
 import ProgressBar from "./component/ProgressBar/ProgressBar";
 // import ProtectedRoute from '../../client/src/component/ProtectedRoute'
 import AOS from 'aos';
@@ -154,6 +155,8 @@ function App() {
                 <Route exact path="/community" element={<Community mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/about" element={<About mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/blog' element={<BlogPage mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path='/faq' element={<Faq mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                
                 {/* <Route exact path='/myprofile' element={<ProtectedRoute loggedin={islogged}><MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} /></ProtectedRoute>} /> */}
                 <Route exact path='/myprofile' element={<MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/editprofile' element={<EditProfile mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
