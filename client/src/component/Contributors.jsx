@@ -127,7 +127,6 @@ StatCard.propTypes = {
 
 
 export default function Contributor(props) {
-  console.log(props)
   const [contributors, setContributors] = useState([]);
   const [repoStats, setRepoStats] = useState({
     stars: 0,
@@ -152,7 +151,6 @@ export default function Contributor(props) {
 
         allContributors = [...allContributors, ...contributorsData];
         setContributors(allContributors);
-        console.log(allContributors)
 
         const repoResponse = await fetch(
           'https://api.github.com/repos/Bitbox-Connect/Bitbox',

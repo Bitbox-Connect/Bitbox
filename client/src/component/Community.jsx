@@ -2,7 +2,6 @@ import { useContext, useRef, useState, useEffect } from "react";
 import projectContext from "../context/projectContext";
 import profileContext from "../context/profileContext";
 import CommunityCard from "./CommunityCard";
-import axios from "axios";
 import PropTypes from "prop-types";
 import Skeleton from "@mui/material/Skeleton"; // Import Material UI Skeleton
 import "../css/Community.css";
@@ -20,7 +19,6 @@ import commentModalImg from "../assets/images/Modal Image/comment.png";
 import ShareModalImg from "../assets/images/Modal Image/Share.png";
 
 const Community = (props) => {
-  const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 'https://bitbox-uxbo.onrender.com';
   const [loading, setLoading] = useState(true); // State to track loading
   const [project, setProject] = useState({
     id: "",
@@ -36,6 +34,7 @@ const Community = (props) => {
   const { globalProjects, getGlobalProjects } = context;
   const userProfileContext = useContext(profileContext);
   const { userProfile, getUserProfile } = userProfileContext;
+  // eslint-disable-next-line
   const [image, setImage] = useState();
 
   // Fetch projects on component mount
@@ -55,14 +54,6 @@ const Community = (props) => {
     }
     // eslint-disable-next-line
   }, []);
-
-  // Avatar Profile Image
-  useEffect(() => {
-    axios
-      .get(`${VITE_SERVER_PORT}/getAvatarImage`)
-      .then((res) => setImage(res.data[res.data.length - 1].image)) // Fetch the last uploaded image
-      .catch((err) => console.log(err));
-  });
 
   const showDetailProject = (currentProject) => {
     refDetails.current.click();

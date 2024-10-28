@@ -49,8 +49,14 @@ router.post("/googlelogin", async (req, res) => {
           id: user.id,
         },
       };
+
       const authtoken = jwt.sign(data, JWT_SECRET);
+
+      // Send token in response to be stored in localStorage on the client
       res.json({ success: true, authtoken });
+
+      // Send token in response to be stored in localStorage on the client
+      return res.status(200).json({ success: true, authtoken });
     } else {
       res
         .status(400)
@@ -99,9 +105,8 @@ router.post(
       // Find user by email
       let user = await User.findOne({ email });
 
-      // If user does not exists
+      // If user does not exist
       if (!user) {
-        success = false;
         return res.status(400).json({
           success,
           error: "Please try to login with correct credentials",
@@ -112,7 +117,6 @@ router.post(
       const passwordCompare = await bcrypt.compare(password, user.password);
 
       if (!passwordCompare) {
-        success = false;
         return res.status(400).json({
           success,
           error: "Please try to login with correct credentials",
@@ -129,17 +133,15 @@ router.post(
       // Sign the JWT
       const authtoken = jwt.sign(data, JWT_SECRET);
 
-      // Set the token as a cookie and send a response
-      res.cookie('authtoken', authtoken, { httpOnly: true }); // Set cookie
-      success = true;
-      return res.status(200).json({ success }); // Return success response
-
+      // Send token in response to be stored in localStorage on the client
+      return res.status(200).json({ success: true, authtoken });
     } catch (error) {
       console.error(error.message);
       return res.status(500).send("Internal Server Error");
     }
   }
 );
+
 
 // ROUTE 3 : Get Loggedin User Details : GET: "/api/auth/getuser". Login required
 router.get("/getuser", fetchuser, async (req, res) => {
