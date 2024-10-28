@@ -29,7 +29,7 @@
   }
   
   .faq-item:hover {
-    background-color: #0fa2eb;
+    background-color: #157aac;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
   
@@ -42,7 +42,7 @@
   }
   
   .faq-question:hover {
-    color: #ffffff; /* Change color on hover */
+    color: #e9e0e0; /* Change color on hover */
   }
   
   .faq-answer {
