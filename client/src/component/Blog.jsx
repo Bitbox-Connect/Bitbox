@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import { Search } from 'lucide-react';
 import img1 from "../assets/blogs/1.webp";
 import img2 from "../assets/blogs/2.jpeg";
@@ -7,6 +8,7 @@ import img4 from "../assets/blogs/4.jpeg";
 import img5 from "../assets/blogs/5.jpeg";
 import img6 from "../assets/blogs/6.png";
 import { Link } from 'react-router-dom';
+import '../css/Home.css';
 
 
 // Dummy blog data
@@ -148,29 +150,29 @@ export default function BlogPage() {
                   <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">
                     {post.category}
                   </span>
-                  <span className="text-gray-500 dark:text-gray-400 text-sm">
+                  <span className="text-black text-sm">
                     {post.readTime}
                   </span>
                 </div>
-                <h2 className="text-xl font-bold mb-2 text-gray-800 dark:text-dark">
+                <h2 className="text-xl font-bold mb-2 ml-[-60px] text-black">
                   {post.title}
                 </h2>
-                <p className="text-gray-600 dark:text-dark-300 mb-4">
+                <p className="text-black dark:text-dark-300 mb-4">
                   {post.excerpt}
                 </p>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700"></div>
                     <div>
-                      <p className="text-sm font-medium text-gray-800 dark:text-white">
+                      <p className="text-sm font-medium text-black dark:text-white">
                         {post.author}
                       </p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                      <p className="text-xs text-black dark:text-gray-400">
                         {post.date}
                       </p>
                     </div>
                   </div>
-                  <button className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 font-medium">
+                  <button className="text-black hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 font-medium">
                     Read More
                   </button>
                 </div>
