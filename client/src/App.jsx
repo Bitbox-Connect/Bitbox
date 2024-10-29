@@ -47,6 +47,7 @@ import 'aos/dist/aos.css';
 import Collab from "./component/Collab";
 import Ai from "./component/AI";
 import FAQ from "./component/FAQ"; // Import the FAQ component
+import CreateBlog from "./component/CreateBlog";
 
 // Main Layout Component
 const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
@@ -124,7 +125,7 @@ function App() {
 
   return (
     <div className="h-full w-screen">
-      <Cursor/>
+      <Cursor />
       <ProjectState>
         <ProfileState>
           <Router>
@@ -148,7 +149,7 @@ function App() {
                 <Route exact path='/blog' element={<BlogPage mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
 
                 <Route exact path='/faq' element={<Faq mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                
+
 
                 <Route exact path='/collab' element={<Collab mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 {/* <Route exact path='/myprofile' element={<ProtectedRoute loggedin={islogged}><MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} /></ProtectedRoute>} /> */}
@@ -167,6 +168,7 @@ function App() {
                 <Route exact path='/privacypolicy' element={<PrivacyPolicy mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/termofuse' element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/FAQ' element={<FAQ />} /> {/* Add this line */}
+                <Route exact path='/createBlogPost' element={<CreateBlog />} /> {/* Add this line */}
                 <Route exact path='/*' element={<NotFound />} />
               </Routes>
             </Layout>
