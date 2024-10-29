@@ -223,38 +223,50 @@ const Home = (props) => {
             </motion.section>
 
             {/* Bitbox About Section */}
-            <div className="Community-Blocks flex items-center justify-center" style={{ background: props.mode === 'dark' ? '#000' : '#f7f7f7', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                <section className="max-sm:px-2.5 max-xl:px-5 max-w-7xl">
+            <div
+                className="Community-Blocks flex items-center justify-center"
+                style={{
+                    background: props.mode === "dark" ? "#000" : "#f7f7f7",
+                    color: props.mode === "dark" ? "white" : "black",
+                }}
+            >
+                <section className="max-sm:px-4 max-xl:px-6 max-w-7xl">
                     <h2
-                        className="font-bold text-blue-main text-4xl md:text-5xl lg:text-[3.5rem] pt-16"
+                        className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-600 text-4xl md:text-5xl lg:text-[3.5rem] leading-snug md:leading-tight lg:leading-tight tracking-tight pt-16 drop-shadow-lg"
                         style={{ color: props.mode === "dark" ? "white" : "" }}
-                        data-aos='zoom-out'
+                        data-aos="zoom-out"
                     >
                         Be a part of Bitbox Community
                     </h2>
                     <div className="flex items-center justify-center">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-12 pb-16">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-12 pb-16">
                             {cardData.map((card, index) => (
                                 <div
                                     key={index}
-                                    className="py-16 px-5 rounded-2xl border-blue-main border-2 space-y-3 transition-transform duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-main hover:shadow-lg group"
-                                    data-aos='zoom-in'
+                                    className="py-14 px-6 rounded-xl cursor-pointer border-2 border-[#026] space-y-6 transition-transform duration-500 ease-in-out transform hover:scale-105 hover:rotate-2 hover:shadow-2xl group hover:shadow-purple-300/40 relative overflow-hidden"
+                                    data-aos="zoom-in"
                                     data-aos-delay={100 * index}
-                                    data-aos-duration='1700'
+                                    data-aos-duration="1600"
                                 >
-                                    <h3 className="font-semibold text-[28px] text-center text-blue-main group-hover:text-white">
+                                    {/* Background gradient fill animation */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-blue-main to-purple-500 z-0 group-hover:h-full h-0 opacity-70 transition-all duration-500 ease-in-out"></div>
+
+                                    <h3 className="font-semibold text-[28px] lg:text-[30px] text-center text-[#dadaff]-main group-hover:text-white relative z-10 transition-colors duration-700 ease-in-out tracking-wide">
                                         {card.title}
                                     </h3>
-                                    <p className="font-medium text-blue-main group-hover:text-white">
+                                    <p className="font-medium text-base lg:text-lg text-[#a8b7d5]-main group-hover:text-white relative z-10 transition-colors duration-500 ease-in-out tracking-normal leading-relaxed">
                                         {card.content}
                                     </p>
                                 </div>
                             ))}
                         </div>
-
                     </div>
                 </section>
             </div>
+
+
+
+
 
             {/* Service Section */}
             <div className="service-section" style={{ marginTop: "5rem", background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }} data-aos="fade-up" data-aos-duration='1600'>
@@ -268,34 +280,46 @@ const Home = (props) => {
             </div>
 
             {/* Works Section */}
-            <div className="work-Sec mb-2 pt-14" style={{ background: props.mode === 'dark' ? 'black' : '#f7f7f7', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                <h2 className='work-heading' style={{ textAlign: 'center', marginBottom: '1rem', fontWeight: 'bold', textTransform: 'uppercase' }} data-aos="zoom-out">
+            <div
+                className="work-Sec mb-2 pt-14"
+                style={{
+                    background: props.mode === "dark" ? "black" : "#f7f7f7",
+                    color: props.mode === "dark" ? "white" : "black",
+                }}
+            >
+                <h2
+                    className="work-heading text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-600 text-4xl font-extrabold uppercase mb-6 tracking-tight"
+                    style={{ textAlign: "center" }}
+                    data-aos="zoom-out"
+                >
                     What We Work On
                 </h2>
 
-                <div className="work-row1  flex items-center justify-center">
-                    <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-4 pt-12 pb-16 ">
+                <div className="work-row1 flex items-center justify-center">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 pt-12 pb-16">
                         {worddata.map((word, index) => (
-
                             <div
                                 key={index}
-                                className="py-16 px-3 rounded-2xl border-blue-main border-2 space-y-3 transition-transform duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-main hover:shadow-lg group"
-                                data-aos='zoom-in'
+                                className="py-14 px-6 rounded-xl cursor-pointer border-2 border-[#026] space-y-6 transition-transform duration-500 ease-in-out transform hover:scale-105 hover:rotate-2 hover:shadow-2xl group hover:shadow-purple-300/40 relative overflow-hidden"
+                                data-aos="zoom-in"
                                 data-aos-delay={100 * index}
-                                data-aos-duration='1700'
+                                data-aos-duration="1600"
                             >
-                                <h3 className="font-semibold text-[28px] text-center text-blue-main group-hover:text-white">
+                                {/* Background gradient fill animation */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-blue-main to-purple-500 z-0 group-hover:h-full h-0 opacity-70 transition-all duration-500 ease-in-out"></div>
+
+                                <h3 className="font-semibold text-[28px] lg:text-[26px] text-center text-[#dadaff]-main group-hover:text-white relative z-10 transition-colors duration-700 ease-in-out tracking-wide">
                                     {word.title}
                                 </h3>
-                                <p className="font-medium text-blue-main pl-6 group-hover:text-white">
+                                <p className="font-medium text-base lg:text-lg text-[#a8b7d5]-main group-hover:text-white relative z-10 transition-colors duration-500 ease-in-out tracking-normal leading-relaxed">
                                     {word.content}
                                 </p>
                             </div>
-
                         ))}
                     </div>
                 </div>
             </div>
+
 
             {/* Testimonial Section */}
             <Testimonial />
