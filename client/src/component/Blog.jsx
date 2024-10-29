@@ -1,4 +1,6 @@
+
 import { useEffect, useState } from 'react';
+
 import { Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -8,6 +10,80 @@ import img3 from "../assets/blogs/3.png";
 import img4 from "../assets/blogs/4.jpeg";
 import img5 from "../assets/blogs/5.jpeg";
 import img6 from "../assets/blogs/6.png";
+
+import { Link } from 'react-router-dom';
+import '../css/Home.css';
+
+
+// Dummy blog data
+const blogPosts = [
+  {
+    id: 1,
+    title: "The Art of Modern Web Design",
+    author: "Sarah Chen",
+    date: "March 15, 2024",
+    category: "Design",
+    readTime: "5 min read",
+    image: img1,
+    excerpt: "Exploring the latest trends in web design and how they shape user experiences in the digital age.",
+    tags: ["Design", "Web", "UI/UX"]
+  },
+  {
+    id: 2,
+    title: "Understanding React Hooks",
+    author: "James Wilson",
+    date: "March 18, 2024",
+    category: "Development",
+    readTime: "8 min read",
+    image: img2,
+    excerpt: "A deep dive into React Hooks and how they're revolutionizing the way we build components.",
+    tags: ["React", "JavaScript", "Programming"]
+  },
+  {
+    id: 3,
+    title: "The Future of AI in Design",
+    author: "Elena Martinez",
+    date: "March 20, 2024",
+    category: "AI",
+    readTime: "6 min read",
+    image: img3,
+    excerpt: "How artificial intelligence is transforming the design industry and what it means for creators.",
+    tags: ["AI", "Design", "Technology"]
+  },
+  {
+    id: 4,
+    title: "Building Sustainable Tech",
+    author: "Alex Kumar",
+    date: "March 22, 2024",
+    category: "Technology",
+    readTime: "7 min read",
+    image: img4,
+    excerpt: "Exploring eco-friendly approaches to software development and digital infrastructure.",
+    tags: ["Sustainability", "Technology", "Green Computing"]
+  },
+  {
+    id: 5,
+    title: "The Psychology of UX Design",
+    author: "Maya Patel",
+    date: "March 25, 2024",
+    category: "UX",
+    readTime: "10 min read",
+    image: img5,
+    excerpt: "Understanding how human psychology influences user experience design decisions.",
+    tags: ["UX", "Psychology", "Design"]
+  },
+  {
+    id: 6,
+    title: "Mobile-First Development",
+    author: "Thomas Anderson",
+    date: "March 27, 2024",
+    category: "Development",
+    readTime: "6 min read",
+    image: img6,
+    excerpt: "Best practices for building responsive applications with a mobile-first approach.",
+    tags: ["Mobile", "Development", "Responsive"]
+  }
+ 
 const images = [
   { src: img1, category: 'Web Development' },
   { src: img2, category: 'Mobile Development' },
@@ -126,24 +202,37 @@ export default function BlogPage() {
                   <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">
                     {post.category}
                   </span>
+
+                  <span className="text-black text-sm">
+                    {post.readTime}
+                  </span>
+
                 </div>
-                <h2 className="text-xl font-bold mb-2 text-gray-800 dark:text-dark">
+                <h2 className="text-xl font-bold mb-2 ml-[-60px] text-black">
                   {post.title}
                 </h2>
+
+                <p className="text-black dark:text-dark-300 mb-4">
+                  {post.excerpt}
+                </p>
+
                 <div className="text-gray-600 dark:text-dark-300 mb-4" dangerouslySetInnerHTML={{ __html: post.content }} />
+
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700"></div>
                     <div>
-                      <p className="text-sm font-medium text-gray-800 dark:text-white">
+                      <p className="text-sm font-medium text-black dark:text-white">
                         {post.author}
                       </p>
+ 
                       <p className="text-xs text-gray-500 dark:text-gray-400">
                         {formatDate(post.date)}
+
                       </p>
                     </div>
                   </div>
-                  <button className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 font-medium">
+                  <button className="text-black hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 font-medium">
                     Read More
                   </button>
                 </div>
