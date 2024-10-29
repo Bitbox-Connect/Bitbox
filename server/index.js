@@ -46,6 +46,7 @@ app.use("/api/projects", require("./routes/projects"));
 app.use("/api/profile", require("./routes/profile"));
 app.use("/api/feedback", require("./routes/feedback"));
 app.use("/api/contact", require("./routes/contact"));
+app.use("/api/blog", require("./routes/blog"));
 
 // Socket.io connection handling
 const users = {};
