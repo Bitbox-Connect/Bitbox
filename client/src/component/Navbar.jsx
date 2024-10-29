@@ -342,7 +342,7 @@ function Navbar(props) {
       >
         <ul className="sidebar-links">
           <li>
-            <Link to="/" onClick={() => setIsSidebarOpen(false)}>{props.home}</Link>
+            <Link to="/" onClick={() => setIsSidebarOpen(false)} style={{ color: `${props}` }}>{props.home}</Link>
           </li>
           <li>
             <Link to="/about" onClick={() => setIsSidebarOpen(false)}>{props.about}</Link>

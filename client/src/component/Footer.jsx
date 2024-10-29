@@ -109,7 +109,8 @@ const Footer = (props) => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
-                                className="px-4 py-2 border border-gray-300 rounded-md w-full max-w-xs focus:outline-none text-black"
+                                 className="px-4 py-2 border border-gray-300 rounded-md w-full max-w-xs focus:outline-none"
+ 
                             />
                             <button
                                 type="submit"
