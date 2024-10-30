@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react';
 
 import { Search } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import '../css/Home.css';
 
 import img1 from "../assets/blogs/1.webp";
 import img2 from "../assets/blogs/2.jpeg";
@@ -10,8 +12,6 @@ import img4 from "../assets/blogs/4.jpeg";
 import img5 from "../assets/blogs/5.jpeg";
 import img6 from "../assets/blogs/6.png";
 
-import { Link } from 'react-router-dom';
-import '../css/Home.css';
 
 const images = [
   { src: img1, category: 'Web Development' },
@@ -154,16 +154,18 @@ export default function BlogPage() {
                       <p className="text-sm font-medium text-black dark:text-white">
                         {post.author}
                       </p>
- 
+
                       <p className="text-xs text-gray-500 dark:text-gray-400">
                         {formatDate(post.date)}
 
                       </p>
                     </div>
                   </div>
-                  <button className="text-black hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 font-medium">
-                    Read More
-                  </button>
+                  <Link to={`/read-more-blog/${post._id}`} >
+                    <button className="text-black hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 font-medium">
+                      Read More
+                    </button>
+                  </Link>
                 </div>
               </div>
             </article>

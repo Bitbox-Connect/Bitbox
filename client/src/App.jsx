@@ -39,12 +39,13 @@ import NotFound from "./component/NotFound";
 import Faq from './component/Faq';
 import ProgressBar from "./component/ProgressBar/ProgressBar";
 import Cursor from './component/Cursor';
+import ReadMoreBlog from './component/ReadMoreBlog';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Collab from "./component/Collab";
 import Ai from "./component/Ai";
-import FAQ from "./component/Faq"; 
+import FAQ from "./component/Faq";
 import CreateBlog from "./component/CreateBlog";
 
 // Main Layout Component
@@ -164,6 +165,7 @@ function App() {
                 <Route exact path='/termofuse' element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/FAQ' element={<FAQ />} /> {/* Add this line */}
                 <Route exact path='/createBlogPost' element={<CreateBlog />} /> {/* Add this line */}
+                <Route exact path='/read-more-blog/:id' element={<ReadMoreBlog mode={mode} setProgress={setProgress} showAlert={showAlert} />} /> {/* Add this line */}
                 <Route exact path='/*' element={<NotFound />} />
               </Routes>
             </Layout>
