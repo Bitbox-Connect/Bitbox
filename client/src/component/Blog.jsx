@@ -11,79 +11,79 @@ import img4 from "../assets/blogs/4.jpeg";
 import img5 from "../assets/blogs/5.jpeg";
 import img6 from "../assets/blogs/6.png";
 
-import { Link } from 'react-router-dom';
 import '../css/Home.css';
 
 
 // Dummy blog data
-const blogPosts = [
-  {
-    id: 1,
-    title: "The Art of Modern Web Design",
-    author: "Sarah Chen",
-    date: "March 15, 2024",
-    category: "Design",
-    readTime: "5 min read",
-    image: img1,
-    excerpt: "Exploring the latest trends in web design and how they shape user experiences in the digital age.",
-    tags: ["Design", "Web", "UI/UX"]
-  },
-  {
-    id: 2,
-    title: "Understanding React Hooks",
-    author: "James Wilson",
-    date: "March 18, 2024",
-    category: "Development",
-    readTime: "8 min read",
-    image: img2,
-    excerpt: "A deep dive into React Hooks and how they're revolutionizing the way we build components.",
-    tags: ["React", "JavaScript", "Programming"]
-  },
-  {
-    id: 3,
-    title: "The Future of AI in Design",
-    author: "Elena Martinez",
-    date: "March 20, 2024",
-    category: "AI",
-    readTime: "6 min read",
-    image: img3,
-    excerpt: "How artificial intelligence is transforming the design industry and what it means for creators.",
-    tags: ["AI", "Design", "Technology"]
-  },
-  {
-    id: 4,
-    title: "Building Sustainable Tech",
-    author: "Alex Kumar",
-    date: "March 22, 2024",
-    category: "Technology",
-    readTime: "7 min read",
-    image: img4,
-    excerpt: "Exploring eco-friendly approaches to software development and digital infrastructure.",
-    tags: ["Sustainability", "Technology", "Green Computing"]
-  },
-  {
-    id: 5,
-    title: "The Psychology of UX Design",
-    author: "Maya Patel",
-    date: "March 25, 2024",
-    category: "UX",
-    readTime: "10 min read",
-    image: img5,
-    excerpt: "Understanding how human psychology influences user experience design decisions.",
-    tags: ["UX", "Psychology", "Design"]
-  },
-  {
-    id: 6,
-    title: "Mobile-First Development",
-    author: "Thomas Anderson",
-    date: "March 27, 2024",
-    category: "Development",
-    readTime: "6 min read",
-    image: img6,
-    excerpt: "Best practices for building responsive applications with a mobile-first approach.",
-    tags: ["Mobile", "Development", "Responsive"]
-  }
- 
+// const blogPosts = [
+//   {
+//     id: 1,
+//     title: "The Art of Modern Web Design",
+//     author: "Sarah Chen",
+//     date: "March 15, 2024",
+//     category: "Design",
+//     readTime: "5 min read",
+//     image: img1,
+//     excerpt: "Exploring the latest trends in web design and how they shape user experiences in the digital age.",
+//     tags: ["Design", "Web", "UI/UX"]
+//   },
+//   {
+//     id: 2,
+//     title: "Understanding React Hooks",
+//     author: "James Wilson",
+//     date: "March 18, 2024",
+//     category: "Development",
+//     readTime: "8 min read",
+//     image: img2,
+//     excerpt: "A deep dive into React Hooks and how they're revolutionizing the way we build components.",
+//     tags: ["React", "JavaScript", "Programming"]
+//   },
+//   {
+//     id: 3,
+//     title: "The Future of AI in Design",
+//     author: "Elena Martinez",
+//     date: "March 20, 2024",
+//     category: "AI",
+//     readTime: "6 min read",
+//     image: img3,
+//     excerpt: "How artificial intelligence is transforming the design industry and what it means for creators.",
+//     tags: ["AI", "Design", "Technology"]
+//   },
+//   {
+//     id: 4,
+//     title: "Building Sustainable Tech",
+//     author: "Alex Kumar",
+//     date: "March 22, 2024",
+//     category: "Technology",
+//     readTime: "7 min read",
+//     image: img4,
+//     excerpt: "Exploring eco-friendly approaches to software development and digital infrastructure.",
+//     tags: ["Sustainability", "Technology", "Green Computing"]
+//   },
+//   {
+//     id: 5,
+//     title: "The Psychology of UX Design",
+//     author: "Maya Patel",
+//     date: "March 25, 2024",
+//     category: "UX",
+//     readTime: "10 min read",
+//     image: img5,
+//     excerpt: "Understanding how human psychology influences user experience design decisions.",
+//     tags: ["UX", "Psychology", "Design"]
+//   },
+//   {
+//     id: 6,
+//     title: "Mobile-First Development",
+//     author: "Thomas Anderson",
+//     date: "March 27, 2024",
+//     category: "Development",
+//     readTime: "6 min read",
+//     image: img6,
+//     excerpt: "Best practices for building responsive applications with a mobile-first approach.",
+//     tags: ["Mobile", "Development", "Responsive"]
+//   }
+// ]
+
 const images = [
   { src: img1, category: 'Web Development' },
   { src: img2, category: 'Mobile Development' },
@@ -92,7 +92,6 @@ const images = [
   { src: img4, category: 'AI' },
   { src: img3, category: 'Cybersecurity' },
 ];
-
 export default function BlogPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -160,12 +159,14 @@ export default function BlogPage() {
             <input
               type="text"
               placeholder="Search articles..."
-              className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-700"
+              className="w-full pr-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-700"
               value={searchTerm}
+              style={{ paddingLeft: '40px' }}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
           </div>
+
           <div className="flex gap-2 overflow-x-auto pb-2">
             {categories.map(category => (
               <button
@@ -225,7 +226,7 @@ export default function BlogPage() {
                       <p className="text-sm font-medium text-black dark:text-white">
                         {post.author}
                       </p>
- 
+
                       <p className="text-xs text-gray-500 dark:text-gray-400">
                         {formatDate(post.date)}
 
