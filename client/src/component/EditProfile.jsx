@@ -28,18 +28,26 @@ const EditProfile = (props) => {
   const onChange = (e) => {
     setProfile({ ...profile, [e.target.name]: e.target.value });
   };
-
   const handleClick = async () => {
     try {
-      // also update the user profile
+      const token = localStorage.getItem("token");
+
+      const config = {
+        headers: {
+          "auth-token": token,
+        },
+      };
+
+      // Update the user profile
       const updateProfileResponse = await axios.put(
-        `${VITE_SERVER_PORT}/profile/updateprofile`,
+        `${VITE_SERVER_PORT}/api/profile/updateprofile`,
         {
           name: profile.name,
           college: profile.college,
           phone: profile.phone,
           address: profile.address,
-        }
+        },
+        config // Pass the config with headers
       );
 
       if (updateProfileResponse.status === 200) {
@@ -54,14 +62,16 @@ const EditProfile = (props) => {
           reader.onloadend = () => {
             const imageData = reader.result;
             axios
-              .post(`${VITE_SERVER_PORT}/uploadAvatarImage`, {
-                image: imageData,
-              })
+              .post(
+                `${VITE_SERVER_PORT}/uploadAvatarImage`,
+                { image: imageData },
+                config // Pass the config with headers for image upload
+              )
               .then((res) => {
                 console.log("Image uploaded:", res.data);
                 // After successful upload, fetch the updated image
                 axios
-                  .get(`${VITE_SERVER_PORT}/getAvatarImage`)
+                  .get(`${VITE_SERVER_PORT}/getAvatarImage`, config) // Include config in GET request
                   .then((res) => {
                     setImage(res.data[res.data.length - 1].image); // Fetch the last uploaded image
                   })

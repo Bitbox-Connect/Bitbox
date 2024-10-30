@@ -14,7 +14,7 @@ function incrementVisitorCount() {
 function displayVisitorCount() {
   const counterElement = document.querySelector('.website-counter');
   const count = incrementVisitorCount();
-  counterElement.textContent = count;
+  // counterElement.textContent = count;
 }
 
 // Call the display function when the page loads
