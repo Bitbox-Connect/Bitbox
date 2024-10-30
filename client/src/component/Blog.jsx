@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 
 import { Search } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 import img1 from "../assets/blogs/1.webp";
 import img2 from "../assets/blogs/2.jpeg";
@@ -14,76 +13,6 @@ import img6 from "../assets/blogs/6.png";
 import { Link } from 'react-router-dom';
 import '../css/Home.css';
 
-
-// Dummy blog data
-const blogPosts = [
-  {
-    id: 1,
-    title: "The Art of Modern Web Design",
-    author: "Sarah Chen",
-    date: "March 15, 2024",
-    category: "Design",
-    readTime: "5 min read",
-    image: img1,
-    excerpt: "Exploring the latest trends in web design and how they shape user experiences in the digital age.",
-    tags: ["Design", "Web", "UI/UX"]
-  },
-  {
-    id: 2,
-    title: "Understanding React Hooks",
-    author: "James Wilson",
-    date: "March 18, 2024",
-    category: "Development",
-    readTime: "8 min read",
-    image: img2,
-    excerpt: "A deep dive into React Hooks and how they're revolutionizing the way we build components.",
-    tags: ["React", "JavaScript", "Programming"]
-  },
-  {
-    id: 3,
-    title: "The Future of AI in Design",
-    author: "Elena Martinez",
-    date: "March 20, 2024",
-    category: "AI",
-    readTime: "6 min read",
-    image: img3,
-    excerpt: "How artificial intelligence is transforming the design industry and what it means for creators.",
-    tags: ["AI", "Design", "Technology"]
-  },
-  {
-    id: 4,
-    title: "Building Sustainable Tech",
-    author: "Alex Kumar",
-    date: "March 22, 2024",
-    category: "Technology",
-    readTime: "7 min read",
-    image: img4,
-    excerpt: "Exploring eco-friendly approaches to software development and digital infrastructure.",
-    tags: ["Sustainability", "Technology", "Green Computing"]
-  },
-  {
-    id: 5,
-    title: "The Psychology of UX Design",
-    author: "Maya Patel",
-    date: "March 25, 2024",
-    category: "UX",
-    readTime: "10 min read",
-    image: img5,
-    excerpt: "Understanding how human psychology influences user experience design decisions.",
-    tags: ["UX", "Psychology", "Design"]
-  },
-  {
-    id: 6,
-    title: "Mobile-First Development",
-    author: "Thomas Anderson",
-    date: "March 27, 2024",
-    category: "Development",
-    readTime: "6 min read",
-    image: img6,
-    excerpt: "Best practices for building responsive applications with a mobile-first approach.",
-    tags: ["Mobile", "Development", "Responsive"]
-  }
- 
 const images = [
   { src: img1, category: 'Web Development' },
   { src: img2, category: 'Mobile Development' },
@@ -249,7 +178,7 @@ export default function BlogPage() {
                     </svg>
                   </p>
                   <h1 className="mt-3 text-2xl font-semibold text-gray-800 md:text-3xl">Page not found</h1>
-                  <p className="mt-4 text-gray-500">The page you are looking for doesn't exist. Here are some helpful links:</p>
+                  <p className="mt-4 text-gray-500">The page you are looking for doesn&apos;t exist. Here are some helpful links:</p>
 
                   <div className="flex items-center w-full mt-6 gap-x-3 shrink-0 sm:w-auto">
                     <button onClick={() => setSearchTerm('')} className="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto hover:bg-gray-100">
