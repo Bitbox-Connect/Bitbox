@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 
+
 import { Search } from "lucide-react";
 import { Link } from "react-router-dom";
+
+
 
 import img1 from "../assets/blogs/1.webp";
 import img2 from "../assets/blogs/2.jpeg";
@@ -9,6 +12,7 @@ import img3 from "../assets/blogs/3.png";
 import img4 from "../assets/blogs/4.jpeg";
 import img5 from "../assets/blogs/5.jpeg";
 import img6 from "../assets/blogs/6.png";
+
 
 // import { Link } from 'react-router-dom';
 import "../css/Home.css";
@@ -88,6 +92,7 @@ const blogPosts = [
     tags: ["Mobile", "Development", "Responsive"],
   },
 ];
+
 
 const images = [
   { src: img1, category: "Web Development" },
@@ -274,6 +279,7 @@ export default function BlogPage() {
                       />
                     </svg>
                   </p>
+
                   <h1 className="mt-3 text-2xl font-semibold text-gray-800 md:text-3xl">
                     Page not found
                   </h1>
@@ -281,6 +287,7 @@ export default function BlogPage() {
                     The page you are looking for doesn't exist. Here are some
                     helpful links:
                   </p>
+
 
                   <div className="flex items-center w-full mt-6 gap-x-3 shrink-0 sm:w-auto">
                     <button

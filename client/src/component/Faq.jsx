@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { useState } from 'react';
 import { FaGithub, FaLinkedin, FaXTwitter, FaYoutube } from 'react-icons/fa6';
 
 // Sample FAQ data array
@@ -44,6 +45,7 @@ const faqData = [
     answer: "Currently, BitBox does not have a dedicated mobile app, but the platform is mobile-friendly and accessible via web browsers.",
   },
 ];
+
 function FAQ(props) {
   const [activeIndex, setActiveIndex] = useState(null);
   const [visibleCount, setVisibleCount] = useState(5);
@@ -158,5 +160,9 @@ function FAQ(props) {
     </div>
   );
 }
+
+FAQ.propTypes = {
+  mode: PropTypes.string.isRequired,
+};
 
 export default FAQ;

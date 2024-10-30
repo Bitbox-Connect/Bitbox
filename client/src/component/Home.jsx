@@ -72,7 +72,7 @@ const Home = (props) => {
                 <section className="main-section flex md:flex-row flex-col-reverse container md:min-h-[100vh] md:mt-[12rem] md:mb-14 mt-[38rem]" >
                     <div className="content-left">
                         <div className="section-label" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? '#6366f2' : '#6366f1' }}>Very proud to introduce</div>
-                        <h1 className="section-title" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Fueling Innovation Through Developer Collaboration</h1>
+                        <h1 className="section-title text-left" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>Fueling Innovation Through Developer Collaboration</h1>
                         <div className="section-description" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
                             At BitBox, we simplify version control and collaboration by providing a user-friendly platform for developers. Whether you’re a solo programmer or part of a large team, BitBox offers intuitive tools to manage your projects efficiently. Experience fast, reliable performance and seamless integration with modern development workflows. With BitBox, managing and sharing your code becomes a smooth process, enabling you to focus on building better software.
                         </div>
@@ -263,10 +263,6 @@ const Home = (props) => {
                     </div>
                 </section>
             </div>
-
-
-
-
 
             {/* Service Section */}
             <div className="service-section" style={{ marginTop: "5rem", background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }} data-aos="fade-up" data-aos-duration='1600'>
