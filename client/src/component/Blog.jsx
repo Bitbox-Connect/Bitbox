@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-
+import PropTypes from 'prop-types';
 import { Search } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -13,89 +13,6 @@ import img4 from "../assets/blogs/4.jpeg";
 import img5 from "../assets/blogs/5.jpeg";
 import img6 from "../assets/blogs/6.png";
 
- 
-
-// import { Link } from 'react-router-dom';
-import "../css/Home.css";
-
-// Dummy blog data
- 
-const blogPosts = [
-  {
-    id: 1,
-    title: "The Art of Modern Web Design",
-    author: "Sarah Chen",
-    date: "March 15, 2024",
-    category: "Design",
-    readTime: "5 min read",
-    image: img1,
-    excerpt:
-      "Exploring the latest trends in web design and how they shape user experiences in the digital age.",
-    tags: ["Design", "Web", "UI/UX"],
-  },
-  {
-    id: 2,
-    title: "Understanding React Hooks",
-    author: "James Wilson",
-    date: "March 18, 2024",
-    category: "Development",
-    readTime: "8 min read",
-    image: img2,
-    excerpt:
-      "A deep dive into React Hooks and how they're revolutionizing the way we build components.",
-    tags: ["React", "JavaScript", "Programming"],
-  },
-  {
-    id: 3,
-    title: "The Future of AI in Design",
-    author: "Elena Martinez",
-    date: "March 20, 2024",
-    category: "AI",
-    readTime: "6 min read",
-    image: img3,
-    excerpt:
-      "How artificial intelligence is transforming the design industry and what it means for creators.",
-    tags: ["AI", "Design", "Technology"],
-  },
-  {
-    id: 4,
-    title: "Building Sustainable Tech",
-    author: "Alex Kumar",
-    date: "March 22, 2024",
-    category: "Technology",
-    readTime: "7 min read",
-    image: img4,
-    excerpt:
-      "Exploring eco-friendly approaches to software development and digital infrastructure.",
-    tags: ["Sustainability", "Technology", "Green Computing"],
-  },
-  {
-    id: 5,
-    title: "The Psychology of UX Design",
-    author: "Maya Patel",
-    date: "March 25, 2024",
-    category: "UX",
-    readTime: "10 min read",
-    image: img5,
-    excerpt:
-      "Understanding how human psychology influences user experience design decisions.",
-    tags: ["UX", "Psychology", "Design"],
-  },
-  {
-    id: 6,
-    title: "Mobile-First Development",
-    author: "Thomas Anderson",
-    date: "March 27, 2024",
-    category: "Development",
-    readTime: "6 min read",
-    image: img6,
-    excerpt:
-      "Best practices for building responsive applications with a mobile-first approach.",
-    tags: ["Mobile", "Development", "Responsive"],
-  },
-];
-
- 
 const images = [
   { src: img1, category: "Web Development" },
   { src: img2, category: "Mobile Development" },
@@ -104,7 +21,12 @@ const images = [
   { src: img4, category: "AI" },
   { src: img3, category: "Cybersecurity" },
 ];
-export default function BlogPage() {
+
+BlogPage.propTypes = {
+  mode: PropTypes.string.isRequired,
+
+};
+export default function BlogPage(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [blogPosts, setblogPosts] = useState([]);
@@ -191,11 +113,10 @@ export default function BlogPage() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  selectedCategory === category
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200"
-                }`}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${selectedCategory === category
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200"
+                  }`}
               >
                 {category}
               </button>
@@ -209,59 +130,47 @@ export default function BlogPage() {
         </div>
 
         {/* Blog Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {filteredPosts.length > 0 ? (
-            filteredPosts.map((post) => (
-              <article
-                key={post.id}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300"
-              >
+            filteredPosts.map((blogPost) => (
+
+              <div className={`max-w-3xl mx-auto my-8 ${props.mode === 'light' ? 'bg-white' : 'bg-gray-800'} rounded-lg shadow-md overflow-hidden`} key={blogPost.id}>
                 <img
-                  src={categoryImage(post.category)} // Fallback to empty string if no image is found
-                  alt={post.title}
-                  className="w-full h-48 object-cover"
+                  src={categoryImage(blogPost.category)}
+                  alt={blogPost.title}
+                  className="w-full h-64 object-cover"
+                  onError={(e) => { e.target.onerror = null; e.target.src = '/placeholder.svg'; }}
                 />
                 <div className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">
-                      {post.category}
-                    </span>
-
-                    <span className="text-black text-sm">{post.readTime}</span>
+                  <h1 className={`text-3xl font-bold ${props.mode === 'light' ? 'text-gray-900' : 'text-white'} mb-4`}>{blogPost.title}</h1>
+                  <div className={`flex items-center ${props.mode === 'light' ? 'text-gray-600' : 'text-gray-400'} text-sm mb-4`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 24 24" stroke="currentColor" fill="none">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <time dateTime={new Date(blogPost.date).toISOString()}>
+                      {new Date(blogPost.date).toDateString()}
+                    </time>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-4 mr-2" viewBox="0 0 24 24" stroke="currentColor" fill="none">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                    </svg>
+                    <span>{blogPost.category}</span>
                   </div>
-                  <h2 className="text-xl font-bold mb-2 ml-[-60px] text-black">
-                    {post.title}
-                  </h2>
-
-                  <p className="text-black dark:text-dark-300 mb-4">
-                    {post.excerpt}
-                  </p>
-
                   <div
-                    className="text-gray-600 dark:text-dark-300 mb-4"
-                    dangerouslySetInnerHTML={{ __html: post.content }}
+                    className={`${props.mode === 'light' ? 'text-gray-400' : 'text-gray-700'} leading-relaxed mb-4`}
+                    dangerouslySetInnerHTML={{ __html: blogPost.content }}
                   />
-
- 
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700"></div>
-                      <div>
-                        <p className="text-sm font-medium text-black dark:text-white">
-                          {post.author}
-                        </p>
- 
-                        <p className="text-xs text-gray-500 dark:text-gray-400">
-                          {formatDate(post.date)}
-                        </p>
-                      </div>
-                    </div>
-                    <button className="text-black hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 font-medium">
-                      Read More
-                    </button>
-                  </div>
                 </div>
-              </article>
+                <div className={`px-6 py-4 border-t ${props.mode === 'light' ? 'border-gray-200' : 'border-gray-700'}`}>
+                  <Link to={`/read-more-blog/${blogPost._id}`} className={`inline-flex items-center px-4 py-2 border ${props.mode === 'light' ? 'border-gray-300 text-gray-700 bg-white hover:bg-gray-50' : 'border-gray-600 text-gray-200 bg-gray-700 hover:bg-gray-600'} shadow-sm text-sm font-medium rounded-md`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h8M8 16h8M8 8h8" />
+                    </svg>
+                    Read More
+                  </Link>
+                </div>
+              </div>
+
+
             ))
           ) : (
             <section className="bg-white">
@@ -288,7 +197,7 @@ export default function BlogPage() {
                     Page not found
                   </h1>
                   <p className="mt-4 text-gray-500">
-                    The page you are looking for doesn't exist. Here are some
+                    The page you are looking for doesnt exist. Here are some
                     helpful links:
                   </p>
 
