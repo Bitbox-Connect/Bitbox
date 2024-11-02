@@ -97,10 +97,22 @@ const verifyToken = async (req, res) => {
   }
 };
 
-async function ResetPasswordByEmail(req, resp) {
-  const VITE_CLIENT_PORT = process.env.VITE_CLIENT_PORT || "https://bitbox-in.netlify.app";
+async function ResetPasswordByEmail(req, res) {
 
+  const VITE_CLIENT_PORT = process.env.VITE_CLIENT_PORT || "https://bitbox-in.netlify.app";
   const { email } = req.body;
+
+  // Check if email is provided
+  if (!email) {
+    return res.status(400).json({ error: 'Email is required' });
+  }
+
+  const user = await User.findOne({ email });
+
+  if (!user) {
+    return res.status(404).json({ error: 'User does not exist' });
+  }
+
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -112,23 +124,22 @@ async function ResetPasswordByEmail(req, resp) {
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: email,
-    subject: "Reset Your password on BitBox",
+    subject: "Reset Your Password on BitBox",
     html: `
-    <p>Reset your password using the link below:</p>
-    <a href="${VITE_CLIENT_PORT}/reset-password"><button>Click here</button></a> to reset your password
-  `,
+      <p>Reset your password using the link below:</p>
+      <a href="${VITE_CLIENT_PORT}/reset-password"><button>Click here</button></a> to reset your password
+    `,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.log("Error sending email: " + error);
-      resp.status(500).send("Error sending email");
+      return res.status(500).json({ error: "Error sending email" });
     } else {
-      console.log("Email sent: " + info.response);
-      resp.status(200).send({ message: "email sent successfully" });
+      return res.status(200).json({ message: "Email sent successfully" });
     }
   });
 }
+
 
 const forgetpassword = async (req, res) => {
   try {

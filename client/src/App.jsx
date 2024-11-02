@@ -33,20 +33,18 @@ import Contributors from "./component/Contributors";
 import Discussion from "./component/Discussion";
 import ForgotPassword from "./component/ForgotPassword";
 import ResetPassword from "./component/ResetPassword";
-import VerifyEmail from "./component/Verify";
+// import VerifyEmail from "./component/Verify";
+// import ProtectedRoute from '../../client/src/component/ProtectedRoute'
 import NotFound from "./component/NotFound";
 import Faq from './component/Faq';
 import ProgressBar from "./component/ProgressBar/ProgressBar";
-
 import Cursor from './component/Cursor';
-// import ProtectedRoute from '../../client/src/component/ProtectedRoute'
-
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Collab from "./component/Collab";
-import Ai from "./component/AI";
-import FAQ from "./component/FAQ"; // Import the FAQ component
+import Ai from "./component/Ai";
+import FAQ from "./component/Faq"; 
 import CreateBlog from "./component/CreateBlog";
 
 // Main Layout Component
@@ -147,10 +145,7 @@ function App() {
                 <Route exact path="/community" element={<Community mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/about" element={<About mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/blog' element={<BlogPage mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-
                 <Route exact path='/faq' element={<Faq mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-
-
                 <Route exact path='/collab' element={<Collab mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 {/* <Route exact path='/myprofile' element={<ProtectedRoute loggedin={islogged}><MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} /></ProtectedRoute>} /> */}
                 <Route exact path='/ai' element={<Ai mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
