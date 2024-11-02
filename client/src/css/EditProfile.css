@@ -14,6 +14,7 @@ body {
 
 .editprofile-info-container {
   display: flex;
+  width: 100%;
   justify-content: center;
   flex-direction: column;
   align-items: center;
@@ -27,5 +28,5 @@ body {
   outline: 1px solid white;
 }
 .personalinfo {
-  width: 100%;
+  width: 70%;
 }

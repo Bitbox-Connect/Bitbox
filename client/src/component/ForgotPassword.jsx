@@ -10,7 +10,6 @@ const ForgotPassword = ({ showAlert, mode }) => {
   const [forgotEmail, setForgotEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
   const handleForgotPassword = async () => {
     setLoading(true);
     try {
@@ -21,14 +20,15 @@ const ForgotPassword = ({ showAlert, mode }) => {
         },
         body: JSON.stringify({ email: forgotEmail }),
       });
-
+  
       const data = await response.json();
+  
       if (response.ok) {
         toast.success(data.message || "Reset email sent successfully!");
         setForgotEmail("");
         navigate("/login");
       } else {
-        showAlert(data.message || "Failed to send reset email", "danger");
+        showAlert(data.error || "Failed to send reset email", "danger");
       }
     } catch (error) {
       console.error("Error during password reset:", error);
@@ -37,6 +37,7 @@ const ForgotPassword = ({ showAlert, mode }) => {
       setLoading(false);
     }
   };
+  
 
   return (
     <div className="flex justify-center h-[85vh] items-center mt-[7rem]">
