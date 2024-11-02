@@ -1,4 +1,5 @@
 const ContactForm = require('../Models/Contact');
+const { sendMailToAdmin } = require('../sendMail');
 
 const submitQueery = async (req, res) => {
     // Extract data from the request body
@@ -15,6 +16,8 @@ const submitQueery = async (req, res) => {
         msg: message,
         createdAt: new Date(),
     };
+    // console.log(contactData)
+    sendMailToAdmin(contactData)
 
     try {
         // Declare the variable properly
