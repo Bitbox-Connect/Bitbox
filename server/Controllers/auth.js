@@ -48,7 +48,7 @@ const createUser = async (req, res) => {
         });
       }
       if (!user.verified) {
-        return res.status(401).json({ success: false, message: "Signup successful! Please check your email for the verification link." });
+        return res.status(401).json({ success: true, message: "Signup successful! Please check your email for the verification link." });
       }
     });
   } catch (error) {
