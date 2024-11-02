@@ -1,44 +1,46 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const ProfileSchema = new Schema({
-    // user is a foreign key 
+const ProfileSchema = new Schema(
+  {
+    // user is a foreign key
     user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'user',
-        required: true
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "user",
+      required: true,
     },
     image: {
-        image: String,
+      image: String,
     },
     name: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     email: {
-        type: String,
-        required: true,
-        unique: true,
+      type: String,
+
+      unique: true,
     },
     address: {
-        type: String,
+      type: String,
     },
     college: {
-        type: String,
+      type: String,
     },
     phone: {
-        type: Number,
+      type: Number,
     },
     github: {
-        type: String,
+      type: String,
     },
     linkedin: {
-        type: String,
+      type: String,
     },
     password: {
-        type: String,
-        required: true,
+      type: String,
     },
-}, { timestamps: true });
+  },
+  { timestamps: true }
+);
 
-module.exports = mongoose.model('profile', ProfileSchema);
+module.exports = mongoose.model("profile", ProfileSchema);

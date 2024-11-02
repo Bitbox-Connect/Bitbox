@@ -1,10 +1,11 @@
 import '../../css/Main.css';
 import PropTypes from 'prop-types';
 
-const PrivacyPolicy = (props) => {
+export default function PrivacyPolicy() {
   const VITE_CLIENT_PORT = import.meta.env.VITE_CLIENT_PORT;
+
   return (
-    <div
+     <div
       className="privacy-policy-container p-6"
       style={{
         backgroundColor: props.mode === 'dark' ? '#111111' : '#f9f9f9',
@@ -153,13 +154,13 @@ const PrivacyPolicy = (props) => {
           </li>
         </ul>
       </div>
+ 
     </div>
 
 
   );
-};
+}
+
 PrivacyPolicy.propTypes = {
-  showAlert: PropTypes.func,
-  mode: PropTypes.string,
+  VITE_CLIENT_PORT: PropTypes.string,
 };
-export default PrivacyPolicy;

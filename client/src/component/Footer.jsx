@@ -98,7 +98,7 @@ const Footer = (props) => {
             <div className="Footer" style={{ backgroundColor: props.mode === 'dark' ? '#0B192C' : 'white' }}>
                 <div className="container">
                     <div className='mb-4' data-aos="fade-up" data-aos-duration='1500'>
-                        <h4 className="text-3xl font-semibold text-center text-black mb-4">Subscribe to our Newsletter</h4>
+                        <h4 style={{color : props.mode ==='dark'? 'white' : 'black'}} className="text-3xl font-semibold text-center mb-4">Subscribe to our Newsletter</h4>
                         <form
                             className="flex flex-col items-center gap-4 md:flex-row md:justify-center"
                             onSubmit={handleSubscribe}
@@ -109,7 +109,8 @@ const Footer = (props) => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
-                                className="px-4 py-2 border border-gray-300 rounded-md w-full max-w-xs focus:outline-none text-black"
+                                 className="px-4 py-2 border border-gray-300 rounded-md w-full max-w-xs focus:outline-none"
+ 
                             />
                             <button
                                 type="submit"
