@@ -8,7 +8,7 @@ import img3 from "../assets/blogs/3.png";
 import img4 from "../assets/blogs/4.jpeg";
 import img5 from "../assets/blogs/5.jpeg";
 import img6 from "../assets/blogs/6.png";
-
+ 
 const images = [
   { src: img1, category: "Web Development" },
   { src: img2, category: "Mobile Development" },
@@ -17,7 +17,6 @@ const images = [
   { src: img4, category: "AI" },
   { src: img3, category: "Cybersecurity" },
 ];
-
 export default function BlogPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -81,12 +80,14 @@ export default function BlogPage() {
             <input
               type="text"
               placeholder="Search articles..."
-              className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-700"
+              className="w-full pr-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-700"
               value={searchTerm}
+              style={{ paddingLeft: '40px' }}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
           </div>
+
           <div className="flex gap-2 overflow-x-auto pb-2">
             {categories.map((category) => (
               <button
@@ -136,6 +137,7 @@ export default function BlogPage() {
                     className="text-gray-600 dark:text-gray-300 mb-4"
                     dangerouslySetInnerHTML={{ __html: post.content }}
                   />
+ 
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700"></div>
@@ -143,6 +145,7 @@ export default function BlogPage() {
                         <p className="text-sm font-medium text-black dark:text-white">
                           {post.author}
                         </p>
+ 
                         <p className="text-xs text-gray-500 dark:text-gray-400">
                           {formatDate(post.date)}
                         </p>
