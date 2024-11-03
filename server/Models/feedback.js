@@ -11,7 +11,7 @@ const feedbackSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-        match: [/\S+@\S+\.\S+/, 'Email is invalid'], // Basic email validation
+        match: [/\S+@\S+\.\S+/, 'Email is invalid'],
     },
     subject: {
         type: String,
@@ -19,26 +19,30 @@ const feedbackSchema = new mongoose.Schema({
         trim: true,
     },
     dateOfVisit: {
-        type: String,
+        type: Date,
         required: true,
     },
     deviceUsed: {
         type: String,
         required: true,
+        enum: ['Desktop', 'Mobile', 'Tablet'],
     },
     priorityLevel: {
         type: String,
         required: true,
+        enum: ['Low', 'Medium', 'High'],
     },
     suggestions: {
         type: String,
         trim: true,
         required: true,
+        maxlength: 500,
     },
     feedback: {
         type: String,
         trim: true,
         required: true,
+        maxlength: 1000,
     },
     rating: {
         type: Number,
@@ -48,7 +52,7 @@ const feedbackSchema = new mongoose.Schema({
     },
     createdAt: {
         type: Date,
-        default: Date.now, // Automatically set the created date
+        default: Date.now,
     }
 });
 
