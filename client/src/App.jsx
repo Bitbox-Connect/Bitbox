@@ -3,11 +3,7 @@ import { modeAtom } from "./atom/Atom";
 import { useEffect, useState } from "react";
 import "./App.css";
 import "./index.css";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PropTypes from "prop-types";
 import LoadingBar from "react-top-loading-bar";
 import About from "./component/About";
@@ -29,22 +25,22 @@ import Community from "./component/Community";
 import MyProfile from "./component/MyProfile";
 import ScrollTop from "./component/ScrollTop";
 import EditProfile from "./component/EditProfile";
-import Contributors from "./component/Contributors";
+import Contributors from "./component/Contributor";
 import Discussion from "./component/Discussion";
 import ForgotPassword from "./component/ForgotPassword";
 import ResetPassword from "./component/ResetPassword";
 // import VerifyEmail from "./component/Verify";
 // import ProtectedRoute from '../../client/src/component/ProtectedRoute'
 import NotFound from "./component/NotFound";
-import Faq from './component/Faq';
+import Faq from "./component/Faq";
 import ProgressBar from "./component/ProgressBar/ProgressBar";
-import Cursor from './component/Cursor';
+import Cursor from "./component/Cursor";
 
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Collab from "./component/Collab";
 import Ai from "./component/Ai";
-import FAQ from "./component/Faq"; 
+import FAQ from "./component/Faq";
 import CreateBlog from "./component/CreateBlog";
 
 // Main Layout Component
@@ -52,13 +48,14 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
   return (
     <div className="h-full w-full">
       <Navbar
-        title='BITBOX'
-        home='Home'
-        about='About Us'
-        community='Community'
-        profile='My Profile'
+        title="BITBOX"
+        home="Home"
+        about="About Us"
+        community="Community"
+        profile="My Profile"
         blog="Blogs"
-        discussion='Discussion'
+        discussion="Discussion"
+        contributors="Contributors"
         showAlert={showAlert}
         mode={mode}
         toggleMode={toggleMode}
@@ -128,43 +125,267 @@ function App() {
         <ProfileState>
           <Router>
             <LoadingBar
-              color='blue'
+              color="blue"
               progress={progress}
               onLoaderFinished={() => setProgress(0)}
             />
-            <div className='alert-container'>
+            <div className="alert-container">
               <Alert alert={alert} />
             </div>
             <ProgressBar mode={mode} />
             <ScrollTop />
 
-            <Layout mode={mode} setProgress={setProgress} toggleMode={toggleMode} showAlert={showAlert}>
+            <Layout
+              mode={mode}
+              setProgress={setProgress}
+              toggleMode={toggleMode}
+              showAlert={showAlert}
+            >
               <Routes>
-                <Route exact path='/' element={<Home mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path="/discussion" element={<Discussion mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path="/community" element={<Community mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path="/about" element={<About mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path='/blog' element={<BlogPage mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path='/faq' element={<Faq mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path='/collab' element={<Collab mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route
+                  exact
+                  path="/"
+                  element={
+                    <Home
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path="/contributors"
+                  element={
+                    <Contributors
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path="/discussion"
+                  element={
+                    <Discussion
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path="/community"
+                  element={
+                    <Community
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path="/about"
+                  element={
+                    <About
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path="/blog"
+                  element={
+                    <BlogPage
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path="/faq"
+                  element={
+                    <Faq
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path="/collab"
+                  element={
+                    <Collab
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
                 {/* <Route exact path='/myprofile' element={<ProtectedRoute loggedin={islogged}><MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} /></ProtectedRoute>} /> */}
-                <Route exact path='/ai' element={<Ai mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route
+                  exact
+                  path="/ai"
+                  element={
+                    <Ai
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
                 {/* <Route exact path='/myprofile' element={<ProtectedRoute loggedin={islogged}><MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} /></ProtectedRoute>} /> */}
-                <Route exact path='/myprofile' element={<MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path='/editprofile' element={<EditProfile mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path='/contributors' element={<Contributors mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path="/login" element={<Login mode={mode} setProgress={setProgress} showAlert={showAlert} loggedin={islogged} setloggedin={setloggedin} />} />
-                <Route exact path='/signup' element={<Signup mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path='/forgot-password' element={<ForgotPassword mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path='/reset-password' element={<ResetPassword mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path='/codeofconduct' element={<CodeOfConduct mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path='/feedback' element={<Feedback mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path='/contactus' element={<ContactUs mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path='/privacypolicy' element={<PrivacyPolicy mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path='/termofuse' element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path='/FAQ' element={<FAQ />} /> {/* Add this line */}
-                <Route exact path='/createBlogPost' element={<CreateBlog />} /> {/* Add this line */}
-                <Route exact path='/*' element={<NotFound />} />
+                <Route
+                  exact
+                  path="/myprofile"
+                  element={
+                    <MyProfile
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path="/editprofile"
+                  element={
+                    <EditProfile
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path="/contributors"
+                  element={
+                    <Contributors
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path="/login"
+                  element={
+                    <Login
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                      loggedin={islogged}
+                      setloggedin={setloggedin}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path="/signup"
+                  element={
+                    <Signup
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path="/forgot-password"
+                  element={
+                    <ForgotPassword
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path="/reset-password"
+                  element={
+                    <ResetPassword
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path="/codeofconduct"
+                  element={
+                    <CodeOfConduct
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path="/feedback"
+                  element={
+                    <Feedback
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path="/contactus"
+                  element={
+                    <ContactUs
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path="/privacypolicy"
+                  element={
+                    <PrivacyPolicy
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path="/termofuse"
+                  element={
+                    <TermOfUse
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
+                <Route exact path="/FAQ" element={<FAQ />} />{" "}
+                {/* Add this line */}
+                <Route
+                  exact
+                  path="/createBlogPost"
+                  element={<CreateBlog />}
+                />{" "}
+                {/* Add this line */}
+                <Route exact path="/*" element={<NotFound />} />
               </Routes>
             </Layout>
           </Router>

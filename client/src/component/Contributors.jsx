@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import PropTypes from 'prop-types';
-
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import PropTypes from "prop-types";
 
 const ContributorCard = ({
   login,
@@ -13,69 +12,75 @@ const ContributorCard = ({
 }) => (
   <motion.div
     whileHover={{ y: -5 }}
-    transition={{ type: 'spring', stiffness: 300 }}
-    className={`rounded-lg overflow-hidden border transition-all duration-300 ${mode === 'dark'
-      ? 'bg-black/30 backdrop-blur-md border-white/10'
-      : 'bg-white backdrop-blur-sm border-gray-300'
-      }`}
+    transition={{ type: "spring", stiffness: 300 }}
+    className={`rounded-lg overflow-hidden border transition-all duration-300 ${
+      mode === "dark"
+        ? "bg-black/30 backdrop-blur-md border-white/10"
+        : "bg-white backdrop-blur-sm border-gray-300"
+    }`}
     data-aos="fade-up"
-    data-aos-duration='1500'
+    data-aos-duration="1500"
   >
-    <div className='p-6 text-center'>
+    <div className="p-6 text-center">
       <img
         src={avatar_url}
         alt={login}
-        className={`w-24 h-24 rounded-full mx-auto mb-4 border-4 ${mode === 'dark' ? 'border-primary' : 'border-blue-500'
-          }`}
+        className={`w-24 h-24 rounded-full mx-auto mb-4 border-4 ${
+          mode === "dark" ? "border-primary" : "border-blue-500"
+        }`}
       />
-      <h3 className={`font-bold text-xl ${mode === 'dark' ? 'text-white' : 'text-gray-800'}`}>
+      <h3
+        className={`font-bold text-xl ${
+          mode === "dark" ? "text-white" : "text-gray-800"
+        }`}
+      >
         {login}
       </h3>
-      <p className={`text-sm ${mode === 'dark' ? 'text-primary' : 'text-gray-600'} mb-2`}>
+      <p
+        className={`text-sm ${
+          mode === "dark" ? "text-primary" : "text-gray-600"
+        } mb-2`}
+      >
         {type}
       </p>
-      <div className={`mt-4 rounded-full py-2 px-4 inline-block ${mode === 'dark' ? 'bg-white/10' : 'bg-blue-100'
-        }`}>
-        <span className={`font-semibold ${mode === 'dark' ? 'text-primary' : 'text-blue-600'
-          }`}>
+      <div
+        className={`mt-4 rounded-full py-2 px-4 inline-block ${
+          mode === "dark" ? "bg-white/10" : "bg-blue-100"
+        }`}
+      >
+        <span
+          className={`font-semibold ${
+            mode === "dark" ? "text-primary" : "text-blue-600"
+          }`}
+        >
           {contributions} contributions
         </span>
       </div>
     </div>
-    <div className={`py-3 px-6 flex justify-between items-center ${mode === 'dark' ? 'bg-white/5' : 'bg-blue-200'
-      }`}>
+    <div
+      className={`py-3 px-6 flex justify-between items-center ${
+        mode === "dark" ? "bg-white/5" : "bg-blue-200"
+      }`}
+    >
       <a
         href={html_url}
-        target='_blank'
-        rel='noopener noreferrer'
-        className={`text-primary hover:text-primary/80 transition-colors flex items-center ${mode === 'dark' ? 'text-white' : 'text-blue-800'
-          }`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`text-primary hover:text-primary/80 transition-colors flex items-center ${
+          mode === "dark" ? "text-white" : "text-blue-800"
+        }`}
       >
         <svg
-          xmlns='http://www.w3.org/2000/svg'
-          className='h-5 w-5 mr-2'
-          viewBox='0 0 20 20'
-          fill='currentColor'
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5 mr-2"
+          viewBox="0 0 20 20"
+          fill="currentColor"
         >
-          <path d='M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z' />
-          <path d='M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z' />
+          <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+          <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
         </svg>
         View Profile
       </a>
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        width='24'
-        height='24'
-        viewBox='0 0 24 24'
-        fill='none'
-        stroke='currentColor'
-        strokeWidth='2'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-        className='text-white/50'
-      >
-        <path d='M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22'></path>
-      </svg>
     </div>
   </motion.div>
 );
@@ -188,28 +193,37 @@ const StatCard = ({ label, value, icon, mode, onClick }) => (
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5 }}
-    className={`rounded-lg p-6 flex items-center border transition-all duration-300 cup ${mode === 'dark'
+     className={`rounded-lg p-6 flex items-center border transition-all duration-300 cup ${mode === 'dark'
       ? 'bg-black/30 backdrop-blur-md border-white/10'
       : 'bg-white backdrop-blur-sm border-gray-300'
       }`}
     onClick={onClick}
+ 
   >
-    <div className={`rounded-full p-3 mr-4 ${mode === 'dark' ? 'bg-white/10' : 'bg-gray-200'
-      }`}>
+    <div
+      className={`rounded-full p-3 mr-4 ${
+        mode === "dark" ? "bg-white/10" : "bg-gray-200"
+      }`}
+    >
       {icon}
     </div>
     <div>
-      <h3 className={`text-3xl font-bold ${mode === 'dark' ? 'text-white' : 'text-gray-800'
-        }`}>
+      <h3
+        className={`text-3xl font-bold ${
+          mode === "dark" ? "text-white" : "text-gray-800"
+        }`}
+      >
         {value}
       </h3>
-      <p className={`text-sm ${mode === 'dark' ? 'text-white/70' : 'text-gray-600'
-        }`}>
+      <p
+        className={`text-sm ${
+          mode === "dark" ? "text-white/70" : "text-gray-600"
+        }`}
+      >
         {label}
       </p>
     </div>
   </motion.div>
-
 );
 StatCard.propTypes = {
   label: PropTypes.string.isRequired,
@@ -218,8 +232,6 @@ StatCard.propTypes = {
   icon: PropTypes.node.isRequired,
   onClick: PropTypes.func,
 };
-
-
 
 export default function Contributor(props) {
   const [contributors, setContributors] = useState([]);
@@ -234,21 +246,24 @@ export default function Contributor(props) {
     forks: 0,
     openIssues: 0,
   });
+ 
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch contributors
+         // Fetch contributors
         const contributorsResponse = await fetch("https://api.github.com/repos/Bitbox-Connect/Bitbox/contributors?page=1&per_page=100");
+ 
         if (!contributorsResponse.ok) {
-          throw new Error('Failed to fetch contributors data');
+          throw new Error("Failed to fetch contributors data");
         }
         const contributorsData = await contributorsResponse.json();
         setContributors(contributorsData);
 
-
+ 
         // Fetch repo stats
         const repoResponse = await fetch('https://api.github.com/repos/Bitbox-Connect/Bitbox');
+ 
         const repoData = await repoResponse.json();
         setRepoStats({
           stars: repoData.stargazers_count,
@@ -261,7 +276,7 @@ export default function Contributor(props) {
         const issueData = await issueResponse.json();
         setOpenIssues(issueData);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       } finally {
         setLoading(false);
       }
@@ -270,7 +285,7 @@ export default function Contributor(props) {
     fetchData();
   }, []);
 
-  // Calculate pagination indices
+   // Calculate pagination indices
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 
@@ -282,28 +297,33 @@ export default function Contributor(props) {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+ 
   return (
     <div
-      className={`min-h-screen ${props.mode === 'dark'
-        ? 'bg-gradient-to-br from-gray-900 to-black text-white'
-        : 'bg-gradient-to-br from-white to-blue-100 text-black'
-        }`}
+      className={`min-h-screen ${
+        props.mode === "dark"
+          ? "bg-gradient-to-br from-gray-900 to-black text-white"
+          : "bg-gradient-to-br from-white to-blue-100 text-black"
+      }`}
     >
       {/* Hero Section */}
       <section
-        className={`relative h-[70vh] flex items-center justify-center text-center ${props.mode === 'dark'
-          ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800'
-          : 'bg-gradient-to-br from-white via-blue-100 to-blue-200'
-          }`}
+        className={`relative h-[70vh] flex items-center justify-center text-center ${
+          props.mode === "dark"
+            ? "bg-gradient-to-br from-gray-900 via-black to-gray-800"
+            : "bg-gradient-to-br from-white via-blue-100 to-blue-200"
+        }`}
       >
         <div
-          className={`absolute inset-0 ${props.mode === 'dark' ? 'bg-black/50' : 'bg-white/50'
-            } backdrop-blur-sm`}
+          className={`absolute inset-0 ${
+            props.mode === "dark" ? "bg-black/50" : "bg-white/50"
+          } backdrop-blur-sm`}
         />
         <div className="relative z-10 space-y-6 max-w-4xl mx-auto px-4">
           <motion.h1
-            className={`text-5xl font-bold sm:text-6xl md:text-7xl ${props.mode === 'dark' ? 'text-white' : 'text-black'
-              }`}
+            className={`text-5xl font-bold sm:text-6xl md:text-7xl ${
+              props.mode === "dark" ? "text-white" : "text-black"
+            }`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -311,8 +331,9 @@ export default function Contributor(props) {
             Our Amazing Contributors
           </motion.h1>
           <motion.p
-            className={`text-xl sm:text-2xl ${props.mode === 'dark' ? 'text-white/80' : 'text-black/80'
-              }`}
+            className={`text-xl sm:text-2xl ${
+              props.mode === "dark" ? "text-white/80" : "text-black/80"
+            }`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -323,15 +344,17 @@ export default function Contributor(props) {
       </section>
 
       <section
-        className={`py-16 px-4 sm:px-6 lg:px-8 ${props.mode === 'dark'
-          ? 'bg-black/30 backdrop-blur-md'
-          : 'bg-white/30 backdrop-blur-md'
-          }`}
+        className={`py-16 px-4 sm:px-6 lg:px-8 ${
+          props.mode === "dark"
+            ? "bg-black/30 backdrop-blur-md"
+            : "bg-white/30 backdrop-blur-md"
+        }`}
       >
         <div className="max-w-7xl mx-auto">
           <h2
-            className={`text-3xl font-bold text-center mb-12 ${props.mode === 'dark' ? 'text-white' : 'text-black'
-              }`}
+            className={`text-3xl font-bold text-center mb-12 ${
+              props.mode === "dark" ? "text-white" : "text-black"
+            }`}
           >
             Project Statistics
           </h2>
@@ -417,7 +440,7 @@ export default function Contributor(props) {
         </div>
       </section>
 
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">{showIssue ? 'Your contribution is valuable see all Issues' : 'Contributors'}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -458,9 +481,6 @@ export default function Contributor(props) {
       </section>
     </div >
 
+ 
   );
 }
-
-Contributor.propTypes = {
-  mode: PropTypes.string.isRequired,
-};
