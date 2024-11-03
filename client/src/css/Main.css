@@ -4,6 +4,7 @@
   margin-top: 100px;
   margin-bottom: 40px;
 }
+
 .terms-container {
   background-color: #ffffff;
   border: 1px solid #e5e7eb;
@@ -35,7 +36,8 @@ p {
   border: 1px solid #e5e7eb;
   padding: 1.5rem;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  margin-top: 7rem; /* Adds space above the container */
+  margin-top: 7rem;
+  /* Adds space above the container */
 }
 
 ul {
@@ -132,7 +134,7 @@ ul {
 
 /* Privacy Policy */
 .privacy-policy-container {
-  margin-top: 100px;
+  margin-top: 40px;
   margin-bottom: 40px;
 }
 
@@ -179,6 +181,6 @@ ul {
 
 /* Testimonail Stars */
 
-.stars-testimonial{
+.stars-testimonial {
   color: #ffd700 !important;
 }
