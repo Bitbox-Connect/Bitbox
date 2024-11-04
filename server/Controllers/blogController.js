@@ -5,7 +5,6 @@ const { v4: uuidv4 } = require('uuid');
 exports.postBlog = async (req, res) => {
     try {
         const { title, author, content, category } = req.body;
-        console.log("Received blog data = ", req.body);
 
         // Check if all required fields are present
         if (!title || !author || !content || !category) {
@@ -23,7 +22,6 @@ exports.postBlog = async (req, res) => {
 
         // Save the blog post to the database
         const result = await newBlog.save();
-        console.log("Blog saved:", result);
 
         // Send a success response
         res.status(201).json({ message: "Blog post created successfully", blog: result });
@@ -46,5 +44,24 @@ exports.getAllBlogs = async (req, res) => {
     } catch (error) {
         console.error("Error retrieving all blog posts:", error);
         res.status(500).json({ message: "Error retrieving all blog posts", error });
+    }
+};
+
+
+exports.getBlog = async (req, res) => {
+    const { id } = req.params;
+    try {
+        // Find the blog post by ID
+        const blog = await Blog.findById(id);
+
+        if (!blog) {
+            return res.status(404).json({ message: "Blog post not found" });
+        }
+
+        // Send the blog post details
+        res.status(200).json({ message: "Blog post retrieved successfully", blog });
+    } catch (error) {
+        console.error("Error retrieving blog post:", error);
+        res.status(500).json({ message: "Error retrieving blog post", error });
     }
 };

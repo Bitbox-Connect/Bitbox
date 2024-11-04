@@ -16,7 +16,7 @@ function Navbar(props) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { currentUser } = useAuth()
+  const { currentUser } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false); // State to keep track of whether page has been scrolled
   // eslint-disable-next-line
   const [isOpen, setIsOpen] = useState(false);
@@ -25,11 +25,23 @@ function Navbar(props) {
 
   const toggleSidebar = (e) => {
     e.preventDefault();
-    setIsSidebarOpen((prev) => !prev); // Toggle sidebar visibility
+    setIsSidebarOpen((prev) => !prev);
+    document.body.classList.toggle("no-scroll", !isSidebarOpen);
   };
 
   const style = { color: "white", fontSize: "1.5em" };
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) { // Adjust for your breakpoint
+        setIsSidebarOpen(false);
+        document.body.classList.remove("no-scroll");
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   useEffect(() => {
     window.onscroll = function () {
       myFunction();
@@ -67,7 +79,7 @@ function Navbar(props) {
 
   const handleLogout = async () => {
     try {
-      doSignOut()
+      doSignOut();
       localStorage.removeItem("token");
       navigate("/login");
     } catch (error) {
@@ -86,18 +98,21 @@ function Navbar(props) {
   useEffect(() => {
     const getUserData = async () => {
       try {
-        const response = await axios.get(`${VITE_SERVER_PORT}/api/auth/getuser`, {
-          headers: {
-            "auth-token": localStorage.getItem("token"),
-          },
-        });
+        const response = await axios.get(
+          `${VITE_SERVER_PORT}/api/auth/getuser`,
+          {
+            headers: {
+              "auth-token": localStorage.getItem("token"),
+            },
+          }
+        );
         setProfileImage(response.data.image);
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
-    }
+    };
 
-    getUserData()
+    getUserData();
 
     // eslint-disable-next-line
   }, []);
@@ -106,17 +121,23 @@ function Navbar(props) {
     <div>
       {/* Sticky Navbar */}
       <nav
-        className={`navbar navbar-expand-lg ${isScrolled ? "sticky" : ""
-          } navbar-${props.mode === "dark" ? "dark" : "light"}`}
-        style={{
-          backgroundColor: props.mode === "dark" ? "black" : "white",
-          borderBottom: "1px solid white",
-        }}
-        id="navbar"
-      >
+      id="navbar"
+      className={`navbar navbar-expand-lg ${
+        isSidebarOpen ? "sticky" : ""
+      } navbar-${mode === "dark" ? "dark" : "light"}`}
+      style={{
+        backgroundColor: mode === "dark" ? "black" : "white",
+        borderBottom: "1px solid white",
+        position: "fixed", // Fixed positioning
+        top: 0,
+        width: "100%",
+        zIndex: 1000, // Ensure navbar appears above other content
+      }}
+    >
         {/* Hamburger icon */}
         <div
-          className={`w-full gap-[1rem] visible navbar-collapse rnav ${isOpen ? "show" : ""}`}
+          className={`w-full gap-[1rem] visible navbar-collapse rnav ${isOpen ? "show" : ""
+            }`}
           style={{ backgroundColor: props.mode === "dark" ? "black" : "white" }}
         >
           <Link
@@ -124,26 +145,27 @@ function Navbar(props) {
             to="/"
           >
             <img
-              className="w-[3.5rem] mx-4 md:mx-3 rounded-full transition-transform transform rotate-0 hover:rotate-180 duration-1000 ease-in-out"
+              className="w-[3.5rem] mx-1 md:mx-3 rounded-full transition-transform transform rotate-0 hover:rotate-180 duration-1000 ease-in-out"
               src={logo}
               alt="logo"
             />
             <div
-              className={`logoTitle md:block hidden ${props.mode === "dark" ? "text-white" : "text-black"}`}
+              className={`logoTitle md:block hidden ${props.mode === "dark" ? "text-white" : "text-black"
+                }`}
             >
               {props.title}
             </div>
           </Link>
           <div
-            className={`collapse navbar-collapse justify-content-center ${isOpen ? "show" : ""}`}
+            className={`collapse navbar-collapse justify-content-center ${isOpen ? "show" : ""
+              }`}
             id="navbarSupportedContent"
           >
-            <ul
-              className="navbar-nav mb-2 mb-lg-0 gap-3 fw-medium menu2"
-            >
+            <ul className="navbar-nav mb-2 mb-lg-0 gap-3 fw-medium menu2">
               <li className="nav-item fs-6 fw-medium">
                 <Link
-                  className={`nav-link ${location.pathname === "/" ? "active" : ""}`}
+                  className={`nav-link ${location.pathname === "/" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/"
                 >
@@ -152,7 +174,8 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-6">
                 <Link
-                  className={`nav-link ${location.pathname === "/about" ? "active" : ""}`}
+                  className={`nav-link ${location.pathname === "/about" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/about"
                 >
@@ -161,7 +184,8 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-6">
                 <Link
-                  className={`nav-link ${location.pathname === "/community" ? "active" : ""}`}
+                  className={`nav-link ${location.pathname === "/community" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/community"
                 >
@@ -170,7 +194,8 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-6">
                 <Link
-                  className={`nav-link ${location.pathname === "/discussion" ? "active" : ""}`}
+                  className={`nav-link ${location.pathname === "/discussion" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/discussion"
                 >
@@ -179,7 +204,8 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-6">
                 <Link
-                  className={`nav-link ${location.pathname === "/blog" ? "active" : ""}`}
+                  className={`nav-link ${location.pathname === "/blog" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/blog"
                 >
@@ -188,7 +214,18 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-6">
                 <Link
-                  className={`nav-link ${location.pathname === "/myprofile" ? "active" : ""}`}
+                  className={`nav-link ${location.pathname === "/contributors" ? "active" : ""
+                    }`}
+                  aria-current="page"
+                  to="/contributors"
+                >
+                  {props.contributors}
+                </Link>
+              </li>
+              <li className="nav-item fs-6">
+                <Link
+                  className={`nav-link ${location.pathname === "/myprofile" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/myprofile"
                 >
@@ -229,9 +266,7 @@ function Navbar(props) {
                 <ul className="navbar-nav">
                   <div className="Navbar-Btn-Group">
                     {/* Add Project */}
-                    <li>
-                      {renderUploadButton()}
-                    </li>
+                    <li>{renderUploadButton()}</li>
 
                     {/* User Profile */}
                     <li
@@ -250,7 +285,11 @@ function Navbar(props) {
                         aria-expanded="false"
                       >
                         <img
-                          src={currentUser?.photoURL || profileImage || avatarDropdown}
+                          src={
+                            currentUser?.photoURL ||
+                            profileImage ||
+                            avatarDropdown
+                          }
                           className="avatar img-circle"
                           alt="avatar"
                         />
@@ -260,18 +299,35 @@ function Navbar(props) {
                         className="dropdown-menu"
                         aria-labelledby="navbarScrollingDropdown"
                         style={{
-                          backgroundColor: props.mode === "dark" ? "black" : "white",
-                          borderBottom: props.mode === "dark" ? "1px solid white" : "1px solid black",
-                          outline: props.mode === "dark" ? "2px solid white" : "2px solid black",
+                          backgroundColor:
+                            props.mode === "dark" ? "black" : "white",
+                          borderBottom:
+                            props.mode === "dark"
+                              ? "1px solid white"
+                              : "1px solid black",
+                          outline:
+                            props.mode === "dark"
+                              ? "2px solid white"
+                              : "2px solid black",
                         }}
                       >
                         <li>
-                          <Link to="/myprofile" style={{ color: props.mode === "dark" ? "white" : "black" }}>
+                          <Link
+                            to="/myprofile"
+                            style={{
+                              color: props.mode === "dark" ? "white" : "black",
+                            }}
+                          >
                             My Profile
                           </Link>
                         </li>
                         <li>
-                          <Link to="/editprofile" style={{ color: props.mode === "dark" ? "white" : "black" }}>
+                          <Link
+                            to="/editprofile"
+                            style={{
+                              color: props.mode === "dark" ? "white" : "black",
+                            }}
+                          >
                             Edit Profile
                           </Link>
                         </li>
@@ -279,14 +335,28 @@ function Navbar(props) {
                           <hr
                             className="dropdown-divider"
                             style={{
-                              backgroundColor: props.mode === "dark" ? "black" : "white",
-                              borderBottom: props.mode === "dark" ? "1px solid white" : "1px solid black",
-                              outline: props.mode === "dark" ? "2px solid black" : "2px solid white",
+                              backgroundColor:
+                                props.mode === "dark" ? "black" : "white",
+                              borderBottom:
+                                props.mode === "dark"
+                                  ? "1px solid white"
+                                  : "1px solid black",
+                              outline:
+                                props.mode === "dark"
+                                  ? "2px solid black"
+                                  : "2px solid white",
                             }}
                           />
                         </li>
                         <li>
-                          <Link role="button" to="/login" onClick={handleLogout} style={{ color: props.mode === "dark" ? "white" : "black" }}>
+                          <Link
+                            role="button"
+                            to="/login"
+                            onClick={handleLogout}
+                            style={{
+                              color: props.mode === "dark" ? "white" : "black",
+                            }}
+                          >
                             Logout
                           </Link>
                         </li>
@@ -302,7 +372,10 @@ function Navbar(props) {
                   role="button"
                   to="/login"
                   className="btn loginbtn mx-2  h-10 "
-                  style={{ height: "45px", color: props.mode === "dark" ? "white" : "white", }}
+                  style={{
+                    height: "45px",
+                    color: props.mode === "dark" ? "white" : "white",
+                  }}
                 >
                   Login
                 </Link>
@@ -310,14 +383,20 @@ function Navbar(props) {
                   role="button"
                   to="/signup"
                   className="btn loginbtn mx-2  h-10 "
-                  style={{ height: "45px", color: props.mode === "dark" ? "white" : "white", }}
+                  style={{
+                    height: "45px",
+                    color: props.mode === "dark" ? "white" : "white",
+                  }}
                 >
                   Signup
                 </Link>
               </div>
             )}
             {/* Sidebar Toggle Button */}
-            <button className="sidebar-toggle mt-[0.4rem]" onClick={toggleSidebar}>
+            <button
+              className="sidebar-toggle mt-[0.4rem]"
+              onClick={toggleSidebar}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -342,22 +421,38 @@ function Navbar(props) {
       >
         <ul className="sidebar-links">
           <li>
-            <Link to="/" onClick={() => setIsSidebarOpen(false)} style={{ color: `${props}` }}>{props.home}</Link>
+            <Link
+              to="/"
+              onClick={() => setIsSidebarOpen(false)}
+              style={{ color: `${props}` }}
+            >
+              {props.home}
+            </Link>
           </li>
           <li>
-            <Link to="/about" onClick={() => setIsSidebarOpen(false)}>{props.about}</Link>
+            <Link to="/about" onClick={() => setIsSidebarOpen(false)}>
+              {props.about}
+            </Link>
           </li>
           <li>
-            <Link to="/community" onClick={() => setIsSidebarOpen(false)}>{props.community}</Link>
+            <Link to="/community" onClick={() => setIsSidebarOpen(false)}>
+              {props.community}
+            </Link>
           </li>
           <li>
-            <Link to="/discussion" onClick={() => setIsSidebarOpen(false)}>{props.discussion}</Link>
+            <Link to="/discussion" onClick={() => setIsSidebarOpen(false)}>
+              {props.discussion}
+            </Link>
           </li>
           <li>
-            <Link to="/blog" onClick={() => setIsSidebarOpen(false)}>{props.blog}</Link>
+            <Link to="/blog" onClick={() => setIsSidebarOpen(false)}>
+              {props.blog}
+            </Link>
           </li>
           <li>
-            <Link to="/myprofile" onClick={() => setIsSidebarOpen(false)}>{props.profile}</Link>
+            <Link to="/myprofile" onClick={() => setIsSidebarOpen(false)}>
+              {props.profile}
+            </Link>
           </li>
         </ul>
       </div>

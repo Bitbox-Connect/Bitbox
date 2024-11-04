@@ -232,7 +232,7 @@ const Home = (props) => {
             >
                 <section className="max-sm:px-4 max-xl:px-6 max-w-7xl">
                     <h2
-                        className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-600 text-4xl md:text-5xl lg:text-[3.5rem] leading-snug md:leading-tight lg:leading-tight tracking-tight pt-16 drop-shadow-lg"
+                        className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-600 text-4xl md:text-5xl lg:text-[3.5rem] leading-snug md:leading-tight lg:leading-tight tracking-tight drop-shadow-lg"
                         style={{ color: props.mode === "dark" ? "white" : "" }}
                         data-aos="zoom-out"
                     >
@@ -277,22 +277,22 @@ const Home = (props) => {
 
             {/* Works Section */}
             <div
-                className="work-Sec mb-2 pt-14"
+                className="work-Sec mb-2 pt-8"
                 style={{
                     background: props.mode === "dark" ? "black" : "#f7f7f7",
                     color: props.mode === "dark" ? "white" : "black",
                 }}
             >
                 <h2
-                    className="work-heading text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-600 text-4xl font-extrabold uppercase mb-6 tracking-tight"
-                    style={{ textAlign: "center" }}
+                    className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-600 text-4xl md:text-5xl lg:text-[3.5rem] leading-snug md:leading-tight lg:leading-tight tracking-tight drop-shadow-lg"
+                    style={{ color: props.mode === "dark" ? "white" : "" }}
                     data-aos="zoom-out"
                 >
                     What We Work On
                 </h2>
-
+                
                 <div className="work-row1 flex items-center justify-center">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 pt-12 pb-16">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8 pb-16">
                         {worddata.map((word, index) => (
                             <div
                                 key={index}

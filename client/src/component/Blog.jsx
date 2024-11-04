@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-
+ 
 import PropTypes from 'prop-types';
+ 
 import { Search } from "lucide-react";
 import { Link } from "react-router-dom";
-
-
 
 import img1 from "../assets/blogs/1.webp";
 import img2 from "../assets/blogs/2.jpeg";
@@ -12,7 +11,7 @@ import img3 from "../assets/blogs/3.png";
 import img4 from "../assets/blogs/4.jpeg";
 import img5 from "../assets/blogs/5.jpeg";
 import img6 from "../assets/blogs/6.png";
-
+ 
 const images = [
   { src: img1, category: "Web Development" },
   { src: img2, category: "Mobile Development" },
@@ -29,12 +28,9 @@ BlogPage.propTypes = {
 export default function BlogPage(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [blogPosts, setblogPosts] = useState([]);
+  const [blogPosts, setBlogPosts] = useState([]);
 
-  const categories = [
-    "All",
-    ...new Set(blogPosts.map((post) => post.category)),
-  ];
+  const categories = ["All", ...new Set(blogPosts.map((post) => post.category))];
 
   const filteredPosts = blogPosts.filter((post) => {
     const matchesSearch =
@@ -51,27 +47,21 @@ export default function BlogPage(props) {
       throw new Error("Invalid date format");
     }
     const day = String(date.getDate()).padStart(2, "0");
-    const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0-based
+    const month = String(date.getMonth() + 1).padStart(2, "0");
     const year = date.getFullYear();
     return `${day}-${month}-${year}`;
   };
 
   const categoryImage = (cat) => {
-    console.log(cat);
     const imgSrc = images.find((image) => image.category === cat);
-    if (imgSrc) {
-      console.log(imgSrc.src);
-      return imgSrc.src;
-    }
-    return ""; // Safeguard for undefined
+    return imgSrc ? imgSrc.src : "";
   };
 
   const fetchData = async () => {
     try {
       let response = await fetch("http://localhost:5000/api/blog/all-blog");
       let data = await response.json();
-      console.log(data);
-      setblogPosts(data.blogs);
+      setBlogPosts(data.blogs);
     } catch (error) {
       console.error(error);
     }
@@ -87,9 +77,7 @@ export default function BlogPage(props) {
       <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold mb-4">Explore Our Blog</h1>
-          <p className="text-xl opacity-90">
-            Discover stories, insights, and knowledge
-          </p>
+          <p className="text-xl opacity-90">Discover stories, insights, and knowledge</p>
         </div>
       </div>
 
@@ -136,7 +124,7 @@ export default function BlogPage(props) {
 
               <div className={`max-w-3xl mx-auto my-8 ${props.mode === 'light' ? 'bg-white' : 'bg-gray-800'} rounded-lg shadow-md overflow-hidden`} key={blogPost.id}>
                 <img
-                  src={categoryImage(blogPost.category)}
+                   src={categoryImage(blogPost.category)}
                   alt={blogPost.title}
                   className="w-full h-64 object-cover"
                   onError={(e) => { e.target.onerror = null; e.target.src = '/placeholder.svg'; }}
@@ -159,6 +147,7 @@ export default function BlogPage(props) {
                     className={`${props.mode === 'light' ? 'text-gray-400' : 'text-gray-700'} leading-relaxed mb-4`}
                     dangerouslySetInnerHTML={{ __html: blogPost.content }}
                   />
+ 
                 </div>
                 <div className={`px-6 py-4 border-t ${props.mode === 'light' ? 'border-gray-200' : 'border-gray-700'}`}>
                   <Link to={`/read-more-blog/${blogPost._id}`} className={`inline-flex items-center px-4 py-2 border ${props.mode === 'light' ? 'border-gray-300 text-gray-700 bg-white hover:bg-gray-50' : 'border-gray-600 text-gray-200 bg-gray-700 hover:bg-gray-600'} shadow-sm text-sm font-medium rounded-md`}>
@@ -192,16 +181,14 @@ export default function BlogPage(props) {
                       />
                     </svg>
                   </p>
-
                   <h1 className="mt-3 text-2xl font-semibold text-gray-800 md:text-3xl">
                     Page not found
                   </h1>
                   <p className="mt-4 text-gray-500">
-                    The page you are looking for doesnt exist. Here are some
+                     The page you are looking for doesnt exist. Here are some
                     helpful links:
+ 
                   </p>
-
-
                   <div className="flex items-center w-full mt-6 gap-x-3 shrink-0 sm:w-auto">
                     <button
                       onClick={() => setSearchTerm("")}
@@ -218,10 +205,10 @@ export default function BlogPage(props) {
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          d="M6.75 15.75L3 12m0 0l3.75-3.75M21 12H3"
+                          d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
                         />
                       </svg>
-                      <span>Back to home</span>
+                      <span>Go back</span>
                     </button>
                   </div>
                 </div>
