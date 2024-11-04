@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
-
-
 import { Search } from "lucide-react";
 import { Link } from "react-router-dom";
-
-
 
 import img1 from "../assets/blogs/1.webp";
 import img2 from "../assets/blogs/2.jpeg";
@@ -12,89 +8,6 @@ import img3 from "../assets/blogs/3.png";
 import img4 from "../assets/blogs/4.jpeg";
 import img5 from "../assets/blogs/5.jpeg";
 import img6 from "../assets/blogs/6.png";
-
- 
-
-// import { Link } from 'react-router-dom';
-import "../css/Home.css";
-
-// Dummy blog data
- 
-const blogPosts = [
-  {
-    id: 1,
-    title: "The Art of Modern Web Design",
-    author: "Sarah Chen",
-    date: "March 15, 2024",
-    category: "Design",
-    readTime: "5 min read",
-    image: img1,
-    excerpt:
-      "Exploring the latest trends in web design and how they shape user experiences in the digital age.",
-    tags: ["Design", "Web", "UI/UX"],
-  },
-  {
-    id: 2,
-    title: "Understanding React Hooks",
-    author: "James Wilson",
-    date: "March 18, 2024",
-    category: "Development",
-    readTime: "8 min read",
-    image: img2,
-    excerpt:
-      "A deep dive into React Hooks and how they're revolutionizing the way we build components.",
-    tags: ["React", "JavaScript", "Programming"],
-  },
-  {
-    id: 3,
-    title: "The Future of AI in Design",
-    author: "Elena Martinez",
-    date: "March 20, 2024",
-    category: "AI",
-    readTime: "6 min read",
-    image: img3,
-    excerpt:
-      "How artificial intelligence is transforming the design industry and what it means for creators.",
-    tags: ["AI", "Design", "Technology"],
-  },
-  {
-    id: 4,
-    title: "Building Sustainable Tech",
-    author: "Alex Kumar",
-    date: "March 22, 2024",
-    category: "Technology",
-    readTime: "7 min read",
-    image: img4,
-    excerpt:
-      "Exploring eco-friendly approaches to software development and digital infrastructure.",
-    tags: ["Sustainability", "Technology", "Green Computing"],
-  },
-  {
-    id: 5,
-    title: "The Psychology of UX Design",
-    author: "Maya Patel",
-    date: "March 25, 2024",
-    category: "UX",
-    readTime: "10 min read",
-    image: img5,
-    excerpt:
-      "Understanding how human psychology influences user experience design decisions.",
-    tags: ["UX", "Psychology", "Design"],
-  },
-  {
-    id: 6,
-    title: "Mobile-First Development",
-    author: "Thomas Anderson",
-    date: "March 27, 2024",
-    category: "Development",
-    readTime: "6 min read",
-    image: img6,
-    excerpt:
-      "Best practices for building responsive applications with a mobile-first approach.",
-    tags: ["Mobile", "Development", "Responsive"],
-  },
-];
-
  
 const images = [
   { src: img1, category: "Web Development" },
@@ -107,12 +20,9 @@ const images = [
 export default function BlogPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [blogPosts, setblogPosts] = useState([]);
+  const [blogPosts, setBlogPosts] = useState([]);
 
-  const categories = [
-    "All",
-    ...new Set(blogPosts.map((post) => post.category)),
-  ];
+  const categories = ["All", ...new Set(blogPosts.map((post) => post.category))];
 
   const filteredPosts = blogPosts.filter((post) => {
     const matchesSearch =
@@ -129,27 +39,21 @@ export default function BlogPage() {
       throw new Error("Invalid date format");
     }
     const day = String(date.getDate()).padStart(2, "0");
-    const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0-based
+    const month = String(date.getMonth() + 1).padStart(2, "0");
     const year = date.getFullYear();
     return `${day}-${month}-${year}`;
   };
 
   const categoryImage = (cat) => {
-    console.log(cat);
     const imgSrc = images.find((image) => image.category === cat);
-    if (imgSrc) {
-      console.log(imgSrc.src);
-      return imgSrc.src;
-    }
-    return ""; // Safeguard for undefined
+    return imgSrc ? imgSrc.src : "";
   };
 
   const fetchData = async () => {
     try {
       let response = await fetch("http://localhost:5000/api/blog/all-blog");
       let data = await response.json();
-      console.log(data);
-      setblogPosts(data.blogs);
+      setBlogPosts(data.blogs);
     } catch (error) {
       console.error(error);
     }
@@ -165,9 +69,7 @@ export default function BlogPage() {
       <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold mb-4">Explore Our Blog</h1>
-          <p className="text-xl opacity-90">
-            Discover stories, insights, and knowledge
-          </p>
+          <p className="text-xl opacity-90">Discover stories, insights, and knowledge</p>
         </div>
       </div>
 
@@ -191,11 +93,10 @@ export default function BlogPage() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  selectedCategory === category
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200"
-                }`}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${selectedCategory === category
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200"
+                  }`}
               >
                 {category}
               </button>
@@ -217,7 +118,7 @@ export default function BlogPage() {
                 className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  src={categoryImage(post.category)} // Fallback to empty string if no image is found
+                  src={categoryImage(post.category)}
                   alt={post.title}
                   className="w-full h-48 object-cover"
                 />
@@ -226,22 +127,16 @@ export default function BlogPage() {
                     <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">
                       {post.category}
                     </span>
-
                     <span className="text-black text-sm">{post.readTime}</span>
                   </div>
-                  <h2 className="text-xl font-bold mb-2 ml-[-60px] text-black">
+                  <h2 className="text-xl font-bold mb-2 text-black">
                     {post.title}
                   </h2>
-
-                  <p className="text-black dark:text-dark-300 mb-4">
-                    {post.excerpt}
-                  </p>
-
+                  <p className="text-black dark:text-gray-300 mb-4">{post.excerpt}</p>
                   <div
-                    className="text-gray-600 dark:text-dark-300 mb-4"
+                    className="text-gray-600 dark:text-gray-300 mb-4"
                     dangerouslySetInnerHTML={{ __html: post.content }}
                   />
-
  
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
@@ -256,9 +151,11 @@ export default function BlogPage() {
                         </p>
                       </div>
                     </div>
-                    <button className="text-black hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 font-medium">
-                      Read More
-                    </button>
+                    <Link to={`/read-more-blog/${post._id}`}>
+                      <button className="text-black hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 font-medium">
+                        Read More
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </article>
@@ -283,16 +180,12 @@ export default function BlogPage() {
                       />
                     </svg>
                   </p>
-
                   <h1 className="mt-3 text-2xl font-semibold text-gray-800 md:text-3xl">
                     Page not found
                   </h1>
                   <p className="mt-4 text-gray-500">
-                    The page you are looking for doesn't exist. Here are some
-                    helpful links:
+                    The page you are looking for doesnt exist. Here are some helpful links:
                   </p>
-
-
                   <div className="flex items-center w-full mt-6 gap-x-3 shrink-0 sm:w-auto">
                     <button
                       onClick={() => setSearchTerm("")}
@@ -309,10 +202,10 @@ export default function BlogPage() {
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          d="M6.75 15.75L3 12m0 0l3.75-3.75M21 12H3"
+                          d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
                         />
                       </svg>
-                      <span>Back to home</span>
+                      <span>Go back</span>
                     </button>
                   </div>
                 </div>

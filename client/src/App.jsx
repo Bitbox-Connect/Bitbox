@@ -34,7 +34,9 @@ import ResetPassword from "./component/ResetPassword";
 import NotFound from "./component/NotFound";
 import Faq from "./component/Faq";
 import ProgressBar from "./component/ProgressBar/ProgressBar";
-import Cursor from "./component/Cursor";
+ import Cursor from './component/Cursor';
+import ReadMoreBlog from './component/ReadMoreBlog';
+ 
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -243,149 +245,23 @@ function App() {
                   }
                 />
                 {/* <Route exact path='/myprofile' element={<ProtectedRoute loggedin={islogged}><MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} /></ProtectedRoute>} /> */}
-                <Route
-                  exact
-                  path="/myprofile"
-                  element={
-                    <MyProfile
-                      mode={mode}
-                      setProgress={setProgress}
-                      showAlert={showAlert}
-                    />
-                  }
-                />
-                <Route
-                  exact
-                  path="/editprofile"
-                  element={
-                    <EditProfile
-                      mode={mode}
-                      setProgress={setProgress}
-                      showAlert={showAlert}
-                    />
-                  }
-                />
-                <Route
-                  exact
-                  path="/contributors"
-                  element={
-                    <Contributors
-                      mode={mode}
-                      setProgress={setProgress}
-                      showAlert={showAlert}
-                    />
-                  }
-                />
-                <Route
-                  exact
-                  path="/login"
-                  element={
-                    <Login
-                      mode={mode}
-                      setProgress={setProgress}
-                      showAlert={showAlert}
-                      loggedin={islogged}
-                      setloggedin={setloggedin}
-                    />
-                  }
-                />
-                <Route
-                  exact
-                  path="/signup"
-                  element={
-                    <Signup
-                      mode={mode}
-                      setProgress={setProgress}
-                      showAlert={showAlert}
-                    />
-                  }
-                />
-                <Route
-                  exact
-                  path="/forgot-password"
-                  element={
-                    <ForgotPassword
-                      mode={mode}
-                      setProgress={setProgress}
-                      showAlert={showAlert}
-                    />
-                  }
-                />
-                <Route
-                  exact
-                  path="/reset-password"
-                  element={
-                    <ResetPassword
-                      mode={mode}
-                      setProgress={setProgress}
-                      showAlert={showAlert}
-                    />
-                  }
-                />
-                <Route
-                  exact
-                  path="/codeofconduct"
-                  element={
-                    <CodeOfConduct
-                      mode={mode}
-                      setProgress={setProgress}
-                      showAlert={showAlert}
-                    />
-                  }
-                />
-                <Route
-                  exact
-                  path="/feedback"
-                  element={
-                    <Feedback
-                      mode={mode}
-                      setProgress={setProgress}
-                      showAlert={showAlert}
-                    />
-                  }
-                />
-                <Route
-                  exact
-                  path="/contactus"
-                  element={
-                    <ContactUs
-                      mode={mode}
-                      setProgress={setProgress}
-                      showAlert={showAlert}
-                    />
-                  }
-                />
-                <Route
-                  exact
-                  path="/privacypolicy"
-                  element={
-                    <PrivacyPolicy
-                      mode={mode}
-                      setProgress={setProgress}
-                      showAlert={showAlert}
-                    />
-                  }
-                />
-                <Route
-                  exact
-                  path="/termofuse"
-                  element={
-                    <TermOfUse
-                      mode={mode}
-                      setProgress={setProgress}
-                      showAlert={showAlert}
-                    />
-                  }
-                />
-                <Route exact path="/FAQ" element={<FAQ />} />{" "}
-                {/* Add this line */}
-                <Route
-                  exact
-                  path="/createBlogPost"
-                  element={<CreateBlog />}
-                />{" "}
-                {/* Add this line */}
-                <Route exact path="/*" element={<NotFound />} />
+                 <Route exact path='/myprofile' element={<MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path='/editprofile' element={<EditProfile mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path='/contributors' element={<Contributors mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path="/login" element={<Login mode={mode} setProgress={setProgress} showAlert={showAlert} loggedin={islogged} setloggedin={setloggedin} />} />
+                <Route exact path='/signup' element={<Signup mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path='/forgot-password' element={<ForgotPassword mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path='/reset-password' element={<ResetPassword mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path='/codeofconduct' element={<CodeOfConduct mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path='/feedback' element={<Feedback mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path='/contactus' element={<ContactUs mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path='/privacypolicy' element={<PrivacyPolicy mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path='/termofuse' element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path='/FAQ' element={<FAQ />} /> {/* Add this line */}
+                <Route exact path='/createBlogPost' element={<CreateBlog />} /> {/* Add this line */}
+                <Route exact path='/read-more-blog/:id' element={<ReadMoreBlog mode={mode} setProgress={setProgress} showAlert={showAlert} />} /> {/* Add this line */}
+                <Route exact path='/*' element={<NotFound />} />
+ 
               </Routes>
             </Layout>
           </Router>
