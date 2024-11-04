@@ -436,11 +436,6 @@
   }
 }
 
-.sidebar.open {
-  left: 0;
-  display: flex;
-  /* Show sidebar */
-}
 
 .sidebar-links {
   list-style: none;
@@ -496,20 +491,7 @@
   padding: 1rem;
 }
 
-.sidebar {
-  position: absolute;
-  top: 0;
-  display: none;
-  width: 250px;
-  height: 100%;
-  background-color: white;
-  z-index: 1000;
-}
 
-.sidebar.open {
-  right: 0;
-  top: 12%;
-}
 
 .sidebar-links {
   list-style-type: none;
@@ -537,4 +519,29 @@
 
 .main-content {
   margin-top: 10vh;
+}
+
+/* Navbar.css */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px; /* Adjust as needed */
+  height: 100vh;
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%); /* Initially hidden */
+  z-index: 1000;
+  background-color: #111; /* Change color based on theme */
+}
+
+.sidebar.open {
+  transform: translateX(0);
+  left: 0;
+  display: flex;
+}
+
+/* Lock background scroll when sidebar is open */
+.no-scroll {
+  overflow: hidden;
 }
