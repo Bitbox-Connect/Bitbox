@@ -4,7 +4,8 @@ const blogSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        minlength: 5
     },
     author: {
         type: String,
@@ -17,17 +18,26 @@ const blogSchema = new mongoose.Schema({
     },
     content: {
         type: String,
-        required: true
-    },
-    id: {
-        type: String,
-        unique: true // Optional: Ensure this is unique
+        required: true,
+        minlength: 50
     },
     category: {
         type: String,
         required: true,
-        trim: true
-    }
+        trim: true,
+        enum: ["Tech", "Health", "Finance"] // Example categories
+    },
+    tags: {
+        type: [String],
+        default: []
+    },
+    comments: [
+        {
+            user: { type: String, required: true },
+            comment: { type: String, required: true },
+            date: { type: Date, default: Date.now }
+        }
+    ]
 });
 
 const Blog = mongoose.model('Blog', blogSchema);

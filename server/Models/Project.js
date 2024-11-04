@@ -2,13 +2,12 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const ProjectSchema = new Schema({
-    // user is a foreign key 
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user',
     },
-    image: {
-        image: String,
+    imageUrl: {
+        type: String,
     },
     title: {
         type: String,
@@ -17,16 +16,25 @@ const ProjectSchema = new Schema({
     },
     description: {
         type: String,
+        maxlength: 500, // Optional limit
     },
     gitHubLink: {
         type: String,
+        match: [/^https:\/\/github.com\/.+/, 'Enter a valid GitHub URL'],
     },
     youTubeLink: {
         type: String,
+        match: [/^https:\/\/(www\.)?youtube.com\/watch\?v=.+/, 'Enter a valid YouTube video URL'],
     },
     date: {
         type: Date,
-        default: Date.now
+        default: Date.now,
+        required: true,
+    },
+    status: {
+        type: String,
+        enum: ['In Progress', 'Completed', 'On Hold'],
+        default: 'In Progress',
     }
 });
 

@@ -1,12 +1,16 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const AvatarSchema = new mongoose.Schema({
-    // user is a foreign key 
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user',
+        required: true, // Ensure this is required if each avatar must be linked to a user
     },
-    image: String
-})
+    imageUrl: {
+        type: String,
+        required: true,
+        match: [/^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg))$/, 'Please enter a valid image URL']
+    }
+}, { timestamps: true });
 
-module.exports = mongoose.model("avatar", AvatarSchema)
+module.exports = mongoose.model("avatar", AvatarSchema);
