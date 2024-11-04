@@ -25,11 +25,23 @@ function Navbar(props) {
 
   const toggleSidebar = (e) => {
     e.preventDefault();
-    setIsSidebarOpen((prev) => !prev); // Toggle sidebar visibility
+    setIsSidebarOpen((prev) => !prev);
+    document.body.classList.toggle("no-scroll", !isSidebarOpen);
   };
 
   const style = { color: "white", fontSize: "1.5em" };
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) { // Adjust for your breakpoint
+        setIsSidebarOpen(false);
+        document.body.classList.remove("no-scroll");
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   useEffect(() => {
     window.onscroll = function () {
       myFunction();
@@ -109,20 +121,23 @@ function Navbar(props) {
     <div>
       {/* Sticky Navbar */}
       <nav
-        className={`navbar navbar-expand-lg ${
-          isScrolled ? "sticky" : ""
-        } navbar-${props.mode === "dark" ? "dark" : "light"}`}
-        style={{
-          backgroundColor: props.mode === "dark" ? "black" : "white",
-          borderBottom: "1px solid white",
-        }}
-        id="navbar"
-      >
+      id="navbar"
+      className={`navbar navbar-expand-lg ${
+        isSidebarOpen ? "sticky" : ""
+      } navbar-${mode === "dark" ? "dark" : "light"}`}
+      style={{
+        backgroundColor: mode === "dark" ? "black" : "white",
+        borderBottom: "1px solid white",
+        position: "fixed", // Fixed positioning
+        top: 0,
+        width: "100%",
+        zIndex: 1000, // Ensure navbar appears above other content
+      }}
+    >
         {/* Hamburger icon */}
         <div
-          className={`w-full gap-[1rem] visible navbar-collapse rnav ${
-            isOpen ? "show" : ""
-          }`}
+          className={`w-full gap-[1rem] visible navbar-collapse rnav ${isOpen ? "show" : ""
+            }`}
           style={{ backgroundColor: props.mode === "dark" ? "black" : "white" }}
         >
           <Link
@@ -135,25 +150,22 @@ function Navbar(props) {
               alt="logo"
             />
             <div
-              className={`logoTitle md:block hidden ${
-                props.mode === "dark" ? "text-white" : "text-black"
-              }`}
+              className={`logoTitle md:block hidden ${props.mode === "dark" ? "text-white" : "text-black"
+                }`}
             >
               {props.title}
             </div>
           </Link>
           <div
-            className={`collapse navbar-collapse justify-content-center ${
-              isOpen ? "show" : ""
-            }`}
+            className={`collapse navbar-collapse justify-content-center ${isOpen ? "show" : ""
+              }`}
             id="navbarSupportedContent"
           >
             <ul className="navbar-nav mb-2 mb-lg-0 gap-3 fw-medium menu2">
               <li className="nav-item fs-6 fw-medium">
                 <Link
-                  className={`nav-link ${
-                    location.pathname === "/" ? "active" : ""
-                  }`}
+                  className={`nav-link ${location.pathname === "/" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/"
                 >
@@ -162,9 +174,8 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-6">
                 <Link
-                  className={`nav-link ${
-                    location.pathname === "/about" ? "active" : ""
-                  }`}
+                  className={`nav-link ${location.pathname === "/about" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/about"
                 >
@@ -173,9 +184,8 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-6">
                 <Link
-                  className={`nav-link ${
-                    location.pathname === "/community" ? "active" : ""
-                  }`}
+                  className={`nav-link ${location.pathname === "/community" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/community"
                 >
@@ -184,9 +194,8 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-6">
                 <Link
-                  className={`nav-link ${
-                    location.pathname === "/discussion" ? "active" : ""
-                  }`}
+                  className={`nav-link ${location.pathname === "/discussion" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/discussion"
                 >
@@ -195,9 +204,8 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-6">
                 <Link
-                  className={`nav-link ${
-                    location.pathname === "/blog" ? "active" : ""
-                  }`}
+                  className={`nav-link ${location.pathname === "/blog" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/blog"
                 >
@@ -206,9 +214,8 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-6">
                 <Link
-                  className={`nav-link ${
-                    location.pathname === "/contributors" ? "active" : ""
-                  }`}
+                  className={`nav-link ${location.pathname === "/contributors" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/contributors"
                 >
@@ -217,9 +224,8 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-6">
                 <Link
-                  className={`nav-link ${
-                    location.pathname === "/myprofile" ? "active" : ""
-                  }`}
+                  className={`nav-link ${location.pathname === "/myprofile" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/myprofile"
                 >
