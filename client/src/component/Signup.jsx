@@ -76,6 +76,20 @@ const Signup = ({ mode }) => {
       },
       body: JSON.stringify({ name, email, password }),
     });
+    document.querySelector('#login-btn').addEventListener('click', (event) => {
+      event.preventDefault();
+      
+      const emailInput = document.getElementById('login-email');
+      const rememberMeCheckbox = document.getElementById('login-remember');
+    
+      if (rememberMeCheckbox.checked) {
+        localStorage.setItem('rememberedEmail', emailInput.value);
+      } else {
+        localStorage.removeItem('rememberedEmail');
+      }
+    
+      // Continue with your existing login logic...
+    });    
     const json = await response.json();
 
     if (json.success) {
@@ -238,6 +252,10 @@ const Signup = ({ mode }) => {
             </div>
 
             <br />
+            <div class="form-check d-flex">
+          <input type="checkbox" class="form-check-input" id="login-remember" />
+          <label class="form-check-label" for="login-remember">Remember me</label>
+            </div>
 
             <button type="submit" className="signup-submit">
               Sign Up

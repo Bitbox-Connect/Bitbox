@@ -75,6 +75,20 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
       }
     }
   };
+  document.querySelector('#login-btn').addEventListener('click', (event) => {
+    event.preventDefault();
+    
+    const emailInput = document.getElementById('login-email');
+    const rememberMeCheckbox = document.getElementById('login-remember');
+  
+    if (rememberMeCheckbox.checked) {
+      localStorage.setItem('rememberedEmail', emailInput.value);
+    } else {
+      localStorage.removeItem('rememberedEmail');
+    }
+  
+    // Continue with your existing login logic...
+  });    
 
   return (
     <div className="min-h-screen flex items-center justify-center mt-10" data-aos="zoom-in" data-aos-duration="1800">
@@ -139,7 +153,10 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
 
             />
           </div>
-
+          <div class="form-check d-flex">
+          <input type="checkbox" class="form-check-input" id="login-remember" />
+          <label class="form-check-label" for="login-remember">Remember me</label>
+          </div>
           <button className="submit" type="submit" disabled={loading}>
             {loading ? <Spin size="small" /> : "Login"}
           </button>
