@@ -25,7 +25,7 @@ import Community from "./component/Community";
 import MyProfile from "./component/MyProfile";
 import ScrollTop from "./component/ScrollTop";
 import EditProfile from "./component/EditProfile";
-import Contributors from "./component/Contributor";
+import Contributors from "./component/Contributors";
 import Discussion from "./component/Discussion";
 import ForgotPassword from "./component/ForgotPassword";
 import ResetPassword from "./component/ResetPassword";
@@ -34,9 +34,9 @@ import ResetPassword from "./component/ResetPassword";
 import NotFound from "./component/NotFound";
 import Faq from "./component/Faq";
 import ProgressBar from "./component/ProgressBar/ProgressBar";
- import Cursor from './component/Cursor';
+import Cursor from './component/Cursor';
 import ReadMoreBlog from './component/ReadMoreBlog';
- 
+
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -245,7 +245,7 @@ function App() {
                   }
                 />
                 {/* <Route exact path='/myprofile' element={<ProtectedRoute loggedin={islogged}><MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} /></ProtectedRoute>} /> */}
-                 <Route exact path='/myprofile' element={<MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path='/myprofile' element={<MyProfile mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/editprofile' element={<EditProfile mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/contributors' element={<Contributors mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path="/login" element={<Login mode={mode} setProgress={setProgress} showAlert={showAlert} loggedin={islogged} setloggedin={setloggedin} />} />
@@ -261,7 +261,7 @@ function App() {
                 <Route exact path='/createBlogPost' element={<CreateBlog />} /> {/* Add this line */}
                 <Route exact path='/read-more-blog/:id' element={<ReadMoreBlog mode={mode} setProgress={setProgress} showAlert={showAlert} />} /> {/* Add this line */}
                 <Route exact path='/*' element={<NotFound />} />
- 
+
               </Routes>
             </Layout>
           </Router>

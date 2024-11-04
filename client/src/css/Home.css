@@ -214,10 +214,6 @@ h3 {
     align-items: center;
 }
 
-.work-Sec h2 {
-    color: blue;
-}
-
 .work-row1,
 .work-row2 {
     min-height: 38vh;
@@ -294,14 +290,6 @@ h3 {
 .work-cont2:hover .work-description,
 .work-cont3:hover .work-description {
     color: white; /* Change text color to white on hover */
-}
-.work-Sec h2 {
-    color: blue; /* Heading color */
-    font-size: 4rem; /* Increase the font size as needed */
-    margin-bottom: 1rem; /* Adjust the spacing below the heading */
-    text-align: center; /* Center the heading text */
-    font-weight: bold; /* Ensure the text is bold */
-    text-transform: uppercase; /* Make the text uppercase */
 }
 
 /* Technology Section */

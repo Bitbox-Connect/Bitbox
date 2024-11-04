@@ -13,11 +13,10 @@ const ContributorCard = ({
   <motion.div
     whileHover={{ y: -5 }}
     transition={{ type: "spring", stiffness: 300 }}
-    className={`rounded-lg overflow-hidden border transition-all duration-300 ${
-      mode === "dark"
-        ? "bg-black/30 backdrop-blur-md border-white/10"
-        : "bg-white backdrop-blur-sm border-gray-300"
-    }`}
+    className={`rounded-lg overflow-hidden border transition-all duration-300 ${mode === "dark"
+      ? "bg-black/30 backdrop-blur-md border-white/10"
+      : "bg-white backdrop-blur-sm border-gray-300"
+      }`}
     data-aos="fade-up"
     data-aos-duration="1500"
   >
@@ -25,50 +24,43 @@ const ContributorCard = ({
       <img
         src={avatar_url}
         alt={login}
-        className={`w-24 h-24 rounded-full mx-auto mb-4 border-4 ${
-          mode === "dark" ? "border-primary" : "border-blue-500"
-        }`}
+        className={`w-24 h-24 rounded-full mx-auto mb-4 border-4 ${mode === "dark" ? "border-primary" : "border-blue-500"
+          }`}
       />
       <h3
-        className={`font-bold text-xl ${
-          mode === "dark" ? "text-white" : "text-gray-800"
-        }`}
+        className={`font-bold text-xl ${mode === "dark" ? "text-white" : "text-gray-800"
+          }`}
       >
         {login}
       </h3>
       <p
-        className={`text-sm ${
-          mode === "dark" ? "text-primary" : "text-gray-600"
-        } mb-2`}
+        className={`text-sm ${mode === "dark" ? "text-primary" : "text-gray-600"
+          } mb-2`}
       >
         {type}
       </p>
       <div
-        className={`mt-4 rounded-full py-2 px-4 inline-block ${
-          mode === "dark" ? "bg-white/10" : "bg-blue-100"
-        }`}
+        className={`mt-4 rounded-full py-2 px-4 inline-block ${mode === "dark" ? "bg-white/10" : "bg-blue-100"
+          }`}
       >
         <span
-          className={`font-semibold ${
-            mode === "dark" ? "text-primary" : "text-blue-600"
-          }`}
+          className={`font-semibold ${mode === "dark" ? "text-primary" : "text-blue-600"
+            }`}
         >
           {contributions} contributions
         </span>
       </div>
     </div>
     <div
-      className={`py-3 px-6 flex justify-between items-center ${
-        mode === "dark" ? "bg-white/5" : "bg-blue-200"
-      }`}
+      className={`py-3 px-6 flex justify-between items-center ${mode === "dark" ? "bg-white/5" : "bg-blue-200"
+        }`}
     >
       <a
         href={html_url}
         target="_blank"
         rel="noopener noreferrer"
-        className={`text-primary hover:text-primary/80 transition-colors flex items-center ${
-          mode === "dark" ? "text-white" : "text-blue-800"
-        }`}
+        className={`text-primary hover:text-primary/80 transition-colors flex items-center ${mode === "dark" ? "text-white" : "text-blue-800"
+          }`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +85,6 @@ ContributorCard.propTypes = {
   contributions: PropTypes.number.isRequired,
   type: PropTypes.string.isRequired,
 };
-
 
 const IssueCard = ({
   title,
@@ -157,20 +148,22 @@ const IssueCard = ({
           </svg>
           View Issue
         </a>
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          width='24'
-          height='24'
-          viewBox='0 0 24 24'
-          fill='none'
-          stroke='currentColor'
-          strokeWidth='2'
-          strokeLinecap='round'
-          strokeLinejoin='round'
-          className='text-white/50'
-        >
-          <path d='M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22'></path>
-        </svg>
+        <a href={html_url} target="_blank">
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='24'
+            height='24'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            strokeWidth='2'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            className='text-blue-500 cursor-pointer'
+          >
+            <path d='M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22'></path>
+          </svg>
+        </a>
       </div>
     </div>
   </motion.div>
@@ -193,32 +186,29 @@ const StatCard = ({ label, value, icon, mode, onClick }) => (
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5 }}
-     className={`rounded-lg p-6 flex items-center border transition-all duration-300 cup ${mode === 'dark'
+    className={`rounded-lg p-6 flex items-center border transition-all duration-300 cup ${mode === 'dark'
       ? 'bg-black/30 backdrop-blur-md border-white/10'
       : 'bg-white backdrop-blur-sm border-gray-300'
       }`}
     onClick={onClick}
- 
+
   >
     <div
-      className={`rounded-full p-3 mr-4 ${
-        mode === "dark" ? "bg-white/10" : "bg-gray-200"
-      }`}
+      className={`rounded-full p-3 mr-4 ${mode === "dark" ? "bg-white/10" : "bg-gray-200"
+        }`}
     >
       {icon}
     </div>
     <div>
       <h3
-        className={`text-3xl font-bold ${
-          mode === "dark" ? "text-white" : "text-gray-800"
-        }`}
+        className={`text-3xl font-bold ${mode === "dark" ? "text-white" : "text-gray-800"
+          }`}
       >
         {value}
       </h3>
       <p
-        className={`text-sm ${
-          mode === "dark" ? "text-white/70" : "text-gray-600"
-        }`}
+        className={`text-sm ${mode === "dark" ? "text-white/70" : "text-gray-600"
+          }`}
       >
         {label}
       </p>
@@ -246,24 +236,24 @@ export default function Contributor(props) {
     forks: 0,
     openIssues: 0,
   });
- 
+
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-         // Fetch contributors
+        // Fetch contributors
         const contributorsResponse = await fetch("https://api.github.com/repos/Bitbox-Connect/Bitbox/contributors?page=1&per_page=100");
- 
+
         if (!contributorsResponse.ok) {
           throw new Error("Failed to fetch contributors data");
         }
         const contributorsData = await contributorsResponse.json();
         setContributors(contributorsData);
 
- 
+
         // Fetch repo stats
         const repoResponse = await fetch('https://api.github.com/repos/Bitbox-Connect/Bitbox');
- 
+
         const repoData = await repoResponse.json();
         setRepoStats({
           stars: repoData.stargazers_count,
@@ -285,7 +275,7 @@ export default function Contributor(props) {
     fetchData();
   }, []);
 
-   // Calculate pagination indices
+  // Calculate pagination indices
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 
@@ -297,33 +287,29 @@ export default function Contributor(props) {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
- 
+
   return (
     <div
-      className={`min-h-screen ${
-        props.mode === "dark"
-          ? "bg-gradient-to-br from-gray-900 to-black text-white"
-          : "bg-gradient-to-br from-white to-blue-100 text-black"
-      }`}
+      className={`min-h-screen ${props.mode === "dark"
+        ? "bg-gradient-to-br from-gray-900 to-black text-white"
+        : "bg-gradient-to-br from-white to-blue-100 text-black"
+        }`}
     >
       {/* Hero Section */}
       <section
-        className={`relative h-[70vh] flex items-center justify-center text-center ${
-          props.mode === "dark"
-            ? "bg-gradient-to-br from-gray-900 via-black to-gray-800"
-            : "bg-gradient-to-br from-white via-blue-100 to-blue-200"
-        }`}
+        className={`relative h-[70vh] flex items-center justify-center text-center ${props.mode === "dark"
+          ? "bg-gradient-to-br from-gray-900 via-black to-gray-800"
+          : "bg-gradient-to-br from-white via-blue-100 to-blue-200"
+          }`}
       >
         <div
-          className={`absolute inset-0 ${
-            props.mode === "dark" ? "bg-black/50" : "bg-white/50"
-          } backdrop-blur-sm`}
+          className={`absolute inset-0 ${props.mode === "dark" ? "bg-black/50" : "bg-white/50"
+            } backdrop-blur-sm`}
         />
         <div className="relative z-10 space-y-6 max-w-4xl mx-auto px-4">
           <motion.h1
-            className={`text-5xl font-bold sm:text-6xl md:text-7xl ${
-              props.mode === "dark" ? "text-white" : "text-black"
-            }`}
+            className={`text-5xl font-bold sm:text-6xl md:text-7xl ${props.mode === "dark" ? "text-white" : "text-black"
+              }`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -331,9 +317,8 @@ export default function Contributor(props) {
             Our Amazing Contributors
           </motion.h1>
           <motion.p
-            className={`text-xl sm:text-2xl ${
-              props.mode === "dark" ? "text-white/80" : "text-black/80"
-            }`}
+            className={`text-xl sm:text-2xl ${props.mode === "dark" ? "text-white/80" : "text-black/80"
+              }`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -344,103 +329,116 @@ export default function Contributor(props) {
       </section>
 
       <section
-        className={`py-16 px-4 sm:px-6 lg:px-8 ${
-          props.mode === "dark"
-            ? "bg-black/30 backdrop-blur-md"
-            : "bg-white/30 backdrop-blur-md"
-        }`}
+        className={`py-16 px-4 sm:px-6 lg:px-8 ${props.mode === "dark"
+          ? "bg-black/30 backdrop-blur-md"
+          : "bg-white/30 backdrop-blur-md"
+          }`}
       >
         <div className="max-w-7xl mx-auto">
           <h2
-            className={`text-3xl font-bold text-center mb-12 ${
-              props.mode === "dark" ? "text-white" : "text-black"
-            }`}
+            className={`text-3xl font-bold text-center mb-12 ${props.mode === "dark" ? "text-white" : "text-black"
+              }`}
           >
             Project Statistics
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <StatCard
-              mode={props.mode}
-              label="Contributors"
-              value={contributors.length}
-              icon={
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8 text-primary"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path d="M13 7H7v6h6V7z" />
-                  <path
-                    fillRule="evenodd"
-                    d="M18 10A8 8 0 11-1 10a8 8 0 0117 0zm-6-4H7v6h6V6z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              }
-              onClick={() => {
-                setShowIssue(false);
-                setCurrentPage(1); // Reset pagination when switching to contributors
-              }}
-            />
-            <StatCard
-              mode={props.mode}
-              label="Stars"
-              value={repoStats.stars}
-              icon={
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8 text-primary"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.518 4.674a1 1 0 00.95.69h4.905c.969 0 1.371 1.24.588 1.81l-3.97 2.883a1 1 0 00-.364 1.118l1.518 4.674c.3.921-.755 1.688-1.538 1.118l-3.971-2.883a1 1 0 00-1.175 0l-3.97 2.883c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.364-1.118L2.49 10.1c-.783-.57-.38-1.81.588-1.81h4.905a1 1 0 00.95-.69l1.518-4.674z" />
-                </svg>
-              }
-            />
-            <StatCard
-              mode={props.mode}
-              label="Forks"
-              value={repoStats.forks}
-              icon={
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8 text-primary"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M6 5a3 3 0 01-3 3H2a3 3 0 003 3v4a3 3 0 006 0v-4a3 3 0 003-3h-1a3 3 0 01-3-3V2h-2v3H6zm7-3v3a3 3 0 013 3h1a3 3 0 00-3-3h-1V2h-2z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              }
-            />
-            <StatCard
-              mode={props.mode}
-              label="Open Issues"
-              value={repoStats.openIssues}
-              icon={
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8 text-primary"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path d="M5.05 3.05A7 7 0 1018 10a7.002 7.002 0 00-12.95 0A5.001 5.001 0 115 3.05zm0 2A3.001 3.001 0 105 10a3.001 3.001 0 000-4.95z" />
-                </svg>
-              }
-              onClick={() => {
-                setShowIssue(true);
-                setCurrentPage(1); // Reset pagination when switching to contributors
-              }}
-            />
+            {/* Contributors */}
+            <div className="cursor-pointer">
+              <StatCard
+                mode={props.mode}
+                label="Contributors"
+                value={contributors.length}
+                icon={
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-8 w-8 text-primary"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path d="M13 7H7v6h6V7z" />
+                    <path
+                      fillRule="evenodd"
+                      d="M18 10A8 8 0 11-1 10a8 8 0 0117 0zm-6-4H7v6h6V6z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                }
+                onClick={() => {
+                  setShowIssue(false);
+                  setCurrentPage(1); // Reset pagination when switching to contributors
+                }}
+              />
+            </div>
+
+            {/* Repository Stars */}
+            <a href="https://github.com/Bitbox-Connect/Bitbox/stargazers" target="_blank">
+              <StatCard
+                mode={props.mode}
+                label="Stars"
+                value={repoStats.stars}
+                icon={
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-8 w-8 text-primary"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.518 4.674a1 1 0 00.95.69h4.905c.969 0 1.371 1.24.588 1.81l-3.97 2.883a1 1 0 00-.364 1.118l1.518 4.674c.3.921-.755 1.688-1.538 1.118l-3.971-2.883a1 1 0 00-1.175 0l-3.97 2.883c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.364-1.118L2.49 10.1c-.783-.57-.38-1.81.588-1.81h4.905a1 1 0 00.95-.69l1.518-4.674z" />
+                  </svg>
+                }
+              />
+            </a>
+
+            {/* Repository Forks */}
+            <a href="https://github.com/Bitbox-Connect/Bitbox/network/members" target="_blank">
+              <StatCard
+                mode={props.mode}
+                label="Forks"
+                value={repoStats.forks}
+                icon={
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-8 w-8 text-primary"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M6 5a3 3 0 01-3 3H2a3 3 0 003 3v4a3 3 0 006 0v-4a3 3 0 003-3h-1a3 3 0 01-3-3V2h-2v3H6zm7-3v3a3 3 0 013 3h1a3 3 0 00-3-3h-1V2h-2z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                }
+              />
+            </a>
+
+            {/* Open Issues */}
+            <div className="cursor-pointer">
+              <StatCard
+                mode={props.mode}
+                label="Open Issues"
+                value={repoStats.openIssues}
+                icon={
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-8 w-8 text-primary"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path d="M5.05 3.05A7 7 0 1018 10a7.002 7.002 0 00-12.95 0A5.001 5.001 0 115 3.05zm0 2A3.001 3.001 0 105 10a3.001 3.001 0 000-4.95z" />
+                  </svg>
+                }
+                onClick={() => {
+                  setShowIssue(true);
+                  setCurrentPage(1); // Reset pagination when switching to contributors
+                }}
+              />
+            </div>
           </div>
         </div>
       </section>
 
-       <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">{showIssue ? 'Your contribution is valuable see all Issues' : 'Contributors'}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -481,6 +479,6 @@ export default function Contributor(props) {
       </section>
     </div >
 
- 
+
   );
 }
