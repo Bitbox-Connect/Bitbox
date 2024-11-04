@@ -70,7 +70,7 @@ function ContactUs(props) {
 
 
   return (
-    <div className="container contactus-container">
+    <div className="container pt-2 contactus-container ">
       <h2 className='text-center Heading-Page'>Contact Us</h2>
       <form className='mt-4 contactus-main-box' name="submit-to-google-sheet" onSubmit={handleSubmit} noValidate>
         <div className="mb-3">
