@@ -20,21 +20,15 @@ const subscribeNewsletter = async (req, res) => {
     const newSubscriber = new Newsletter({ email });
     await newSubscriber.save();
 
-    // Configure the transporter
-    // const transporter = nodemailer.createTransport({
-    //   service: "gmail",
-    //   auth: {
-    //     user: process.env.EMAIL_USER, // Use environment variables in production
-    //     pass: process.env.EMAIL_PASS,
-    //   },
-    // });
+    Configure the transporter
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "taskmaster991@gmail.com", // Your email
-        pass: "kmepakzcabvztekd", // Your email password
+        user: process.env.EMAIL_USER, // Use environment variables in production
+        pass: process.env.EMAIL_PASS,
       },
     });
+   
     const mailOptions = {
       from: "anujverma3553@gmail.com",
       to: email, // Send confirmation email to the subscriber's email
