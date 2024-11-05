@@ -1,6 +1,6 @@
 // component/FAQ.jsx
-import { useState } from 'react';
-import '../css/Faq.css';
+import { useState } from "react";
+import "../css/Faq.css";
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -27,25 +27,29 @@ const FAQ = () => {
 const faqData = [
   {
     question: "What is BitBox?",
-    answer: "BitBox is a user-friendly platform that simplifies version control and collaboration for developers.",
+    answer:
+      "BitBox is a user-friendly platform that simplifies version control and collaboration for developers.",
   },
   {
     question: "How does BitBox enhance collaboration?",
-    answer: "BitBox offers intuitive tools that enable both solo programmers and large teams to manage projects efficiently.",
+    answer:
+      "BitBox offers intuitive tools that enable both solo programmers and large teams to manage projects efficiently.",
   },
   {
     question: "How do I get started with BitBox?",
-    answer: "You can sign up for an account on BitBox and start managing your projects right away.",
+    answer:
+      "You can sign up for an account on BitBox and start managing your projects right away.",
   },
   {
     question: "Is BitBox compatible with modern development workflows?",
-    answer: "Yes, BitBox seamlessly integrates with modern development workflows, providing fast and reliable performance.",
+    answer:
+      "Yes, BitBox seamlessly integrates with modern development workflows, providing fast and reliable performance.",
   },
   {
     question: "How can I contact support if I need help?",
-    answer: "You can reach out to support through the 'Contact Us' page or by emailing support@example.com.",
+    answer:
+      "You can reach out to support through the 'Contact Us' page or by emailing support@example.com.",
   },
 ];
-
 
 export default FAQ;
