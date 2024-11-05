@@ -5,69 +5,104 @@ export default function TermOfUse() {
   const VITE_CLIENT_PORT = import.meta.env.VITE_CLIENT_PORT;
 
   return (
-    <div className="terms-container mx-auto p-8 mt-20 mb-12 max-w-3xl bg-white shadow-lg rounded-lg">
-      <h2 className="text-center text-4xl font-bold text-blue-900 mb-8">Terms Of Use</h2>
+    <div className="bg-black text-white flex items-center justify-center min-h-screen mt-40 mb-10">
+      <div className="max-w-4xl p-6 bg-gray-900 rounded-lg shadow-lg">
+        {/* Page Title */}
+        <h1 className="text-4xl font-bold text-center text-[rgb(99,102,242)] mb-8">
+          Terms of Use
+        </h1>
 
-      <section className="mb-8">
-        <p className="text-gray-500 text-sm">Version 1.0</p>
-        <p className="mt-4 text-gray-700 leading-relaxed">
-          The BITBOX website located at <span className="font-semibold text-blue-800">{VITE_CLIENT_PORT}/termofuse</span> is a copyrighted work belonging to BITBOX. Certain features of the Site may be subject to additional guidelines, terms, or rules, which will be posted on the Site in connection with such features.
-        </p>
-      </section>
+        {/* Introduction */}
+        <section className="mb-8">
+          <p className="text-gray-300 text-lg">
+            Welcome to BitBox! By using our platform, you agree to abide by the following terms and conditions. Please read them carefully to understand your rights and responsibilities while using our services.
+          </p>
+        </section>
 
-      <section className="term-section mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-2">Access to the Site</h3>
-        <p className="text-gray-700 leading-relaxed">
-          Subject to these Terms, Company grants you a non-transferable, non-exclusive, revocable, limited license to access the Site solely for your own personal, non-commercial use.
-        </p>
-        <p className="mt-4 text-gray-700 leading-relaxed">
-          Company reserves the right to change, suspend, or cease the Site with or without notice. You acknowledge that Company will not be liable to you or any third-party for any changes, interruptions, or termination of the Site or any part.
-        </p>
-      </section>
+        {/* Acceptance of Terms */}
+        <section className="mb-8">
+          <h2 className="text-2xl font-semibold text-[rgb(99,102,242)] mb-4 border-b border-gray-600 pb-2">
+            1. Acceptance of Terms
+          </h2>
+          <p className="text-gray-300 mb-4">
+            By accessing or using BitBox, you acknowledge that you have read, understood, and agree to be bound by these Terms of Use. If you do not agree with any part of these terms, please refrain from using our services.
+          </p>
+        </section>
 
-      <section className="term-section mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-2">User Content</h3>
-        <p className="text-gray-700 leading-relaxed">
-          <strong>User Content:</strong> "User Content" means any information and content that a user submits to the Site. You are exclusively responsible for your User Content...
-        </p>
-      </section>
+        {/* User Responsibilities */}
+        <section className="mb-8">
+          <h2 className="text-2xl font-semibold text-[rgb(99,102,242)] mb-4 border-b border-gray-600 pb-2">
+            2. User Responsibilities
+          </h2>
+          <ul className="list-disc list-inside text-gray-300 space-y-2">
+            <li>Provide accurate information when creating an account.</li>
+            <li>Upload projects that respect copyright and are legally permissible.</li>
+            <li>Engage in constructive feedback and collaboration with respect for others.</li>
+          </ul>
+        </section>
 
-      <section className="term-section mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-2">Third-Party Links & Ads; Other Users</h3>
-        <p className="text-gray-700 leading-relaxed">
-          <strong>Third-Party Links & Ads:</strong> The Site may contain links to third-party websites and services, and/or display advertisements for third-parties...
-        </p>
-      </section>
+        {/* Project Ownership and Intellectual Property */}
+        <section className="mb-8">
+          <h2 className="text-2xl font-semibold text-[rgb(99,102,242)] mb-4 border-b border-gray-600 pb-2">
+            3. Project Ownership and Intellectual Property
+          </h2>
+          <p className="text-gray-300 mb-4">
+            Content shared on BitBox remains the property of the user. However, by uploading your projects, you grant BitBox permission to display and distribute your content on the platform.
+          </p>
+        </section>
 
-      <section className="term-section mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-2">Disclaimers</h3>
-        <p className="text-gray-700 leading-relaxed">
-          The site is provided on an "as-is" and "as available" basis, and Company and our suppliers expressly disclaim any and all warranties...
-        </p>
-      </section>
+        {/* Prohibited Conduct */}
+        <section className="mb-8">
+          <h2 className="text-2xl font-semibold text-[rgb(99,102,242)] mb-4 border-b border-gray-600 pb-2">
+            4. Prohibited Conduct
+          </h2>
+          <ul className="list-disc list-inside text-gray-300 space-y-2">
+            <li>Do not post illegal or harmful content.</li>
+            <li>Do not engage in activities that could harm the platform or other users.</li>
+            <li>Avoid unauthorized access attempts to BitBox systems.</li>
+          </ul>
+        </section>
 
-      <section className="term-section mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-2">Limitation on Liability</h3>
-        <p className="text-gray-700 leading-relaxed">
-          Some jurisdictions do not allow the limitation or exclusion of liability for incidental or consequential damages...
-        </p>
-      </section>
+        {/* Limitation of Liability */}
+        <section className="mb-8">
+          <h2 className="text-2xl font-semibold text-[rgb(99,102,242)] mb-4 border-b border-gray-600 pb-2">
+            5. Limitation of Liability
+          </h2>
+          <p className="text-gray-300">
+            BitBox shall not be liable for any damages arising from the use of our platform, including lost profits, data, or goodwill.
+          </p>
+        </section>
 
-      <section className="term-section mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-2">Copyright Policy</h3>
-        <ul className="list-disc list-inside text-gray-700 leading-relaxed pl-5">
-          <li>Your physical or electronic signature;</li>
-          <li>Identification of the copyrighted work(s) that you claim to have been infringed;</li>
-          <li>Identification of the material on our services that you claim is infringing...</li>
-        </ul>
-      </section>
+        {/* Termination of Access */}
+        <section className="mb-8">
+          <h2 className="text-2xl font-semibold text-[rgb(99,102,242)] mb-4 border-b border-gray-600 pb-2">
+            6. Termination of Access
+          </h2>
+          <p className="text-gray-300">
+            We reserve the right to terminate your access to BitBox if you violate these Terms of Use or engage in harmful activities.
+          </p>
+        </section>
 
-      <section className="term-section mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-2">General</h3>
-        <p className="text-gray-700 leading-relaxed">
-          These Terms are subject to occasional revision, and if we make any substantial changes, we may notify you...
-        </p>
-      </section>
+        {/* Changes to Terms */}
+        <section className="mb-8">
+          <h2 className="text-2xl font-semibold text-[rgb(99,102,242)] mb-4 border-b border-gray-600 pb-2">
+            7. Changes to Terms
+          </h2>
+          <p className="text-gray-300">
+            BitBox reserves the right to update these Terms of Use at any time. Continued use of the platform after changes indicates acceptance of the new terms.
+          </p>
+        </section>
+
+        {/* Governing Law */}
+        <section className="mb-8">
+          <h2 className="text-2xl font-semibold text-[rgb(99,102,242)] mb-4 border-b border-gray-600 pb-2">
+            8. Governing Law
+          </h2>
+          <p className="text-gray-300">
+            These Terms shall be governed by the applicable laws in your jurisdiction.
+          </p>
+        </section>
+      </div>
     </div>
   );
 }
