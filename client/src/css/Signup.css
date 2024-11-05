@@ -84,6 +84,14 @@
 .signup-link:hover {
     color: #6366F1;
 }
+.form-check {
+    align-items: center; /* Aligns checkbox and label vertically */
+  }
+  
+  .form-check-input {
+    margin-right: 10px; /* Space between checkbox and label */
+  }
+  
 
 @media (max-width: 600px) {
     .signup-wrapper {

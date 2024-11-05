@@ -27,6 +27,14 @@ body {
   text-align: center;
   background-color: var(--form-bg, #fff);
 }
+.form-check {
+  align-items: center; /* Aligns checkbox and label vertically */
+}
+
+.form-check-input {
+  margin-right: 10px; /* Space between checkbox and label */
+}
+
 
 .title {
   font-size: 3rem;
