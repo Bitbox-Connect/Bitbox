@@ -148,7 +148,7 @@ const Footer = (props) => {
                                 <span className="font-bold text-2xl">Total Visitors : </span>
                                 <a href="https://github.com/Anuj3553/Bitbox" target="_blank" rel="noopener noreferrer">
                                     <img
-                                        src="https://hitwebcounter.com/counter/counter.php?page=17062113&style=0006&nbdigits=5&type=page&initCount=1000"
+                                        src="https://hitwebcounter.com/counter/counter.php?page=17062113&style=0006&nbdigits=5&type=ip&initCount=1000"
                                         alt="Visit counter for websites"
                                         className="inline-block"
                                     />
