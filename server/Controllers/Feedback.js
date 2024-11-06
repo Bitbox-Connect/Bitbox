@@ -1,4 +1,5 @@
 const FeedbackForm = require('../Models/feedback');
+const { sendMailToAdmin } = require('../sendFeedbackToAdmin');
 
 const submitFeedback = async (req, res) => {
     // Extract data from the request body
@@ -26,6 +27,8 @@ const submitFeedback = async (req, res) => {
         feedback: Feedback,
         rating: Rating,
     };
+
+    sendMailToAdmin(feedbackData)
 
 
     try {
