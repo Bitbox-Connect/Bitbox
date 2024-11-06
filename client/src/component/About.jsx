@@ -30,7 +30,7 @@ export default function About(props) {
   // }, []); // Empty dependency array ensures this effect runs only once when component mounts
 
   return (
-    <div>
+    <div className="mt-14">
       {/* About Main Section */}
       <div
         className="about-content container mx-auto px-4 py-16 h-auto min-h-[100vh]"
