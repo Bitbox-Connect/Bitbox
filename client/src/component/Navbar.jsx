@@ -306,21 +306,15 @@ function Navbar(props) {
                         <li>
                           <Link
                             to="/myprofile"
-                            style={{
-                              color: props.mode === "dark" ? "white" : "black",
-                            }}
                           >
-                            My Profile
+                            <p>My Profile</p>
                           </Link>
                         </li>
                         <li>
                           <Link
                             to="/editprofile"
-                            style={{
-                              color: props.mode === "dark" ? "white" : "black",
-                            }}
                           >
-                            Edit Profile
+                            <p>Edit Profile</p>
                           </Link>
                         </li>
                         <li>
@@ -343,13 +337,11 @@ function Navbar(props) {
                         <li>
                           <Link
                             role="button"
+                            className="text-[#000]"
                             to="/login"
                             onClick={handleLogout}
-                            style={{
-                              color: props.mode === "dark" ? "white" : "black",
-                            }}
                           >
-                            Logout
+                            <p>Logout</p>
                           </Link>
                         </li>
                       </ul>
@@ -412,7 +404,8 @@ function Navbar(props) {
                   <span className="fake-body"></span>
                 </div>
               </div>
-            )}
+            )
+            }
 
             {/* Sidebar Toggle Button */}
             <div className="mobile-dark-theme">
@@ -455,11 +448,11 @@ function Navbar(props) {
                 />
               </svg>
             </button>
-          </form>
-        </div>
+          </form >
+        </div >
 
         {/* Sidebar for Smaller devices */}
-        <div
+        < div
           className={`sidebar ${isSidebarOpen ? "open" : ""}`}
           style={{ backgroundColor: props.mode === "dark" ? "black" : "white" }}
         >
@@ -573,18 +566,18 @@ function Navbar(props) {
               </>
             )}
           </ul>
-        </div>
+        </div >
 
         {/* Sidebar Toggle Button */}
-        <button
+        < button
           className="sidebar-toggle"
           onClick={() => setIsSidebarOpen(true)}
           style={{ display: isOpen ? "block" : "none" }}
         >
           Menu
-        </button>
-      </nav>
-    </div>
+        </button >
+      </nav >
+    </div >
   );
 }
 

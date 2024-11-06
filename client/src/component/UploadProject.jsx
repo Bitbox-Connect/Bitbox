@@ -8,7 +8,7 @@ function UploadProject(props) {
             <div className="container">
                 <div className="text-center">
                     <div className="body">
-                        <h5 className="title">{props.title}</h5>
+                        <h5 className="text-xl font-bold text-blue-500 mb-8">{props.title}  <strong>👇</strong></h5>
                         <AddProject showAlert={props.showAlert} />
                     </div>
                 </div>
