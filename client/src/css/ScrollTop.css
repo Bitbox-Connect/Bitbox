@@ -2,7 +2,7 @@
     display: none;
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    right: 100px;
     z-index: 999;
     transition-duration: 0.3s;
 }
