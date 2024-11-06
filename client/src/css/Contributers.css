@@ -1,3 +1,8 @@
+/* Add this to your CSS */
+.contributor-card:hover {
+  box-shadow: 1px 1px 12px 4px blue !important;
+}
+
 .card {
   width: 280px;
   height: 280px;
