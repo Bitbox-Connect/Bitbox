@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaXTwitter } from "react-icons/fa6";
 import { FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
+import VisitorCounter from './Footers/VisitorCount';
 
 const Footer = (props) => {
     const [email, setEmail] = useState("");
@@ -98,7 +99,7 @@ const Footer = (props) => {
             <div className="Footer" style={{ backgroundColor: props.mode === 'dark' ? '#0B192C' : 'white' }}>
                 <div className="container">
                     <div className='mb-4' data-aos="fade-up" data-aos-duration='1500'>
-                        <h4 style={{color : props.mode ==='dark'? 'white' : 'black'}} className="text-3xl font-semibold text-center mb-4">Subscribe to our Newsletter</h4>
+                        <h4 style={{ color: props.mode === 'dark' ? 'white' : 'black' }} className="text-3xl font-semibold text-center mb-4">Subscribe to our Newsletter</h4>
                         <form
                             className="flex flex-col items-center gap-4 md:flex-row md:justify-center"
                             onSubmit={handleSubscribe}
@@ -109,8 +110,8 @@ const Footer = (props) => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
-                                 className="px-4 py-2 border border-gray-300 rounded-md w-full max-w-xs focus:outline-none"
- 
+                                className="px-4 py-2 border border-gray-300 rounded-md w-full max-w-xs focus:outline-none"
+
                             />
                             <button
                                 type="submit"
@@ -125,7 +126,7 @@ const Footer = (props) => {
                             </p>
                         )}
                     </div>
-                    <div className="flex flex-col items-center space-y-4 mb-4" data-aos='fade-up' data-aos-duration='1500'>
+                    <div className="flex justify-center items-center mb-4" data-aos='fade-up' data-aos-duration='1500'>
                         <a
                             href="https://github.com/Anuj3553/Bitbox"
                             target="_blank"
@@ -143,17 +144,12 @@ const Footer = (props) => {
                             <span>Star us ⭐ {stars !== null ? stars : '...'}</span>
                         </a>
 
-                        <div className="flex flex-col items-center text-gray-800">
-                            <div className="flex items-center space-x-2">
-                                <span className="font-bold text-2xl">Total Visitors : </span>
-                                <a href="https://github.com/Anuj3553/Bitbox" target="_blank" rel="noopener noreferrer">
-                                    <img
-                                        src="https://hitwebcounter.com/counter/counter.php?page=17062113&style=0006&nbdigits=5&type=ip&initCount=1000"
-                                        alt="Visit counter for websites"
-                                        className="inline-block"
-                                    />
-                                </a>
-                            </div>
+                        <div className="flex flex-col items-center text-gray-800 ml-4">
+
+                            <a href="https://github.com/Anuj3553/Bitbox" target="_blank" rel="noopener noreferrer">
+                                <VisitorCounter />
+                            </a>
+
                         </div>
                     </div>
 
