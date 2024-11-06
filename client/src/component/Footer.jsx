@@ -2,8 +2,9 @@ import "../css/Footer.css";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { FaXTwitter } from "react-icons/fa6";
-import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+import VisitorCounter from './Footers/VisitorCount';
 
 const Footer = (props) => {
   const [email, setEmail] = useState("");
@@ -82,81 +83,76 @@ const Footer = (props) => {
     };
   }, []);
 
-  useEffect(() => {
-    const fetchGitHubStars = async () => {
-      const response = await fetch(
-        "https://api.github.com/repos/Bitbox-Connect/Bitbox"
-      );
-      const data = await response.json();
-      setStars(data.stargazers_count);
-    };
-useEffect(() => {
-    // Configure the chatbot settings
-    window.embeddedChatbotConfig = {
-        chatbotId: "GzK_h2kRkJ8e-jLXJVgmy",
-        domain: "www.chatbase.co"
-    };
-
-    // Create the script element
-    const script = document.createElement('script');
-    script.src = "https://www.chatbase.co/embed.min.js";
-    script.defer = true;
-    script.setAttribute("chatbotId", "GzK_h2kRkJ8e-jLXJVgmy");
-    script.setAttribute("domain", "www.chatbase.co");
-
-    // Append the script to the body
-    document.body.appendChild(script);
-
-    // Cleanup function to remove the script on component unmount
-    return () => {
-        document.body.removeChild(script);
-    };
-}, []);
-
-useEffect(() => {
-    const fetchGitHubStars = async () => {
-        const response = await fetch('https://api.github.com/repos/Bitbox-Connect/Bitbox');
-        const data = await response.json();
-        setStars(data.stargazers_count);
-    };
-    fetchGitHubStars();
-}, []);
-
 // JSX below
-return (
-    <>
-        {/* Divider line */}
-        <hr style={{ border: '3px solid #0D92F4' }} />
+    useEffect(() => {
+        // Configure the chatbot settings
+        window.embeddedChatbotConfig = {
+            chatbotId: "GzK_h2kRkJ8e-jLXJVgmy",
+            domain: "www.chatbase.co"
+        };
 
-        {/* Footer container with dynamic background color */}
-        <div className="Footer" style={{ backgroundColor: props.mode === 'dark' ? '#0B192C' : 'white' }}>
-            <div className="container">
-                <div className='mb-4' data-aos="fade-up" data-aos-duration='1500'>
-                    <h4 style={{color: props.mode === 'dark' ? 'white' : 'black'}} className="text-3xl font-semibold text-center mb-4">
-                        Subscribe to our Newsletter
-                    </h4>
-                    <form className="flex flex-col items-center gap-4 md:flex-row md:justify-center" onSubmit={handleSubscribe}>
-                        <input
-                            type="email"
-                            placeholder="Enter your email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                            className="px-4 py-2 border border-gray-300 rounded-md w-full max-w-xs focus:outline-none mt-3 border-2 border-black"
-                        />
-                        <button
-                            type="submit"
-                            className="px-6 py-2 bg-blue-600 text-white font-bold rounded-md w-full max-w-[120px] hover:bg-blue-700 transition mt-[-10]"
+        // Create the script element
+        const script = document.createElement('script');
+        script.src = "https://www.chatbase.co/embed.min.js";
+        script.defer = true;
+        script.setAttribute("chatbotId", "GzK_h2kRkJ8e-jLXJVgmy");
+        script.setAttribute("domain", "www.chatbase.co");
+
+        // Append the script to the body
+        document.body.appendChild(script);
+
+        // Cleanup function to remove the script on component unmount
+        return () => {
+            document.body.removeChild(script);
+        };
+    }, []);
+
+    useEffect(() => {
+        const fetchGitHubStars = async () => {
+            const response = await fetch('https://api.github.com/repos/Bitbox-Connect/Bitbox');
+            const data = await response.json();
+            setStars(data.stargazers_count);
+        };
+        fetchGitHubStars();
+    }, []);
+
+
+    return (
+        <>
+            {/* Divider line */}
+            <hr style={{ border: '3px solid #0D92F4' }} />
+
+            {/* Footer container with dynamic background color */}
+            <div className="Footer" style={{ backgroundColor: props.mode === 'dark' ? '#0B192C' : 'white' }}>
+                <div className="container">
+                    <div className='mb-4' data-aos="fade-up" data-aos-duration='1500'>
+                        <h4 style={{ color: props.mode === 'dark' ? 'white' : 'black' }} className="text-3xl font-semibold text-center mb-4">Subscribe to our Newsletter</h4>
+                        <form
+                            className="flex flex-col items-center gap-4 md:flex-row md:justify-center"
+                            onSubmit={handleSubscribe}
                         >
-                            Subscribe
-                        </button>
-                    </form>
-                    {message && (
-                        <p className={`text-2xl mt-4 ${isError ? 'text-red-500' : 'text-green-500'} text-center`}>
-                            {message}
-                        </p>
-                    )}
-                </div>
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                                className="px-4 py-2 border border-gray-300 rounded-md w-full max-w-xs focus:outline-none"
+
+                            />
+                            <button
+                                type="submit"
+                                className="px-6 py-2 bg-blue-600 text-white rounded-md w-full max-w-[120px] hover:bg-blue-700 transition"
+                            >
+                                Subscribe
+                            </button>
+                        </form>
+                        {message && (
+                            <p className={`text-2xl mt-4 ${isError ? 'text-red-500' : 'text-green-500'} text-center`}>
+                                {message}
+                            </p>
+                        )}
+                    </div>
 
                 <div className="flex flex-col items-center space-y-4 mb-4" data-aos='fade-up' data-aos-duration='1500'>
                     <a href="https://github.com/Anuj3553/Bitbox" target="_blank" rel="noopener noreferrer" className="flex items-center bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-700">

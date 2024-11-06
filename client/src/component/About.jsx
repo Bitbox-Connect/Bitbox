@@ -30,7 +30,7 @@ export default function About(props) {
   // }, []); // Empty dependency array ensures this effect runs only once when component mounts
 
   return (
-    <div>
+    <div className="mt-14">
       {/* About Main Section */}
       <div
         className="about-content container mx-auto px-4 py-16 h-auto min-h-[100vh]"
@@ -468,12 +468,22 @@ export default function About(props) {
       {/* FAQ */}
       <div className="accordion-container">
         <div className="faq-container max-w-4xl mx-auto px-6 py-10">
-          <h2 className="faq-heading text-4xl font-bold text-center text-gray-800 dark:text-white mb-8">
-            <span className="highlight bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">
+          <h2
+            className={`faq-heading text-4xl font-bold text-center text-gray-800 dark:text-white mb-8 ${props.mode}===dark? text-black`}
+          >
+            <span
+              className={`${
+                props.mode === "dark"
+                  ? "text-black"
+                  : "highlight bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent"
+              }`}
+            >
               Frequently Asked Questions
             </span>
           </h2>
-          <div className="faq-list divide-y divide-gray-300 dark:divide-gray-700">
+          <div
+            className={`faq-list divide-y divide-gray-300 dark:divide-gray-700 ${props.mode}===dark? text-black`}
+          >
             {[
               {
                 question:
@@ -511,14 +521,19 @@ export default function About(props) {
                       .getElementById(`answer${index}`)
                       .classList.toggle("hidden")
                   }
-                  className="question-btn w-full text-left text-lg font-semibold text-gray-900 dark:text-black flex justify-between items-center focus:outline-none"
+
+                  className={`question-btn w-full text-left text-lg font-semibold text-gray-900 dark:text-black flex justify-between items-center focus:outline-none ${props.mode}===dark? text-black`}
                 >
-                  <span>{item.question}</span>
-                  <i className="fa fa-chevron-down transition-transform duration-300"></i>
+                  <span className={`${props.mode}==="dark" ? text-black`}>
+                    {item.question}
+                  </span>
+                  <i
+                    className={`fa fa-chevron-down transition-transform duration-300 ${props.mode}==="dark" ? text-black`}
+                  ></i>
                 </button>
                 <p
                   id={`answer${index}`}
-                  className="faq-answer hidden mt-2 text-grey-700 dark:text-black transition-all"
+                  className={`faq-answer hidden mt-2 text-grey-700 dark:text-black transition-all ${props.mode}===dark ? text-black`}
                 >
                   {item.answer}
                 </p>

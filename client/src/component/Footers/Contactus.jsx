@@ -33,8 +33,8 @@ function ContactUs(props) {
     }
 
     // Validate message
-    if (!message.trim()) {
-      toast.error("Please enter a valid message");
+    if (!message.trim() || message.length < 5) {
+      toast.error("Please enter a valid message with at least 5 characters");
       setIsSubmitting(false);
       return;
     }
