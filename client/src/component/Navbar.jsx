@@ -17,7 +17,8 @@ function Navbar(props) {
   const location = useLocation();
 
   const { currentUser } = useAuth();
-  const [isScrolled, setIsScrolled] = useState(false); // State to keep track of whether page has been scrolled
+  // eslint-disable-next-line
+  const [isScrolled, setIsScrolled] = useState(false); 
   // eslint-disable-next-line
   const [isOpen, setIsOpen] = useState(false);
   // State to control the sidebar visibility
@@ -582,6 +583,7 @@ Navbar.propTypes = {
   discussion: PropTypes.string,
   blog: PropTypes.string,
   about: PropTypes.string,
+  contributors: PropTypes.string,
   profile: PropTypes.string,
   mode: PropTypes.string,
   toggleMode: PropTypes.func,

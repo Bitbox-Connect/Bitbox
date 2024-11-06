@@ -30,10 +30,10 @@ export default function About(props) {
   // }, []); // Empty dependency array ensures this effect runs only once when component mounts
 
   return (
-    <div className="mt-14">
+    <>
       {/* About Main Section */}
       <div
-        className="about-content container mx-auto px-4 py-16 h-auto min-h-[100vh]"
+        className="about-content container mx-auto px-4 pt-16 pb-10 h-auto min-h-[100vh]"
         style={{
           background: props.mode === "dark" ? "#121212" : "#ffffff",
           color: props.mode === "dark" ? "white" : "black",
@@ -472,11 +472,10 @@ export default function About(props) {
             className={`faq-heading text-4xl font-bold text-center text-gray-800 dark:text-white mb-8 ${props.mode}===dark? text-black`}
           >
             <span
-              className={`${
-                props.mode === "dark"
+              className={`${props.mode === "dark"
                   ? "text-black"
                   : "highlight bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent"
-              }`}
+                }`}
             >
               Frequently Asked Questions
             </span>
@@ -541,11 +540,7 @@ export default function About(props) {
           </div>
         </div>
       </div>
-      {/* Info */}
-      {/* <div className="info">
-          <p className='fs-4'>&quot;Open source is a shared vision of building a community of similar -minded individuals. Together, we collaborate, innovate, and shape the future of technology with transparency and inclusivity at its core  write in more effective way&quot;</p>
-        </div> */}
-    </div>
+    </>
   );
 }
 
