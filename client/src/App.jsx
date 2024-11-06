@@ -29,7 +29,6 @@ import Contributors from "./component/Contributors";
 import Discussion from "./component/Discussion";
 import ForgotPassword from "./component/ForgotPassword";
 import ResetPassword from "./component/ResetPassword";
-import Feedback from "./component/Feedback";
 // import VerifyEmail from "./component/Verify";
 // import ProtectedRoute from '../../client/src/component/ProtectedRoute'
 import NotFound from "./component/NotFound";
@@ -133,9 +132,7 @@ function App() {
               progress={progress}
               onLoaderFinished={() => setProgress(0)}
             />
-            <div className="App">
-              <Feedback/>
-            </div>
+
             <div className="alert-container">
               <Alert alert={alert} />
             </div>
@@ -273,7 +270,7 @@ function App() {
                 <Route exact path='/contactus' element={<ContactUs mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/privacypolicy' element={<PrivacyPolicy mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/termofuse' element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path='/FAQ' element={<FAQ mode={mode}/>} /> {/* Add this line */}
+                <Route exact path='/FAQ' element={<FAQ mode={mode} />} /> {/* Add this line */}
                 <Route exact path='/createBlogPost' element={<CreateBlog />} /> {/* Add this line */}
                 <Route exact path='/read-more-blog/:id' element={<ReadMoreBlog mode={mode} setProgress={setProgress} showAlert={showAlert} />} /> {/* Add this line */}
                 <Route exact path='/*' element={<NotFound />} />
