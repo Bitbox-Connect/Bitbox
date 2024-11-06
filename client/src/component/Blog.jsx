@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import PropTypes from 'prop-types';
 import { Search } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -8,7 +9,7 @@ import img3 from "../assets/blogs/3.png";
 import img4 from "../assets/blogs/4.jpeg";
 import img5 from "../assets/blogs/5.jpeg";
 import img6 from "../assets/blogs/6.png";
- 
+
 const images = [
   { src: img1, category: "Web Development" },
   { src: img2, category: "Mobile Development" },
@@ -17,10 +18,19 @@ const images = [
   { src: img4, category: "AI" },
   { src: img3, category: "Cybersecurity" },
 ];
-export default function BlogPage() {
+
+BlogPage.propTypes = {
+  mode: PropTypes.string.isRequired,
+};
+
+export default function BlogPage(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [blogPosts, setBlogPosts] = useState([]);
+  const [isPaused, setIsPaused] = useState(false);
+  const [currentPosition, setCurrentPosition] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const speechInstanceRef = useRef(null);
 
   const categories = ["All", ...new Set(blogPosts.map((post) => post.category))];
 
@@ -54,9 +64,47 @@ export default function BlogPage() {
       let response = await fetch("http://localhost:5000/api/blog/all-blog");
       let data = await response.json();
       setBlogPosts(data.blogs);
+      console.log(data.blogs);
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const handlePlay = (id, title, excerpt) => {
+    const textToSpeak = `${title}. ${excerpt}`;
+    document.getElementsByClassName(`pause-button-${id}`)[0].classList.remove('hidden')
+    document.getElementsByClassName(`speak-button-${id}`)[0].classList.add('hidden')
+    console.log(textToSpeak)
+    if (isPaused && speechInstanceRef.current) {
+      setIsPaused(true);
+      window.speechSynthesis.speak(speechInstanceRef.current);
+    } else {
+      const speechInstance = new SpeechSynthesisUtterance(textToSpeak.slice(currentPosition));
+      speechInstance.lang = 'en-US';
+      speechInstance.pitch = 1;
+      speechInstance.rate = 1;
+
+      speechInstance.onboundary = (event) => {
+        if (event.name === 'word') {
+          setCurrentPosition(event.charIndex);
+        }
+      };
+
+      speechInstanceRef.current = speechInstance;
+      window.speechSynthesis.speak(speechInstance);
+    }
+    setIsPlaying(true);
+  };
+
+  const handlePause = (id) => {
+    document.getElementsByClassName(`pause-button-${id}`)[0].classList.add('hidden')
+    document.getElementsByClassName(`speak-button-${id}`)[0].classList.remove('hidden')
+    if (speechInstanceRef.current && !isPaused) {
+      window.speechSynthesis.cancel();
+      setIsPaused(false);
+    }
+    setIsPlaying(false);
+    setCurrentPosition(0)
   };
 
   useEffect(() => {
@@ -110,55 +158,71 @@ export default function BlogPage() {
         </div>
 
         {/* Blog Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {filteredPosts.length > 0 ? (
-            filteredPosts.map((post) => (
-              <article
-                key={post.id}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300"
-              >
+            filteredPosts.map((blogPost) => (
+
+              <div className={`max-w-3xl mx-auto my-8 ${props.mode === 'light' ? 'bg-white' : 'bg-gray-800'} rounded-lg shadow-md overflow-hidden`} key={blogPost.id}>
                 <img
-                  src={categoryImage(post.category)}
-                  alt={post.title}
-                  className="w-full h-48 object-cover"
+                  src={categoryImage(blogPost.category)}
+                  alt={blogPost.title}
+                  className="w-full h-64 object-cover"
+                  onError={(e) => { e.target.onerror = null; e.target.src = '/placeholder.svg'; }}
                 />
                 <div className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm">
-                      {post.category}
-                    </span>
-                    <span className="text-black text-sm">{post.readTime}</span>
-                  </div>
-                  <h2 className="text-xl font-bold mb-2 text-black">
-                    {post.title}
-                  </h2>
-                  <p className="text-black dark:text-gray-300 mb-4">{post.excerpt}</p>
-                  <div
-                    className="text-gray-600 dark:text-gray-300 mb-4"
-                    dangerouslySetInnerHTML={{ __html: post.content }}
-                  />
- 
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700"></div>
-                      <div>
-                        <p className="text-sm font-medium text-black dark:text-white">
-                          {post.author}
-                        </p>
- 
-                        <p className="text-xs text-gray-500 dark:text-gray-400">
-                          {formatDate(post.date)}
-                        </p>
-                      </div>
+                  <h1 className={`text-3xl font-bold ${props.mode === 'light' ? 'text-gray-900' : 'text-white'} mb-4`}>{blogPost.title}</h1>
+                  <div className="flex justify-between">
+
+
+                    <div className={`flex items-center ${props.mode === 'light' ? 'text-gray-600' : 'text-gray-400'} text-sm`}>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 24 24" stroke="currentColor" fill="none">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <time dateTime={new Date(blogPost.date).toISOString()}>
+                        {new Date(blogPost.date).toDateString()}
+                      </time>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-4 mr-2" viewBox="0 0 24 24" stroke="currentColor" fill="none">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                      </svg>
+                      <span>{blogPost.category}</span>
                     </div>
-                    <Link to={`/read-more-blog/${post._id}`}>
-                      <button className="text-black hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 font-medium">
-                        Read More
+
+                    <div>
+                      <button
+                        className={`speak-button-${blogPost._id} text-white text-sm`}
+                        onClick={() => handlePlay(blogPost._id, blogPost.title, blogPost.content.replace(/<[^>]+>/g, ''))}
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-6 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3l14 9-14 9V3z" />
+                        </svg>
                       </button>
-                    </Link>
+                      <button
+                        className={`text-white text-sm pause-button-${blogPost._id} hidden`}
+                        onClick={() => handlePause(blogPost._id)}
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-6 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 4h4v16h-4zM6 4h4v16H6z" />
+                        </svg>
+                      </button>
+                    </div>
+
                   </div>
+
+                  <div
+                    className={`${props.mode === 'light' ? 'text-gray-400' : 'text-gray-700'} leading-relaxed mb-4`} />
+                  {blogPost.content.replace(/<[^>]+>/g, '')}
                 </div>
-              </article>
+                <div className={`px-6 py-4 border-t ${props.mode === 'light' ? 'border-gray-200' : 'border-gray-700'}`}>
+                  <Link to={`/read-more-blog/${blogPost._id}`} className={`inline-flex items-center px-4 py-2 border ${props.mode === 'light' ? 'border-gray-300 text-gray-700 bg-white hover:bg-gray-50' : 'border-gray-600 text-gray-200 bg-gray-700 hover:bg-gray-600'} shadow-sm text-sm font-medium rounded-md`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h8M8 16h8M8 8h8" />
+                    </svg>
+                    Read More
+                  </Link>
+                </div>
+              </div>
+
+
             ))
           ) : (
             <section className="bg-white">
@@ -184,7 +248,9 @@ export default function BlogPage() {
                     Page not found
                   </h1>
                   <p className="mt-4 text-gray-500">
-                    The page you are looking for doesnt exist. Here are some helpful links:
+                    The page you are looking for doesnt exist. Here are some
+                    helpful links:
+
                   </p>
                   <div className="flex items-center w-full mt-6 gap-x-3 shrink-0 sm:w-auto">
                     <button

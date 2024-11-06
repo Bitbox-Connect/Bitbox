@@ -59,7 +59,7 @@ const Home = (props) => {
     const text = "Bitbox Community Cornerstone";
 
     return (
-        <div>
+        <div className='mt-10'>
             {/* Landing Page Section */}
             <motion.div
                 className="content landing-page-container"

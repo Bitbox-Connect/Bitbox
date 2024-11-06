@@ -227,6 +227,7 @@
 }
 
 /* Dark Mode Toggle Button */
+
 .darkThemeBtn * {
   transition: all 0.3s;
 }
@@ -409,7 +410,7 @@
 }
 
 /* Media query for desktop screens */
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .collapse {
     visibility: visible;
   }
@@ -464,10 +465,13 @@
   cursor: pointer;
   margin: 15px;
 }
-
+.mobile-dark-theme{
+  position: fixed;
+  right: 80px;
+}
 .sidebar-toggle {
   position: fixed;
-  top: 20px;
+
   right: 20px;
   background-color: #007bff;
   color: white;
@@ -477,10 +481,14 @@
   cursor: pointer;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1280px) {
+
   .sidebar {
     display: none;
     /* Hide on larger screens */
+  }
+  .mobile-dark-theme{
+    display: none;
   }
 
   .sidebar-toggle {
