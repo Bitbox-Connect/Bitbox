@@ -11,7 +11,7 @@
     display: block;
 }
 
-.button {
+.scrolltop-button {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -37,7 +37,7 @@
     fill: white;
 }
 
-.button:hover {
+.scrolltop-button:hover {
     background: linear-gradient(135deg, rgba(255, 181, 160, 1) 0%, rgba(20, 20, 20, 1) 100%);
 }
 
