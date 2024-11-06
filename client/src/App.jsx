@@ -29,6 +29,7 @@ import Contributors from "./component/Contributors";
 import Discussion from "./component/Discussion";
 import ForgotPassword from "./component/ForgotPassword";
 import ResetPassword from "./component/ResetPassword";
+import Feedback from "./component/Feedback";
 // import VerifyEmail from "./component/Verify";
 // import ProtectedRoute from '../../client/src/component/ProtectedRoute'
 import NotFound from "./component/NotFound";
@@ -58,6 +59,7 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
         blog="Blogs"
         discussion="Discussion"
         contributors="Contributors"
+        Feedback="Feedback"
         showAlert={showAlert}
         mode={mode}
         toggleMode={toggleMode}
@@ -131,6 +133,9 @@ function App() {
               progress={progress}
               onLoaderFinished={() => setProgress(0)}
             />
+            <div className="App">
+              <Feedback/>
+            </div>
             <div className="alert-container">
               <Alert alert={alert} />
             </div>
@@ -201,6 +206,17 @@ function App() {
                 />
                 <Route
                   exact
+                  path="/feedback"
+                  element={
+                    <Feedback
+                      mode={mode}
+                      setProgress={setProgress}
+                      showAlert={showAlert}
+                    />
+                  }
+                />
+                <Route
+                  exact
                   path="/blog"
                   element={
                     <BlogPage
@@ -253,7 +269,7 @@ function App() {
                 <Route exact path='/forgot-password' element={<ForgotPassword mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/reset-password' element={<ResetPassword mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/codeofconduct' element={<CodeOfConduct mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path='/feedback' element={<Feedback mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path='/Feedback' element={<Feedback mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/contactus' element={<ContactUs mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/privacypolicy' element={<PrivacyPolicy mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/termofuse' element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
