@@ -16,9 +16,11 @@ function Navbar(props) {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Get the current user from the context
   const { currentUser } = useAuth();
+
   // eslint-disable-next-line
-  const [isScrolled, setIsScrolled] = useState(false); 
+  const [isScrolled, setIsScrolled] = useState(false);
   // eslint-disable-next-line
   const [isOpen, setIsOpen] = useState(false);
   // State to control the sidebar visibility
@@ -124,9 +126,8 @@ function Navbar(props) {
       {/* Sticky Navbar */}
       <nav
         id="navbar"
-        className={`navbar navbar-expand-lg ${
-          isSidebarOpen ? "sticky" : ""
-        } navbar-${mode === "dark" ? "dark" : "light"}`}
+        className={`navbar navbar-expand-lg ${isSidebarOpen ? "sticky" : ""
+          } navbar-${mode === "dark" ? "dark" : "light"}`}
         style={{
           backgroundColor: mode === "dark" ? "black" : "white",
           borderBottom: "1px solid white",
@@ -138,9 +139,8 @@ function Navbar(props) {
       >
         {/* Hamburger icon */}
         <div
-          className={`w-full gap-[1rem] visible navbar-collapse rnav ${
-            isOpen ? "show" : ""
-          }`}
+          className={`w-full gap-[1rem] visible navbar-collapse rnav ${isOpen ? "show" : ""
+            }`}
           style={{ backgroundColor: props.mode === "dark" ? "black" : "white" }}
         >
           <Link
@@ -153,25 +153,22 @@ function Navbar(props) {
               alt="logo"
             />
             <div
-              className={`logoTitle md:block hidden ${
-                props.mode === "dark" ? "text-white" : "text-black"
-              }`}
+              className={`logoTitle md:block hidden ${props.mode === "dark" ? "text-white" : "text-black"
+                }`}
             >
               {props.title}
             </div>
           </Link>
           <div
-            className={`collapse navbar-collapse justify-content-center ${
-              isOpen ? "show" : ""
-            }`}
+            className={`collapse navbar-collapse justify-content-center ${isOpen ? "show" : ""
+              }`}
             id="navbarSupportedContent"
           >
             <ul className="navbar-nav mb-2 mb-lg-0 gap-3 fw-medium menu2">
               <li className="nav-item fs-6 fw-medium">
                 <Link
-                  className={`nav-link ${
-                    location.pathname === "/" ? "active" : ""
-                  }`}
+                  className={`nav-link ${location.pathname === "/" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/"
                 >
@@ -180,9 +177,8 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-6">
                 <Link
-                  className={`nav-link ${
-                    location.pathname === "/about" ? "active" : ""
-                  }`}
+                  className={`nav-link ${location.pathname === "/about" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/about"
                 >
@@ -191,9 +187,8 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-6">
                 <Link
-                  className={`nav-link ${
-                    location.pathname === "/community" ? "active" : ""
-                  }`}
+                  className={`nav-link ${location.pathname === "/community" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/community"
                 >
@@ -202,9 +197,8 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-6">
                 <Link
-                  className={`nav-link ${
-                    location.pathname === "/discussion" ? "active" : ""
-                  }`}
+                  className={`nav-link ${location.pathname === "/discussion" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/discussion"
                 >
@@ -213,9 +207,8 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-6">
                 <Link
-                  className={`nav-link ${
-                    location.pathname === "/blog" ? "active" : ""
-                  }`}
+                  className={`nav-link ${location.pathname === "/blog" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/blog"
                 >
@@ -224,13 +217,22 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-6">
                 <Link
-                  className={`nav-link ${
-                    location.pathname === "/contributors" ? "active" : ""
-                  }`}
+                  className={`nav-link ${location.pathname === "/contributors" ? "active" : ""
+                    }`}
                   aria-current="page"
                   to="/contributors"
                 >
                   {props.contributors}
+                </Link>
+              </li>
+              <li className="nav-item fs-6">
+                <Link
+                  className={`nav-link ${location.pathname === "/projects" ? "active" : ""
+                    }`}
+                  aria-current="page"
+                  to="/projects"
+                >
+                  {props.projects}
                 </Link>
               </li>
             </ul>
@@ -244,6 +246,29 @@ function Navbar(props) {
                   <div className="Navbar-Btn-Group">
                     {/* Add Project */}
                     <li>{renderUploadButton()}</li>
+
+                    {/* Dark Mode Toggle Button */}
+                    <li>
+                      <div className="darkThemeBtn flex justify-content-center">
+                        <input
+                          id="darkmode-toggle"
+                          type="checkbox"
+                          checked={props.mode === "dark"}
+                          onChange={props.toggleMode}
+                        />
+                        <label htmlFor="darkmode-toggle">
+                          <FaSun className="sun" style={style} />
+                          <FaMoon
+                            className="moon"
+                            style={{
+                              color: props.mode === "dark" ? "yellow" : "gray",
+                              fontSize: "1.5rem",
+                            }}
+                          />
+                        </label>
+                        <span className="fake-body"></span>
+                      </div>
+                    </li>
 
                     {/* User Profile */}
                     <li
@@ -263,7 +288,7 @@ function Navbar(props) {
                       >
                         <img
                           src={
-                            currentUser?.photoURL ||
+                            currentUser.photoURL ||
                             profileImage ||
                             avatarDropdown
                           }
@@ -291,21 +316,15 @@ function Navbar(props) {
                         <li>
                           <Link
                             to="/myprofile"
-                            style={{
-                              color: props.mode === "dark" ? "white" : "black",
-                            }}
                           >
-                            My Profile
+                            <p>My Profile</p>
                           </Link>
                         </li>
                         <li>
                           <Link
                             to="/editprofile"
-                            style={{
-                              color: props.mode === "dark" ? "white" : "black",
-                            }}
                           >
-                            Edit Profile
+                            <p>Edit Profile</p>
                           </Link>
                         </li>
                         <li>
@@ -328,13 +347,11 @@ function Navbar(props) {
                         <li>
                           <Link
                             role="button"
+                            className="text-[#000]"
                             to="/login"
                             onClick={handleLogout}
-                            style={{
-                              color: props.mode === "dark" ? "white" : "black",
-                            }}
                           >
-                            Logout
+                            <p>Logout</p>
                           </Link>
                         </li>
                       </ul>
@@ -375,6 +392,8 @@ function Navbar(props) {
                 >
                   Signup
                 </Link>
+
+                {/* Dark Mode Toggle Button */}
                 <div className="darkThemeBtn flex justify-content-center">
                   <input
                     id="darkmode-toggle"
@@ -395,58 +414,55 @@ function Navbar(props) {
                   <span className="fake-body"></span>
                 </div>
               </div>
-            )}
+            )
+            }
+
             {/* Sidebar Toggle Button */}
+            <div className="mobile-dark-theme">
+              <div className="darkThemeBtn flex justify-content-center">
+                <input
+                  id="darkmode-toggle"
+                  type="checkbox"
+                  checked={props.mode === "dark"}
+                  onChange={props.toggleMode}
+                />
+                <label htmlFor="darkmode-toggle">
+                  <FaSun className="sun" style={style} />
+                  <FaMoon
+                    className="moon"
+                    style={{
+                      color: props.mode === "dark" ? "yellow" : "gray",
+                      fontSize: "1.5rem",
+                    }}
+                  />
+                </label>
+                <span className="fake-body"></span>
+              </div>
+            </div>
+
             {/* Toggle Dark Mode */}
-
-            
-            
-                <div className="mobile-dark-theme">
-
-                <div className="darkThemeBtn flex justify-content-center">
-                  <input
-                    id="darkmode-toggle"
-                    type="checkbox"
-                    checked={props.mode === "dark"}
-                    onChange={props.toggleMode}
-                  />
-                  <label htmlFor="darkmode-toggle">
-                    <FaSun className="sun" style={style} />
-                    <FaMoon
-                      className="moon"
-                      style={{
-                        color: props.mode === "dark" ? "yellow" : "gray",
-                        fontSize: "1.5rem",
-                      }}
-                    />
-                  </label>
-                  <span className="fake-body"></span>
-                </div>
-                </div>
-              
-              <button
-                className="sidebar-toggle"
-                onClick={toggleSidebar}
+            <button
+              className="sidebar-toggle"
+              onClick={toggleSidebar}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="w-6 h-6"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M4.5 6.75a.75.75 0 000 1.5h15a.75.75 0 000-1.5h-15zm0 4.5a.75.75 0 000 1.5h15a.75.75 0 000-1.5h-15zm0 4.5a.75.75 0 000 1.5h15a.75.75 0 000-1.5h-15z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </button>
-            
-          </form>
-        </div>
+                <path
+                  fillRule="evenodd"
+                  d="M4.5 6.75a.75.75 0 000 1.5h15a.75.75 0 000-1.5h-15zm0 4.5a.75.75 0 000 1.5h15a.75.75 0 000-1.5h-15zm0 4.5a.75.75 0 000 1.5h15a.75.75 0 000-1.5h-15z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </button>
+          </form >
+        </div >
 
         {/* Sidebar for Smaller devices */}
-        <div
+        < div
           className={`sidebar ${isSidebarOpen ? "open" : ""}`}
           style={{ backgroundColor: props.mode === "dark" ? "black" : "white" }}
         >
@@ -560,18 +576,18 @@ function Navbar(props) {
               </>
             )}
           </ul>
-        </div>
+        </div >
 
         {/* Sidebar Toggle Button */}
-        <button
+        < button
           className="sidebar-toggle"
           onClick={() => setIsSidebarOpen(true)}
           style={{ display: isOpen ? "block" : "none" }}
         >
           Menu
-        </button>
-      </nav>
-    </div>
+        </button >
+      </nav >
+    </div >
   );
 }
 
@@ -584,6 +600,7 @@ Navbar.propTypes = {
   blog: PropTypes.string,
   about: PropTypes.string,
   contributors: PropTypes.string,
+  projects: PropTypes.string,
   profile: PropTypes.string,
   mode: PropTypes.string,
   toggleMode: PropTypes.func,

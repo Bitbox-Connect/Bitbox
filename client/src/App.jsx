@@ -3,7 +3,7 @@ import { modeAtom } from "./atom/Atom";
 import { useEffect, useState } from "react";
 import "./App.css";
 import "./index.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import PropTypes from "prop-types";
 import LoadingBar from "react-top-loading-bar";
 import About from "./component/About";
@@ -39,8 +39,9 @@ import "aos/dist/aos.css";
 import Collab from "./component/Collab";
 import FAQ from "./component/Faq";
 import CreateBlog from "./component/CreateBlog";
+import Projects from "./component/Projects";
+import UploadProject from "./component/UploadProject";
 
-// Main Layout Component
 const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
   return (
     <div className="h-full w-full">
@@ -53,6 +54,7 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
         blog="Blogs"
         discussion="Discussion"
         contributors="Contributors"
+        projects="Projects"
         Feedback="Feedback"
         showAlert={showAlert}
         mode={mode}
@@ -121,9 +123,10 @@ function App() {
       <Cursor />
       <ProjectState>
         <ProfileState>
-          <Router>
+           <Router>
  
             <LoadingBar color="blue" progress={progress} onLoaderFinished={() => setProgress(0)} />
+ 
             <div className="alert-container"> <Alert alert={alert} /> </div>
              <ProgressBar mode={mode} />
             <ScrollTop />
@@ -148,14 +151,16 @@ function App() {
                 <Route exact path='/contactus' element={<ContactUs mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/privacypolicy' element={<PrivacyPolicy mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/termofuse' element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                 <Route exact path='/FAQ' element={<FAQ mode={mode} />} /> {/* Add this line */}
-                <Route exact path='/createBlogPost' element={<CreateBlog />} /> {/* Add this line */}
-                <Route exact path='/read-more-blog/:id' element={<ReadMoreBlog mode={mode} setProgress={setProgress} showAlert={showAlert} />} /> {/* Add this line */}
  
-                <Route exact path='/*' element={<NotFound />} />
+                <Route exact path='/projects' element={<Projects mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path='/uploadProject' element={<UploadProject mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path='/FAQ' element={<FAQ mode={mode} />} />
+                <Route exact path='/createBlogPost' element={<CreateBlog />} />
+                <Route exact path='/read-more-blog/:id' element={<ReadMoreBlog mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                 <Route exact path='/*' element={<NotFound />} />
               </Routes>
             </Layout>
-          </Router>
+
         </ProfileState>
       </ProjectState>
     </div>

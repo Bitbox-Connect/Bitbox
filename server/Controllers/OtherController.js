@@ -20,8 +20,9 @@ const subscribeNewsletter = async (req, res) => {
     const newSubscriber = new Newsletter({ name, email });
     await newSubscriber.save();
 
-    sendMailToSubscriber(newSubscriber)
+     sendMailToSubscriber(newSubscriber)
     res.status(200).json({ message: "Subscription successful, confirmation email sent" });
+ 
   } catch (error) {
     console.error("Error in subscribing to newsletter:", error.message);
     res.status(500).json({ message: error.message });
