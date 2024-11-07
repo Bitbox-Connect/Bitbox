@@ -40,10 +40,12 @@ function Feedback() {
       const result = await response.json();
 
       // Check if the request was successful
-      if (response.status === 200) {
-        // Updated to check response status properly
-        toast.success("Feedback Sent Successfully!");
-        setIsSubmitting(false);
+      if (response.status === 200) {  // Updated to check response status properly
+        toast.success('Feedback Sent Successfully!');
+        e.target.reset();
+        setRating(0);
+        setIsSubmitting(false)
+
       } else {
         toast.error(result.message || "Error in submission!");
       }

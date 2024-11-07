@@ -8,8 +8,8 @@ const sendMailToAdmin = (userData) => {
         port: 587,
         secure: false, // Use `true` for port 465, `false` for other ports
         auth: {
-            user: process.env.EMAIL_USER, // Your email address
-            pass: process.env.EMAIL_PASS, // Your email password or app-specific password
+            user: process.env.EMAIL_ID, // Your email address
+            pass: process.env.PASS_KEY, // Your email password or app-specific password
         },
     });
 
@@ -18,7 +18,7 @@ const sendMailToAdmin = (userData) => {
         await transporter.sendMail({
             from: {
                 name: `Bitbox Contact - ${new Date().toLocaleString()}`,
-                address: process.env.EMAIL_USER,
+                address: process.env.EMAIL_ID,
             },
             to: process.env.ADMIN_EMAIL_ID, // Admin email address
             subject: "New Contact Form Submission from Bitbox ✔", // Email subject
