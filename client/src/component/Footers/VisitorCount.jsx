@@ -54,7 +54,7 @@ const VisitorCounter = () => {
             {visitorCount !== null ? (
                 <p className="font-bold text-2xl text-gray-300">Total Visitors: {visitorCount}</p>
             ) : (
-                <p>Loading visitor count...</p>
+                <p><i>Loading visitor count...........</i></p>
             )}
         </div>
     );
