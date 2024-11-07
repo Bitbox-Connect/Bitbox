@@ -245,7 +245,7 @@ function Navbar(props) {
                 <ul className="navbar-nav">
                   <div className="Navbar-Btn-Group">
                     {/* Add Project */}
-                    <li>{renderUploadButton()}</li>
+               
 
                     {/* Dark Mode Toggle Button */}
                     <li>
