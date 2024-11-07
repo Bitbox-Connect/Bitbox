@@ -225,6 +225,16 @@ function Navbar(props) {
                   {props.contributors}
                 </Link>
               </li>
+              <li className="nav-item fs-6">
+                <Link
+                  className={`nav-link ${location.pathname === "/projects" ? "active" : ""
+                    }`}
+                  aria-current="page"
+                  to="/projects"
+                >
+                  {props.projects}
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -590,6 +600,7 @@ Navbar.propTypes = {
   blog: PropTypes.string,
   about: PropTypes.string,
   contributors: PropTypes.string,
+  projects: PropTypes.string,
   profile: PropTypes.string,
   mode: PropTypes.string,
   toggleMode: PropTypes.func,

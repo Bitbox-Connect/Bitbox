@@ -39,6 +39,8 @@ import "aos/dist/aos.css";
 import Collab from "./component/Collab";
 import FAQ from "./component/Faq";
 import CreateBlog from "./component/CreateBlog";
+import Projects from "./component/Projects";
+import UploadProject from "./component/UploadProject";
 
 // Main Layout Component
 const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
@@ -53,6 +55,7 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
         blog="Blogs"
         discussion="Discussion"
         contributors="Contributors"
+        projects="Projects"
         Feedback="Feedback"
         showAlert={showAlert}
         mode={mode}
@@ -147,6 +150,8 @@ function App() {
                 <Route exact path='/contactus' element={<ContactUs mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/privacypolicy' element={<PrivacyPolicy mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/termofuse' element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path='/projects' element={<Projects mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+                <Route exact path='/uploadProject' element={<UploadProject mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/FAQ' element={<FAQ mode={mode} />} />
                 <Route exact path='/createBlogPost' element={<CreateBlog />} />
                 <Route exact path='/read-more-blog/:id' element={<ReadMoreBlog mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
