@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Input, Button, Spin } from "antd";
 import {
@@ -10,20 +10,34 @@ import {
 } from "@ant-design/icons";
 import "../css/Login.css";
 import toast from "react-hot-toast";
-import { doSignInWithGoogle } from '../firebase/auth'
-import { useAuth } from '../contexts/authContext/index'
+import { doSignInWithGoogle } from '../firebase/auth';
+import { useAuth } from '../contexts/authContext';
 
-const VITE_SERVER_PORT =
-  import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
+const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
 
-const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
+const Login = ({ mode, isloggedin, setloggedin }) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
-
   const navigate = useNavigate();
+  const { userLoggedIn } = useAuth();
 
+  // Conditional navigation if user is already logged in
+  useEffect(() => {
+    if (userLoggedIn) {
+      navigate('/');
+    }
+  }, [userLoggedIn, navigate]);
+
+  // Handle form submission for login
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Check for empty fields
+    if (!credentials.email || !credentials.password) {
+      toast.error("Please enter both email and password.");
+      return;
+    }
+
     setLoading(true);
     try {
       const response = await fetch(`${VITE_SERVER_PORT}/api/auth/login`, {
@@ -33,65 +47,75 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
         },
         body: JSON.stringify(credentials),
       });
+
+      if (!response.ok) {
+        // Check for network or server errors
+        if (response.status === 500) {
+          toast.error("Server error. Please try again later.");
+        } else {
+          toast.error("Login failed! Please check your credentials.");
+        }
+        throw new Error("Response not ok");
+      }
+
       const json = await response.json();
 
       if (json.success) {
         localStorage.setItem("token", json.authtoken);
-        toast.success("Login Successfully!");
-        setloggedin(!isloggedin)
+        toast.success("Login successful!");
+        setloggedin(!isloggedin);
         navigate("/");
       } else {
-        toast.error("Login failed!");
+        toast.error(json.message || "Login failed! Invalid credentials.");
       }
     } catch (error) {
-      showAlert("An error occurred. Please try again later.", "danger");
+      if (error.message === "NetworkError") {
+        toast.error("Network error. Please check your connection.");
+      } else {
+        toast.error("An unexpected error occurred. Please try again later.");
+      }
       console.error("Error during login:", error);
     } finally {
       setLoading(false);
     }
   };
 
+  // Handle changes in input fields
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
-  const { userLoggedIn } = useAuth()
-
-  const onGoogleSignIn = async (e) => {
-    e.preventDefault();
-
-    if (!isloggedin) {
-      try {
-        setloggedin(true);
-
-        // Perform Google sign-in and retrieve the token
-        const { token } = await doSignInWithGoogle();
-
-        // Store the token in local storage if needed for authentication
-        localStorage.setItem("token", token);
-      } catch (error) {
-        console.error("Google sign-in error:", error);
-        setloggedin(false); // Reset logged-in state if sign-in fails
-      }
+  // Remember email if "Remember Me" is checked
+  const handleRememberMe = (e) => {
+    if (e.target.checked) {
+      localStorage.setItem("rememberedEmail", credentials.email);
+    } else {
+      localStorage.removeItem("rememberedEmail");
     }
   };
-  document.querySelector('#login-btn').addEventListener('click', (event) => {
-    event.preventDefault();
-    
-    const emailInput = document.getElementById('login-email');
-    const rememberMeCheckbox = document.getElementById('login-remember');
-  
-    if (rememberMeCheckbox.checked) {
-      localStorage.setItem('rememberedEmail', emailInput.value);
-    } else {
-      localStorage.removeItem('rememberedEmail');
+
+
+  // Handle Google Sign-In
+  const onGoogleSignIn = async (e) => {
+    e.preventDefault();
+    try {
+      const { token } = await doSignInWithGoogle();
+      if (token) {
+        localStorage.setItem("token", token);
+        setloggedin(true);
+        toast.success("Google sign-in successful!");
+      } else {
+        toast.error("Google sign-in failed.");
+      }
+    } catch (error) {
+      console.error("Google sign-in error:", error);
+      toast.error("Google sign-in failed. Please try again.");
+      setloggedin(false);
     }
-  
-    // Continue with your existing login logic...
-  });    
+  };
 
   return (
-    <div className="min-h-screen flex items-center justify-center mt-10" data-aos="zoom-in" data-aos-duration="1800">
+    <div className="min-h-screen flex items-center justify-center mt-14" data-aos="zoom-in" data-aos-duration="1800">
       {userLoggedIn && navigate('/')}
       <div
         className="wrapper h-3/4 mt-10"
@@ -113,10 +137,10 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
           {/* Title Line */}
           <span className="title-line" style={{ backgroundColor: mode === "dark" ? "white" : "" }}></span>
 
+          {/* Email Input */}
           <div className="inp">
             <Input
               prefix={<UserOutlined />}
-              type="email"
               placeholder="Email"
               name="email"
               value={credentials.email}
@@ -131,31 +155,31 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
             />
           </div>
 
+          {/* Password Input */}
           <div className="inp">
-            <Input.Password
+            <Input
               prefix={<LockOutlined />}
               placeholder="Password"
               name="password"
               value={credentials.password}
               onChange={onChange}
               autoComplete="on"
-
+              required
               iconRender={(visible) =>
                 visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
               }
-
               className="h-10 text-xl"
               style={{
                 backgroundColor: mode === "dark" ? "black" : "white",
                 color: mode === "dark" ? "white" : "black",
               }}
-              required
-
             />
           </div>
-          <div class="form-check d-flex">
-          <input type="checkbox" class="form-check-input" id="login-remember" />
-          <label class="form-check-label" for="login-remember">Remember me</label>
+
+          {/* Remember Me */}
+          <div className="form-check d-flex">
+            <input type="checkbox" className="form-check-input" id="login-remember" onClick={(e) => handleRememberMe(e)} />
+            <label className="form-check-label" htmlFor="login-remember">Remember me</label>
           </div>
           <button className="submit" type="submit" disabled={loading}>
             {loading ? <Spin size="small" /> : "Login"}
@@ -235,7 +259,6 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
 
 Login.propTypes = {
   mode: PropTypes.string.isRequired,
-  showAlert: PropTypes.func.isRequired,
   isloggedin: PropTypes.bool.isRequired,
   setloggedin: PropTypes.func.isRequired,
 };

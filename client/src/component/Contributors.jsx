@@ -223,20 +223,21 @@ StatCard.propTypes = {
   onClick: PropTypes.func,
 };
 
+
 export default function Contributor(props) {
   const [contributors, setContributors] = useState([]);
   const [openIssues, setOpenIssues] = useState([]);
   const [showIssue, setShowIssue] = useState(true); // Determine which section to show
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 9; // Set the number of items per page (for both contributors and issues)
-
   const [repoStats, setRepoStats] = useState({
     stars: 0,
     forks: 0,
     openIssues: 0,
   });
+  const [searchTerm, setSearchTerm] = useState(''); // State for search term
 
+  const itemsPerPage = 9; // Set the number of items per page (for both contributors and issues)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -250,10 +251,8 @@ export default function Contributor(props) {
         const contributorsData = await contributorsResponse.json();
         setContributors(contributorsData);
 
-
         // Fetch repo stats
         const repoResponse = await fetch('https://api.github.com/repos/Bitbox-Connect/Bitbox');
-
         const repoData = await repoResponse.json();
         setRepoStats({
           stars: repoData.stargazers_count,
@@ -279,14 +278,26 @@ export default function Contributor(props) {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 
-  // Get current items based on selected section
-  const currentItems = showIssue ? openIssues.slice(indexOfFirstItem, indexOfLastItem) : contributors.slice(indexOfFirstItem, indexOfLastItem);
+  // Filter contributors or issues based on search term
+  const filteredContributors = contributors.filter(contributor =>
+    contributor.login.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const filteredIssues = openIssues.filter(issue =>
+    issue.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  // Get current items based on selected section and search
+  const currentItems = showIssue
+    ? filteredIssues.slice(indexOfFirstItem, indexOfLastItem)
+    : filteredContributors.slice(indexOfFirstItem, indexOfLastItem);
 
   // Determine total pages
-  const totalPages = showIssue ? Math.ceil(openIssues.length / itemsPerPage) : Math.ceil(contributors.length / itemsPerPage);
+  const totalPages = showIssue
+    ? Math.ceil(filteredIssues.length / itemsPerPage)
+    : Math.ceil(filteredContributors.length / itemsPerPage);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
 
   return (
     <div
@@ -370,7 +381,7 @@ export default function Contributor(props) {
               />
             </div>
 
-            {/* Repository Stars */}
+            {/* Repository Stats */}
             <a href="https://github.com/Bitbox-Connect/Bitbox/stargazers" target="_blank">
               <StatCard
                 mode={props.mode}
@@ -389,8 +400,8 @@ export default function Contributor(props) {
               />
             </a>
 
-            {/* Repository Forks */}
-            <a href="https://github.com/Bitbox-Connect/Bitbox/network/members" target="_blank">
+            {/* Forks */}
+            <a href="https://github.com/Bitbox-Connect/Bitbox/network" target="_blank">
               <StatCard
                 mode={props.mode}
                 label="Forks"
@@ -402,16 +413,16 @@ export default function Contributor(props) {
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
+                    <path d="M6 9a3 3 0 116 0 3 3 0 01-6 0z" />
                     <path
                       fillRule="evenodd"
-                      d="M6 5a3 3 0 01-3 3H2a3 3 0 003 3v4a3 3 0 006 0v-4a3 3 0 003-3h-1a3 3 0 01-3-3V2h-2v3H6zm7-3v3a3 3 0 013 3h1a3 3 0 00-3-3h-1V2h-2z"
+                      d="M10 12a4 4 0 10-4-4 4 4 0 004 4zm0 0a4 4 0 104-4 4 4 0 00-4 4z"
                       clipRule="evenodd"
                     />
                   </svg>
                 }
               />
             </a>
-
             {/* Open Issues */}
             <div className="cursor-pointer">
               <StatCard
@@ -438,47 +449,78 @@ export default function Contributor(props) {
         </div>
       </section>
 
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      {/* Search Section */}
+      <section className="py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">{showIssue ? 'Your contribution is valuable see all Issues' : 'Contributors'}</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {currentItems.map(item => showIssue ? (
-              <IssueCard
-                key={item.id}
-                title={item.title}
-                number={item.number}
-                html_url={item.html_url}
-                user={item.user}
-                state={item.state}
-                mode={props.mode}
-              />
+          <input
+            type="text"
+            placeholder={showIssue ? "Search issues..." : "Search contributors..."}
+            className={`w-full p-3 text-lg border rounded-lg 
+        ${props.mode === 'dark' ? 'bg-gray-800 text-white border-gray-700' : 'bg-white text-gray-900 border-gray-300'}`}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+      </section>
+
+      {/* Display Issues or Contributors based on `showIssue` */}
+      <section className="py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
+            {currentItems.length > 0 ? (
+              currentItems.map(item => (
+                showIssue ? (
+                  <IssueCard
+                    key={item.id}
+                    title={item.title}
+                    number={item.number}
+                    html_url={item.html_url}
+                    user={item.user}
+                    state={item.state}
+                    mode={props.mode}
+                  />
+                ) : (
+                  <ContributorCard
+                    key={item.id}
+                    login={item.login}
+                    avatar_url={item.avatar_url}
+                    html_url={item.html_url}
+                    contributions={item.contributions}
+                    type={item.type}
+                    mode={props.mode}
+                  />
+                )
+              ))
             ) : (
-              <ContributorCard
-                key={item.id}
-                login={item.login}
-                avatar_url={item.avatar_url}
-                html_url={item.html_url}
-                contributions={item.contributions}
-                type={item.type}
-                mode={props.mode}
-              />
-            ))}
+              <div className="col-span-full text-center text-xl text-gray-500">No items found</div>
+            )}
           </div>
-          <div className="flex justify-center mt-8">
-            {Array.from({ length: totalPages }, (_, i) => (
+        </div>
+      </section>
+
+      {/* Pagination */}
+      <section className="py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto text-center">
+          <div className="inline-flex space-x-2">
+            {Array.from({ length: totalPages }).map((_, index) => (
               <button
-                key={i}
-                onClick={() => paginate(i + 1)}
-                className={`px-4 py-2 mx-1 rounded  text-black ${i + 1 === currentPage ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-900'}`}
+                key={index}
+                onClick={() => paginate(index + 1)}
+                className={`px-4 py-2 border rounded-lg text-lg ${currentPage === index + 1
+                  ? 'bg-blue-500 text-white'
+                  : 'bg-white text-blue-500 border-gray-300'
+                  }`}
               >
-                {i + 1}
+                {index + 1}
               </button>
             ))}
           </div>
         </div>
       </section>
-    </div >
-
-
+    </div>
   );
 }
+
+Contributor.propTypes = {
+  mode: PropTypes.string.isRequired,
+};

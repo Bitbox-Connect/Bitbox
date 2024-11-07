@@ -1,0 +1,91 @@
+.feedback-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    color: #f0f0f0;
+    text-align: center;
+  }
+  
+  .feedback-container h2 {
+    margin-bottom: 1.5rem;
+    color: #e0e0e0;
+  }
+  
+  .feedback-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .feedback-form input,
+  .feedback-form textarea {
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #2e2e2e;
+    color: #f0f0f0;
+  }
+  
+  .feedback-form input::placeholder,
+  .feedback-form textarea::placeholder {
+    color: #a0a0a0;
+  }
+  
+  .feedback-form textarea {
+    resize: none;
+    height: 100px;
+  }
+  
+  .rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .rating p {
+    margin: 0;
+    margin-right: 0.5rem;
+    color: #e0e0e0;
+  }
+  
+  .star {
+    font-size: 1.5rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  /* Filled stars - Gold when hovered or selected */
+  .star.filled {
+    color: #ffb400;
+  }
+  
+  /* Additional hover effect: Make all stars up to the hovered one gold */
+  .star:hover,
+  .star:hover ~ .star {
+    color: #ccc;
+  }
+  
+  .star:hover,
+  .star:hover ~ .star {
+    color: #ffb400;
+  }
+  
+  .feedback-form button {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #ff6347;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .feedback-form button:hover {
+    background-color: #ff4500;
+  }
+  

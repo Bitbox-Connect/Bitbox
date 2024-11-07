@@ -155,7 +155,7 @@ const Community = (props) => {
               </div>
             </div>
           </div>
-          <div className="globalproject-right">
+          <div className="globalproject-right mt-14">
             <div className="globaldetail-right">
               <h2 className="Heading-Page">Welcome to Bitbox Community</h2>
               {loading ? (
