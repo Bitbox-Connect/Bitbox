@@ -31,6 +31,13 @@ const Login = ({ mode, isloggedin, setloggedin }) => {
   // Handle form submission for login
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Check for empty fields
+    if (!credentials.email || !credentials.password) {
+      toast.error("Please enter both email and password.");
+      return;
+    }
+
     setLoading(true);
     try {
       const response = await fetch(`${VITE_SERVER_PORT}/api/auth/login`, {
@@ -40,18 +47,33 @@ const Login = ({ mode, isloggedin, setloggedin }) => {
         },
         body: JSON.stringify(credentials),
       });
+
+      if (!response.ok) {
+        // Check for network or server errors
+        if (response.status === 500) {
+          toast.error("Server error. Please try again later.");
+        } else {
+          toast.error("Login failed! Please check your credentials.");
+        }
+        throw new Error("Response not ok");
+      }
+
       const json = await response.json();
 
       if (json.success) {
         localStorage.setItem("token", json.authtoken);
-        toast.success("Login Successfully!");
+        toast.success("Login successful!");
         setloggedin(!isloggedin);
         navigate("/");
       } else {
-        toast.error("Login failed!");
+        toast.error(json.message || "Login failed! Invalid credentials.");
       }
     } catch (error) {
-      toast.error("An error occurred. Please try again later.");
+      if (error.message === "NetworkError") {
+        toast.error("Network error. Please check your connection.");
+      } else {
+        toast.error("An unexpected error occurred. Please try again later.");
+      }
       console.error("Error during login:", error);
     } finally {
       setLoading(false);
@@ -66,21 +88,28 @@ const Login = ({ mode, isloggedin, setloggedin }) => {
   // Remember email if "Remember Me" is checked
   const handleRememberMe = (e) => {
     if (e.target.checked) {
-      localStorage.setItem('rememberedEmail', credentials.email);
+      localStorage.setItem("rememberedEmail", credentials.email);
     } else {
-      localStorage.removeItem('rememberedEmail');
+      localStorage.removeItem("rememberedEmail");
     }
   };
+
 
   // Handle Google Sign-In
   const onGoogleSignIn = async (e) => {
     e.preventDefault();
     try {
       const { token } = await doSignInWithGoogle();
-      localStorage.setItem("token", token);
-      setloggedin(true);
+      if (token) {
+        localStorage.setItem("token", token);
+        setloggedin(true);
+        toast.success("Google sign-in successful!");
+      } else {
+        toast.error("Google sign-in failed.");
+      }
     } catch (error) {
       console.error("Google sign-in error:", error);
+      toast.error("Google sign-in failed. Please try again.");
       setloggedin(false);
     }
   };
