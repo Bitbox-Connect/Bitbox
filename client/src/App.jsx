@@ -3,7 +3,7 @@ import { modeAtom } from "./atom/Atom";
 import { useEffect, useState } from "react";
 import "./App.css";
 import "./index.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import PropTypes from "prop-types";
 import LoadingBar from "react-top-loading-bar";
 import About from "./component/About";
@@ -42,7 +42,6 @@ import CreateBlog from "./component/CreateBlog";
 import Projects from "./component/Projects";
 import UploadProject from "./component/UploadProject";
 
-// Main Layout Component
 const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
   return (
     <div className="h-full w-full">
@@ -124,8 +123,8 @@ function App() {
       <Cursor />
       <ProjectState>
         <ProfileState>
-          <Router>
-            <LoadingBar color="blue" progress={progress} onLoaderFinished={() => setProgress(0)} />
+
+          <LoadingBar color="blue" progress={progress} onLoaderFinished={() => setProgress(0)} />
             <div className="alert-container"> <Alert alert={alert} /> </div>
             <ProgressBar mode={mode} />
             <ScrollTop />
@@ -158,7 +157,7 @@ function App() {
                 <Route exact path='/*' element={<NotFound />} />
               </Routes>
             </Layout>
-          </Router>
+
         </ProfileState>
       </ProjectState>
     </div>
