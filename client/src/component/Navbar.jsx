@@ -242,7 +242,7 @@ function Navbar(props) {
                 <ul className="navbar-nav">
                   <div className="Navbar-Btn-Group">
                     {/* Add Project */}
-                    <li>{renderUploadButton()}</li>
+               
 
                     {/* User Profile */}
                     <li
