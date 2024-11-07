@@ -520,6 +520,7 @@ export default function About(props) {
                       .getElementById(`answer${index}`)
                       .classList.toggle("hidden")
                   }
+
                   className={`question-btn w-full text-left text-lg font-semibold text-gray-900 dark:text-black flex justify-between items-center focus:outline-none ${props.mode}===dark? text-black`}
                 >
                   <span className={`${props.mode}==="dark" ? text-black`}>

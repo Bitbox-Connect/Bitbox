@@ -1,72 +1,98 @@
+/* Container for the FAQ section */
 .faq-container {
-    max-width: 700px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    margin-top: 60px;
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
-    font-size: 2rem;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .faq-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .faq-card {
-    background-color: #f7f7f7;
-    border-radius: 8px;
-    padding: 15px 20px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    border-left: 4px solid #01356d;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  .view-more {
-    margin-top: 1rem;
-    padding: 10px 20px;
-    background-color: #003064; /* Bootstrap primary color */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    
-  }
-  
-  .view-more:hover {
-    background-color: #054486; /* Darker shade on hover */
-  }
-  
-  .faq-card:hover {
-    background-color: #f5faff;
-    transform: translateY(-3px);
-  }
-  
-  .faq-question {
-    cursor: pointer;
-    font-size: 1.1em;
-    color: #003a77;
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .faq-question:hover {
-    color: #0056b3;
-  }
-  
-  .faq-answer {
-    margin-top: 10px;
-    font-size: 0.95em;
-    color: #555;
-    line-height: 1.6;
-  }
-  
+  display: flex; /* Using Flexbox to create a two-column layout */
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 180px !important;
+  max-width: 1200px;
+  height: 750px;
+  margin: 40px auto;
+  padding: 30px;
+  /* background-color: #ffffff; */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  margin-top: 30px;
+  font-size: 2rem;
+  margin-right: 40px;
+}
+/* Left side - for image */
+.faq-left {
+  flex: 0 0 460px; /* Width for the image section */
+  display: flex;
+  justify-content: center; /* Center the image horizontally */
+}
+
+/* Image styling */
+.faq-image-container {
+  margin-top: 40px;
+}
+
+.faq-image {
+  width: 100%; /* Makes the image responsive */
+  max-width: 550px; /* Maximum width for the image */
+  height: 550px;
+  margin-left: 50px;
+  /* margin-top: 50px; */
+}
+
+/* Right side - for FAQ list */
+.faq-right {
+  flex: 1; /* Takes up the remaining space */
+  margin-left: 100px; /* Adds space between image and FAQ list */
+  padding: 15px;
+}
+
+/* FAQ List styles */
+.faq-list {
+  list-style: none;
+  padding: 0;
+  /* margin: 0; */
+}
+
+/* Individual FAQ item styling */
+.faq-item {
+  margin-top: 20px;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Question styling */
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #003a77;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+}
+
+.faq-question:hover {
+  color: #0056b3;
+}
+
+/* Icon for showing + or - */
+.faq-icon {
+  font-size: 20px;
+}
+
+/* Answer styling */
+.faq-answer {
+  margin-top: 10px;
+  color: #0056b3;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+/* Optional: To make the entire FAQ item more visually engaging on hover */
+/* .faq-item:hover {
+  background-color: #f5faff;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+} */
