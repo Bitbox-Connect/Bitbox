@@ -23,32 +23,55 @@ const Signup = ({ mode }) => {
   // eslint-disable-next-line
   const [errors, setErrors] = useState({});
   const [isLoggedIn, setLoggedIn] = useState(false);
+  const [requirements, setRequirements] = useState({
+    length: false,
+    uppercase: false,
+    lowercase: false,
+    number: false,
+    specialChar: false,
+  });
+
+  const handlePasswordChange = (e) => {
+    const newPassword = e.target.value;
+    setPassword(newPassword);
+
+    setRequirements({
+      length: newPassword.length >= 8,
+      uppercase: /[A-Z]/.test(newPassword),
+      lowercase: /[a-z]/.test(newPassword),
+      number: /\d/.test(newPassword),
+      specialChar: /[@$!%*?&]/.test(newPassword),
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // try {
-    //   // Validation not working 
 
-    //   await registerValidation.validate(
-    //     { name, email, password, cpassword },
-    //     { abortEarly: false }
-    //   );
+    // Check if the password meets the requirements
+    if (!Object.values(requirements).every(Boolean)) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        password: "Password does not meet the required criteria.",
+      }));
+      return;
+    } else {
+      setErrors((prevErrors) => ({ ...prevErrors, password: null }));
+    }
 
-    //   setErrors({});
-    // } catch (error) {
-    //   const newErrors = {};
-    //   error.inner.forEach((err) => {
-    //     newErrors[err.path] = err.message;
-    //   });
+    // Check if password and confirm password match
+    if (password !== cpassword) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        cpassword: "Passwords do not match.",
+      }));
+      return;
+    } else {
+      setErrors((prevErrors) => ({ ...prevErrors, cpassword: null }));
+    }
 
-    //   setErrors(newErrors);
-    //   return;
-    // }
-
+    // Reset form after submission
     setTimeout(() => {
-      e.target.reset(); // Reset the form after 1 second
-      setName("");
-      setEmail("");
+      e.target.reset();
       setPassword("");
       setCPassword("");
     }, 1000);
@@ -76,20 +99,7 @@ const Signup = ({ mode }) => {
       },
       body: JSON.stringify({ name, email, password }),
     });
-    document.querySelector('#login-btn').addEventListener('click', (event) => {
-      event.preventDefault();
-      
-      const emailInput = document.getElementById('login-email');
-      const rememberMeCheckbox = document.getElementById('login-remember');
-    
-      if (rememberMeCheckbox.checked) {
-        localStorage.setItem('rememberedEmail', emailInput.value);
-      } else {
-        localStorage.removeItem('rememberedEmail');
-      }
-    
-      // Continue with your existing login logic...
-    });    
+     
     const json = await response.json();
 
     if (json.success) {
@@ -100,7 +110,13 @@ const Signup = ({ mode }) => {
       toast.error(json.message || "An error occurred. Please try again later.");
     }
   };
-
+  const handleRememberMe = (e) => {
+    if (e.target.checked) {
+      localStorage.setItem('rememberedEmail', credentials.email);
+    } else {
+      localStorage.removeItem('rememberedEmail');
+    }
+  };
   return (
     <div className="min-h-screen flex items-center justify-center mt-24 p-4">
       {userLoggedIn && navigate('/')}
@@ -200,7 +216,7 @@ const Signup = ({ mode }) => {
                 </label>
                 <Input.Password
                   className="signup-input"
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={handlePasswordChange}
                   id="password"
                   name="password"
                   placeholder="Enter Your Password"
@@ -216,6 +232,16 @@ const Signup = ({ mode }) => {
                   }
                 />
               </div>
+        <div className="password-checklist text-left">
+                <p>Password must contain:</p>
+                <ul className="list-none pl-0">
+                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.length} readOnly /> <span>At least 8 characters</span></li>
+                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.uppercase} readOnly /> <span>At least one uppercase letter</span></li>
+                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.lowercase} readOnly /> <span>At least one lowercase letter</span></li>
+                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.number} readOnly /> <span>At least one number</span></li>
+                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.specialChar} readOnly /> <span>At least one special character</span></li>
+                </ul>
+        </div>
 
               <div className="signup-form-group items-start flex flex-col gap-2 relative">
                 <label
@@ -253,7 +279,7 @@ const Signup = ({ mode }) => {
 
             <br />
             <div class="form-check d-flex">
-          <input type="checkbox" class="form-check-input" id="login-remember" />
+          <input type="checkbox" class="form-check-input" id="login-remember" onClick={(e) => handleRememberMe(e)} />
           <label class="form-check-label" for="login-remember">Remember me</label>
             </div>
 
