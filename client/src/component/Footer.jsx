@@ -182,7 +182,7 @@ const Footer = (props) => {
 
                         {/* Middle section with About links */}
                         <div className="col-md-6 col-lg-3 col-12 ft-2" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1800">
-                            <h5>About</h5>
+                            <h5 className='foot'>About</h5>
                             <ul>
                                 <li className="nav-item">
                                     <Link to="/contactus">Contact Us</Link>
@@ -204,7 +204,7 @@ const Footer = (props) => {
 
                         {/* Right section with Legal links */}
                         <div className="col-md-7 col-lg-4 col-13 ft-3" data-aos="fade-up" data-aos-delay='500' data-aos-duration="1800">
-                            <h5>Legals</h5>
+                            <h5 className='foot'>Legals</h5>
                             <ul>
                                 <li className="nav-item">
                                     <Link to="/feedback">Feedback</Link>
