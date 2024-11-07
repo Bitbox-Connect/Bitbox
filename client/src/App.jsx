@@ -123,10 +123,12 @@ function App() {
       <Cursor />
       <ProjectState>
         <ProfileState>
-
-          <LoadingBar color="blue" progress={progress} onLoaderFinished={() => setProgress(0)} />
+           <Router>
+ 
+            <LoadingBar color="blue" progress={progress} onLoaderFinished={() => setProgress(0)} />
+ 
             <div className="alert-container"> <Alert alert={alert} /> </div>
-            <ProgressBar mode={mode} />
+             <ProgressBar mode={mode} />
             <ScrollTop />
             <Layout mode={mode} setProgress={setProgress} toggleMode={toggleMode} showAlert={showAlert} >
               <Routes>
@@ -149,12 +151,13 @@ function App() {
                 <Route exact path='/contactus' element={<ContactUs mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/privacypolicy' element={<PrivacyPolicy mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/termofuse' element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+ 
                 <Route exact path='/projects' element={<Projects mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/uploadProject' element={<UploadProject mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
                 <Route exact path='/FAQ' element={<FAQ mode={mode} />} />
                 <Route exact path='/createBlogPost' element={<CreateBlog />} />
                 <Route exact path='/read-more-blog/:id' element={<ReadMoreBlog mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-                <Route exact path='/*' element={<NotFound />} />
+                 <Route exact path='/*' element={<NotFound />} />
               </Routes>
             </Layout>
 
