@@ -30,14 +30,12 @@ import Discussion from "./component/Discussion";
 import ForgotPassword from "./component/ForgotPassword";
 import ResetPassword from "./component/ResetPassword";
 import NotFound from "./component/NotFound";
-import Faq from "./component/Faq";
 import ProgressBar from "./component/ProgressBar/ProgressBar";
 import Cursor from './component/Cursor';
 import ReadMoreBlog from './component/ReadMoreBlog';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Collab from "./component/Collab";
-import FAQ from "./component/Faq";
 import CreateBlog from "./component/CreateBlog";
 import UploadProject from "./component/UploadProject";
 
@@ -134,7 +132,6 @@ function App() {
               <Route exact path="/about" element={<About mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path="/feedback" element={<Feedback mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path="/blog" element={<BlogPage mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-              <Route exact path="/faq" element={<Faq mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path="/collab" element={<Collab mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/myproject' element={<MyProject mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/editprofile' element={<EditProfile mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
@@ -147,7 +144,6 @@ function App() {
               <Route exact path='/privacypolicy' element={<PrivacyPolicy mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/termofuse' element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/uploadProject' element={<UploadProject mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-              <Route exact path='/FAQ' element={<FAQ mode={mode} />} />
               <Route exact path='/createBlogPost' element={<CreateBlog />} />
               <Route exact path='/read-more-blog/:id' element={<ReadMoreBlog mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/*' element={<NotFound />} />

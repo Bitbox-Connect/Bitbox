@@ -7,7 +7,6 @@ async function incrementVisitorCount() {
             method: "POST",
         });
         const data = await response.json();
-        console.log("Visitor count incremented:", data.count);
         return data.count;
     } catch (error) {
         console.error("Error incrementing visitor count:", error);
