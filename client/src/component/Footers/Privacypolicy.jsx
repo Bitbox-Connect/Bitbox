@@ -1,12 +1,12 @@
 import '../../css/Main.css';
 import PropTypes from 'prop-types';
 
-export default function PrivacyPolicy() {
+export default function PrivacyPolicy(props) {
   const VITE_CLIENT_PORT = import.meta.env.VITE_CLIENT_PORT;
 
   return (
-     <div
-      className="privacy-policy-container p-6"
+    <div
+      className="container p-10"
       style={{
         backgroundColor: props.mode === 'dark' ? '#111111' : '#f9f9f9',
         color: props.mode === 'dark' ? '#f9f9f9' : '#1a1a1a',
@@ -14,7 +14,7 @@ export default function PrivacyPolicy() {
         fontFamily: "'Inter', sans-serif",
       }}
     >
-      <h2 className={`text-4xl font-extrabold mb-10 text-center tracking-wide ${props.mode === 'dark' ? 'text-gray-100' : 'text-gray-700'}`}>
+      <h2 className={`text-4xl font-extrabold mb-10 mt-28 text-center tracking-wide ${props.mode === 'dark' ? 'text-gray-100' : 'text-gray-700'}`}>
         Privacy Policy
       </h2>
 
@@ -154,7 +154,7 @@ export default function PrivacyPolicy() {
           </li>
         </ul>
       </div>
- 
+
     </div>
 
 
@@ -163,4 +163,6 @@ export default function PrivacyPolicy() {
 
 PrivacyPolicy.propTypes = {
   VITE_CLIENT_PORT: PropTypes.string,
+  mode: PropTypes.string,
+  props: PropTypes.object,
 };
