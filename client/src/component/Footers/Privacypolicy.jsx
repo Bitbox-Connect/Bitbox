@@ -60,8 +60,8 @@ export default function PrivacyPolicy(props) {
               our Service or parts of our Service.
             </li>
             <li>
-              <strong>Company:</strong> Refers to BitBox (also referred to as "the
-              Company", "We", "Us", or "Our").
+              <strong>Company:</strong> Refers to BitBox (also referred to as &quot;the
+              Company&quot;, &quot;We&quot;, &quot;Us&quot;, or &quot;Our&quot;).
             </li>
             <li>
               <strong>Cookies:</strong> Small files placed on your device (computer,
