@@ -243,10 +243,12 @@ function Navbar(props) {
           <form className="flex fs-4 fw-medium justify-center items-center">
             {localStorage.getItem("token") ? (
               <>
-                <ul className="navbar-nav fixed right-0">
-                  <div className="Navbar-Btn-Group">
+                <ul className="navbar-nav fixed right-0 md:right-2">
+                  <div className="Navbar-Btn-Group gap-[0.5rem] mr-[-0.5rem]">
                     {/* Render Add Project */}
-                    {renderUploadButton()}
+                    <div className="md:block hidden">
+                      {renderUploadButton()}
+                    </div>
                     {/* Dark Mode Toggle Button */}
                     <li>
                       <div className="darkThemeBtn flex justify-content-center">
@@ -475,7 +477,7 @@ function Navbar(props) {
             </li>
             <li>
               <Link to="/myproject" onClick={() => setIsSidebarOpen(false)}>
-                {props.profile}
+                {props.projects}
               </Link>
             </li>
           </ul>
