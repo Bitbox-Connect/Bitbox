@@ -146,6 +146,7 @@ function App() {
               <Route exact path='/uploadProject' element={<UploadProject mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/createBlogPost' element={<CreateBlog />} />
               <Route exact path='/read-more-blog/:id' element={<ReadMoreBlog mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+              <Route exact path='/faq' element={<Faqsec mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/*' element={<NotFound />} />
             </Routes>
           </Layout>
