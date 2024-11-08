@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from "prop-types";
 import { useNavigate } from 'react-router-dom';
 
@@ -74,10 +74,10 @@ const UploadProject = ({ mode }) => {
 
             {/* Modal Overlay */}
             {isModalOpen && (
-                <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+                <div className="fixed flex z-[99999999999] justify-center items-center inset-0 bg-black bg-opacity-50">
                     {/* Modal Content */}
                     <div
-                        className={`relative w-full max-w-md p-6 mx-2 my-8 bg-white rounded-lg shadow-lg overflow-auto ${themeStyles}`}
+                        className={`relative top-22 md:top-12 w-full max-w-md p-6 mx-2 my-8 bg-white rounded-lg shadow-lg overflow-auto ${themeStyles}`}
                         style={{ maxHeight: '800px', fontSize: '14px' }}
                     >
                         {/* Close Button in Top Right */}

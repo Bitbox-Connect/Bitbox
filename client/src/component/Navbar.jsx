@@ -46,6 +46,7 @@ function Navbar(props) {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   useEffect(() => {
     window.onscroll = function () {
       myFunction();
@@ -75,7 +76,7 @@ function Navbar(props) {
   }, []);
 
   const renderUploadButton = () => {
-    if (location.pathname === "/myprofile") {
+    if (location.pathname === "/myproject") {
       return <AddProject mode={mode} showAlert={showAlert} />;
     }
     return null;
@@ -160,11 +161,11 @@ function Navbar(props) {
             </div>
           </Link>
           <div
-            className={`collapse navbar-collapse justify-content-center ${isOpen ? "show" : ""
+            className={`collapse navbar-collapse ${isOpen ? "show" : ""
               }`}
             id="navbarSupportedContent"
           >
-            <ul className="navbar-nav mb-2 mb-lg-0 gap-3 fw-medium menu2">
+            <ul className="navbar-nav ml-[4.5rem] mb-2 mb-lg-0 gap-3 fw-medium menu2">
               <li className="nav-item fs-6 fw-medium">
                 <Link
                   className={`nav-link ${location.pathname === "/" ? "active" : ""
@@ -230,7 +231,7 @@ function Navbar(props) {
                   className={`nav-link ${location.pathname === "/projects" ? "active" : ""
                     }`}
                   aria-current="page"
-                  to="/projects"
+                  to="/myproject"
                 >
                   {props.projects}
                 </Link>
@@ -238,15 +239,14 @@ function Navbar(props) {
             </ul>
           </div>
 
-          {/* Right Links */}
+          {/* Right Links for Mobile Screen */}
           <form className="flex fs-4 fw-medium justify-center items-center">
             {localStorage.getItem("token") ? (
               <>
-                <ul className="navbar-nav">
+                <ul className="navbar-nav fixed right-0">
                   <div className="Navbar-Btn-Group">
-                    {/* Add Project */}
-               
-
+                    {/* Render Add Project */}
+                    {renderUploadButton()}
                     {/* Dark Mode Toggle Button */}
                     <li>
                       <div className="darkThemeBtn flex justify-content-center">
@@ -269,7 +269,6 @@ function Navbar(props) {
                         <span className="fake-body"></span>
                       </div>
                     </li>
-
                     {/* User Profile */}
                     <li
                       className="nav-item dropdown mx-2"
@@ -315,9 +314,9 @@ function Navbar(props) {
                       >
                         <li>
                           <Link
-                            to="/myprofile"
+                            to="/myproject"
                           >
-                            <p>My Profile</p>
+                            <p>My Project</p>
                           </Link>
                         </li>
                         <li>
@@ -355,6 +354,26 @@ function Navbar(props) {
                           </Link>
                         </li>
                       </ul>
+                    </li>
+                    {/* Menu Button */}
+                    <li>
+                      <button
+                        className="sidebar-toggle"
+                        onClick={toggleSidebar}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="w-6 h-6"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M4.5 6.75a.75.75 0 000 1.5h15a.75.75 0 000-1.5h-15zm0 4.5a.75.75 0 000 1.5h15a.75.75 0 000-1.5h-15zm0 4.5a.75.75 0 000 1.5h15a.75.75 0 000-1.5h-15z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </button>
                     </li>
                   </div>
                 </ul>
@@ -416,48 +435,6 @@ function Navbar(props) {
               </div>
             )
             }
-
-            {/* Sidebar Toggle Button */}
-            <div className="mobile-dark-theme">
-              <div className="darkThemeBtn flex justify-content-center">
-                <input
-                  id="darkmode-toggle"
-                  type="checkbox"
-                  checked={props.mode === "dark"}
-                  onChange={props.toggleMode}
-                />
-                <label htmlFor="darkmode-toggle">
-                  <FaSun className="sun" style={style} />
-                  <FaMoon
-                    className="moon"
-                    style={{
-                      color: props.mode === "dark" ? "yellow" : "gray",
-                      fontSize: "1.5rem",
-                    }}
-                  />
-                </label>
-                <span className="fake-body"></span>
-              </div>
-            </div>
-
-            {/* Toggle Dark Mode */}
-            <button
-              className="sidebar-toggle"
-              onClick={toggleSidebar}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M4.5 6.75a.75.75 0 000 1.5h15a.75.75 0 000-1.5h-15zm0 4.5a.75.75 0 000 1.5h15a.75.75 0 000-1.5h-15zm0 4.5a.75.75 0 000 1.5h15a.75.75 0 000-1.5h-15z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
           </form >
         </div >
 
@@ -497,95 +474,12 @@ function Navbar(props) {
               </Link>
             </li>
             <li>
-              <Link to="/myprofile" onClick={() => setIsSidebarOpen(false)}>
+              <Link to="/myproject" onClick={() => setIsSidebarOpen(false)}>
                 {props.profile}
               </Link>
             </li>
-
-            {localStorage.getItem("token") ? (
-              <>
-                {/* Add Project */}
-                <li>{renderUploadButton()}</li>
-
-                {/* User Profile */}
-
-                {/* User DropDown Option */}
-
-                <li>
-                  <Link
-                    to="/myprofile"
-                    style={{
-                      color: props.mode === "dark" ? "white" : "black",
-                    }}
-                  >
-                    My Profile
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/editprofile"
-                    style={{
-                      color: props.mode === "dark" ? "white" : "black",
-                    }}
-                  >
-                    Edit Profile
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    role="button"
-                    to="/login"
-                    onClick={handleLogout}
-                    style={{
-                      color: props.mode === "dark" ? "white" : "black",
-                    }}
-                  >
-                    Logout
-                  </Link>
-                </li>
-              </>
-            ) : (
-              <>
-                <li>
-                  <Link
-                    role="button"
-                    to="/login"
-                    className=""
-                    style={{
-                      height: "45px",
-                      color: props.mode === "dark" ? "white" : "white",
-                    }}
-                  >
-                    Login
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    role="button"
-                    to="/signup"
-                    className=""
-                    style={{
-                      height: "45px",
-                      color: props.mode === "dark" ? "white" : "white",
-                    }}
-                  >
-                    Signup
-                  </Link>
-                </li>
-              </>
-            )}
           </ul>
         </div >
-
-        {/* Sidebar Toggle Button */}
-        < button
-          className="sidebar-toggle"
-          onClick={() => setIsSidebarOpen(true)}
-          style={{ display: isOpen ? "block" : "none" }}
-        >
-          Menu
-        </button >
       </nav >
     </div >
   );
