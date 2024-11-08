@@ -12,7 +12,7 @@ require('dotenv').config(); // Load environment variables from .env file
 
 const {
   forgetpassword,
-  verifyToken,
+
   createUser,
   ResetPasswordByEmail,
 } = require("../Controllers/auth");
@@ -96,7 +96,7 @@ router.post(
     // Check for validation errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ success, errors: errors.array() });
     }
 
     const { email, password } = req.body;
@@ -110,6 +110,15 @@ router.post(
         return res.status(400).json({
           success,
           error: "Please try to login with correct credentials",
+        });
+      }
+
+      // Check if the user is verified
+      if (!user.verified) {
+        // Return failure message if email is not verified
+        return res.status(403).json({
+          success,
+          error: "Email not verified. Please verify your email to activate your account.",
         });
       }
 
@@ -133,14 +142,19 @@ router.post(
       // Sign the JWT
       const authtoken = jwt.sign(data, JWT_SECRET);
 
-      // Send token in response to be stored in localStorage on the client
-      return res.status(200).json({ success: true, authtoken });
+      // Send success response with token
+      success = true;
+      return res.status(200).json({ success, authtoken });
     } catch (error) {
       console.error(error.message);
-      return res.status(500).send("Internal Server Error");
+      return res.status(500).json({
+        success: false,
+        error: "Internal Server Error",
+      });
     }
   }
 );
+
 
 
 // ROUTE 3 : Get Loggedin User Details : GET: "/api/auth/getuser". Login required
@@ -157,9 +171,46 @@ router.get("/getuser", fetchuser, async (req, res) => {
   }
 });
 
+// In your auth.js route file
+router.get("/verify/:token", async (req, res) => {
+  const { token } = req.params;
+  try {
+    // Find the user based on the verification token
+    const user = await User.findOne({ verificationToken: token });
+
+    if (!user) {
+      // If the user is not found or token is invalid, show an error
+      return res.status(404).send(`
+        <h2>Invalid or expired verification link</h2>
+        <p>Please try registering again or contact support.</p>
+      `);
+    }
+
+    if (user.verified) {
+      // If the user is already verified, redirect them to login
+      return res.redirect('http://localhost:5173/login');
+    }
+
+    // Update the user as verified and clear the verification token
+    user.verified = true;
+    user.verificationToken = undefined;
+    await user.save();
+
+    // Redirect the user to the login page after successful verification
+    return res.redirect('http://localhost:5173/login');
+
+  } catch (error) {
+   
+    res.status(500).send(`
+      <h2>Verification failed</h2>
+      <p>An error occurred. Please try again later or contact support.</p>
+    `);
+  }
+});
+
+
 router.post("/forget", forgetpassword);
-router.post("/createUser", createUser);
-router.post("/verify/:token", verifyToken);
+router.post("/createuser", createUser);
 router.post("/ResetByEmail", ResetPasswordByEmail);
 
 module.exports = router;
