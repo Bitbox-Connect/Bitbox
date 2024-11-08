@@ -222,6 +222,9 @@ StatCard.propTypes = {
   icon: PropTypes.node.isRequired,
   onClick: PropTypes.func,
 };
+Contributor.propTypes = {
+  mode: PropTypes.string.isRequired,
+};
 
 export default function Contributor(props) {
   const [contributors, setContributors] = useState([]);
