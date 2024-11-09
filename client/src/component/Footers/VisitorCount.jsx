@@ -7,7 +7,6 @@ async function incrementVisitorCount() {
             method: "POST",
         });
         const data = await response.json();
-        console.log("Visitor count incremented:", data.count);
         return data.count;
     } catch (error) {
         console.error("Error incrementing visitor count:", error);
@@ -54,7 +53,7 @@ const VisitorCounter = () => {
             {visitorCount !== null ? (
                 <p className="font-bold text-2xl text-gray-300">Total Visitors: {visitorCount}</p>
             ) : (
-                <p>Loading visitor count...</p>
+                <p><i>Loading visitor count...........</i></p>
             )}
         </div>
     );

@@ -3,9 +3,7 @@ import projectContext from "../context/projectContext";
 import profileContext from "../context/profileContext";
 import CommunityCard from "./CommunityCard";
 import PropTypes from "prop-types";
-import Skeleton from "@mui/material/Skeleton"; // Import Material UI Skeleton
-import "../css/Community.css";
-import avatar from "../assets/images/Dropdown/avatar.png";
+import Skeleton from "@mui/material/Skeleton";
 import ViewAllModalImg from "../assets/images/Modal Image/ViewAll.png";
 import githubModalImg from "../assets/images/Modal Image/GitHub.png";
 import unlinkModalImg from "../assets/images/Modal Image/Unlink.png";
@@ -17,6 +15,7 @@ import LinkModalImg from "../assets/images/Modal Image/Link.png";
 import FavourModalImg from "../assets/images/Modal Image/Favourite.png";
 import commentModalImg from "../assets/images/Modal Image/comment.png";
 import ShareModalImg from "../assets/images/Modal Image/Share.png";
+import "../css/Community.css";
 
 const Community = (props) => {
   const [loading, setLoading] = useState(true); // State to track loading
@@ -33,6 +32,7 @@ const Community = (props) => {
   const context = useContext(projectContext);
   const { globalProjects, getGlobalProjects } = context;
   const userProfileContext = useContext(profileContext);
+  // eslint-disable-next-line
   const { userProfile, getUserProfile } = userProfileContext;
   // eslint-disable-next-line
   const [image, setImage] = useState();
@@ -86,75 +86,6 @@ const Community = (props) => {
     <>
       <div className="user-profile-dashboard">
         <div className="user-details">
-          <div
-            className="globalproject-left mt-[6rem]"
-            style={{
-              background: props.mode === "dark" ? "black" : "white",
-              color: props.mode === "dark" ? "white" : "black",
-              borderRight: props.mode === "dark" ? "1px solid white" : "",
-            }}
-          >
-            <div
-              className="globaldetail-left"
-              style={{
-                background: props.mode === "dark" ? "black" : "white",
-                color: props.mode === "dark" ? "white" : "black",
-              }}
-            >
-              <div className="profile-picture mb-3 mt-2">
-                {image ? (
-                  <img
-                    src={image}
-                    alt="avatar"
-                    style={{
-                      background: props.mode === "dark" ? "white" : "",
-                      outline: props.mode === "dark" ? "2px solid white" : "",
-                    }}
-                  />
-                ) : (
-                  <img
-                    src={avatar}
-                    style={{
-                      background: props.mode === "dark" ? "white" : "",
-                      outline: props.mode === "dark" ? "2px solid white" : "",
-                    }}
-                    className="avatar img-circle"
-                    alt="avatar"
-                  />
-                )}
-              </div>
-              <div className="global-bio">
-                <div>
-                  Name: <span>{userProfile.name}</span>
-                </div>
-                <div>
-                  College: <span>{userProfile.college}</span>
-                </div>
-              </div>
-              <hr />
-              <div className="global-links">
-                <h3>Discover</h3>
-                <div>Popular</div>
-                <div>Most Viewed</div>
-                <div>Top rated</div>
-              </div>
-              <hr />
-              <div className="global-skills">
-                <h3>Contri</h3>
-                <div>Discussion</div>
-              </div>
-              <hr />
-              <div className="global-experience">
-                <h3>Manage</h3>
-                <div>Saved</div>
-              </div>
-
-              <div className="global-share">
-                <h3>Share</h3>
-                <div>Invite friends</div>
-              </div>
-            </div>
-          </div>
           <div className="globalproject-right mt-14">
             <div className="globaldetail-right">
               <h2 className="Heading-Page">Welcome to Bitbox Community</h2>

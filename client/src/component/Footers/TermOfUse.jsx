@@ -2,11 +2,10 @@ import '../../css/Main.css';
 import PropTypes from 'prop-types';
 
 export default function TermOfUse() {
-  const VITE_CLIENT_PORT = import.meta.env.VITE_CLIENT_PORT;
 
   return (
-    <div className="bg-black text-white flex items-center justify-center min-h-screen mt-40 mb-10">
-      <div className="max-w-4xl p-6 bg-gray-900 rounded-lg shadow-lg">
+    <div className="text-white flex items-center justify-center min-h-screen mt-40 mb-10">
+      <div className="max-w-4xl p-6 border rounded-lg shadow-lg">
         {/* Page Title */}
         <h1 className="text-4xl font-bold text-center text-[rgb(99,102,242)] mb-8">
           Terms of Use
@@ -14,7 +13,7 @@ export default function TermOfUse() {
 
         {/* Introduction */}
         <section className="mb-8">
-          <p className="text-gray-300 text-lg">
+          <p className="text-lg">
             Welcome to BitBox! By using our platform, you agree to abide by the following terms and conditions. Please read them carefully to understand your rights and responsibilities while using our services.
           </p>
         </section>
@@ -24,7 +23,7 @@ export default function TermOfUse() {
           <h2 className="text-2xl font-semibold text-[rgb(99,102,242)] mb-4 border-b border-gray-600 pb-2">
             1. Acceptance of Terms
           </h2>
-          <p className="text-gray-300 mb-4">
+          <p className="mb-4">
             By accessing or using BitBox, you acknowledge that you have read, understood, and agree to be bound by these Terms of Use. If you do not agree with any part of these terms, please refrain from using our services.
           </p>
         </section>
@@ -34,7 +33,7 @@ export default function TermOfUse() {
           <h2 className="text-2xl font-semibold text-[rgb(99,102,242)] mb-4 border-b border-gray-600 pb-2">
             2. User Responsibilities
           </h2>
-          <ul className="list-disc list-inside text-gray-300 space-y-2">
+          <ul className="list-disc list-inside space-y-2">
             <li>Provide accurate information when creating an account.</li>
             <li>Upload projects that respect copyright and are legally permissible.</li>
             <li>Engage in constructive feedback and collaboration with respect for others.</li>
@@ -46,7 +45,7 @@ export default function TermOfUse() {
           <h2 className="text-2xl font-semibold text-[rgb(99,102,242)] mb-4 border-b border-gray-600 pb-2">
             3. Project Ownership and Intellectual Property
           </h2>
-          <p className="text-gray-300 mb-4">
+          <p className="mb-4">
             Content shared on BitBox remains the property of the user. However, by uploading your projects, you grant BitBox permission to display and distribute your content on the platform.
           </p>
         </section>
@@ -56,7 +55,7 @@ export default function TermOfUse() {
           <h2 className="text-2xl font-semibold text-[rgb(99,102,242)] mb-4 border-b border-gray-600 pb-2">
             4. Prohibited Conduct
           </h2>
-          <ul className="list-disc list-inside text-gray-300 space-y-2">
+          <ul className="list-disc list-inside space-y-2">
             <li>Do not post illegal or harmful content.</li>
             <li>Do not engage in activities that could harm the platform or other users.</li>
             <li>Avoid unauthorized access attempts to BitBox systems.</li>
@@ -68,7 +67,7 @@ export default function TermOfUse() {
           <h2 className="text-2xl font-semibold text-[rgb(99,102,242)] mb-4 border-b border-gray-600 pb-2">
             5. Limitation of Liability
           </h2>
-          <p className="text-gray-300">
+          <p className="">
             BitBox shall not be liable for any damages arising from the use of our platform, including lost profits, data, or goodwill.
           </p>
         </section>
@@ -78,7 +77,7 @@ export default function TermOfUse() {
           <h2 className="text-2xl font-semibold text-[rgb(99,102,242)] mb-4 border-b border-gray-600 pb-2">
             6. Termination of Access
           </h2>
-          <p className="text-gray-300">
+          <p className="">
             We reserve the right to terminate your access to BitBox if you violate these Terms of Use or engage in harmful activities.
           </p>
         </section>
@@ -88,7 +87,7 @@ export default function TermOfUse() {
           <h2 className="text-2xl font-semibold text-[rgb(99,102,242)] mb-4 border-b border-gray-600 pb-2">
             7. Changes to Terms
           </h2>
-          <p className="text-gray-300">
+          <p className="">
             BitBox reserves the right to update these Terms of Use at any time. Continued use of the platform after changes indicates acceptance of the new terms.
           </p>
         </section>
@@ -98,7 +97,7 @@ export default function TermOfUse() {
           <h2 className="text-2xl font-semibold text-[rgb(99,102,242)] mb-4 border-b border-gray-600 pb-2">
             8. Governing Law
           </h2>
-          <p className="text-gray-300">
+          <p className="">
             These Terms shall be governed by the applicable laws in your jurisdiction.
           </p>
         </section>

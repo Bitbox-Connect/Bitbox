@@ -8,6 +8,7 @@ import VisitorCounter from './Footers/VisitorCount';
 
 const Footer = (props) => {
     const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
     const [message, setMessage] = useState("");
     const [isError, setIsError] = useState(false); // Flag to handle message color
     const [stars, setStars] = useState(0);
@@ -16,9 +17,9 @@ const Footer = (props) => {
         e.preventDefault();
         setMessage(""); // Reset message
 
-        if (!email) {
+        if (!email || !name) {
             setIsError(true);
-            setMessage("Please enter a valid email.");
+            setMessage("Please enter valid details.");
             clearMessageAndResetEmail();
             return;
         }
@@ -29,13 +30,15 @@ const Footer = (props) => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ email }),
+                body: JSON.stringify({ name, email }),
             });
 
             const data = await response.json();
 
             if (response.ok) {
                 setIsError(false);
+                setEmail('');
+                setName('')
                 setMessage("Thank you for subscribing!");
             } else {
                 setIsError(true);
@@ -55,6 +58,7 @@ const Footer = (props) => {
         setTimeout(() => {
             setMessage("");
             setEmail("");
+            setName("")
         }, 7000);
     };
     useEffect(() => {
@@ -101,16 +105,25 @@ const Footer = (props) => {
                     <div className='mb-4' data-aos="fade-up" data-aos-duration='1500'>
                         <h4 style={{ color: props.mode === 'dark' ? 'white' : 'black' }} className="text-3xl font-semibold text-center mb-4">Subscribe to our Newsletter</h4>
                         <form
-                            className="flex flex-col items-center gap-4 md:flex-row md:justify-center"
+                            className="flex flex-col items-center gap-4 md:flex-row md:justify-center justify-center"
                             onSubmit={handleSubscribe}
                         >
+                            <input
+                                type="text"
+                                placeholder="Enter your name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                required
+                                className="px-4 py-2 border border-gray-300 rounded-md w-full max-w-xs focus:outline-none text-black"
+
+                            />
                             <input
                                 type="email"
                                 placeholder="Enter your email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
-                                className="px-4 py-2 border border-gray-300 rounded-md w-full max-w-xs focus:outline-none"
+                                className="px-4 py-2 border border-gray-300 rounded-md w-full max-w-xs focus:outline-none text-black mb-0"
 
                             />
                             <button
@@ -182,7 +195,7 @@ const Footer = (props) => {
 
                         {/* Middle section with About links */}
                         <div className="col-md-6 col-lg-3 col-12 ft-2" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1800">
-                            <h5>About</h5>
+                            <h5 className='foot'>About</h5>
                             <ul>
                                 <li className="nav-item">
                                     <Link to="/contactus">Contact Us</Link>
@@ -196,15 +209,12 @@ const Footer = (props) => {
                                 <li className='nav-item'>
                                     <Link to='/blog'>Blog</Link>
                                 </li>
-                                <li>
-                                    <Link to='/faq'>FAQ</Link>
-                                </li>
                             </ul>
                         </div>
 
                         {/* Right section with Legal links */}
                         <div className="col-md-7 col-lg-4 col-13 ft-3" data-aos="fade-up" data-aos-delay='500' data-aos-duration="1800">
-                            <h5>Legals</h5>
+                            <h5 className='foot'>Legals</h5>
                             <ul>
                                 <li className="nav-item">
                                     <Link to="/feedback">Feedback</Link>

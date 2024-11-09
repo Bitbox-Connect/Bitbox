@@ -3,14 +3,14 @@ const router = express.Router();
 const Project = require('../Models/Project');
 const fetchuser = require('../middleware/fetchuser');
 const { validationResult, body } = require('express-validator'); // Add 'body' here
-const { 
+const {
     fetchallglobalprojects,
     fetchalluserprojects,
     addproject,
     updateproject,
     deleteproject,
     uploadProjectImage,
-    getProjectImage 
+    getProjectImage
 } = require('../Controllers/projects');
 
 // ROUTE 1 : Get All Global Projects : GET: "/api/projects/fetchallglobalprojects". No Login required
