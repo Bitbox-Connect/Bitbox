@@ -1,30 +1,35 @@
-import React, { useState } from 'react';
-
+import  { useState } from 'react';
+import faqimage from "../assets/images/vector-faq-frequently-asked-questions.png"
 const FAQSection = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const faqs = [
-    { question: "What is a blog?", answer: "A blog is a website or platform where you can share your thoughts, ideas, and articles on various topics." },
-    { question: "How do I start a blog?", answer: "You can start a blog by choosing a platform (like WordPress, Blogger, or Medium), picking a domain name, and publishing your first post." },
-    { question: "How often should I post on my blog?", answer: "It's recommended to post consistently, whether it's once a week, biweekly, or monthly, to keep your audience engaged." },
-    { question: "What are the best platforms for blogging?", answer: "Some popular blogging platforms include WordPress, Blogger, Medium, Wix, and Squarespace." },
-    { question: "How do I drive traffic to my blog?", answer: "You can drive traffic through SEO optimization, social media marketing, guest blogging, and sharing your posts in relevant communities." },
-    { question: "Can I monetize my blog?", answer: "Yes, you can monetize your blog through ads, affiliate marketing, sponsored posts, and selling digital products or services." },
-    { question: "How do I improve my blog's SEO?", answer: "Improving your blog's SEO includes using relevant keywords, optimizing images, writing high-quality content, and building backlinks." },
-    { question: "What should I write about on my blog?", answer: "Write about topics you’re passionate about, solving problems for your audience, or sharing your expertise in a specific niche." },
-    { question: "How can I make my blog more engaging for readers?", answer: "You can engage readers by writing in a conversational tone, using visuals, asking questions, and responding to comments." },
-    { question: "How do I manage comments on my blog?", answer: "Manage comments by enabling moderation, replying to comments to engage readers, and filtering out spam or inappropriate content." },
-  ];
-  
+    { question: "What is Bitbox?", answer: "Bitbox is a collaborative platform for developers to share and find solutions to coding projects, enhancing project development and troubleshooting." },
+    { question: "Who can use Bitbox?", answer: "Bitbox is suitable for developers, students, and tech enthusiasts seeking collaboration on coding projects or guidance." },
+    { question: "How can I submit a project on Bitbox?", answer: "Sign up and click 'Submit Project' to share details and engage with the community." },
+    { question: "Is Bitbox free to use?", answer: "Yes, Bitbox is currently free for project submission and collaboration." },
+    { question: "Can I get feedback on my code?", answer: "Yes, community members can provide feedback and suggestions on projects." },
+    { question: "What types of projects are welcome on Bitbox?", answer: "All coding projects across languages and frameworks are welcome on Bitbox." },
+    { question: "How do I report inappropriate content?", answer: "Click the 'Report' button on any content, and our moderators will review it." },
+    { question: "Can I connect with other users?", answer: "Yes, you can comment on projects and join discussions to collaborate." },
+    { question: "Is Bitbox limited to specific programming languages?", answer: "No, Bitbox supports projects in various programming languages and frameworks." },
+    { question: "How do I stay updated on new projects?", answer: "Sign up for notifications or follow popular projects for updates on the latest content." }
+];
+
 
   const handleToggle = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
-    <div className="p-6 bg-gray-100 rounded-lg mt-4">
-      <h2 className="text-2xl font-semibold mb-4 mt-20">Frequently Asked Questions</h2>
-      <div className="space-y-4">
+    <div className="p-6 bg-gray-100 rounded-lg mt-4  dark:from-gray-900 dark:to-gray-800 mb-4">
+      <h2 className="text-[3rem] font-semibold mb-4 mt-20">Frequently Asked Questions</h2>
+      
+      <div className='flex justify-around'>
+        <div>
+        <img src={faqimage} alt="Description w-1/2" className='object-cover'style={{ width: '600px',  }}/>
+        </div>
+      <div className="space-y-4 w-1/2">
         {faqs.map((faq, index) => (
           <div key={index} className="bg-white rounded-lg shadow-md">
             <div
@@ -40,6 +45,7 @@ const FAQSection = () => {
             )}
           </div>
         ))}
+      </div>
       </div>
     </div>
   );

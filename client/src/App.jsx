@@ -18,6 +18,7 @@ import ProjectState from "./context/ProjectState";
 import ProfileState from "./context/ProfileState";
 import CodeOfConduct from "./component/Footers/Codeofconduct";
 import Feedback from "./component/Footers/Feedback";
+import Faqsec from "./component/Faqsec"
 import ContactUs from "./component/Footers/Contactus";
 import PrivacyPolicy from "./component/Footers/Privacypolicy";
 import TermOfUse from "./component/Footers/TermOfUse";
