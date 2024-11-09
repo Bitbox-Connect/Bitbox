@@ -6,22 +6,27 @@ require('dotenv').config(); // Load environment variables from .env file
 
 // Signup route
 const createUser = async (req, res) => {
-  const VITE_CLIENT_PORT = process.env.VITE_CLIENT_PORT || "https://bitbox-in.netlify.app";
+  const VITE_CLIENT_PORT = process.env.VITE_CLIENT_PORT || "http://localhost:3000";
+
+
   const { name, email, password } = req.body;
+
 
   try {
     const saltRounds = 10;
+ 
     const hashedPassword = await bcrypt.hash(password, saltRounds);
+ 
 
     const image = `https://api.dicebear.com/5.x/initials/svg?seed=${name}`;
-
-    // Create a new user (save in your database)
+   
     const user = new User({ image: image, name, email, password: hashedPassword, verified: false });
     await user.save();
 
     const verificationToken = crypto.randomBytes(32).toString("hex");
     user.verificationToken = verificationToken;
     await user.save();
+ 
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -31,13 +36,16 @@ const createUser = async (req, res) => {
       },
     });
 
-    const verificationLink = `${VITE_CLIENT_PORT}/verify/${verificationToken}`;
+
+    const verificationLink = `http://localhost:5000/api/auth/verify/${verificationToken}`;
+  
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
       subject: "Email Verification",
       text: `Click this link to verify your email: ${verificationLink}`,
     };
+
 
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
@@ -47,53 +55,18 @@ const createUser = async (req, res) => {
           message: `Error sending verification email: ${error.message}`,
         });
       }
+
+
       if (!user.verified) {
-        return res.status(401).json({ success: false, message: "Signup successful! Please check your email for the verification link." });
+        return res.status(200).json({
+          success: true,
+          message: "Signup successful! Please check your email for the verification link.",
+        });
       }
     });
   } catch (error) {
+    console.error("An error occurred during signup:", error);
     res.status(500).json({ success: false, message: 'An error occurred during signup' });
-  }
-};
-
-const verifyToken = async (req, res) => {
-  const { token } = req.params;
-
-  try {
-    const VITE_CLIENT_PORT = process.env.VITE_CLIENT_PORT || "https://bitbox-in.netlify.app";
-
-    const user = await User.findOne({ verificationToken: token });
-    if (!user) {
-      return res.status(400).json({
-        success: false,
-        message: "Invalid or expired verification link",
-      });
-    }
-
-    user.verified = true;
-    user.verificationToken = token;
-    await user.save();
-
-    if (user) {
-      return res.status(200).json({
-        success: true,
-        message: "Email verified successfully",
-      });
-    }
-
-    res.status(200).json({
-      success: true,
-      message: "Signup successfully",
-    });
-
-    // Redirect to the frontend's home page after verification
-    return res.redirect(`${VITE_CLIENT_PORT}/login`);
-  } catch (err) {
-    console.error(err);
-    return res.status(500).json({
-      success: false,
-      message: "Server error. Please try again later.",
-    });
   }
 };
 
@@ -174,9 +147,9 @@ const forgetpassword = async (req, res) => {
   }
 };
 
+
 module.exports = {
   forgetpassword,
   createUser,
-  verifyToken,
   ResetPasswordByEmail,
 };
