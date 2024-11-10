@@ -38,6 +38,7 @@ import "aos/dist/aos.css";
 import Collab from "./component/Collab";
 import CreateBlog from "./component/CreateBlog";
 import UploadProject from "./component/UploadProject";
+import DiscussionForum from "./component/DiscussionForum";
 
 const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
   return (
@@ -146,6 +147,7 @@ function App() {
               <Route exact path='/uploadProject' element={<UploadProject mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/createBlogPost' element={<CreateBlog />} />
               <Route exact path='/read-more-blog/:id' element={<ReadMoreBlog mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+              <Route exact path='/discussionForum' element={<DiscussionForum mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/*' element={<NotFound />} />
             </Routes>
           </Layout>
