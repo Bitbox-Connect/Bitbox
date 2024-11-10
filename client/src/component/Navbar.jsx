@@ -16,11 +16,9 @@ function Navbar(props) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Get the current user from the context
-  const { currentUser } = useAuth();
+  const { currentUser, userLoggedIn, setUserLoggedIn } = useAuth();
+  const [isScrolled, setIsScrolled] = useState(false); // State to keep track of whether page has been scrolled
 
-  // eslint-disable-next-line
-  const [isScrolled, setIsScrolled] = useState(false);
   // eslint-disable-next-line
   const [isOpen, setIsOpen] = useState(false);
   // State to control the sidebar visibility
@@ -86,6 +84,7 @@ function Navbar(props) {
     try {
       doSignOut();
       localStorage.removeItem("token");
+      setUserLoggedIn(false)
       navigate("/login");
     } catch (error) {
       console.error(error);
@@ -241,7 +240,7 @@ function Navbar(props) {
 
           {/* Right Links for Mobile Screen */}
           <form className="flex fs-4 fw-medium justify-center items-center">
-            {localStorage.getItem("token") ? (
+            {localStorage.getItem("token") || userLoggedIn ? (
               <>
                 <ul className="navbar-nav fixed right-0 md:right-2">
                   <div className="Navbar-Btn-Group gap-[0.5rem] mr-[-0.5rem]">

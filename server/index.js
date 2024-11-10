@@ -4,12 +4,14 @@ const connectToMongo = require("./db");
 const cors = require("cors");
 const helmet = require("helmet");
 const Avatar = require("./Models/Avatar");
+const cookieParser = require('cookie-parser');
 require("dotenv").config(); // Load environment variables from .env file
 
 // Connect to MongoDB
 connectToMongo();
 
 const app = express();
+app.use(cookieParser());
 const httpServer = require("http").createServer(app);
 const io = new Server(httpServer, {
   cors: {
@@ -33,6 +35,7 @@ app.use(
   cors({
     origin: "*", // Update to specific origins in production
     methods: ["GET", "POST", "OPTIONS", "PUT"],
+    credentials: true,
   })
 );
 
