@@ -17,6 +17,7 @@ function Navbar(props) {
   const location = useLocation();
 
   const { currentUser, userLoggedIn, setUserLoggedIn } = useAuth();
+  // eslint-disable-next-line
   const [isScrolled, setIsScrolled] = useState(false); // State to keep track of whether page has been scrolled
 
   // eslint-disable-next-line
@@ -164,7 +165,7 @@ function Navbar(props) {
               }`}
             id="navbarSupportedContent"
           >
-            <ul className="navbar-nav ml-[4.5rem] mb-2 mb-lg-0 gap-3 fw-medium menu2">
+            <ul className="navbar-nav mb-2 mb-lg-0 gap-2 fw-medium menu2">
               <li className="nav-item fs-6 fw-medium">
                 <Link
                   className={`nav-link ${location.pathname === "/" ? "active" : ""
@@ -197,6 +198,26 @@ function Navbar(props) {
               </li>
               <li className="nav-item fs-6">
                 <Link
+                  className={`nav-link ${location.pathname === "/myproject" ? "active" : ""
+                    }`}
+                  aria-current="page"
+                  to="/myproject"
+                >
+                  {props.projects}
+                </Link>
+              </li>
+              <li className="nav-item fs-6">
+                <Link
+                  className={`nav-link ${location.pathname === "/ai" ? "active" : ""
+                    }`}
+                  aria-current="page"
+                  to="/ai"
+                >
+                  {props.ai}
+                </Link>
+              </li>
+              <li className="nav-item fs-6">
+                <Link
                   className={`nav-link ${location.pathname === "/discussion" ? "active" : ""
                     }`}
                   aria-current="page"
@@ -223,16 +244,6 @@ function Navbar(props) {
                   to="/contributors"
                 >
                   {props.contributors}
-                </Link>
-              </li>
-              <li className="nav-item fs-6">
-                <Link
-                  className={`nav-link ${location.pathname === "/projects" ? "active" : ""
-                    }`}
-                  aria-current="page"
-                  to="/myproject"
-                >
-                  {props.projects}
                 </Link>
               </li>
             </ul>
@@ -288,8 +299,8 @@ function Navbar(props) {
                       >
                         <img
                           src={
-                            currentUser.photoURL ||
                             profileImage ||
+                            currentUser.photoURL ||
                             avatarDropdown
                           }
                           className="avatar img-circle"
@@ -301,29 +312,20 @@ function Navbar(props) {
                         className="dropdown-menu"
                         aria-labelledby="navbarScrollingDropdown"
                         style={{
-                          backgroundColor:
-                            props.mode === "dark" ? "black" : "white",
-                          borderBottom:
-                            props.mode === "dark"
-                              ? "1px solid white"
-                              : "1px solid black",
-                          outline:
-                            props.mode === "dark"
-                              ? "2px solid white"
-                              : "2px solid black",
+                          backgroundColor: props.mode === "dark" ? "black" : "white",
+                          borderBottom: props.mode === "dark"
+                            ? "1px solid white"
+                            : "1px solid black",
+                          outline: props.mode === "dark" ? "2px solid white" : "2px solid black",
                         }}
                       >
                         <li>
-                          <Link
-                            to="/myproject"
-                          >
+                          <Link to="/myproject">
                             <p>My Project</p>
                           </Link>
                         </li>
                         <li>
-                          <Link
-                            to="/editprofile"
-                          >
+                          <Link to="/editprofile">
                             <p>Edit Profile</p>
                           </Link>
                         </li>
@@ -331,16 +333,11 @@ function Navbar(props) {
                           <hr
                             className="dropdown-divider"
                             style={{
-                              backgroundColor:
-                                props.mode === "dark" ? "black" : "white",
-                              borderBottom:
-                                props.mode === "dark"
-                                  ? "1px solid white"
-                                  : "1px solid black",
-                              outline:
-                                props.mode === "dark"
-                                  ? "2px solid black"
-                                  : "2px solid white",
+                              backgroundColor: props.mode === "dark" ? "black" : "white",
+                              borderBottom: props.mode === "dark"
+                                ? "1px solid white"
+                                : "1px solid black",
+                              outline: props.mode === "dark" ? "2px solid black" : "2px solid white",
                             }}
                           />
                         </li>
@@ -358,10 +355,7 @@ function Navbar(props) {
                     </li>
                     {/* Menu Button */}
                     <li>
-                      <button
-                        className="sidebar-toggle"
-                        onClick={toggleSidebar}
-                      >
+                      <button className="sidebar-toggle" onClick={toggleSidebar}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
@@ -382,18 +376,18 @@ function Navbar(props) {
             ) : (
               // Login and Signup Button
               <div
-                className="flex justify-between items-center space-x-2 collapse"
+                className="flex justify-between items-center space-x-2"
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  gap: "0.5rem", // add some space between the buttons
-                  flexWrap: "nowrap", // prevent wrapping
+                  gap: "0.5rem",
+                  flexWrap: "nowrap",
                 }}
               >
                 <Link
                   role="button"
                   to="/login"
-                  className="btn loginbtn mx-2  h-10 "
+                  className="flex items-center btn loginbtn mx-2 h-10"
                   style={{
                     height: "45px",
                     color: props.mode === "dark" ? "white" : "white",
@@ -404,7 +398,7 @@ function Navbar(props) {
                 <Link
                   role="button"
                   to="/signup"
-                  className="btn loginbtn mx-2  h-10 "
+                  className="flex items-center btn loginbtn mx-2 h-10"
                   style={{
                     height: "45px",
                     color: props.mode === "dark" ? "white" : "white",
@@ -434,9 +428,8 @@ function Navbar(props) {
                   <span className="fake-body"></span>
                 </div>
               </div>
-            )
-            }
-          </form >
+            )}
+          </form>
         </div >
 
         {/* Sidebar for Smaller devices */}
@@ -465,6 +458,16 @@ function Navbar(props) {
               </Link>
             </li>
             <li>
+              <Link to="/myproject" onClick={() => setIsSidebarOpen(false)}>
+                {props.projects}
+              </Link>
+            </li>
+            <li>
+              <Link to="/ai" onClick={() => setIsSidebarOpen(false)}>
+                {props.ai}
+              </Link>
+            </li>
+            <li>
               <Link to="/discussion" onClick={() => setIsSidebarOpen(false)}>
                 {props.discussion}
               </Link>
@@ -472,11 +475,6 @@ function Navbar(props) {
             <li>
               <Link to="/blog" onClick={() => setIsSidebarOpen(false)}>
                 {props.blog}
-              </Link>
-            </li>
-            <li>
-              <Link to="/myproject" onClick={() => setIsSidebarOpen(false)}>
-                {props.projects}
               </Link>
             </li>
           </ul>
@@ -496,7 +494,7 @@ Navbar.propTypes = {
   about: PropTypes.string,
   contributors: PropTypes.string,
   projects: PropTypes.string,
-  profile: PropTypes.string,
+  ai: PropTypes.string,
   mode: PropTypes.string,
   toggleMode: PropTypes.func,
   showAlert: PropTypes.func,

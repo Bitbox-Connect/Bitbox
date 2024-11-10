@@ -38,7 +38,9 @@ const Ai = () => {
   };
 
   return (
-    <div className="p-6 min-h-screen text-black overflow-auto main-content">
+    <div className="p-6 min-h-screen flex flex-col justify-center text-black overflow-auto main-content">
+      {/* Heading */}
+      <h1 className="text-4xl font-semibold mb-4">AI Playground</h1>
       {/* API Key Input */}
       <div className="mb-4">
         <input
