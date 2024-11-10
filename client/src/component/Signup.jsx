@@ -15,6 +15,8 @@ const Signup = ({ mode }) => {
   const { userLoggedIn } = useAuth();
   const navigate = useNavigate();
 
+  console.log(mode);
+  
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -233,13 +235,13 @@ const Signup = ({ mode }) => {
                 />
               </div>
         <div className="password-checklist text-left">
-                <p>Password must contain:</p>
+                <p className={`${mode == "dark" ? "text-white" : "text-black"}`}>Password must contain:</p>
                 <ul className="list-none pl-0">
-                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.length} readOnly /> <span>At least 8 characters</span></li>
-                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.uppercase} readOnly /> <span>At least one uppercase letter</span></li>
-                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.lowercase} readOnly /> <span>At least one lowercase letter</span></li>
-                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.number} readOnly /> <span>At least one number</span></li>
-                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.specialChar} readOnly /> <span>At least one special character</span></li>
+                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.length} readOnly /> <span className={`${mode == "dark" ? "text-white" : "text-black"}`}>At least 8 characters</span></li>
+                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.uppercase} readOnly /> <span className={`${mode == "dark" ? "text-white" : "text-black"}`}>At least one uppercase letter</span></li>
+                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.lowercase} readOnly /> <span className={`${mode == "dark" ? "text-white" : "text-black"}`}>At least one lowercase letter</span></li>
+                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.number} readOnly /> <span className={`${mode == "dark" ? "text-white" : "text-black"}`}>At least one number</span></li>
+                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.specialChar} readOnly /> <span className={`${mode == "dark" ? "text-white" : "text-black"}`}>At least one special character</span></li>
                 </ul>
         </div>
 
