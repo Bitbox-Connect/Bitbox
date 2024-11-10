@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from "react";
-// import "./CustomCursor.css";
+import { useState, useEffect, useRef } from "react";
 import '../css/Cursor.css';
 
 const CustomCursor = () => {
@@ -21,11 +20,11 @@ const CustomCursor = () => {
     };
 
     const handleMouseLeave = () => {
-      setIsCursorVisible(false); 
+      setIsCursorVisible(false);
     };
 
     const handleMouseEnter = () => {
-      setIsCursorVisible(true); 
+      setIsCursorVisible(true);
     };
 
     document.addEventListener("mousemove", onMouseMove);
