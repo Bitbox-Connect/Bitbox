@@ -8,13 +8,6 @@ const { body, validationResult } = require("express-validator");
 const login= async (req, res) => {
     let success = false;
     console.log("see");
-    
-    // Check for validation errors
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-
     const { email, password } = req.body;
 
     try {
@@ -37,7 +30,7 @@ const login= async (req, res) => {
           error: "Please try to login with correct credentials",
         });
       }
-
+      
       // Create JWT payload
       const data = {
         user: {
