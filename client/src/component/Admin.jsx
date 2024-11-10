@@ -63,7 +63,7 @@ const Admin = ({ mode }) => {
         // setloggedin(!isloggedin);
         console.log("flskd");
         
-        return navigate("../dashboard");
+        return navigate("/");
         
       } else {
         toast.error(json.message || "Login failed! Invalid credentials.");
