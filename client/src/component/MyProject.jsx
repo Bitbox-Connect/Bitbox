@@ -3,14 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import projectContext from '../context/projectContext';
 import profileContext from '../context/profileContext';
-import MyProfileCard from './MyProfileCard';
-import UploadProject from './UploadProject';
+import MyProfileCard from './MyProjectCard';
 // CSS
 import '../css/Modal.css'
-import '../css/MyProfile.css'
+import '../css/MyProject.css'
 // PNG
 // import projectDummyImage from '../assets/images/Others/projects.png'
-import avatar from '../assets/images/Dropdown/avatar.png';
 import ViewAllModalImg from '../assets/images/Modal Image/ViewAll.png'
 import githubModalImg from '../assets/images/Modal Image/GitHub.png'
 import unlinkModalImg from '../assets/images/Modal Image/Unlink.png'
@@ -22,6 +20,7 @@ import LinkModalImg from '../assets/images/Modal Image/Link.png'
 import FavourModalImg from '../assets/images/Modal Image/Favourite.png'
 import commentModalImg from '../assets/images/Modal Image/comment.png'
 import ShareModalImg from '../assets/images/Modal Image/Share.png'
+import AddProject from './AddProject';
 
 
 const MyProfile = (props) => {
@@ -82,6 +81,7 @@ const MyProfile = (props) => {
 
     // Profile Context
     const userProfileContext = useContext(profileContext);
+    // eslint-disable-next-line
     const { userProfile, getUserProfile } = userProfileContext;
     useEffect(() => {
         if (localStorage.getItem('token')) {
@@ -120,50 +120,6 @@ const MyProfile = (props) => {
         <div>
             <div className="user-profile-dashboard mt-24">
                 <div className="user-details">
-                    <div className="userprofile-left" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', borderRight: props.mode === 'dark' ? '1px solid white' : '' }}>
-                        <div className="userdetail-left">
-                            {/* User Profile Information */}
-                            {/* <Link to='/edituser' onClick={handleEditClick}>Edit</Link> */}
-                            {/* <button onClick={handleEditClick}><link rel="stylesheet" href="/editprofile" />Edit</button> */}
-                            <div className="profile-picture mb-3 mt-2">
-                                <img
-                                    src={avatar} style={{ background: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '2px solid white' : '' }}
-                                    className="avatar img-circle"
-                                    alt="avatar"
-                                />
-                            </div>
-                            <div className="user-bio">
-                                <div>Name: <span>{userProfile.name}</span></div>
-                                <div>Address : <span>{userProfile.address}</span></div>
-                                <div>College : <span>{userProfile.college}</span></div>
-                                <div>Phone : <span>{userProfile.phone}</span></div>
-                            </div>
-                            <hr />
-                            <div className="user-links">
-                                <h3>Discover</h3>
-                                <div>Popular</div>
-                                <div>Most Viewed</div>
-                                <div>Top rated</div>
-                            </div>
-                            <hr />
-                            <div className="user-skills">
-                                <h3>Contri</h3>
-                                <div>Discussion</div>
-
-                            </div>
-                            <hr />
-                            <div className="user-experience">
-                                <h3>Manage</h3>
-                                <div>Saved</div>
-                            </div>
-
-                            <div className="user-share">
-                                <h3>Share</h3>
-                                <div>Invite friends</div>
-                            </div>
-                        </div>
-                    </div>
-
                     <div className="userproject-right">
                         <div className="userdetail-right">
                             {/* Edit Button trigger modal */}
@@ -583,9 +539,11 @@ const MyProfile = (props) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className='container User-Sec-Container'>
+                            <div className='container flex flex-col User-Sec-Container'>
                                 <h2 className='Heading-Page text-center mb-4'>My Uploaded Projects</h2>
-                                {userProjects.length === 0 && <UploadProject mode={mode} showAlert={props.showAlert} title="Click Here To Upload" />}
+                                <div className='w-full h-[30vh] md:h-[50vh] flex justify-center items-center'>
+                                    {userProjects.length === 0 && <AddProject mode={mode} showAlert={props.showAlert} title="Click Here To Upload" />}
+                                </div>
                                 <div className='row'>
                                     {userProjects.map((project) => {
                                         return <MyProfileCard style={{ color: props.mode === 'dark' ? '#100000' : '100001' }} key={project._id} mode={mode} updateProject={updateProject} showDetailProject={showDetailProject} project={project} showAlert={props.showAlert} />;

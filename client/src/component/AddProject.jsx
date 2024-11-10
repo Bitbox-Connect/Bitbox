@@ -1,61 +1,70 @@
-import { useContext, useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useContext, useState, useRef } from 'react';
 import projectContext from '../context/projectContext';
-// ASSETS
-// import projectDummyImage from '../assets/images/Others/projects.png'
-import closeModalImg from '../assets/images/Modal Image/Close.png'
+import { toast } from 'react-toastify';
 
-function AddProject(props) {
+function AddProject({ mode }) {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
     const context = useContext(projectContext);
-    // Destructure the addProject from context
     const { addProject } = context;
 
-    // image, date, title, description, gitHubLink, youTubeLink, tags
-    const [project, setProject] = useState({ image: "", date: "", title: "", description: "", gitHubLink: "", youTubeLink: "", tags: "" });
+    // Separate state for each input
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const [gitHubLink, setGitHubLink] = useState("");
+    const [youTubeLink, setYouTubeLink] = useState("");
+    const [tags, setTags] = useState("");
+
     const refClose = useRef(null);
 
-    const handleClick = () => {
-        if (project.title.trim() === "") {
-            props.showAlert("Title is required", "danger");
-            return;
-        }
-        // Modify YouTube link
-        const modifiedYouTubeLink = modifyYouTubeLink(project.youTubeLink);
-        // Add project API call
-        addProject(project.title, project.description, project.gitHubLink, modifiedYouTubeLink, project.tags); // Pass modifiedYouTubeLink instead of project.youTubeLink
-        refClose.current.click();
-        setProject({ title: "", description: "", gitHubLink: "", youTubeLink: "" });
-        props.showAlert("Project Added Successfully", "success");
-    };
-
-    const handleKeyDown = (e) => {
-        if (e.key === 'Enter') {
-            e.preventDefault(); // Prevent form submission on Enter key press
-            handleClick(); // Manually handle the click event
-        }
-    }
-
-    useEffect(() => {
-        const handleKeyPress = (event) => {
-            if (event.key === "Enter" && project.title.trim() !== "") {
-                handleClick();
+    // Handle form submission
+    const handleSubmit = async (e) => {
+        e.preventDefault(); // Prevent default form submission
+        setIsLoading(true);
+        try {
+            if (title.trim() === "") {
+                toast.error("Title is required");
+                return;
             }
-        };
 
-        document.addEventListener("keypress", handleKeyPress);
+            // Validate GitHub Link
+            if (gitHubLink && !/^https:\/\/github\.com\//.test(gitHubLink)) {
+                toast.error("Please enter a valid GitHub URL.");
+                return;
+            }
 
-        return () => {
-            document.removeEventListener("keypress", handleKeyPress);
-        };
-        // eslint-disable-next-line
-    }, [project.title]); // Only re-run the effect if project.title changes
+            // Validate YouTube Link
+            if (youTubeLink && !/^https:\/\/(www\.)?youtube\.com\/watch\?v=/.test(youTubeLink)) {
+                toast.error("Please enter a valid YouTube URL.");
+                return;
+            }
 
-    const onChange = (e) => {
-        // Able to write in the input field
-        setProject({ ...project, [e.target.name]: e.target.value });
+            // Modify YouTube link to embed format
+            const modifiedYouTubeLink = modifyYouTubeLink(youTubeLink);
+
+            // Call addProject function from context
+            await addProject(title, description, gitHubLink, modifiedYouTubeLink, tags);
+            toast.success("Project Added Successfully");
+            // console.log(title + " " + description + " " + gitHubLink + " " + youTubeLink)
+            // Clear form
+            setTitle("");
+            setDescription("");
+            setGitHubLink("");
+            setYouTubeLink("");
+            setTags("");
+
+            // Close modal
+            refClose.current.click();
+        } catch (error) {
+            toast.error("Failed to upload the project. Please try again.");
+        } finally {
+            setIsLoading(false); // End loading state
+        }
     };
 
-    // Function to modify YouTube link
+    // Function to modify YouTube link (from watch to embed URL)
     const modifyYouTubeLink = (link) => {
         if (link.includes("youtube.com/watch?v=")) {
             const videoId = link.split("youtube.com/watch?v=")[1];
@@ -65,67 +74,115 @@ function AddProject(props) {
         }
     };
 
+    const themeStyles = mode === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-900';
+
     return (
         <div>
-            <button type="button" className="btn btn-primary mx-2" style={{ height: '45px' }} data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Upload
-            </button>
-            {/* Upload Project Modal */}
-            <div className="modal fade text-start" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black', outline: props.mode === 'dark' ? '1px solid white' : '' }}>
-                    <div className="modal-content" style={{ background: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}>
-                        <div className="modal-header">
-                            <h1 className="modal-title fs-3" id="exampleModalLabel" style={{ color: props.mode === 'dark' ? 'white' : '' }}>Upload Project</h1>
-                            {/* close button */}
-                            <div className="close-modal-button" data-bs-dismiss="modal" aria-label="Close" >
-                                <img src={closeModalImg} title='close' alt="close" style={{ background: props.mode === 'dark' ? 'white' : '', outline: props.mode === 'dark' ? '1px solid white' : '' }} />
-                            </div>
-                        </div>
-                        <div className="modal-body">
-                            <div className="pro-card">
-                                <div className="card-body">
-                                    {/* <div className="mb-3">
-                                        <label htmlFor="title" className="form-label">Upload Image</label>
-                                        <div className='flex justify-content-center'>
-                                            <img
-                                                src={projectDummyImage}
-                                                className="avatar w-100"
-                                                alt="project"
-                                            />
-                                        </div>
-                                        <div className='flex justify-content-around align-items-center mt-2'>
-                                            <input type="file" className="form-control" style={{ width: "80%" }} />
-                                            <button className='btn btn-secondary h-50'>Upload</button>
-                                        </div>
-                                    </div> */}
-                                    <div className="mb-3">
-                                        <label htmlFor="title" className="form-label">Project Title</label>
-                                        <input autoFocus type="text" className="form-control" id="title" name='title' value={project.title} onChange={onChange} placeholder="Enter Project Title Here *" required onKeyDown={handleKeyDown} style={{ color: props.mode === 'dark' ? 'black' : '', }} />
-                                    </div>
-                                    <div className="mb-3">
-                                        <label htmlFor="description" className="form-label">Project Description</label>
-                                        <textarea type="text" className="form-control" id="description" name='description' value={project.description} onChange={onChange} placeholder="Enter Project Description Here" rows="3" onKeyDown={handleKeyDown} style={{ color: props.mode === 'dark' ? 'black' : '', }}></textarea>
-                                    </div>
-                                    <div className="mb-3">
-                                        <label htmlFor="gitHubLink" className="form-label">Github Link</label>
-                                        <input type="text" className="form-control" id="gitHubLink" name='gitHubLink' value={project.gitHubLink} onChange={onChange} placeholder="Enter Github Link Here" onKeyDown={handleKeyDown} style={{ color: props.mode === 'dark' ? 'black' : '', }} />
-                                    </div>
-                                    <div className="mb-3">
-                                        <label htmlFor="youTubeLink" className="form-label">YouTube Link</label>
-                                        <input type="text" className="form-control" id="youTubeLink" name='youTubeLink' value={project.youTubeLink} onChange={onChange} placeholder="Enter YouTube Link Here" onKeyDown={handleKeyDown} style={{ color: props.mode === 'dark' ? 'black' : '', }} />
-                                    </div>
+            <div className="container mx-auto flex justify-center">
+                {/* Button to open the modal */}
+                <button type="button" className="btn btn-primary flex justify-center items-center mx-2" style={{ height: '45px' }} onClick={() => setIsModalOpen(true)}>
+                    Upload
+                </button>
+
+                {/* Modal Overlay */}
+                {isModalOpen && (
+                    <div className="fixed flex z-[99999999999] justify-center items-center inset-0 bg-black bg-opacity-50">
+                        {/* Modal Content */}
+                        <div className={`relative top-22 md:top-12 w-full max-w-md p-6 mx-2 my-8 bg-white rounded-lg shadow-lg overflow-auto ${themeStyles}`} style={{ maxHeight: '800px', fontSize: '14px' }}>
+                            {/* Close Button in Top Right */}
+                            <button onClick={() => setIsModalOpen(false)} className="absolute top-0 right-10 text-gray-500 hover:text-gray-700" style={{ fontSize: '42px' }}>
+                                &times;
+                            </button>
+
+                            <h1 className={`text-3xl font-bold text-center mt-6 mb-6 ${mode === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+                                Upload Your Project
+                            </h1>
+
+                            <form onSubmit={handleSubmit} className="space-y-4">
+                                {/* Project Title */}
+                                <div>
+                                    <label htmlFor="title" className={`block text-lg font-semibold ${mode === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+                                        Project Title
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="title"
+                                        name="title"
+                                        value={title}
+                                        onChange={(e) => setTitle(e.target.value)}
+                                        className={`w-full mt-1 p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none ${mode === 'dark' ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-900 border-gray-300'}`}
+                                        placeholder="Enter your project title"
+                                        required
+                                    />
                                 </div>
-                            </div>
-                        </div>
-                        <div className="modal-footer">
-                            <button ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button disabled={project.title.trim() === ""} type="button" className="btn btn-primary" onClick={handleClick}>Upload</button>
+
+                                {/* Project Description */}
+                                <div>
+                                    <label htmlFor="description" className={`block text-lg font-semibold ${mode === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+                                        Project Description
+                                    </label>
+                                    <textarea
+                                        id="description"
+                                        name="description"
+                                        value={description}
+                                        onChange={(e) => setDescription(e.target.value)}
+                                        className={`w-full mt-1 p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none ${mode === 'dark' ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-900 border-gray-300'}`}
+                                        placeholder="Enter Project Description"
+                                        required
+                                    ></textarea>
+                                </div>
+
+                                {/* GitHub Link */}
+                                <div>
+                                    <label htmlFor="githubLink" className={`block text-lg font-semibold ${mode === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+                                        GitHub Link
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="githubLink"
+                                        name="githubLink"
+                                        value={gitHubLink}
+                                        onChange={(e) => setGitHubLink(e.target.value)}
+                                        className={`w-full mt-1 p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none ${mode === 'dark' ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-900 border-gray-300'}`}
+                                        placeholder="Enter your project GitHub link"
+                                        required
+                                    />
+                                </div>
+
+                                {/* YouTube Link */}
+                                <div>
+                                    <label htmlFor="youtubeLink" className={`block text-lg font-semibold ${mode === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+                                        YouTube Link
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="youtubeLink"
+                                        name="youtubeLink"
+                                        value={youTubeLink}
+                                        onChange={(e) => setYouTubeLink(e.target.value)}
+                                        className={`w-full mt-1 p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none ${mode === 'dark' ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-gray-900 border-gray-300'}`}
+                                        placeholder="Enter your project YouTube link"
+                                        required
+                                    />
+                                </div>
+
+                                {/* Submit Button */}
+                                <div className="text-center mt-4">
+                                    <button
+                                        disabled={isLoading || title.trim() === ""}
+                                        type="submit"
+                                        className={`w-full py-2 rounded-md text-lg font-semibold ${mode === 'dark' ? 'bg-blue-700 hover:bg-blue-600' : 'bg-blue-600 hover:bg-blue-700'} text-white focus:outline-none focus:ring-2 focus:ring-blue-400`}
+                                    >
+                                        {isLoading ? "Uploading..." : "Upload Project"}
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                </div>
+                )}
             </div>
         </div>
-    )
+    );
 }
 
 AddProject.propTypes = {

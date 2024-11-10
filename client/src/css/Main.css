@@ -132,12 +132,6 @@ ul {
   cursor: auto;
 }
 
-/* Privacy Policy */
-.privacy-policy-container {
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
 .paragraph {
   margin-bottom: 50px;
 }
@@ -152,11 +146,6 @@ ul {
 
 .list-n-1 {
   margin-left: 30px;
-}
-
-.privacy-policy-container {
-  padding-left: 15%;
-  padding-right: 15%;
 }
 
 /* Term of Use */
