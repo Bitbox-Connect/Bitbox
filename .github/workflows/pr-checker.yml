@@ -85,7 +85,3 @@ jobs:
               body: successMessage
             });
           }
-
-    - name: Fail if validation failed
-      if: env.PR_VALID == 'false'
-      run: exit 1

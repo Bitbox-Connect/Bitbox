@@ -3,7 +3,7 @@ import { io } from "socket.io-client";
 import MonacoEditor from "@monaco-editor/react";
 
 // Adjust this to your Socket.IO server URL
-const SOCKET_SERVER_URL = "http://localhost:5000";
+const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
 
 const Collab = () => {
   const [code, setCode] = useState("// Start coding collaboratively!\n");
@@ -12,7 +12,7 @@ const Collab = () => {
 
   // Initialize the Socket.IO client
   useEffect(() => {
-    const newSocket = io(SOCKET_SERVER_URL);
+    const newSocket = io(VITE_SERVER_PORT);
     setSocket(newSocket);
 
     newSocket.on("code_update", (newCode) => {

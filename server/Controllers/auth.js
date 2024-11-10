@@ -4,6 +4,8 @@ const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 require('dotenv').config(); // Load environment variables from .env file
 
+const client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+
 // Signup route
 const createUser = async (req, res) => {
   const VITE_CLIENT_PORT = process.env.VITE_CLIENT_PORT || "https://bitbox-in.netlify.app";
@@ -16,9 +18,9 @@ const createUser = async (req, res) => {
     const image = `https://api.dicebear.com/5.x/initials/svg?seed=${name}`;
 
     // Create a new user (save in your database)
-    const user = new User({ image: image, name, email, password: hashedPassword, verified: false });
+    const user = new User({ imageUrl: image, name, email, password: hashedPassword, verified: false });
     await user.save();
-
+    
     const verificationToken = crypto.randomBytes(32).toString("hex");
     user.verificationToken = verificationToken;
     await user.save();
@@ -52,6 +54,7 @@ const createUser = async (req, res) => {
       }
     });
   } catch (error) {
+    console.log(error);
     res.status(500).json({ success: false, message: 'An error occurred during signup' });
   }
 };
@@ -174,9 +177,48 @@ const forgetpassword = async (req, res) => {
   }
 };
 
+const sendOtp = async (req, res)=> {
+  const { number } = req.body;
+  
+  const otp = Math.floor(100000 + Math.random() * 900000).toString();
+
+  const result = await client.messages.create({
+      body: `Yout OTP is ${otp}`,
+      messagingServiceSid: "MG6cd72a2fcb56205180ce4878359484cc",
+      to: "+91" + number
+  })
+
+  res.cookie('otp', otp, {
+    maxAge: 24 * 60 * 60 * 1000,
+    httpOnly: true, 
+    secure: true, 
+    sameSite: 'None',
+  });
+  
+  return res.status(200).json({success: true, message: "OTP sent successfully"})
+}
+
+const verifyOtp = async (req, res)=>{
+  const {otp} = req.body;
+
+  console.log(req.cookies);
+
+  const correctOtp = await req.cookies.otp
+  
+  if(correctOtp != otp){
+    return res.status(400).json({success: false, message: "Incorrect OTP"})
+  }
+
+  res.clearCookie('otp');
+
+  return res.status(200).json({success: true, message: "OTP verified successfully"})
+}
+
 module.exports = {
   forgetpassword,
   createUser,
   verifyToken,
   ResetPasswordByEmail,
+  sendOtp,
+  verifyOtp
 };

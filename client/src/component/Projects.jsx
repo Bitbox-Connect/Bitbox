@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Projects = ({ mode }) => {
+    const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
+
     const navigate = useNavigate();
     const [projects, setProjects] = useState([]);  // State to store fetched projects
     const [loading, setLoading] = useState(true);  // State for loading state
@@ -13,7 +15,7 @@ const Projects = ({ mode }) => {
         // Fetch the data from the API when the component mounts
         const fetchProjects = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/showcaseProjects/all-projects');
+                const response = await axios.get(`${VITE_SERVER_PORT}/api/showcaseProjects/all-projects`);
                 setProjects(response.data);  // Store the fetched projects in state
                 setLoading(false);  // Set loading to false after data is fetched
             } catch (err) {
