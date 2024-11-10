@@ -28,6 +28,8 @@ import ScrollTop from "./component/ScrollTop";
 import EditProfile from "./component/EditProfile";
 import Contributors from "./component/Contributors";
 import Discussion from "./component/Discussion";
+import Admin from "./component/Admin";
+import Dashboard from "./component/Dashboard";
 import ForgotPassword from "./component/ForgotPassword";
 import ResetPassword from "./component/ResetPassword";
 import NotFound from "./component/NotFound";
@@ -137,6 +139,8 @@ function App() {
               <Route exact path='/myproject' element={<MyProject mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/editprofile' element={<EditProfile mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path="/login" element={<Login mode={mode} setProgress={setProgress} showAlert={showAlert} loggedin={islogged} setloggedin={setloggedin} />} />
+              <Route exact path="/admin" element={<Admin mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+              <Route exact path="/dashboard" element={<Dashboard/>} />
               <Route exact path='/signup' element={<Signup mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/forgot-password' element={<ForgotPassword mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/reset-password' element={<ResetPassword mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
