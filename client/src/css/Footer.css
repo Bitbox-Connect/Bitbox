@@ -12,13 +12,6 @@
   margin: 0.5rem;
 }
 
-.nav-item:hover {
-  text-decoration: underline;
-}
-.foot {
-  text-decoration: 3px underline;
-}
-
 .footer-container {
   display: flex;
   justify-content: space-around;
@@ -151,7 +144,7 @@ h4 a:hover {
 }
 
 /* Nav and button styles */
-.nav_ul li {
+nav_ul li {
   padding: 0 0.6rem;
 }
 
@@ -258,7 +251,7 @@ h4 a:hover {
 }
 
 .Last-footer {
-  background: #1173eb;
+  background: #0d92f4;
   text-align: center;
   padding: 1rem 0;
 }

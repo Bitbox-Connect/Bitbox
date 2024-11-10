@@ -18,7 +18,7 @@ import ProjectState from "./context/ProjectState";
 import ProfileState from "./context/ProfileState";
 import CodeOfConduct from "./component/Footers/Codeofconduct";
 import Feedback from "./component/Footers/Feedback";
-import Faqsec from "./component/Faqsec"
+import FAQs from "./component/FAQs"
 import ContactUs from "./component/Footers/Contactus";
 import PrivacyPolicy from "./component/Footers/Privacypolicy";
 import TermOfUse from "./component/Footers/TermOfUse";
@@ -34,7 +34,7 @@ import NotFound from "./component/NotFound";
 import ProgressBar from "./component/ProgressBar/ProgressBar";
 import Cursor from './component/Cursor';
 import ReadMoreBlog from './component/ReadMoreBlog';
-import AI from "./component/AI";
+import AI from "./component/AIReview";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Collab from "./component/Collab";
@@ -154,7 +154,7 @@ function App() {
               <Route exact path='/uploadProject' element={<UploadProject mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/createBlogPost' element={<CreateBlog />} />
               <Route exact path='/read-more-blog/:id' element={<ReadMoreBlog mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-              <Route exact path='/faq' element={<Faqsec mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+              <Route exact path='/faq' element={<FAQs mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/*' element={<NotFound />} />
             </Routes>
           </Layout>

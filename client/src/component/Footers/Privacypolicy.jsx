@@ -1,33 +1,37 @@
-import '../../css/Main.css';
-import PropTypes from 'prop-types';
+import "../../css/Main.css";
+import PropTypes from "prop-types";
 
 export default function PrivacyPolicy(props) {
   const VITE_CLIENT_PORT = import.meta.env.VITE_CLIENT_PORT;
 
   return (
     <div
-      className="container p-10"
+      className="privacy-policy-container p-6"
       style={{
-        backgroundColor: props.mode === 'dark' ? '#111111' : '#f9f9f9',
-        color: props.mode === 'dark' ? '#f9f9f9' : '#1a1a1a',
-        lineHeight: '1.75',
+        backgroundColor: props.mode === "dark" ? "#111111" : "#f9f9f9",
+        color: props.mode === "dark" ? "#f9f9f9" : "#1a1a1a",
+        lineHeight: "1.75",
         fontFamily: "'Inter', sans-serif",
       }}
     >
-      <h2 className={`text-4xl font-extrabold mb-10 mt-28 text-center tracking-wide ${props.mode === 'dark' ? 'text-gray-100' : 'text-gray-700'}`}>
+      <h2
+        className={`text-4xl font-extrabold mb-10 text-center tracking-wide ${props.mode === "dark" ? "text-gray-100" : "text-gray-700"
+          }`}
+      >
         Privacy Policy
       </h2>
 
       <div
         className="container mx-auto p-8"
         style={{
-          backgroundColor: props.mode === 'dark' ? '#282828' : '#ffffff',
-          color: props.mode === 'dark' ? '#eaeaea' : '#1a1a1a',
-          borderRadius: '12px',
-          boxShadow: props.mode === 'dark'
-            ? '0 10px 30px rgba(0, 0, 0, 0.5)'
-            : '0 10px 30px rgba(0, 0, 0, 0.1)',
-          transition: 'all 0.3s ease',
+          backgroundColor: props.mode === "dark" ? "#282828" : "#ffffff",
+          color: props.mode === "dark" ? "#eaeaea" : "#1a1a1a",
+          borderRadius: "12px",
+          boxShadow:
+            props.mode === "dark"
+              ? "0 10px 30px rgba(0, 0, 0, 0.5)"
+              : "0 10px 30px rgba(0, 0, 0, 0.1)",
+          transition: "all 0.3s ease",
         }}
       >
         <div className="text-sm text-gray-500 dark:text-gray-400 mb-6 italic">
@@ -41,35 +45,42 @@ export default function PrivacyPolicy(props) {
           you.
         </div>
 
-        <h3 className={`text-3xl font-semibold mb-6   ${props.mode === 'dark' ? 'text-gray-100' : 'text-gray-700'} `}>
+        <h3
+          className={`text-3xl font-semibold mb-6   ${props.mode === "dark" ? "text-gray-100" : "text-gray-700"
+            } `}
+        >
           Interpretation
         </h3>
         <p className="mb-8 text-lg leading-relaxed">
-          Words with capitalized initials have meanings defined under the following
-          conditions. These definitions shall apply whether they appear in singular
-          or plural.
+          Words with capitalized initials have meanings defined under the
+          following conditions. These definitions shall apply whether they
+          appear in singular or plural.
         </p>
 
-        <h3 className={`text-3xl font-semibold mb-6 ${props.mode === 'dark' ? 'text-gray-100' : 'text-gray-700'}`}>
+        <h3
+          className={`text-3xl font-semibold mb-6 ${props.mode === "dark" ? "text-gray-100" : "text-gray-700"
+            }`}
+        >
           Definitions
         </h3>
         <div className="space-y-6 text-lg">
           <ul className="list-disc list-inside pl-6 space-y-4">
             <li>
-              <strong>Account:</strong> A unique account created for you to access
-              our Service or parts of our Service.
+              <strong>Account:</strong> A unique account created for you to
+              access our Service or parts of our Service.
             </li>
             <li>
-              <strong>Company:</strong> Refers to BitBox (also referred to as &quot;the
-              Company&quot;, &quot;We&quot;, &quot;Us&quot;, or &quot;Our&quot;).
+              <strong>Company:</strong> Refers to BitBox (also referred to as
+              &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot;, or &quot;Our&quot;).
             </li>
             <li>
-              <strong>Cookies:</strong> Small files placed on your device (computer,
-              mobile, or tablet) that store details of your browsing history.
+              <strong>Cookies:</strong> Small files placed on your device
+              (computer, mobile, or tablet) that store details of your browsing
+              history.
             </li>
             <li>
-              <strong>Device:</strong> Any device that can access the Service, such
-              as a computer, cellphone, or tablet.
+              <strong>Device:</strong> Any device that can access the Service,
+              such as a computer, cellphone, or tablet.
             </li>
             <li>
               <strong>Personal Data:</strong> Information that relates to an
@@ -79,15 +90,15 @@ export default function PrivacyPolicy(props) {
               <strong>Service:</strong> Refers to the Website.
             </li>
             <li>
-              <strong>Service Provider:</strong> Any person or company who processes
-              data on behalf of the Company.
+              <strong>Service Provider:</strong> Any person or company who
+              processes data on behalf of the Company.
             </li>
             <li>
-              <strong>Usage Data:</strong> Data collected automatically (such as the
-              duration of a page visit).
+              <strong>Usage Data:</strong> Data collected automatically (such as
+              the duration of a page visit).
             </li>
             <li>
-              <strong>Website:</strong> Refers to BitBox, accessible from{' '}
+              <strong>Website:</strong> Refers to BitBox, accessible from{" "}
               <a
                 href={VITE_CLIENT_PORT}
                 rel="noopener noreferrer"
@@ -98,26 +109,35 @@ export default function PrivacyPolicy(props) {
               </a>
             </li>
             <li>
-              <strong>You:</strong> The individual using the Service, or the company
-              represented by that individual.
+              <strong>You:</strong> The individual using the Service, or the
+              company represented by that individual.
             </li>
           </ul>
         </div>
 
-        <h2 className={`text-3xl font-semibold mt-12 mb-6 ${props.mode === 'dark' ? 'text-gray-100' : 'text-gray-700'}`}>
+        <h2
+          className={`text-3xl font-semibold mt-12 mb-6 ${props.mode === "dark" ? "text-gray-100" : "text-gray-700"
+            }`}
+        >
           Collecting and Using Your Personal Data
         </h2>
 
-        <h3 className={`text-2xl font-semibold mb-4 ${props.mode === 'dark' ? 'text-gray-100' : 'text-gray-700'}`}>
+        <h3
+          className={`text-2xl font-semibold mb-4 ${props.mode === "dark" ? "text-gray-100" : "text-gray-700"
+            }`}
+        >
           Types of Data Collected
         </h3>
 
-        <h4 className={`text-xl font-semibold mb-3 ${props.mode === 'dark' ? 'text-gray-100' : 'text-gray-700'}"`}>
+        <h4
+          className={`text-xl font-semibold mb-3 ${props.mode === "dark" ? "text-gray-100" : "text-gray-700"
+            }"`}
+        >
           Personal Data
         </h4>
         <p className="mb-6 text-lg leading-relaxed">
-          We may ask you to provide personally identifiable information to contact
-          or identify you, including:
+          We may ask you to provide personally identifiable information to
+          contact or identify you, including:
         </p>
         <ul className="list-disc list-inside pl-6 space-y-2 text-lg">
           <li>Email address</li>
@@ -139,8 +159,8 @@ export default function PrivacyPolicy(props) {
         </h3>
         <p className="mb-6 text-lg leading-relaxed">
           We use cookies and similar tracking technologies (beacons, tags, and
-          scripts) to collect and analyze information to improve our Service. The
-          types of tracking we use include:
+          scripts) to collect and analyze information to improve our Service.
+          The types of tracking we use include:
         </p>
         <ul className="list-disc list-inside pl-6 space-y-4 text-lg">
           <li>
@@ -154,15 +174,17 @@ export default function PrivacyPolicy(props) {
           </li>
         </ul>
       </div>
-
     </div>
-
-
   );
 }
 
 PrivacyPolicy.propTypes = {
   VITE_CLIENT_PORT: PropTypes.string,
+};
+
+// Props Validation
+PrivacyPolicy.propTypes = {
   mode: PropTypes.string,
-  props: PropTypes.object,
+  toggleMode: PropTypes.func,
+  showAlert: PropTypes.func,
 };
