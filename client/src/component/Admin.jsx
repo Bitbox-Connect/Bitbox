@@ -45,7 +45,6 @@ const Admin = ({ mode }) => {
         },
         body: JSON.stringify(credentials),
       });
-
       if (!response.ok) {
         // Check for network or server errors
         if (response.status === 500) {
@@ -58,12 +57,12 @@ const Admin = ({ mode }) => {
 
       const json = await response.json();
 
+      console.log(json)
       if (json.success) {
-        localStorage.setItem("token", json.authtoken);
+        // localStorage.setItem("token", json.authtoken); // this breakes
         // setloggedin(!isloggedin);
-        console.log("flskd");
         
-        return navigate("/");
+        navigate("/Dashboard");
         
       } else {
         toast.error(json.message || "Login failed! Invalid credentials.");
