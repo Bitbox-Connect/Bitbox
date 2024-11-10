@@ -46,7 +46,6 @@ ul {
   color: #374151;
 }
 
-
 .lists {
   padding: 5px;
   margin-top: 2rem;
@@ -67,14 +66,22 @@ ul {
 
 /* Contact Us */
 .contactus-container {
-  margin-top: 100px;
-  margin-bottom: 40px;
+  margin-top: 120px;
+  margin-bottom: 60px;
 }
 
 .contactus-main-box {
-  border: 2px solid #ccc;
-  padding: 20px;
+  border: 2px solid #b9b2b2;
+  padding: 40px;
   border-radius: 8px;
+
+  max-width: 920px;
+  /* Max width, if needed */
+  height: 500px;
+  padding: 40px;
+  border-radius: 8px;
+  margin: 0 auto;
+  /* Centers the form */
 }
 
 .header {
@@ -87,7 +94,7 @@ ul {
   background-image: linear-gradient(120deg, #bfbdbd 0%, #e0eaef 100%);
 }
 
-.image-bx {
+.image-box {
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -132,6 +139,12 @@ ul {
   cursor: auto;
 }
 
+/* Privacy Policy */
+.privacy-policy-container {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
 .paragraph {
   margin-bottom: 50px;
 }
@@ -146,6 +159,12 @@ ul {
 
 .list-n-1 {
   margin-left: 30px;
+}
+
+.privacy-policy-container {
+  padding-left: 15%;
+  padding-right: 15%;
+  margin-top: 110px;
 }
 
 /* Term of Use */
