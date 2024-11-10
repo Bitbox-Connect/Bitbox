@@ -49,7 +49,7 @@ app.use("/api/contact", require("./routes/contact"));
 app.use("/api/blog", require("./routes/blog"));
 app.use("/api/visitor", require("./routes/visitor"));
 app.use("/api/showcaseProjects", require("./routes/projectsRoute"));
-
+app.use("/api/admin", require("./routes/adminRoute"))
 // Socket.io connection handling
 const users = {};
 
