@@ -18,7 +18,7 @@ import ProjectState from "./context/ProjectState";
 import ProfileState from "./context/ProfileState";
 import CodeOfConduct from "./component/Footers/Codeofconduct";
 import Feedback from "./component/Footers/Feedback";
-import Faq from "./component/Faq"
+import FAQs from "./component/FAQs"
 import ContactUs from "./component/Footers/Contactus";
 import PrivacyPolicy from "./component/Footers/Privacypolicy";
 import TermOfUse from "./component/Footers/TermOfUse";
@@ -154,7 +154,7 @@ function App() {
               <Route exact path='/uploadProject' element={<UploadProject mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/createBlogPost' element={<CreateBlog />} />
               <Route exact path='/read-more-blog/:id' element={<ReadMoreBlog mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-              <Route exact path='/faq' element={<Faq mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+              <Route exact path='/faq' element={<FAQs mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/*' element={<NotFound />} />
             </Routes>
           </Layout>

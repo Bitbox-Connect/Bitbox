@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import "../css/Faq.css";
+import "../css/FAQs.css";
 import img1 from "../assets/images/faqs.png";
 
 export default function FAQ() {
