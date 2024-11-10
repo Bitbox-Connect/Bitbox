@@ -58,6 +58,7 @@
     "socket.io": "^4.7.5",
     "socket.io-client": "^4.8.1",
     "sort-by": "^0.0.2",
+    "twilio": "^5.3.5",
     "uuid": "^11.0.2",
     "yup": "^1.4.0"
   },

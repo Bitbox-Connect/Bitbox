@@ -8,8 +8,7 @@ import userDummyImg from "../assets/images/User/User.png";
 import "../css/EditProfile.css";
 
 const EditProfile = (props) => {
-  const VITE_SERVER_PORT =
-    import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
+  const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
 
   const [profile, setProfile] = useState({
     name: "",

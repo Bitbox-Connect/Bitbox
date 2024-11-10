@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { useNavigate } from 'react-router-dom';
 
 const UploadProject = ({ mode }) => {
+    const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
+
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         title: '',
@@ -32,7 +34,7 @@ const UploadProject = ({ mode }) => {
         e.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:5000/api/showcaseProjects/post-project', {
+            const response = await fetch(`${VITE_SERVER_PORT}/api/showcaseProjects/post-project`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './CreateBlog.css';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
@@ -7,6 +7,8 @@ import 'react-quill/dist/quill.snow.css';
 import { useNavigate } from 'react-router-dom';
 
 const CreateBlog = () => {
+    const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
+
     const [formData, setFormData] = useState({
         id: '',
         title: '',
@@ -42,7 +44,7 @@ const CreateBlog = () => {
         const blogPost = { ...formData, id: uniqueId }; // Add the ID to formData
         console.log(blogPost)
         try {
-            const response = await axios.post('http://localhost:5000/api/blog/post-blog', blogPost, {
+            const response = await axios.post(`${VITE_SERVER_PORT}/api/blog/post-blog`, blogPost, {
                 headers: { 'Content-Type': 'application/json' }
             });
 
@@ -132,7 +134,7 @@ const CreateBlog = () => {
                         />
                     </div>
 
-                    <button type="submit" className="submit-button">Submit</button>
+                    <button disabled={loading} type="submit" className="submit-button">Submit</button>
                 </form>
                 {errors && <p className="error-message">{errors}</p>}
             </div>

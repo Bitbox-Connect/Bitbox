@@ -2,218 +2,230 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="./favicon_io/favicon.ico" type="image/x-icon" />
-  <title>Bitbox - Where Projects Find Solutions Together</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./favicon_io/favicon.ico" type="image/x-icon" />
+    <title>Bitbox - Where Projects Find Solutions Together</title>
 
-  <!-- Updated Socket.IO script for production URL -->
-  <script defer src="https://bitbox-uxbo.onrender.com/socket.io/socket.io.js"></script>
+    <!-- Updated Socket.IO script for production URL -->
+    <script defer src="https://bitbox-uxbo.onrender.com/socket.io/socket.io.js"></script>
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-  <!-- Importing EXO 2 font from Google font    -->
-  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet" />
-  <!-- VISITOR CDN -->
-  <link rel="stylesheet" href="visi.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <!-- Importing EXO 2 font from Google font    -->
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet" />
+
+    <!-- Newsletter pop-up -->
+    <style>
+        .popup-nl {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1009;
+            overflow: hidden;
+        }
+
+        .popup-content-nl {
+            display: flex;
+            background-color: white;
+            border-radius: 10px;
+            max-width: 800px;
+            height: 450px;
+            width: 700px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .close1-btn-nl {
+            width: 20px;
+            cursor: pointer;
+            margin: 18px 10px;
+            position: absolute;
+            top: -4px;
+            right: 12px;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .popup-left-nl img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .popup-right-nl {
+            padding: 20px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-nl h1 {
+            font-size: 24px;
+            background: linear-gradient(to right, #c20f15, #ff7481, #c20f15);
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-bottom: 12px;
+            margin-top: 35px;
+        }
+
+        .h2-nl {
+            font-size: 18px;
+            margin-bottom: 8px;
+            text-align: center;
+            color: #333;
+        }
+
+        .pop_up-nl {
+            margin-bottom: 15px;
+            font-weight: bold;
+            background: -webkit-linear-gradient(left, #0089ff, #59b9ff, #0089ff);
+            -webkit-text-fill-color: transparent;
+            font-size: 12.7px;
+        }
+
+        .bold {
+            font-size: 13.1px;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .signup-btn1-nl {
+            width: 100%;
+            height: 30px;
+            text-align: center;
+            background: linear-gradient(to right, #dc3545, #fd538f, #dc3545);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .signup-btn1-nl:hover {
+            background-color: #4682B4;
+        }
+
+        .no-thanks-nl {
+            display: block;
+            margin-top: 10px;
+            color: #888;
+            text-decoration: none;
+            margin-bottom: 15px;
+        }
+
+        .no-thanks-nl:hover {
+            color: #000000;
+            font-size: 14px;
+        }
+
+        .terms-nl {
+            margin-top: 15px;
+            font-size: 10px;
+            color: #888;
+        }
+
+        .terms-nl a {
+            display: inline;
+        }
+
+        .terms-nl a:hover {
+            text-decoration: underline;
+        }
+
+        .popup-right-nl p {
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
 </body>
 
 <!-- Bootstrap Script -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
 
 <!-- Font Awesome Script -->
 <script src="https://kit.fontawesome.com/1eb8db9042.js" crossorigin="anonymous"></script>
 
-<!-- Google Translate -->
-<div class="gtranslate_wrapper"></div>
-
-<!-- Google Translate Script -->
-<script>
-  window.gtranslateSettings = {
-    "default_language": "en",
-    "detect_browser_language": true,
-    "wrapper_selector": ".gtranslate_wrapper"
-  }
-</script>
-
-</script>
-
-<!-- Google Translate Script -->
-<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
-
-<!-- VISITOR SCRIPT -->
-<script src="visi.js"></script>
-
-  <!-- Newsletter pop-up -->
-  <style>
-    .popup-nl {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
-        justify-content: center;
-        align-items: center;
-        z-index: 1009;
-    }
-  
-    .popup-content-nl {
-        display: flex;
-        background-color: white;
-        border-radius: 10px;
-        max-width: 800px;
-        height: 450px;
-        width: 700px;
-        overflow: hidden;
-        position: relative;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    }
-  
-    .close1-btn-nl {
-        width: 20px;
-        cursor: pointer;
-        margin: 18px 10px;
-        position: absolute;
-        top: -4px;
-        right: 12px;
-        font-size: 18px;
-        font-weight: 800;
-    }
-  
-    .popup-left-nl img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-  
-    .popup-right-nl {
-        padding: 20px;
-        width: 50%;
-        display: flex;
-        flex-direction: column; 
-        align-items: center;
-        justify-content: center;
-    }
-  
-    .popup-nl h1 {
-        font-size: 24px;
-        background: linear-gradient(to right, #c20f15, #ff7481, #c20f15); 
-        -webkit-text-fill-color: transparent; 
-        -webkit-background-clip: text; 
-        text-align: center;
-        margin-bottom: 12px;
-        margin-top: 35px;
-    }
-  
-    .h2-nl{
-        font-size: 18px;
-        margin-bottom: 8px;
-        text-align: center;
-        color: #333;
-    }
-  
-    .pop_up-nl {
-        margin-bottom: 15px;
-        font-weight: bold;
-        background: -webkit-linear-gradient(left, #0089ff, #59b9ff, #0089ff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-size: 12.7px;
-  
-    }
-  
-    .bold{
-        font-size: 13.1px;
-    }
-  
-    input[type="email"] {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #000000;
-        border-radius: 5px;
-        font-size: 14px;
-    }
-    .signup-btn1-nl {
-        width: 100%;
-        height: 30px;
-        text-align: center;
-        background: linear-gradient(to right, #dc3545, #fd538f, #dc3545);
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-    }
-  
-    .signup-btn1-nl:hover {
-        background-color: #4682B4;
-    }
-  
-    .no-thanks-nl {
-        display: block;
-        margin-top: 10px;
-        color: #888;
-        text-decoration: none;
-        margin-bottom: 15px;
-    }
-  
-    .no-thanks-nl:hover {
-        color: #000000;
-        font-size: 14px;
-    }
-  
-    .terms-nl {
-        margin-top: 15px;
-        font-size: 10px;
-        color: #888;
-    }
-  
-    .terms-nl a {
-        display: inline;
-    }
-    .terms-nl a:hover {
-        text-decoration: underline;
-    }
-  
-    .popup-right-nl p {
-        margin-top: 0;
-        margin-bottom: 10px;
-        text-align: center;
-    }
-  
-  </style>
-  <div id="popup-nl" class="popup-nl">
+<!-- Popup Newsletter Modal -->
+<div id="popup-nl" class="popup-nl">
     <div class="popup-content-nl">
         <div class="popup-left-nl">
             <img src="popup.jpg" alt="finance">
         </div>
-  
+
         <div class="popup-right-nl">
-            <a href="# " class="close1-btn-nl close-nl">X</a>
+            <a href="#" class="close1-btn-nl close-nl">X</a>
             <h1>Subscribe to Newsletter</h1>
             <h2 class="h2-nl">Join the Bitbox Community!</h2>
-            <p class="pop_up-nl">Subscribe to receive the latest updates, tips, and project highlights from the Bitbox community. Whether you’re looking for help or want to share your knowledge, we’ve got you covered!</p>
+            <p class="pop_up-nl">Subscribe to receive the latest updates, tips, and project highlights from the Bitbox
+                community. Whether you’re looking for help or want to share your knowledge, we’ve got you covered!</p>
             <form id="emailForm-nl" style="align-items: center;">
                 <input type="email" id="email-nl" placeholder="Enter your email" required>
                 <button type="submit" class="signup-btn1-nl">Subscribe</button>
             </form>
             <a href="#" class="no-thanks-nl close-nl">No thanks</a>
-            <p class="terms-nl" style="white-space: nowrap;">By subscribing to newsletters, you agree to our <br><a href="terms&cond.html">Terms of Service</a> and <a href="privacynotice.html">Privacy Policy</a>.</p>
+            <p class="terms-nl">By subscribing to newsletters, you agree to our <br><a href="terms&cond.html">Terms of
+                    Service</a> and <a href="privacynotice.html">Privacy Policy</a>.</p>
         </div>
     </div>
-  </div>
-  <script src="popup.js"></script>
-  
-  
+</div>
+
+<!-- Popup Script -->
+<script>
+    // Show the popup and lock the page scroll
+    function showPopup() {
+        document.getElementById("popup-nl").style.display = "flex";
+        document.body.style.overflow = "hidden";
+    }
+
+    // Hide the popup and restore the page scroll
+    function hidePopup() {
+        document.getElementById("popup-nl").style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+
+    // Event listeners for showing/hiding the popup
+    document.addEventListener("DOMContentLoaded", () => {
+        // Example: Show popup on page load (you can adjust this as needed)
+        showPopup();
+
+        // Add close functionality
+        document.querySelectorAll('.close-nl').forEach(btn => {
+            btn.addEventListener('click', hidePopup);
+        });
+
+        // Form submission example
+        document.getElementById('emailForm-nl').addEventListener('submit', function (event) {
+            event.preventDefault();
+            hidePopup();
+        });
+    });
+</script>
+
 </html>

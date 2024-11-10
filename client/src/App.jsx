@@ -18,7 +18,7 @@ import ProjectState from "./context/ProjectState";
 import ProfileState from "./context/ProfileState";
 import CodeOfConduct from "./component/Footers/Codeofconduct";
 import Feedback from "./component/Footers/Feedback";
-import Faqsec from "./component/Faqsec"
+import FAQs from "./component/FAQs"
 import ContactUs from "./component/Footers/Contactus";
 import PrivacyPolicy from "./component/Footers/Privacypolicy";
 import TermOfUse from "./component/Footers/TermOfUse";
@@ -36,11 +36,14 @@ import NotFound from "./component/NotFound";
 import ProgressBar from "./component/ProgressBar/ProgressBar";
 import Cursor from './component/Cursor';
 import ReadMoreBlog from './component/ReadMoreBlog';
+import AI from "./component/AIReview";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Collab from "./component/Collab";
 import CreateBlog from "./component/CreateBlog";
+import LoginOTP from "./component/LoginPhone";
 import UploadProject from "./component/UploadProject";
+
 
 const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
   return (
@@ -54,6 +57,7 @@ const Layout = ({ children, mode, setProgress, toggleMode, showAlert }) => {
         blog="Blogs"
         discussion="Discussion"
         contributors="Contributors"
+        ai="AI"
         Feedback="Feedback"
         showAlert={showAlert}
         mode={mode}
@@ -132,6 +136,7 @@ function App() {
               <Route exact path="/contributors" element={<Contributors mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path="/discussion" element={<Discussion mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path="/community" element={<Community mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+              <Route exact path="/ai" element={<AI mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path="/about" element={<About mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path="/feedback" element={<Feedback mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path="/blog" element={<BlogPage mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
@@ -141,17 +146,19 @@ function App() {
               <Route exact path="/login" element={<Login mode={mode} setProgress={setProgress} showAlert={showAlert} loggedin={islogged} setloggedin={setloggedin} />} />
               <Route exact path="/admin" element={<Admin mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path="/Dashboard" element={<Dashboard mode={mode}/>} />
+              <Route exact path="/login-otp" element={<LoginOTP mode={mode} setProgress={setProgress} showAlert={showAlert} loggedin={islogged} setloggedin={setloggedin} />} />
               <Route exact path='/signup' element={<Signup mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/forgot-password' element={<ForgotPassword mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/reset-password' element={<ResetPassword mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/codeofconduct' element={<CodeOfConduct mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/contactus' element={<ContactUs mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+              <Route exact path='/feedback' element={<Feedback mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/privacypolicy' element={<PrivacyPolicy mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/termofuse' element={<TermOfUse mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/uploadProject' element={<UploadProject mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/createBlogPost' element={<CreateBlog />} />
               <Route exact path='/read-more-blog/:id' element={<ReadMoreBlog mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
-              <Route exact path='/faq' element={<Faqsec mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
+              <Route exact path='/faq' element={<FAQs mode={mode} setProgress={setProgress} showAlert={showAlert} />} />
               <Route exact path='/*' element={<NotFound />} />
             </Routes>
           </Layout>

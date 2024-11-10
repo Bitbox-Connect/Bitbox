@@ -2,6 +2,8 @@ import { useEffect, useState, useRef } from "react";
 import PropTypes from 'prop-types';
 import { Search } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+
 
 import img1 from "../assets/blogs/1.webp";
 import img2 from "../assets/blogs/2.jpeg";
@@ -24,6 +26,8 @@ BlogPage.propTypes = {
 };
 
 export default function BlogPage(props) {
+  const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
+  
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [blogPosts, setBlogPosts] = useState([]);
@@ -61,7 +65,7 @@ export default function BlogPage(props) {
 
   const fetchData = async () => {
     try {
-      let response = await fetch("http://localhost:5000/api/blog/all-blog");
+      let response = await fetch(`${VITE_SERVER_PORT}/api/blog/all-blog`);
       let data = await response.json();
       setBlogPosts(data.blogs);
       console.log(data.blogs);
@@ -109,59 +113,112 @@ export default function BlogPage(props) {
 
   useEffect(() => {
     fetchData();
+
+    // eslint-disable-next-line
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b mt-20 from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+    <div className={`min-h-screen bg-gradient-to-b mt-20   ${props.mode === "dark"
+      ? "bg-gradient-to-br from-gray-900 to-black text-white"
+      : "bg-gradient-to-br from-white to-blue-100 text-black"
+      }`} >
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-4">Explore Our Blog</h1>
-          <p className="text-xl opacity-90">Discover stories, insights, and knowledge</p>
+      <section
+        className={`relative h-[60vh] flex items-center justify-center text-center ${props.mode === "dark"
+          ? "bg-gradient-to-br from-gray-900 via-black to-gray-800"
+          : "bg-gradient-to-br from-white via-blue-100 to-blue-200"
+          }`}
+      >
+        <div
+          className={`absolute inset-0 ${props.mode === "dark" ? "bg-black/50" : "bg-white/50"
+            } backdrop-blur-sm`}
+        />
+        <div className="relative z-10 space-y-6 max-w-4xl mx-auto px-4">
+          <motion.h1
+            className={`text-5xl font-bold sm:text-6xl md:text-7xl ${props.mode === "dark" ? "text-white" : "text-black"
+              }`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Dive into the BitBox Blog!
+          </motion.h1>
+          <motion.p
+            className={`text-xl sm:text-2xl ${props.mode === "dark" ? "text-white/80" : "text-black/80"
+              }`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Where Projects Thrive and Connections Come Alive
+          </motion.p>
         </div>
-      </div>
+      </section>
 
       {/* Search and Filter Section */}
       <div className="container mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row gap-4 items-center justify-between mb-8">
-          <div className="relative w-full md:w-96">
-            <input
-              type="text"
-              placeholder="Search articles..."
-              className="w-full pr-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-700"
-              value={searchTerm}
-              style={{ paddingLeft: '40px' }}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+        <div className="  mb-8">
+          <div className="flex justify-between px-10">
+            <div className={`relative w-full md:w-2/5 flex`}>
+              <input
+                type="text"
+                placeholder="Search articles..."
+                className={`w-full pr-4 py-2 rounded-lg text-lg border-none ${props.mode === 'dark' ? 'bg-gray-800 text-white border-gray-700' : 'bg-gray-200 text-black border-gray-300'} outline-none `}
+                value={searchTerm}
+                style={{ paddingLeft: '50px', border: 'none', outline: 'none' }}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <Search className={`absolute left-3 top-1/2 transform -translate-y-1/2 h-7 w-7 ${props.mode === 'dark' ? 'text-gray-300' : 'text-gray-800'}`} />
+            </div>
+
+            <div>
+              <Link
+                to={"/createBlogPost"}
+                className="inline-block text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 rounded-lg px-6 py-3 transition-all duration-200 ease-in-out shadow-md transform hover:scale-105"
+              >
+                Create Blog
+              </Link>
+            </div>
+
           </div>
 
-          <div className="flex gap-2 overflow-x-auto pb-2">
+          <div className="flex gap-2 overflow-x-auto pb-2 mt-5 justify-evenly w-[70%] m-auto">
             {categories.map((category) => (
-              <button
+              <motion.div
                 key={category}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${selectedCategory === category
-                  ? "bg-blue-500 text-white"
-                  : "bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200"
+                className={`rounded-lg py-2 px-8 flex items-center border border-[#002b55] transition-all duration-300 cursor-pointer ${props.mode === 'dark'
+                  ? 'bg-black/30 backdrop-blur-md '
+                  : 'bg-white backdrop-blur-sm border-gray-300'
+                  } ${selectedCategory === category
+                    ? 'bg-[#1a7295] text-white border-[#2c9cc8]'  // Add your highlighted styles here
+                    : ''
                   }`}
               >
-                {category}
-              </button>
+                <div>
+                  <p
+                    className={`text-lg ${props.mode === 'dark'
+                      ? 'text-white/70'
+                      : 'text-gray-600'
+                      } ${selectedCategory === category ? 'text-green-500' : ''}`}  // Optional: Change text color when selected
+                  >
+                    {category}
+                  </p>
+                </div>
+              </motion.div>
             ))}
           </div>
-          <div>
-            <Link to={"/createBlogPost"} className="text-white">
-              Create blog
-            </Link>
-          </div>
+
         </div>
 
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {filteredPosts.length > 0 ? (
             filteredPosts.map((blogPost) => {
-              const postUrl = `http://localhost:5000/api/blog/getById/${blogPost._id}`;
+              const  postUrl = `{VITE_SERVER_PORT}/api/blog/getById/${blogPost._id}`;
               return (
                 <div
                   className={`max-w-3xl mx-auto my-8 ${props.mode === 'light' ? 'bg-white' : 'bg-gray-800'} rounded-lg shadow-md overflow-hidden`}
@@ -209,7 +266,7 @@ export default function BlogPage(props) {
                         </button>
                       </div>
                     </div>
-                    <div className={`${props.mode === 'light' ? 'text-gray-400' : 'text-gray-700'} leading-relaxed mb-4`}>
+                    <div className={`${props.mode === 'light' ? 'text-gray-700' : 'text-gray-400'} leading-relaxed mb-4`}>
                       {blogPost.content.replace(/<[^>]+>/g, '')}
                     </div>
                   </div>
