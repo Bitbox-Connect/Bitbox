@@ -16,7 +16,7 @@ function Navbar(props) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { currentUser } = useAuth();
+  const { currentUser, userLoggedIn, setUserLoggedIn } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false); // State to keep track of whether page has been scrolled
   // eslint-disable-next-line
   const [isOpen, setIsOpen] = useState(false);
@@ -82,6 +82,7 @@ function Navbar(props) {
     try {
       doSignOut();
       localStorage.removeItem("token");
+      setUserLoggedIn(false)
       navigate("/login");
     } catch (error) {
       console.error(error);
@@ -237,7 +238,7 @@ function Navbar(props) {
 
           {/* Right Links */}
           <form className="flex fs-4 fw-medium justify-center items-center">
-            {localStorage.getItem("token") ? (
+            {localStorage.getItem("token") || userLoggedIn ? (
               <>
                 <ul className="navbar-nav">
                   <div className="Navbar-Btn-Group">

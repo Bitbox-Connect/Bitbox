@@ -16,7 +16,7 @@ import { useAuth } from '../contexts/authContext/index'
 const VITE_SERVER_PORT =
   import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
 
-const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
+const Login = ({ mode, showAlert, loggedin, setloggedin }) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
 
@@ -34,11 +34,12 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
         body: JSON.stringify(credentials),
       });
       const json = await response.json();
-
+      console.log(json);
+      
       if (json.success) {
         localStorage.setItem("token", json.authtoken);
         toast.success("Login Successfully!");
-        setloggedin(!isloggedin)
+        setloggedin(!loggedin)
         navigate("/");
       } else {
         toast.error("Login failed!");
@@ -60,7 +61,7 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
   const onGoogleSignIn = async (e) => {
     e.preventDefault();
 
-    if (!isloggedin) {
+    if (!loggedin) {
       try {
         setloggedin(true);
 
@@ -74,21 +75,7 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
         setloggedin(false); // Reset logged-in state if sign-in fails
       }
     }
-  };
-  document.querySelector('#login-btn').addEventListener('click', (event) => {
-    event.preventDefault();
-    
-    const emailInput = document.getElementById('login-email');
-    const rememberMeCheckbox = document.getElementById('login-remember');
-  
-    if (rememberMeCheckbox.checked) {
-      localStorage.setItem('rememberedEmail', emailInput.value);
-    } else {
-      localStorage.removeItem('rememberedEmail');
-    }
-  
-    // Continue with your existing login logic...
-  });    
+  };  
 
   return (
     <div className="min-h-screen flex items-center justify-center mt-10" data-aos="zoom-in" data-aos-duration="1800">
@@ -157,13 +144,28 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
           <input type="checkbox" class="form-check-input" id="login-remember" />
           <label class="form-check-label" for="login-remember">Remember me</label>
           </div>
-          <button className="submit" type="submit" disabled={loading}>
+          <button className="submit" id="login-btn" type="submit" onClick={handleSubmit} disabled={loading}>
             {loading ? <Spin size="small" /> : "Login"}
           </button>
+          
+
+
           <button
-            disabled={isloggedin}
+            disabled={loggedin}
+            onClick={(e) => { 
+              e.preventDefault();
+              navigate("/login-otp")
+            }}
+            className={`w-full flex items-center justify-center mt-3 gap-x-3 py-2.5 border bg-[#6366f1] text-white rounded-full text-sm font-medium hover:bg-[#4a4cc5] transition duration-300`}>
+            
+            Login with mobile
+
+          </button>
+
+          <button
+            disabled={loggedin}
             onClick={(e) => { onGoogleSignIn(e) }}
-            className={`w-full flex items-center justify-center mt-3 gap-x-3 py-2.5 border rounded-lg text-sm font-medium  ${isloggedin ? 'cursor-not-allowed' : 'hover:bg-gray-100 transition duration-300 active:bg-gray-100'}`}>
+            className={`w-full flex items-center justify-center mt-3 gap-x-3 py-2.5 border rounded-lg text-sm font-medium  ${loggedin ? 'cursor-not-allowed' : 'hover:bg-gray-100 transition duration-300 active:bg-gray-100'}`}>
             <svg className="w-5 h-5" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clipPath="url(#clip0_17_40)">
                 <path d="M47.532 24.5528C47.532 22.9214 47.3997 21.2811 47.1175 19.6761H24.48V28.9181H37.4434C36.9055 31.8988 35.177 34.5356 32.6461 36.2111V42.2078H40.3801C44.9217 38.0278 47.532 31.8547 47.532 24.5528Z" fill="#4285F4" />
@@ -177,7 +179,7 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
                 </clipPath>
               </defs>
             </svg>
-            {isloggedin ? 'Signing In...' : 'Continue with Google'}
+            {loggedin ? 'Signing In...' : 'Continue with Google'}
 
           </button>
 
@@ -236,7 +238,7 @@ const Login = ({ mode, showAlert, isloggedin, setloggedin }) => {
 Login.propTypes = {
   mode: PropTypes.string.isRequired,
   showAlert: PropTypes.func.isRequired,
-  isloggedin: PropTypes.bool.isRequired,
+  loggedin: PropTypes.bool.isRequired,
   setloggedin: PropTypes.func.isRequired,
 };
 
