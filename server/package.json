@@ -19,6 +19,7 @@
   "dependencies": {
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.4.4",
     "express": "^4.18.2",
@@ -34,7 +35,8 @@
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.15",
     "opensource-backend": "file:",
-    "socket.io": "^4.7.5"
+    "socket.io": "^4.7.5",
+    "twilio": "^5.3.5"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"

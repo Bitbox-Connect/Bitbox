@@ -15,6 +15,8 @@ const {
   verifyToken,
   createUser,
   ResetPasswordByEmail,
+  verifyOtp,
+  sendOtp
 } = require("../Controllers/auth");
 
 // Configure Firebase OAuth2Client
@@ -161,5 +163,7 @@ router.post("/forget", forgetpassword);
 router.post("/createUser", createUser);
 router.post("/verify/:token", verifyToken);
 router.post("/ResetByEmail", ResetPasswordByEmail);
+router.post("/sendotp", sendOtp);
+router.post("/verifyotp", verifyOtp);
 
 module.exports = router;
