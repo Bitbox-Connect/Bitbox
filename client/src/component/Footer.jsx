@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react';
 import VisitorCounter from './Footers/VisitorCount';
 
 const Footer = (props) => {
+    const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
+    
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [message, setMessage] = useState("");
@@ -25,7 +27,7 @@ const Footer = (props) => {
         }
 
         try {
-            const response = await fetch("http://localhost:5000/api/profile/subscribe", {
+            const response = await fetch(`${VITE_SERVER_PORT}/api/profile/subscribe`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 
 // Function to increment the visitor count
 async function incrementVisitorCount() {
+    const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
+
     try {
-        const response = await fetch("http://localhost:5000/api/visitor/increment", {
+        const response = await fetch(`${VITE_SERVER_PORT}/api/visitor/increment`, {
             method: "POST",
         });
         const data = await response.json();
@@ -17,7 +19,7 @@ async function incrementVisitorCount() {
 // Function to get the current visitor count
 async function getVisitorCount() {
     try {
-        const response = await fetch("http://localhost:5000/api/visitor/count", {
+        const response = await fetch(`${VITE_SERVER_PORT}/api/visitor/count`, {
             method: "GET",
         });
         const data = await response.json();

@@ -15,7 +15,7 @@ import { useAuth } from '../contexts/authContext';
 
 const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
 
-const Login = ({ mode, showAlert, loggedin, setloggedin }) => {
+const Login = ({ mode, loggedin, setloggedin }) => {
 
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
@@ -61,7 +61,7 @@ const Login = ({ mode, showAlert, loggedin, setloggedin }) => {
 
       const json = await response.json();
       console.log(json);
-      
+
       if (json.success) {
         localStorage.setItem("token", json.authtoken);
         toast.success("Login Successfully!");
@@ -114,7 +114,7 @@ const Login = ({ mode, showAlert, loggedin, setloggedin }) => {
       toast.error("Google sign-in failed. Please try again.");
       setloggedin(false);
     }
-  };  
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center mt-14" data-aos="zoom-in" data-aos-duration="1800">
@@ -186,17 +186,17 @@ const Login = ({ mode, showAlert, loggedin, setloggedin }) => {
           <button className="submit" id="login-btn" type="submit" onClick={handleSubmit} disabled={loading}>
             {loading ? <Spin size="small" /> : "Login"}
           </button>
-          
+
 
 
           <button
             disabled={loggedin}
-            onClick={(e) => { 
+            onClick={(e) => {
               e.preventDefault();
               navigate("/login-otp")
             }}
             className={`w-full flex items-center justify-center mt-3 gap-x-3 py-2.5 border bg-[#6366f1] text-white rounded-full text-sm font-medium hover:bg-[#4a4cc5] transition duration-300`}>
-            
+
             Login with mobile
 
           </button>

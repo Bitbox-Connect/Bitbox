@@ -1,13 +1,16 @@
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 
 const DiscussionForum = (props) => {
+    const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
+
     const [questions, setQuestions] = useState([]);
 
     // Fetch questions from the backend API
     useEffect(() => {
         const fetchQuestions = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/discussion/getQuestion');
+                const response = await fetch(`${VITE_SERVER_PORT}/api/discussion/getQuestion`);
                 if (response.ok) {
                     const data = await response.json();
                     setQuestions(data);
@@ -20,6 +23,8 @@ const DiscussionForum = (props) => {
         };
 
         fetchQuestions();
+
+        // eslint-disable-next-line
     }, []);
 
     // Helper function to save a new question
@@ -31,7 +36,7 @@ const DiscussionForum = (props) => {
         };
 
         try {
-            const response = await fetch('http://localhost:5000/api/discussion/postQuestion', {
+            const response = await fetch(`${VITE_SERVER_PORT}/api/discussion/postQuestion`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -53,7 +58,7 @@ const DiscussionForum = (props) => {
     // Helper function to add an answer to a question
     const addAnswer = async (questionId, answerContent) => {
         try {
-            const response = await fetch(`http://localhost:5000/api/discussion/${questionId}/answer`, {
+            const response = await fetch(`${VITE_SERVER_PORT}/api/discussion/${questionId}/answer`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -77,7 +82,7 @@ const DiscussionForum = (props) => {
     };
 
     // Function to render the Question Card
-    const renderQuestionCard = (question) => {
+    const renderQuestionCard = (question, props) => {
         return (
             <div
                 className={`${props.mode === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'
@@ -127,6 +132,10 @@ const DiscussionForum = (props) => {
                 </button>
             </form>
         );
+    };
+
+    AnswerForm.propTypes = {
+        questionId: PropTypes.string.isRequired,
     };
 
     // Function to render the Question Form
@@ -188,6 +197,10 @@ const DiscussionForum = (props) => {
             </div>
         </div>
     );
+};
+
+DiscussionForum.propTypes = {
+    mode: PropTypes.string.isRequired,
 };
 
 export default DiscussionForum;

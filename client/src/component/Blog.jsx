@@ -26,6 +26,8 @@ BlogPage.propTypes = {
 };
 
 export default function BlogPage(props) {
+  const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
+  
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [blogPosts, setBlogPosts] = useState([]);
@@ -63,7 +65,7 @@ export default function BlogPage(props) {
 
   const fetchData = async () => {
     try {
-      let response = await fetch("http://localhost:5000/api/blog/all-blog");
+      let response = await fetch(`${VITE_SERVER_PORT}/api/blog/all-blog`);
       let data = await response.json();
       setBlogPosts(data.blogs);
       console.log(data.blogs);
@@ -111,6 +113,8 @@ export default function BlogPage(props) {
 
   useEffect(() => {
     fetchData();
+
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -214,7 +218,7 @@ export default function BlogPage(props) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {filteredPosts.length > 0 ? (
             filteredPosts.map((blogPost) => {
-              const postUrl = `http://localhost:5000/api/blog/getById/${blogPost._id}`;
+              const  postUrl = `{VITE_SERVER_PORT}/api/blog/getById/${blogPost._id}`;
               return (
                 <div
                   className={`max-w-3xl mx-auto my-8 ${props.mode === 'light' ? 'bg-white' : 'bg-gray-800'} rounded-lg shadow-md overflow-hidden`}

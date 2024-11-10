@@ -22,11 +22,13 @@ const images = [
 
 
 const ReadMoreBlog = (props) => {
+    const VITE_SERVER_PORT = import.meta.env.VITE_SERVER_PORT || "https://bitbox-uxbo.onrender.com";
+
     const { id } = useParams();
     const [blogPost, setBlogPost] = useState(null);
     const fetchData = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/api/blog/getById/${id}`);
+            const response = await fetch(`${VITE_SERVER_PORT}/api/blog/getById/${id}`);
 
             const data = await response.json();
             setBlogPost(data.blog); // Set the retrieved blog post to state
