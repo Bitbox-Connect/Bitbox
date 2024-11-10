@@ -71,7 +71,7 @@ export default function PrivacyPolicy(props) {
             </li>
             <li>
               <strong>Company:</strong> Refers to BitBox (also referred to as
-              "the Company", "We", "Us", or "Our").
+              &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot;, or &quot;Our&quot;).
             </li>
             <li>
               <strong>Cookies:</strong> Small files placed on your device
