@@ -33,7 +33,7 @@ import NotFound from "./component/NotFound";
 import ProgressBar from "./component/ProgressBar/ProgressBar";
 import Cursor from './component/Cursor';
 import ReadMoreBlog from './component/ReadMoreBlog';
-import AI from "./component/AI";
+import AI from "./component/AIReview";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Collab from "./component/Collab";
