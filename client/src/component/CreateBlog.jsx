@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './CreateBlog.css';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
@@ -132,7 +132,7 @@ const CreateBlog = () => {
                         />
                     </div>
 
-                    <button type="submit" className="submit-button">Submit</button>
+                    <button disabled={loading} type="submit" className="submit-button">Submit</button>
                 </form>
                 {errors && <p className="error-message">{errors}</p>}
             </div>
