@@ -227,6 +227,9 @@ const Footer = (props) => {
                                 <li className="nav-item">
                                     <Link to="/termofuse">Terms of use</Link>
                                 </li>
+                                <li className='nav-item'>
+                                    <Link to='/faq'>FAQs</Link>
+                                </li>
                             </ul>
                         </div>
                     </div>
