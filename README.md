@@ -1,4 +1,6 @@
-<hr>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=6499E9&height=90&section=header"/>
+
+
 <img  src="https://readme-typing-svg.herokuapp.com?color=990876ffaa&center=true&vCenter=true&size=90&width=900&height=100&lines=Welcome+to+BitBox" align="center" justify="center" width="100%" height="100%" />
 
 <hr>
@@ -246,15 +248,21 @@ We welcome contributions! Follow these steps to contribute:
 
 ## Forkers 📌
 
+<div align='left'>
+
 [![Forkers repo roster for @Bitbox-Connect/Bitbox](https://reporoster.com/forks/dark/Bitbox-Connect/Bitbox)](https://github.com/Bitbox-Connect/Bitbox/network/members)
+
+</div
 
 <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
----
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
- <h2 align = "center">License 📁</h2> 
+<h2 align = "center">License 📁</h2> 
 
 This project is licensed under the **[MIT License](https://github.com/Bitbox-Connect/Bitbox/blob/main/LICENSE)**. You are free to use, modify, and distribute it under the terms of the MIT License.
 
  <h1 align = "center">Happy Coding 👨‍💻🚀✨</h1> 
+ 
+ ---
 

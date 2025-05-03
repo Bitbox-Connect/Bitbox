@@ -15,6 +15,8 @@ const Signup = ({ mode }) => {
   const { userLoggedIn } = useAuth();
   const navigate = useNavigate();
 
+  console.log(mode);
+  
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -124,13 +126,13 @@ const Signup = ({ mode }) => {
       <div
         className="signup-wrapper"
         style={{
-          backgroundColor: mode === "dark" ? "black" : "white",
+          backgroundColor: mode === "dark" ? "black" : "#fff",
         }}
       >
         <div
           className="signup-form"
           style={{
-            color: mode === "dark" ? "white" : "black",
+            color: mode === "dark" ? "#fff" : "black",
           }}
         >
           <h2
@@ -144,12 +146,12 @@ const Signup = ({ mode }) => {
 
           <form className="w-3/4" onSubmit={handleSubmit}>
             <div className="space-y-4 w-full">
-              <div className="signup-form-group items-start flex flex-col gap-2">
+              <div className="signup-form-group items-start flex flex-col gap-2 ">
                 <label
                   htmlFor="name"
-                  className="text-md leading-none font-medium"
+                  className="text-md leading-none font-medium dark:text-red-600"
                   style={{
-                    color: mode === "dark" ? "white" : "black",
+                    color: mode === "dark" ? "#fff" : "black",
                   }}
                 >
                   Full Name
@@ -165,8 +167,8 @@ const Signup = ({ mode }) => {
                   autoComplete="on"
                   required
                   style={{
-                    backgroundColor: mode === "dark" ? "#333" : "white",
-                    color: mode === "dark" ? "white" : "black",
+                    backgroundColor: mode === "dark" ? "#333" : "#fff",
+                    color: mode === "dark" ? "#fff" : "black",
                   }}
                 />
                 {errors.name && (
@@ -179,7 +181,7 @@ const Signup = ({ mode }) => {
                   htmlFor="email"
                   className="text-md leading-none font-medium"
                   style={{
-                    color: mode === "dark" ? "white" : "black",
+                    color: mode === "dark" ? "#fff" : "black",
                   }}
                 >
                   Email
@@ -195,8 +197,8 @@ const Signup = ({ mode }) => {
                   autoComplete="on"
                   required
                   style={{
-                    backgroundColor: mode === "dark" ? "#333" : "white",
-                    color: mode === "dark" ? "white" : "black",
+                    backgroundColor: mode === "dark" ? "#333" : "#fff",
+                    color: mode === "dark" ? "#fff" : "black",
                   }}
                 />
                 {errors.email && (
@@ -209,7 +211,7 @@ const Signup = ({ mode }) => {
                   htmlFor="password"
                   className="text-md font-medium"
                   style={{
-                    color: mode === "dark" ? "white" : "black",
+                    color: mode === "dark" ? "#fff" : "black",
                   }}
                 >
                   Password
@@ -224,8 +226,8 @@ const Signup = ({ mode }) => {
                   autoComplete="on"
                   required
                   style={{
-                    backgroundColor: mode === "dark" ? "#333" : "white",
-                    color: mode === "dark" ? "white" : "black",
+                    backgroundColor: mode === "dark" ? "#333" : "#fff",
+                    color: mode === "dark" ? "#fff" : "black",
                   }}
                   iconRender={(visible) =>
                     visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
@@ -233,13 +235,13 @@ const Signup = ({ mode }) => {
                 />
               </div>
         <div className="password-checklist text-left">
-                <p>Password must contain:</p>
+                <p className={`${mode == "dark" ? "text-white" : "text-black"}`}>Password must contain:</p>
                 <ul className="list-none pl-0">
-                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.length} readOnly /> <span>At least 8 characters</span></li>
-                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.uppercase} readOnly /> <span>At least one uppercase letter</span></li>
-                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.lowercase} readOnly /> <span>At least one lowercase letter</span></li>
-                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.number} readOnly /> <span>At least one number</span></li>
-                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.specialChar} readOnly /> <span>At least one special character</span></li>
+                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.length} readOnly /> <span className={`${mode == "dark" ? "text-white" : "text-black"}`}>At least 8 characters</span></li>
+                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.uppercase} readOnly /> <span className={`${mode == "dark" ? "text-white" : "text-black"}`}>At least one uppercase letter</span></li>
+                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.lowercase} readOnly /> <span className={`${mode == "dark" ? "text-white" : "text-black"}`}>At least one lowercase letter</span></li>
+                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.number} readOnly /> <span className={`${mode == "dark" ? "text-white" : "text-black"}`}>At least one number</span></li>
+                  <li className="flex items-center"><input className="mr-2" type="radio" checked={requirements.specialChar} readOnly /> <span className={`${mode == "dark" ? "text-white" : "text-black"}`}>At least one special character</span></li>
                 </ul>
         </div>
 
@@ -248,7 +250,7 @@ const Signup = ({ mode }) => {
                   htmlFor="cpassword"
                   className="text-md font-medium"
                   style={{
-                    color: mode === "dark" ? "white" : "black",
+                    color: mode === "dark" ? "#fff" : "black",
                   }}
                 >
                   Confirm Password
@@ -263,8 +265,8 @@ const Signup = ({ mode }) => {
                   autoComplete="on"
                   required
                   style={{
-                    backgroundColor: mode === "dark" ? "#333" : "white",
-                    color: mode === "dark" ? "white" : "black",
+                    backgroundColor: mode === "dark" ? "#333" : "#fff",
+                    color: mode === "dark" ? "#fff" : "black",
                   }}
                   iconRender={(visible) =>
                     visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
@@ -301,7 +303,7 @@ const Signup = ({ mode }) => {
                 </g>
                 <defs>
                   <clipPath id="clip0_17_40">
-                    <rect width="48" height="48" fill="white" />
+                    <rect width="48" height="48" fill="#fff" />
                   </clipPath>
                 </defs>
               </svg>
