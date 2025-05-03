@@ -300,8 +300,8 @@ function Navbar(props) {
                         <img
                           src={
                             profileImage ||
-                            currentUser.photoURL ||
-                            avatarDropdown
+                            avatarDropdown ||
+                            currentUser.photoURL
                           }
                           className="avatar img-circle"
                           alt="avatar"
